@@ -1,0 +1,240 @@
+{
+  "main": {
+    "id": "6ea8cd26b6101d14",
+    "type": "split",
+    "children": [
+      {
+        "id": "e1427d885a510f2f",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "b3650624e0f8d3c5",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "09_Java-21-LTS/02 Sequenced Collections.md",
+                "mode": "preview",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "02 Sequenced Collections"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "ca018752962dc54f",
+    "type": "split",
+    "children": [
+      {
+        "id": "dfd99dbad9a5e26a",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "30eafb702ea625fb",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
+            }
+          },
+          {
+            "id": "1faa3f0f3dcb58c6",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "Search"
+            }
+          },
+          {
+            "id": "e18df6c1c4718901",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "705b36c457021008",
+    "type": "split",
+    "children": [
+      {
+        "id": "bc7cda2512f562fd",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "e096a9b187bfa1c5",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Study Plans.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks"
+            }
+          },
+          {
+            "id": "6aa7d26c35e2a8ae",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "Study Plans.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links"
+            }
+          },
+          {
+            "id": "2b5f4bdb9f0ef1a5",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
+            }
+          },
+          {
+            "id": "80f9e0af97ea710e",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "All properties"
+            }
+          },
+          {
+            "id": "8b3e4483fe185d45",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "Study Plans.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "Outline"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false,
+      "bases:Create new base": false
+    }
+  },
+  "active": "30eafb702ea625fb",
+  "lastOpenFiles": [
+    "09_Java-21-LTS/01 Virtual Threads.md",
+    "09_Java-21-LTS/00 Java 21 Overview.md",
+    "01_Core-Java/Classes.md",
+    "01_Core-Java/Cheat Sheet.md",
+    "01_Core-Java/Annotations.md",
+    "01_Core-Java/Enums.md",
+    "01_Core-Java/Date and Time API.md",
+    "99_Revision/Java Plan.md",
+    "Study Plans.md",
+    "05_Spring/Spring Transaction.md",
+    "99_Revision/Spring Plan.md",
+    "99_Revision/README.md",
+    "06_Design-Patterns/Cheat Sheet.md",
+    "06_Design-Patterns/README.md",
+    "06_Design-Patterns/Extra/Dependency Injection Pattern.md",
+    "99_Revision/Interview Questions.md",
+    "99_Revision/30-Day Plan.md",
+    "07_DSA/Trees.md",
+    "07_DSA/Stack.md",
+    "07_DSA/Singly Linked List.md",
+    "07_DSA/README.md",
+    "07_DSA/Queue.md",
+    "07_DSA/Linked List.md",
+    "07_DSA/Heap.md",
+    "07_DSA/HashMap.md",
+    "07_DSA/Graph.md",
+    "09_Java-21-LTS",
+    "08_Modern-Java",
+    "00_Java-25-Overview",
+    "_templates",
+    "_attachments/Pasted image 20230728114551.png",
+    "_attachments/Pasted image 20230727120429.png",
+    "_attachments/Pasted image 20230725103254.png",
+    "_attachments/Pasted image 20211116162456.png",
+    "_attachments/Pasted image 20211116121945.png",
+    "_attachments/Pasted image 20211116101319.png",
+    "_attachments/Pasted image 20211116081758.png",
+    "_attachments/Pasted image 20211116081632.png",
+    "_attachments/Pasted image 20211115234855.png",
+    "_attachments/Pasted image 20211113074128.png",
+    "_attachments",
+    "Dashboard.html",
+    "99_Revision",
+    "07_DSA",
+    "06_Design-Patterns/Structural",
+    "06_Design-Patterns/Extra"
+  ]
+}

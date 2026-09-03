@@ -1,0 +1,79 @@
+---
+title: "Foreign Function and Memory API — JEP 442 (Java 21, 3rd Preview)"
+category: java21
+tags: [java21, jep442, ffm, panama, interview]
+created: 2026-09-03
+completed: false
+---
+
+# Foreign Function & Memory API — JEP 442 (Java 21, 3rd Preview; Final in 22)
+
+> Safe `sun.misc.Unsafe` replacement — `MemorySegment`, `Arena`, `Linker`, `FunctionDescriptor` — call C libs + off-heap without JNI.
+
+## Intent
+
+Invoke native code and manage off-heap memory **safely** (bounds, lifetime) — preview in 21, **final JEP 454 in Java 22**.
+
+## When to Use / NOT
+
+| Use | Avoid |
+|-----|-------|
+| Off-heap cache, native lib (`qsort`, `libgit2`) | Pure Java — stay on heap |
+
+## Runnable Java 21 (Preview, `--enable-preview`)
+
+```java
+// FFM API — safe off-heap & native interop (replaces JNI)
+import java.lang.foreign.*;
+import java.lang.invoke.MethodHandle;
+import java.util.function.Consumer;
+
+void callStrlen() throws Throwable {
+    try (Arena arena = Arena.ofConfined()) {
+        MemorySegment cStr = arena.allocateFrom("hello");
+        Linker linker = Linker.nativeLinker();
+        SymbolLookup stdlib = linker.defaultLookup();
+        MethodHandle strlen = linker.downcallHandle(
+            stdlib.find("strlen").orElseThrow(),
+            FunctionDescriptor.of(ValueLayout.JAVA_LONG, ValueLayout.ADDRESS)
+        );
+        long len = (long) strlen.invoke(cStr);
+        System.out.println(len);
+    }
+}
+void offHeap() {
+    try (Arena arena = Arena.ofConfined()) {
+        MemorySegment seg = arena.allocate(ValueLayout.JAVA_INT, 4);
+        seg.setAtIndex(ValueLayout.JAVA_INT, 0, 42);
+        System.out.println(seg.getAtIndex(ValueLayout.JAVA_INT, 0));
+    }
+}
+```
+
+## Vs — Unsafe vs FFM
+
+|  | `Unsafe` / JNI | FFM (JEP 442/454) |
+|--|---|---|
+| Safety | raw pointer, manual free | `Arena` lifetime + bounds checked `MemorySegment` |
+| Call overhead | JNI glue | `Linker.downcallHandle` (fast) |
+| Lifecycle | manual `free` | `try (Arena ...)` scoped |
+
+## Interview Q&A
+
+**Q: `Arena.ofConfined` vs `ofShared`?**  
+Confined: single-thread, fast. Shared: thread-safe, cross-thread.
+
+**Q: When final?**  
+Preview 19–21, **final in Java 22 (454)** — on 21 mention preview.
+
+## Pitfalls
+
+- Not closing `Arena` — off-heap leak; always `try-with-resources`.
+- Passing freed `MemorySegment` — use-after-free; `Arena` enforces scope.
+
+## Related
+
+- [[08 Generational ZGC]] • [[00 Java 21 Overview]] • [[../01_Core-Java/JVM Memory Model|JVM Memory Model]]
+
+---
+*Category: java21*
