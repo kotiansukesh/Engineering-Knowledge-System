@@ -29,6 +29,16 @@ completed: false
 - [[../04_Design-Patterns-Building-Blocks/02_Resilience-Circuit-Breaker-Retry|Circuit-Breaker]] · [[../03_Architecture-Styles/03_Microservices|Microservices]] · [[../03_Architecture-Styles/04_Event-Driven-Architecture|EDA]]
 - Patterns: [[../04_Design-Patterns-Building-Blocks/05_Decomposition-Bounded-Context|Decomposition]] · [[../04_Design-Patterns-Building-Blocks/06_Saga-Outbox-Inbox|Saga-Outbox]] · [[../04_Design-Patterns-Building-Blocks/07_Discovery-Config-Registry|Discovery-Config]] · [[../04_Design-Patterns-Building-Blocks/04_API-Gateway-BFF|Gateway-BFF]]
 
+## 10 System Design drills
+- Method: scope → capacity → API → high-level → 2 deep dives → tradeoffs → [[../10_System-Design-Interviews/README|System Design MOC]]
+- [[../10_System-Design-Interviews/01_URL-Shortener-TinyURL|TinyURL]]: counter+base62? CDN on 302s? async analytics?
+- [[../10_System-Design-Interviews/02_Twitter-Timeline-Feed|Twitter]]: push vs pull? celebrity threshold? cursor pagination?
+- [[../10_System-Design-Interviews/03_Uber-Location-Tracking|Uber]]: geohash/S2 cells? offer-lease vs 2PC? stale-driver TTL?
+- [[../10_System-Design-Interviews/04_WhatsApp-Chat|WhatsApp]]: clientMsgId dedupe? per-convo seq? presence debounce?
+- [[../10_System-Design-Interviews/05_Rate-Limiter|Rate Limiter]]: token-bucket vs sliding? gateway Lua? 429+Retry-After?
+- [[../10_System-Design-Interviews/06_Notification-Service|Notifications]]: prefs gate? priority lanes? provider failover?
+- Grokking round 2: [[../10_System-Design-Interviews/07_Instagram-Media-Feed|Instagram]] (bytes vs ids?) · [[../10_System-Design-Interviews/08_YouTube-Video-Streaming|YouTube]] (presigned chunks? HLS?) · [[../10_System-Design-Interviews/09_Dropbox-File-Sync|Dropbox]] (4MB chunks? delta?) · [[../10_System-Design-Interviews/10_Web-Crawler|Crawler]] (per-host queues? Bloom?) · [[../10_System-Design-Interviews/11_Ticketmaster-Seat-Booking|Ticketmaster]] (atomic hold? waiting room?) · [[../10_System-Design-Interviews/12_Yelp-Geo-Reviews|Yelp]] (cells? aggregates?)
+
 ```dataview
 TABLE completed AS Done FROM "Architect/08_NonFunctional-Ops" SORT file.name ASC
 ```

@@ -32,6 +32,7 @@ for (const f of folders) {
 ## Map
 - [[Interview-Bank|Interview Bank]] — rapid Q&A per topic
 - [[Case-Studies|Case Studies]] — e-commerce · banking · AI platform
+- [[../10_System-Design-Interviews/README|System Design Drills]] — TinyURL · Twitter · Uber · WhatsApp · Rate Limiter · Notifications · Instagram · YouTube · Dropbox · Crawler · Ticketmaster · Yelp
 - [[Capstone-Checklist|Capstone Checklist]] — end-to-end design gate
 - [[../08_NonFunctional-Ops/01_Security-OAuth2-JWT|Security]] · [[../09_Governance-Documentation/02_ADRs|ADRs]]
 
