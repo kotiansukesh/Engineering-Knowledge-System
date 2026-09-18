@@ -4,11 +4,9 @@ type: folder-MOC
 tags: [MOC]
 category: 02_LinkedList
 ---
-
-# Linked list patterns
+# Linked List Patterns
 
 > Pointer manipulation on linked lists | Patterns 4, 5/20 | Part of [[README|Master MOC]]
-
 ```dataview
 TABLE pattern as "#", title as "Pattern", leetcode as "LeetCode", completed as "Done"
 FROM "Coding Patterns/02_LinkedList"

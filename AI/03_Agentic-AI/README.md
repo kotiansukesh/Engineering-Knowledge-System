@@ -4,15 +4,13 @@ type: folder-MOC
 tags: [MOC, agents, nus-iss]
 weeks: "11-16"
 ---
-
-# 03_Agentic-AI — Weeks 11–16 · NUS-ISS Architecting Agentic AI Solutions
+# 03_Agentic-AI, Weeks 11–16 · NUS-ISS Architecting Agentic ai Solutions
 
 > From "building an agent" to **designing an enterprise agent ecosystem**. Part of [[AI/README|AI MOC]]
 
-**Certification:** **NUS-ISS Architecting Agentic AI Solutions** — 4-day intensive (~32h), Grad Cert in Architecting AI Systems  
-**Prereqs by W11:** agents, tools, [[AI/07_Cross-Cutting/01_MCP|MCP]], workflows, RAG, orchestration  
-**Platform evolution:** [[Enterprise AI Operations Platform]] — capstone beyond a chatbot
-
+**Certification:** **NUS-ISS Architecting Agentic AI Solutions**, 4-day intensive (~32h), Grad Cert in Architecting AI Systems
+**Prereqs by W11:** agents, tools, [[AI/07_Cross-Cutting/01_MCP|MCP]], workflows, RAG, orchestration
+**Platform evolution:** [[Enterprise AI Operations Platform]], capstone beyond a chatbot
 ```dataview
 TABLE WITHOUT ID file.link as "Note", category as "Category", weeks as "Weeks"
 FROM "AI/03_Agentic-AI"

@@ -5,15 +5,14 @@ tags: [system-design, interview, moc]
 created: 2026-09-04
 completed: false
 ---
+# 10_System-Design-Interviews, moc
 
-# 10_System-Design-Interviews — MOC
+> Classic FAANG-style drills: same method every time, requirements → capacity → API → high-level → deep dives → tradeoffs. Companion: [[00_Video-Map|Video Reference Map]] (what to watch per drill).
 
-> Classic FAANG-style drills: same method every time — requirements → capacity → API → high-level → deep dives → tradeoffs. Companion: [[00_Video-Map|Video Reference Map]] (what to watch per drill).
-
-## Method (45-min loop)
+## Method (45-min Loop)
 
 1. **Scope** (5m): functional + NFRs, scale, read/write ratio
-2. **Capacity** (5m): QPS, storage, bandwidth — one-line math
+2. **Capacity** (5m): QPS, storage, bandwidth, one-line math
 3. **API** (5m): 2–3 endpoints, idempotency keys
 4. **High-level** (10m): client → CDN/gateway → services → stores
 5. **Deep dives** (15m): the 2 hard parts only (feed fan-out, geo index, …)
@@ -36,7 +35,7 @@ completed: false
 | 11 | [[11_Ticketmaster-Seat-Booking\|Ticketmaster]] | contention, fair queue | bitmap holds, saga |
 | 12 | [[12_Yelp-Geo-Reviews\|Yelp]] | geo search, aggregates | cells, Elastic |
 
-Grokking cross-map (topics with no dedicated note — covered by the drill named):
+Grokking cross-map (topics with no dedicated note, covered by the drill named):
 Pastebin → TinyURL variant (blobs + TTL) · Facebook Newsfeed → Twitter feed + ranking ·
 Twitter Search → crawler + inverted index (see Web Crawler).
 
@@ -51,4 +50,3 @@ SORT file.name ASC
 ## Links
 
 - [[../99_Revision/Interview-Bank|Interview Bank]] · [[../99_Revision/Case-Studies|Case Studies]] · [[../06_Data-Architecture/02_Consistency-CAP-PACELC|CAP/PACELC]] · [[../04_Design-Patterns-Building-Blocks/03_Caching-Strategies|Caching]]
-<!-- Concept: one method, six drills — interviewers test tradeoffs, not diagrams. -->

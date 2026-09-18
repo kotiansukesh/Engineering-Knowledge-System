@@ -3,13 +3,11 @@ title: "07 Cross-Cutting Concerns"
 type: folder-MOC
 tags: [MOC, cross-cutting]
 ---
+# 07_Cross-Cutting, Continuous (Woven Throughout)
 
-# 07_Cross-Cutting — Continuous (Woven Throughout)
-
-> Not a phase — integrate from Phase 02 onward. Part of [[AI/README|AI MOC]]
+> Not a phase, integrate from Phase 02 onward. Part of [[AI/README|AI MOC]]
 
 These 6 topics are **underemphasized in certs** but increasingly required in production AI platforms. Address them as you build.
-
 ```dataview
 TABLE WITHOUT ID file.link as "Note", category as "Category"
 FROM "AI/07_Cross-Cutting"
@@ -25,7 +23,6 @@ FROM "AI/07_Cross-Cutting"
 WHERE category
 SORT file.name ASC
 ```
-
 | Concern | Integrate From | Core Tooling |
 |---------|---------------|--------------|
 | [[01_MCP\|MCP]] | Phase 02 | MCP servers + clients |

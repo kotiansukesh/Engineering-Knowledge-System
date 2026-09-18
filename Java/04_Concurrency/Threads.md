@@ -5,23 +5,136 @@ tags: [java, threads, concurrency, java25, virtual-threads, loom]
 created: 2026-01-18
 updated: 2026-09-02
 ---
+## Why it Matters
 
-# Threads
+1. Better CPU & IO utilisation, one thread can compute while another waits on IO (virtual threads make blocking IO essentially free).
+2. Responsiveness: UI / server stays responsive while background work runs.
+3. Throughput & scalability, handle many concurrent requests (web servers, async pipelines). Virtual threads enable millions of concurrent tasks on the same hardware.
+4. Natural modelling, independent tasks map to independent threads, now without thread-pool tuning.
 
-> Part of [[README|Java MOC]] • `Concurrency` • Java 25 (LTS)
+## Diagram
 
-## Summary
+```mermaid
+flowchart TD
+ T{"task type?"} -->|"IO-bound / blocking"| VT["virtual thread<br/>~KBs, carrier reused on block"]
+ T -->|"CPU-bound / native"| PT["platform thread<br/>~MBs OS thread"]
+ VT --> EX["newVirtualThreadPerTaskExecutor<br/>no pool, no queue"]
+ EX --> SCOPE{scoped to one request?}
+ SCOPE -->|yes| STS["StructuredTaskScope<br/>auto-cancel siblings"]
+ SCOPE -->|no| FUT["Future / CompletableFuture"]
+ VT --> PARK["park on IO: carrier freed<br/>synchronized safe since JEP 491"]
+```
+
+## Code
+
+```java
+// Java 25 default: one virtual thread per task, try-with-resources lifecycle
+import java.util.concurrent.Executors;
+
+try (var exec = Executors.newVirtualThreadPerTaskExecutor()) {
+ var f1 = exec.submit(() -> fetch("user"));
+ var f2 = exec.submit(() -> fetch("order"));
+ System.out.println(f1.get() + " " + f2.get());
+}
+
+// JEP 491: synchronized no longer pins the carrier
+synchronized void incAndIO() throws InterruptedException {
+ count++;
+ Thread.sleep(java.time.Duration.ofMillis(50)); // unmounts, carrier reused
+}
+
+// ScopedValue (JEP 506) replaces ThreadLocal for request context
+static final ScopedValue<String> REQ_ID = ScopedValue.newInstance();
+void handle(String id) {
+ ScopedValue.where(REQ_ID, id).run(() -> log(REQ_ID.get()));
+}
+```
+
+## When to use / not
+
+| Use | NOT |
+|-----|-----|
+| Virtual threads for IO-bound work (HTTP, DB, file, `sleep`) | CPU-bound tight loops , platform threads or `ForkJoinPool` are faster |
+| `newVirtualThreadPerTaskExecutor()` , no pool tuning, no queue | `newFixedThreadPool(N)` for IO , queue builds up, platform threads cap concurrency |
+| Platform threads for CPU-bound, JNI/native, and `ForkJoinPool` work | Raw `new Thread().start()` , no lifecycle, no queuing, ~MBs per thread |
+| `ScopedValue` for request/tenant context | `ThreadLocal` with virtual threads , bloat and leaks |
+| `StructuredTaskScope` when subtasks must fail or cancel together | `Thread.stop()` , deprecated and unsafe; use `volatile` flag or interrupt |
+
+## Trade-offs
+
 A Thread is the smallest unit of execution inside a process. The JVM starts with a main thread and can spawn additional threads to utilise CPU/IO in parallel.
 
 > If you take one thing from this note, make it this: virtual threads are cheap, platform threads are not, and ThreadLocal will bite you on virtual threads. ScopedValue is the fix, even if the API feels unfamiliar at first. I keep coming back to this when debugging.
 
 > Java 21+ / 25 default shift: Virtual threads (Project Loom, finalised in Java 21, JEP 444) are now the default recommendation for IO-bound concurrency in Java 25. Platform threads (`Thread.ofPlatform()`) remain for CPU-bound / native-critical work, but most application code, especially servers, should use virtual threads via `Executors.newVirtualThreadPerTaskExecutor()`.
 
-## Why Multi-Threading?
-1. Better CPU & IO utilisation, one thread can compute while another waits on IO (virtual threads make blocking IO essentially free).
-2. Responsiveness: UI / server stays responsive while background work runs.
-3. Throughput & scalability, handle many concurrent requests (web servers, async pipelines). Virtual threads enable millions of concurrent tasks on the same hardware.
-4. Natural modelling, independent tasks map to independent threads, now without thread-pool tuning.
+## Vs
+
+| | Platform thread | Virtual thread |
+|--|----------------|----------------|
+| Cost | ~1MB OS thread, kernel-scheduled | ~KBs, user-mode, carrier-scheduled |
+| Best for | CPU-bound, JNI/native | IO-bound, blocking calls |
+| `synchronized` + block (Java 21) | N/A | pinned carrier |
+| `synchronized` + block (Java 25) | N/A | not pinned (JEP 491) |
+| Context | `ThreadLocal` | `ScopedValue` (JEP 506) |
+| Pool | `newFixedThreadPool(n)` | `newVirtualThreadPerTaskExecutor()` |
+
+## Pitfalls
+
+- Holding a lock while doing IO / long compute → contention (congestion). On Java 25 no longer pins, but still contends.
+- Synchronising on mutable / interned objects (`String`, boxed primitives).
+- Forgetting to handle `InterruptedException` (swallowing without restoring interrupt bit).
+- Double-checked locking without `volatile`.
+- Using `ThreadLocal` with virtual threads at scale → memory bloat & leaks → use `ScopedValue`.
+- Forgetting try-with-resources on `newVirtualThreadPerTaskExecutor()` / `StructuredTaskScope` → leaked threads.
+- Enabling `--enable-preview` for `StructuredTaskScope` but forgetting the flag at runtime.
+
+## Interview q&a
+
+**Q: `start()` vs `run()`?** `start()` spawns a new call stack and transitions to RUNNABLE; `run()` is just a normal method call on the current thread.
+
+**Q: Can a thread be restarted?** No, once TERMINATED, `start()` throws `IllegalThreadStateException`; create a new `Thread` instance.
+
+**Q: What is `ThreadLocal`?** Per-thread storage; each thread sees its own copy. Useful for `SimpleDateFormat`, request context. Must `remove()` in pooled threads to avoid leaks. **On Java 25 prefer `ScopedValue` for virtual threads**, see table above.
+
+**Q: Why prefer `ExecutorService` over raw `Thread`?** Pooling, queuing, lifecycle management, `Future`/`CompletableFuture`, saturation policies, raw threads are expensive and unbounded. **On Java 25 use `newVirtualThreadPerTaskExecutor()`, no tuning needed.**
+
+**Q: Spurious wakeups?** `wait()` may return without `notify()` (OS/JVM spec). Always wait in a `while` predicate loop.
+
+**Q: Virtual threads (Java 21 → 25)?** Lightweight user-mode threads (Project Loom) scheduled on carrier threads; `Thread.ofVirtual().start(task)` or `Executors.newVirtualThreadPerTaskExecutor()`. Great for blocking IO-heavy workloads. **Java 25 defaults to virtual threads for servers (`spring.threads.virtual.enabled=true`). Pinning fixed by JEP 491. Structured Concurrency (JEP 505) and ScopedValue (JEP 506) are the companion APIs.**
+
+**Q: Does `synchronized` pin virtual threads?** No on Java 25 (JEP 491, Java 24+). It did on Java 21, now `synchronized` unmounts like `ReentrantLock`.
+
+**Q: When to use `ScopedValue` vs `ThreadLocal`?** `ScopedValue` for request/tenant context with virtual/structured threads, immutable, auto-cleared, inherited. `ThreadLocal` only for legacy APIs that require it.
+
+`start()` vs `run()`?:: `start()` spawns a new call stack and transitions to RUNNABLE; `run()` is just a normal method call on the current thread. #flashcard
+Can a thread be restarted?:: No, once TERMINATED, `start()` throws `IllegalThreadStateException`; create a new `Thread` instance. #flashcard
+What is `ThreadLocal`?:: Per-thread storage; each thread sees its own copy. Useful for `SimpleDateFormat`, request context. Must `remove()` in pooled threads to avoid leaks. **On Java 25 prefer `ScopedValue` for virtual threads**, see table above. #flashcard
+Why prefer `ExecutorService` over raw `Thread`?:: Pooling, queuing, lifecycle management, `Future`/`CompletableFuture`, saturation policies, raw threads are expensive and unbounded. **On Java 25 use `newVirtualThreadPerTaskExecutor()`, no tuning needed.** #flashcard
+Spurious wakeups?:: `wait()` may return without `notify()` (OS/JVM spec). Always wait in a `while` predicate loop. #flashcard
+Virtual threads (Java 21 → 25)?:: Lightweight user-mode threads (Project Loom) scheduled on carrier threads; `Thread.ofVirtual().start(task)` or `Executors.newVirtualThreadPerTaskExecutor()`. Great for blocking IO-heavy workloads. **Java 25 defaults to virtual threads for servers (`spring.threads.virtual.enabled=true`). Pinning fixed by JEP 491. Structured Concurrency (JEP 505) and ScopedValue (JEP 506) are the companion APIs.** #flashcard
+Does `synchronized` pin virtual threads?:: No on Java 25 (JEP 491, Java 24+). It did on Java 21, now `synchronized` unmounts like `ReentrantLock`. #flashcard
+When to use `ScopedValue` vs `ThreadLocal`?:: `ScopedValue` for request/tenant context with virtual/structured threads, immutable, auto-cleared, inherited. `ThreadLocal` only for legacy APIs that require it. #flashcard
+
+- [1115. Print Foobar Alternately](https://leetcode.com/problems/print-foobar-alternately/)
+- [1114. Print In Order](https://leetcode.com/problems/print-in-order/)
+- [1116. Print Zero Even Odd](https://leetcode.com/problems/print-zero-even-odd/)
+
+---
+*Category: Concurrency • Part of [[README|Java MOC]] • Java 25*
+
+## Related
+
+- [[README|Java MOC]]
+- [[Array]], thread-safe variants `CopyOnWriteArrayList`
+- [[Java/07_DSA/HashMap|HashMap (DSA)]], vs `ConcurrentHashMap`
+- [[Spring Framework]], `spring.threads.virtual.enabled=true` (Boot 3.2+/3.5)
+- [[Spring Security]], SecurityContext propagation with virtual threads
+- [[Spring Transaction]], TransactionSynchronizationManager + ScopedValue
+
+# Threads
+
+> Part of [[README|Java MOC]] • `Concurrency` • Java 25 (LTS)
 
 ## Thread Lifecycle
 
@@ -34,14 +147,25 @@ A Thread is the smallest unit of execution inside a process. The JVM starts with
 | Waiting | `WAITING` | `Object.wait()`, `Thread.join()`, `LockSupport.park()` | `notify()`/`notifyAll()`/`unpark()`/join completes → Runnable |
 | Timed Waiting | `TIMED_WAITING` | `Thread.sleep(ms)`, `wait(timeout)`, `join(timeout)`, `parkNanos()` | Timeout or signal → Runnable |
 | Terminated (Dead) | `TERMINATED` | `run()` completed or uncaught exception | Terminal, cannot be restarted |
-
-> Diagram (description): `NEW --start()--> RUNNABLE <--(scheduler)--> RUNNING --(block/wait/sleep)--> BLOCKED/WAITING/TIMED_WAITING --(unblock/notify/timeout)--> RUNNABLE --> TERMINATED`. Call `start()` exactly once; calling it twice throws `IllegalThreadStateException`.
+```mermaid
+stateDiagram-v2
+ [*] --> NEW: new Thread()
+ NEW --> RUNNABLE: start()
+ RUNNABLE --> BLOCKED: contended synchronized
+ RUNNABLE --> WAITING: wait() / join() / park()
+ RUNNABLE --> TIMED_WAITING: sleep(ms) / wait(ms)
+ BLOCKED --> RUNNABLE: lock acquired
+ WAITING --> RUNNABLE: notify() / unpark()
+ TIMED_WAITING --> RUNNABLE: timeout / interrupt
+ RUNNABLE --> TERMINATED: run() returns
+```
+> Call `start()` exactly once; a second call throws `IllegalThreadStateException`. A **virtual thread** parks (same `Thread.State`) while its **carrier** stays `RUNNABLE` and is reused , no pinning since **JEP 491**.
 
 Related image: ![[Pasted image 20211116081758.png]]
 
 > Virtual-thread lifecycle note (Java 25): Virtual threads use the same `Thread.State` enum but their carrier thread stays `RUNNABLE` while the virtual thread is parked (blocked on IO / `sleep`). Pinning no longer applies (see JEP 491 below), so `synchronized` park no longer pins the carrier.
 
-### Lifecycle helpers
+### Lifecycle Helpers
 
 | Method | Effect | Releases lock? |
 |---|---|---|
@@ -52,127 +176,118 @@ Related image: ![[Pasted image 20211116081758.png]]
 | `Object.wait()` | Current thread → WAITING (must own monitor) | Yes |
 | `notify()/notifyAll()` | Wakes waiting threads on same monitor |, |
 
-## 4 Ways to Create a Thread, Updated for Java 25
+## Creating Threads (Java 25)
 
-### 1. Extend `Thread` and override `run()`, legacy, avoid for new code
-```java title="Java 25 - platform vs virtual builder"
-// Threads — platform vs virtual (JEP 444/491), lifecycle, StructuredTaskScope
+### Extend`Thread`, Legacy, Avoid for new Code
+
+```java
 public class ThreadAPI1 {
-    public static class MyThread extends Thread {
-        @Override public void run() {
-            System.out.println("Running: " + Thread.currentThread());
-        }
-    }
-// Entry point — classic form; Java 25 also allows void main()
-    public static void main(String[] args) throws InterruptedException {
-        Thread platform = Thread.ofPlatform().name("platform-1").unstarted(new MyThread());
-        Thread virtual = Thread.ofVirtual().name("virtual-1").unstarted(new MyThread());
-        platform.start(); virtual.start();
-        platform.join(); virtual.join();
-    }
+ public static class MyThread extends Thread {
+ @Override public void run() {
+ System.out.println("Running: " + Thread.currentThread());
+ }
+ }
+ public static void main(String[] args) throws InterruptedException {
+ Thread platform = Thread.ofPlatform().name("platform-1").unstarted(new MyThread());
+ Thread virtual = Thread.ofVirtual().name("virtual-1").unstarted(new MyThread());
+ platform.start(); virtual.start();
+ platform.join(); virtual.join();
+ }
 }
 ```
 *Pros:* Simple. *Cons:* Single-inheritance consumed; poor separation of task vs. thread. Prefer `Thread.ofVirtual()` over `extends Thread`.
+### Implement`Runnable`
 
-### 2. Implement `Runnable`
-```java title="Java 25"
-// Threads — platform vs virtual (JEP 444/491), lifecycle, StructuredTaskScope
+```java
 public class ThreadAPI4 implements Runnable {
-    @Override public void run() {
-        System.out.println("Runnable on: " + Thread.currentThread());
-    }
-// Entry point — classic form; Java 25 also allows void main()
-    public static void main(String[] args) throws InterruptedException {
-        Thread vt = Thread.ofVirtual().name("worker").start(new ThreadAPI4());
-        vt.join();
-    }
+ @Override public void run() {
+ System.out.println("Runnable on: " + Thread.currentThread());
+ }
+ public static void main(String[] args) throws InterruptedException {
+ Thread vt = Thread.ofVirtual().name("worker").start(new ThreadAPI4());
+ vt.join();
+ }
 }
 ```
 Preferred when task logic should be decoupled from thread mechanics.
+### Lambda`Runnable`(Java 8+)
 
-### 3. Anonymous `Runnable` / lambda (Java 8+)
-```java title="Java 25"
-// Threads — platform vs virtual (JEP 444/491), lifecycle, StructuredTaskScope
+```java
 public class ThreadAPI2and3 {
-// Entry point — classic form; Java 25 also allows void main()
-    public static void main(String[] args) throws InterruptedException {
-        Runnable task = () -> System.out.println("Lambda on: " + Thread.currentThread());
+ public static void main(String[] args) throws InterruptedException {
+ Runnable task = () -> System.out.println("Lambda on: " + Thread.currentThread());
 
-        Thread t1 = Thread.ofVirtual().start(task);
-        Thread t2 = Thread.ofPlatform().start(task);
-        t1.join(); t2.join();
-    }
+ Thread t1 = Thread.ofVirtual().start(task);
+ Thread t2 = Thread.ofPlatform().start(task);
+ t1.join(); t2.join();
+ }
 }
 ```
 
-### 4. `Callable<T>` + `ExecutorService`, virtual-thread-per-task (Java 25 default)
+### `Callable<T>`+ Virtual-thread-per-task (Java 25 Default)
 
 > Java 25 change: Replace fixed/cached thread pools with virtual-thread-per-task executors for almost all IO-bound workloads. No tuning, no queue saturation, no thread starvation.
 
-#### 4a. Preferred: `Executors.newVirtualThreadPerTaskExecutor()` with try-with-resources
-```java title="Java 25 - virtual-thread-per-task executor"
+#### Preferred:`newVirtualThreadPerTaskExecutor()`
+
+```java
 import java.util.concurrent.*;
-// Threads — platform vs virtual (JEP 444/491), lifecycle, StructuredTaskScope
 
 public class CallableDemo {
-// Entry point — classic form; Java 25 also allows void main()
-    public static void main(String[] args) throws Exception {
-        Callable<Integer> task = () -> {
-            Thread.sleep(java.time.Duration.ofMillis(200));
-            return 42;
-        };
+ public static void main(String[] args) throws Exception {
+ Callable<Integer> task = () -> {
+ Thread.sleep(java.time.Duration.ofMillis(200));
+ return 42;
+ };
 
-        try (ExecutorService executor = Executors.newVirtualThreadPerTaskExecutor()) {
-            Future<Integer> f1 = executor.submit(task);
-            Future<Integer> f2 = executor.submit(task);
-            System.out.println("Results: " + f1.get() + ", " + f2.get());
-        }
-    }
+ try (ExecutorService executor = Executors.newVirtualThreadPerTaskExecutor()) {
+ Future<Integer> f1 = executor.submit(task);
+ Future<Integer> f2 = executor.submit(task);
+ System.out.println("Results: " + f1.get() + ", " + f2.get());
+ }
+ }
 }
 ```
 Why this is the Java 25 default: Each submission gets its own virtual thread (lightweight, ~KBs). `close()` (via try-with-resources) is required, it awaits termination. No `shutdown()`/`awaitTermination()` dance. `CompletableFuture`, `ForkJoinTask` still work but are rarely needed for IO fan-out.
+#### Custom Factory:`newThreadPerTaskExecutor(factory)`
 
-#### 4b. Custom factory: `Executors.newThreadPerTaskExecutor(Thread.ofVirtual().factory())`
-```java title="Java 25 - explicit virtual-thread factory"
+```java
 import java.util.concurrent.*;
-// Threads — platform vs virtual (JEP 444/491), lifecycle, StructuredTaskScope
 
 public class CustomFactoryDemo {
-// Entry point — classic form; Java 25 also allows void main()
-    public static void main(String[] args) throws Exception {
-        ThreadFactory factory = Thread.ofVirtual()
-                .name("virtual-worker-", 0)
-                .factory();
+ public static void main(String[] args) throws Exception {
+ ThreadFactory factory = Thread.ofVirtual()
+ .name("virtual-worker-", 0)
+ .factory();
 
-        try (ExecutorService executor = Executors.newThreadPerTaskExecutor(factory)) {
-            var futures = java.util.stream.IntStream.range(0, 1_000)
-                    .mapToObj(i -> executor.submit(() -> "task-" + i + " on " + Thread.currentThread()))
-                    .toList();
-            for (var f : futures) System.out.println(f.get());
-        }
+ try (ExecutorService executor = Executors.newThreadPerTaskExecutor(factory)) {
+ var futures = java.util.stream.IntStream.range(0, 100)
+ .mapToObj(i -> executor.submit(() -> "task-" + i))
+ .toList();
+ for (var f : futures) f.get();
+ }
 
-    }
+ }
 }
 ```
 Use `Thread.ofVirtual().factory()` when you need to customise name, `ThreadLocal` inheritance, or pass a factory to libraries (e.g. `Tomcat`, custom `ForkJoinPool`). Equivalent to `newVirtualThreadPerTaskExecutor()` but explicit.
+#### Structured Concurrency over raw Futures
 
-#### 4c. structured concurrency and futures
-```java title="Java 25 - CompletableFuture still works, but prefer StructuredTaskScope for fan-out"
+```java
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.Executors;
-// Threads — platform vs virtual (JEP 444/491), lifecycle, StructuredTaskScope
 
 class CfDemo {
-    static void demo() throws Exception {
-        try (var exec = Executors.newVirtualThreadPerTaskExecutor()) {
-            var cf = CompletableFuture.supplyAsync(() -> 42, exec);
-            System.out.println(cf.get());
-        }
-    }
+ static void demo() throws Exception {
+ try (var exec = Executors.newVirtualThreadPerTaskExecutor()) {
+ var cf = CompletableFuture.supplyAsync(() -> 42, exec);
+ System.out.println(cf.get());
+ }
+ }
 }
 ```
 
-## JEP 491, synchronized no longer pins (Java 24/25)
+## JEP 491, Synchronized no Longer Pins (Java 24/25)
 
 > Before Java 24: A virtual thread entering a `synchronized` block/method pinned its carrier thread, the carrier could not be reused while the virtual thread blocked, negating scalability if you synchronised around IO.
 
@@ -185,79 +300,80 @@ What changed:
 | `synchronized` + `Thread.sleep()` / blocking IO | Pinned, carrier blocked, throughput collapses | Not pinned, virtual thread unmounts, carrier reused |
 | `ReentrantLock` + blocking | Never pinned (always unmounted) | No change, still not pinned |
 | Recommendation | Avoid `synchronized` around IO; use `ReentrantLock` | `synchronized` is safe again, use either, but `ReentrantLock` still preferred for timeouts/interrupts |
-
-```java title="Java 25 - synchronized is now safe with virtual threads"
-// SafeCounter — platform vs virtual (JEP 444/491), lifecycle, StructuredTaskScope
+```java
 class SafeCounter {
-    private int count = 0;
-    public synchronized void incrementAndCallRemote() throws Exception {
-        count++;
-        Thread.sleep(java.time.Duration.ofMillis(100));
-    }
+ private int count = 0;
+ public synchronized void incrementAndCallRemote() throws Exception {
+ count++;
+ Thread.sleep(java.time.Duration.ofMillis(100));
+ }
 }
 
 import java.util.concurrent.locks.ReentrantLock;
-// ExplicitLock — platform vs virtual (JEP 444/491), lifecycle, StructuredTaskScope
 class ExplicitLock {
-    private final ReentrantLock lock = new ReentrantLock();
-    void doWork() throws InterruptedException {
-        if (lock.tryLock(java.time.Duration.ofSeconds(1))) {
-            try { Thread.sleep(java.time.Duration.ofMillis(100)); }
-            finally { lock.unlock(); }
-        }
-    }
+ private final ReentrantLock lock = new ReentrantLock();
+ void doWork() throws InterruptedException {
+ if (lock.tryLock(java.time.Duration.ofSeconds(1))) {
+ try { Thread.sleep(java.time.Duration.ofMillis(100)); }
+ finally { lock.unlock(); }
+ }
+ }
 }
 ```
-
 > Interview note: If asked "does `synchronized` pin virtual threads?", answer: No since Java 24 (JEP 491). On Java 21 it did; on Java 25 it does not.
 
-## Structured Concurrency, `StructuredTaskScope` (Preview, JEP 505, Java 25)
+## Structured Concurrency,`StructuredTaskScope`(Preview, jep 505, Java 25)
 
 Structured concurrency treats a group of concurrent subtasks as a single unit: all subtasks are scoped, failures propagate, and cancellation is automatic. In Java 25 it is a preview API (`--enable-preview`).
-
-```java title="Java 25 - StructuredTaskScope.ShutdownOnFailure (preview, JEP 505)"
-import java.util.concurrent.StructuredTaskScope;
+```mermaid
+flowchart TD
+ S[scope: ShutdownOnFailure] --> A[fork fetchUser]
+ S --> B[fork fetchOrder]
+ A --> J[join]
+ B --> J
+ J -->|all ok| R[use results]
+ J -->|any failed| C[cancel siblings + throwIfFailed]
+```
+```javaimport
+ java.util.concurrent.StructuredTaskScope;
 import java.time.Duration;
-// StructuredDemo — platform vs virtual (JEP 444/491), lifecycle, StructuredTaskScope
 
 class StructuredDemo {
-// User — platform vs virtual (JEP 444/491), lifecycle, StructuredTaskScope
 
-    record User(String name), Order(String id) {}
+ record User(String name), Order(String id) {}
 
-    User fetchUser(String id) throws InterruptedException {
-        Thread.sleep(Duration.ofMillis(200)); return new User("alice");
-    }
-    Order fetchOrder(String id) throws InterruptedException {
-        Thread.sleep(Duration.ofMillis(300)); return new Order("o-42");
-    }
+ User fetchUser(String id) throws InterruptedException {
+ Thread.sleep(Duration.ofMillis(200)); return new User("alice");
+ }
+ Order fetchOrder(String id) throws InterruptedException {
+ Thread.sleep(Duration.ofMillis(300)); return new Order("o-42");
+ }
 
-    String handle(String userId, String orderId) throws Exception {
-        try (var scope = new StructuredTaskScope.ShutdownOnFailure()) {
-            var userTask  = scope.fork(() -> fetchUser(userId));
-            var orderTask = scope.fork(() -> fetchOrder(orderId));
+ String handle(String userId, String orderId) throws Exception {
+ try (var scope = new StructuredTaskScope.ShutdownOnFailure()) {
+ var userTask = scope.fork(() -> fetchUser(userId));
+ var orderTask = scope.fork(() -> fetchOrder(orderId));
 
-            scope.join();
-            scope.throwIfFailed();
+ scope.join();
+ scope.throwIfFailed();
 
-            return userTask.get() + " -> " + orderTask.get();
-        }
-    }
+ return userTask.get() + " -> " + orderTask.get();
+ }
+ }
 
-    String firstWins() throws Exception {
-        try (var scope = new StructuredTaskScope.ShutdownOnSuccess<String>()) {
-            scope.fork(() -> fetchFromReplica("a"));
-            scope.fork(() -> fetchFromReplica("b"));
-            scope.join();
-            return scope.result();
-        }
-    }
-    String fetchFromReplica(String r) throws InterruptedException {
-        Thread.sleep(Duration.ofMillis(150)); return "from-" + r;
-    }
+ String firstWins() throws Exception {
+ try (var scope = new StructuredTaskScope.ShutdownOnSuccess<String>()) {
+ scope.fork(() -> fetchFromReplica("a"));
+ scope.fork(() -> fetchFromReplica("b"));
+ scope.join();
+ return scope.result();
+ }
+ }
+ String fetchFromReplica(String r) throws InterruptedException {
+ Thread.sleep(Duration.ofMillis(150)); return "from-" + r;
+ }
 }
 ```
-
 Scope types:
 
 | Scope | Behaviour | Use when |
@@ -267,39 +383,28 @@ Scope types:
 
 Rules: Must use try-with-resources (scope enforces structure). `fork()` must be called from the scope owner thread. Virtual threads are used automatically.
 
-## `ScopedValue` (JEP 506) vs `ThreadLocal`
+## `ScopedValue`(JEP 506) vs`ThreadLocal`
 
 `ThreadLocal` is problematic with virtual threads (millions of threads × mutable `ThreadLocal` = leaks, expensive, incompatible with structured concurrency). ScopedValue (finalised in Java 25, JEP 506) is the replacement: immutable, bounded by scope, automatically inherited by child virtual/structured tasks, no `remove()` needed.
-
-```java title="Java 25 - ScopedValue vs ThreadLocal"
-import java.util.concurrent.StructuredTaskScope;
-// Threads — platform vs virtual (JEP 444/491), lifecycle, StructuredTaskScope
+```javaimport
+ java.util.concurrent.StructuredTaskScope;
 
 class ContextDemo {
+ static final ScopedValue<String> REQUEST_ID = ScopedValue.newInstance();
 
-    static final ScopedValue<String> REQUEST_ID = ScopedValue.newInstance();
+ void handleRequest(String id) throws Exception {
+ ScopedValue.where(REQUEST_ID, id).run(() -> {
+ try (var scope = new StructuredTaskScope.ShutdownOnFailure()) {
+ scope.fork(() -> log("subtask: " + REQUEST_ID.get()));
+ scope.join();
+ scope.throwIfFailed();
+ } catch (Exception e) { throw new RuntimeException(e); }
+ });
+ }
 
-    void handleRequest(String id) throws Exception {
-        ScopedValue.where(REQUEST_ID, id).run(() -> {
-            try (var scope = new StructuredTaskScope.ShutdownOnFailure()) {
-                scope.fork(() -> { log("subtask-1: " + REQUEST_ID.get()); return null; });
-                scope.fork(() -> { log("subtask-2: " + REQUEST_ID.get()); return null; });
-                try { scope.join(); scope.throwIfFailed(); } catch (Exception e) { throw new RuntimeException(e); }
-            }
-        });
-    }
-
-    static final ThreadLocal<String> LEGACY = new ThreadLocal<>();
-    void legacyBad(String id) {
-        LEGACY.set(id);
-        try { log(LEGACY.get()); }
-        finally { LEGACY.remove(); }
-    }
-
-    void log(String m) { System.out.println(m + " on " + Thread.currentThread()); }
+ void log(String m) { System.out.println(m); }
 }
 ```
-
 | Aspect | `ThreadLocal` | `ScopedValue` (JEP 506, Java 25) |
 |---|---|---|
 | Mutability | Mutable `set()`/`remove()`, must clean up | Immutable binding per `where(...).run/call` scope |
@@ -311,7 +416,7 @@ class ContextDemo {
 
 > Migration rule (Java 25): New code uses `ScopedValue`. Keep `ThreadLocal` only for legacy libraries that require it. Spring 6.2+/Boot 3.4+ propagates `ScopedValue` through `TransactionSynchronizationManager` and `SecurityContext` where applicable.
 
-## Virtual threads, defaults & tuning (Java 25)
+## Virtual Threads, Defaults & Tuning (Java 25)
 
 - Default for IO-bound work. If your task blocks on network, DB, file, or `sleep`, use virtual threads. Platform threads are for CPU-bound, `ForkJoinPool`, or JNI.
 - No pool tuning. `newVirtualThreadPerTaskExecutor()` has no core/max size, no queue. Submit and forget.
@@ -320,28 +425,28 @@ class ContextDemo {
 - Pinning is gone (JEP 491) but avoid long `synchronized` + native/JNI pinning, native frames still pin.
 - Spring Boot 3.2+/3.5: set `spring.threads.virtual.enabled=true` to run Tomcat/Jetty + `@Async` on virtual threads (see [[Spring Framework]]).
 
-## Stopping a thread, cooperative cancellation
-Never use `Thread.stop()` (deprecated, unsafe). Use a `volatile` flag or interruption:
-```java title="Java 25"
-// Threads — platform vs virtual (JEP 444/491), lifecycle, StructuredTaskScope
-public class StoppableRunnable implements Runnable {
-    private volatile boolean stopRequested = false;
-    public void requestStop() { stopRequested = true; }
-    public boolean isStopRequested() { return stopRequested; }
+## Stopping a Thread, Cooperative Cancellation
 
-    @Override public void run() {
-        while (!stopRequested && !Thread.currentThread().isInterrupted()) {
-            try { Thread.sleep(java.time.Duration.ofMillis(500)); }
-            catch (InterruptedException e) {
-                Thread.currentThread().interrupt();
-                break;
-            }
-        }
-    }
+```
+java
+public class StoppableRunnable implements Runnable {
+ private volatile boolean stopRequested = false;
+ public void requestStop() { stopRequested = true; }
+ public boolean isStopRequested() { return stopRequested; }
+
+ @Override public void run() {
+ while (!stopRequested && !Thread.currentThread().isInterrupted()) {
+ try { Thread.sleep(java.time.Duration.ofMillis(500)); }
+ catch (InterruptedException e) {
+ Thread.currentThread().interrupt();
+ break;
+ }
+ }
+ }
 }
 ```
 
-## 7 classic concurrency issues, explained
+## Concurrency Issues
 
 | # | Issue | What happens | Typical cause | Fix |
 |---|---|---|---|---|
@@ -357,7 +462,7 @@ public class StoppableRunnable implements Runnable {
 
 > Java 25 addendum: Virtual threads make contention cheaper to diagnose (thread dumps list millions of virtual threads) but do not fix lock contention, still scope locks narrowly. Use `ScopedValue` instead of `ThreadLocal` to avoid virtual-thread memory bloat.
 
-## `volatile` vs `synchronized` vs `java.util.concurrent`
+## `volatile`Vs`synchronized`Vs`java.util.concurrent`
 
 | Aspect | `volatile` | `synchronized` | `java.util.concurrent` (Lock, Atomic, Concurrent Collections) |
 |---|---|---|---|
@@ -369,7 +474,8 @@ public class StoppableRunnable implements Runnable {
 
 Happens-before rules to remember: `volatile` write → subsequent read; `synchronized` exit → next entry on same monitor; `Thread.start()` → first action in new thread; `Thread.join()` completion → after thread termination; `ExecutorService.submit()` → task execution.
 
-## Thread vs process
+## Thread vs Process
+
 | | Thread (lightweight) | Process (heavyweight) |
 |---|---|---|
 | Memory | Shares heap/metaspace within process | Isolated address space |
@@ -377,97 +483,43 @@ Happens-before rules to remember: `volatile` write → subsequent read; `synchro
 | Communication | Shared memory (needs synchronisation); `ScopedValue` for context | IPC / sockets |
 | Crash isolation | One thread crash may kill JVM | Process isolation |
 
-## Code Example, Producer-Consumer with `wait/notify` (and Java 25 alternative)
-```java title="Java 25 - classic wait/notify still valid"
-// Threads — platform vs virtual (JEP 444/491), lifecycle, StructuredTaskScope
-class BoundedBuffer<T> {
-    private final java.util.Queue<T> q = new java.util.ArrayDeque<>();
-    private final int cap;
-    BoundedBuffer(int cap) { this.cap = cap; }
+## Producer-consumer
 
-    public synchronized void put(T v) throws InterruptedException {
-        while (q.size() == cap) wait();
-        q.add(v);
-        notifyAll();
-    }
-    public synchronized T take() throws InterruptedException {
-        while (q.isEmpty()) wait();
-        T v = q.remove();
-        notifyAll();
-        return v;
-    }
+```java
+class BoundedBuffer<T> {
+ private final java.util.Queue<T> q = new java.util.ArrayDeque<>();
+ private final int cap;
+ BoundedBuffer(int cap) { this.cap = cap; }
+
+ public synchronized void put(T v) throws InterruptedException {
+ while (q.size() == cap) wait();
+ q.add(v);
+ notifyAll();
+ }
+ public synchronized T take() throws InterruptedException {
+ while (q.isEmpty()) wait();
+ T v = q.remove();
+ notifyAll();
+ return v;
+ }
 }
 ```
-```java title="Java 25 - virtual-thread-friendly alternative with BlockingQueue"
+```java
 import java.util.concurrent.*;
-// Threads — platform vs virtual (JEP 444/491), lifecycle, StructuredTaskScope
 
 class ModernBuffer<T> {
-    private final BlockingQueue<T> q;
-    ModernBuffer(int cap) { this.q = new ArrayBlockingQueue<>(cap); }
-    void put(T v) throws InterruptedException { q.put(v); }
-    T take() throws InterruptedException { return q.take(); }
+ private final BlockingQueue<T> q;
+ ModernBuffer(int cap) { this.q = new ArrayBlockingQueue<>(cap); }
+ void put(T v) throws InterruptedException { q.put(v); }
+ T take() throws InterruptedException { return q.take(); }
 
-    static void demo() throws Exception {
-        var buf = new ModernBuffer<String>(10);
-        try (var exec = Executors.newVirtualThreadPerTaskExecutor()) {
-            exec.submit(() -> { try { buf.put("hello"); } catch (InterruptedException e) { Thread.currentThread().interrupt(); } });
-            Future<String> f = exec.submit(() -> buf.take());
-            System.out.println(f.get());
-        }
-    }
+ static void demo() throws Exception {
+ var buf = new ModernBuffer<String>(10);
+ try (var exec = Executors.newVirtualThreadPerTaskExecutor()) {
+ exec.submit(() -> { try { buf.put("hello"); } catch (InterruptedException e) { Thread.currentThread().interrupt(); } });
+ Future<String> f = exec.submit(() -> buf.take());
+ System.out.println(f.get());
+ }
+ }
 }
 ```
-
-## Interview Q&A
-
-**Q: `start()` vs `run()`?** `start()` spawns a new call stack and transitions to RUNNABLE; `run()` is just a normal method call on the current thread.
-
-Q: Can a thread be restarted? No, once TERMINATED, `start()` throws `IllegalThreadStateException`; create a new `Thread` instance.
-
-**Q: What is `ThreadLocal`?** Per-thread storage; each thread sees its own copy. Useful for `SimpleDateFormat`, request context. Must `remove()` in pooled threads to avoid leaks. **On Java 25 prefer `ScopedValue` for virtual threads**, see table above.
-
-**Q: Why prefer `ExecutorService` over raw `Thread`?** Pooling, queuing, lifecycle management, `Future`/`CompletableFuture`, saturation policies, raw threads are expensive and unbounded. **On Java 25 use `newVirtualThreadPerTaskExecutor()`, no tuning needed.**
-
-Q: Spurious wakeups? `wait()` may return without `notify()` (OS/JVM spec). Always wait in a `while` predicate loop.
-
-Q: Virtual threads (Java 21 → 25)? Lightweight user-mode threads (Project Loom) scheduled on carrier threads; `Thread.ofVirtual().start(task)` or `Executors.newVirtualThreadPerTaskExecutor()`. Great for blocking IO-heavy workloads. **Java 25 defaults to virtual threads for servers (`spring.threads.virtual.enabled=true`). Pinning fixed by JEP 491. Structured Concurrency (JEP 505) and ScopedValue (JEP 506) are the companion APIs.**
-
-**Q: Does `synchronized` pin virtual threads? No on Java 25** (JEP 491, Java 24+). It did on Java 21, now `synchronized` unmounts like `ReentrantLock`.
-
-**Q: When to use `ScopedValue` vs `ThreadLocal`?** `ScopedValue` for request/tenant context with virtual/structured threads, immutable, auto-cleared, inherited. `ThreadLocal` only for legacy APIs that require it.
-
-<!-- SR -->
-`start()` vs `run()`?:: `start()` spawns a new call stack and transitions to RUNNABLE; `run()` is just a normal method call on the current thread. #flashcard
-Can a thread be restarted?:: No, once TERMINATED, `start()` throws `IllegalThreadStateException`; create a new `Thread` instance. #flashcard
-What is `ThreadLocal`?:: Per-thread storage; each thread sees its own copy. Useful for `SimpleDateFormat`, request context. Must `remove()` in pooled threads to avoid leaks. **On Java 25 prefer `ScopedValue` for virtual threads**, see table above. #flashcard
-Why prefer `ExecutorService` over raw `Thread`?:: Pooling, queuing, lifecycle management, `Future`/`CompletableFuture`, saturation policies, raw threads are expensive and unbounded. **On Java 25 use `newVirtualThreadPerTaskExecutor()`, no tuning needed.** #flashcard
-Spurious wakeups?:: `wait()` may return without `notify()` (OS/JVM spec). Always wait in a `while` predicate loop. #flashcard
-Virtual threads (Java 21 → 25)?:: Lightweight user-mode threads (Project Loom) scheduled on carrier threads; `Thread.ofVirtual().start(task)` or `Executors.newVirtualThreadPerTaskExecutor()`. Great for blocking IO-heavy workloads. **Java 25 defaults to virtual threads for servers (`spring.threads.virtual.enabled=true`). Pinning fixed by JEP 491. Structured Concurrency (JEP 505) and ScopedValue (JEP 506) are the companion APIs.** #flashcard
-Does `synchronized` pin virtual threads?:: No on Java 25 (JEP 491, Java 24+). It did on Java 21, now `synchronized` unmounts like `ReentrantLock`. #flashcard
-When to use `ScopedValue` vs `ThreadLocal`?:: `ScopedValue` for request/tenant context with virtual/structured threads, immutable, auto-cleared, inherited. `ThreadLocal` only for legacy APIs that require it. #flashcard
-
-## Pitfalls
-- Holding a lock while doing IO / long compute → contention (congestion). On Java 25 no longer pins, but still contends.
-- Synchronising on mutable / interned objects (`String`, boxed primitives).
-- Forgetting to handle `InterruptedException` (swallowing without restoring interrupt bit).
-- Double-checked locking without `volatile`.
-- Using `ThreadLocal` with virtual threads at scale → memory bloat & leaks → use `ScopedValue`.
-- Forgetting try-with-resources on `newVirtualThreadPerTaskExecutor()` / `StructuredTaskScope` → leaked threads.
-- Enabling `--enable-preview` for `StructuredTaskScope` but forgetting the flag at runtime.
-
-## Related
-- [[README|Java MOC]]
-- [[Array]], thread-safe variants `CopyOnWriteArrayList`
-- [[Java/07_DSA/HashMap|HashMap (DSA)]], vs `ConcurrentHashMap`
-- [[Spring Framework]], `spring.threads.virtual.enabled=true` (Boot 3.2+/3.5)
-- [[Spring Security]], SecurityContext propagation with virtual threads
-- [[Spring Transaction]], TransactionSynchronizationManager + ScopedValue
-
-## Practice
-- [1115. Print Foobar Alternately](https://leetcode.com/problems/print-foobar-alternately/)
-- [1114. Print In Order](https://leetcode.com/problems/print-in-order/)
-- [1116. Print Zero Even Odd](https://leetcode.com/problems/print-zero-even-odd/)
-
----
-*Category: Concurrency • Part of [[README|Java MOC]] • Java 25*

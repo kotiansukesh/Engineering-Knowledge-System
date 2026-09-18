@@ -5,12 +5,11 @@ tags: [template, adr, architecture]
 created: 2026-09-03
 completed: false
 ---
+# {{Title}}
 
-# {{title}}
+> **Intent:** one line, what problem this solves.
 
-> **Intent:** one line — what problem this solves.
-
-## 1. When to Use
+## 1. When to use
 - Bullet 1: concrete trigger.
 - Bullet 2: Spring Boot 3.5 / K8s angle.
 
@@ -27,10 +26,10 @@ completed: false
 |---|---|
 | | |
 
-## 4. Vs
+## 4. vs
 - **Vs X:** one-line differentiator with [[wikilink]].
 
-## 5. Interview Q&A
+## 5. Interview q&a
 **Q:** ...
 A: ...
 
@@ -46,5 +45,3 @@ A: ...
 
 ## 7. Links
 - [[Related-Note]] · [[02_ADRs|ADRs]]
-
-<!-- Concept: one architectural insight in one sentence. -->

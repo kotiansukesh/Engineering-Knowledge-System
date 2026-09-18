@@ -1,32 +1,31 @@
 ---
 title: "{{title}}"
-pattern: 
-category: 
+pattern:
+category:
 tags: [pattern/]
 leetcode: []
 created: 2026-09-02
 source: "https://blog.algomaster.io/p/15-leetcode-patterns"
 completed: false
 reviewed: false
-difficulty: 
+difficulty:
 ---
-
-# {{title}}
+# {{Title}}
 
 > Pattern # of [[README|15 Patterns MOC]] | `{{category}}`
 
 ## When to use
-- 
-- Keywords: 
+-
+- Keywords:
 
 ## Idea
-- 
+-
 
 ## Complexity
-- Time: 
-- Space: 
+- Time:
+- Space:
 
-## Java template
+## Java Template
 
 ```java
 // Java 25: var + record + pattern instanceof + SequencedCollection + virtual threads (if graph/tree parallel) + Compact Object Headers note
@@ -34,19 +33,19 @@ difficulty:
 ```
 
 ## Example
-- Input: 
-- Output: 
-- Explanation: 
+- Input:
+- Output:
+- Explanation:
 
-## LeetCode practice
+## LeetCode Practice
 - # - Easy
 - # - Medium
 - # - Hard
 
 ## Pitfalls
-- 
+-
 
-## Related patterns
+## Related Patterns
 - [[ ]]
 
 ---

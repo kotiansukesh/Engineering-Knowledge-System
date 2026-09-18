@@ -5,40 +5,81 @@ tags: [quality, scenarios]
 created: 2026-09-03
 completed: false
 ---
+## Why it Matters
 
-# Quality Scenarios
-
-## Intent
 Make qualities testable: stimulus → environment → response + measure (e.g. "p99 checkout < 300ms at 500 rps").
 
-## When / NOT
-- Use before design; each top quality gets ≥1 scenario.
-- NOT prose adjectives — if no number, it's not a scenario.
+## Diagram
 
-## Example
+```mermaid
+graph LR
+ So["Source: 1000 rps flash sale"] --> St[Stimulus: POST /checkout]
+ St --> Ar[Artifact: order API]
+ Ar --> En[Environment: prod EKS]
+ En --> Re[Response: order accepted]
+ Re --> Me["Measure: p99 < 300ms"]
+ Me --> T[Load test: k6/Gatling in CI]
+```
+
+## Code
+
 ```text
 Why six-part form: Source "1000 rps flash sale" → Stimulus "checkout POST" →
 Artifact "order API" → Env "prod EKS" → Response "served" → Measure "p99 < 300ms"
 ```
 
-## Pros / Cons
+## When to use / not
+
+- **Use:** before design starts, every top-3 quality attribute gets at least one scenario; the scenario is what converts an adjective into a tactic selection.
+- **Use:** when writing load tests and SLOs, the scenario *is* the test contract, so a k6/Gatling script can be written straight from it.
+- **Use:** in design reviews to end "is it fast enough?" debates, the answer is a comparison against a number, not an opinion.
+
+**When NOT:** do not write scenarios whose numbers are guesses presented as requirements, mark assumptions explicitly, or the scenario becomes false precision that misdirects capacity spend. Do not write prose adjectives: if a quality has no number and no environment, it is not a scenario and it will not be validated.
+
+## Trade-offs
+
 - Pros: drives tactics + load tests; ends debates.
-- Cons: false precision if measures are guesses — mark assumptions.
+- Cons: false precision if measures are guesses, mark assumptions.
 
 ## Vs
+
 | Bad | Good (scenario) |
 |-----|-----------------|
 | "Fast" | p99 < 300ms @ 500 rps |
 | "Highly available" | 99.9% monthly, RTO 15m |
 
-## Q&A
-1. **How many?** 5–8 total; 1–2 per top quality.
-2. **Format?** Stimulus–source–artifact–environment–response–measure.
-3. **Link to code?** Each scenario → Gatling/k6 or ArchUnit test.
-
 ## Pitfalls
+
 - No environment (prod vs staging numbers differ 10x).
 - Unowned scenarios nobody validates.
 
+## Interview q&a
+
+**Q: Write a quality scenario for checkout latency.**
+A: **Source**, mobile clients during a flash sale; **stimulus**, POST /checkout arriving at 500 rps sustained for 10 minutes; **artifact**, order API on prod EKS; **environment**, 3 AZs, primary Postgres + read replicas, Redis cache; **response**, order accepted and persisted; **response measure**, p99 < 300 ms, zero dropped requests below the rate limit. That's the contract; a k6 script implements it and the SLO dashboard monitors it in prod.
+
+**Q: How do you know the numbers aren't invented?**
+A: Distinguish targets from measurements: baseline the current system first, then set the threshold from business impact (conversion drop per 100 ms), and label any unmeasured assumption as such, "p99 < 300 ms is a hypothesis until staging load data exists". A scenario with a marked assumption is honest and improvable; one with false precision misallocates capacity budget.
+
+**Q: How many scenarios should a system have?**
+A: Five to eight total, one or two per top quality attribute, enough to cover the top-3 drivers (for us: performance, reliability, security) without becoming a test-suite that nobody owns. Each must have an owner or it silently dies at validation time.
+
+**Q: How do scenarios connect to the rest of the architecture?**
+A: They're the pivot point of traceability: the scenario selects the tactic (cache, async, retry, OAuth2), the scenario becomes the fitness function in CI, and the scenario justifies the ADR. Downstream, the same numbers reappear as SLO dashboards and error budgets, the scenario is the one artifact that stakeholders, developers, and SRE agree on because it's the same number in all three places.
+
 ## Related
+
 - [[Functional-vs-Constraints|Functional vs Constraints]], [[Fitness-Functions|Fitness Functions]]
+
+# Quality Scenarios
+
+## When / not
+
+- Use before design; each top quality gets ≥1 scenario.
+- NOT prose adjectives, if no number, it's not a scenario.
+
+## Q&A
+
+1. **How many?** 5–8 total; 1–2 per top quality.
+2. **Format?** Stimulus–source–artifact–environment–response–measure.
+3. **Link to code?** Each scenario → Gatling/k6 or ArchUnit test.

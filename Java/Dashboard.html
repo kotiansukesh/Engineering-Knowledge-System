@@ -110,7 +110,7 @@ button:hover{opacity:.92}
 <body>
 <div class="wrap">
   <h1>Java — Study Dashboard <span style="font-weight:400;color:var(--muted-foreground)">· Java 25 LTS</span></h1>
-  <p class="sub">Vault: <code style="font-size:11px;background:var(--border);padding:1px 5px;border-radius:4px">obsidian/Java</code> · 158 notes · 00→09 + 99_Revision · <a href="#" onclick="if(confirm('Reset ALL demo progress?')) resetProgress(); return false" style="color:var(--accent);text-decoration:underline">Reset progress</a> · <a href="#" onclick="openNote('Java/00_Java-25-Overview/Dashboard.md'); return false" style="color:var(--accent);text-decoration:underline">Dataview Dashboard</a> · <a href="#" onclick="openNote('Java/00_Java-25-Overview/Study Plan - Java LTS 8 to 25.md'); return false" style="color:var(--accent);text-decoration:underline">Study Plan 8→25</a> · <span style="font-size:11px;color:var(--muted-foreground)">Links open in Obsidian → <code>obsidian://open?path=Java/...</code> fallback</span></p>
+  <p class="sub">Vault: <code style="font-size:11px;background:var(--border);padding:1px 5px;border-radius:4px">obsidian/Java</code> · 191 notes · 00 to 10 + 99_Revision · <a href="#" onclick="if(confirm('Reset ALL demo progress?')) resetProgress(); return false" style="color:var(--accent);text-decoration:underline">Reset progress</a> · <a href="#" onclick="openNote('Java/00_Java-25-Overview/Dashboard.md'); return false" style="color:var(--accent);text-decoration:underline">Dataview Dashboard</a> · <a href="#" onclick="openNote('Java/99_Revision/Study Plan.md'); return false" style="color:var(--accent);text-decoration:underline">Study Plan</a> · <span style="font-size:11px;color:var(--muted-foreground)">Links open in Obsidian vault Java → <code>obsidian://open?vault=Java&file=...</code> fallback</span></p>
 
   <div class="kpis">
     <div class="kpi" onclick="openNote('Java/README.md')">
@@ -118,15 +118,15 @@ button:hover{opacity:.92}
       <div class="v" id="kpiProgress">—</div>
       <div class="hint" id="kpiProgressHint">—</div>
     </div>
-    <div class="kpi" onclick="openNote('Java/99_Revision/Java Plan.md')">
+    <div class="kpi" onclick="openNote('Java/99_Revision/Study Plan.md')">
       <label>Current phase</label>
-      <div class="v" style="font-size:14px" id="kpiPhase">Java Plan</div>
-      <div class="hint" id="kpiPhaseHint">W1 · Core Java</div>
+      <div class="v" style="font-size:14px" id="kpiPhase">Study Plan</div>
+      <div class="hint" id="kpiPhaseHint">Day 1 · Orientation</div>
     </div>
-    <div class="kpi" onclick="openNote('Java/99_Revision/Spring Plan.md')">
+    <div class="kpi" onclick="openNote('Java/99_Revision/Interview Questions.md')">
       <label>Next milestone</label>
-      <div class="v" style="font-size:14px">Spring Boot</div>
-      <div class="hint">14 days · Boot 3.5 + virtual threads</div>
+      <div class="v" style="font-size:14px">Mocks</div>
+      <div class="hint">Q and A bank + timed drills</div>
     </div>
   </div>
 
@@ -150,15 +150,15 @@ button:hover{opacity:.92}
           <div class="pills" id="ringPills"></div>
         </div>
       </div>
-      <div class="evo"><b>Study tracks:</b> <a href="#" data-hermes-send="open note: Java/99_Revision/Java Plan.md">Java Plan (21d)</a> — Core → OOP → Collections → Concurrency → DSA + Patterns → <a href="#" data-hermes-send="open note: Java/99_Revision/Spring Plan.md">Spring Plan (14d)</a> — Boot → MVC → JPA → Security → Patterns → Mocks</div>
+      <div class="evo"><b>Study Plan</b> is the only plan, 1 hour a day, days 1 to 81 plus mocks. <a href="#" data-hermes-send="open note: Java/99_Revision/Study Plan.md">Open Study Plan</a> at the first unchecked day</div>
     </div>
     <div class="card">
       <h3>⚡ Today's focus — <span id="todayWeek">Week 1</span></h3>
-      <div style="font-size:13px;font-weight:700" id="todayTitle">Java Plan · Day 1</div>
-      <div class="muted" style="margin:6px 0 8px" id="todayDesc">Classes + Interface + Method Overload — 60m</div>
+      <div style="font-size:13px;font-weight:700" id="todayTitle">Study Plan · Day 1</div>
+      <div class="muted" style="margin:6px 0 8px" id="todayDesc">Orientation + Core Java — 60m</div>
       <div style="display:grid;gap:6px" id="todayCards"></div>
       <div class="actions">
-        <button class="primary" onclick="openNote('Java/99_Revision/Java Plan.md')">▶ Open Java Plan</button>
+        <button class="primary" onclick="openNote('Java/99_Revision/Study Plan.md')">▶ Open Study Plan</button>
         <button data-hermes-send="Start quiz: Java Core (5 cards)">Quiz (5)</button>
       </div>
     </div>
@@ -171,11 +171,11 @@ button:hover{opacity:.92}
   </div>
 
   <div class="card">
-    <h3>📊 Progress by Folder <span style="text-transform:none;letter-spacing:0;font-weight:400;color:var(--muted-foreground)">— All / Java Plan / Spring Plan</span></h3>
+    <h3>📊 Progress by Folder <span style="text-transform:none;letter-spacing:0;font-weight:400;color:var(--muted-foreground)">— All / Core track / Backend track</span></h3>
     <div class="pills" style="margin-bottom:10px">
       <span class="pill on" id="planAll" onclick="setPlanFilter('all', this)">All</span>
-      <span class="pill" id="planJava" onclick="setPlanFilter('java', this)">☕ Java Plan</span>
-      <span class="pill" id="planSpring" onclick="setPlanFilter('spring', this)">🍃 Spring Plan</span>
+      <span class="pill" id="planJava" onclick="setPlanFilter('java', this)">☕ Core track</span>
+      <span class="pill" id="planSpring" onclick="setPlanFilter('spring', this)">🍃 Backend track</span>
     </div>
     <table class="progress-table">
       <thead><tr><th>Folder</th><th>Notes</th><th>Done</th><th style="width:38%">Progress</th><th></th></tr></thead>
@@ -186,7 +186,7 @@ button:hover{opacity:.92}
 
   <div class="grid2">
     <div class="list">
-      <h3>📋 This week — <span id="weekLabel">Java Plan · W1</span></h3>
+      <h3>📋 This week — <span id="weekLabel">Study Plan · Core</span></h3>
       <div id="weekRows"></div>
       <div class="actions"><button data-hermes-send="Mark Week 1 notes as reviewed and show next">Mark week done →</button><button class="ghost" data-hermes-send="Create a daily 9am revision cron for Java vault">Daily 9am</button></div>
     </div>
@@ -220,8 +220,8 @@ button:hover{opacity:.92}
   </div>
 
   <div class="foot">
-    <span>Built from <b>Java/README.md</b> + <b>Study Plans</b> · <a href="#" data-hermes-send="open note: Java/Study Plans.md" style="color:var(--accent);text-decoration:underline">Study Plans</a> → <a href="#" data-hermes-send="open note: Coding Patterns/README.md" style="color:var(--accent);text-decoration:underline">Patterns MOC</a></span>
-    <span>Next: <b id="footNext">W2 — OOP + Collections</b></span>
+    <span>Built from <b>Java/README.md</b> + <b>Study Plan</b> · <a href="#" data-hermes-send="open note: Java/99_Revision/Study Plan.md" style="color:var(--accent);text-decoration:underline">Study Plan</a> → <a href="#" data-hermes-send="open note: Coding Patterns/README.md" style="color:var(--accent);text-decoration:underline">Patterns MOC</a></span>
+    <span>Next: <b id="footNext">Days 4 to 27, Core to collections</b></span>
   </div>
 </div>
 
@@ -235,22 +235,24 @@ const FOLDERS = [
   {name:'05_Spring', notes:9, key:'done_spring', plan:'spring'},
   {name:'06_Design-Patterns', notes:29, key:'done_dp', plan:'spring'},
   {name:'07_DSA', notes:11, key:'done_dsa', plan:'java'},
+  {name:'10_LLD-Machine-Coding', notes:19, key:'done_lld', plan:'spring'},
   {name:'08_Modern-Java', notes:8, key:'done_modern', plan:'java'},
   {name:'09_Java-21-LTS', notes:10, key:'done_09', plan:'java'},
-  {name:'99_Revision', notes:5, key:'done_rev', plan:'both'},
+  {name:'99_Revision', notes:3, key:'done_rev', plan:'both'},
   {name:'Coding Patterns', notes:21, key:'done_cp', plan:'java'},
 ];
 const ROADMAP = [
-  {name:'00 LTS Overview 8→25', desc:'W0 · 10 notes · LTS Evolution + 8/11/17/21/25 overviews + Roadmap/Plan', plan:'java', badge:'Start here', active:true},
-  {name:'01 Core Java', desc:'W1–2 · 31 notes · Types, Streams, JVM, Generics (8-heavy)', plan:'java', badge:'Java 8'},
-  {name:'02 OOP', desc:'W2 · 11 notes · 4 pillars + sealed (17)', plan:'java', badge:'Java 17'},
-  {name:'03 Collections', desc:'W3 · 13 notes · Sequenced, HashMap', plan:'java', badge:''},
-  {name:'08 Modern Java', desc:'W4 · 8 notes · Records, Patterns, ScopedValue, Headers', plan:'java', badge:'Java 25'},
-  {name:'09 Java 21 LTS', desc:'W5 · 10 notes · Virtual Threads 444, Sequenced 431, FFM 442, ZGC 439', plan:'java', badge:'Java 21'},
-  {name:'04 Concurrency', desc:'W6 · 7 notes · Virtual threads, JEP 491, Structured', plan:'both', badge:'Loom'},
-  {name:'05 Spring', desc:'W7 · 9 notes · Boot 3.5 + virtual threads', plan:'spring', badge:'14d'},
-  {name:'06 Patterns', desc:'W8 · 29 notes · GoF as Spring uses them', plan:'spring', badge:''},
-  {name:'07 DSA + Patterns', desc:'W9–10 · 32 notes · Heap/Graph + 20 patterns', plan:'java', badge:'Mocks'},
+  {name:'00 LTS Overview 8 to 25', desc:'Days 1 to 3 · LTS map + whats new + interview rules', plan:'java', badge:'Start here', active:true},
+  {name:'01 Core Java', desc:'Days 4 to 15 · Types, Streams, JVM, Generics', plan:'java', badge:'Java 8'},
+  {name:'02 OOP', desc:'Days 16 to 22 · Pillars + SOLID + relationships', plan:'java', badge:'Java 17'},
+  {name:'03 Collections', desc:'Days 23 to 27 · Hierarchy + ArrayList + HashSet', plan:'java', badge:''},
+  {name:'07 DSA + Patterns', desc:'Days 28 to 40 · Heap/Graph + 20 coding patterns', plan:'java', badge:'Mocks'},
+  {name:'04 Concurrency', desc:'Days 41 to 44 · Virtual threads, pinning fix', plan:'both', badge:'Loom'},
+  {name:'08 Modern Java', desc:'Days 45 to 51 · Records, Patterns, ScopedValue, Headers', plan:'java', badge:'Java 25'},
+  {name:'09 Java 21 LTS', desc:'Days 45 to 51 · Virtual Threads 444, FFM 442, ZGC 439', plan:'java', badge:'Java 21'},
+  {name:'05 Spring', desc:'Days 52 to 61 · Boot 3.5 + slice build', plan:'spring', badge:'Slice'},
+  {name:'06 Patterns', desc:'Days 62 to 67 · GoF as Spring uses them', plan:'spring', badge:''},
+  {name:'10 LLD', desc:'Days 68 to 79 · Parking Lot, LRU, ATM, Splitwise', plan:'spring', badge:'Build'},
 ];
 const FLASH = [
   {q:'Why is String immutable?', a:'Security (pool), thread-safety, hashCode caching, final char[] + no setters. Java 25 compact headers keep it cheap.', tag:'Core'},
@@ -263,15 +265,15 @@ const FLASH = [
   {q:'Stack vs Heap vs Metaspace?', a:'Stack: frames → StackOverflow; Heap: objects → OOM/GC; Metaspace: class metadata.', tag:'JVM'},
 ];
 const WEEK_ROWS_JAVA = [
-  {wk:'W1', title:'Classes + Interface + Types', desc:'Language basics + nested types — 60m'},
-  {wk:'W1', title:'String + JVM + Streams', desc:'Pool, PECS, collectors — 75m'},
-  {wk:'W2', title:'OOP Pillars + Inheritance', desc:'Sealed + record patterns — 60m'},
-  {wk:'W2', title:'Collections + List/Set', desc:'ArrayList 1.5×, Sequenced — 75m'},
+  {wk:'D1', title:'Orientation + Core Java', desc:'LTS map, classes to streams — Days 1 to 15'},
+  {wk:'D16', title:'OOP + Collections', desc:'SOLID, hierarchy — Days 16 to 27'},
+  {wk:'D28', title:'DSA + Coding Patterns', desc:'Structures + 20 patterns — Days 28 to 40'},
+  {wk:'D41', title:'Concurrency + Modern Java', desc:'Threads, records, Loom — Days 41 to 51'},
 ];
 const WEEK_ROWS_SPRING = [
-  {wk:'W1', title:'Spring Boot + MVC', desc:'Auto-config, virtual threads — 75m'},
-  {wk:'W1', title:'JPA + Transaction', desc:'N+1 fix, proxy pitfall — 75m'},
-  {wk:'W2', title:'Security + Patterns', desc:'Filter chain, GoF as Spring — 75m'},
+  {wk:'D52', title:'Spring Core + Boot + MVC', desc:'Container, auto-config — Days 52 to 55'},
+  {wk:'D56', title:'JPA + Transaction + Security', desc:'N+1, proxy pitfall, filter chain — Days 56 to 58'},
+  {wk:'D62', title:'Patterns + LLD + Mocks', desc:'GoF as Spring, builds, drills — Days 62 to 81'},
 ];
 const CHEATS = [
   ['01_Core-Java/Cheat Sheet','01 Core Java','Records, Streams, JVM'],
@@ -299,10 +301,10 @@ function renderKPIs(){
   document.getElementById('ringToGo').textContent=(total-done)+' to go';
   document.getElementById('ringBar').style.width=p+'%';
   document.getElementById('ringPath').setAttribute('stroke-dasharray', p+', 100');
-  document.getElementById('ringPills').innerHTML=`<span class="pill ${activePlan==='all'?'on':''}">Active: ${activePlan==='java'?'Java Plan':activePlan==='spring'?'Spring Plan':'All'}</span><span class="pill">Overdue: ${Math.max(0,total-done)}</span><span class="pill">SR due: ${Math.max(0, Math.floor((286-done*2)/10))}</span>`;
+  document.getElementById('ringPills').innerHTML=`<span class="pill ${activePlan==='all'?'on':''}">Active: ${activePlan==='java'?'Core track':activePlan==='spring'?'Backend track':'All'}</span><span class="pill">Overdue: ${Math.max(0,total-done)}</span><span class="pill">SR due: ${Math.max(0, Math.floor((286-done*2)/10))}</span>`;
   const day=new Date().getDate()%30+1;
-  const phase=day<=7?'W1 Core':day<=14?'W2 OOP/Coll':day<=21?'W3 Concurrency/DSA':'Mocks';
-  document.getElementById('kpiPhase').textContent=activePlan==='spring'?'Spring Plan':activePlan==='java'?'Java Plan':'Java Plan';
+  const phase=day<=3?'Orientation':day<=15?'Core Java':day<=22?'OOP':day<=27?'Collections':day<=40?'DSA + Patterns':day<=44?'Concurrency':day<=51?'Modern + LTS':day<=61?'Spring':day<=67?'Patterns':day<=79?'LLD':'Mocks';
+  document.getElementById('kpiPhase').textContent='Study Plan';
   document.getElementById('kpiPhaseHint').textContent=phase+' · '+done+'/'+total+' done';
 }
 
@@ -311,7 +313,7 @@ function renderRoadmap(){
   el.innerHTML=ROADMAP.filter(r=> activePlan==='all' || r.plan==='both' || r.plan===activePlan).map(r=>`
     <div class="node">
       <div class="dot ${r.active?'active':''}"></div>
-      <div class="node-main ${r.active?'active':''}" onclick="openNote('Java/${r.name.includes('Core')?'01_Core-Java/README':r.name.includes('OOP')?'02_OOP/README':r.name.includes('Collections')?'03_Collections/README':r.name.includes('Concurrency')?'04_Concurrency/README':r.name.includes('Spring')?'05_Spring/README':r.name.includes('Patterns')?'06_Design-Patterns/README':'07_DSA/README'}')">
+      <div class="node-main ${r.active?'active':''}" onclick="openNote('Java/${r.name.includes('Core')?'01_Core-Java/README':r.name.includes('OOP')?'02_OOP/README':r.name.includes('Collections')?'03_Collections/README':r.name.includes('Concurrency')?'04_Concurrency/README':r.name.includes('Spring')?'05_Spring/README':r.name.includes('Patterns')?'06_Design-Patterns/README':(r.name.includes('10')||r.name.includes('LLD'))?'10_LLD-Machine-Coding/README':'07_DSA/README'}')">
         <div><b>${r.name}</b> <span class="desc">· ${r.desc}</span></div>
         <span class="badge ${r.active?'live':''}">${r.badge||'→'}</span>
       </div>
@@ -337,13 +339,13 @@ function bump(k,d){ const f=FOLDERS.find(x=>x.key===k); setDone(f,getDone(f)+d);
 
 function renderToday(){
   const day=new Date().getDate()%30+1;
-  const isSpring=activePlan==='spring';
-  const title=isSpring? `Spring Plan · Day ${day}` : `Java Plan · Day ${day}`;
-  const desc=isSpring? 'Boot + MVC + JPA — 75m' : 'Classes + Streams + Threads — 60m';
-  document.getElementById('todayWeek').textContent=isSpring?'Spring · Week 1':'Java · Week 1';
+  const isBackend=activePlan==='spring';
+  const title=`Study Plan · Day ${day}`;
+  const desc=isBackend? 'Spring + patterns + LLD — 60m' : 'Core + DSA + concurrency — 60m';
+  document.getElementById('todayWeek').textContent=isBackend?'Study Plan · Backend':'Study Plan · Core';
   document.getElementById('todayTitle').textContent=title;
   document.getElementById('todayDesc').textContent=desc;
-  const cards=isSpring? [
+  const cards=isBackend? [
     {icon:'🍃', title:'Build', desc:'Spring Boot + virtual threads'},
     {icon:'📖', title:'Study', desc:'MVC + JPA + Security'},
     {icon:'📏', title:'Eval', desc:'N+1 + TX proxy pitfall'},
@@ -358,13 +360,13 @@ function renderToday(){
 }
 
 function renderWeeks(){
-  const isSpring=activePlan==='spring';
-  const rows=isSpring? WEEK_ROWS_SPRING : WEEK_ROWS_JAVA;
-  document.getElementById('weekLabel').textContent=isSpring? 'Spring Plan · W1' : 'Java Plan · W1';
-  document.getElementById('weekRows').innerHTML=rows.map(r=>`
-    <div class="row"><div class="wk ${r.wk==='W1'?'live':''}">${r.wk}</div><div style="flex:1;min-width:0"><b>${r.title}</b><div class="muted">${r.desc}</div></div><button data-hermes-send="Quiz me on ${r.title}">Quiz</button></div>
+  const isBackend=activePlan==='spring';
+  const rows=isBackend? WEEK_ROWS_SPRING : WEEK_ROWS_JAVA;
+  document.getElementById('weekLabel').textContent=isBackend? 'Study Plan · Backend' : 'Study Plan · Core';
+  document.getElementById('weekRows').innerHTML=rows.map((r,i)=>`
+    <div class="row"><div class="wk ${i===0?'live':''}">${r.wk}</div><div style="flex:1;min-width:0"><b>${r.title}</b><div class="muted">${r.desc}</div></div><button data-hermes-send="Quiz me on ${r.title}">Quiz</button></div>
   `).join('');
-  document.getElementById('footNext').textContent=isSpring?'W2 — Security + Patterns':'W2 — OOP + Collections';
+  document.getElementById('footNext').textContent=isBackend?'Days 56 to 67, JPA to patterns':'Days 4 to 27, Core to collections';
 }
 
 function renderFlash(i){
@@ -394,20 +396,21 @@ function setPlanFilter(plan, btn){
   if(btn) btn.classList.add('on');
   renderKPIs(); renderRoadmap(); renderFolders(); renderToday(); renderWeeks(); renderCheats();
 }
-function openNote(p){ 
+function openNote(p){
   if(window.hermes?.send) { window.hermes.send('open note: '+p); return; }
-  // Try Obsidian URI (works when vault is open in Obsidian)
-  const obsidianUrl = 'obsidian://open?path=' + encodeURIComponent(p);
+  // Vault root is Java/ itself, so strip the prefix for the file param
+  const rel = p.replace(/^Java\//, '');
+  const obsidianUrl = 'obsidian://open?vault=' + encodeURIComponent('Java') + '&file=' + encodeURIComponent(rel);
   // Fallback: copy path + show instructions (no silent alert)
   try {
     window.open(obsidianUrl, '_blank');
     // Also copy to clipboard for manual Cmd+O
-    if(navigator.clipboard) navigator.clipboard.writeText(p);
+    if(navigator.clipboard) navigator.clipboard.writeText(rel);
     // Show subtle feedback instead of blocking alert
     const hint = document.getElementById('ringTip');
-    if(hint) { const old=hint.textContent; hint.textContent='Opening: '+p+' → paste in Obsidian Cmd+O if not auto-opened'; setTimeout(()=>hint.textContent=old, 4000); }
+    if(hint) { const old=hint.textContent; hint.textContent='Opening: '+rel+' in vault Java → paste in Obsidian Cmd+O if not auto-opened'; setTimeout(()=>hint.textContent=old, 4000); }
   } catch(e) {
-    prompt('Copy this path and use Obsidian Cmd+O → paste:', p);
+    prompt('Copy this path and use Obsidian Cmd+O → paste:', rel);
   }
 }
 function resetProgress(){ FOLDERS.forEach(f=> localStorage.removeItem(f.key)); localStorage.removeItem('streak'); renderKPIs(); renderFolders(); renderStreak(); renderFlash(curFlash); }

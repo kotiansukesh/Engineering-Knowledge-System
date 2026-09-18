@@ -4,14 +4,12 @@ type: folder-MOC
 tags: [MOC, production, coursera, microservices]
 weeks: "17-24"
 ---
-
-# 04_Production-Platform — Weeks 17–24 · Coursera C3–C7
+# 04_Production-Platform, Weeks 17–24 · Coursera C3–C7
 
 > Harden the platform you already have. Part of [[AI/README|AI MOC]]
 
-**Certification:** Coursera **C3–C7** (5 courses) — *Microservices Architecture for AI Systems*  
-**Mapping:** Each module extends [[AI/03_Agentic-AI/Enterprise AI Operations Platform|AI Operations Platform]] — no separate projects.
-
+**Certification:** Coursera **C3–C7** (5 courses), *Microservices Architecture for AI Systems*
+**Mapping:** Each module extends [[AI/03_Agentic-AI/Enterprise AI Operations Platform|AI Operations Platform]], no separate projects.
 ```dataview
 TABLE WITHOUT ID file.link as "Note", category as "Category", weeks as "Weeks"
 FROM "AI/04_Production-Platform"

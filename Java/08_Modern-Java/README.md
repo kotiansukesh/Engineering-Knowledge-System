@@ -1,13 +1,11 @@
 ---
-title: "Modern Java — 8 to 25"
+title: "Modern Java , 8 to 25"
 type: folder-MOC
 tags: [MOC, java25, modern-java]
 ---
-
-# 08 Modern Java — Java 8 → 25
+# 08 Modern Java , Java 8 → 25
 
 > What's new from lambdas to Loom, SequencedCollection, records, sealed, pattern matching, ScopedValue, compact headers. All runnable on **Java 25 LTS**. Part of [[../README|Java MOC]].
-
 ```dataview
 TABLE WITHOUT ID file.link as "Note", category as "Category"
 FROM "Java/08_Modern-Java"
@@ -24,7 +22,7 @@ WHERE category
 SORT file.name ASC
 ```
 
-## The 8 notes
+## The 8 Notes
 
 | # | Note | Version | Interview must-know |
 |---|------|---------|---------------------|
@@ -43,7 +41,7 @@ SORT file.name ASC
 - Deep dive? → open 01→08 in order (each is Intent → When/NOT → Code → Vs → Q&A).
 - Interview? → Q&A at bottom of each note + [[../00_Java-25-Overview/Interview Strategy|Interview Strategy]].
 
-[[../README|← Back to Java MOC]] • [[../00_Java-25-Overview/Study Plan - Java 25|Study Plan]] • [[../99_Revision/README|Revision]]
+[[../README|← Back to Java MOC]] • [[../99_Revision/Study Plan|Study Plan]] • [[../99_Revision/README|Revision]]
 
 ---
 *Category: modern-java*

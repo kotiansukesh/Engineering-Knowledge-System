@@ -5,19 +5,23 @@ tags: [architecture, microservices, distributed-systems, spring-cloud]
 created: 2026-09-03
 completed: false
 ---
+## Why it Matters
 
-# Microservices
+Microservices buy deployment and scaling independence at the cost of a network between everything you used to call for free. That trade is worth it only when organisational pain, many teams, conflicting release cadences, divergent scaling needs, is real; otherwise the same boundaries as modules cost an order of magnitude less.
 
-> **Intent:** Decompose a system into small, independently deployable services aligned to business capabilities (bounded contexts), each owning its data and communicating over the network — trading in-process simplicity for team autonomy and independent scalability.
+## Diagram
 
-## 1. When to Use
-- Multiple teams needing independent release cadences (Conway's law working *for* you).
-- Sub-domains with wildly different scaling/consistency needs.
-- Large monolith where build/test/deploy times block delivery.
+```mermaid
+graph LR
+ GW[Gateway: auth + rate-limit] --> O[Order-Svc + own Postgres]
+ GW --> I[Inventory-Svc + own DB]
+ O -->|events| K[(Kafka)]
+ K --> F[Fulfilment-Svc]
+ K --> N[Notification-Svc]
+ O -.@CircuitBreaker + @Retry.-> I
+```
 
-**When NOT:** < ~3 teams, unclear domain boundaries, no DevOps/observability maturity. Start modular, extract later (→ [[06_Monolith-vs-Modular-Choice-Guide]]).
-
-## 2. Spring Boot Example
+## Code
 
 ```java
 // Each service: own Boot app, own DB, own schema
@@ -25,52 +29,68 @@ completed: false
 public class OrderServiceApp { public static void main(String[] a) { SpringApplication.run(OrderServiceApp.class, a); } }
 
 // Inter-service call — typed client, resilience via Resilience4j
-@HttpExchange("/api/inventory")          // Spring 6 HTTP interface client
+@HttpExchange("/api/inventory") // Spring 6 HTTP interface client
 public interface InventoryClient {
-    @GetExchange("/{sku}") Availability check(@PathVariable String sku);
+ @GetExchange("/{sku}") Availability check(@PathVariable String sku);
 }
 // Resilience: @CircuitBreaker + @Retry on the calling service method
 @CircuitBreaker(name = "inventory", fallbackMethod = "assumeUnknown")
 @Retry(name = "inventory")
 public Availability reserve(String sku) { return client.check(sku); }
 ```
-
 Infra checklist: service discovery / gateway, distributed tracing (Micrometer + OTel), contract tests (Spring Cloud Contract), per-service Flyway/Liquibase.
 
-## 3. Pros / Cons
+## When to use / not
+
+- Multiple teams needing independent release cadences (Conway's law working *for* you).
+- Sub-domains with wildly different scaling/consistency needs.
+- Large monolith where build/test/deploy times block delivery.
+
+**When NOT:** < ~3 teams, unclear domain boundaries, no DevOps/observability maturity. Start modular, extract later (→ [[06_Monolith-vs-Modular-Choice-Guide]]).
+
+## Trade-offs
+
 | Pros | Cons |
 |---|---|
 | Independent deploy + scale per capability | Network is the new bottleneck (latency, failure modes) |
 | Team autonomy, polyglot-persistence possible | Distributed transactions → saga complexity |
 | Fault isolation (bulkheads) | 10× observability burden (trace, correlate, alert) |
-| Fits cloud autoscaling | Data consistency becomes eventual (see [[06_Data-Architecture/02_Consistency-CAP-PACELC|CAP/PACELC]]) |
+| Fits cloud autoscaling | Data consistency becomes eventual (see [[06_Data-Architecture/02_Consistency-CAP-PACELC\|CAP/PACELC]]) |
 
-## 4. Vs
+## Vs
+
 - **Vs Modular Monolith:** same module boundaries, zero network cost, one deployable. Microservices add *deployment* independence at *operational* cost.
-- **Vs [[04_Event-Driven-Architecture|Event-Driven]]:** orthogonal — microservices are a *deployment* style; events are a *communication* style often used between them.
+- **Vs [[04_Event-Driven-Architecture|Event-Driven]]:** orthogonal, microservices are a *deployment* style; events are a *communication* style often used between them.
 
-## 5. Interview Q&A
-**Q: How do services share data?**
-A: They don't share DBs — each owns its store; expose APIs/events; duplicate reference data via [[05_DDD-Modeling/05_Domain-Events|domain events]] and accept eventual consistency.
+## Pitfalls
 
-**Q: How do you handle a transaction across services?**
-A: Saga (choreography via events, or orchestration) with compensating actions — never 2PC/XA across services.
-
-**Q: How do you size a microservice?**
-A: By bounded context, not LOC — "independently replaceable by one team" is the test.
-
-## 6. Pitfalls
 - Distributed monolith: separate deploys but lock-step releases (shared DB or chatty sync calls).
-- Sync chains (`A→B→C` blocking) multiplying tail latency — prefer async events.
+- Sync chains (`A→B→C` blocking) multiplying tail latency, prefer async events.
 - No idempotency on consumers → duplicate side-effects on redelivery.
 
-## 7. Links
+## Interview q&a
+
+**Q: How do services share data?**
+A: They don't share DBs, each owns its store; expose APIs/events; duplicate reference data via [[05_DDD-Modeling/05_Domain-Events|domain events]] and accept eventual consistency.
+
+**Q: How do you handle a transaction across services?**
+A: Saga (choreography via events, or orchestration) with compensating actions, never 2PC/XA across services.
+
+**Q: How do you size a microservice?**
+A: By bounded context, not LOC, "independently replaceable by one team" is the test.
+
+## Related
+
 - [[06_Monolith-vs-Modular-Choice-Guide]] · [[04_Event-Driven-Architecture]] · [[05_DDD-Modeling/02_Bounded-Contexts|Bounded Contexts]] · [[04_Design-Patterns-Building-Blocks/02_Resilience-Circuit-Breaker-Retry|Resilience]]
 
-## 8. Microservices Patterns (in `04_Design-Patterns-Building-Blocks/`)
-- [[04_Design-Patterns-Building-Blocks/05_Decomposition-Bounded-Context|05 Decomposition]] — seams + strangler extract
-- [[04_Design-Patterns-Building-Blocks/06_Saga-Outbox-Inbox|06 Saga-Outbox-Inbox]] — consistent writes, safe redelivery
-- [[04_Design-Patterns-Building-Blocks/07_Discovery-Config-Registry|07 Discovery-Config]] — find services, roll config
-- [[04_Design-Patterns-Building-Blocks/04_API-Gateway-BFF|Gateway-BFF]] · [[04_Design-Patterns-Building-Blocks/02_Resilience-Circuit-Breaker-Retry|Circuit-Breaker-Retry]] · [[04_Design-Patterns-Building-Blocks/03_Caching-Strategies|Caching]]
+# Microservices
 
-<!-- Concept: microservices buy team throughput with operational complexity — only worth it past the modular-monolith ceiling. -->
+> **Intent:** Decompose a system into small, independently deployable services aligned to business capabilities (bounded contexts), each owning its data and communicating over the network, trading in-process simplicity for team autonomy and independent scalability.
+> Watch: [ByteByteGo, Microservices, and When Not To Use Them](https://www.youtube.com/watch?v=lTAcCNbJ7KE)
+
+## 8. Microservices Patterns (in`04_Design-Patterns-Building-Blocks/`)
+
+- [[04_Design-Patterns-Building-Blocks/05_Decomposition-Bounded-Context|05 Decomposition]], seams + strangler extract
+- [[04_Design-Patterns-Building-Blocks/06_Saga-Outbox-Inbox|06 Saga-Outbox-Inbox]], consistent writes, safe redelivery
+- [[04_Design-Patterns-Building-Blocks/07_Discovery-Config-Registry|07 Discovery-Config]], find services, roll config
+- [[04_Design-Patterns-Building-Blocks/04_API-Gateway-BFF|Gateway-BFF]] · [[04_Design-Patterns-Building-Blocks/02_Resilience-Circuit-Breaker-Retry|Circuit-Breaker-Retry]] · [[04_Design-Patterns-Building-Blocks/03_Caching-Strategies|Caching]]

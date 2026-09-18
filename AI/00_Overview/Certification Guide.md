@@ -5,6 +5,70 @@ tags: [ai, certification, nus-iss, coursera, ckad, isaqb]
 created: 2026-09-02
 completed: false
 ---
+## Why it Matters
+
+Certifications are the part of this plan that is easiest to do wrong: done cert-first they replace building, done last they validate nothing. This note fixes the sequencing so each credential lands **after** the corresponding platform phase exists, then the exam is a rehearsal of work already done, and an interview answer backed by a repo.
+
+## Diagram
+
+```mermaid
+flowchart LR
+ A["01 Fundamentals<br/>w1-4"] --> B["02 RAG<br/>w5-10"]
+ B --> C["03 Agentic<br/>w11-16"]
+ C --> D["04 Production<br/>w17-24"]
+ D --> E["05 K8s + CKAD<br/>w25-30"]
+ E --> F["06 Governance<br/>w31-36"]
+ C -.->|"NUS-ISS<br/>after agents"| G["Exam"]
+ E -.->|CKAD| G
+ F -.->|iSAQB SWARC4AI| G
+ G --> H["Each cert defends<br/>existing code"]
+```
+
+## Code
+
+```python
+
+## When to use / NOT
+
+- **Use:** when scheduling exams and deciding what to build in a given week.
+- **NOT:** as a reason to stop shipping — a cert without matching repo evidence fails a technical interview.
+
+## Trade-offs
+
+| Choice | Cost |
+|--------|------|
+| Build-first | Longer to the credential; each exam is easy because it is familiar |
+| Cert-first | Fastest to list a cert, weakest in an interview — nothing to show |
+| All four certs | Real time and money; two are enough for most roles |
+
+## Vs
+
+| Credential | Teaches | Proves to an interviewer |
+|------------|---------|------------------------|
+| Coursera microservices | Patterns | Coursework completed |
+| NUS-ISS agentic | Architecture decisions | You can defend agent trade-offs |
+| CKAD | K8s mechanics | You can actually deploy |
+| iSAQB CPSA-A | QA-driven architecture | You think in quality attributes, not features |
+
+## Pitfalls
+
+- Collecting credentials with no platform artifact to point at.
+- Sitting CKAD before deploying the platform once — it becomes memorisation.
+- Treating the Coursera specialisation as equivalent to the grad cert; depth differs.
+- Letting exam prep consume the build weeks that pay for it.
+
+## Interview Q&A
+
+- **Q:** Why do certifications at all after 13 years of experience? **A:** They are not for credibility, they are for coverage — SWARC4AI forces quality-attribute thinking I would otherwise skip, and CKAD forces me to deploy what I design rather than whiteboard it.
+- **Q:** Which one would you drop if you had half the time? **A:** The Coursera specialisation. The NUS-ISS module and CKAD map directly onto platform phases, so their cost is mostly absorbed by work I am doing anyway.
+- **Q:** How do I know you actually learned it? **A:** Each cert traces to a folder in the repo — the agents, the Helm charts, the ADRs. The credential is the receipt; the code is the answer.
+
+## Related
+
+- [[Roadmap Overview]] • [[AI/04_Production-Platform/README|04 Production]] • [[AI/06_Architecture-Governance/README|06 Governance]]
+
+---
+*Category: overview*
 
 # Certification Guide
 
@@ -51,12 +115,29 @@ completed: false
 ```
 Fundamentals → RAG (C1/C2) → Agentic (NUS-ISS) → Harden (C3-C7) → Deploy (CKAD) → Govern (iSAQB)
 ```
-
 Each step assumes the previous. NUS-ISS *before* hardening so you design the ecosystem before productionizing it.
 
-## Related
+# Certification <-> Platform Trace (Fills this in as Phases Land)
 
-- [[Roadmap Overview]] • [[AI/04_Production-Platform/README|04 Production]] • [[AI/06_Architecture-Governance/README|06 Governance]]
+# Cert: NUS-ISS "Architecting Agentic ai Solutions"
 
----
-*Category: overview*
+# Evidence: 03_Agentic-AI/Enterprise ai Operations Platform, 7 Agents, mcp Tools
+
+# Cert: CKAD
+
+# Evidence: 05_Kubernetes-Operations, Helm Charts for the Same Platform
+
+# Cert: ISAQB CPSA-A / SWARC4AI
+
+# Evidence: 06_Architecture-Governance, ADRs, Drift + eu ai act Checklist
+
+CERTS = [
+ {"cert": "NUS-ISS agentic", "after_week": 16, "evidence": "AI Operations Platform"},
+ {"cert": "CKAD", "after_week": 30, "evidence": "Helm + probes + HPA deployed"},
+ {"cert": "SWARC4AI", "after_week": 36, "evidence": "ADRs + governance checklist"},
+]
+
+def ready(c, week: int) -> bool:
+ """Book the exam only when the platform evidence exists."""
+ return week >= c["after_week"]
+```

@@ -5,60 +5,102 @@ tags: [ddd, strategic-design, ubiquitous-language, subdomain]
 created: 2026-09-03
 completed: false
 ---
+## Why it Matters
 
-# Strategic DDD
+Before any technical decision, you have to know which part of the system is actually the business. Strategic DDD turns that into a concrete deliverable: a subdomain map that says where custom code buys competitive advantage and where it just burns calendar time. Get it wrong and your best engineers spend a year building auth; get it right and architecture effort flows to the core.
 
-> **Intent:** Model the *business*, not the database: carve the problem space into subdomains, speak one ubiquitous language per context, and invest architecture effort where competitive advantage lives (core) while containing the rest (supporting/generic).
+## Diagram
 
-## 1. When to Use
-- Any system where misunderstood requirements cost more than code — i.e. most backend systems.
-- Precedes every other decision here: no strategic map → [[02_Bounded-Contexts]] and [[03_Microservices|service splits]] are guesses.
-- Revisit when language diverges ("order" means 3 things in standup) — that's a missing boundary.
-
-**Triage:** Core (differentiator — best engineers, custom code) · Supporting (necessary, buy-or-boring) · Generic (commodity — adopt, don't build: auth, billing, email).
-
-## 2. Spring Example (language → code)
-
-```java
-// Ubiquitous language made executable: "an Order is placed with items,
-// then paid, then shipped; a shipped Order cannot be cancelled."
-class Order {
-    void cancel() {
-        if (status == SHIPPED) throw new DomainException("shipped orders cannot be cancelled");
-        status = CANCELLED;
-        register(new OrderCancelled(id)); // → [[05_Domain-Events]]
-    }
-}
-// Subdomain triage visible in repo layout:
-// com.shop.pricing (core, custom) vs com.shop.notification (supporting, thin) vs auth (generic, off-shelf)
+```mermaid
+graph LR
+ DOM[Problem space] --> S1[Core: pricing, checkout — best engineers, custom]
+ DOM --> S2[Supporting: shipping labels — buy or boring]
+ DOM --> S3[Generic: auth, billing, email — adopt, never build]
+ S1 --> C1[bounded context A]
+ S2 --> C2[bounded context B]
+ S3 --> C3[bounded context C: off-the-shelf]
 ```
 
-Event Storming (the workshop): orange stickies = domain events, blue = commands, yellow = aggregates — walk the business flow before drawing boxes.
+## Code
 
-## 3. Pros / Cons
+```java
+// Subdomain triage visible in the repository layout — structure follows value
+package com.shop.pricing; // CORE : custom rules, best engineers, own model
+package com.shop.shipping; // SUPPORTING: thin adapter over a carrier API
+package com.shop.auth; // GENERIC : off-the-shelf Keycloak, don't build
+
+// Ubiquitous language made executable — a domain rule, not a comment:
+// "A shipped Order cannot be cancelled."
+sealed interface OrderStatus permits Placed, Paid, Shipped, Cancelled {}
+final class Order {
+ private final OrderStatus status;
+ Order cancel() {
+ return switch (status) {
+ case Shipped -> throw new DomainException("shipped orders cannot be cancelled");
+ default -> new Order(id, items, Cancelled);
+ };
+ }
+}
+record Order(long id, List<Line> items, OrderStatus status) {}
+```
+
+## When to use / not
+
+- Any system where misunderstood requirements cost more than code, i.e. most backend systems.
+- Precedes every other decision here: no strategic map → [[02_Bounded-Contexts]] and [[03_Microservices|service splits]] are guesses.
+- Revisit when language diverges ("order" means 3 things in standup), that's a missing boundary.
+
+**Triage:** Core (differentiator, best engineers, custom code) · Supporting (necessary, buy-or-boring) · Generic (commodity, adopt, don't build: auth, billing, email).
+
+## Trade-offs
+
 | Pros | Cons |
 |---|---|
 | Requirements encoded in code vocabulary (fewer translation bugs) | Upfront workshop time; feels slow |
-| Focuses quality spend on core domain | Needs real domain-expert access — scarce |
+| Focuses quality spend on core domain | Needs real domain-expert access, scarce |
 | Stable seams for services/modules | Over-modelling generic subdomains wastes effort |
 
-## 4. Vs
+## Vs
+
 - **Vs data-first modelling:** data-first asks "what tables?"; strategic DDD asks "what business capabilities, and which matter?" Tables follow contexts, not vice versa.
 - **Vs [[03_Architecture-Styles/06_Monolith-vs-Modular-Choice-Guide|tech-first splits]]:** split by subdomain value, not by class count.
 
-## 5. Interview Q&A
+## Pitfalls
+
+- Ubiquitous language that only devs speak, experts must use (and correct) it.
+- One shared "Order" object across contexts, see [[02_Bounded-Contexts]].
+- Treating generic subdomains as interesting work (build auth yourself = delay).
+
+## Interview q&a
+
 **Q: How do you find subdomains?**
 A: Event Storming + capability mapping with domain experts; cluster events that change together; confirm with change-frequency and language divergence.
 
 **Q: What marks a core domain?**
 A: Competitive edge + complex rules + high change rate. If you'd demo it to win a customer, it's core.
 
-## 6. Pitfalls
-- Ubiquitous language that only devs speak — experts must use (and correct) it.
-- One shared "Order" object across contexts — see [[02_Bounded-Contexts]].
-- Treating generic subdomains as interesting work (build auth yourself = delay).
+## Related
 
-## 7. Links
 - [[02_Bounded-Contexts]] · [[03_Context-Mapping]] · [[04_Tactical-Aggregates-Entities-VO]]
 
-<!-- Concept: strategy first — decide WHERE the complexity deserves to live before modelling HOW. -->
+# Strategic ddd
+
+> **Intent:** Model the *business*, not the database: carve the problem space into subdomains, speak one ubiquitous language per context, and invest architecture effort where competitive advantage lives (core) while containing the rest (supporting/generic).
+> Watch: [Domain Driven Design: What You Need To Know](https://www.youtube.com/watch?v=4rhzdZIDX_k)
+
+## 2. Spring Example (Language → Code)
+
+```java
+// Ubiquitous language made executable: "an Order is placed with items,
+// then paid, then shipped; a shipped Order cannot be cancelled."
+class Order {
+ void cancel() {
+ if (status == SHIPPED) throw new DomainException("shipped orders cannot be cancelled");
+ status = CANCELLED;
+ register(new OrderCancelled(id)); // → [[05_Domain-Events]]
+ }
+}
+// Subdomain triage visible in repo layout:
+// com.shop.pricing (core, custom) vs com.shop.notification (supporting, thin) vs auth (generic, off-shelf)
+```
+Event Storming (the workshop): orange stickies = domain events, blue = commands, yellow = aggregates, walk the business flow before drawing boxes.

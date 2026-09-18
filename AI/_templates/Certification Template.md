@@ -1,14 +1,13 @@
 ---
 title: "{{title}}"
-category: 
+category:
 tags: [ai, certification]
 weeks: ""
 created: 2026-09-02
 completed: false
 cert: ""
 ---
-
-# {{title}} — Certification
+# {{Title}}, Certification
 
 > Part of [[README|MOC]] • `certification` • Weeks {{weeks}}
 
@@ -24,7 +23,7 @@ cert: ""
 
 ## Pros / Cons
 
-## Interview Q&A
+## Interview q&a
 
 ## Related
 

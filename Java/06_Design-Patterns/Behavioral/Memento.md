@@ -6,15 +6,102 @@ tags: [design-patterns, behavioral, memento]
 pattern: memento
 source: "https://refactoring.guru/design-patterns/memento"
 created: 2026-09-02
-updated: 2026-09-02
+updated: 2026-09-04
 ---
-# Memento *Also known as: Snapshot*
+# Memento *Also Known as: Snapshot*
 
-> Category: Behavioral • Source: [Refactoring.Guru — Memento](https://refactoring.guru/design-patterns/memento) • Part of [[README|Java MOC]] → [[06_Design-Patterns/README|Design Patterns MOC]]
+> Category: Behavioral • Source: [Refactoring.Guru , Memento](https://refactoring.guru/design-patterns/memento) • Part of [[Java/README|Java MOC]] → [[06_Design-Patterns/README|Design Patterns MOC]]
 
-## Intent
+## Why it Matters
 
-Captures and restores an object's state without exposing its internals.
+Captures and **restores an object's state** without exposing its **internals**.
+
+## Diagram
+
+```mermaid
+classDiagram
+ class Editor {
+ +save() Snap
+ +restore(Snap)
+ }
+ class Snap {
+ <<record>>
+ }
+ class Caretaker {
+ <<history stack>>
+ }
+ Editor ..> Snap : creates
+ Caretaker o-- Snap : holds
+```
+
+## Code
+
+```java
+public class MementoDemo {
+ static class Editor {
+ private String text = "";
+ void type(String s) { text += s; }
+ // Snapshot is immutable; only the Editor that made it can restore it
+ record Snap(String text) {}
+ Snap save() { return new Snap(text); }
+ void restore(Snap s) { text = s.text(); }
+ public String toString() { return text; }
+ }
+ public static void main(String[] args) {
+ var ed = new Editor(); var history = new java.util.ArrayDeque<Editor.Snap>();
+ ed.type("hello "); history.push(ed.save());
+ ed.type("world"); System.out.println(ed); // => hello world
+ ed.restore(history.pop()); System.out.println(ed); // => hello
+ }
+}
+```
+The demo proves encapsulated undo: printing "hello world" then restoring the snapshot prints "hello " with no field ever exposed.
+
+## When to use / not
+
+- Undo/rollback of state is needed without exposing internals.
+- Snapshots must be opaque tokens the caretaker cannot tamper with.
+- History is bounded (a few steps, not infinite).
+
+## Trade-offs
+
+Use for undo where you must not leak internal state. Records give a compact immutable memento. Storing many large mementos costs memory, so cap history or keep deltas.
+
+## Vs
+
+| Pattern | Use when |
+|---------|----------|
+| Memento | Save and restore state, keep encapsulation |
+| Command undo | Request object stores reverse action |
+
+## Pitfalls
+
+- Unbounded undo history , cap depth and size.
+- Mementos leaking mutable internals (handing out the live list).
+- Saving snapshots on every keystroke without throttling.
+
+## Interview q&a
+
+**Q: How long do you keep mementos?**
+
+Only as long as undo is needed. Large or many snapshots cost memory, so bound history.
+
+**Q: How does Memento protect encapsulation?**
+
+The snapshot is opaque and immutable: the caretaker only holds and returns it without reading it, and only the originator can create or restore from it, so internal representation never leaks.
+
+**Q: Memento vs serialized snapshot , which survives?**
+
+Memento keeps encapsulation: the token is opaque, versioning stays inside the originator. Serialized snapshots leak field shape and break across refactors. Use mementos for in-session undo, serialization for durable persistence , and bound both.
+
+: How long do you keep mementos?:: Only as long as undo is needed. Large or many snapshots cost memory, so bound history. **Q: How does Memento protect encapsulation?** The snapshot is opaque and immutable: the caretaker only holds and returns it without reading it, and only the originator can create or restore from it, so internal representation never leaks. **Q: Memento vs serialized snapshot , which survives?** Memento keeps encapsulation: the token is opaque, versioning sta... #flashcard
+
+## Related
+
+[[06_Design-Patterns/Behavioral/Command|Command]] (action undo) • [[06_Design-Patterns/Behavioral/State|State]] (state-driven behavior) • [[06_Design-Patterns/Behavioral/Iterator|Iterator]]
+
+---
+*Category: Behavioral • Tags: design-patterns • Source: refactoring.guru*
 
 ## Problem
 
@@ -24,45 +111,10 @@ Editor needs undo but exposing all fields breaks encapsulation.
 
 Let the originator create an opaque snapshot record and restore from it. A caretaker holds snapshots.
 
-## Structure
+## When not to use
 
-```
-Editor creates Snap records and restores from them. Caretaker keeps the stack but cannot read the snapshot internals.
-```
-
-## Trade-offs
-
-Use for undo where you must not leak internal state. Records give a compact immutable memento. Storing many large mementos costs memory, so cap history or keep deltas.
-
-## Java example
-
-```java
-
-// Purpose: Memento captures and restores internal state without violating encapsulation
-// Participants: Editor, Snap
-// Behavior: Factory/creation or delegation without exposing concrete construction
-// Invariant: favors composition and abstraction over concrete coupling
-```
-
-Records keep data immutable and concise. Sealed plus switch makes the dispatch exhaustive without extra types.
-
-## Versus
-
-| Pattern | Use when |
-|---------|----------|
-| Memento | Save and restore state, keep encapsulation |
-| Command undo | Request object stores reverse action |
-
-## Interview Q&A
-
-**Q: How long do you keep mementos?**
-
-Only as long as undo is needed. Large or many snapshots cost memory, so bound history.
-
-**Q: What is the simplest Java 25 way to write this?**
-
-Record for data, sealed interface for the closed set, and switch for dispatch. Keep the example to about ten lines and use var at the call site.
-
----
-
-*Category: Behavioral • Tags: design-patterns • Source: refactoring.guru*
+| Instead | Use |
+|---------|-----|
+| Undoing actions, not state | Command with inverse |
+| Long-term persistence | Serialization / DB |
+| Unbounded history | Cap it or use event sourcing |

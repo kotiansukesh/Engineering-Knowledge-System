@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "01_Fundamentals/06_Tool Calling.md",
+                "file": "README.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "06_Tool Calling"
+              "title": "README"
             }
           }
         ]
@@ -169,8 +169,19 @@
               "icon": "lucide-list",
               "title": "Outline"
             }
+          },
+          {
+            "id": "5c1f5249ffc2b515",
+            "type": "leaf",
+            "state": {
+              "type": "review-queue-list-view",
+              "state": {},
+              "icon": "lucide-ghost",
+              "title": "review-queue-list-view"
+            }
           }
-        ]
+        ],
+        "currentTab": 5
       }
     ],
     "direction": "horizontal",
@@ -185,15 +196,38 @@
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
-      "bases:Create new base": false
+      "bases:Create new base": false,
+      "templater-obsidian:Templater": false,
+      "obsidian-spaced-repetition:Review flashcards": false
     }
   },
-  "active": "8d73d0977e8a48b9",
+  "active": "5c1f5249ffc2b515",
   "lastOpenFiles": [
+    "README.md",
+    "07_Cross-Cutting/README.md",
+    "00_Overview/Roadmap Overview.md",
+    "00_Overview/Certification Guide.md",
     "00_Overview/2026 Trends Update.md",
+    "07_Cross-Cutting/02_AI Evaluation.md",
+    "03_Agentic-AI/LangGraph-Fundamentals.md",
+    "03_Agentic-AI/Human-in-the-Loop.md",
+    "02_RAG-Engineering/Agentic-Adaptive-Corrective-RAG.md",
+    "07_Cross-Cutting/01_MCP.md",
+    "07_Cross-Cutting/06_Multi-Model Routing.md",
+    "07_Cross-Cutting/MCP Comparison Table.md",
+    "00_Overview/Weekly Tracker.md",
+    "03_Agentic-AI/Enterprise AI Operations Platform.md",
+    "03_Agentic-AI/Architecting Agentic AI Solutions.md",
+    "02_RAG-Engineering/01_LLM Engineering with RAG.md",
+    "02_RAG-Engineering/02_Design LLM Architectures.md",
+    "02_RAG-Engineering/Checklist.md",
+    "02_RAG-Engineering/Enterprise Document Search.md",
+    "02_RAG-Engineering/RAG Variants and Retrieval Strategies.md",
+    "02_RAG-Engineering/README.md",
+    "01_Fundamentals/AI Backend Template.md",
+    "01_Fundamentals/06_Tool Calling.md",
     "01_Fundamentals/05_Structured Outputs.md",
     "01_Fundamentals/AI Coding Assistant.md",
-    "01_Fundamentals/01_Python for AI.md",
-    "00_Overview/Roadmap Overview.md"
+    "01_Fundamentals/01_Python for AI.md"
   ]
 }

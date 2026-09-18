@@ -7,12 +7,7 @@ leetcode: [643, 3, 76]
 created: 2026-09-02
 source: "https://blog.algomaster.io/p/20-dsa-patterns"
 ---
-
-# Sliding window
-
-> Part of [[README|20 DSA Patterns]], Pattern #3
-
-## Definition
+## Why it Matters
 
 A window `[l, r]` slides across the array. Expand `r` one step, then shrink `l` until the window satisfies the condition again. Each element enters and leaves once, so O(n).
 
@@ -20,50 +15,74 @@ Two flavors: fixed size `k` (max sum of k elements) and variable size (longest s
 
 Example fixed-k: `nums=[2,1,5,1,3,2]`, `k=3` → first window sum `8` (2+1+5), slide to `7` (1+5+1), then `9` (5+1+3), best is `9`.
 
-## When to use
+## Diagram
+
+```mermaid
+flowchart LR
+ Init["l=0, r=0"] --> Loop["for r in 0..n"]
+ Loop --> Add["add nums[r] to window"]
+ Add --> Bad{"window invalid?"}
+ Bad -->|yes| Shrink["shrink l while invalid"]
+ Shrink --> Ans
+ Bad -->|no| Ans["update best with r-l+1"]
+ Ans --> Loop
+```
+Both pointers only move forward, so each element is added once and removed once, O(n) regardless of window flavor.
+
+## Code
+
+```java
+// Fixed k, max sum of k consecutive
+int maxSumK(int[] nums, int k) {
+ int sum = 0;
+ for (var i = 0; i < k; i++) sum += nums[i];
+ int best = sum;
+ for (var i = k; i < nums.length; i++) {
+ sum += nums[i] - nums[i - k];
+ best = Math.max(best, sum);
+ }
+ return best;
+}
+
+// Variable, longest substring without repeating chars, LC 3
+int lengthOfLongestSubstring(String s) {
+ var cnt = new java.util.HashMap<Character,Integer>();
+ int l = 0, ans = 0;
+ for (var r = 0; r < s.length(); r++) {
+ cnt.put(s.charAt(r), cnt.getOrDefault(s.charAt(r), 0) + 1);
+ while (cnt.get(s.charAt(r)) > 1) {
+ cnt.put(s.charAt(l), cnt.get(s.charAt(l)) - 1);
+ l++;
+ }
+ ans = Math.max(ans, r - l + 1);
+ }
+ return ans;
+}
+```
+For fixed-k, do not recompute the sum from scratch each time. For variable windows, use `while` to shrink, not `if`, and update the answer after the window is valid again.
+
+## When to use / not
 
 - Need a contiguous subarray or substring with a max, min, longest, or shortest condition
 - Keywords: "contiguous", "subarray", "substring", "maximum window", "longest without repeating"
 
-## Complexity
+## Trade-offs
 
 | type | time | space |
 |---|---|---|
 | fixed k | O(n) | O(1) |
 | variable + map | O(n) | O(k) for frequency map |
 
-## Java example
+## Vs
 
-```java
-// Fixed k, max sum of k consecutive
-int maxSumK(int[] nums, int k) {
-    int sum = 0;
-    for (var i = 0; i < k; i++) sum += nums[i];
-    int best = sum;
-    for (var i = k; i < nums.length; i++) {
-        sum += nums[i] - nums[i - k];
-        best = Math.max(best, sum);
-    }
-    return best;
-}
+| | Sliding window | Two pointers | Prefix sum |
+|---|---|---|---|
+| window | contiguous, both ends advance forward | two ends walking inward | no window |
+| solves | longest/shortest substring, fixed-k sums | pair, palindrome, sorted search | static range sums |
+| needs order | any sequence | sorted for two-sum | immutable array |
+| space | O(1) fixed-k, O(k) variable | O(1) | O(n) |
 
-// Variable, longest substring without repeating chars, LC 3
-int lengthOfLongestSubstring(String s) {
-    var cnt = new java.util.HashMap<Character,Integer>();
-    int l = 0, ans = 0;
-    for (var r = 0; r < s.length(); r++) {
-        cnt.put(s.charAt(r), cnt.getOrDefault(s.charAt(r), 0) + 1);
-        while (cnt.get(s.charAt(r)) > 1) {
-            cnt.put(s.charAt(l), cnt.get(s.charAt(l)) - 1);
-            l++;
-        }
-        ans = Math.max(ans, r - l + 1);
-    }
-    return ans;
-}
-```
-
-For fixed-k, do not recompute the sum from scratch each time. For variable windows, use `while` to shrink, not `if`, and update the answer after the window is valid again.
+A window has memory: its state carries between steps. Two pointers are stateless comparisons.
 
 ## Pitfalls
 
@@ -71,12 +90,16 @@ For fixed-k, do not recompute the sum from scratch each time. For variable windo
 - Variable: update answer after shrinking, not before.
 - Use `HashSet` when you only care about existence, `HashMap` when you count.
 
-## Practice
+## Interview q&a
 
 - [643. Maximum Average Subarray I](https://leetcode.com/problems/maximum-average-subarray-i/)
 - [3. Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/)
 - [76. Minimum Window Substring](https://leetcode.com/problems/minimum-window-substring/)
 
-## Related DSA notes
+## Related
 
 - [[Java/07_DSA/Array]]
+
+# Sliding Window
+
+> Part of [[README|20 DSA Patterns]], Pattern #3

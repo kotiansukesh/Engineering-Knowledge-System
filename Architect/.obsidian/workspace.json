@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "01_Architecture-Foundations/Architecture-Principles.md",
+                "file": "README.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Architecture-Principles"
+              "title": "README"
             }
           }
         ]
@@ -169,8 +169,19 @@
               "icon": "lucide-list",
               "title": "Outline"
             }
+          },
+          {
+            "id": "7305e53b4c14b63b",
+            "type": "leaf",
+            "state": {
+              "type": "review-queue-list-view",
+              "state": {},
+              "icon": "lucide-ghost",
+              "title": "review-queue-list-view"
+            }
           }
-        ]
+        ],
+        "currentTab": 5
       }
     ],
     "direction": "horizontal",
@@ -179,19 +190,37 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "templater-obsidian:Templater": false,
       "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
       "canvas:Create new canvas": false,
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
-      "bases:Create new base": false
+      "bases:Create new base": false,
+      "obsidian-spaced-repetition:Review flashcards": false
     }
   },
   "active": "4771ca9599eecaa8",
   "lastOpenFiles": [
-    "01_Architecture-Foundations/Architect-Roles.md",
+    "00_Overview/Dashboard.md",
+    "99_Revision/README.md",
+    "09_Governance-Documentation/README.md",
+    "08_NonFunctional-Ops/README.md",
+    "06_Data-Architecture/README.md",
+    "05_DDD-Modeling/README.md",
+    "04_Design-Patterns-Building-Blocks/README.md",
+    "03_Architecture-Styles/README.md",
+    "02_Requirements-Quality-Attributes/README.md",
+    "01_Architecture-Foundations/README.md",
+    "99_Revision/Capstone-Checklist.md",
+    "99_Revision/Interview-Bank.md",
     "04_Design-Patterns-Building-Blocks/06_Saga-Outbox-Inbox.md",
+    "04_Design-Patterns-Building-Blocks/03_Caching-Strategies.md",
+    "04_Design-Patterns-Building-Blocks/02_Resilience-Circuit-Breaker-Retry.md",
+    "04_Design-Patterns-Building-Blocks/01_Enterprise-Patterns.md",
+    "01_Architecture-Foundations/Architect-Roles.md",
+    "01_Architecture-Foundations/Architecture-Principles.md",
     "04_Design-Patterns-Building-Blocks/07_Discovery-Config-Registry.md",
     "08_NonFunctional-Ops/01_Security-OAuth2-JWT.md",
     "04_Design-Patterns-Building-Blocks/05_Decomposition-Bounded-Context.md",

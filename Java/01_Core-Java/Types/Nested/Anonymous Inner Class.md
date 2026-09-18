@@ -3,32 +3,33 @@ title: "Anonymous Inner Class"
 category: Core-Java
 tags: [java, class, nested, java25]
 created: 2026-01-18
-updated: 2026-09-02
+updated: 2026-09-04
 ---
 # Anonymous Inner Class
+> Part of [[Java/01_Core-Java/README|Core Java]]
 
 > An inner class without a name, declared and instantiated at the point of use. It is a one-off subclass or interface implementation.
 
 A special case of inner class, no `class` name, created as an expression: `new Interface() { ... }` or `new SuperClass() { ... }`.
 
-## Why it matters
+## Why it Matters
 
 Inline a short-lived implementation without creating a named file, listeners, callbacks, comparators.
 
-## When to use it
+## Diagram
 
-| Use | Avoid |
-|-----|-------|
-| Single-use callback / listener | Reused logic, create a named class |
-| Need to override multiple methods inline | Functional interface, prefer lambda (more concise) |
-| Before lambdas (or non-functional interfaces) | Complex bodies, readability suffers |
+```mermaid
+flowchart LR
+ NEW["new Runnable() { run() {...} }"] --> ONE["single-use impl"]
+ ONE --> PASS["passed to
+listener/executor"]
+```
 
-## A quick example
+## Code
 
 > **Java 25:** Anonymous inner classes unchanged, prefer lambda for SAM; `var` and pattern matching available in enclosing code; no header change beyond Compact Object Headers.
 
 Runnable Java 25, anonymous inner class vs lambda:
-
 ```java
 import java.util.*;
 
@@ -43,33 +44,31 @@ public class AnonymousInnerClassDemo {
 
  // Lambda equivalent (functional interface)
  Comparator<String> cmpLambda = Comparator.comparingInt(String::length);
-    }
+ }
 }
 ```
 
+## When to use / not
+
+| Use | Avoid |
+|-----|-------|
+| Single-use callback / listener | Reused logic, create a named class |
+| Need to override multiple methods inline | Functional interface, prefer lambda (more concise) |
+| Before lambdas (or non-functional interfaces) | Complex bodies, readability suffers |
+
 ## Trade-offs
+
 - Quick inline customization without new file.
 - Can override any class/interface, multiple methods.
 - Verbose vs lambda for functional interfaces.
-## How it compares
+
+## Vs
 
 | Aspect | Anonymous Inner Class | Lambda | Named Inner Class |
 |--------|----------------------|--------|-------------------|
 | Target | Any class / interface | Functional interfaces only | Any |
 | `this` | Refers to anonymous instance | Refers to enclosing instance | Own instance |
 | State / ctor | Instance initializer only | No state | Full |
-## Interview notes
-
-**Q1. Lambda vs anonymous class, key difference?**
-Lambda: no new type scope, `this` is enclosing instance, only functional interfaces. Anonymous: real subclass, own `this`, can have state/initializers, any interface.
-
-**Q2. Can anonymous class capture local variables?**
-Yes, if final or effectively final.
-## Related
-
-- [[Types/Anonymous Class|Anonymous Class]] (top-level overview)
-- [[Types/Nested Classes Overview|Nested Classes Overview]]
-- [[Interface]], functional interfaces
 
 ## Pitfalls
 
@@ -79,3 +78,19 @@ Yes, if final or effectively final.
 
 ---
 *Category: Core-Java • java25*
+
+## Interview q&a
+
+**Q1. Lambda vs anonymous class, key difference?**
+Lambda: no new type scope, `this` is enclosing instance, only functional interfaces. Anonymous: real subclass, own `this`, can have state/initializers, any interface.
+
+**Q2. Can anonymous class capture local variables?**
+Yes, if final or effectively final.
+Lambda vs anonymous class, key difference?:: Lambda: no new type scope, `this` is enclosing instance, only functional interfaces. Anonymous: real subclass, own `this`, can have state/initializers, any interface. #flashcard
+Can anonymous class capture local variables?:: Yes, if final or effectively final. #flashcard
+
+## Related
+
+- [[Java/01_Core-Java/Types/Anonymous Class|Anonymous Class]] (top-level overview)
+- [[Java/01_Core-Java/Types/Nested Classes Overview|Nested Classes Overview]]
+- [[Interface]], functional interfaces

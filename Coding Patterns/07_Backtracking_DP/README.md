@@ -4,11 +4,9 @@ type: folder-MOC
 tags: [MOC]
 category: 07_Backtracking_DP
 ---
-
-# Backtracking, Greedy & DP Patterns
+# Backtracking, Greedy & dp Patterns
 
 > Combinatorial generation, greedy optimization and dynamic programming | Patterns 17, 19, 20/20 | Part of [[README|Master MOC]]
-
 ```dataview
 TABLE pattern as "#", title as "Pattern", leetcode as "LeetCode", completed as "Done"
 FROM "Coding Patterns/07_Backtracking_DP"

@@ -3,30 +3,32 @@ title: "Method Overloading"
 category: Core-Java
 tags: [java, methods, java25]
 created: 2026-01-18
-updated: 2026-09-02
+updated: 2026-09-04
 ---
 # Method Overload
+> Part of [[Java/01_Core-Java/README|Core Java]]
 
 > Method overloading is compile-time polymorphism: multiple methods in the same class share the same name but differ in parameter list (count, type, or order). Return type alone does NOT distinguish overloads.
 
-## Why it matters
+## Why it Matters
 
 Provide one intuitive name for operations that do conceptually the same thing on different inputs, `print(int)`, `print(String)`, `print(Object)`, letting the compiler pick the most specific applicable overload.
 
-## When to use it
+## Diagram
 
-| Use | Avoid |
-|-----|-------|
-| Same operation, varying input types/counts | Different semantics under same name, use distinct names |
-| Builder-style convenience overloads | Excessive overloads that confuse callers, prefer varargs / builder |
-| API ergonomics | When a single method with `Optional` / polymorphism handles it more cleanly |
+```mermaid
+flowchart TD
+ CALL["foo(args)"] --> PH["Phase 1: exact match
+(no boxing)"]
+ PH --> P2["Phase 2: boxing/unboxing"]
+ P2 --> P3["Phase 3: varargs"]
+```
 
-## A quick example
+## Code
 
 > **Java 25:** Overload resolution unchanged, most-specific selection, boxing/varargs, and `null` ambiguity rules identical. Use `var` for local type inference; overloads still cannot differ by return type alone.
 
 Runnable Java 25, overload resolution including `null` ambiguity:
-
 ```java
 public class MethodOverloadDemo {
 
@@ -41,35 +43,32 @@ public class MethodOverloadDemo {
 
  public static void main(String[] args) {
  display("hello"); // picks String, most specific
-    }
+ }
 }
 ```
-
 > **Rule for `null`:** `null` matches any reference type. Compiler picks the *most specific* common subtype. `null` with `Object`+`String` → `String`. With `String`+`Integer` (siblings) → **ambiguous → compile error**; disambiguate with a cast.
 
+## When to use / not
+
+| Use | Avoid |
+|-----|-------|
+| Same operation, varying input types/counts | Different semantics under same name, use distinct names |
+| Builder-style convenience overloads | Excessive overloads that confuse callers, prefer varargs / builder |
+| API ergonomics | When a single method with `Optional` / polymorphism handles it more cleanly |
+
 ## Trade-offs
+
 - Cleaner, more discoverable API.
 - Resolved at compile time, no runtime cost.
 - Ambiguity with `null`, autoboxing, varargs can surprise.
-## How it compares
+
+## Vs
 
 | Aspect | Overloading (compile-time) | Overriding (runtime) |
 |--------|----------------------------|----------------------|
 | Where | Same class | Subclass redefines superclass method |
 | Signature | Must differ (params) | Must match exactly |
 | Binding | Static (compiler) | Dynamic (JVM, virtual dispatch) |
-## Interview notes
-
-**Q1. Can we overload by return type alone?**
-No. `int foo()` and `String foo()` in same class is a compile error, parameters must differ.
-
-**Q2. What happens when passing `null` to overloaded `foo(String)` and `foo(Integer)`?**
-Compile error, ambiguous. Both are equally specific children of `Object`. Fix with `foo((String) null)` or `foo((Object) null)`.
-## Related
-
-- [[Classes]]
-- [[Interface]]
-- [[Types/Abstract Class|Abstract Class]]
 
 ## Pitfalls
 
@@ -80,3 +79,19 @@ Compile error, ambiguous. Both are equally specific children of `Object`. Fix wi
 
 ---
 *Category: Core-Java • java25*
+
+## Interview q&a
+
+**Q1. Can we overload by return type alone?**
+No. `int foo()` and `String foo()` in same class is a compile error, parameters must differ.
+
+**Q2. What happens when passing `null` to overloaded `foo(String)` and `foo(Integer)`?**
+Compile error, ambiguous. Both are equally specific children of `Object`. Fix with `foo((String) null)` or `foo((Object) null)`.
+Can we overload by return type alone?:: No. `int foo()` and `String foo()` in same class is a compile error, parameters must differ. #flashcard
+What happens when passing `null` to overloaded `foo(String)` and `foo(Integer)`?:: Compile error, ambiguous. Both are equally specific children of `Object`. Fix with `foo((String) null)` or `foo((Object) null)`. #flashcard
+
+## Related
+
+- [[Classes]]
+- [[Interface]]
+- [[Java/01_Core-Java/Types/Abstract Class|Abstract Class]]

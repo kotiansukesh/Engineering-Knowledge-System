@@ -4,14 +4,12 @@ type: folder-MOC
 tags: [MOC, rag, coursera]
 weeks: "5-10"
 ---
-
-# 02_RAG-Engineering — Weeks 5–10 · Coursera C1 + C2
+# 02_RAG-Engineering, Weeks 5–10 · Coursera c1 + c2
 
 > From simple search to enterprise-grade RAG. Part of [[AI/README|AI MOC]]
 
-**Certification:** Coursera **C1 LLM Engineering with RAG** (W5–6) → **C2 Design, Compare & Analyze LLM Architectures** (W7–10)  
-**Platform evolution:** [[Enterprise Document Search]] — evolves from [[AI/01_Fundamentals/AI Backend Template|AI Backend Template]]
-
+**Certification:** Coursera **C1 LLM Engineering with RAG** (W5–6) → **C2 Design, Compare & Analyze LLM Architectures** (W7–10)
+**Platform evolution:** [[Enterprise Document Search]], evolves from [[AI/01_Fundamentals/AI Backend Template|AI Backend Template]]
 ```dataview
 TABLE WITHOUT ID file.link as "Note", category as "Category", weeks as "Weeks"
 FROM "AI/02_RAG-Engineering"

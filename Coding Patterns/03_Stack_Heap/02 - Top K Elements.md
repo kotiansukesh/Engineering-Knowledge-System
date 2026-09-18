@@ -7,58 +7,74 @@ leetcode: [215, 347, 973]
 created: 2026-09-02
 source: "https://blog.algomaster.io/p/20-dsa-patterns"
 ---
-
-# Top k elements
-
-> Part of [[README|20 DSA Patterns]], Pattern #9
-
-## Definition
+## Why it Matters
 
 Keep a heap of size `k` instead of sorting the whole array. For k largest, use a min-heap of size k. The top is the kth largest and the smallest among the chosen k. For k smallest, use a max-heap. For k frequent, heap by frequency or use bucket sort.
 
 Example: `nums=[3,2,1,5,6,4]`, `k=2` → push through min-heap size 2 → heap `[5,6]` → top `5`.
 
-## When to use
+## Diagram
+
+```mermaid
+flowchart LR
+ A["stream 3,2,1,5,6,4"] --> H["min-heap size k=2"]
+ H --> P{"size > k?"}
+ P -->|yes| Evict["poll smallest of the kept k"]
+ Evict --> A
+ P -->|no| A
+ H --> R["top = kth largest = 5"]
+```
+The heap holds the k survivors. Evicting the smallest of the chosen k is what keeps the largest k inside.
+
+## Code
+
+```java
+// Kth largest, LC 215
+int findKthLargest(int[] nums, int k) {
+ var minHeap = new java.util.PriorityQueue<Integer>();
+ for (var x : nums) {
+ minHeap.offer(x);
+ if (minHeap.size() > k) minHeap.poll();
+ }
+ return minHeap.peek();
+}
+
+// Top k frequent, LC 347
+int[] topKFrequent(int[] nums, int k) {
+ var freq = new java.util.HashMap<Integer,Integer>();
+ for (var x : nums) freq.put(x, freq.getOrDefault(x, 0) + 1);
+ var heap = new java.util.PriorityQueue<Integer>((a,b) -> freq.get(a) - freq.get(b));
+ for (var key : freq.keySet()) {
+ heap.offer(key);
+ if (heap.size() > k) heap.poll();
+ }
+ var res = new int[k];
+ for (var i = 0; i < k; i++) res[i] = heap.poll();
+ return res;
+}
+```
+Record for heap entries in Java 25: `record Entry(int num, int freq){}` with comparator on `freq`.
+
+## When to use / not
 
 - k largest, smallest, most frequent, closest, or top k pairs
 - Stream of data where `k` is much smaller than `n`
 
-## Complexity
+## Trade-offs
 
 | time | space |
 |---|---|
 | O(n log k) with heap | O(k) |
 | O(n) with bucket sort for frequencies | O(n) |
 
-## Java example
+## Vs
 
-```java
-// Kth largest, LC 215
-int findKthLargest(int[] nums, int k) {
-    var minHeap = new java.util.PriorityQueue<Integer>();
-    for (var x : nums) {
-        minHeap.offer(x);
-        if (minHeap.size() > k) minHeap.poll();
-    }
-    return minHeap.peek();
-}
-
-// Top k frequent, LC 347
-int[] topKFrequent(int[] nums, int k) {
-    var freq = new java.util.HashMap<Integer,Integer>();
-    for (var x : nums) freq.put(x, freq.getOrDefault(x, 0) + 1);
-    var heap = new java.util.PriorityQueue<Integer>((a,b) -> freq.get(a) - freq.get(b));
-    for (var key : freq.keySet()) {
-        heap.offer(key);
-        if (heap.size() > k) heap.poll();
-    }
-    var res = new int[k];
-    for (var i = 0; i < k; i++) res[i] = heap.poll();
-    return res;
-}
-```
-
-Record for heap entries in Java 25: `record Entry(int num, int freq){}` with comparator on `freq`.
+| | Heap size k | Full sort | Quickselect | Bucket sort |
+|---|---|---|---|---|
+| time | O(n log k) | O(n log n) | O(n) avg, O(n²) worst | O(n), bounded frequencies |
+| space | O(k) | O(1) extra | O(1) extra | O(n) |
+| streaming input | yes | no | no | no |
+| pick when | k << n, or data streams | k ~= n | O(n) wanted, array indexable | top-k frequent, domain bounded |
 
 ## Pitfalls
 
@@ -66,12 +82,16 @@ Record for heap entries in Java 25: `record Entry(int num, int freq){}` with com
 - For kth largest you can also use quickselect O(n) average if asked to optimize.
 - Heap of ints vs heap of entries, pick the right one for comparator.
 
-## Practice
+## Interview q&a
 
 - [215. Kth Largest Element in an Array](https://leetcode.com/problems/kth-largest-element-in-an-array/)
 - [347. Top K Frequent Elements](https://leetcode.com/problems/top-k-frequent-elements/)
 - [973. K Closest Points to Origin](https://leetcode.com/problems/k-closest-points-to-origin/)
 
-## Related DSA notes
+## Related
 
 - [[Java/07_DSA/Heap]]
+
+# Top k Elements
+
+> Part of [[README|20 DSA Patterns]], Pattern #9

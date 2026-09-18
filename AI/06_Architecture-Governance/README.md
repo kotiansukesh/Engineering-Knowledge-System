@@ -4,14 +4,12 @@ type: folder-MOC
 tags: [MOC, architecture, governance, isaqb]
 weeks: "31-36"
 ---
-
-# 06_Architecture-Governance — Weeks 31–36 · iSAQB SWARC4AI
+# 06_Architecture-Governance, Weeks 31–36 · ISAQB SWARC4AI
 
 > Formalize architecture after building it. Part of [[AI/README|AI MOC]]
 
-**Certification:** **iSAQB CPSA-A SWARC4AI** — 3-day (~24h), 20 Technical + 10 Method points  
-**Prereq:** Substantial AI systems built (Phases 01–05) — course becomes reflection, not theory.
-
+**Certification:** **iSAQB CPSA-A SWARC4AI**, 3-day (~24h), 20 Technical + 10 Method points
+**Prereq:** Substantial AI systems built (Phases 01–05), course becomes reflection, not theory.
 ```dataview
 TABLE WITHOUT ID file.link as "Note", category as "Category", weeks as "Weeks"
 FROM "AI/06_Architecture-Governance"

@@ -1,6 +1,6 @@
 # File naming convention
 
-Vault-wide convention — applies to `AI/`, `Coding Patterns/`, `Java/`.
+Vault-wide convention, applies to `AI/`, `Coding Patterns/`, `Java/`.
 
 ## Folders
 
@@ -21,12 +21,12 @@ Vault-wide convention — applies to `AI/`, `Coding Patterns/`, `Java/`.
 
 ### Rules
 
-- **Spaces** are allowed in titles (`String Handling.md` not `string-handling.md`) — keeps `[[wikilinks]]` readable and Dataview `file.link` clean.
-- **No parentheses** `()` — `05 - Trie.md` not `05 - Trie (Prefix Search).md`
-- **No `&`** — use `and` — `01 - Fast and Slow Pointers.md`
-- **No ` or `** in filename — pick one term — `Nested Classes Overview.md`
-- **No `snake_case.md`** — use `Title Case.md` — `Comparison Table.md` not `comparison_table.md`
-- **No file+folder basename collision** — cannot have `01_MCP.md` and `01_MCP/` folder simultaneously.
+- **Spaces** are allowed in titles (`String Handling.md` not `string-handling.md`), keeps `[[wikilinks]]` readable and Dataview `file.link` clean.
+- **No parentheses** `()`, `05 - Trie.md` not `05 - Trie (Prefix Search).md`
+- **No `&`**, use `and`, `01 - Fast and Slow Pointers.md`
+- **No ` or `** in filename, pick one term, `Nested Classes Overview.md`
+- **No `snake_case.md`**, use `Title Case.md`, `Comparison Table.md` not `comparison_table.md`
+- **No file+folder basename collision**, cannot have `01_MCP.md` and `01_MCP/` folder simultaneously.
 
 ### Fixes applied 2026-09-02
 

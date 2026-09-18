@@ -1,42 +1,103 @@
 ---
 title: "Hierarchical inheritance"
-category: OOP
+category: Java/02_OOP
 tags: [java, oop, inheritance]
 created: 2026-01-18
-updated: 2026-09-02
+updated: 2026-09-04
 ---
+## Why it Matters
 
-# Hierarchical inheritance
+**Hierarchical inheritance** has one **superclass** with many **subclasses** , e.g. `Animal` is the parent of `Dog`, `Cat` and `Cow`. Common behaviour stays in the **parent**, specialised behaviour lives in each **child**. This is the most common, easiest-to-reason-about shape.
 
-Part of [[Inheritance]]
+## Diagram
 
-Hierarchical inheritance has one superclass with many subclasses. For example Animal is the parent of Dog, Cat and Cow.
-
-## How it looks
-
+```mermaid
+classDiagram
+ class Animal {
+ +eat()
+ }
+ class Dog {
+ +bark()
+ }
+ class Cat {
+ +meow()
+ }
+ class Cow {
+ +moo()
+ }
+ Animal <|-- Dog : extends
+ Animal <|-- Cat : extends
+ Animal <|-- Cow : extends
 ```
-        Animal { eat() }
-        /   |   \
-     Dog   Cat  Cow
-```
 
-## Example
+## Code
 
 ```java
-class Animal { void eat(){ System.out.println("eat"); } }
-class Dog extends Animal { void bark(){ System.out.println("bark"); } }
-class Cat extends Animal { void meow(){ System.out.println("meow"); } }
+class Animal {
+ void eat() {
+ System.out.println("eat");
+ }
+}
 
-Animal a1 = new Dog(); a1.eat();
-Animal a2 = new Cat(); a2.eat();
+class Dog extends Animal {
+ void bark() {
+ System.out.println("bark");
+ }
+}
+
+class Cat extends Animal {
+ void meow() {
+ System.out.println("meow");
+ }
+}
+
+Animal a1 = new Dog();
+a1.eat();
+Animal a2 = new Cat();
+a2.eat();
 ```
 
-Common behaviour stays in the parent, specialised behaviour lives in each child. This is common and easy to reason about.
+## When to use / not
 
-## Interview questions
+- Use when several types share one genuine parent and differ only in specialisations (`Dog`, `Cat`, `Cow` all **are** `Animal`).
+- Use at **extension points** where new variants plug in without touching the parent , pairs with [[02_OOP/SOLID-Open-Closed\|OCP]].
+- NOT when siblings would need to override inherited behaviour to throw or no-op , that breaks [[02_OOP/SOLID-Liskov-Substitution\|LSP]].
+- NOT when one "sibling" is really a role a class plays alongside other roles , model it as an **interface** or a composed collaborator instead.
 
-What is hierarchical inheritance?
-One parent class with multiple child classes.
+## Trade-offs
 
-<!-- SR -->
+| Aspect | Hierarchical (wide) | Multilevel (deep) |
+|---|---|---|
+| Growth | add a sibling , parent untouched | add a new level, chain recompiles |
+| Ripple of a parent change | all siblings, predictably | all descendants, compounding |
+| Reasoning | shallow and visible | hidden links, trace cost per level |
+| Rule | preferred default shape | keep to 2-3 levels |
+
+## Pitfalls
+
+- Pushing child-specific behaviour up into the parent , it leaks into siblings that don't need it.
+
 What is hierarchical inheritance?:: One superclass with many subclasses, like Dog and Cat extending Animal. #flashcard
+
+## Interview q&a
+
+**Q: What is hierarchical inheritance?**
+A: One parent class with multiple child classes.
+
+## Related
+
+- [[02_OOP/Inheritance\|Inheritance]] • [[02_OOP/Inheritance/Multilevel Inheritance\|Multilevel Inheritance]] • [[02_OOP/Polymorphism\|Polymorphism]]
+
+---
+*Category: Java/02_OOP*
+
+# Hierarchical Inheritance
+
+> Part of [[02_OOP/Inheritance\|Inheritance]] • `Java/02_OOP`
+
+## Vs , Hierarchical vs Multiple
+
+- **Hierarchical**: one parent, many children , widening; children are siblings sharing one contract.
+- **Multiple**: many parents, one child , mixing; Java forbids it for classes, allows it for **interfaces**.
+
+Widening keeps every class one step from the parent; mixing roles is what **interfaces** are for (`Duck extends Animal implements Flyable, Swimmable`).

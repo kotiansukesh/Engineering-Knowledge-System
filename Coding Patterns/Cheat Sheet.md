@@ -2,17 +2,95 @@
 category: CheatSheet
 tags: [dsa, coding-patterns, cheatsheet]
 title: Coding Patterns - Cheat Sheet (Overall)
+---
+## Why it Matters
+
+One page that maps a problem's surface signal to the pattern, data structure, and template before any code is written. The point is not memorizing solutions, it is cutting the recognition step from minutes to seconds. When the constraint reads `sorted` + `pair` the two-pointer loop should already be forming, not being rediscovered mid-problem.
+
+The decision table is the whole note: keyword → pattern → complexity → one-line shape. Everything else is drill material.
+
+## Diagram
+
+```mermaid
+flowchart LR
+ R["read constraints"] --> K["spot keyword"]
+ K --> P["map to pattern"]
+ P --> C["state time/space"]
+ C --> T["write the template"]
+ T --> V{"works on example?"}
+ V -->|no| P
+ V -->|yes| Code["code it"]
+```
+Recognition before typing. A wrong pattern caught at the keyword stage costs one line; the same mistake found at the test stage costs the interview.
+
+## When to use / not
+
+- Use during pattern drill and as a warm-up sheet before a problem set, the decision table is fastest while patterns are still being internalized.
+- Use mid-interview only as a mental checklist, never as something recited; state the complexity out loud instead.
+- NOT a substitute for the per-pattern notes: the one-liner template gives the shape, not the edge cases, and the `Pitfalls` sections are where the actual bugs live.
+- NOT for problems that combine two patterns (sliding window + monotonic deque, BFS + heap), the table answers one keyword at a time.
+
+## Trade-offs
+
+| property | this cheat sheet | full pattern notes | LeetCode-only study |
+|---|---|---|---|
+| coverage | all 20 patterns, one row each | one note per pattern, full depth | no pattern abstraction |
+| retrieval speed | seconds, single table | slower, more context | slowest, problem-by-problem |
+| transfer to unseen problems | high, keyword-to-pattern map | highest, reasoning included | low |
+| maintenance | table must track new patterns | notes are independent | none |
+
+The compression is the value and the limit: 19 rows cannot carry the failure modes a `Pitfalls` list does.
+
+## Vs
+
+| | This cheat sheet | Per-pattern note | Spaced-repetition cards |
+|---|---|---|---|
+| form | decision table + one-liners | narrative + code + pitfalls | question/answer pairs |
+| best for | recognition under time pressure | learning why a pattern works | retention over weeks |
+| failure mode | can be quoted without understanding | slower to recall in interview | cards drift out of context |
+| pick when | 30 seconds to choose an approach | first pass on a new pattern | keeping old patterns fresh |
+
+## Pitfalls
+
+- Pattern numbers here are this vault's ordering, not LeetCode's or the AlgoMaster course numbering, cross-reference by name, never by number.
+- The template column is a shape, not a contract: `while(l<r)` versus `while(l<=r)` is decided by the specific problem, and the table will not tell you which.
+- `Two Heaps` and `Cyclic Sort` appear in the table but have no dedicated note in this vault, these rows are the only coverage they get here.
+- The in-note `Vs tables` are simplified for speed; each pattern note holds the deeper comparison that includes the real edge cases.
+
+## Interview q&a
+
+**Q: You are given a problem and 60 seconds. Walk me through how you pick a pattern.**
+I read the constraints first, not the story, and look for the keyword that constrains the data: `sorted` + `pair` → two pointers; `contiguous` + `longest` → sliding window; `k` + `largest` → heap; `shortest` or `steps` → BFS; `all combinations` → backtracking; `optimal` plus overlapping subproblems → DP. Then I state time and space out loud before coding, because if I cannot state them I have not chosen a pattern yet.
+
+**Q: The table lists 19 patterns. How do you avoid pattern-matching yourself into the wrong solution?**
+I test the chosen pattern against one concrete example before committing to code, and I watch for the contradictions: an unsorted array rules out two pointers unless I sort first and track original indices; negative edge weights rule out Dijkstra in favour of Bellman-Ford. A pattern that needs a caveat to survive the example is the wrong pattern.
+
+**Q: DP and Backtracking both explore choices. When is which correct?**
+Backtracking enumerates every solution; DP counts or optimizes over them. If the question asks "how many ways" or "the minimum cost", subproblems overlap and memoization can deduplicate them, so DP applies. If it asks "return all combinations", each path is distinct, nothing dedupes, and backtracking is the answer.
+
+**Q: What does a cheat sheet not give you that an interviewer will still ask about?**
+Edge cases and proof obligations. The table gives the loop shape; it does not say that flood fill must check `old == newColor` first, that Dijkstra needs the stale-entry skip, or that greedy needs an exchange argument. Those live in the per-pattern `Pitfalls` sections, and that is exactly where an interviewer probes.
+
+## Related
+
+- [[Coding Patterns/DSA-Roadmap-AlgoMaster|DSA Roadmap (AlgoMaster)]], how to schedule these patterns against a deadline
+- [[Coding Patterns/01_Array/02 - Two Pointers|Two Pointers]] · [[Coding Patterns/01_Array/03 - Sliding Window|Sliding Window]]
+- [[Coding Patterns/03_Stack_Heap/02 - Top K Elements|Top K Elements]] · [[Coding Patterns/07_Backtracking_DP/02 - Dynamic Programming|Dynamic Programming]]
+- [[Java/07_DSA/Array]] · [[Java/07_DSA/HashMap]] · [[Java/07_DSA/Heap]]
+
+*Category: CheatSheet*
+
 ## Practice
+
 - [1. Two Sum](https://leetcode.com/problems/two-sum/)
 - [121. Best Time To Buy And Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/)
 - [215. Kth Largest Element In An Array](https://leetcode.com/problems/kth-largest-element-in-an-array/)
 
-
 ---
 
-# Coding Patterns - Cheat Sheet (All DSA Patterns)
+# Coding Patterns - Cheat Sheet (all dsa Patterns)
 
-## Pattern → when → template (interview decision table)
+## Pattern → When → Template (Interview Decision Table)
 
 | # | Pattern | Signal Keywords | Data Structure | Time | One-Liner Template |
 |---|---|---|---|---|---|
@@ -36,7 +114,7 @@ title: Coding Patterns - Cheat Sheet (Overall)
 | 18 | Greedy | interval scheduling, jump game, activity | Sort | O(n log n) | Sort by end, pick earliest finishing |
 | 19 | Union Find | connected components, cycle, islands | DSU | α(n) | `find + union by rank + path compression` |
 
-## Vs tables
+## Vs Tables
 
 | Comparison | A | B | Pick |
 |---|---|---|---|
@@ -47,7 +125,7 @@ title: Coding Patterns - Cheat Sheet (Overall)
 | Backtracking vs DP | Enumerate all solutions | Count/optimize (memoize) | DP = backtracking + memo |
 | Binary Search vs Two Pointers | Sorted search / boundary | Sorted pair / partition | BS for existence; pointers for pair |
 
-## Java 25 one-liners per pattern
+## Java 25 One-liners per Pattern
 
 ```java
 // 1. Two Pointers - two sum sorted / palindrome
@@ -55,7 +133,7 @@ boolean isPal(String s){ int l=0,r=s.length()-1; while(l<r) if(s.charAt(l++)!=s.
 
 // 2. Sliding Window - longest without repeating
 int longestUnique(String s){ var set=new HashSet<Character>(); int l=0,max=0;
-    for(int r=0;r<s.length();r++){ while(set.contains(s.charAt(r))) set.remove(s.charAt(l++)); set.add(s.charAt(r)); max=Math.max(max,r-l+1);} return max; }
+ for(int r=0;r<s.length();r++){ while(set.contains(s.charAt(r))) set.remove(s.charAt(l++)); set.add(s.charAt(r)); max=Math.max(max,r-l+1);} return max; }
 
 // 3. Fast & Slow - cycle detect
 boolean hasCycle(ListNode h){ var s=h,f=h; while(f!=null&&f.next!=null){s=s.next; f=f.next.next; if(s==f) return true;} return false; }
@@ -95,9 +173,6 @@ class DSU{ int[] p,r; DSU(int n){p=IntStream.range(0,n).toArray(); r=new int[n];
 
 // Sliding window max - deque O(n)
 int[] maxWindow(int[] a,int k){ var dq=new ArrayDeque<Integer>(); var res=new int[a.length-k+1];
-    for(int i=0;i<a.length;i++){while(!dq.isEmpty()&&a[dq.peekLast()]<=a[i])dq.pollLast(); dq.addLast(i); if(dq.peekFirst()<=i-k)dq.pollFirst(); if(i>=k-1)res[i-k+1]=a[dq.peekFirst()];} return res;}
+ for(int i=0;i<a.length;i++){while(!dq.isEmpty()&&a[dq.peekLast()]<=a[i])dq.pollLast(); dq.addLast(i); if(dq.peekFirst()<=i-k)dq.pollFirst(); if(i>=k-1)res[i-k+1]=a[dq.peekFirst()];} return res;}
 ```
-
 > **How to pick in interview:** Read constraints → spot keyword → map to pattern above → state time/space → code template. If `sorted` + `pair` → Two Pointers; `substring` → Sliding Window; `k` + `largest` → Heap; `shortest` → BFS; `all combinations` → Backtracking; `optimal + overlapping subproblems` → DP.
-
-*Category: CheatSheet*

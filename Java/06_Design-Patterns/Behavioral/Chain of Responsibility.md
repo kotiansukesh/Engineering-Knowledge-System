@@ -6,15 +6,111 @@ tags: [design-patterns, behavioral, chain-of-responsibility]
 pattern: chain-of-responsibility
 source: "https://refactoring.guru/design-patterns/chain-of-responsibility"
 created: 2026-09-02
-updated: 2026-09-02
+updated: 2026-09-04
 ---
 # Chain of Responsibility
 
-> Category: Behavioral • Source: [Refactoring.Guru — Chain of Responsibility](https://refactoring.guru/design-patterns/chain-of-responsibility) • Part of [[README|Java MOC]] → [[06_Design-Patterns/README|Design Patterns MOC]]
+> Category: Behavioral • Source: [Refactoring.Guru , Chain of Responsibility](https://refactoring.guru/design-patterns/chain-of-responsibility) • Part of [[Java/README|Java MOC]] → [[06_Design-Patterns/README|Design Patterns MOC]]
 
-## Intent
+## Why it Matters
 
-Passes requests along a chain until one handler deals with it.
+Passes **requests along a chain** until one **handler** deals with it.
+
+## Diagram
+
+```mermaid
+classDiagram
+ class Client
+ class Handler {
+ <<interface>>
+ +handle(req)
+ +setNext(n)
+ }
+ class Base
+ class Auth
+ class Data
+ Handler <|.. Base
+ Base <|-- Auth
+ Base <|-- Data
+ Base o-- Handler : next
+ Client --> Handler
+```
+
+## Code
+
+```java
+public class ChainOfResponsibilityDemo {
+ interface Handler { void handle(String req); void setNext(Handler n); }
+ // Each handler serves what it knows, else forwards down the chain
+ static abstract class Base implements Handler {
+ private Handler next;
+ public void setNext(Handler n) { next = n; }
+ protected void forward(String r) {
+ if (next != null) next.handle(r);
+ else System.out.println("Unhandled: " + r); // => Auth handled auth:login
+ }
+ }
+ static class Auth extends Base {
+ public void handle(String r) { if (r.startsWith("auth:")) System.out.println("Auth handled " + r); else forward(r); } // => Data handled data:query
+ }
+ static class Data extends Base {
+ public void handle(String r) { if (r.startsWith("data:")) System.out.println("Data handled " + r); else forward(r); } // => Unhandled: other:?
+ }
+ public static void main(String[] args) {
+ var auth = new Auth(); var data = new Data();
+ auth.setNext(data);
+ auth.handle("auth:login"); auth.handle("data:query"); auth.handle("other:?");
+ }
+}
+```
+The demo proves decoupling: the client only talks to the first handler, and each request is served by whichever handler claims it.
+
+## When to use / not
+
+- Any one of several handlers could serve a request, decided at runtime.
+- Senders must stay decoupled from receivers.
+- The chain order itself is configuration (auth → data → fallback).
+
+## Trade-offs
+
+Use when multiple objects might handle a request or you want to decouple sender from receiver. A chain makes order explicit; a sealed switch is simpler when handlers are known up front.
+
+## Vs
+
+| Pattern | Use when |
+|---------|----------|
+| Chain of responsibility | Runtime chain, any handler |
+| Sealed switch | Closed set, compiler-checked |
+| Decorator | Stacks, all run |
+
+## Pitfalls
+
+- No terminal handler: requests vanish with no log.
+- Order-dependent chains configured wrong , auth after data is a security bug.
+- Handlers with side effects before deciding they can't handle the request.
+
+## Interview q&a
+
+**Q: Chain vs sealed switch?**
+
+Chain when handlers are dynamic or order matters at runtime. Sealed switch when the set is closed and compiler-checked exhaustiveness is enough.
+
+**Q: Chain vs Decorator?**
+
+In a chain exactly one handler serves the request and the rest are skipped; in a Decorator every layer runs and wraps the result. Use a chain to select a handler, a decorator to stack behavior.
+
+**Q: How do you stop requests from vanishing silently?**
+
+Always terminate the chain: a default handler that logs, dead-letters, or returns `Optional.empty()` / `false`, plus metrics on unhandled counts. In code review, a chain without a terminal handler is a bug waiting for traffic.
+
+: Chain vs sealed switch?:: Chain when handlers are dynamic or order matters at runtime. Sealed switch when the set is closed and compiler-checked exhaustiveness is enough. **Q: Chain vs Decorator?** In a chain exactly one handler serves the request and the rest are skipped; in a Decorator every layer runs and wraps the result. Use a chain to select a handler, a decorator to stack behavior. **Q: How do you stop requests from vanishing silently?** Always terminate the cha... #flashcard
+
+## Related
+
+[[06_Design-Patterns/Behavioral/Command|Command]] (encapsulated request) • [[06_Design-Patterns/Structural/Decorator|Decorator]] (all run vs first handles) • [[06_Design-Patterns/Behavioral/Mediator|Mediator]]
+
+---
+*Category: Behavioral • Tags: design-patterns • Source: refactoring.guru*
 
 ## Problem
 
@@ -24,47 +120,10 @@ Authentication then data requests need different handling, but the sender should
 
 Define a handler interface. Chain them so each tries to handle or forwards. With sealed requests, a single switch can replace the chain when the set is closed.
 
-## Structure
+## When not to use
 
-```
-Request is sealed to AuthRequest and DataRequest. Handler handles or forwards. Client sends any Request to the first handler.
-```
-
-## Trade-offs
-
-Use when multiple objects might handle a request or you want to decouple sender from receiver. A chain makes order explicit; a sealed switch is simpler when handlers are known up front.
-
-## Java example
-
-```java
-
-// Purpose: Chain passes request along handlers until one handles it; decouples sender/receiver
-// Participants: Req, AuthReq, DataReq
-// Structure: sealed hierarchy + records — exhaustive, immutable composition
-// Behavior: wrapping/composition at runtime; no direct new of concrete in client
-// Invariant: favors composition and abstraction over concrete coupling
-```
-
-Records keep data immutable and concise. Sealed plus switch makes the dispatch exhaustive without extra types.
-
-## Versus
-
-| Pattern | Use when |
-|---------|----------|
-| Chain of responsibility | Runtime chain, any handler |
-| Sealed switch | Closed set, compiler-checked |
-| Decorator | Stacks, all run |
-
-## Interview Q&A
-
-**Q: Chain vs sealed switch?**
-
-Chain when handlers are dynamic or order matters at runtime. Sealed switch when the set is closed and compiler-checked exhaustiveness is enough.
-
-**Q: What is the simplest Java 25 way to write this?**
-
-Record for data, sealed interface for the closed set, and switch for dispatch. Keep the example to about ten lines and use var at the call site.
-
----
-
-*Category: Behavioral • Tags: design-patterns • Source: refactoring.guru*
+| Instead | Use |
+|---------|-----|
+| Closed fixed set of cases | Sealed switch (compiler-checked) |
+| Every layer must run | Decorator stack |
+| Exactly one receiver known upfront | Direct call |

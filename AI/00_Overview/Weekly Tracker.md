@@ -5,6 +5,68 @@ tags: [ai, tracker, planning]
 created: 2026-09-02
 completed: false
 ---
+## Why it Matters
+
+A 36-week plan without a tracker is a wish. This one makes the weekly contract visible, build, study, evaluate, and exposes the drift between planned and actual weeks so a slipped phase is seen in week 3, not week 30. It is also the evidence file an interviewer can be shown: what you said you would do, and what you measured.
+
+## Diagram
+
+```mermaid
+flowchart LR
+ P["36-week plan"] --> T["Weekly Tracker"]
+ T --> W{"Week contract"}
+ W -->|"60% build"| B["Platform increment"]
+ W -->|"25% study"| S["Cert module"]
+ W -->|"15% eval"| E["Measured metric"]
+ B --> D["Drift = actual - planned"]
+ E --> D
+ D -->|"> 2 weeks"| R["Re-plan: keep sequence,<br/>drop pace"]
+```
+
+## Code
+
+```python
+
+## When to use / NOT
+
+- **Use:** weekly, to answer "am I on plan and did I measure anything?" before next week is planned.
+- **NOT:** as a guilt ledger — the tracker's job is to surface drift early, not to log hours.
+
+## Trade-offs
+
+| Choice | Cost |
+|--------|------|
+| Track per-week | Weekly admin overhead (~15 min) |
+| Drift threshold at 2 weeks | Sometimes a hard phase legitimately takes 3 |
+| Dataview-driven | Only as honest as the checklist files feeding it |
+
+## Vs
+
+| Method | This tracker | Alternative |
+|--------|--------------|------------|
+| Unit tracked | Platform increment + measured metric | Hours studied |
+| Signal | Drift triggers a pace change | Hours feel productive regardless of output |
+| Failure mode | Stale checklists | Never |
+
+## Pitfalls
+
+- Tracking study hours instead of shipped, measured increments — it feels like progress and proves nothing.
+- Letting the checklist fall behind so the dataview query renders empty.
+- Rewriting history instead of logging drift; the drift column is the useful data.
+- Re-planning by skipping a phase — that converts slippage into a knowledge gap.
+
+## Interview Q&A
+
+- **Q:** How do you manage a multi-month learning program without it stalling? **A:** A weekly contract of build, study and evaluate, with a drift check. The evaluate slice is what keeps it honest — if a week produced no measurement, it was consumption.
+- **Q:** What do you do when you fall two weeks behind? **A:** Re-plan the pace, never the sequence. Dropping a phase creates the exact gap that shows up later as an architecture I cannot defend.
+- **Q:** Why track at all? **A:** Because a 36-week effort has no feedback loop otherwise. The tracker is the loop — and it doubles as the evidence that the plan was actually executed.
+
+## Related
+
+- [[AI/00_Overview/Roadmap Overview|Roadmap Overview]] • [[AI/00_Overview/Learning Philosophy|Learning Philosophy]] • [[AI/00_Overview/Tech Stack|Tech Stack]] • [[AI/00_Overview/Certification Guide|Certification Guide]]
+
+---
+*Category: overview*
 
 # Weekly Tracker
 
@@ -56,14 +118,29 @@ completed: false
 
 ## Progress Query
 
-```dataview
-TABLE WITHOUT ID weeks as "Weeks", file.link as "Note", choice(completed, "✅", "⬜") as "Done", reviewed as "Last Reviewed"
-FROM "AI"
+```
+dataviewTABLE WITHOUT ID weeks as "Weeks", file.link as "Note", choice(completed, "", "⬜") as "Done", reviewed as "Last Reviewed"FROM "AI"
 WHERE category AND file.name != "README"
 SORT file.path ASC
 ```
 
 [[README|← Back to AI MOC]]
 
----
-*Category: overview*
+# Drift Check the Tracker Answers Every Week
+
+from datetime import date
+
+def weeks_elapsed(start: date, today: date) -> int:
+ return (today - start).days // 7
+
+# Planned Week from the Roadmap; Actual Week from the Checklist you are on
+
+def drift(planned: int, actual: int) -> int:
+ """Positive = behind plan. Two weeks is the re-plan trigger."""
+ return actual - planned
+
+def action(d: int) -> str:
+ if d <= 0: return "on plan"
+ if d <= 2: return "catch up this week, keep sequence"
+ return "re-plan pace, never skip a phase to catch up"
+```

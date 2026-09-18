@@ -4,11 +4,9 @@ type: folder-MOC
 tags: [MOC]
 category: 01_Array
 ---
-
-# Array patterns
+# Array Patterns
 
 > Prefix Sum, Two Pointers, Sliding Window, Frequency Counting, range, pair, window and counting problems | Patterns 1, 2, 3, 6/20 | Part of [[README|Master MOC]]
-
 ```dataview
 TABLE pattern as "#", title as "Pattern", leetcode as "LeetCode", completed as "Done"
 FROM "Coding Patterns/01_Array"

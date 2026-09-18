@@ -4,13 +4,11 @@ type: folder-MOC
 tags: [MOC, fundamentals]
 weeks: "1-4"
 ---
+# 01_Fundamentals, Weeks 1–4 · no Certifications
 
-# 01_Fundamentals — Weeks 1–4 · No Certifications
-
-> Build the muscle. Keep exactly as planned — no certs, pure engineering. Part of [[AI/README|AI MOC]]
+> Build the muscle. Keep exactly as planned, no certs, pure engineering. Part of [[AI/README|AI MOC]]
 
 **Focus:** Python · FastAPI · LLM APIs · Prompt Engineering · Structured Outputs · Tool Calling
-
 ```dataview
 TABLE WITHOUT ID file.link as "Note", category as "Category", weeks as "Weeks"
 FROM "AI/01_Fundamentals"
@@ -29,7 +27,7 @@ SORT file.name ASC
 
 ## This Phase Builds
 
-- [[AI Backend Template]] — reusable FastAPI scaffold for all later phases
+- [[AI Backend Template]], reusable FastAPI scaffold for all later phases
 - 3 mini-projects: [[AI Coding Assistant]], [[Meeting Notes Generator]], [[Prompt Playground]]
 
 [[AI/README|← Back to AI MOC]] • Next: [[AI/02_RAG-Engineering/README|02_RAG-Engineering]]

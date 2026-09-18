@@ -4,21 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "e1427d885a510f2f",
+        "id": "95ec9885cf93bd83",
         "type": "tabs",
         "children": [
           {
-            "id": "b3650624e0f8d3c5",
+            "id": "9461d53bd94a1223",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "09_Java-21-LTS/02 Sequenced Collections.md",
-                "mode": "preview",
+                "file": "06_Design-Patterns/Behavioral/Chain of Responsibility.md",
+                "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "02 Sequenced Collections"
+              "title": "Chain of Responsibility"
             }
           }
         ]
@@ -99,7 +99,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Study Plans.md",
+                "file": "06_Design-Patterns/Behavioral/Chain of Responsibility.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -169,8 +169,19 @@
               "icon": "lucide-list",
               "title": "Outline"
             }
+          },
+          {
+            "id": "ef7abf3662774620",
+            "type": "leaf",
+            "state": {
+              "type": "review-queue-list-view",
+              "state": {},
+              "icon": "lucide-ghost",
+              "title": "review-queue-list-view"
+            }
           }
-        ]
+        ],
+        "currentTab": 5
       }
     ],
     "direction": "horizontal",
@@ -179,62 +190,66 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "random-note:Open random note": false,
       "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
       "canvas:Create new canvas": false,
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
-      "bases:Create new base": false
+      "bases:Create new base": false,
+      "obsidian-spaced-repetition:Review flashcards": false,
+      "templater-obsidian:Templater": false
     }
   },
-  "active": "30eafb702ea625fb",
+  "active": "ef7abf3662774620",
   "lastOpenFiles": [
-    "09_Java-21-LTS/01 Virtual Threads.md",
-    "09_Java-21-LTS/00 Java 21 Overview.md",
-    "01_Core-Java/Classes.md",
-    "01_Core-Java/Cheat Sheet.md",
-    "01_Core-Java/Annotations.md",
-    "01_Core-Java/Enums.md",
-    "01_Core-Java/Date and Time API.md",
-    "99_Revision/Java Plan.md",
-    "Study Plans.md",
+    "06_Design-Patterns/Behavioral/Chain of Responsibility.md",
+    "_templates/Java Note Template.md",
+    "00_Java-25-Overview/LTS Evolution 8 to 25.md",
+    "00_Java-25-Overview/Java 25 Roadmap.md",
+    "00_Java-25-Overview/Java 17 LTS Overview.md",
+    "00_Java-25-Overview/Java 11 LTS Overview.md",
+    "05_Spring/Spring Framework.md",
+    "00_Java-25-Overview/Java 8 LTS Overview.md",
     "05_Spring/Spring Transaction.md",
-    "99_Revision/Spring Plan.md",
-    "99_Revision/README.md",
-    "06_Design-Patterns/Cheat Sheet.md",
-    "06_Design-Patterns/README.md",
-    "06_Design-Patterns/Extra/Dependency Injection Pattern.md",
-    "99_Revision/Interview Questions.md",
-    "99_Revision/30-Day Plan.md",
-    "07_DSA/Trees.md",
-    "07_DSA/Stack.md",
-    "07_DSA/Singly Linked List.md",
-    "07_DSA/README.md",
-    "07_DSA/Queue.md",
-    "07_DSA/Linked List.md",
-    "07_DSA/Heap.md",
-    "07_DSA/HashMap.md",
-    "07_DSA/Graph.md",
+    "05_Spring/Spring MVC.md",
+    "05_Spring/Spring Boot.md",
+    "00_Java-25-Overview/Interview Strategy.md",
+    "00_Java-25-Overview/Dashboard.md",
+    "05_Spring/Dependency Injection.md",
+    "05_Spring/Cheat Sheet.md",
+    "10_LLD-Machine-Coding/01_Parking-Lot.md",
+    "10_LLD-Machine-Coding/02_Vending-Machine.md",
+    "10_LLD-Machine-Coding/00_UML-Class-and-Sequence-Diagrams.md",
+    "10_LLD-Machine-Coding/00_Method-How-to-Answer-LLD.md",
+    "README.md",
+    "03_Collections/Set/README.md",
+    "03_Collections/List/README.md",
+    "02_OOP/Inheritance/README.md",
+    "01_Core-Java/Types/Nested/README.md",
+    "01_Core-Java/Types/README.md",
+    "Study Plans.md",
+    "Java/01_Core-Java",
+    "Java/00_Java-25-Overview",
+    "Java",
+    "10_LLD-Machine-Coding/_attachments/vendingmachine-class-diagram.png",
+    "10_LLD-Machine-Coding/_attachments/trafficcontrol-class-diagram.png",
+    "10_LLD-Machine-Coding/_attachments/tictactoe-class-diagram.png",
+    "10_LLD-Machine-Coding/_attachments/taskmanagement-class-diagram.png",
+    "10_LLD-Machine-Coding/_attachments/stackoverflow-class-diagram.png",
+    "10_LLD-Machine-Coding/_attachments/splitwise-class-diagram.png",
+    "10_LLD-Machine-Coding/_attachments/snakeandladder-class-diagram.png",
+    "10_LLD-Machine-Coding/_attachments/ridesharingservice-class-diagram.png",
+    "10_LLD-Machine-Coding/_attachments/pubsubsystem-class-diagram.png",
+    "10_LLD-Machine-Coding/_attachments/parkinglot-class-diagram.png",
+    "10_LLD-Machine-Coding/_attachments",
+    "10_LLD-Machine-Coding",
+    "Curriculum Map.canvas",
     "09_Java-21-LTS",
     "08_Modern-Java",
     "00_Java-25-Overview",
     "_templates",
-    "_attachments/Pasted image 20230728114551.png",
-    "_attachments/Pasted image 20230727120429.png",
-    "_attachments/Pasted image 20230725103254.png",
-    "_attachments/Pasted image 20211116162456.png",
-    "_attachments/Pasted image 20211116121945.png",
-    "_attachments/Pasted image 20211116101319.png",
-    "_attachments/Pasted image 20211116081758.png",
-    "_attachments/Pasted image 20211116081632.png",
-    "_attachments/Pasted image 20211115234855.png",
-    "_attachments/Pasted image 20211113074128.png",
-    "_attachments",
-    "Dashboard.html",
-    "99_Revision",
-    "07_DSA",
-    "06_Design-Patterns/Structural",
-    "06_Design-Patterns/Extra"
+    "_attachments"
   ]
 }

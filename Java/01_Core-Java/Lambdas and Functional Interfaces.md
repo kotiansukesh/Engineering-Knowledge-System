@@ -3,35 +3,39 @@ title: "Lambdas and Functional Interfaces"
 category: Core-Java
 tags: [java, lambdas, interview]
 created: 2026-09-02
-updated: 2026-09-02
+updated: 2026-09-04
 ---
 # Lambdas and Functional Interfaces
+> Part of [[Java/01_Core-Java/README|Core Java]]
 
 > A lambda is a concise anonymous function that implements a single-abstract-method interface. `@FunctionalInterface` marks that contract, method references shorthand it, and `default` methods let interfaces evolve without breaking implementors, together they are the foundation of functional programming in Java 8+.
 
-## Why it matters
+## Why it Matters
 
-Replace verbose anonymous classes with **compact, composable behavior** passed as data. Lambdas + functional interfaces enable declarative style (`filter`, `map`, `sort`) while `default` methods allow interfaces to add behaviour without forcing every implementor to change.
+Replace verbose anonymous classes with compact, composable behavior passed as data. Lambdas + functional interfaces enable declarative style (`filter`, `map`, `sort`) while `default` methods allow interfaces to add behaviour without forcing every implementor to change.
 
 Core ideas:
 - **Functional interface**, exactly one abstract method (SAM); lambda target via `@FunctionalInterface`.
 - **Lambda syntax**, `(params) -> { body }` with type inference and capture of effectively-final variables.
 - **Method references & default methods**, `Class::method` as lambda shorthand; `default`/`static`/`private` methods for interface evolution.
 
-## When to use it
+## Diagram
 
-| Use | Avoid |
-|-----|-------|
-| Passing behaviour to collections/streams (`filter`, `forEach`, `sort`, `CompletableFuture`) | Need named type with state, multiple methods, or identity, use class / anonymous class |
-| Strategy / callback / event handler with single method (`Runnable`, `Comparator`, `Predicate`) | Overloading on functional type causes ambiguity, prefer explicit types or method names |
-| Simplifying boilerplate: `(a,b) -> a.compareTo(b)` vs anonymous `Comparator` | Capturing mutable or non-effectively-final variables, won't compile |
+```mermaid
+flowchart LR
+ FI["@FunctionalInterface
+single abstract method"] --> L["Lambda
+(x) -> x + 1"]
+ L --> IM["InvokeDynamic
++ metafactory"]
+ IM --> IMPL["Hidden impl class"]
+```
 
-## A quick example
+## Code
 
 > **Java 25:** Lambdas unchanged since Java 8; use `var` for local inference, `record` as data carrier, `IO.println` (Java 25 `java.lang.IO`) for output, `List.of` + `SequencedCollection` (`getFirst`/`getLast`/`reversed`) for collections.
 
 Runnable Java 25, lambda syntax, `@FunctionalInterface`, method refs, default methods:
-
 ```java
 import java.util.*;
 import java.util.function.*;
@@ -48,20 +52,27 @@ interface Transformer<T, R> {
  }
 }
 ```
-
 Compile & run (Java 25):
-
 ```bash
 javac LambdasDemo.java && java LambdasDemo
 ```
-
 > **Lambda vs Anonymous Class:** Anonymous class creates a new type with `this` referring to itself; lambda has no new scope, `this` is the enclosing instance, and it captures only effectively-final variables.
 
+## When to use / not
+
+| Use | Avoid |
+|-----|-------|
+| Passing behaviour to collections/streams (`filter`, `forEach`, `sort`, `CompletableFuture`) | Need named type with state, multiple methods, or identity, use class / anonymous class |
+| Strategy / callback / event handler with single method (`Runnable`, `Comparator`, `Predicate`) | Overloading on functional type causes ambiguity, prefer explicit types or method names |
+| Simplifying boilerplate: `(a,b) -> a.compareTo(b)` vs anonymous `Comparator` | Capturing mutable or non-effectively-final variables, won't compile |
+
 ## Trade-offs
+
 - Drastically less boilerplate than anonymous classes, readable declarative pipelines.
 - Enables Streams, `CompletableFuture`, and functional composition (`andThen`, `compose`).
 - `@FunctionalInterface` gives compile-time safety, prevents accidental second abstract method.
-## How it compares
+
+## Vs
 
 **Lambda vs Anonymous Class vs Method Reference**
 
@@ -77,13 +88,7 @@ javac LambdasDemo.java && java LambdasDemo
 | Abstract methods | Exactly 1 (plus defaults/statics) | Any number | Any number |
 | Lambda target | Yes | No | No |
 | State / ctor | No | No | Yes |
-## Interview notes
 
-**Q1. What makes an interface functional and why does `@FunctionalInterface` matter?**
-A functional interface has exactly one abstract method (SAM), `Runnable`, `Comparator`, `Predicate`, `Function`. Any interface with one abstract method is a lambda target, but `@FunctionalInterface` makes the compiler enforce it: adding a second abstract method fails to compile. `default`/`static`/`private` methods don't count toward the limit, and SAMs can still extend other interfaces if the total abstract count remains one (e.g. `Comparator` inherits `equals` from `Object` which is excluded).
-
-**Q2. How do lambdas capture variables and how does `this` differ from anonymous classes?**
-Lambdas capture only *effectively-final* variables (assigned once), by value, not by reference, so mutating the variable after capture is a compile error. Unlike anonymous classes, lambdas don't introduce a new scope: `this` inside a lambda is the enclosing object's `this`, not the lambda's. This avoids the `OuterClass.this` workaround but means you can't shadow `this` or define instance fields inside a lambda.
 ## Pitfalls
 
 - **Not effectively final**, `int n = 0; list.forEach(x -> n++)` won't compile. Use `AtomicInteger` or restructure, but prefer streams/collectors over mutable capture.
@@ -93,6 +98,16 @@ Lambdas capture only *effectively-final* variables (assigned once), by value, no
 - **Checked exceptions in lambdas**, `Function` doesn't declare `throws`; wrapping in `try/catch` inside lambda or using sneaky-throw / custom `@FunctionalInterface` that throws is needed.
 - **Serialization of lambdas**, lambdas are not reliably serializable; avoid putting them in `Serializable` objects.
 - **Confusing `==` on functional instances**, each lambda evaluation may create a new object; never use `==` to compare lambdas.
+
+## Interview q&a
+
+**Q1. What makes an interface functional and why does `@FunctionalInterface` matter?**
+A functional interface has exactly one abstract method (SAM), `Runnable`, `Comparator`, `Predicate`, `Function`. Any interface with one abstract method is a lambda target, but `@FunctionalInterface` makes the compiler enforce it: adding a second abstract method fails to compile. `default`/`static`/`private` methods don't count toward the limit, and SAMs can still extend other interfaces if the total abstract count remains one (e.g. `Comparator` inherits `equals` from `Object` which is excluded).
+
+**Q2. How do lambdas capture variables and how does `this` differ from anonymous classes?**
+Lambdas capture only *effectively-final* variables (assigned once), by value, not by reference, so mutating the variable after capture is a compile error. Unlike anonymous classes, lambdas don't introduce a new scope: `this` inside a lambda is the enclosing object's `this`, not the lambda's. This avoids the `OuterClass.this` workaround but means you can't shadow `this` or define instance fields inside a lambda.
+What makes an interface functional and why does `@FunctionalInterface` matter?:: A functional interface has exactly one abstract method (SAM), `Runnable`, `Comparator`, `Predicate`, `Function`. Any interface with one abstract method is a lambda target, but `@FunctionalInterface` makes the compiler enforce it: adding a second abstract method fails to compile. `default`/`static`/`private` methods don't count toward the limit, and SAMs can still extend other interfaces if the total abstract count remains one (e.g. `Comparator... #flashcard
+How do lambdas capture variables and how does `this` differ from anonymous classes?:: Lambdas capture only *effectively-final* variables (assigned once), by value, not by reference, so mutating the variable after capture is a compile error. Unlike anonymous classes, lambdas don't introduce a new scope: `this` inside a lambda is the enclosing object's `this`, not the lambda's. This avoids the `OuterClass.this` workaround but means you can't shadow `this` or define instance fields inside a lambda. #flashcard
 
 ## Related
 

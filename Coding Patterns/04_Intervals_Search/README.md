@@ -4,11 +4,9 @@ type: folder-MOC
 tags: [MOC]
 category: 04_Intervals_Search
 ---
-
 # Intervals & Search Patterns
 
 > Sorting intervals and binary search variants | Patterns 10, 11/20 | Part of [[README|Master MOC]]
-
 ```dataview
 TABLE pattern as "#", title as "Pattern", leetcode as "LeetCode", completed as "Done"
 FROM "Coding Patterns/04_Intervals_Search"

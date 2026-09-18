@@ -5,15 +5,14 @@ tags: [architect, moc, roadmap]
 created: 2026-09-03
 completed: false
 ---
-
-# Architect Master MOC
+# Architect Master moc
 
 Java/Spring backend (13+ yrs) → Software Architect. 24 weeks, 6–8h/week, 5 days/week.
 
 ## 24-Week Timeline
 
 | Phase | Weeks | Theme | Outcome |
-|-------|-------|-------|---------|
+| ----- | ----- | ------------------------------------------------------------------------------------------- | ------------------------------------------------- |
 | 0 | 0 | [[00_Overview/README\|Setup + Tech Stack]] | Vault, Java 21/25 + Spring Boot 3.5 baseline runs |
 | 1 | 1–2 | [[01_Architecture-Foundations/What-is-Architecture\|Architecture Foundations]] | Define architecture, roles, 4+1 views, principles |
 | 2 | 3–4 | [[02_Requirements-Quality-Attributes/Quality-Scenarios\|Requirements + Quality Attributes]] | ISO 25010, scenarios, fitness functions |
@@ -28,30 +27,29 @@ Java/Spring backend (13+ yrs) → Software Architect. 24 weeks, 6–8h/week, 5 d
 | 11 | 21–22 | ADRs + Docs + Review | 10 ADRs,arc42 doc, review checklist |
 | 12 | 23–24 | Capstone + Interview Prep | Event-driven reference arch + mock interviews |
 
-## Platform Evolution (running thread)
+## Platform Evolution (Running Thread)
 
 ```text
 Java monolith (W1) → modular monolith (W5) → microservices (W11) → event-driven (W24)
 Each phase: extend the SAME platform, record decision in ADR.
 ```
-
 - W1–4: Monolith on Spring Boot 3.5 + Postgres. C4 context/container.
 - W5–8: Modularize (ArchUnit boundaries), extract 1 service.
 - W9–14: Kafka events, outbox, saga for Order→Payment.
 - W15–24: K8s, observability, security hardening, capstone ADR set.
 
-## Progress (dataviewjs per folder)
+## Progress (Dataviewjs per Folder)
 
 ```dataviewjs
 const folders = ["00_Overview","01_Architecture-Foundations","02_Requirements-Quality-Attributes"];
 for (const f of folders) {
-  const pages = dv.pages(`"${f}"`).where(p => p.completed !== undefined);
-  const done = pages.where(p => p.completed).length;
-  dv.paragraph(`**${f}**: ${done}/${pages.length} done`);
+ const pages = dv.pages(`"${f}"`).where(p => p.completed !== undefined);
+ const done = pages.where(p => p.completed).length;
+ dv.paragraph(`**${f}**: ${done}/${pages.length} done`);
 }
 ```
 
-## Certification Map
+## Certification map
 
 | Goal | Covers | Notes |
 |------|--------|-------|
@@ -61,7 +59,7 @@ for (const f of folders) {
 
 ## Folders
 
-- [[00_Overview/README|00 Overview]] — [[00_Overview/Roadmap Overview|Roadmap]], [[00_Overview/Study Plan - Architect|Study Plan]], [[00_Overview/Dashboard|Dashboard]], [[00_Overview/Tech Stack|Tech Stack]]
+- [[00_Overview/README|00 Overview]], [[00_Overview/Roadmap Overview|Roadmap]], [[00_Overview/Study Plan - Architect|Study Plan]], [[00_Overview/Dashboard|Dashboard]], [[00_Overview/Tech Stack|Tech Stack]]
 - [[01_Architecture-Foundations/What-is-Architecture|01 Architecture Foundations]]
 - [[02_Requirements-Quality-Attributes/Quality-Scenarios|02 Requirements + Quality Attributes]]
 

@@ -1,14 +1,13 @@
 ---
 title: "{{title}}"
-category: 
+category:
 tags: [ai, project]
 weeks: ""
 created: 2026-09-02
 completed: false
 type: project
 ---
-
-# {{title}} — Project
+# {{Title}}, Project
 
 > Part of [[README|MOC]] • `project` • Weeks {{weeks}}
 
@@ -16,7 +15,7 @@ type: project
 
 ## Features
 
-- [ ] 
+- [ ]
 
 ## Architecture
 
@@ -30,7 +29,7 @@ type: project
 
 ## Success Criteria
 
-- 
+-
 
 ## Related
 

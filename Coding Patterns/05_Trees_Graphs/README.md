@@ -4,11 +4,9 @@ type: folder-MOC
 tags: [MOC]
 category: 05_Trees_Graphs
 ---
-
 # Trees & Graphs Patterns
 
 > Tree traversals, graph DFS/BFS, shortest paths and Trie | Patterns 12, 13, 14, 15, 18/20 | Part of [[README|Master MOC]]
-
 ```dataview
 TABLE pattern as "#", title as "Pattern", leetcode as "LeetCode", completed as "Done"
 FROM "Coding Patterns/05_Trees_Graphs"

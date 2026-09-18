@@ -8,45 +8,41 @@ source: "https://blog.algomaster.io/p/20-dsa-patterns"
 status: complete
 patterns: 20
 ---
+# 20 dsa Patterns: Master Guide
 
-# 20 DSA patterns: Master guide
-
-> Source: [AlgoMaster: DSA was hard until I learned these 20 patterns](https://blog.algomaster.io/p/20-dsa-patterns), Ashish Pratap Singh. Templates included.  
+> Source: [AlgoMaster: DSA was hard until I learned these 20 patterns](https://blog.algomaster.io/p/20-dsa-patterns), Ashish Pratap Singh. Templates included.
 > **Thesis:** DSA is less about quantity, more about recognizing *patterns*. Same patterns repeatedly appeared in interviews at Amazon & Google.
 
 > Previous version: 15 patterns. **Update 2026-09-02:** Added 5 new patterns → **Frequency Counting (6), Bit Manipulation (8), Shortest Path (15), Trie (18), Greedy (19)** and shifted numbering. See migration note at bottom.
-
 ```dataview
 TABLE pattern as "#", category as "Category", leetcode as "LeetCode"
 FROM "Coding Patterns"
 WHERE pattern
 SORT pattern ASC
 ```
-
 ---
 
-## Vault structure
+## Vault Structure
 
 ```
 Coding Patterns/
 ├── README.md (you are here, 20-pattern MOC)
-├── 01_Array/               → 1 Prefix Sum, 2 Two Pointers, 3 Sliding Window, 6 Frequency Counting
-├── 02_LinkedList/          → 4 Fast & Slow, 5 LinkedList Reversal
-├── 03_Stack_Heap/          → 7 Monotonic Stack, 9 Top K
-├── 08_Bit_Manipulation/    → 8 Bit Manipulation (new)
-├── 04_Intervals_Search/    → 10 Overlapping Intervals, 11 Modified Binary Search
-├── 05_Trees_Graphs/        → 12 Tree Traversal, 13 DFS, 14 BFS, 15 Shortest Path (new), 18 Trie (new)
-├── 06_Matrix/              → 16 Matrix Traversal
-├── 07_Backtracking_DP/     → 17 Backtracking, 19 Greedy (new), 20 Dynamic Programming
-├── _attachments/           → images
-└── _templates/             → pattern template
+├── 01_Array/ → 1 Prefix Sum, 2 Two Pointers, 3 Sliding Window, 6 Frequency Counting
+├── 02_LinkedList/ → 4 Fast & Slow, 5 LinkedList Reversal
+├── 03_Stack_Heap/ → 7 Monotonic Stack, 9 Top K
+├── 08_Bit_Manipulation/ → 8 Bit Manipulation (new)
+├── 04_Intervals_Search/ → 10 Overlapping Intervals, 11 Modified Binary Search
+├── 05_Trees_Graphs/ → 12 Tree Traversal, 13 DFS, 14 BFS, 15 Shortest Path (new), 18 Trie (new)
+├── 06_Matrix/ → 16 Matrix Traversal
+├── 07_Backtracking_DP/ → 17 Backtracking, 19 Greedy (new), 20 Dynamic Programming
+├── _attachments/ → images
+└── _templates/ → pattern template
 ```
-
 > Legacy folder `𝗖𝗼𝗱𝗶𝗻𝗴 𝗣𝗮𝘁𝘁𝗲𝗿𝗻𝘀` (stylized unicode) is deprecated, use `Coding Patterns`.
 
 ---
 
-## Overview map - 20 patterns
+## Overview map - 20 Patterns
 
 | # | Pattern | Folder | When to Use | Core DS | Time |
 |---|---------|--------|-------------|---------|------|
@@ -73,86 +69,88 @@ Coding Patterns/
 
 > (new) = 5 patterns added in 20-pattern update
 
+> Beyond 20: [[05_Trees_Graphs/06 - Union Find|#21 Union Find]] (the course-named pattern the 20 list omits) · [[DSA-Roadmap-AlgoMaster|DSA Roadmap]] (75/150/300 tracks, study loop, animations)
+
 ---
 
-## Pattern summaries
+## Pattern Summaries
 
 ### 01 - Array
 
-#### 1. Prefix sum - `[[01_Array/01 - Prefix Sum|→ note]]`
-**Idea:** `pref[i+1]=pref[i]+nums[i]`, `sum(l,r)=pref[r+1]-pref[l]`  
+#### 1. Prefix sum -`[[01_Array/01 - Prefix Sum|→ note]]`
+**Idea:** `pref[i+1]=pref[i]+nums[i]`, `sum(l,r)=pref[r+1]-pref[l]`
 **Template:** build + O(1) query | **LC:** #303, #525, #560
 
-#### 2. Two pointers - `[[01_Array/02 - Two Pointers|→ note]]`
-**Idea:** opposite ends (`left=0,right=n-1`) or same direction (`slow/fast`)  
+#### 2. two Pointers -`[[01_Array/02 - Two Pointers|→ note]]`
+**Idea:** opposite ends (`left=0,right=n-1`) or same direction (`slow/fast`)
 **LC:** #167, #15, #11
 
-#### 3. Sliding window - `[[01_Array/03 - Sliding Window|→ note]]`
-**Idea:** fixed-k (initial window + slide) vs variable (`while` shrink)  
+#### 3. Sliding Window -`[[01_Array/03 - Sliding Window|→ note]]`
+**Idea:** fixed-k (initial window + slide) vs variable (`while` shrink)
 **LC:** #643, #3, #76
 
-#### 6. Frequency counting - `[[01_Array/04 - Frequency Counting|→ note]]` (new)
-**Idea:** `Map` or `int[26]` to count occurrences; trade space for O(n)  
+#### 6. Frequency Counting -`[[01_Array/04 - Frequency Counting|→ note]]`(New)
+**Idea:** `Map` or `int[26]` to count occurrences; trade space for O(n)
 **Template:** `freq.put(x, getOrDefault+1)` + second pass | **LC:** #242, #49, #347
 
-### 02 - Linked list
+### 02 - Linked List
 
-#### 4. Fast and slow - `[[02_LinkedList/01 - Fast and Slow Pointers|→ note]]`
+#### 4. Fast and Slow -`[[02_LinkedList/01 - Fast and Slow Pointers|→ note]]`
 **Idea:** `slow=1, fast=2` → meet if cycle; middle when `fast` hits end | **LC:** #141, #202, #287
 
-#### 5. Linked list reversal - `[[02_LinkedList/02 - LinkedList In-place Reversal|→ note]]`
+#### 5. Linked List Reversal -`[[02_LinkedList/02 - LinkedList In-place Reversal|→ note]]`
 **Idea:** `prev,curr,nxt` flip; dummy + move-to-front for sublist m-n | **LC:** #206, #92, #24
 
-### 03 - Stack and heap
+### 03 - Stack and Heap
 
-#### 7. Monotonic stack - `[[03_Stack_Heap/01 - Monotonic Stack|→ note]]`
+#### 7. Monotonic Stack -`[[03_Stack_Heap/01 - Monotonic Stack|→ note]]`
 **Idea:** keep increasing/decreasing; pop while violating → reveals next greater | **LC:** #496, #739, #84
 
-#### 8. Bit manipulation - `[[08_Bit_Manipulation/01 - Bit Manipulation|→ note]]` (new)
+#### 8. bit Manipulation -`[[08_Bit_Manipulation/01 - Bit Manipulation|→ note]]`(New)
 **Idea:** `a^a=0`, `n&(n-1)==0` is power of 2; `xor` finds single | **LC:** #136, #191, #231
 
-#### 9. Top k - `[[03_Stack_Heap/02 - Top K Elements|→ note]]`
+#### 9. top k -`[[03_Stack_Heap/02 - Top K Elements|→ note]]`
 **Idea:** min-heap size k for k largest (`peek()` is k-th) | **LC:** #215, #347, #373
 
-### 04 - Intervals and search
+### 04 - Intervals and Search
 
-#### 10. Overlapping intervals - `[[04_Intervals_Search/01 - Overlapping Intervals|→ note]]`
+#### 10. Overlapping Intervals -`[[04_Intervals_Search/01 - Overlapping Intervals|→ note]]`
 **Idea:** sort by start, overlap if `b >= c` → `end=max(end, currEnd)` | **LC:** #56, #57, #435
 
-#### 11. Modified binary search - `[[04_Intervals_Search/02 - Modified Binary Search|→ note]]`
+#### 11. Modified Binary Search -`[[04_Intervals_Search/02 - Modified Binary Search|→ note]]`
 **Idea:** one half always sorted in rotated array | **LC:** #33, #153, #240
 
-### 05 - Trees and graphs
+### 05 - Trees and Graphs
 
-#### 12. Binary tree traversal - `[[05_Trees_Graphs/01 - Binary Tree Traversal|→ note]]`
+#### 12. Binary Tree Traversal -`[[05_Trees_Graphs/01 - Binary Tree Traversal|→ note]]`
 Pre / In / Post | **LC:** #257, #230, #124
 
-#### 13. DFS - `[[05_Trees_Graphs/02 - DFS|→ note]]`
+#### 13. dfs -`[[05_Trees_Graphs/02 - DFS|→ note]]`
 Recursion + `visited[]`, deep before backtrack | **LC:** #133, #113, #210
 
-#### 14. BFS - `[[05_Trees_Graphs/03 - BFS|→ note]]`
+#### 14. bfs -`[[05_Trees_Graphs/03 - BFS|→ note]]`
 Queue level-by-level, shortest path unweighted | **LC:** #102, #994, #127
 
-#### 15. Shortest path - `[[05_Trees_Graphs/04 - Shortest Path|→ note]]` (new)
+#### 15. Shortest Path -`[[05_Trees_Graphs/04 - Shortest Path|→ note]]`(New)
 **Idea:** Dijkstra (non-negative, heap) vs Bellman-Ford (negative, V-1 relaxations) | **LC:** #743, #787
 
 ### 06 - Matrix
 
-#### 16. Matrix traversal - `[[06_Matrix/01 - Matrix Traversal|→ note]]`
+#### 16. Matrix Traversal -`[[06_Matrix/01 - Matrix Traversal|→ note]]`
 4 dirs `{{1,0},{-1,0},{0,1},{0,-1}}` DFS/BFS | **LC:** #733, #200, #130
 
-### 07 - Backtracking, greedy and DP
+### 07 - Backtracking, Greedy and dp
 
-#### 17. Backtracking - `[[07_Backtracking_DP/01 - Backtracking|→ note]]`
+#### 17. Backtracking -`[[07_Backtracking_DP/01 - Backtracking|→ note]]`
 `choose → explore → un-choose` | **LC:** #46, #78, #51
 
-#### 18. Trie - `[[05_Trees_Graphs/05 - Trie|→ note]]` (new)
+#### 18. Trie -`[[05_Trees_Graphs/05 - Trie|→ note]]`(New)
 **Idea:** `children[26]` + `isEnd`; paths = prefixes; `insert/search/startsWith` O(L) | **LC:** #208, #211, #212
 
-#### 19. Greedy - `[[07_Backtracking_DP/03 - Greedy|→ note]]` (new)
+#### 19. Greedy -`[[07_Backtracking_DP/03 - Greedy|→ note]]`(New)
 **Idea:** sort by greedy criterion, locally optimal → globally optimal if provable | **LC:** #55, #45, #435
 
-#### 20. Dynamic programming - `[[07_Backtracking_DP/02 - Dynamic Programming|→ note]]`
+#### 20. Dynamic Programming -`[[07_Backtracking_DP/02 - Dynamic Programming|→ note]]`
 Memo vs tabulation; sub-patterns: Fib, 0/1 Knapsack, LCS, LIS… | **Deep dive:** https://blog.algomaster.io/p/20-patterns-to-master-dynamic-programming | **LC:** #70, #300, #1143
 
 ---
@@ -181,7 +179,7 @@ Files kept stable names (`01 - Prefix Sum.md` etc.); pattern number is in frontm
 
 ---
 
-## How to practice (AlgoMaster plan)
+## How to Practice (AlgoMaster Plan)
 
 1. **One pattern per week**, 3 easy → 2 medium → 1 hard
 2. **Template first**, memorize skeleton, then adapt
@@ -190,7 +188,7 @@ Files kept stable names (`01 - Prefix Sum.md` etc.); pattern number is in frontm
 
 ---
 
-## Quick revision checklist - 20
+## Quick Revision Checklist - 20
 
 - [ ] Prefix sum `pref[r+1]-pref[l]` ?
 - [ ] Two pointers (opposite + same direction)?
@@ -212,17 +210,15 @@ Files kept stable names (`01 - Prefix Sum.md` etc.); pattern number is in frontm
 - [ ] Trie `children[26]` + `isEnd`?
 - [ ] Greedy sorting criterion?
 - [ ] DP state + transition (1D/2D)?
-
 ```dataview
 TABLE WITHOUT ID
-  file.link as "Pattern",
-  choice(completed, "✅", "⬜") as "Done",
-  choice(reviewed, "✅", "⬜") as "Reviewed"
+ file.link as "Pattern",
+ choice(completed, "✅", "⬜") as "Done",
+ choice(reviewed, "✅", "⬜") as "Reviewed"
 FROM "Coding Patterns"
 WHERE pattern
 SORT pattern ASC
 ```
-
 *Add `completed: true` and `reviewed: true` to frontmatter when done.*
 
 ---

@@ -4,14 +4,12 @@ type: folder-MOC
 tags: [MOC, kubernetes, ckad]
 weeks: "25-30"
 ---
-
-# 05_Kubernetes-Operations — Weeks 25–30 · CKAD / CKA
+# 05_Kubernetes-Operations, Weeks 25–30 · CKAD / cka
 
 > Deploy the hardened platform on Kubernetes and prove it. Part of [[AI/README|AI MOC]]
 
-**Certification:** **CKAD** (or **CKA** if leaning platform engineering)  
-**Prereq:** [[AI/04_Production-Platform/README|04_Production]] — you already have Helm charts, gRPC, observability.
-
+**Certification:** **CKAD** (or **CKA** if leaning platform engineering)
+**Prereq:** [[AI/04_Production-Platform/README|04_Production]], you already have Helm charts, gRPC, observability.
 ```dataview
 TABLE WITHOUT ID file.link as "Note", category as "Category", weeks as "Weeks"
 FROM "AI/05_Kubernetes-Operations"

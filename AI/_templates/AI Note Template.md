@@ -1,21 +1,20 @@
 ---
 title: "{{title}}"
-category: 
+category:
 tags: [ai]
 weeks: ""
 created: 2026-09-02
 completed: false
-reviewed: 
-sr-due: 
+reviewed:
+sr-due:
 ---
-
-# {{title}}
+# {{Title}}
 
 > Part of [[README|MOC]] • `{{category}}` • Weeks {{weeks}}
 
 ## Intent
 
-## When to Use / NOT
+## When to use / not
 
 - **Use:**
 - **NOT:**
@@ -25,24 +24,24 @@ sr-due:
 ## Code / Diagram
 
 ```python
-# 
+#
 ```
 
 ## Pros / Cons
 
 | Pros | Cons |
 |------|------|
-|  |  |
+| | |
 
 ## Vs Table
 
 | Aspect | Option A | Option B |
 |--------|----------|----------|
-|  |  |  |
+| | | |
 
-## Interview Q&A
+## Interview q&a
 
-- **Q:**  **A:**
+- **Q:** **A:**
 
 ## Pitfalls
 
