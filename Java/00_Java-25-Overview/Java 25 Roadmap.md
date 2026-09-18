@@ -45,6 +45,8 @@ sdk install java 8-tem
 sdk use java 21-tem # per phase
 java --version # expect the phase LTS
 
+```
+
 ## When to use / NOT
 
 | Use | Avoid |
@@ -118,6 +120,8 @@ javac --enable-preview --release 25 Main.java
 java --enable-preview Main
 ```
 Maven equivalent, one line per module instead of per command: `<maven.compiler.release>21</maven.compiler.release>`.
+
+```
 
 ## Phases at a Glance (Restructured)
 

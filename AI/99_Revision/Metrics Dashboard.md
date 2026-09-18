@@ -23,6 +23,8 @@ flowchart LR
 ## Code
 
 ```python
+```
+
 
 ## When to use / NOT
 
@@ -91,12 +93,14 @@ flowchart LR
 | | Drift detection lead time | ≥ 2 weeks | W31–W36 | | | |
 | | MLOps pipeline CI passes | 100% | W31–W36 | | | |
 
-```
-dataviewTABLE WITHOUT ID weeks as "Weeks", file.link as "Metric", target as "Target", value as "Observed", trend as "Trend", notes as "Notes"FROM "AI/99_Revision"
+```dataview
+TABLE WITHOUT ID weeks as "Weeks", file.link as "Metric", target as "Target", value as "Observed", trend as "Trend", notes as "Notes"
+FROM "AI/99_Revision"
 WHERE category AND file.folder != "AI/99_Revision" AND file.name != "README"
 SORT file.path ASC
 ```
 
+```python
 # A Metric row is Only Useful with a Target, an Owner and a Window
 
 from pydantic import BaseModel

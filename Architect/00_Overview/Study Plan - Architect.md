@@ -59,8 +59,8 @@ record StudyWeek(int week, String theme, Note theory, Lab lab, Adr adr) {
 | Plan | Best for |
 |---|---|
 | This 24-week plan | Career pivot to architect with a capstone portfolio |
-| [[99_Revision/Interview-Bank\|Interview Bank]] | Interview in weeks; question-first revision |
-| [[10_System-Design-Interviews/00_Video-Map\|Video map]] + drills | System-design rounds specifically |
+| [[../99_Revision/Interview-Bank\|Interview Bank]] | Interview in weeks; question-first revision |
+| [[../10_System-Design-Interviews/00_Video-Map\|Video map]] + drills | System-design rounds specifically |
 | Certification track (iSAQB/AWS) | Credential for enterprise roles |
 
 ## Pitfalls

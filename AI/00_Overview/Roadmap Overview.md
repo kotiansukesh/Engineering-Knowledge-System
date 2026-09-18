@@ -29,6 +29,8 @@ flowchart TD
 ## Code
 
 ```python
+```
+
 
 ## When to use / NOT
 
@@ -104,6 +106,7 @@ Cross-cutting throughout ([[AI/07_Cross-Cutting/README|07]]): MCP, evaluation, o
 - **Study** (25%) — certification module aligned to the build
 - **Evaluate** (15%) — retrieval quality, latency, cost, hallucination checks
 
+```python
 # The roadmap as data — drives the tracker and the phase checklists
 
 PHASES = [

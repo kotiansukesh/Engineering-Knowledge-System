@@ -35,6 +35,8 @@ flowchart LR
 The roadmap is run, not read. Verify the toolchain in P0 and compile every note snippet at that note's own release flag:
 ```bash
 
+```
+
 ## When to use / NOT
 
 | Use | Avoid |
@@ -130,6 +132,8 @@ Java 25 one-liner the P6 exit demands you deliver in 60 seconds:
 // ScopedValue (JEP 506, final), the ThreadLocal replacement story
 static final ScopedValue<String> REQ = ScopedValue.newInstance();
 ScopedValue.where(REQ, "id-1").run(() -> log(REQ.get()));
+```
+
 ```
 
 ## How to Read this
@@ -258,7 +262,7 @@ Folder: `99_Revision`.
 
 Work [[../99_Revision/Study Plan|Study Plan]] days 4 to 61 for the core plus backend track.
 
-Weekly loop: 5 random Q and A cards, 1 DSA plus 1 concurrency snippet on paper, 1 whiteboard explanation, mark reviewed dates. Dashboard at `Java/Dashboard.html` shows stale notes older than 7 days.
+Weekly loop: 5 random Q and A cards, 1 DSA plus 1 concurrency snippet on paper, 1 whiteboard explanation, mark reviewed dates. [[Dashboard|The Dashboard]] shows stale notes older than 7 days.
 
 ## Fast Tracks
 

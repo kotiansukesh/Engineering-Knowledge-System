@@ -3,7 +3,7 @@ title: "Study Plan"
 category: Revision
 tags: [plan, revision, daily]
 created: 2026-09-04
-updated: 2026-09-04
+updated: 2026-09-18
 completed: false
 ---
 ## Why it Matters
@@ -30,9 +30,6 @@ TABLE WITHOUT ID
  length(file.tasks) as "Total",
  round(length(filter(file.tasks, (t) => t.completed)) / length(file.tasks) * 100) + "%" as "Progress"
 FROM "Java/99_Revision/Study Plan"
-```
-```markdown-
- [ ] Day 30, LIFO and FIFO: [[07_DSA/Stack|Stack]] plus [[07_DSA/Queue|Queue]]. Goal is array versus linked impls.
 ```
 ## When to use / not
 
@@ -74,8 +71,8 @@ FROM "Java/99_Revision/Study Plan"
 # Study Plan,java Vault in one Place
 
 > This is the only study plan. It covers every folder in `Java/`, 00 to 10 plus revision, at 1 hour a day with no deadline. Tick a day when done. The Dataview block below tracks progress live.
-```dataviewTABLE
- WITHOUT ID
+```dataview
+TABLE WITHOUT ID
  length(filter(file.tasks, (t) => t.completed)) as "Done",
  length(file.tasks) as "Total",
  round(length(filter(file.tasks, (t) => t.completed)) / length(file.tasks) * 100) + "%" as "Progress"
@@ -232,7 +229,7 @@ Folder `99_Revision` plus [[Interview Questions]] bank.
 
 - [ ] Day 80, mock 1: 10 random Q and A from [[Interview Questions]] plus [[07_DSA/Cheat Sheet|DSA cheat sheet]].
 - [ ] Day 81, mock 2: timed full stack, 1 DSA plus 1 concurrency snippet plus 1 Spring slice explanation.
-- [ ] Weekly after that: 5 random cards, 1 whiteboard feature explanation, overdue sweep in `Java/Dashboard.html`, mark reviewed dates.
+- [ ] Weekly after that: 5 random cards, 1 whiteboard feature explanation, overdue sweep in [[Dashboard|the Dashboard]], mark reviewed dates.
 
 Exit is ongoing: no stale note older than 7 days before an interview week.
 

@@ -26,6 +26,8 @@ flowchart LR
 ## Code
 
 ```python
+```
+
 
 ## When to use / NOT
 
@@ -118,14 +120,16 @@ flowchart LR
 
 ## Progress Query
 
-```
-dataviewTABLE WITHOUT ID weeks as "Weeks", file.link as "Note", choice(completed, "", "⬜") as "Done", reviewed as "Last Reviewed"FROM "AI"
+```dataview
+TABLE WITHOUT ID weeks as "Weeks", file.link as "Note", choice(completed, "✅", "⬜") as "Done", reviewed as "Last Reviewed"
+FROM "AI"
 WHERE category AND file.name != "README"
 SORT file.path ASC
 ```
 
 [[README|← Back to AI MOC]]
 
+```python
 # Drift Check the Tracker Answers Every Week
 
 from datetime import date

@@ -3,6 +3,7 @@ title: "Dashboard , Progress"
 category: overview
 tags: [dashboard, java25, tracker]
 created: 2026-09-03
+updated: 2026-09-18
 completed: false
 ---
 ## Why it Matters
@@ -46,8 +47,8 @@ const pages = dv.pages('"Java"').where(p => p.category && p.file.name != "README
 const pct = Math.round(pages.where(p => p.completed).length / pages.length * 100);
 dv.paragraph(`Completed ${pct}% of ${pages.length} notes`);
 ```
-```dataviewTABLE
- WITHOUT ID file.link as "Note", reviewed as "Last Reviewed", date(now)-reviewed as "Ago"
+```dataview
+TABLE WITHOUT ID file.link as "Note", reviewed as "Last Reviewed", date(now)-reviewed as "Ago"
 FROM "Java"
 WHERE category AND (!reviewed OR date(now)-reviewed > dur(7 days))
 SORT reviewed ASC
@@ -68,7 +69,7 @@ No project needed, this is Obsidian plus the Dataview plugin.
 - **Three fields, no more**: the model is trivial to maintain and every note already has the frontmatter, but it cannot express partial progress or per-topic confidence.
 - **Dataview queries are live**: tables update on reload with zero manual upkeep, but they make Dataview a hard dependency, disable the plugin and this note is empty.
 - **`reviewed` plus 7-day staleness**: a simple, honest signal for spaced repetition, but self-reported, the date is only as trustworthy as the person who set it.
-- **Vault-wide scope**: one view covers all of `Java/` and `99_Revision`, but with 150+ notes the Overdue list can get long, which is itself useful information.
+- **Vault-wide scope**: one view covers all of `Java/` and `99_Revision`, but with 169 notes the Overdue list can get long, which is itself useful information.
 
 ## Vs
 
@@ -129,8 +130,8 @@ const pct = total ? Math.round(done/total*100) : 0;
 const bar = (p,w=20) => "█".repeat(Math.round(p/100*w)) + "░".repeat(w-Math.round(p/100*w));
 dv.paragraph(`**Total: ${total} notes | Completed: ${done} | Remaining: ${total-done}** — \`${bar(pct)}\` **${pct}%**`);
 ```
-```
-dataview
+```dataview
+
 TABLE WITHOUT ID
  length(rows) as "Total",
  length(filter(rows, (r) => r.completed)) as "Completed",
@@ -142,8 +143,8 @@ GROUP BY true
 
 ## By Folder
 
-```
-dataviewjs
+```dataviewjs
+
 const folders = [
  ["00_Java-25-Overview","00 Overview (8→25)"],
  ["01_Core-Java","01 Core-Java"],
@@ -169,38 +170,38 @@ dv.table(["Folder","Total","Done","%","Progress","Stale >7d"], rows);
 const all = dv.pages('"Java"').where(p=>p.category && p.file.name!="README");
 dv.paragraph(`\n**Overall:** \`${bar(all.where(p=>p.completed).length/all.length*100 || 0,28)}\` **${all.length?Math.round(all.where(p=>p.completed).length/all.length*100):0}%** — ${all.where(p=>p.completed).length}/${all.length}`);
 ```
-```
-dataviewTABLE WITHOUT ID file.folder as "Folder", length(rows) as "Total", length(filter(rows, (r)=>r.completed)) as "Done"
+```dataview
+TABLE WITHOUT ID file.folder as "Folder", length(rows) as "Total", length(filter(rows, (r)=>r.completed)) as "Done"
 FROM "Java"
 WHERE category AND file.name != "README"
 GROUP BY file.folder
 SORT file.folder ASC
 ```
 ## Overdue (>7 Days or Never Reviewed)
-```
-dataviewTABLE WITHOUT ID file.link as "Note", category as "Category", reviewed as "Last Reviewed", date(now)-reviewed as "Ago"
+```dataview
+TABLE WITHOUT ID file.link as "Note", category as "Category", reviewed as "Last Reviewed", date(now)-reviewed as "Ago"
 FROM "Java"
 WHERE category AND file.name != "README" AND (!reviewed OR date(now)-reviewed > dur(7 days))
 SORT reviewed ASC
 LIMIT 20
 ```
 ## Recently Reviewed (≤7d)
-```
-dataviewTABLE WITHOUT ID file.link as "Note", choice(completed,"","⬜") as "Done", reviewed as "Last Reviewed", date(now)-reviewed as "Ago"
+```dataview
+TABLE WITHOUT ID file.link as "Note", choice(completed,"✅","⬜") as "Done", reviewed as "Last Reviewed", date(now)-reviewed as "Ago"
 FROM "Java"
 WHERE category AND file.name != "README" AND reviewed AND date(now)-reviewed <= dur(7 days)
 SORT reviewed DESC
 ```
 ## Remaining
-```
-dataviewTABLE WITHOUT ID file.link as "Note", category as "Category", choice(completed,"","⬜") as "Done"
+```dataview
+TABLE WITHOUT ID file.link as "Note", category as "Category", choice(completed,"✅","⬜") as "Done"
 FROM "Java"
 WHERE category AND file.name != "README" AND !completed
 SORT category ASC, file.name ASC
 ```
 ## Review Timeline
-```
-dataviewjsconst pages = dv.pages('"Java"').where(p=>p.category && p.file.name!="README");
+```dataviewjs
+const pages = dv.pages('"Java"').where(p=>p.category && p.file.name!="README");
 const rows = pages.map(p=>{
  const days = p.reviewed ? Math.floor((dv.date("now")-dv.date(p.reviewed)).days) : null;
  const ago = days===null?"— never —": days===0?"today":`${days}d ago`;
@@ -212,8 +213,8 @@ const rows = pages.map(p=>{
 dv.table(["Note","Category","Done","Last Reviewed","Ago","SR Due","Urgency"], rows);
 ```
 ## Tasks, Study Plan
-```
-dataviewTASK
+```dataview
+TASK
 FROM "Java/99_Revision/Study Plan"
 GROUP BY file.link
 ```
