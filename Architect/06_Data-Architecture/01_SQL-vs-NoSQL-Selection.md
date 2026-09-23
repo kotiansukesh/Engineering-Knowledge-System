@@ -1,83 +1,111 @@
 ---
 title: "SQL vs NoSQL Selection"
-category: "Data Architecture"
-tags: [data, sql, nosql, postgres, mongodb, decision]
+pattern: 1
+category: "Architect/06_Data-Architecture"
+tags: [data, sql, nosql, postgres, mongodb, decision, polyglot]
 created: 2026-09-03
 completed: false
+reviewed: ""
+sr-due: ""
+difficulty: Medium
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
-## Why it Matters
 
-The store choice is usually decided by one question nobody asks aloud: what is the access pattern and what invariants must hold? Defaulting to the familiar store fights the workload; defaulting to the fashionable one reimplements joins and transactions in application code. Postgres-first plus derived stores fed by events covers most systems, and forces the choice to be earned.
+## 🎯 Intent
+Choose the store by access pattern and consistency needs — relational for structured data with joins/invariants, document/key-value/column/graph where shape, scale, or query demands it — defaulting to Postgres until a concrete force pushes elsewhere.
 
-## Diagram
+## 💡 Why It Matters
+- **Interview signal**: "When would you NOT use Postgres?" and "How do you keep polyglot stores consistent?" — defaulting to familiar store fights the workload; defaulting to fashionable one reimplements joins in app code
+- **Polyglot reality**: One system of record per context (usually Postgres) + purpose-built derived stores fed by events covers most systems
+- **Operational cost**: Each new store = new backup, monitoring, upgrade, skill set; force the choice to be earned
 
+## 🧩 Diagram: Polyglot Data Architecture
 ```mermaid
 graph LR
- SOT[Postgres: system of record, ACID] -->|order.placed via outbox| K[(Kafka)]
- K --> RD[order_views: Mongo docs for reads]
- K --> SX[Elasticsearch index]
- K --> TS[Timescale metrics]
- RD --> Q[query per shape]
- SX --> Q
- SOT --> Q
+    SOT[Postgres: System of Record<br/>ACID + Joins] -->|order.placed via outbox| K[(Kafka)]
+    K --> RD[order_views: Mongo<br/>Docs for Reads]
+    K --> SX[Elasticsearch<br/>Index]
+    K --> TS[Timescale<br/>Metrics]
+    RD --> Q[Query per Shape]
+    SX --> Q
+    SOT --> Q
+    style SOT fill:#e8f5e9
+    style K fill:#e3f2fd
 ```
 
-## Code
-
+## 💻 Code: Postgres-First + Derived Stores (Java 25 + Spring Data)
 ```java
 // System of record: JPA + Postgres
-@Entity class Order { @Id Long id; @Embedded Money total; @Enumerated Status status; }
+@Entity class Order {
+    @Id Long id;
+    @Embedded Money total;
+    @Enumerated Status status;
+}
+
 // Adjacent document read-model fed by OrderPlaced events (Spring Data Mongo)
-@Document("order_views") record OrderView(@Id String orderId, String status, BigDecimal total) {}
+@Document("order_views")
+record OrderView(@Id String orderId, String status, BigDecimal total) {}
+
 // Choosing in code review: "Can this be a Postgres JSONB + GIN index instead of a new cluster?"
 // @Column(columnDefinition = "jsonb") + native query — one less system to operate
+@Repository
+interface OrderViewRepository extends MongoRepository<OrderView, String> {
+    List<OrderView> findByStatus(String status);
+}
 ```
 
-## When to use / not
+## ✅ When to Use / ❌ When NOT to Use
+| Workload | Pick | Reason |
+|---|---|---|
+| Orders, payments, ledger, joins + ACID invariants | **Postgres** (+ Flyway/Liquibase) | Mature tooling, ACID, JSONB covers 80% "flexible" needs |
+| Catalogue/product JSON, flexible schemas, read-heavy | **MongoDB / DocumentDB** | Schema flexibility, horizontal read scale |
+| Session/cart, counters, feature flags, hot keys | **Redis** (KV) | Sub-ms latency, TTL, pub/sub |
+| Time-series metrics, IoT, event logs at volume | **Timescale / ClickHouse** | Columnar compression, continuous aggregates |
+| Fraud rings, recommendations, deep traversals | **Neo4j (graph)** | Native traversals, no recursive CTEs |
+| Full-text search, faceting | **Elasticsearch/OpenSearch** | As index, NOT system of record |
 
-| Workload | Pick |
-|---|---|
-| Orders, payments, ledger, joins + ACID invariants | **Postgres** (+ Flyway/Liquibase) |
-| Catalogue/product JSON, flexible schemas, read-heavy | **MongoDB / DocumentDB** |
-| Session/cart, counters, feature flags, hot keys | **Redis** (KV) |
-| Time-series metrics, IoT, event logs at volume | **Timescale / ClickHouse / columnar** |
-| Fraud rings, recommendations, deep traversals | **Neo4j (graph)** |
-| Full-text search, faceting | **Elasticsearch/OpenSearch** (as index, not SOT) |
+**Polyglot rule**: One **system of record** per context (usually Postgres) + purpose-built *derived* stores fed by events.
 
-Polyglot rule: one **system of record** per context (usually Postgres), plus purpose-built *derived* stores fed by events.
+## ⚖️ Trade-offs
+| Dimension | Postgres-First | NoSQL-When-Earned |
+|---|---|---|
+| **ACID + Joins** | ✅ Native | ❌ Reimplement in app |
+| **Operational Burden** | 1 cluster | N clusters (backup, monitor, upgrade each) |
+| **Schema Flexibility** | JSONB + GIN (80% cases) | Native (but costs ops) |
+| **Horizontal Write Scale** | Limited (single primary) | Native sharding |
+| **Spring Data Maturity** | Best-in-class | Dialects differ, less mature |
 
-## Trade-offs
+## 🆚 Vs. Alternatives
+| Alternative | When to Choose | Decision Rule |
+|---|---|---|
+| **Postgres JSONB** | 80% "flexible" needs | Can this be JSONB + GIN instead of new cluster? |
+| **CQRS + Event Sourcing** | Audit + divergent reads | See [[03_Event-Sourcing-CQRS]] |
+| **Single Shared DB** | Never | Recreates monolith at data layer — ownership unclear |
 
-| Postgres-first pros | NoSQL-when-earned pros |
-|---|---|
-| ACID, joins, one ops story, JSONB covers 80% "flexible" needs | Horizontal write scale, schema flexibility, shape-matched queries |
-| Mature Spring Data + migration tooling | Managed serverless options scale to zero |
-| NoSQL cons: eventual consistency, no joins, second ops burden, Spring Data dialects differ |
+## ⚠️ Pitfalls
+1. **Mongo-as-default** → reimplementing joins/transactions in app code
+2. **Elasticsearch as system of record** — it's a *search index* (rebuildable), not authoritative
+3. **One shared DB/cluster across contexts** — recreates monolith at data layer
+4. **No eventual consistency contract** — derived stores need staleness SLAs (p99 lag < 5s) and alerts
 
-## Vs
+## 🎤 Interview Q&A (Senior Depth)
 
-- **Vs [[02_Consistency-CAP-PACELC|CAP/PACELC]] lens:** SQL = CP-leaning consistency; many NoSQL = AP-leaning availability, the choice is a consistency choice, not a fashion choice.
-- **Vs [[03_Event-Sourcing-CQRS|CQRS]]:** CQRS lets the write side stay relational while read sides go document/search, best of both without dual-writes.
+**Q1: "When would you NOT use Postgres?"**
+> **Answer**: Sustained write throughput past single-primary headroom, truly schemaless high-churn documents at scale, sub-ms KV, or graph traversals unjoinable in SQL. **Rejected**: "When data is unstructured" — Postgres JSONB + GIN covers most.
 
-## Pitfalls
+**Q2: "How do you keep polyglot stores consistent?"**
+> **Answer**: Events from SOT (outbox → Kafka) build derived stores; accept eventual consistency there; NEVER dual-write in request path. **Metric**: p99 replication lag < 5s, alert on breach. **Rejected**: "Dual-write" — violates atomicity, causes drift.
 
-- Mongo-as-default then reimplementing joins/transactions in app code.
-- Elasticsearch as system of record (it's a *search index*, rebuildable, not authoritative).
-- One shared DB/cluster across contexts, recreates the monolith at the data layer.
+**Q3: "Postgres vs Mongo for product catalogue — how do you decide?"**
+> **Answer**: If catalogue has stable schema + needs joins to orders/inventory → Postgres. If schema churns weekly + read-heavy + horizontal scale needed → Mongo. Default to Postgres; force Mongo to earn its place. **Decision rule**: "Can this be Postgres JSONB + GIN?"
 
-## Interview q&a
+**Q4: "How do you handle polyglot in local dev / CI?"**
+> **Answer**: Testcontainers for each store; `docker-compose` with Postgres, Mongo, Redis, Elasticsearch. CI spins all; local uses same. Cost = disk/RAM, not complexity. **Rejected**: "Mock everything" — integration bugs only surface with real stores.
 
-**Q: "When would you NOT use Postgres?"**
-A: Sustained write throughput past single-primary headroom, truly schemaless high-churn documents at scale, sub-ms KV, or graph traversals unjoinable in SQL.
+**Q5: "What's the cost of a second store?"**
+> **Answer**: Backup strategy, monitoring dashboards, upgrade cadence, incident runbooks, team skill ramp, schema migration tooling, connection pooling. If the derived store saves <50% latency or <30% compute vs Postgres JSONB, it's not worth it. **Metric**: Store count vs incident frequency correlation.
 
-**Q: How do you keep polyglot stores consistent?**
-A: Events from the SOT (outbox → Kafka) build derived stores; accept eventual consistency there; never dual-write in the request path.
-
-## Related
-
+## 🔗 Related
 - [[02_Consistency-CAP-PACELC]] · [[03_Event-Sourcing-CQRS]] · [[05_Data-Migration-Strangler]]
-
-# SQL vs NoSQL Selection
-
-> **Intent:** Choose the store by access pattern and consistency needs, relational for structured data with joins/invariants, document/key-value/column/graph where shape, scale, or query shape demands it, defaulting to Postgres until a concrete force pushes elsewhere.
-> Watch: [IBM, SQL vs NoSQL](https://www.youtube.com/watch?v=Q5aTUc7c4jg)

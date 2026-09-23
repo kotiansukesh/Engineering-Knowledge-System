@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "README.md",
+                "file": "01_Fundamentals/Prompt Playground.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "README"
+              "title": "Prompt Playground"
             }
           }
         ]
@@ -203,11 +203,14 @@
   },
   "active": "5c1f5249ffc2b515",
   "lastOpenFiles": [
+    "01_Fundamentals/Prompt Playground.md",
+    "01_Fundamentals/Interview-Bank.md",
+    "00_Overview/Certification Guide.md",
+    "00_Overview/2026 Trends Update.md",
+    "01_Fundamentals/01_Python for AI.md",
     "README.md",
     "07_Cross-Cutting/README.md",
     "00_Overview/Roadmap Overview.md",
-    "00_Overview/Certification Guide.md",
-    "00_Overview/2026 Trends Update.md",
     "07_Cross-Cutting/02_AI Evaluation.md",
     "03_Agentic-AI/LangGraph-Fundamentals.md",
     "03_Agentic-AI/Human-in-the-Loop.md",
@@ -225,9 +228,6 @@
     "02_RAG-Engineering/RAG Variants and Retrieval Strategies.md",
     "02_RAG-Engineering/README.md",
     "01_Fundamentals/AI Backend Template.md",
-    "01_Fundamentals/06_Tool Calling.md",
-    "01_Fundamentals/05_Structured Outputs.md",
-    "01_Fundamentals/AI Coding Assistant.md",
-    "01_Fundamentals/01_Python for AI.md"
+    "01_Fundamentals/06_Tool Calling.md"
   ]
 }

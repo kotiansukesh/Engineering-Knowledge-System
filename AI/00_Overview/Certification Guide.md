@@ -4,6 +4,11 @@ category: overview
 tags: [ai, certification, nus-iss, coursera, ckad, isaqb]
 created: 2026-09-02
 completed: false
+reviewed: ""
+sr-due: ""
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 ## Why it Matters
 

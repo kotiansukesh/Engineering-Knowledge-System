@@ -1,11 +1,14 @@
 ---
-title: 00 Overview
-category: overview
+title: "00 Overview"
+pattern: 0
+category: "overview"
 tags: [architect, overview]
 created: 2026-09-03
 completed: false
----
-# 00 Overview
+reviewed:
+sr-due:
+difficulty: Easy
+--- Overview
 
 Entry point for the Architect track.
 

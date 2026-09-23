@@ -1,9 +1,14 @@
 ---
-title: "Data Structures & Algorithms"
-type: folder-MOC
-tags: [MOC, 07_dsa]
----
-# Data Structures & Algorithms
+title: "DSA"
+category: "DSA"
+tags: [java, dsa, data-structures]
+created: 2026-09-03
+pattern: 0
+difficulty: Medium
+completed: false
+reviewed:
+sr-due:
+---# Data Structures & Algorithms
 
 > Array, Linked Lists, Stack/Queue, HashMap, Trees , fundamentals. **Java 25** refresh: `record Node`, `SequencedCollection`, pattern matching, Compact Object Headers (JEP 450). | Part of [[README|Java MOC]]
 

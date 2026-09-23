@@ -1,18 +1,17 @@
 ---
-category: CheatSheet
-tags: [java, dsa, cheatsheet]
-title: DSA , Cheat Sheet
-## Why it Matters
-
-Complexity and structure selection on one page: Big-O per data structure, the best approach per problem family, and the `Vs` table for the choices that decide a solution's shape (BFS vs DFS, heap vs TreeSet, top-down vs bottom-up). Use it to rehearse time and space answers until they are instant.
-
-## Practice
-- [1. Two Sum](https://leetcode.com/problems/two-sum/)
-- [121. Best Time To Buy And Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/)
-- [215. Kth Largest Element In An Array](https://leetcode.com/problems/kth-largest-element-in-an-array/)
-
----
-## Diagram
+title: "DSA Cheat Sheet"
+category: "DSA"
+tags: [java, cheat-sheet, dsa]
+created: 2026-09-03
+pattern: 0
+difficulty: Medium
+completed: false
+reviewed: ""
+sr-due: ""
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
+---## Diagram
 
 ```mermaid
 flowchart TD

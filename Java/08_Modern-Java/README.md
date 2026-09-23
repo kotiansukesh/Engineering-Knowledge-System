@@ -1,9 +1,14 @@
 ---
-title: "Modern Java , 8 to 25"
-type: folder-MOC
-tags: [MOC, java25, modern-java]
----
-# 08 Modern Java , Java 8 → 25
+title: "Modern Java"
+category: "Modern-Java"
+tags: [java, java25, modern-java, records, virtual-threads]
+created: 2026-09-03
+pattern: 0
+difficulty: Medium
+completed: false
+reviewed:
+sr-due:
+---# 08 Modern Java , Java 8 → 25
 
 > What's new from lambdas to Loom, SequencedCollection, records, sealed, pattern matching, ScopedValue, compact headers. All runnable on **Java 25 LTS**. Part of [[../README|Java MOC]].
 ```dataview

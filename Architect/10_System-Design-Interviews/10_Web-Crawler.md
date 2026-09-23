@@ -1,9 +1,16 @@
 ---
 title: "Web Crawler"
+pattern: 10
 category: "System Design"
 tags: [system-design, interview, crawler, frontier, dedupe, politeness]
 created: 2026-09-04
 completed: false
+reviewed: ""
+sr-due: ""
+difficulty: Hard
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 ## Why it Matters
 

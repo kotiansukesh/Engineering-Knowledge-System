@@ -4,6 +4,13 @@ category: java21
 tags: [java21, jep443, unnamed, interview]
 created: 2026-09-03
 completed: false
+pattern: 7
+difficulty: Medium
+reviewed: ""
+sr-due: ""
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 ## Why it Matters
 

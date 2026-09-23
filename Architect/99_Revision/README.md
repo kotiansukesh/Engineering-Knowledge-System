@@ -1,9 +1,13 @@
 ---
 title: "Revision Hub"
+pattern: 0
 category: "Revision"
 tags: [architect, revision, moc]
 created: 2026-09-03
 completed: false
+reviewed:
+sr-due:
+difficulty: Easy
 ---
 # 99_Revision, hub
 

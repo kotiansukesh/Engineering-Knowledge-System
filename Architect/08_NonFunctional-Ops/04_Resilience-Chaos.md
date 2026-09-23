@@ -1,9 +1,16 @@
 ---
 title: "Resilience & Chaos, Bulkheads, Backpressure & GameDays"
+pattern: 4
 category: "Non-Functional & Ops"
 tags: [resilience, chaos, bulkhead, backpressure, gameday]
 created: 2026-09-03
 completed: false
+reviewed: ""
+sr-due: ""
+difficulty: Medium
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 ## Why it Matters
 

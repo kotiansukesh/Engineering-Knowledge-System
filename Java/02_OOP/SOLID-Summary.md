@@ -3,6 +3,14 @@ title: "SOLID , Summary & Field Guide"
 category: Java/02_OOP
 tags: [java, oop, solid, design-principles, summary]
 created: 2026-09-04
+pattern: 16
+difficulty: Medium
+completed: false
+reviewed: ""
+sr-due: ""
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 ## Why it Matters
 

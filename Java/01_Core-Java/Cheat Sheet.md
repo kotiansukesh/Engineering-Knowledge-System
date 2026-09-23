@@ -1,9 +1,17 @@
 ---
-category: CheatSheet
-tags: [java, core-java, cheatsheet]
-title: Core Java , Cheat Sheet
----
-## Why it Matters
+title: "Core Java Cheat Sheet"
+category: "Core-Java"
+tags: [java, cheat-sheet, core]
+created: 2026-09-03
+pattern: 0
+difficulty: Easy
+completed: false
+reviewed: ""
+sr-due: ""
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
+---## Why it Matters
 
 One page that collapses the Core Java topics that interviewers probe most: JVM/JRE/JDK boundaries, primitive vs wrapper identity, `String` pool and mutability, generics variance, exceptions, and the Java 25 idioms (records, sealed, pattern matching, `Optional`, NIO). Use it as the *recall* layer after reading the topic notes, not a substitute for them.
 

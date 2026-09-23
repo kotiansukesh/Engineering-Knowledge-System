@@ -5,6 +5,13 @@ difficulty: Medium
 tags: [lld, machine-coding, coffee-vending, strategy]
 source: https://github.com/ashishps1/awesome-low-level-design
 created: 2026-09-04
+pattern: 19
+completed: false
+reviewed: ""
+sr-due: ""
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 ## Why it Matters
 
@@ -26,7 +33,7 @@ flowchart TB
  C -->|yes| E[Consume atomically + brew]
 ```
 ## Code
-```
+```java
 javaimport java.util.*;
 
 class Inventory {

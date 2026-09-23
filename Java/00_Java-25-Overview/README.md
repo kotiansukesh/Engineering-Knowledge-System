@@ -1,9 +1,14 @@
 ---
 title: "00 Java 25 Overview"
-type: folder-MOC
-tags: [MOC, java25, overview]
----
-## Related
+category: "00 Overview"
+tags: [java, java25, overview]
+created: 2026-09-03
+pattern: 0
+difficulty: Easy
+completed: false
+reviewed:
+sr-due:
+---## Related
 
 - [[../README|← Java MOC]] • [[../99_Revision/Study Plan|Study Plan]] • [[Whats New in Java 25]] • [[../99_Revision/README|99 Revision]]
 

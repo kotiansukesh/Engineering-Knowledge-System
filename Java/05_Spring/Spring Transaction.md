@@ -4,6 +4,14 @@ category: Spring
 tags: [spring, transaction, aop, jdbc, jpa, java25, virtual-threads]
 created: 2026-01-18
 updated: 2026-09-02
+pattern: 8
+difficulty: Hard
+completed: false
+reviewed: ""
+sr-due: ""
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 ## Why it Matters
 
@@ -279,7 +287,7 @@ class OrderService {
  public Order auditTrail(Order o) { return repo.save(o); }
 }
 ```
-```
+```java
 java
 @Service
 class BadPattern {
@@ -324,7 +332,7 @@ class ProgrammaticService {
 
 ## AOT Hints for Transactions (Java 25 / GraalVM)
 
-```
+```java
 java
 @Configuration
 @ImportRuntimeHints(TxHints.class)

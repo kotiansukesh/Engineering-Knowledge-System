@@ -1,9 +1,14 @@
 ---
 title: "Creational Patterns"
-type: folder-MOC
-tags: [MOC, design-patterns, creational]
----
-# Creational Patterns
+category: "Creational"
+tags: [java, design-patterns, creational]
+created: 2026-09-03
+pattern: 0
+difficulty: Medium
+completed: false
+reviewed:
+sr-due:
+---# Creational Patterns
 
 > 5 patterns , object creation mechanisms that increase flexibility and reuse. | Part of [[06_Design-Patterns/README|Design Patterns MOC]] → [[Java/README|Java MOC]]
 ```dataview

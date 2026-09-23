@@ -5,6 +5,11 @@ tags: [ai, rag, retrieval, reranking]
 weeks: "8-9"
 created: 2026-09-02
 completed: false
+reviewed: ""
+sr-due: ""
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 ## Why it Matters
 

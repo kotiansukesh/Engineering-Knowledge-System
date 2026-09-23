@@ -1,9 +1,14 @@
 ---
-title: "Object-Oriented Programming"
-type: folder-MOC
-tags: [MOC, 02_oop]
----
-# Object-Oriented Programming
+title: "OOP"
+category: "OOP"
+tags: [java, oop, solid]
+created: 2026-09-03
+pattern: 0
+difficulty: Medium
+completed: false
+reviewed:
+sr-due:
+---# Object-Oriented Programming
 
 > Pillars + SOLID + relationships , the OOP + LLD interview core. Course map: [AlgoMaster LLD](https://algomaster.io/learn/lld/course-introduction). | Part of [[README|Java MOC]]
 

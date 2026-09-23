@@ -1,9 +1,17 @@
 ---
-category: CheatSheet
-tags: [java, spring, cheatsheet]
-title: Spring / Spring Boot , Cheat Sheet
----
-## Why it Matters
+title: "Spring Cheat Sheet"
+category: "Spring"
+tags: [spring, cheat-sheet, java25]
+created: 2026-09-03
+pattern: 0
+difficulty: Hard
+completed: false
+reviewed: ""
+sr-due: ""
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
+---## Why it Matters
 
 The **one-page reference for the whole Spring module**: the MVC request path, the comparison table that settles the "which one do I pick" questions (`@Component` vs `@Service`, constructor vs field injection, `REQUIRED` vs `REQUIRES_NEW`, Filter vs Interceptor vs AOP), the annotations you must know by heart, Boot internals that interviewers probe, and the Java 25 one-liners. It is not a tutorial, it is the **recall layer** for the eight notes in `05_Spring`, used the morning of an interview.
 

@@ -4,6 +4,13 @@ category: java21
 tags: [java21, lts, overview, jep, interview]
 created: 2026-09-03
 completed: false
+pattern: 1
+difficulty: Medium
+reviewed: ""
+sr-due: ""
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 ## Why it Matters
 
@@ -141,7 +148,8 @@ javac --release 21 Main.java && java Main
 # Virtual thread hello on 21:
 
 ```
-```javatry
+```java
+try
  (var exec = java.util.concurrent.Executors.newVirtualThreadPerTaskExecutor()) {
  var f = exec.submit(() -> "hello virtual on 21");
  System.out.println(f.get());

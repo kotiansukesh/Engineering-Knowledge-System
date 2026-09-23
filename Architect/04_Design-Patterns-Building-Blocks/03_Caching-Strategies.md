@@ -1,9 +1,16 @@
 ---
 title: "Caching Strategies"
+pattern: 3
 category: "Design Patterns & Building Blocks"
 tags: [patterns, caching, cache-aside, write-through, redis, spring-cache]
 created: 2026-09-03
 completed: false
+reviewed: ""
+sr-due: ""
+difficulty: Medium
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 ## Why it Matters
 

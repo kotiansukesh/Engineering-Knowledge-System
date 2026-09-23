@@ -1,9 +1,16 @@
 ---
 title: "URL Shortener (TinyURL)"
+pattern: 1
 category: "System Design"
 tags: [system-design, interview, hashing, caching, cap]
 created: 2026-09-04
 completed: false
+reviewed: ""
+sr-due: ""
+difficulty: Easy
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 ## Why it Matters
 

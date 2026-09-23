@@ -4,6 +4,13 @@ category: Modern-Java
 tags: [java25, pattern-matching, jep507, switch, interview]
 created: 2026-09-03
 completed: false
+pattern: 3
+difficulty: Medium
+reviewed: ""
+sr-due: ""
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 ## Why it Matters
 

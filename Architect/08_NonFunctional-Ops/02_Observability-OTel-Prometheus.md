@@ -1,9 +1,16 @@
 ---
 title: "Observability, OTel, Prometheus & Grafana"
+pattern: 2
 category: "Non-Functional & Ops"
 tags: [observability, opentelemetry, prometheus, grafana, tracing]
 created: 2026-09-03
 completed: false
+reviewed: ""
+sr-due: ""
+difficulty: Easy
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 ## Why it Matters
 

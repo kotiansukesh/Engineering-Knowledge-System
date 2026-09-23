@@ -1,9 +1,16 @@
 ---
 title: "API Gateway & BFF"
+pattern: 4
 category: "Design Patterns & Building Blocks"
 tags: [patterns, api-gateway, bff, spring-cloud-gateway, microservices]
 created: 2026-09-03
 completed: false
+reviewed: ""
+sr-due: ""
+difficulty: Medium
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 ## Why it Matters
 

@@ -1,9 +1,16 @@
 ---
 title: "Strategic DDD"
+pattern: 1
 category: "DDD & Modeling"
 tags: [ddd, strategic-design, ubiquitous-language, subdomain]
 created: 2026-09-03
 completed: false
+reviewed: ""
+sr-due: ""
+difficulty: Easy
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 ## Why it Matters
 

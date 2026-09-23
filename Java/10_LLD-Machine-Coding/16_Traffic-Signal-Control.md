@@ -5,6 +5,13 @@ difficulty: Medium
 tags: [lld, machine-coding, traffic-signal, state-machine]
 source: https://github.com/ashishps1/awesome-low-level-design
 created: 2026-09-04
+pattern: 18
+completed: false
+reviewed: ""
+sr-due: ""
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 ## Why it Matters
 
@@ -27,7 +34,7 @@ stateDiagram-v2
  EW_YELLOW --> NS_GREEN: all-red gap
 ```
 ## Code
-```
+```java
 javaimport java.util.*;
 
 enum Lamp { RED, YELLOW, GREEN }

@@ -1,9 +1,16 @@
 ---
 title: "Review Process, RFCs & Design Reviews"
+pattern: 3
 category: "Governance & Docs"
 tags: [rfc, design-review, governance, process]
 created: 2026-09-03
 completed: false
+reviewed: ""
+sr-due: ""
+difficulty: Medium
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 ## Why it Matters
 

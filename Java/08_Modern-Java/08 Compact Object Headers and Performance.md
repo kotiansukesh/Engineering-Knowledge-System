@@ -4,6 +4,13 @@ category: Modern-Java
 tags: [java25, jep450, performance, jvm]
 created: 2026-09-03
 completed: false
+pattern: 8
+difficulty: Medium
+reviewed: ""
+sr-due: ""
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 ## Why it Matters
 

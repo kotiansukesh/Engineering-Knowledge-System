@@ -1,11 +1,17 @@
 ---
 title: "Kafka Messaging and Idempotency"
-category: integration
+pattern: 3
+category: "integration
 tags: [kafka, messaging, idempotency, outbox, interview]
 created: 2026-09-03
-completed: false
----
-## Why it Matters
+completed: false"
+reviewed: ""
+sr-due: ""
+difficulty: Medium
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
+---## Why it Matters
 
 Kafka is a durable log, not a queue, and the difference shows up exactly when things crash: a commit that never reached the broker, or a redelivery that charges a card twice. The outbox on the producer and a dedupe constraint on the consumer are the pair that turns at-least-once delivery into exactly-once *effect*, the bar for any money-moving integration.
 

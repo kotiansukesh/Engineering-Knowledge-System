@@ -1,9 +1,16 @@
 ---
 title: "Discovery, Config & Registry"
+pattern: 7
 category: "Design Patterns & Building Blocks"
 tags: [patterns, microservices, discovery, config, spring-cloud, kubernetes, eureka, consul]
 created: 2026-09-03
 completed: false
+reviewed: ""
+sr-due: ""
+difficulty: Hard
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 ## Why it Matters
 

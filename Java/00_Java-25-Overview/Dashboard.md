@@ -5,6 +5,13 @@ tags: [dashboard, java25, tracker]
 created: 2026-09-03
 updated: 2026-09-18
 completed: false
+pattern: 0
+difficulty: Easy
+reviewed: ""
+sr-due: ""
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 ## Why it Matters
 

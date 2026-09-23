@@ -3,6 +3,12 @@ title: LLD & Machine Coding - MOC
 category: LLD
 tags: [lld, machine-coding, moc]
 created: 2026-09-04
+pattern: 0
+difficulty: Hard
+completed: false
+reviewed:
+sr-due:
+
 ---
 # LLD & Machine Coding
 

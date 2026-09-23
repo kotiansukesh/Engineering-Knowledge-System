@@ -1,9 +1,16 @@
 ---
 title: "Bounded Contexts"
+pattern: 2
 category: "DDD & Modeling"
 tags: [ddd, bounded-context, modules, microservices]
 created: 2026-09-03
 completed: false
+reviewed: ""
+sr-due: ""
+difficulty: Easy
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 ## Why it Matters
 

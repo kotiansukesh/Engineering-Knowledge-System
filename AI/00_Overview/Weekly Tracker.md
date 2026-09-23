@@ -4,6 +4,10 @@ category: overview
 tags: [ai, tracker, planning]
 created: 2026-09-02
 completed: false
+sr-due: ""
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 ## Why it Matters
 

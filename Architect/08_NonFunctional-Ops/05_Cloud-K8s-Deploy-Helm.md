@@ -1,9 +1,16 @@
 ---
 title: "Cloud & K8s Deploy, Helm, GitOps & Rollouts"
+pattern: 5
 category: "Non-Functional & Ops"
 tags: [kubernetes, helm, gitops, argo-cd, deployment]
 created: 2026-09-03
 completed: false
+reviewed: ""
+sr-due: ""
+difficulty: Medium
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 ## Why it Matters
 

@@ -4,6 +4,13 @@ category: overview
 tags: [java8, lts, overview, jep, interview]
 created: 2026-09-03
 completed: false
+pattern: 4
+difficulty: Easy
+reviewed: ""
+sr-due: ""
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 ## Why it Matters
 

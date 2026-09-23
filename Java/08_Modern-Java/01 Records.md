@@ -4,6 +4,13 @@ category: Modern-Java
 tags: [java25, record, modern-java, interview]
 created: 2026-09-03
 completed: false
+pattern: 1
+difficulty: Medium
+reviewed: ""
+sr-due: ""
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 ## Why it Matters
 

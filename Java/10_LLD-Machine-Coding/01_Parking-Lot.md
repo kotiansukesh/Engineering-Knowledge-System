@@ -5,6 +5,13 @@ difficulty: Easy
 tags: [lld, machine-coding, parking-lot]
 source: https://github.com/ashishps1/awesome-low-level-design
 created: 2026-09-04
+pattern: 3
+completed: false
+reviewed: ""
+sr-due: ""
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 ## Why it Matters
 
@@ -26,7 +33,7 @@ flowchart LR
  E --> F[Release spot + fee = hours × rate]
 ```
 ## Code
-```
+```java
 javaimport java.util.*;
 
 enum VehicleSize { SMALL, MEDIUM, LARGE }

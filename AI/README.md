@@ -3,12 +3,13 @@ title: "AI Engineering, Master MOC"
 type: MOC
 tags: [MOC, ai, ai-platform, roadmap]
 created: 2026-09-02
-updated: 2026-09-02
+updated: 2026-09-23
 weeks: "1-36"
 hours_per_week: "10-15"
 outcome: "Enterprise AI Platform + CKAD + iSAQB"
 ---
-# AI Engineering, Master moc
+
+# AI Engineering, Master MOC
 
 > **36-week roadmap** (13+ years Java/backend → Staff/Principal AI Platform Engineer).
 > One evolving platform, not 6 throwaway projects. Each phase hardens the same system.
@@ -40,11 +41,13 @@ FROM "AI"
 WHERE category AND file.name != "README"
 GROUP BY true
 ```
+
 ---
 
 ## Progress, per Phase
-```dataviewjsconst
- folders = [
+
+```dataviewjs
+const folders = [
  ["00_Overview", "00 Overview"],
  ["01_Fundamentals", "01 Fundamentals W1-4"],
  ["02_RAG-Engineering", "02 RAG W5-10"],
@@ -69,21 +72,22 @@ dv.table(
  rows
 );
 ```
+
 ---
 
 ## 36-Week Timeline
 
 | Phase | Weeks | Theme | Certification | Platform Evolution |
 |-------|-------|-------|---------------|-------------------|
-| **00** | — | [[AI/00_Overview/README\|Overview & Principles]] | — | Tech stack, weekly tracker, learning philosophy |
-| **01** | 1–4 | [[AI/01_Fundamentals/README\|Fundamentals]] | *None* | `AI Backend Template` → FastAPI + LLM APIs + tools |
-| **02** | 5–10 | [[AI/02_RAG-Engineering/README\|RAG Engineering]] | **Coursera C1** LLM Eng. with RAG + **C2** LLM Architectures | `Enterprise Document Search` — pgvector, hybrid search, citations, streaming |
-| **03** | 11–16 | [[AI/03_Agentic-AI/README\|Agentic AI]] | **NUS-ISS** Architecting Agentic AI Solutions (4-day intensive) | `Enterprise AI Operations Platform` — 7 agents, human approval, memory, orchestration |
-| **04** | 17–24 | [[AI/04_Production-Platform/README\|Production Platform]] | **Coursera C3–C7** Resilient Microservices → Integrate & Optimize | Harden platform: gRPC, Helm, autoscaling, Prometheus, OTel, resilience |
-| **05** | 25–30 | [[AI/05_Kubernetes-Operations/README\|K8s Operations]] | **CKAD** (or CKA) | Deploy full stack on K8s: gateway, PG, Redis, vector DB, Kafka, Grafana |
-| **06** | 31–36 | [[AI/06_Architecture-Governance/README\|Architecture & Governance]] | **iSAQB CPSA-A SWARC4AI** (3-day) | Governance, compliance, drift, MLOps, GenAI patterns, cost |
-| **07** | *continuous* | [[AI/07_Cross-Cutting/README\|Cross-Cutting]] | — | MCP, eval, observability, security, cost, multi-model routing |
-| **99** | — | [[AI/99_Revision/README\|Revision & Mock]] | — | Flashcards, capstone checklist, interview bank |
+| **00** | — | [[AI/00_Overview/README|Overview & Principles]] | — | Tech stack, weekly tracker, learning philosophy |
+| **01** | 1–4 | [[AI/01_Fundamentals/README|Fundamentals]] | *None* | `AI Backend Template` → FastAPI + LLM APIs + tools |
+| **02** | 5–10 | [[AI/02_RAG-Engineering/README|RAG Engineering]] | **Coursera C1** LLM Eng. with RAG + **C2** LLM Architectures | `Enterprise Document Search` — pgvector, hybrid search, citations, streaming |
+| **03** | 11–16 | [[AI/03_Agentic-AI/README|Agentic AI]] | **NUS-ISS** Architecting Agentic AI Solutions (4-day intensive) | `Enterprise AI Operations Platform` — 7 agents, human approval, memory, orchestration |
+| **04** | 17–24 | [[AI/04_Production-Platform/README|Production Platform]] | **Coursera C3–C7** Resilient Microservices → Integrate & Optimize | Harden platform: gRPC, Helm, autoscaling, Prometheus, OTel, resilience |
+| **05** | 25–30 | [[AI/05_Kubernetes-Operations/README|K8s Operations]] | **CKAD** (or CKA) | Deploy full stack on K8s: gateway, PG, Redis, vector DB, Kafka, Grafana |
+| **06** | 31–36 | [[AI/06_Architecture-Governance/README|Architecture & Governance]] | **iSAQB CPSA-A SWARC4AI** (3-day) | Governance, compliance, drift, MLOps, GenAI patterns, cost |
+| **07** | *continuous* | [[AI/07_Cross-Cutting/README|Cross-Cutting]] | — | MCP, eval, observability, security, cost, multi-model routing |
+| **99** | — | [[AI/99_Revision/README|Revision & Mock]] | — | Flashcards, capstone checklist, interview bank |
 
 > **Principle:** Certifications reinforce building. No throwaway course projects, evolve **one platform** from Phase 1 → 6.
 
@@ -103,6 +107,7 @@ W25-30 deploy: K8s production (gateway, PG, Redis, vector DB, Kafka, observabili
  ↓
 W31-36 govern: quality attributes, EU AI Act, drift, MLOps, enterprise integration
 ```
+
 ---
 
 ## Certification map
@@ -130,11 +135,12 @@ Details: [[AI/00_Overview/Certification Guide|Certification Guide]] • [[AI/00_
 
 ## Folder Index
 ```dataviewTABLE
- WITHOUT ID file.link as "Note", category as "Category", weeks as "Weeks"
+WITHOUT ID file.link as "Note", category as "Category", weeks as "Weeks"
 FROM "AI"
 WHERE category AND file.name != "README"
 SORT file.path ASC
 ```
+
 ---
 
 ## ▶ Where to Start

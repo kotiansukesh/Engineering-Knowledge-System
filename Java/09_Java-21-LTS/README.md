@@ -1,9 +1,14 @@
 ---
-title: "Java 21 LTS , Master"
-type: folder-MOC
-tags: [MOC, java21, lts, java]
----
-# 09 Java 21 lts , Master
+title: "Java 21 LTS"
+category: "Java-21-LTS"
+tags: [java, java21, lts, virtual-threads]
+created: 2026-09-03
+pattern: 0
+difficulty: Medium
+completed: false
+reviewed:
+sr-due:
+---# 09 Java 21 lts , Master
 
 > **Java 21 LTS (Sep 2023)** , the LTS before 25. If you ace 21, 25 is a **delta** (ScopedValue final, Structured Concurrency preview, Compact Headers, Primitive Patterns, Flexible Constructors, Module Imports). Part of [[../README|Java MOC]].
 ```dataview

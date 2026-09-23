@@ -5,6 +5,13 @@ difficulty: Medium
 tags: [lld, machine-coding, splitwise]
 source: https://github.com/ashishps1/awesome-low-level-design
 created: 2026-09-04
+pattern: 13
+completed: false
+reviewed: ""
+sr-due: ""
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 ## Why it Matters
 
@@ -25,7 +32,7 @@ flowchart LR
  C --> D[Balances zero]
 ```
 ## Code
-```
+```java
 javaimport java.util.*;
 
 public class SplitwiseDemo {

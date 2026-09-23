@@ -1,11 +1,18 @@
 ---
-title: Fitness Functions
-category: architect
+title: "Fitness Functions"
+pattern: 4
+category: "architect"
 tags: [quality, fitness, testing]
 created: 2026-09-03
 completed: false
+reviewed: ""
+sr-due: ""
+difficulty: Medium
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
-## Why it Matters
+Why it Matters
 
 Automate architectural guardrails (coupling, latency, security) so drift fails the build, not a quarterly review.
 

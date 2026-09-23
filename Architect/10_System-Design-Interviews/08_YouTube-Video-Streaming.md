@@ -1,9 +1,16 @@
 ---
 title: "YouTube Video Streaming"
+pattern: 8
 category: "System Design"
 tags: [system-design, interview, video, streaming, cdn, transcoding]
 created: 2026-09-04
 completed: false
+reviewed: ""
+sr-due: ""
+difficulty: Hard
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 ## Why it Matters
 

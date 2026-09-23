@@ -1,9 +1,14 @@
 ---
 title: "Structural Patterns"
-type: folder-MOC
-tags: [MOC, design-patterns, structural]
----
-# Structural Patterns
+category: "Structural"
+tags: [java, design-patterns, structural]
+created: 2026-09-03
+pattern: 0
+difficulty: Medium
+completed: false
+reviewed:
+sr-due:
+---# Structural Patterns
 
 > 7 patterns , assembling objects/classes into larger structures while keeping them flexible. | Part of [[06_Design-Patterns/README|Design Patterns MOC]] → [[Java/README|Java MOC]]
 ```dataview

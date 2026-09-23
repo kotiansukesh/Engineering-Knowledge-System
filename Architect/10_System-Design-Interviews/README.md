@@ -1,9 +1,13 @@
 ---
 title: "System Design Interviews MOC"
+pattern: 0
 category: "MOC"
 tags: [system-design, interview, moc]
 created: 2026-09-04
 completed: false
+reviewed:
+sr-due:
+difficulty: Easy
 ---
 # 10_System-Design-Interviews, moc
 

@@ -4,6 +4,13 @@ category: LLD
 difficulty: Easy
 tags: [lld, machine-coding, method]
 created: 2026-09-04
+pattern: 1
+completed: false
+reviewed: ""
+sr-due: ""
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 ## Why it Matters
 

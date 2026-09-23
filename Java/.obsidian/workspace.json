@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "06_Design-Patterns/Behavioral/Chain of Responsibility.md",
+                "file": "01_Core-Java/Types/Abstract Class.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Chain of Responsibility"
+              "title": "Abstract Class"
             }
           }
         ]
@@ -190,6 +190,7 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "obsidian-excalidraw-plugin:New drawing": false,
       "random-note:Open random note": false,
       "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
@@ -202,34 +203,34 @@
       "templater-obsidian:Templater": false
     }
   },
-  "active": "ef7abf3662774620",
+  "active": "9461d53bd94a1223",
   "lastOpenFiles": [
-    "06_Design-Patterns/Behavioral/Chain of Responsibility.md",
-    "_templates/Java Note Template.md",
-    "00_Java-25-Overview/LTS Evolution 8 to 25.md",
-    "00_Java-25-Overview/Java 25 Roadmap.md",
-    "00_Java-25-Overview/Java 17 LTS Overview.md",
-    "00_Java-25-Overview/Java 11 LTS Overview.md",
-    "05_Spring/Spring Framework.md",
+    "00_Java-25-Overview/Whats New in Java 25.md",
+    "00_Java-25-Overview/Dashboard.md",
+    "00_Java-25-Overview/Interview Strategy.md",
     "00_Java-25-Overview/Java 8 LTS Overview.md",
+    "_templates/Java Note Template.md",
+    "00_Java-25-Overview/Realistic Roadmap.md",
+    "01_Core-Java/Types/Abstract Class.md",
+    "_templates/Java Diagram.excalidraw.md",
+    "00_Java-25-Overview/Java 11 LTS Overview.md",
+    "Study Plan.md",
+    "Dashboard.md",
+    "00_Java-25-Overview/Java 25 Roadmap.md",
+    "99_Revision/Interview-Bank.md",
+    "00_Java-25-Overview/README.md",
+    "99_Revision/Study Plan.md",
+    "07_DSA/README.md",
+    "06_Design-Patterns/Behavioral/Chain of Responsibility.md",
+    "00_Java-25-Overview/LTS Evolution 8 to 25.md",
+    "00_Java-25-Overview/Java 17 LTS Overview.md",
+    "05_Spring/Spring Framework.md",
     "05_Spring/Spring Transaction.md",
     "05_Spring/Spring MVC.md",
     "05_Spring/Spring Boot.md",
-    "00_Java-25-Overview/Interview Strategy.md",
-    "00_Java-25-Overview/Dashboard.md",
     "05_Spring/Dependency Injection.md",
     "05_Spring/Cheat Sheet.md",
     "10_LLD-Machine-Coding/01_Parking-Lot.md",
-    "10_LLD-Machine-Coding/02_Vending-Machine.md",
-    "10_LLD-Machine-Coding/00_UML-Class-and-Sequence-Diagrams.md",
-    "10_LLD-Machine-Coding/00_Method-How-to-Answer-LLD.md",
-    "README.md",
-    "03_Collections/Set/README.md",
-    "03_Collections/List/README.md",
-    "02_OOP/Inheritance/README.md",
-    "01_Core-Java/Types/Nested/README.md",
-    "01_Core-Java/Types/README.md",
-    "Study Plans.md",
     "Java/01_Core-Java",
     "Java/00_Java-25-Overview",
     "Java",

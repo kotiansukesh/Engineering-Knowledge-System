@@ -190,6 +190,7 @@
   },
   "left-ribbon": {
     "hiddenItems": {
+      "obsidian-excalidraw-plugin:New drawing": false,
       "templater-obsidian:Templater": false,
       "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
@@ -201,8 +202,9 @@
       "obsidian-spaced-repetition:Review flashcards": false
     }
   },
-  "active": "4771ca9599eecaa8",
+  "active": "7305e53b4c14b63b",
   "lastOpenFiles": [
+    "README.md",
     "00_Overview/Dashboard.md",
     "99_Revision/README.md",
     "09_Governance-Documentation/README.md",
@@ -224,7 +226,6 @@
     "04_Design-Patterns-Building-Blocks/07_Discovery-Config-Registry.md",
     "08_NonFunctional-Ops/01_Security-OAuth2-JWT.md",
     "04_Design-Patterns-Building-Blocks/05_Decomposition-Bounded-Context.md",
-    "00_Overview/Study Plan - Architect.md",
-    "README.md"
+    "00_Overview/Study Plan - Architect.md"
   ]
 }

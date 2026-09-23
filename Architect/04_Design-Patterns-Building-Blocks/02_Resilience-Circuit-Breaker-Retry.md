@@ -1,9 +1,16 @@
 ---
 title: "Resilience, Circuit Breaker & Retry"
+pattern: 2
 category: "Design Patterns & Building Blocks"
 tags: [patterns, resilience, circuit-breaker, retry, resilience4j, spring]
 created: 2026-09-03
 completed: false
+reviewed: ""
+sr-due: ""
+difficulty: Easy
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 ## Why it Matters
 

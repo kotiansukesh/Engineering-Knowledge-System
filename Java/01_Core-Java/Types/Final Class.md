@@ -4,6 +4,14 @@ category: Core-Java
 tags: [java, class, final, java25]
 created: 2026-01-18
 updated: 2026-09-04
+pattern: 4
+difficulty: Easy
+completed: false
+reviewed: ""
+sr-due: ""
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 # Final Class
 > Part of [[Java/01_Core-Java/README|Core Java]]

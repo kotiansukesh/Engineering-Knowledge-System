@@ -1,9 +1,14 @@
 ---
 title: "Set Implementations"
-type: folder-MOC
-tags: [MOC, set]
----
-# Set Implementations
+category: "Set"
+tags: [java, set, hashset, treeset]
+created: 2026-09-03
+pattern: 0
+difficulty: Easy
+completed: false
+reviewed:
+sr-due:
+---# Set Implementations
 
 > Set Implementations, the notes below. | Part of [[Java/README\|Java MOC]]
 

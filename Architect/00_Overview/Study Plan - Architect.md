@@ -1,11 +1,18 @@
 ---
-title: Study Plan - Architect
-category: plan
+title: "Study Plan - Architect"
+pattern: 0
+category: "plan"
 tags: [architect, plan, 24-weeks]
 created: 2026-09-03
 completed: false
+reviewed: ""
+sr-due: ""
+difficulty: Easy
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
-## Why it Matters
+Why it Matters
 
 Reading notes without a schedule is how a 24-week plan becomes 24 months of tutorial-hopping. This plan pins one theme and one deliverable per week so every lab, ADR and diagram compounds into the capstone, depth comes from the sequence, not from the number of tabs open.
 

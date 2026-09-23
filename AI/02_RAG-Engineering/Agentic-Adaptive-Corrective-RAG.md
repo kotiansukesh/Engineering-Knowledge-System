@@ -5,6 +5,11 @@ tags: [ai, rag, adaptive-rag, corrective-rag, agentic-rag, routing, evaluation]
 weeks: "8-9"
 created: 2026-09-04
 completed: false
+reviewed: ""
+sr-due: ""
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 ## Why it Matters
 

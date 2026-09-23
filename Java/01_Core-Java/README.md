@@ -1,9 +1,14 @@
 ---
 title: "Core Java"
-type: folder-MOC
-tags: [MOC, 01_core-java]
----
-# Core Java
+category: "Core-Java"
+tags: [java, core, language]
+created: 2026-09-03
+pattern: 0
+difficulty: Easy
+completed: false
+reviewed:
+sr-due:
+---# Core Java
 
 > Language fundamentals: classes, interfaces, methods and all class types. Start here. | Part of [[README|Java MOC]]
 

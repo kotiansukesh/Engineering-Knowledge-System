@@ -1,9 +1,16 @@
 ---
 title: "Saga, Outbox & Inbox"
+pattern: 6
 category: "Design Patterns & Building Blocks"
 tags: [patterns, microservices, saga, outbox, inbox, idempotency, kafka, spring]
 created: 2026-09-03
 completed: false
+reviewed: ""
+sr-due: ""
+difficulty: Hard
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 ## Why it Matters
 

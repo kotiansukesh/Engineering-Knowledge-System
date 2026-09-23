@@ -1,11 +1,17 @@
 ---
 title: "Gateway and Service Mesh"
-category: integration
+pattern: 4
+category: "integration
 tags: [gateway, service-mesh, istio, rate-limit, interview]
 created: 2026-09-03
-completed: false
----
-## Why it Matters
+completed: false"
+reviewed: ""
+sr-due: ""
+difficulty: Medium
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
+---## Why it Matters
 
 Once a fleet passes a handful of services, the question stops being "do we need an edge?" and becomes "which concern lives where?" Putting mTLS and per-hop retry in the gateway duplicates policy; putting rate-limit and JWT verification in every service guarantees drift. The split, gateway north-south, mesh east-west, business logic in neither, is what keeps both layers replaceable and the services honest.
 

@@ -1,9 +1,17 @@
 ---
-category: CheatSheet
-tags: [java, design-patterns, cheatsheet]
-title: Design Patterns , Cheat Sheet
----
-## Why it Matters
+title: "Design Patterns Cheat Sheet"
+category: "Design-Patterns"
+tags: [java, cheat-sheet, design-patterns]
+created: 2026-09-03
+pattern: 0
+difficulty: Medium
+completed: false
+reviewed: ""
+sr-due: ""
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
+---## Why it Matters
 
 One-page index of the 22 GoF patterns plus DAO and DI, with intent, a one-line Java hook, and where Spring uses each. Use it to rehearse the intent sentence for every pattern, which is the actual interview ask.
 

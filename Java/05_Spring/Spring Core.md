@@ -4,6 +4,14 @@ category: Spring
 tags: [spring, core, ioc, di, beans, aop, java25, virtual-threads, aot]
 created: 2026-01-18
 updated: 2026-09-02
+pattern: 3
+difficulty: Hard
+completed: false
+reviewed: ""
+sr-due: ""
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 ## Why it Matters
 
@@ -226,7 +234,7 @@ class VirtualThreadCoreConfig {
 ## AOT & GraalVM Hints (Spring 6.2 / Boot 3.5)
 
 AOT pre-computes bean definitions at build time for GraalVM native images. Most hints are auto-generated; add custom ones for dynamic reflection.
-```
+```java
 java
 @Configuration
 @ImportRuntimeHints(CoreHints.class)
@@ -249,7 +257,7 @@ class OrderService {
 
 ### AOP Snippet (Core + AOP), Java 25
 
-```
+```java
 java
 @Aspect
 @Component

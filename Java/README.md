@@ -1,14 +1,22 @@
 ---
 title: "Java , Master MOC"
 type: MOC
+category: "root"
 tags: [MOC, java, interview-prep]
 created: 2026-09-02
-updated: 2026-09-02
+updated: 2026-09-23
+pattern: 0
+difficulty: Easy
+completed: false
+reviewed:
+sr-due:
 ---
-# Java , Master moc
+
+# Java , Master MOC
 
 > Consolidated from `Interview Prep/` → `Java/` on 2026-09-02.
-> **Java 8 to 25 LTS (Sep 2025) , 191 notes, 12 folders (00 to 10 + 99_Revision)** , all searchable via global `[[wikilinks]]`. **Start here:** [[00_Java-25-Overview/README|00 Overview]] → [[00_Java-25-Overview/LTS Evolution 8 to 25|LTS Evolution 8 to 25]] → [[09_Java-21-LTS/README|09 Java 21 LTS ]] → [[00_Java-25-Overview/Java 25 Roadmap|Roadmap]] → [[99_Revision/Study Plan|Study Plan]]. Vault root is `obsidian/`.
+> **Java 8 to 25 LTS (Sep 2025) , 191 notes, 12 folders (00 to 10 + 99_Revision)** , all searchable via global `[[wikilinks]]`.
+> **Start here:** [[00_Java-25-Overview/README|00 Overview]] → [[00_Java-25-Overview/LTS Evolution 8 to 25|LTS Evolution 8 to 25]] → [[09_Java-21-LTS/README|09 Java 21 LTS ]] → [[00_Java-25-Overview/Java 25 Roadmap|Roadmap]] → [[99_Revision/Study Plan|Study Plan]]. Vault root is `obsidian/`.
 
 ---
 
@@ -38,6 +46,7 @@ FROM "Java"
 WHERE category AND file.name != "README"
 GROUP BY true
 ```
+
 ---
 
 ## Progress , per Folder
@@ -46,14 +55,24 @@ GROUP BY true
 const folders = [
  ["00_Java-25-Overview", "00 Java 25 Overview ⭐"],
  ["01_Core-Java", "01 Core-Java"],
+ ["01_Core-Java/Types", "Types"],
+ ["01_Core-Java/Types/Nested", "Nested Types"],
  ["02_OOP", "02 OOP"],
+ ["02_OOP/Inheritance", "Inheritance Types"],
  ["03_Collections", "03 Collections"],
+ ["03_Collections/List", "List Implementations"],
+ ["03_Collections/Set", "Set Implementations"],
  ["04_Concurrency", "04 Concurrency"],
  ["05_Spring", "05 Spring"],
  ["06_Design-Patterns", "06 Design-Patterns"],
+ ["06_Design-Patterns/Creational", "Creational Patterns"],
+ ["06_Design-Patterns/Structural", "Structural Patterns"],
+ ["06_Design-Patterns/Behavioral", "Behavioral Patterns"],
+ ["06_Design-Patterns/Extra", "Extra Patterns"],
  ["07_DSA", "07 DSA"],
  ["08_Modern-Java", "08 Modern Java (8→25) ⭐"],
  ["09_Java-21-LTS", "09 Java 21 LTS ⭐"],
+ ["10_LLD-Machine-Coding", "10 LLD Machine Coding"],
  ["99_Revision", "99 Revision"],
 ];
 const bar = (p, w=14) => "█".repeat(Math.round(p/100*w)) + "░".repeat(w - Math.round(p/100*w));
@@ -66,9 +85,9 @@ const rows = folders.map(([folder, label]) => {
  const reviewedDates = pages.where(p => p.reviewed).map(p => dv.date(p.reviewed));
  let avgDays = "—";
  if (reviewedDates.length) {
- const now = dv.date("now");
- const avg = Math.round(reviewedDates.map(d => (now - d).days).array().reduce((a,b)=>a+b,0) / reviewedDates.length);
- avgDays = `${avg}d`;
+  const now = dv.date("now");
+  const avg = Math.round(reviewedDates.map(d => (now - d).days).array().reduce((a,b)=>a+b,0) / reviewedDates.length);
+  avgDays = `${avg}d`;
  }
  const stale = pages.where(p => !p.reviewed || (dv.date("now") - dv.date(p.reviewed)).days > 7).length;
  return [`[[Java/${folder}/README|${label}]]`, total, done, `${pct}%`, `\`${bar(pct)}\` ${pct}%`, avgDays, stale ? `⚠️ ${stale}` : "✅"];
@@ -97,6 +116,7 @@ WHERE category AND file.name != "README"
 GROUP BY file.folder
 SORT file.folder ASC
 ```
+
 ---
 
 ## Structure , how to use
@@ -113,10 +133,10 @@ SORT file.folder ASC
 | [[Java/05_Spring/README\|05_Spring]] | `Spring Framework`, `Spring Core`, `DI`, `Security`, `Transaction` + Boot 3.5 + virtual threads | 9 | Spring |
 | [[Java/06_Design-Patterns/README\|06_Design-Patterns]] | 22 GoF patterns (Creational 5 + Structural 7 + Behavioral 10) + 2 Extra (DAO, DI) | 29 | Design patterns |
 | [[Java/07_DSA/README\|07_DSA]] | `Array`, `Linked List`, `Singly/Doubly`, `Stack`, `Queue`, `HashMap`, `Trees` + [[Coding Patterns/README\|Coding Patterns]] 20 | 11 | DSA fundamentals |
-| [[Java/99_Revision/README\|99_Revision]] | [[99_Revision/Study Plan\|Study Plan]], [[Interview Questions]] + Dashboard | 3 | Mock interview / cram |
+| [[Java/99_Revision/README\|99_Revision]] | [[99_Revision/Study Plan\|Study Plan]], [[99_Revision/Interview-Bank\|Interview Bank]] + Dashboard | 3 | Mock interview / cram |
 | `_attachments/` | 22 images (all `Pasted image …png`) | , | Assets |
 
-> **New in this update (Java 25):** Added `00_Java-25-Overview` (roadmap + whats-new + 6-week plan) and `08_Modern-Java` (8 notes covering every LTS-relevant feature 8→25). `Dashboard.html` + `00_Java-25-Overview/Dashboard.md` track `completed: true` live.
+> **New in this update (Java 25):** Added `00_Java-25-Overview` (roadmap + whats-new + 6-week plan) and `08_Modern-Java` (8 notes covering every LTS-relevant feature 8→25). `Dashboard` + `00_Java-25-Overview/Dashboard.md` track `completed: true` live.
 
 > **Reading paths:**
 > - **Java 25 fast-track:** `00 Overview` → `08 Modern Java` → `04 Concurrency` → `Whats New` 60-sec answer
@@ -178,6 +198,7 @@ FROM "Java"
 WHERE category AND file.name != "README"
 SORT reviewed DESC
 ```
+
 ---
 
 ## Quick Navigation , all Notes
@@ -188,6 +209,7 @@ FROM "Java"
 WHERE file.name != "README"
 SORT category ASC, file.name ASC
 ```
+
 ---
 
 ## How this was Restructured
@@ -226,4 +248,6 @@ SORT category ASC, file.name ASC
 
 - Add `completed: true` frontmatter to notes you've revised , the folder READMEs show dataview progress.
 - Delete `Interview Prep/` after verifying in Obsidian Graph View (see `Interview Prep/_MOVED.md`).
+- **Mock loop:** Weekly — 3 questions from [[99_Revision/Interview-Bank|Interview Bank]] + 1 system-design drill from Master Dashboard's SR Due list.
+
 *Created 2026-09-02 • Vault: `obsidian/Java`*

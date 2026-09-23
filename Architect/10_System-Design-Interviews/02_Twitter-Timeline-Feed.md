@@ -1,9 +1,16 @@
 ---
 title: "Twitter Timeline and Feed"
+pattern: 2
 category: "System Design"
 tags: [system-design, interview, feed, fanout, kafka, redis]
 created: 2026-09-04
 completed: false
+reviewed: ""
+sr-due: ""
+difficulty: Easy
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 ## Why it Matters
 

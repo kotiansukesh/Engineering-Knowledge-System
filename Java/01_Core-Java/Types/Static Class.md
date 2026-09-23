@@ -4,6 +4,14 @@ category: Core-Java
 tags: [java, class, static, java25]
 created: 2026-01-18
 updated: 2026-09-04
+pattern: 10
+difficulty: Easy
+completed: false
+reviewed: ""
+sr-due: ""
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 # Static Class
 > Part of [[Java/01_Core-Java/README|Core Java]]
@@ -21,9 +29,9 @@ Group class-level state/behavior and helpers that don't need an enclosing instan
 ```mermaid
 classDiagram
  class Math_ {
- <<utility: private ctor>>
- +max(a,b)$ int
- +PI$ double
+ <<utility>>
+ +max(a,b) int
+ +PI double
  }
 ```
 

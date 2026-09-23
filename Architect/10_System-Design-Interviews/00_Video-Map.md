@@ -1,9 +1,16 @@
 ---
 title: "Video Reference Map"
+pattern: 0
 category: "System Design"
 tags: [system-design, interview, videos, reference]
 created: 2026-09-04
 completed: false
+reviewed: ""
+sr-due: ""
+difficulty: Easy
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 ## Why it Matters
 

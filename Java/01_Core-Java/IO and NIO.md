@@ -4,6 +4,14 @@ category: Core-Java
 tags: [java, io, nio, interview]
 created: 2026-09-02
 updated: 2026-09-04
+pattern: 8
+difficulty: Easy
+completed: false
+reviewed: ""
+sr-due: ""
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 # IO and nio
 > Part of [[Java/01_Core-Java/README|Core Java]]

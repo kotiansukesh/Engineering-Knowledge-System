@@ -4,6 +4,14 @@ category: DSA
 tags: [dsa, heap, interview]
 created: 2026-01-18
 updated: 2026-09-04
+pattern: 5
+difficulty: Medium
+completed: false
+reviewed: ""
+sr-due: ""
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 ## Why it Matters
 

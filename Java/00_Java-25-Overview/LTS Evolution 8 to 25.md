@@ -4,6 +4,13 @@ category: overview
 tags: [lts, overview, jep, roadmap, interview]
 created: 2026-09-03
 completed: false
+pattern: 5
+difficulty: Easy
+reviewed: ""
+sr-due: ""
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 ## Why it Matters
 

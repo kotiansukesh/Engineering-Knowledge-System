@@ -1,9 +1,14 @@
 ---
-title: "Revision , Mock Interview Bank"
-type: folder-MOC
-tags: [MOC, revision, interview-prep]
----
-# 99_Revision , Mock Interview Bank
+title: "Revision"
+category: "Revision"
+tags: [java, revision, interview]
+created: 2026-09-03
+pattern: 0
+difficulty: Easy
+completed: false
+reviewed:
+sr-due:
+---# 99_Revision , Mock Interview Bank
 
 > Unnumbered meta-folder , not curriculum. Aggregates `## Interview Q&A` from `01..07` via Dataview. Single source of truth stays in each topic note. **Java 25:** Q&A in `07_DSA` now references `record Node`, `SequencedCollection`, pattern matching, and Compact Object Headers (JEP 450) , search `Java 25` across vault.
 >

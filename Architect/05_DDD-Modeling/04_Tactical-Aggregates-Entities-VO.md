@@ -1,9 +1,16 @@
 ---
 title: "Tactical DDD, Aggregates, Entities, Value Objects"
+pattern: 4
 category: "DDD & Modeling"
 tags: [ddd, tactical-design, aggregate, entity, value-object, spring-data]
 created: 2026-09-03
 completed: false
+reviewed: ""
+sr-due: ""
+difficulty: Medium
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 ## Why it Matters
 

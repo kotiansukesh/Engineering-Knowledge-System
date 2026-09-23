@@ -1,9 +1,16 @@
 ---
 title: "Hexagonal Architecture (Ports & Adapters)"
+pattern: 2
 category: "Architecture Styles"
 tags: [architecture, hexagonal, ports-adapters, clean-architecture, spring]
 created: 2026-09-03
 completed: false
+reviewed: ""
+sr-due: ""
+difficulty: Easy
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 ## Why it Matters
 

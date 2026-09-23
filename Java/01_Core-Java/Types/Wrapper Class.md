@@ -4,6 +4,14 @@ category: Core-Java
 tags: [java, class, wrapper, java25]
 created: 2026-01-18
 updated: 2026-09-04
+pattern: 11
+difficulty: Easy
+completed: false
+reviewed: ""
+sr-due: ""
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 # Wrapper Class
 > Part of [[Java/01_Core-Java/README|Core Java]]

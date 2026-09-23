@@ -1,11 +1,17 @@
 ---
 title: "REST Maturity and Contracts"
-category: integration
+pattern: 1
+category: "integration
 tags: [rest, openapi, contracts, versioning, interview]
 created: 2026-09-03
-completed: false
----
-## Why it Matters
+completed: false"
+reviewed: ""
+sr-due: ""
+difficulty: Easy
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
+---## Why it Matters
 
 An API is a compiled dependency of someone else's code, which makes evolution the actual hard part, not the verbs. Contract-first with OpenAPI, additive-only change and consumer-driven tests in CI is what lets a public API add features for years without breaking clients, and idempotency keys are what make retry-safe `POST` possible at all.
 

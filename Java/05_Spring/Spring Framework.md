@@ -4,6 +4,14 @@ category: Spring
 tags: [spring, framework, ioc, di, aop, java25, virtual-threads]
 created: 2026-01-18
 updated: 2026-09-02
+pattern: 5
+difficulty: Hard
+completed: false
+reviewed: ""
+sr-due: ""
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 ## Why it Matters
 

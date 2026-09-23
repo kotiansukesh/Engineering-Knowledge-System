@@ -4,6 +4,14 @@ category: Spring
 tags: [spring, di, ioc, java25, virtual-threads]
 created: 2026-01-18
 updated: 2026-09-02
+pattern: 1
+difficulty: Hard
+completed: false
+reviewed: ""
+sr-due: ""
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 ## Why it Matters
 
@@ -210,7 +218,7 @@ Key principle: depend on `MessageService` interface, not `EmailService` concrete
 | Field | `@Autowired private MessageService s;` | Hidden | Poor, needs reflection / Spring test | Avoid |
 
 ### Qualifiers & Disambiguation
-```
+```java
 javainterface MessageService { void send(String msg); }
 
 @Component("email") class EmailService implements MessageService {
@@ -231,7 +239,7 @@ Other resolution controls: `@Primary` (default bean), `@Profile`, `@ConditionalO
 ## Virtual Threads & di (Java 25)
 
 DI itself is thread-agnostic, but what you inject changes on Java 25:
-```
+```java
 java@Configuration
 class ExecutorConfig {
  @Bean
@@ -265,7 +273,7 @@ class MyApplication {
 ## AOT Note (Java 25 / Boot 3.5)
 
 Constructor injection is AOT-friendly, no reflection needed at runtime. Field injection requires reflection hints (`RuntimeHintsRegistrar`) for native image. Prefer constructor injection for GraalVM compatibility.
-```
+```java
 java@Configuration
 class AotConfig implements RuntimeHintsRegistrar {
  @Override

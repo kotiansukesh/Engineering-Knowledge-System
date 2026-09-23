@@ -5,6 +5,13 @@ difficulty: Medium
 tags: [lld, machine-coding, lru-cache]
 source: https://github.com/ashishps1/awesome-low-level-design
 created: 2026-09-04
+pattern: 8
+completed: false
+reviewed: ""
+sr-due: ""
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 ## Why it Matters
 
@@ -29,7 +36,7 @@ flowchart TB
  I -->|yes| J[Evict tail]
 ```
 ## Code
-```
+```java
 javaimport java.util.*;
 
 class LRUCacheDemo {

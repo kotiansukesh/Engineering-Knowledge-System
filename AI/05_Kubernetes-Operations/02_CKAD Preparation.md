@@ -5,6 +5,11 @@ tags: [ai, ckad, cka, kubernetes, certification]
 weeks: "28-30"
 created: 2026-09-02
 completed: false
+reviewed: ""
+sr-due: ""
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 ## Why it Matters
 

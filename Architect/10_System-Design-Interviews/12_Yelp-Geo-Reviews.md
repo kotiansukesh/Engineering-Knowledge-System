@@ -1,9 +1,16 @@
 ---
 title: "Yelp (Geo Reviews)"
+pattern: 12
 category: "System Design"
 tags: [system-design, interview, geo, search, reviews, quadtree]
 created: 2026-09-04
 completed: false
+reviewed: ""
+sr-due: ""
+difficulty: Hard
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 ## Why it Matters
 

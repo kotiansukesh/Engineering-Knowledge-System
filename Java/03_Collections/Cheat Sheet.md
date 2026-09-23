@@ -1,18 +1,17 @@
 ---
-category: CheatSheet
-tags: [java, collections, cheatsheet]
-title: Collections , Cheat Sheet
-## Why it Matters
-
-Single-page map of the collections a Java interview revolves around: `List`/`Set`/`Queue`/`Map` contracts, which implementation to pick by ordering, null, and concurrency needs, and where Java 21+ `SequencedCollection` changes the answer. Use it to rehearse the selection table until it is automatic.
-
-## Practice
-- [1. Two Sum](https://leetcode.com/problems/two-sum/)
-- [215. Kth Largest Element In An Array](https://leetcode.com/problems/kth-largest-element-in-an-array/)
-- [102. Binary Tree Level Order Traversal](https://leetcode.com/problems/binary-tree-level-order-traversal/)
-
----
-## Diagram
+title: "Collections Cheat Sheet"
+category: "Collections"
+tags: [java, cheat-sheet, collections]
+created: 2026-09-03
+pattern: 0
+difficulty: Easy
+completed: false
+reviewed: ""
+sr-due: ""
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
+---## Diagram
 
 ```mermaid
 flowchart TD

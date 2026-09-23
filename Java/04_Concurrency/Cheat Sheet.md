@@ -1,18 +1,17 @@
 ---
-category: CheatSheet
-tags: [java, concurrency, cheatsheet]
-title: Concurrency , Cheat Sheet
-## Why it Matters
-
-Collapses the concurrency story into one scannable page: thread lifecycle, the four creation styles, the seven classic concurrency bugs and their fixes, and the Java 25 shift to virtual threads, `ScopedValue`, and `StructuredTaskScope`. Use it to rehearse the exact fix for each bug class.
-
-## Practice
-- [1115. Print Foobar Alternately](https://leetcode.com/problems/print-foobar-alternately/)
-- [1114. Print In Order](https://leetcode.com/problems/print-in-order/)
-- [1226. The Dining Philosophers](https://leetcode.com/problems/the-dining-philosophers/)
-
----
-## Diagram
+title: "Concurrency Cheat Sheet"
+category: "Concurrency"
+tags: [java, cheat-sheet, concurrency]
+created: 2026-09-03
+pattern: 0
+difficulty: Hard
+completed: false
+reviewed: ""
+sr-due: ""
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
+---## Diagram
 
 ```mermaid
 flowchart TD

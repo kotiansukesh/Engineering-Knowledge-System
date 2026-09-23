@@ -1,9 +1,16 @@
 ---
 title: "WhatsApp Chat"
+pattern: 4
 category: "System Design"
 tags: [system-design, interview, messaging, websockets, delivery-guarantees]
 created: 2026-09-04
 completed: false
+reviewed: ""
+sr-due: ""
+difficulty: Medium
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 ## Why it Matters
 

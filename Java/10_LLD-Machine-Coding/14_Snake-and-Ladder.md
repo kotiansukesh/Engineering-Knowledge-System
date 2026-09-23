@@ -5,6 +5,13 @@ difficulty: Easy
 tags: [lld, machine-coding, snake-and-ladder]
 source: https://github.com/ashishps1/awesome-low-level-design
 created: 2026-09-04
+pattern: 16
+completed: false
+reviewed: ""
+sr-due: ""
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 ## Why it Matters
 
@@ -29,7 +36,7 @@ flowchart TB
  E -->|no| A
 ```
 ## Code
-```
+```java
 javaimport java.util.*;
 
 class Board {

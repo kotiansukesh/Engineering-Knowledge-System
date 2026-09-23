@@ -4,6 +4,14 @@ category: Spring
 tags: [spring, security, authentication, authorization, oauth2, java25, virtual-threads]
 created: 2026-01-18
 updated: 2026-09-02
+pattern: 7
+difficulty: Hard
+completed: false
+reviewed: ""
+sr-due: ""
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 ## Why it Matters
 
@@ -280,7 +288,7 @@ class SecurityConfig {
 
  @Bean PasswordEncoder passwords() { return new BCryptPasswordEncoder(); }
 ```
-```
+```java
 java
 @Bean
 AsyncTaskExecutor securedExecutor() {
@@ -312,7 +320,7 @@ spring:
 
 ## AOT Hints for Security (Java 25 / GraalVM)
 
-```
+```java
 java
 @Configuration
 @ImportRuntimeHints(SecurityHints.class)

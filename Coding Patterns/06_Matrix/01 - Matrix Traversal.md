@@ -1,88 +1,289 @@
 ---
-title: "Matrix Traversal"
+title: Matrix Traversal
 pattern: 16
-category: Matrix
-tags: [pattern/matrix, traversal]
-leetcode: [733, 200, 130]
-created: 2026-09-02
-source: "https://blog.algomaster.io/p/20-dsa-patterns"
+category: Coding Patterns/06_Matrix
+tags:
+  - pattern/matrix
+  - pattern/matrix/traversal
+leetcode:
+  - 733
+  - 200
+  - 130
+created: '2026-09-02'
+completed: false
+reviewed: ''
+sr-due: ''
+difficulty: Medium
+source: 'https://blog.algomaster.io/p/20-dsa-patterns'
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
-## Why it Matters
-
-Run DFS or BFS on a 2D grid. Move in 4 directions (up, down, left, right) or 8 with diagonals. Mark visited by writing to the grid or a `visited[][]`. Example: flood fill from `(1,1)` in `[[1,1,1],[1,1,0],[1,0,1]]` with new color `2` spreads to all connected `1`s.
-
-## Diagram
-
-```mermaid
-flowchart LR
- C["cell (r,c)"] --> B{"in bounds?<br/>value == old?"}
- B -->|no| Ret["return"]
- B -->|yes| Mk["mark = newColor"]
- Mk --> D["for each of 4 DIRS"]
- D --> Rec["dfs(r+dr, c+dc)"]
- Rec --> D
-```
-Marking on entry is both the visited set and the answer. The bounds check must precede the value check or the grid read itself throws.
-
-## Code
-
-```java
-int[][] DIRS = {{1,0},{-1,0},{0,1},{0,-1}};
-
-// Flood fill DFS, LC 733
-int[][] floodFill(int[][] image, int sr, int sc, int newColor) {
- int old = image[sr][sc];
- if (old == newColor) return image;
- dfs(image, sr, sc, old, newColor);
- return image;
-}
-
-void dfs(int[][] img, int r, int c, int old, int nc) {
- if (r < 0 || r >= img.length || c < 0 || c >= img[0].length || img[r][c] != old) return;
- img[r][c] = nc;
- for (var d : DIRS) dfs(img, r + d[0], c + d[1], old, nc);
-}
-
-// BFS version, same DIRS, queue of int[2], mark when enqueuing
-```
-Record for cell in Java 25: `record Cell(int r,int c){}` keeps queue typed instead of `int[]`.
-
-## When to use / not
-
-- Flood fill, islands, surrounded regions, maze, distance to nearest cell
-
-## Trade-offs
-
-| time | space |
-|---|---|
-| O(rows * cols) | O(rows * cols) worst case for stack or queue |
-
-## Vs
-
-| | DFS on grid | BFS on grid | Union find on grid |
-|---|---|---|---|
-| shortest path in cells | no | yes, unweighted | no |
-| flood fill / component | yes | yes | yes, union of 4-neighbors |
-| space | O(rows*cols) recursion worst case | O(rows*cols) queue | O(rows*cols) arrays |
-| risk | stack overflow on large grids | wider memory | heavier constant factor |
-| pick when | fill, connectivity, shape questions | "nearest", "min steps" | offline island counting |
-
-## Pitfalls
-
-- Check `old == newColor` first or flood fill loops infinitely.
-- Bounds check before value check to avoid index error.
-- Mark visited at enqueue time for BFS, not dequeue.
-
-## Interview q&a
-
-- [733. Flood Fill](https://leetcode.com/problems/flood-fill/)
-- [200. Number of Islands](https://leetcode.com/problems/number-of-islands/)
-- [130. Surrounded Regions](https://leetcode.com/problems/surrounded-regions/)
-
-## Related
-
-- [[Java/07_DSA/Graph]]
 
 # Matrix Traversal
 
-> Part of [[README|20 DSA Patterns]], Pattern #16
+> Part of [[README|20 DSA Patterns]] • `Coding Patterns/06_Matrix` • Pattern #16
+
+## Intent
+Run DFS or BFS on a 2D grid with 4-directional (or 8-directional) moves — the standard pattern for flood fill, islands, surrounded regions, maze, and nearest cell distance.
+
+## Why it Matters
+- **Mark visited on entry** — the grid write (`grid[r][c] = newValue`) serves as both visited set and answer.
+- **Bounds check before value check** — `r < 0 || r >= m || c < 0 || c >= n` must precede `grid[r][c] != old` or the array access itself throws.
+- **Flood fill (LC 733):** check `old == newColor` first or infinite recursion.
+- **Number of Islands (LC 200):** DFS sinks land (`'1' → '0'`) to mark visited in O(1) space.
+- **Surrounded Regions (LC 130):** start from border O's, mark connected as safe; flip remaining O's to X.
+- Senior signal: BFS for "nearest / min steps" (0-1 BFS for weighted grids), Union Find for offline island counting.
+
+## Diagram
+```mermaid
+flowchart LR
+  C["cell (r,c)"] --> B{"in bounds?<br/>value == old?"}
+  B -->|no| Ret["return"]
+  B -->|yes| Mk["mark = newColor"]
+  Mk --> D["for each of 4 DIRS"]
+  D --> Rec["dfs(r+dr, c+dc)"]
+  Rec --> D
+```
+
+
+## Problems
+
+### 733. Flood Fill (Easy)
+> [LeetCode 733](https://leetcode.com/problems/flood-fill/) • Tags: Array, Depth-First Search, Breadth-First Search, Matrix
+
+**Problem Statement:**
+
+You are given an image represented by an m x n grid of integers image, where image[i][j] represents the pixel value of the image. You are also given three integers sr, sc, and color. Your task is to perform a flood fill on the image starting from the pixel image[sr][sc].
+
+To perform a flood fill:
+
+	Begin with the starting pixel and change its color to color.
+	Perform the same process for each pixel that is directly adjacent (pixels that share a side with the original pixel, either horizontally or vertically) and shares the same color as the starting pixel.
+	Keep repeating this process by checking neighboring pixels of the updated pixels and modifying their color if it matches the original color of the starting pixel.
+	The process stops when there are no more adjacent pixels of the original color to update.
+
+Return the modified image after performing the flood fill.
+
+**Examples:**
+
+Example 1:
+
+Input: image = [[1,1,1],[1,1,0],[1,0,1]], sr = 1, sc = 1, color = 2
+
+Output: [[2,2,2],[2,2,0],[2,0,1]]
+
+Explanation:
+
+From the center of the image with position (sr, sc) = (1, 1) (i.e., the red pixel), all pixels connected by a path of the same color as the starting pixel (i.e., the blue pixels) are colored with the new color.
+
+Note the bottom corner is not colored 2, because it is not horizontally or vertically connected to the starting pixel.
+
+Example 2:
+
+Input: image = [[0,0,0],[0,0,0]], sr = 0, sc = 0, color = 0
+
+Output: [[0,0,0],[0,0,0]]
+
+Explanation:
+
+The starting pixel is already colored with 0, which is the same as the target color. Therefore, no changes are made to the image.
+
+---
+
+### 200. Number of Islands (Medium)
+> [LeetCode 200](https://leetcode.com/problems/number-of-islands/) • Tags: Array, Depth-First Search, Breadth-First Search, Union-Find, Matrix
+
+**Problem Statement:**
+
+Given an m x n 2D binary grid grid which represents a map of '1's (land) and '0's (water), return the number of islands.
+
+An island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically. You may assume all four edges of the grid are all surrounded by water.
+
+**Examples:**
+
+Example 1:
+
+Input: grid = [
+  ["1","1","1","1","0"],
+  ["1","1","0","1","0"],
+  ["1","1","0","0","0"],
+  ["0","0","0","0","0"]
+]
+Output: 1
+
+Example 2:
+
+Input: grid = [
+  ["1","1","0","0","0"],
+  ["1","1","0","0","0"],
+  ["0","0","1","0","0"],
+  ["0","0","0","1","1"]
+]
+Output: 3
+
+---
+
+### 130. Surrounded Regions (Medium)
+> [LeetCode 130](https://leetcode.com/problems/surrounded-regions/) • Tags: Array, Depth-First Search, Breadth-First Search, Union-Find, Matrix
+
+**Problem Statement:**
+
+You are given an m x n matrix board containing letters 'X' and 'O', capture regions that are surrounded:
+
+	Connect: A cell is connected to adjacent cells horizontally or vertically.
+	Region: To form a region connect every 'O' cell.
+	Surround: A region is surrounded if none of the 'O' cells in that region are on the edge of the board. Such regions are completely enclosed by 'X' cells.
+
+To capture a surrounded region, replace all 'O's with 'X's in-place within the original board. You do not need to return anything.
+
+**Examples:**
+
+Example 1:
+
+Input: board = [["X","X","X","X"],["X","O","O","X"],["X","X","O","X"],["X","O","X","X"]]
+
+Output: [["X","X","X","X"],["X","X","X","X"],["X","X","X","X"],["X","O","X","X"]]
+
+Explanation:
+
+In the above diagram, the bottom region is not captured because it is on the edge of the board and cannot be surrounded.
+
+Example 2:
+
+Input: board = [["X"]]
+
+Output: [["X"]]
+
+---
+
+
+## Code / Example
+```java
+int[][] DIRS = {{1,0},{-1,0},{0,1},{0,-1}};
+
+// Flood Fill DFS — LC 733
+int[][] floodFill(int[][] image, int sr, int sc, int newColor) {
+    int old = image[sr][sc];
+    if (old == newColor) return image; // critical: avoid infinite loop
+    dfs(image, sr, sc, old, newColor);
+    return image;
+}
+
+void dfs(int[][] img, int r, int c, int old, int nc) {
+    if (r < 0 || r >= img.length || c < 0 || c >= img[0].length || img[r][c] != old) return;
+    img[r][c] = nc;
+    for (var d : DIRS) dfs(img, r + d[0], c + d[1], old, nc);
+}
+
+// BFS version — same DIRS, queue of int[2], mark when enqueuing
+int[][] floodFillBFS(int[][] image, int sr, int sc, int newColor) {
+    int old = image[sr][sc];
+    if (old == newColor) return image;
+    var q = new java.util.ArrayDeque<int[]>();
+    q.offer(new int[]{sr, sc});
+    image[sr][sc] = newColor;
+    while (!q.isEmpty()) {
+        var cur = q.poll();
+        for (var d : DIRS) {
+            int r = cur[0] + d[0], c = cur[1] + d[1];
+            if (r >= 0 && r < image.length && c >= 0 && c < image[0].length && image[r][c] == old) {
+                image[r][c] = newColor;
+                q.offer(new int[]{r, c});
+            }
+        }
+    }
+    return image;
+}
+
+// Number of Islands — LC 200 (DFS sinks land)
+int numIslands(char[][] grid) {
+    if (grid.length == 0) return 0;
+    int m = grid.length, n = grid[0].length, count = 0;
+    for (int i = 0; i < m; i++)
+        for (int j = 0; j < n; j++)
+            if (grid[i][j] == '1') { dfsGrid(grid, i, j); count++; }
+    return count;
+}
+void dfsGrid(char[][] g, int r, int c) {
+    if (r < 0 || r >= g.length || c < 0 || c >= g[0].length || g[r][c] != '1') return;
+    g[r][c] = '0'; // sink = mark visited
+    for (var d : DIRS) dfsGrid(g, r + d[0], c + d[1]);
+}
+
+// Surrounded Regions — LC 130 (mark border-connected O's safe)
+void solve(char[][] board) {
+    if (board.length == 0) return;
+    int m = board.length, n = board[0].length;
+    // mark border O's
+    for (int i = 0; i < m; i++) {
+        if (board[i][0] == 'O') dfsMark(board, i, 0);
+        if (board[i][n-1] == 'O') dfsMark(board, i, n-1);
+    }
+    for (int j = 0; j < n; j++) {
+        if (board[0][j] == 'O') dfsMark(board, 0, j);
+        if (board[m-1][j] == 'O') dfsMark(board, m-1, j);
+    }
+    // flip: O -> X, S -> O
+    for (int i = 0; i < m; i++)
+        for (int j = 0; j < n; j++) {
+            if (board[i][j] == 'O') board[i][j] = 'X';
+            else if (board[i][j] == 'S') board[i][j] = 'O';
+        }
+}
+void dfsMark(char[][] b, int r, int c) {
+    if (r < 0 || r >= b.length || c < 0 || c >= b[0].length || b[r][c] != 'O') return;
+    b[r][c] = 'S'; // safe
+    for (var d : DIRS) dfsMark(b, r + d[0], c + d[1]);
+}
+```
+
+## When to Use / When NOT
+- **Use:** flood fill, islands, surrounded regions, maze, distance to nearest cell, rotting oranges (multi-source BFS).
+- **NOT:** weighted grids with varying costs (use Dijkstra / 0-1 BFS); need shortest path with weights.
+
+## Trade-offs
+| Approach | Time | Space |
+|----------|------|-------|
+| DFS on grid | O(m·n) | O(m·n) worst case recursion stack |
+| BFS on grid | O(m·n) | O(m·n) queue |
+| Union Find on grid | O(m·n α(mn)) | O(m·n) arrays |
+
+## Vs Table
+| Aspect | DFS on Grid | BFS on Grid | Union Find on Grid |
+|--------|-------------|-------------|-------------------|
+| Shortest path in cells | No | Yes, unweighted | No |
+| Flood fill / component | Yes | Yes | Yes, union of 4-neighbors |
+| Space | O(m·n) recursion worst case | O(m·n) queue | O(m·n) arrays |
+| Risk | Stack overflow on large grids | Wider memory | Heavier constant factor |
+| Pick when | fill, connectivity, shape | "nearest", "min steps" | offline island counting |
+
+## Pitfalls
+- **Check `old == newColor` first** or flood fill loops infinitely.
+- **Bounds check before value check** to avoid index error.
+- **Mark visited at enqueue time for BFS**, not dequeue — otherwise same cell enqueued multiple times.
+- For large grids, DFS recursion risks stack overflow — use BFS or iterative stack.
+- Java 25: `record Cell(int r, int c) {}` keeps queue typed instead of `int[]`.
+
+## Interview Q&A (Senior Depth)
+
+**Q: Flood Fill — why check `old == newColor` before DFS?**
+**A:** If `old == newColor`, the condition `img[r][c] != old` in DFS would never be true after the first cell is colored, but wait — the first cell gets colored, then its neighbors are checked. Since they still have `old` color, they get colored, and so on. Actually, the check prevents infinite recursion because the DFS base case `img[r][c] != old` would fail *after* coloring, but the function would still return. Wait — the real issue: if `old == newColor`, the first call colors the cell, then recurses to neighbors. Neighbors have `old` color, so they get colored, etc. The base case `img[r][c] != old` stops at boundaries. So it *does* terminate but does unnecessary work. The early return is an optimization. Actually, for some implementations that don't mark before recursing, it can infinite loop. Safe pattern: check early and return.
+
+**Q: Number of Islands — why is modifying the grid (`'1' → '0'`) acceptable for visited marking?**
+**A:** The problem doesn't require preserving the input grid. It saves O(mn) space for a `visited[][]` array. In production, if the grid must be preserved, use a separate visited structure or copy the grid. The space savings (O(1) extra vs O(mn)) is significant for large grids.
+
+**Q: Surrounded Regions (LC 130) — why start from border O's instead of scanning all O's?**
+**A:** An O is "surrounded" iff it's *not* connected to the border. Starting from border O's and marking all reachable O's as "safe" (S) in one pass is O(mn). The alternative — for each interior O, DFS to check if it reaches border — is O(mn) per interior O, potentially O((mn)²). The border-first approach is the key insight.
+
+**Q: 0-1 BFS — when do you use it on a grid?**
+**A:** When edge weights are 0 or 1 (e.g., moving on free cell = 0, moving through obstacle = 1). Use deque: push 0-weight edges to front, 1-weight to back. Processes in increasing distance order. Faster than Dijkstra (O(V+E) vs O(E log V)). For general weights, use Dijkstra.
+
+## Related
+- [[05_Trees_Graphs/02 - DFS|DFS]] (recursive grid traversal)
+- [[05_Trees_Graphs/03 - BFS|BFS]] (level-order, shortest unweighted)
+- [[05_Trees_Graphs/06 - Union Find|Union Find]] (offline connectivity)
+- [[Java/07_DSA/Graph]]
+
+---
+*Category: Coding Patterns/06_Matrix*

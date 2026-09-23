@@ -4,6 +4,14 @@ category: Spring
 tags: [spring, jpa, hibernate, interview]
 created: 2026-01-18
 updated: 2026-09-02
+pattern: 4
+difficulty: Hard
+completed: false
+reviewed: ""
+sr-due: ""
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 ## Why it Matters
 
@@ -266,7 +274,8 @@ record OrderDto(long id, String status) {}
 |---|---|---|
 | `LAZY` | Proxy loaded on first access, needs open `EntityManager` (within TX) | `@ManyToOne`, `@OneToMany` collections |
 | `EAGER` | Loaded with parent | `@ManyToOne` (JPA default EAGER, override to LAZY) |
-```javapublic
+```java
+public
  interface OrderRepository extends JpaRepository<Order, Long> {
  // N+1 fix: single query with join fetch
  @Query("select o from Order o join fetch o.items where o.status = :s")
@@ -279,7 +288,8 @@ record OrderDto(long id, String status) {}
 > `spring.jpa.open-in-view=false` (Boot default since 2.x), closes `EntityManager` after TX, so lazy access outside TX fails fast instead of hiding N+1.
 
 ## Repositories, Query Derivation, JPQL, Projections
-```javapublic
+```java
+public
  interface OrderRepository extends JpaRepository<Order, Long> {
  List<Order> findTop3ByStatusOrderByTotalDesc(Status s); // derived
 
@@ -291,7 +301,7 @@ record OrderDto(long id, String status) {}
  @Query("update Order o set o.status = :s where o.id = :id")
  int markStatus(@Param("id") long id, @Param("s") Status s);
 }
-```
+```java
 ### Query Keywords (Derived)
 
 | Keyword | JPQL | Example |

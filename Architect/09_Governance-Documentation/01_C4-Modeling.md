@@ -1,9 +1,16 @@
 ---
 title: "C4 Modeling, Context to Code"
+pattern: 1
 category: "Governance & Docs"
 tags: [c4, architecture-diagrams, structurizr, documentation]
 created: 2026-09-03
 completed: false
+reviewed: ""
+sr-due: ""
+difficulty: Easy
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 ## Why it Matters
 

@@ -1,89 +1,110 @@
 ---
-title: Architect Roles
-category: architect
-tags: [architecture, roles]
+title: "Architect Roles"
+pattern: 4
+category: "Architect/01_Architecture-Foundations"
+tags: [architecture, roles, solution, domain, platform, enterprise]
 created: 2026-09-03
 completed: false
+reviewed: ""
+sr-due: ""
+difficulty: Medium
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
-## Why it Matters
 
-Distinguish solution / domain / enterprise / platform architect so you operate at the right scope.
+## 🎯 Intent
+Distinguish Solution / Domain / Platform / Enterprise Architect so you operate at the right scope, resolve conflicts via RACI, and avoid becoming a PowerPoint architect who never validates decisions in code.
 
-## Diagram
+## 💡 Why It Matters
+- **Interview signal**: "How do solution, domain, platform, and enterprise architecture differ, and who owns a spanning decision?" — mapping disagreement to role boundary tells you if it's technical debate or authority gap
+- **Org scaling**: Roles scale with org size and concurrency, not ambition; a 5-person team wears multiple hats
+- **Accountability**: One accountable owner per decision; RACI prevents every decision landing on one person
 
+## 🧩 Diagram: Architect Role Boundaries
 ```mermaid
 graph LR
- SP[Sponsor] --> SO[Solution: end-to-end for one system]
- DE[Domain experts] --> DO[Domain: bounded-context model]
- PT[Platform team] --> PL[Platform: paved road CI/K8s/Kafka]
- PO[Portfolio] --> EN[Enterprise: standards + constraints]
- SO --> SYS[(Delivered system)]
- DO --> SYS
- PL --> SYS
- EN --> SYS
+    SP[Sponsor] --> SO[Solution: End-to-End<br/>for One System]
+    DE[Domain Experts] --> DO[Domain: Bounded-Context<br/>Model + Invariants]
+    PT[Platform Team] --> PL[Platform: Paved Road<br/>CI/K8s/Kafka/Identity]
+    PO[Portfolio] --> EN[Enterprise: Standards<br/>Constraints + Risk]
+    SO --> SYS[(Delivered System)]
+    DO --> SYS
+    PL --> SYS
+    EN --> SYS
+    style SO fill:#e3f2fd
+    style DO fill:#e8f5e9
+    style PL fill:#fff3e0
+    style EN fill:#fce4ec
 ```
 
-## Code
+## 💻 Code: RACI for Spanning Decision (Java 25)
+```java
+// Why RACI: Order checkout spans solution (flow), domain (pricing rules),
+// platform (Kafka/EKS), enterprise (PCI scope) — one owner per decision
 
-```text
-Why RACI: Order checkout spans solution (flow), domain (pricing rules),
-platform (Kafka/EKS), enterprise (PCI scope) — one owner per decision
+record Decision(String name, String accountable, List<String> consulted, List<String> informed) {}
+
+var pciCheckout = new Decision(
+    "PCI-scoped Checkout Flow",
+    "Solution Architect",                           // Accountable: end-to-end design
+    List.of("Enterprise Arch", "Platform Arch", "Domain Arch"), // Consulted
+    List.of("Security", "Finance", "SRE")           // Informed
+);
+
+// Solution owns end-to-end fitness for one system
+// Domain owns bounded-context model and its invariants
+// Platform owns paved road (CI, K8s, Kafka, identity)
+// Enterprise owns portfolio constraints, standards, risk
 ```
 
-## When to use / not
+## ✅ When to Use / ❌ When NOT to Use
+| Scenario | Use? | Reason |
+|---|---|---|
+| Program kickoff, cross-team design | ✅ | Before someone "just starts building" |
+| Hiring or slotting yourself | ✅ | Match scope (one system, one domain, platform, portfolio) to actual need, not title |
+| Conflict resolution | ✅ | Map disagreement to role boundary: technical debate vs authority gap |
+| Instantiating all four on 5-person team | ❌ | One person wears several hats; overhead kills throughput |
+| Using model to avoid coding | ❌ | Architect who never validates in code drifts into PowerPoint architecture |
 
-- **Use:** at program kickoff and on any cross-team design, before someone "just starts building" and again whenever a new party needs to know who owns what.
-- **Use:** when hiring or slotting yourself, matching scope (one system, one domain, the platform, or the portfolio) to the actual need, not the title.
-- **Use:** in conflict resolution, mapping a disagreement to a role boundary tells you whether it's a technical debate or an authority gap.
+## ⚖️ Trade-offs
+| Role | Owns | Doesn't Own | Scaling Trigger |
+|---|---|---|---|
+| **Solution** | End-to-end for one system | Org-wide standards | Multiple concurrent systems |
+| **Domain** | Bounded-context model + invariants | Deployment platform | Multiple domains needing independent evolution |
+| **Platform** | Paved road (CI, K8s, Kafka, identity) | Business rules | Team spending >20% on infra toil |
+| **Enterprise** | Portfolio constraints, standards, risk | Sprint-level design | Regulatory/compliance complexity |
 
-**When NOT:** do not instantiate all four roles on a five-person team, one person wears several hats and the overhead kills throughput; roles scale with org size and concurrency, not ambition. Do not use the model to avoid coding; an architect who never validates decisions in real code drifts into PowerPoint architecture.
+## 🆚 Vs. Alternatives
+| Role | Owns | Doesn't Own | Decision Rule |
+|---|---|---|---|
+| **Solution** | End-to-end fitness for one system | Org-wide standards | One system, one accountable |
+| **Domain** | Bounded-context model | Deployment platform | Domain needs independent deploy/evolve |
+| **Platform** | Paved road (CI/K8s/Kafka/identity) | Business rules | Infra toil >20% team capacity |
+| **Enterprise** | Portfolio constraints, standards | Sprint-level design | Regulatory/compliance scope |
 
-## Trade-offs
+## ⚠️ Pitfalls
+1. **Becoming a PowerPoint architect** — keep one concrete artifact per phase: spike, ArchUnit test, load-test run, code review
+2. **Owning implementation details instead of constraints** — architect prescribes boundaries, team owns implementation
+3. **Title inflation** — roles scale with org concurrency, not headcount ambition
+4. **Silos if roles don't code-review** — architect must hold their own designs to same fitness gates as product teams
 
-- Pros: clear escalation; avoids every decision landing on one person.
-- Cons: title inflation; silos if roles don't code-review.
+## 🎤 Interview Q&A (Senior Depth)
 
-## Vs
+**Q1: "How do solution, domain, platform, and enterprise architecture differ, and who owns a decision that spans all four?"**
+> **Answer**: Solution: end-to-end fitness for one system. Domain: bounded-context model + invariants. Platform: paved road (CI, K8s, Kafka, identity). Enterprise: portfolio constraints, standards, risk. For PCI checkout: Enterprise sets constraint (PCI scope), Solution owns design, Platform owns infra contract, Domain owns pricing rules. RACI: one Accountable, others Consulted/Informed. **Rejected**: "Enterprise decides everything" — that's governance, not architecture.
 
-| Role | Owns | Doesn't own |
-|------|------|-------------|
-| Solution | End-to-end for one system | Org-wide standards |
-| Domain | Bounded context model | Deployment platform |
-| Platform | Paved road (CI/K8s/Kafka) | Business rules |
-| Enterprise | Portfolio constraints | Sprint-level design |
+**Q2: "Do architects need to code, and how much?"**
+> **Answer**: Enough to stay honest: spikes, ADR prototypes, fitness-function tests, code review. The test isn't velocity but whether their decisions survive contact with the codebase. An architect who hasn't felt the friction they created will keep prescribing it. **Metric**: At least one spike/ADR prototype per phase.
 
-## Pitfalls
+**Q3: "I'm a backend dev moving into architecture — which role do I target first?"**
+> **Answer**: Solution or Domain — closest to the code and concerns you already own. From there the capstone is proof: C4 diagrams, an ADR log, and a fitness-function gate, one per role level you claim. **Rejected**: "Enterprise first" — too far from code; you can't govern what you haven't built.
 
-- Becoming a PowerPoint architect; keep a spike per phase.
-- Owning implementation details instead of constraints.
+**Q4: "How do you avoid becoming an ivory-tower architect?"**
+> **Answer**: Keep one concrete artifact per phase: a spike, an ArchUnit test, a load-test run. Hold your own designs to the same fitness gates as product teams. If a principle can't pass its own test, it isn't one. **Rejected**: "Review PRs" — reviewing ≠ validating your own architectural decisions.
 
-## Interview q&a
+**Q5: "When does a team need a dedicated Platform Architect?"**
+> **Answer**: When team spends >20% capacity on infra toil (CI, K8s, Kafka ops) instead of business logic. Before that, platform is a hat the Solution/Domain architect wears. **Rejected**: "When we have microservices" — services don't mandate platform role; toil does.
 
-**Q: How do solution, domain, platform, and enterprise architecture differ, and who owns a decision that spans all four?**
-A: Solution owns end-to-end fitness for one system; domain owns the bounded-context model and its invariants; platform owns the paved road (CI, K8s, Kafka, identity); enterprise owns portfolio constraints, standards, and risk. For a spanning decision, say, a PCI-scoped checkout flow, the enterprise architect sets the constraint (PCI scope), solution owns the design, platform owns the infrastructure contract, and domain owns the pricing rules. RACI it: one accountable owner, the rest consulted or informed.
-
-**Q: Do architects need to code, and how much?**
-A: Enough to stay honest, spikes, ADR prototypes, fitness-function tests, and code review. The test isn't velocity but whether their decisions survive contact with the codebase. An architect who hasn't felt the friction they created will keep prescribing it.
-
-**Q: I'm a backend dev moving into architecture, which role do I target first?**
-A: Solution or domain, closest to the code and concerns you already own. From there the capstone is proof: C4 diagrams, an ADR log, and a fitness-function gate, one per role level you claim.
-
-**Q: How do you avoid becoming an ivory-tower architect?**
-A: Keep one concrete artifact per phase, a spike, an ArchUnit test, a load-test run, and hold your own designs to the same fitness gates as the product teams. If a principle can't pass its own test, it isn't one.
-
-## Related
-
-- [[What-is-Architecture|What is Architecture]], [[Stakeholders-Concerns|Stakeholders]]
-
-# Architect Roles
-
-## When / not
-
-- Use when scoping ownership (who decides what) on a program.
-- NOT as a hierarchy excuse, small teams wear multiple hats.
-
-## Q&A
-
-1. **Backend dev → which first?** Solution/domain, closest to code you know.
-2. **Do architects code?** Enough to validate: spikes, ADRs, fitness tests, reviews.
-3. **How to show it?** Capstone with C4 + ADRs signed per role.
+## 🔗 Related
+- [[What-is-Architecture|What is Architecture]] • [[Stakeholders-Concerns|Stakeholders]] • [[../05_DDD-Modeling/01_Strategic-DDD|Strategic DDD]]

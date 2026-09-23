@@ -3,6 +3,14 @@ title: "SOLID , Dependency Inversion Principle"
 category: Java/02_OOP
 tags: [java, oop, solid, dip, di, design-principles]
 created: 2026-09-04
+pattern: 11
+difficulty: Medium
+completed: false
+reviewed: ""
+sr-due: ""
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 ## Why it Matters
 

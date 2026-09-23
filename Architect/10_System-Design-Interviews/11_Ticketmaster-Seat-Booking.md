@@ -1,9 +1,16 @@
 ---
 title: "Ticketmaster (Seat Booking)"
+pattern: 11
 category: "System Design"
 tags: [system-design, interview, booking, concurrency, queue, exactly-once]
 created: 2026-09-04
 completed: false
+reviewed: ""
+sr-due: ""
+difficulty: Hard
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 ## Why it Matters
 

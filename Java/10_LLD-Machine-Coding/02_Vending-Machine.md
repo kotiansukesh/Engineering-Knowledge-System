@@ -5,6 +5,13 @@ difficulty: Easy
 tags: [lld, machine-coding, vending-machine]
 source: https://github.com/ashishps1/awesome-low-level-design
 created: 2026-09-04
+pattern: 4
+completed: false
+reviewed: ""
+sr-due: ""
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 ## Why it Matters
 
@@ -27,7 +34,7 @@ stateDiagram-v2
  Dispensing --> Idle: dispense + change
 ```
 ## Code
-```
+```java
 javaimport java.util.*;
 
 class Item { String code; int price, qty; Item(String c, int p, int q) { code=c; price=p; qty=q; } }

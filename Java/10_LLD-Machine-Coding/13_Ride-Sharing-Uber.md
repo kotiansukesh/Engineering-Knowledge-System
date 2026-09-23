@@ -5,6 +5,13 @@ difficulty: Hard
 tags: [lld, machine-coding, uber]
 source: https://github.com/ashishps1/awesome-low-level-design
 created: 2026-09-04
+pattern: 15
+completed: false
+reviewed: ""
+sr-due: ""
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 ## Why it Matters
 
@@ -28,7 +35,7 @@ stateDiagram-v2
  Completed --> [*]
 ```
 ## Code
-```
+```java
 javaimport java.util.*;
 
 public class RideSharingDemo {

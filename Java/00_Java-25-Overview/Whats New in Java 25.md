@@ -4,6 +4,13 @@ category: overview
 tags: [java25, jep, interview, whats-new]
 created: 2026-09-03
 completed: false
+pattern: 6
+difficulty: Easy
+reviewed: ""
+sr-due: ""
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 ## Why it Matters
 

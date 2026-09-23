@@ -5,6 +5,13 @@ difficulty: Hard
 tags: [lld, machine-coding, chess]
 source: https://github.com/ashishps1/awesome-low-level-design
 created: 2026-09-04
+pattern: 12
+completed: false
+reviewed: ""
+sr-due: ""
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 ## Why it Matters
 
@@ -30,7 +37,7 @@ flowchart TB
  F -->|no| A
 ```
 ## Code
-```
+```java
 javaimport java.util.*;
 
 public class ChessDemo {

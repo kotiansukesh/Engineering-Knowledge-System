@@ -5,6 +5,13 @@ difficulty: Easy
 tags: [lld, machine-coding, logging]
 source: https://github.com/ashishps1/awesome-low-level-design
 created: 2026-09-04
+pattern: 5
+completed: false
+reviewed: ""
+sr-due: ""
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 ## Why it Matters
 
@@ -25,7 +32,7 @@ flowchart LR
  D --> E[Appender: console / file]
 ```
 ## Code
-```
+```java
 javaimport java.util.*;
 
 enum Level { DEBUG, INFO, WARN, ERROR }

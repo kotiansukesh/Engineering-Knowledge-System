@@ -1,9 +1,16 @@
 ---
 title: "Serverless"
+pattern: 5
 category: "Architecture Styles"
 tags: [architecture, serverless, lambda, faas, spring-cloud-function]
 created: 2026-09-03
 completed: false
+reviewed: ""
+sr-due: ""
+difficulty: Medium
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 ## Why it Matters
 

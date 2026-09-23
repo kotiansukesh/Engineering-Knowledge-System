@@ -1,9 +1,14 @@
 ---
-title: "Spring Framework"
-type: folder-MOC
-tags: [MOC, 05_spring]
----
-# Spring Framework
+title: "Spring"
+category: "Spring"
+tags: [spring, framework, boot, java25]
+created: 2026-09-03
+pattern: 0
+difficulty: Hard
+completed: false
+reviewed:
+sr-due:
+---# Spring Framework
 
 > IoC container, DI, Boot auto-config, MVC, Data JPA, Security, Transactions , all notes now carry **native mermaid architecture diagrams** and **real runnable Java 25 snippets** (no stub blocks). One flag runs everything on virtual threads: `spring.threads.virtual.enabled=true`. | Part of [[README|Java MOC]]
 ```dataview

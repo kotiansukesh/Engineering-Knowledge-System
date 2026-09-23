@@ -1,11 +1,18 @@
 ---
-title: Dashboard
-category: overview
+title: "Dashboard"
+pattern: 0
+category: "overview"
 tags: [architect, dashboard]
 created: 2026-09-03
 completed: false
+reviewed: ""
+sr-due: ""
+difficulty: Easy
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
-## Why it Matters
+Why it Matters
 
 What gets measured gets finished. A dashboard over the vault's own `completed` flags is what turns a 24-week plan from intention into evidence, it shows the syllabus's actual shape instead of the version you remember, and it makes the topics you're avoiding visible rather than comfortable.
 

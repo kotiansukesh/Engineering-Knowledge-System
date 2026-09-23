@@ -5,6 +5,11 @@ tags: [ai, observability, langfuse, phoenix, opentelemetry, interview, 2026-tren
 created: 2026-09-02
 updated: 2026-09-03
 completed: false
+reviewed: ""
+sr-due: ""
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 ## Why it Matters
 

@@ -5,6 +5,13 @@ difficulty: Medium
 tags: [lld, machine-coding, atm]
 source: https://github.com/ashishps1/awesome-low-level-design
 created: 2026-09-04
+pattern: 7
+completed: false
+reviewed: ""
+sr-due: ""
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 ## Why it Matters
 
@@ -29,7 +36,7 @@ stateDiagram-v2
  Dispensing --> Idle: take cash + eject
 ```
 ## Code
-```
+```java
 javaclass BankService { int balance = 500; boolean auth(String pin) { return "1234".equals(pin); } }
 
 interface AtmState { void pin(ATMDemo m, String p); void withdraw(ATMDemo m, int amt); }

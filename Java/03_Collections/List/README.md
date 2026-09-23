@@ -1,9 +1,14 @@
 ---
 title: "List Implementations"
-type: folder-MOC
-tags: [MOC, list]
----
-# List Implementations
+category: "List"
+tags: [java, list, arraylist, linkedlist]
+created: 2026-09-03
+pattern: 0
+difficulty: Easy
+completed: false
+reviewed:
+sr-due:
+---# List Implementations
 
 > List Implementations, the notes below. | Part of [[Java/README\|Java MOC]]
 

@@ -4,6 +4,14 @@ category: Concurrency
 tags: [java, threads, concurrency, java25, virtual-threads, loom]
 created: 2026-01-18
 updated: 2026-09-02
+pattern: 6
+difficulty: Hard
+completed: false
+reviewed: ""
+sr-due: ""
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 ## Why it Matters
 
@@ -334,7 +342,8 @@ flowchart TD
  J -->|all ok| R[use results]
  J -->|any failed| C[cancel siblings + throwIfFailed]
 ```
-```javaimport
+```java
+import
  java.util.concurrent.StructuredTaskScope;
 import java.time.Duration;
 
@@ -386,7 +395,8 @@ Rules: Must use try-with-resources (scope enforces structure). `fork()` must be 
 ## `ScopedValue`(JEP 506) vs`ThreadLocal`
 
 `ThreadLocal` is problematic with virtual threads (millions of threads × mutable `ThreadLocal` = leaks, expensive, incompatible with structured concurrency). ScopedValue (finalised in Java 25, JEP 506) is the replacement: immutable, bounded by scope, automatically inherited by child virtual/structured tasks, no `remove()` needed.
-```javaimport
+```java
+import
  java.util.concurrent.StructuredTaskScope;
 
 class ContextDemo {
@@ -427,7 +437,7 @@ class ContextDemo {
 
 ## Stopping a Thread, Cooperative Cancellation
 
-```
+```java
 java
 public class StoppableRunnable implements Runnable {
  private volatile boolean stopRequested = false;

@@ -1,9 +1,14 @@
 ---
 title: "Behavioral Patterns"
-type: folder-MOC
-tags: [MOC, design-patterns, behavioral]
----
-# Behavioral Patterns
+category: "Behavioral"
+tags: [java, design-patterns, behavioral]
+created: 2026-09-03
+pattern: 0
+difficulty: Medium
+completed: false
+reviewed:
+sr-due:
+---# Behavioral Patterns
 
 > 11 patterns , algorithms and assignment of responsibilities. | Part of [[06_Design-Patterns/README|Design Patterns MOC]] → [[Java/README|Java MOC]]
 ```dataview

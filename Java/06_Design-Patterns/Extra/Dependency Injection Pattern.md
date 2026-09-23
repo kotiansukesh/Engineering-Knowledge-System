@@ -4,6 +4,14 @@ category: Design-Patterns
 tags: [design-patterns, di, extra]
 created: 2026-01-18
 updated: 2026-09-04
+pattern: 2
+difficulty: Medium
+completed: false
+reviewed: ""
+sr-due: ""
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 # Dependency Injection Pattern
 
@@ -18,7 +26,7 @@ Gives a class **what it needs** instead of letting it **create dependencies itse
 ```mermaid
 classDiagram
  class Main {
- <<composition root>>
+ <<composition>>
  }
  class Notifier
  class Sender {

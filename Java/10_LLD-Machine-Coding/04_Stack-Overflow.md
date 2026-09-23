@@ -5,6 +5,13 @@ difficulty: Easy
 tags: [lld, machine-coding, stack-overflow]
 source: https://github.com/ashishps1/awesome-low-level-design
 created: 2026-09-04
+pattern: 6
+completed: false
+reviewed: ""
+sr-due: ""
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 ## Why it Matters
 
@@ -25,7 +32,7 @@ flowchart LR
  D --> E[Reputation to author]
 ```
 ## Code
-```
+```java
 javaimport java.util.*;
 
 class User { String name; int rep; User(String n) { name = n; } }

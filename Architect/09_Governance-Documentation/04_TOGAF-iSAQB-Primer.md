@@ -1,9 +1,16 @@
 ---
 title: "TOGAF & iSAQB Primer, What to Borrow"
+pattern: 4
 category: "Governance & Docs"
 tags: [togaf, isaqb, adm, certification, governance]
 created: 2026-09-03
 completed: false
+reviewed: ""
+sr-due: ""
+difficulty: Medium
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 ## Why it Matters
 

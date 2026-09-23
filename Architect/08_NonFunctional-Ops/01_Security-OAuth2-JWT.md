@@ -1,9 +1,16 @@
 ---
 title: "Security, OAuth2, OIDC & JWT"
+pattern: 1
 category: "Non-Functional & Ops"
 tags: [security, oauth2, oidc, jwt, spring-security]
 created: 2026-09-03
 completed: false
+reviewed: ""
+sr-due: ""
+difficulty: Easy
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 ## Why it Matters
 

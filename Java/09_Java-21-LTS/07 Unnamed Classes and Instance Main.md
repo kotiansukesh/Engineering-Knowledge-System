@@ -4,6 +4,13 @@ category: java21
 tags: [java21, jep445, preview, interview]
 created: 2026-09-03
 completed: false
+pattern: 8
+difficulty: Medium
+reviewed: ""
+sr-due: ""
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 ## Why it Matters
 
@@ -94,12 +101,13 @@ javac --enable-preview --release 21 Hello.java && java --enable-preview Hello
 # Or: java --source 21 --enable-preview Hello.java
 
 ```
-```javavoid
+```java
+void
  main() {
  System.out.println("hello on 21");
 }
 ```
-```
+```java
 java
 public class Hello {
  public static void main(String[] args) { System.out.println("hello"); }

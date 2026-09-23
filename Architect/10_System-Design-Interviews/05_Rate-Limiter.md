@@ -1,9 +1,16 @@
 ---
 title: "Rate Limiter"
+pattern: 5
 category: "System Design"
 tags: [system-design, interview, rate-limiting, redis, gateway]
 created: 2026-09-04
 completed: false
+reviewed: ""
+sr-due: ""
+difficulty: Medium
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 ## Why it Matters
 

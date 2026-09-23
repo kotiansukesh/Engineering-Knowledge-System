@@ -4,6 +4,14 @@ category: Core-Java
 tags: [java, serialization, interview, java25]
 created: 2026-09-02
 updated: 2026-09-04
+pattern: 13
+difficulty: Easy
+completed: false
+reviewed: ""
+sr-due: ""
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 # Serialization
 > Part of [[Java/01_Core-Java/README|Core Java]]

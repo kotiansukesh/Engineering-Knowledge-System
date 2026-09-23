@@ -1,9 +1,14 @@
 ---
-title: "Collections Framework"
-type: folder-MOC
-tags: [MOC, 03_collections]
----
-# Collections Framework
+title: "Collections"
+category: "Collections"
+tags: [java, collections, framework]
+created: 2026-09-03
+pattern: 0
+difficulty: Easy
+completed: false
+reviewed:
+sr-due:
+---# Collections Framework
 
 > Collection → List / Set / Map / Queue. Interfaces vs implementations. | Part of [[README|Java MOC]]
 

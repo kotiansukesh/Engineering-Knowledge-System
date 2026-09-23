@@ -1,9 +1,16 @@
 ---
 title: "ADRs, Architecture Decision Records"
+pattern: 2
 category: "Governance & Docs"
 tags: [adr, decisions, documentation, governance]
 created: 2026-09-03
 completed: false
+reviewed: ""
+sr-due: ""
+difficulty: Easy
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 ## Why it Matters
 

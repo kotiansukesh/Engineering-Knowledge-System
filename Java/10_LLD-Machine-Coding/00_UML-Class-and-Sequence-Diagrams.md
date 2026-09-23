@@ -3,6 +3,14 @@ title: "UML Class and Sequence Diagrams"
 category: LLD
 tags: [lld, uml, diagrams]
 created: 2026-09-04
+pattern: 2
+difficulty: Hard
+completed: false
+reviewed: ""
+sr-due: ""
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 ## Why it Matters
 

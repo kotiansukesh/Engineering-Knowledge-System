@@ -5,6 +5,13 @@ difficulty: Medium
 tags: [lld, machine-coding, elevator]
 source: https://github.com/ashishps1/awesome-low-level-design
 created: 2026-09-04
+pattern: 9
+completed: false
+reviewed: ""
+sr-due: ""
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 ## Why it Matters
 
@@ -31,7 +38,7 @@ stateDiagram-v2
  DOWN --> IDLE: all stops served
 ```
 ## Code
-```
+```java
 javaimport java.util.*;
 
 public class ElevatorDemo {

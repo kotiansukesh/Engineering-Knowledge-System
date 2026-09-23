@@ -1,9 +1,14 @@
 ---
-title: "Inheritance Flavors"
-type: folder-MOC
-tags: [MOC, inheritance]
----
-# Inheritance Flavors
+title: "Inheritance Types"
+category: "Inheritance"
+tags: [java, inheritance, oop]
+created: 2026-09-03
+pattern: 0
+difficulty: Medium
+completed: false
+reviewed:
+sr-due:
+---# Inheritance Flavors
 
 > Inheritance Flavors, the notes below. | Part of [[Java/README\|Java MOC]]
 

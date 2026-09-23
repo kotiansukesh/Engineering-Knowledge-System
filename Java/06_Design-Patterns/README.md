@@ -1,9 +1,14 @@
 ---
 title: "Design Patterns"
-type: folder-MOC
-tags: [MOC, design-patterns]
----
-# Design Patterns
+category: "Design-Patterns"
+tags: [java, design-patterns, gof]
+created: 2026-09-03
+pattern: 0
+difficulty: Medium
+completed: false
+reviewed:
+sr-due:
+---# Design Patterns
 
 > **Source:** [Refactoring.Guru , Design Patterns](https://refactoring.guru/design-patterns) & [Catalog](https://refactoring.guru/design-patterns/catalog) , 23 classic GoF patterns grouped by intent. Each pattern is a blueprint you can customize.
 > **Vault:** `Java/06_Design-Patterns/` , Creational (5) • Structural (7) • Behavioral (11) + Extra (2 J2EE) | Part of [[README|Java MOC]]

@@ -5,6 +5,11 @@ tags: [ai, agents, nus-iss, architecture]
 weeks: "11-16"
 created: 2026-09-02
 completed: false
+reviewed: ""
+sr-due: ""
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 ## Why it Matters
 

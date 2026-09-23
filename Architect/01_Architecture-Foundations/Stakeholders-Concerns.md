@@ -1,88 +1,106 @@
 ---
-title: Stakeholders and Concerns
-category: architect
-tags: [architecture, stakeholders]
+title: "Stakeholders and Concerns"
+pattern: 2
+category: "Architect/01_Architecture-Foundations"
+tags: [architecture, stakeholders, concerns, tradeoffs]
 created: 2026-09-03
 completed: false
+reviewed: ""
+sr-due: ""
+difficulty: Medium
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
-## Why it Matters
 
-Map who cares about what so views and priorities target real concerns, not generic diagrams.
+## 🎯 Intent
+Map who cares about what so views, priorities, and trade-off ADRs target real concerns, not generic diagrams. The stakeholder → concern → quality → scenario chain is the traceability backbone for audits and interviews.
 
-## Diagram
+## 💡 Why It Matters
+- **Interview signal**: "Who are the stakeholders for X and what does each care about?" — missing business/compliance stakeholders is a senior red flag
+- **Review efficiency**: When a review circles, an unnamed stakeholder (finance, compliance, support) is usually objecting through proxies
+- **Traceability chain**: Stakeholder → concern → quality attribute → scenario → fitness function → ADR = auditable architecture
 
+## 🧩 Diagram: Stakeholder → View Mapping
 ```mermaid
 graph LR
- P[Product: speed] --> V1[Roadmap + runtime view]
- SRE[SRE/Ops: MTTR] --> V2[Deploy + observability view]
- SE[Security: compliance] --> V3[Threat model + data flow]
- F[Finance: cost] --> V4[Cost model + unit metrics]
- V1 --> ADR[Tradeoff ADRs]
- V2 --> ADR
- V3 --> ADR
- V4 --> ADR
+    P[Product: Speed/Features] --> V1[Roadmap + Runtime View]
+    SRE[SRE/Ops: MTTR/Availability] --> V2[Deploy + Observability View]
+    SE[Security: Compliance] --> V3[Threat Model + Data Flow]
+    F[Finance: Cost] --> V4[Cost Model + Unit Metrics]
+    V1 --> ADR[Tradeoff ADRs]
+    V2 --> ADR
+    V3 --> ADR
+    V4 --> ADR
+    style P fill:#e3f2fd
+    style SRE fill:#e8f5e9
+    style SE fill:#fce4ec
+    style F fill:#fff3e0
 ```
 
-## Code
+## 💻 Code: Stakeholder Concern Matrix (Java 25)
+```java
+record Stakeholder(String name, String topConcern, String qualityAttribute, String view, String scenarioLink) {}
 
-```text
-Why matrix: Product cares time-to-market, SRE cares MTTR, Security cares PCI,
-Finance cares cost — same system, conflicting pulls → drives tradeoff ADRs
+var matrix = List.of(
+    new Stakeholder("Product", "Conversion + Time-to-market", "Latency", "Runtime + Roadmap", "checkout-p99"),
+    new Stakeholder("SRE/Ops", "Availability + MTTR", "Availability", "Deployment + Observability", "failover-rto"),
+    new Stakeholder("Security", "PCI Scope + Data Minimisation", "Security", "Threat Model + Data Flow", "pci-scope"),
+    new Stakeholder("Finance", "Unit Cost per Order", "Cost Efficiency", "Cost Model + Unit Metrics", "cost-per-txn"),
+    new Stakeholder("Support", "Failure Visibility", "Operability", "Observability + Runbooks", "alert-coverage")
+);
+
+// Architect's job: design for the conflict between these, not satisfy each in isolation
 ```
 
-## When to use / not
+## ✅ When to Use / ❌ When NOT to Use
+| Scenario | Use? | Reason |
+|---|---|---|
+| Start of every phase, design review, ADR | ✅ | Before picking view/tactic, know whose concern you serve |
+| Review keeps circling | ✅ | Unnamed stakeholder usually objecting via proxies |
+| Building traceability chain for auditors/interviews | ✅ | Stakeholder → concern → quality → scenario → fitness function |
+| Chasing completeness (40-row matrix) | ❌ | Analysis paralysis; start with 5, grow when someone proves missing |
+| Treating as one-time artifact | ❌ | Scope, compliance, org shift — stale map misdirects design |
 
-- **Use:** at the start of every phase, design review, and ADR, before you can pick a view or a tactic, you need to know whose concern you're serving.
-- **Use:** when a review keeps circling, it usually means an unnamed stakeholder (finance, compliance, support) is objecting through proxies.
-- **Use:** when building the traceability chain that auditors and senior interviewers ask for: stakeholder → concern → quality attribute → scenario → fitness function.
+## ⚖️ Trade-offs
+| Dimension | Pros | Cons |
+|---|---|---|
+| **Right view per audience** | Fewer re-reviews; targeted communication | **Analysis paralysis** if chasing every stakeholder |
+| **Explicit conflict resolution** | Trade-offs documented in ADRs | **Maintenance burden** if matrix not linked to views |
+| **Onboarding** | New engineer sees whose needs drive design | **Stale data** if not revisited on scope/compliance change |
 
-**When NOT:** do not chase completeness, a 40-row matrix no one reads is analysis paralysis; start with five stakeholders and grow it only when someone proves they were missing. Do not treat it as a one-time artifact: scope, compliance regime, and org structure shift, and a stale map silently misdirects the whole design.
+**Decision rule**: Start with 5 stakeholders (Product, SRE, Security, Finance, Support). Add only when a review proves one was missing.
 
-## Trade-offs
+## 🆚 Vs. Alternatives
+| Stakeholder | Top Concern | View That Satisfies | Decision Rule |
+|---|---|---|---|
+| **Product** | Features/speed | Roadmap + Runtime | Time-to-market drives latency budget |
+| **SRE/Ops** | Availability/MTTR | Deployment + Observability | Failover RTO/RPO drives infra |
+| **Security** | Confidentiality/compliance | Threat Model + Data Flow | PCI scope boundary non-negotiable |
+| **Finance** | Unit cost | Cost Model + Unit Metrics | Cost-per-txn caps architecture choices |
 
-- Pros: right view per audience; fewer re-reviews.
-- Cons: analysis paralysis if you chase every stakeholder.
+## ⚠️ Pitfalls
+1. **Only technical stakeholders** — missing business/compliance; "who pays, who gets paged, who gets sued" surfaces missing rows
+2. **One diagram for everyone** — different concerns need different lenses (C4 Context for Product, Sequence for SRE, Threat Model for Security)
+3. **Matrix as ceremony** — if a row can't reach a scenario, either concern is stale or design hasn't addressed it
+4. **Not revisiting** — org structure, compliance regime, scope shift; stale map silently misdirects design
 
-## Vs
+## 🎤 Interview Q&A (Senior Depth)
 
-| Stakeholder | Top concern | View that satisfies |
-|-------------|-------------|---------------------|
-| Product | Features/speed | Roadmap + runtime view |
-| SRE/Ops | Availability/MTTR | Deployment + observability |
-| Security | Confidentiality/compliance | Threat model + data flow |
+**Q1: "Who are the stakeholders for an e-commerce checkout redesign, and what does each actually care about?"**
+> **Answer**: Product: conversion + time-to-market → latency + release cadence. SRE: availability + MTTR → failure modes, rollbacks, observability. Security/Compliance: PCI scope + data minimisation. Finance: unit cost per order + peak capacity. Support: failure visibility (silent payment failure = ticket). **Architect's job**: design for the *conflict* between these, not satisfy each in isolation. **Rejected**: "Satisfy all" — impossible; trade-offs must be explicit in ADRs.
 
-## Pitfalls
+**Q2: "Two stakeholders have opposed concerns: Security wants strong auth everywhere, Product wants one-tap guest checkout. How do you resolve?"**
+> **Answer**: Resolve by constraint, not volume. Security sets boundary: guest checkout never touches PCI scope, tokenise card, keep merchant token out of our DB. Product optimises inside: one-tap with tokenised wallet, no account. If no boundary exists, escalate to stakeholder owning commercial risk, record trade-off in ADR, make sacrificed concern explicit. **Rejected**: "Compromise in the middle" — security boundaries are binary.
 
-- Only technical stakeholders; missing business/compliance.
-- One diagram for everyone.
+**Q3: "Name the stakeholders teams most often forget."**
+> **Answer**: Support, Finance, Auditors, plus whoever gets paged at 03:00. They're invisible at design time, expensive at incident time. Test: "Who pays, who gets paged, who gets sued" surfaces missing rows. **Rejected**: "Just the dev team" — devs build, others live with consequences.
 
-## Interview q&a
+**Q4: "How do you resolve conflicting stakeholder priorities in an ADR?"**
+> **Answer**: Map to quality attributes (latency vs security vs cost). The ADR states: "We choose X over Y because quality Z is the top risk per stakeholder S." The sacrificed concern is explicitly recorded, not quietly dropped. **Metric**: ADR has RACI — one Accountable, others Consulted/Informed.
 
-**Q: Who are the stakeholders for an e-commerce checkout redesign, and what does each one actually care about?**
-A: Product, conversion and time-to-market, so latency and release cadence; SRE, availability and MTTR, so failure modes, rollbacks, and observability; Security/Compliance, PCI scope and data minimisation; Finance, unit cost per order and peak capacity; Customer support, failure visibility, because a silent payment failure becomes a ticket. The architect's job is to design for the conflict between these, not to satisfy each in isolation.
+**Q5: "How do you record stakeholders without it becoming bureaucratic?"**
+> **Answer**: One living table: Stakeholder → Top Concern → Quality Attribute → Scenario Link → View That Satisfies. It's the index for architecture docs; if a row can't reach a scenario, either concern is stale or design hasn't addressed it. **Rejected**: "Wiki page" — wiki is where matrices go to be ignored.
 
-**Q: Two stakeholders have directly opposed concerns, say, Security wants strong auth everywhere and Product wants a one-tap guest checkout. How do you resolve it?**
-A: Resolve by constraint, not by volume: security sets the boundary (guest checkout never touches PCI scope, tokenise the card, keep the merchant token out of our DB), product optimises inside it (one tap with a tokenised wallet, no account). If no such boundary exists, escalate to the stakeholder who owns the commercial risk, record the trade-off in an ADR, and make the sacrificed concern explicit rather than quietly dropping it.
-
-**Q: Name the stakeholders teams most often forget.**
-A: Support, finance, and auditors, plus whoever gets paged at 03:00. They're invisible at design time and expensive at incident time. My test: "who pays, who gets paged, who gets sued", that trio surfaces the missing row.
-
-**Q: How do you record stakeholders without it becoming bureaucratic?**
-A: One living table: stakeholder → top concern → quality attribute → scenario link → view that satisfies them. It's the index for the rest of the architecture documentation; if a row can't reach a scenario, either the concern is stale or the design hasn't addressed it.
-
-## Related
-
-- [[Views-and-Viewpoints-4-plus-1|Views 4+1]], [[../02_Requirements-Quality-Attributes/Quality-Scenarios|Quality Scenarios]]
-
-# Stakeholders and Concerns
-
-## When / not
-
-- Use at phase start and before any review.
-- NOT a one-time list, revisit when scope or compliance shifts.
-
-## Q&A
-
-1. **Minimum viable list?** User, dev, ops, security, sponsor, plus regulator if PII/payment.
-2. **Hidden stakeholders?** Support, finance (cost), auditors, ask "who pays / who gets paged."
-3. **How to record?** Table: stakeholder → concern → quality → scenario link.
+## 🔗 Related
+- [[Views-and-Viewpoints-4-plus-1|Views 4+1]] • [[../02_Requirements-Quality-Attributes/Quality-Scenarios|Quality Scenarios]] • [[../09_Governance-Documentation/02_ADRs|ADRs]]

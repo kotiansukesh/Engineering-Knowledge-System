@@ -5,6 +5,11 @@ tags: [ai, gateway, resilience, 12-factor]
 weeks: "17-18"
 created: 2026-09-02
 completed: false
+reviewed: ""
+sr-due: ""
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 ## Why it Matters
 

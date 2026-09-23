@@ -3,6 +3,14 @@ title: "SOLID , Interface Segregation Principle"
 category: Java/02_OOP
 tags: [java, oop, solid, isp, interfaces, design-principles]
 created: 2026-09-04
+pattern: 12
+difficulty: Medium
+completed: false
+reviewed: ""
+sr-due: ""
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 ## Why it Matters
 

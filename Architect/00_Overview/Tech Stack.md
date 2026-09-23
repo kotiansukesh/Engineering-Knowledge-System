@@ -1,11 +1,18 @@
 ---
-title: Tech Stack
-category: overview
+title: "Tech Stack"
+pattern: 0
+category: "overview"
 tags: [java, spring-boot, postgres, kafka, redis, k8s]
 created: 2026-09-03
 completed: false
+reviewed: ""
+sr-due: ""
+difficulty: Easy
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
-## Why it Matters
+Why it Matters
 
 Fixed baseline so every phase builds on the same platform instead of re-choosing tools.
 

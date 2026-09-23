@@ -3,6 +3,11 @@ title: "MCP Comparison Table"
 category: cross-cutting
 tags: [ai, comparison, rag]
 created: 2026-09-02
+reviewed: ""
+sr-due: ""
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 ## Why it Matters
 

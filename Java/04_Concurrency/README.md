@@ -1,9 +1,14 @@
 ---
 title: "Concurrency"
-type: folder-MOC
-tags: [MOC, 04_concurrency]
----
-# Concurrency
+category: "Concurrency"
+tags: [java, concurrency, threads, virtual-threads]
+created: 2026-09-03
+pattern: 0
+difficulty: Hard
+completed: false
+reviewed:
+sr-due:
+---# Concurrency
 
 > Threads, virtual threads (Loom), executors, locks, atomics & concurrent collections , slimmed to gold standard: **Summary → Why it matters → Lifecycle (mermaid) → Runnable Java 25 → How it compares → Q&A → Pitfalls**. | Part of [[README|Java MOC]]
 ```dataview

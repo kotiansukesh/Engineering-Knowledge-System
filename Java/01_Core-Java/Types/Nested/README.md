@@ -1,9 +1,14 @@
 ---
-title: "Nested Classes"
-type: folder-MOC
-tags: [MOC, nested]
----
-# Nested Classes
+title: "Nested Types Overview"
+category: "Nested"
+tags: [java, nested, inner-classes]
+created: 2026-09-03
+pattern: 0
+difficulty: Easy
+completed: false
+reviewed:
+sr-due:
+---# Nested Classes
 
 > Nested Classes, the notes below. | Part of [[Java/README\|Java MOC]]
 

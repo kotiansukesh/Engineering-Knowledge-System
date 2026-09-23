@@ -3,23 +3,25 @@ title: "20 DSA Patterns: Master Guide"
 type: MOC
 tags: [MOC, leetcode, coding-patterns, interview-prep, dsa]
 created: 2026-09-02
-updated: 2026-09-02
+updated: 2026-09-23
 source: "https://blog.algomaster.io/p/20-dsa-patterns"
 status: complete
 patterns: 20
 ---
-# 20 dsa Patterns: Master Guide
+
+# 20 DSA Patterns: Master Guide
 
 > Source: [AlgoMaster: DSA was hard until I learned these 20 patterns](https://blog.algomaster.io/p/20-dsa-patterns), Ashish Pratap Singh. Templates included.
 > **Thesis:** DSA is less about quantity, more about recognizing *patterns*. Same patterns repeatedly appeared in interviews at Amazon & Google.
+> **Update 2026-09-23:** All 34 notes migrated to unified template with Interview Q&A (senior depth), Vs tables, Trade-offs, and Spaced Repetition frontmatter (`completed`, `reviewed`, `sr-due`).
 
-> Previous version: 15 patterns. **Update 2026-09-02:** Added 5 new patterns → **Frequency Counting (6), Bit Manipulation (8), Shortest Path (15), Trie (18), Greedy (19)** and shifted numbering. See migration note at bottom.
 ```dataview
-TABLE pattern as "#", category as "Category", leetcode as "LeetCode"
+TABLE pattern as "#", category as "Category", leetcode as "LeetCode", choice(completed, "✅", "⬜") as "Done", choice(reviewed, "✅", "⬜") as "Reviewed"
 FROM "Coding Patterns"
 WHERE pattern
 SORT pattern ASC
 ```
+
 ---
 
 ## Vault Structure
@@ -32,17 +34,18 @@ Coding Patterns/
 ├── 03_Stack_Heap/ → 7 Monotonic Stack, 9 Top K
 ├── 08_Bit_Manipulation/ → 8 Bit Manipulation (new)
 ├── 04_Intervals_Search/ → 10 Overlapping Intervals, 11 Modified Binary Search
-├── 05_Trees_Graphs/ → 12 Tree Traversal, 13 DFS, 14 BFS, 15 Shortest Path (new), 18 Trie (new)
+├── 05_Trees_Graphs/ → 12 Tree Traversal, 13 DFS, 14 BFS, 15 Shortest Path, 18 Trie (new), 21 Union Find
 ├── 06_Matrix/ → 16 Matrix Traversal
 ├── 07_Backtracking_DP/ → 17 Backtracking, 19 Greedy (new), 20 Dynamic Programming
 ├── _attachments/ → images
-└── _templates/ → pattern template
+└── _templates/ → Unified-Note-Template.md
 ```
+
 > Legacy folder `𝗖𝗼𝗱𝗶𝗻𝗴 𝗣𝗮𝘁𝘁𝗲𝗿𝗻𝘀` (stylized unicode) is deprecated, use `Coding Patterns`.
 
 ---
 
-## Overview map - 20 Patterns
+## Overview Map - 20 Patterns (+1)
 
 | # | Pattern | Folder | When to Use | Core DS | Time |
 |---|---------|--------|-------------|---------|------|
@@ -69,7 +72,7 @@ Coding Patterns/
 
 > (new) = 5 patterns added in 20-pattern update
 
-> Beyond 20: [[05_Trees_Graphs/06 - Union Find|#21 Union Find]] (the course-named pattern the 20 list omits) · [[DSA-Roadmap-AlgoMaster|DSA Roadmap]] (75/150/300 tracks, study loop, animations)
+> Beyond 20: [[05_Trees_Graphs/06 - Union Find\|#21 Union Find]] (the course-named pattern the 20 list omits) · [[DSA-Roadmap-AlgoMaster\|DSA Roadmap]] (75/150/300 tracks, study loop, animations)
 
 ---
 
@@ -77,80 +80,83 @@ Coding Patterns/
 
 ### 01 - Array
 
-#### 1. Prefix sum -`[[01_Array/01 - Prefix Sum|→ note]]`
+#### 1. Prefix sum -`[[01_Array/01 - Prefix Sum\|→ note]]`
 **Idea:** `pref[i+1]=pref[i]+nums[i]`, `sum(l,r)=pref[r+1]-pref[l]`
 **Template:** build + O(1) query | **LC:** #303, #525, #560
 
-#### 2. two Pointers -`[[01_Array/02 - Two Pointers|→ note]]`
+#### 2. Two Pointers -`[[01_Array/02 - Two Pointers\|→ note]]`
 **Idea:** opposite ends (`left=0,right=n-1`) or same direction (`slow/fast`)
 **LC:** #167, #15, #11
 
-#### 3. Sliding Window -`[[01_Array/03 - Sliding Window|→ note]]`
+#### 3. Sliding Window -`[[01_Array/03 - Sliding Window\|→ note]]`
 **Idea:** fixed-k (initial window + slide) vs variable (`while` shrink)
 **LC:** #643, #3, #76
 
-#### 6. Frequency Counting -`[[01_Array/04 - Frequency Counting|→ note]]`(New)
+#### 6. Frequency Counting -`[[01_Array/04 - Frequency Counting\|→ note]]`(New)
 **Idea:** `Map` or `int[26]` to count occurrences; trade space for O(n)
 **Template:** `freq.put(x, getOrDefault+1)` + second pass | **LC:** #242, #49, #347
 
 ### 02 - Linked List
 
-#### 4. Fast and Slow -`[[02_LinkedList/01 - Fast and Slow Pointers|→ note]]`
+#### 4. Fast and Slow -`[[02_LinkedList/01 - Fast and Slow Pointers\|→ note]]`
 **Idea:** `slow=1, fast=2` → meet if cycle; middle when `fast` hits end | **LC:** #141, #202, #287
 
-#### 5. Linked List Reversal -`[[02_LinkedList/02 - LinkedList In-place Reversal|→ note]]`
+#### 5. Linked List Reversal -`[[02_LinkedList/02 - LinkedList In-place Reversal\|→ note]]`
 **Idea:** `prev,curr,nxt` flip; dummy + move-to-front for sublist m-n | **LC:** #206, #92, #24
 
 ### 03 - Stack and Heap
 
-#### 7. Monotonic Stack -`[[03_Stack_Heap/01 - Monotonic Stack|→ note]]`
+#### 7. Monotonic Stack -`[[03_Stack_Heap/01 - Monotonic Stack\|→ note]]`
 **Idea:** keep increasing/decreasing; pop while violating → reveals next greater | **LC:** #496, #739, #84
 
-#### 8. bit Manipulation -`[[08_Bit_Manipulation/01 - Bit Manipulation|→ note]]`(New)
+#### 8. Bit Manipulation -`[[08_Bit_Manipulation/01 - Bit Manipulation\|→ note]]`(New)
 **Idea:** `a^a=0`, `n&(n-1)==0` is power of 2; `xor` finds single | **LC:** #136, #191, #231
 
-#### 9. top k -`[[03_Stack_Heap/02 - Top K Elements|→ note]]`
+#### 9. Top K -`[[03_Stack_Heap/02 - Top K Elements\|→ note]]`
 **Idea:** min-heap size k for k largest (`peek()` is k-th) | **LC:** #215, #347, #373
 
 ### 04 - Intervals and Search
 
-#### 10. Overlapping Intervals -`[[04_Intervals_Search/01 - Overlapping Intervals|→ note]]`
+#### 10. Overlapping Intervals -`[[04_Intervals_Search/01 - Overlapping Intervals\|→ note]]`
 **Idea:** sort by start, overlap if `b >= c` → `end=max(end, currEnd)` | **LC:** #56, #57, #435
 
-#### 11. Modified Binary Search -`[[04_Intervals_Search/02 - Modified Binary Search|→ note]]`
+#### 11. Modified Binary Search -`[[04_Intervals_Search/02 - Modified Binary Search\|→ note]]`
 **Idea:** one half always sorted in rotated array | **LC:** #33, #153, #240
 
 ### 05 - Trees and Graphs
 
-#### 12. Binary Tree Traversal -`[[05_Trees_Graphs/01 - Binary Tree Traversal|→ note]]`
+#### 12. Binary Tree Traversal -`[[05_Trees_Graphs/01 - Binary Tree Traversal\|→ note]]`
 Pre / In / Post | **LC:** #257, #230, #124
 
-#### 13. dfs -`[[05_Trees_Graphs/02 - DFS|→ note]]`
+#### 13. DFS -`[[05_Trees_Graphs/02 - DFS\|→ note]]`
 Recursion + `visited[]`, deep before backtrack | **LC:** #133, #113, #210
 
-#### 14. bfs -`[[05_Trees_Graphs/03 - BFS|→ note]]`
+#### 14. BFS -`[[05_Trees_Graphs/03 - BFS\|→ note]]`
 Queue level-by-level, shortest path unweighted | **LC:** #102, #994, #127
 
-#### 15. Shortest Path -`[[05_Trees_Graphs/04 - Shortest Path|→ note]]`(New)
+#### 15. Shortest Path -`[[05_Trees_Graphs/04 - Shortest Path\|→ note]]`(New)
 **Idea:** Dijkstra (non-negative, heap) vs Bellman-Ford (negative, V-1 relaxations) | **LC:** #743, #787
+
+#### 18. Trie -`[[05_Trees_Graphs/05 - Trie\|→ note]]`(New)
+**Idea:** `children[26]` + `isEnd`; paths = prefixes; `insert/search/startsWith` O(L) | **LC:** #208, #211, #212
+
+#### 21. Union Find -`[[05_Trees_Graphs/06 - Union Find\|→ note]]`
+DSU + path compression + union by rank | **LC:** #684, #721, #547
 
 ### 06 - Matrix
 
-#### 16. Matrix Traversal -`[[06_Matrix/01 - Matrix Traversal|→ note]]`
+#### 16. Matrix Traversal -`[[06_Matrix/01 - Matrix Traversal\|→ note]]`
 4 dirs `{{1,0},{-1,0},{0,1},{0,-1}}` DFS/BFS | **LC:** #733, #200, #130
 
-### 07 - Backtracking, Greedy and dp
+### 07 - Backtracking, Greedy and DP
 
-#### 17. Backtracking -`[[07_Backtracking_DP/01 - Backtracking|→ note]]`
+#### 17. Backtracking -`[[07_Backtracking_DP/01 - Backtracking\|→ note]]`
 `choose → explore → un-choose` | **LC:** #46, #78, #51
 
-#### 18. Trie -`[[05_Trees_Graphs/05 - Trie|→ note]]`(New)
-**Idea:** `children[26]` + `isEnd`; paths = prefixes; `insert/search/startsWith` O(L) | **LC:** #208, #211, #212
-
-#### 19. Greedy -`[[07_Backtracking_DP/03 - Greedy|→ note]]`(New)
+#### 19. Greedy -`[[07_Backtracking_DP/03 - Greedy\|→ note]]`(New)
 **Idea:** sort by greedy criterion, locally optimal → globally optimal if provable | **LC:** #55, #45, #435
 
-#### 20. Dynamic Programming -`[[07_Backtracking_DP/02 - Dynamic Programming|→ note]]`
+#### 20. Dynamic Programming -`[[07_Backtracking_DP/02 - Dynamic Programming\|→ note]]`
 Memo vs tabulation; sub-patterns: Fib, 0/1 Knapsack, LCS, LIS… | **Deep dive:** https://blog.algomaster.io/p/20-patterns-to-master-dynamic-programming | **LC:** #70, #300, #1143
 
 ---
@@ -185,6 +191,8 @@ Files kept stable names (`01 - Prefix Sum.md` etc.); pattern number is in frontm
 2. **Template first**, memorize skeleton, then adapt
 3. **Trigger words**, identify pattern in 30 seconds
 4. **Spaced repetition**, re-solve without looking after 3 days
+5. **Mark `completed: true`** after first cold-recall of Q&A
+6. **Set `reviewed: YYYY-MM-DD`** and `sr-due: YYYY-MM-DD` on every re-review
 
 ---
 
@@ -210,6 +218,8 @@ Files kept stable names (`01 - Prefix Sum.md` etc.); pattern number is in frontm
 - [ ] Trie `children[26]` + `isEnd`?
 - [ ] Greedy sorting criterion?
 - [ ] DP state + transition (1D/2D)?
+- [ ] Union Find path compression + union by rank?
+
 ```dataview
 TABLE WITHOUT ID
  file.link as "Pattern",
@@ -219,10 +229,19 @@ FROM "Coding Patterns"
 WHERE pattern
 SORT pattern ASC
 ```
-*Add `completed: true` and `reviewed: true` to frontmatter when done.*
+
+*Add `completed: true` and `reviewed: YYYY-MM-DD` to frontmatter when done. Set `sr-due` for next spaced-repetition pass.*
 
 ---
 
-> **Java 25 (Sep 2025) refresh:** All 20 pattern templates annotated `// Java 25:`, `var`, `record`, `instanceof` pattern matching, `SequencedCollection`/`SequencedMap` (`getFirst`/`getLast`/`reversed`), and virtual-thread `StructuredTaskScope` notes for parallel BFS/DFS/Backtracking. `Compact Object Headers` (JEP 450) noted for HashMap/Trie node memory.
+## Java 25 (Sep 2025) Refresh
 
-Created: 2026-09-02 | Updated: 2026-09-02 for 20 DSA Patterns · Java 25 snippets Sep 2025 | Source: AlgoMaster
+All 20 pattern templates annotated `// Java 25:`:
+- `var`, `record`, `instanceof` pattern matching
+- `SequencedCollection`/`SequencedMap` (`getFirst`/`getLast`/`reversed`)
+- Virtual-thread `StructuredTaskScope` notes for parallel BFS/DFS/Backtracking
+- `Compact Object Headers` (JEP 450) noted for HashMap/Trie node memory
+
+---
+
+Created: 2026-09-02 | Updated: 2026-09-23 for 20 DSA Patterns · Java 25 snippets Sep 2025 | Source: AlgoMaster

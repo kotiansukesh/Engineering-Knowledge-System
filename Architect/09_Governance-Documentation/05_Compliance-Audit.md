@@ -1,9 +1,16 @@
 ---
 title: "Compliance & Audit, SOC2, PCI, DPDP/GDPR"
+pattern: 5
 category: "Governance & Docs"
 tags: [compliance, soc2, pci, gdpr, audit]
 created: 2026-09-03
 completed: false
+reviewed: ""
+sr-due: ""
+difficulty: Medium
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 ## Why it Matters
 

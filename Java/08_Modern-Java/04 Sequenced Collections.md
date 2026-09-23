@@ -4,6 +4,13 @@ category: Modern-Java
 tags: [java25, sequenced, collections, jep431]
 created: 2026-09-03
 completed: false
+pattern: 4
+difficulty: Medium
+reviewed: ""
+sr-due: ""
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 ## Why it Matters
 

@@ -1,9 +1,16 @@
 ---
 title: "Context Mapping"
+pattern: 3
 category: "DDD & Modeling"
 tags: [ddd, context-mapping, integration, acl, open-host]
 created: 2026-09-03
 completed: false
+reviewed: ""
+sr-due: ""
+difficulty: Medium
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 ## Why it Matters
 

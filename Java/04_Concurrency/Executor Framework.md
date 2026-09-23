@@ -4,6 +4,14 @@ category: Concurrency
 tags: [concurrency, executor, interview]
 created: 2026-01-18
 updated: 2026-09-02
+pattern: 4
+difficulty: Hard
+completed: false
+reviewed: ""
+sr-due: ""
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 ## Why it Matters
 

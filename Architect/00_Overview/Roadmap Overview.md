@@ -1,11 +1,18 @@
 ---
-title: Roadmap Overview
-category: overview
+title: "Roadmap Overview"
+pattern: 0
+category: "overview"
 tags: [architect, roadmap]
 created: 2026-09-03
 completed: false
+reviewed: ""
+sr-due: ""
+difficulty: Easy
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
-## Why it Matters
+Why it Matters
 
 One-page map of the 24-week architect journey so every week connects to the capstone.
 

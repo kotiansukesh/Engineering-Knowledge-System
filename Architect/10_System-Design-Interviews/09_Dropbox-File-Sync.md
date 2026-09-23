@@ -1,9 +1,16 @@
 ---
 title: "Dropbox File Sync"
+pattern: 9
 category: "System Design"
 tags: [system-design, interview, sync, chunking, object-store, delta]
 created: 2026-09-04
 completed: false
+reviewed: ""
+sr-due: ""
+difficulty: Hard
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 ## Why it Matters
 

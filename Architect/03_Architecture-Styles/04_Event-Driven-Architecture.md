@@ -1,9 +1,16 @@
 ---
 title: "Event-Driven Architecture"
+pattern: 4
 category: "Architecture Styles"
 tags: [architecture, events, kafka, async, spring]
 created: 2026-09-03
 completed: false
+reviewed: ""
+sr-due: ""
+difficulty: Medium
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 ## Why it Matters
 

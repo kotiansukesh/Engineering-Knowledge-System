@@ -5,6 +5,11 @@ tags: [ai, grpc, protobuf, observability, prometheus, opentelemetry, kubernetes]
 weeks: "21-24"
 created: 2026-09-02
 completed: false
+reviewed: ""
+sr-due: ""
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 ## Why it Matters
 

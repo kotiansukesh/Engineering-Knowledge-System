@@ -4,6 +4,13 @@ category: java21
 tags: [java21, jep444, loom, virtual-threads, interview]
 created: 2026-09-03
 completed: false
+pattern: 2
+difficulty: Medium
+reviewed: ""
+sr-due: ""
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 ## Why it Matters
 

@@ -6,6 +6,11 @@ weeks: "35-36"
 created: 2026-09-02
 completed: false
 type: project
+reviewed: ""
+sr-due: ""
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 ## Why it Matters
 

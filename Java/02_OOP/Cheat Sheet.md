@@ -1,9 +1,17 @@
 ---
-category: CheatSheet
-tags: [java, oop, cheatsheet]
-title: OOP , Cheat Sheet
----
-# OOP , Cheat Sheet
+title: "OOP Cheat Sheet"
+category: "OOP"
+tags: [java, cheat-sheet, oop]
+created: 2026-09-03
+pattern: 0
+difficulty: Medium
+completed: false
+reviewed: ""
+sr-due: ""
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
+---# OOP , Cheat Sheet
 
 ## 4 Pillars + SOLID (vs Tables)
 

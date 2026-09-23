@@ -1,9 +1,16 @@
 ---
 title: "Notification Service"
+pattern: 6
 category: "System Design"
 tags: [system-design, interview, notifications, fanout, retry, preferences]
 created: 2026-09-04
 completed: false
+reviewed: ""
+sr-due: ""
+difficulty: Hard
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 ## Why it Matters
 

@@ -1,9 +1,16 @@
 ---
 title: "Cost & FinOps, Rightsizing, Autoscaling & Unit Cost"
+pattern: 6
 category: "Non-Functional & Ops"
 tags: [finops, cost, rightsizing, autoscaling, unit-economics]
 created: 2026-09-03
 completed: false
+reviewed: ""
+sr-due: ""
+difficulty: Hard
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 ## Why it Matters
 

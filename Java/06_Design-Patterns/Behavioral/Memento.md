@@ -7,6 +7,13 @@ pattern: memento
 source: "https://refactoring.guru/design-patterns/memento"
 created: 2026-09-02
 updated: 2026-09-04
+difficulty: Medium
+completed: false
+reviewed: ""
+sr-due: ""
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 # Memento *Also Known as: Snapshot*
 
@@ -28,7 +35,7 @@ classDiagram
  <<record>>
  }
  class Caretaker {
- <<history stack>>
+ <<caretaker>>
  }
  Editor ..> Snap : creates
  Caretaker o-- Snap : holds

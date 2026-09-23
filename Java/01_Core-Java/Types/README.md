@@ -1,9 +1,14 @@
 ---
-title: "Class Types"
-type: folder-MOC
-tags: [MOC, types]
----
-# Class Types
+title: "Types Overview"
+category: "Types"
+tags: [java, types, classes]
+created: 2026-09-03
+pattern: 0
+difficulty: Easy
+completed: false
+reviewed:
+sr-due:
+---# Class Types
 
 > Class Types, the notes below. | Part of [[Java/README\|Java MOC]]
 

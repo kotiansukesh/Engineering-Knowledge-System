@@ -3,6 +3,14 @@ title: "SOLID , Single Responsibility Principle"
 category: Java/02_OOP
 tags: [java, oop, solid, srp, design-principles]
 created: 2026-09-04
+pattern: 15
+difficulty: Medium
+completed: false
+reviewed: ""
+sr-due: ""
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 ## Why it Matters
 
@@ -52,7 +60,7 @@ classDiagram
 *Drawn from the [SRP chapter](https://algomaster.io/learn/lld/srp): one box per reason to change.*
 
 ## Code
-```
+```java
 java// VIOLATION: Invoice prints itself AND saves itself (3 reasons to change).
 // FIX below: one class per job. Run: java SrpDemo.java
 import java.util.*;

@@ -4,6 +4,14 @@ category: Spring
 tags: [spring, mvc, interview]
 created: 2026-01-18
 updated: 2026-09-02
+pattern: 6
+difficulty: Hard
+completed: false
+reviewed: ""
+sr-due: ""
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 ## Why it Matters
 
@@ -259,7 +267,8 @@ record CreateOrderRequest(@NotBlank String item, @Positive int qty) {}
 record OrderDto(long id, String item) {}
 ```
 ### Validation (Jakarta Validation on Records)
-```javarecord
+```java
+record
  CreateOrderRequest(@NotBlank String item, @Positive int qty) {}
 
 @PostMapping

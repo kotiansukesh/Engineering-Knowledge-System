@@ -1,9 +1,16 @@
 ---
 title: "Enterprise Patterns"
+pattern: 1
 category: "Design Patterns & Building Blocks"
 tags: [patterns, enterprise, repository, unit-of-work, dto, spring]
 created: 2026-09-03
 completed: false
+reviewed: ""
+sr-due: ""
+difficulty: Easy
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 ## Why it Matters
 

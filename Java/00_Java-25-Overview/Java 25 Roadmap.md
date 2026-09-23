@@ -4,6 +4,13 @@ category: overview
 tags: [java25, roadmap, overview, lts]
 created: 2026-09-03
 completed: false
+pattern: 3
+difficulty: Easy
+reviewed: ""
+sr-due: ""
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 ## Why it Matters
 
@@ -44,7 +51,32 @@ sdk install java 8-tem
 
 sdk use java 21-tem # per phase
 java --version # expect the phase LTS
+```
 
+```java
+// Java 25: verify your JDK and preview features at runtime
+// Run with: java --enable-preview --release 25 ToolchainCheck.java
+import java.util.*;
+
+public class ToolchainCheck {
+    public static void main(String[] args) {
+        String version = System.getProperty("java.version");
+        String vendor = System.getProperty("java.vendor");
+        System.out.println("Java version: " + version);
+        System.out.println("Vendor: " + vendor);
+        
+        // Check for Java 25 preview features
+        boolean hasStructuredTaskScope = hasClass("java.util.concurrent.StructuredTaskScope");
+        boolean hasScopedValue = hasClass("java.lang.ScopedValue");
+        
+        System.out.println("StructuredTaskScope (preview): " + hasStructuredTaskScope);
+        System.out.println("ScopedValue (final): " + hasScopedValue);
+    }
+    
+    static boolean hasClass(String className) {
+        try { Class.forName(className); return true; } catch (Exception e) { return false; }
+    }
+}
 ```
 
 ## When to use / NOT

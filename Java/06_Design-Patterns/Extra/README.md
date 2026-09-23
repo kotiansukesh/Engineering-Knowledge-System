@@ -1,9 +1,14 @@
 ---
-title: "Extra , Beyond GoF 23"
-type: folder-MOC
-tags: [MOC, design-patterns, extra]
----
-# Extra , Beyond gof 23
+title: "Extra Patterns"
+category: "Extra"
+tags: [java, design-patterns, dao, di]
+created: 2026-09-03
+pattern: 0
+difficulty: Medium
+completed: false
+reviewed:
+sr-due:
+---# Extra , Beyond gof 23
 
 > 2 enterprise patterns beyond the classic 23 , kept from Interview Prep. | Part of [[06_Design-Patterns/README|Design Patterns MOC]] → [[Java/README|Java MOC]]
 ```dataview

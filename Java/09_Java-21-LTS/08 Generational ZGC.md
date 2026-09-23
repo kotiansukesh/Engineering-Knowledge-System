@@ -4,6 +4,13 @@ category: java21
 tags: [java21, jep439, zgc, gc, interview]
 created: 2026-09-03
 completed: false
+pattern: 9
+difficulty: Medium
+reviewed: ""
+sr-due: ""
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 ## Why it Matters
 
@@ -24,6 +31,26 @@ flowchart TD
 
 ```bash
 java -XX:+UseZGC -Xmx4g -Xlog:gc* App
+```
+
+```java
+// Java 25: programmatic ZGC config via command-line flags (no API yet)
+// Compact Object Headers (JEP 450) complements ZGC: denser heap = fewer GC cycles
+// Usage: java -XX:+UseZGC -XX:+ZGenerational -XX:+UseCompactObjectHeaders -Xmx4g App
+public class ZgcConfigDemo {
+    public static void main(String[] args) {
+        var runtime = Runtime.getRuntime();
+        long heap = runtime.maxMemory() / (1024 * 1024);
+        System.out.println("Max heap: " + heap + " MB");
+        System.out.println("ZGC Generational: " + isZgcGenerational());
+    }
+    static boolean isZgcGenerational() {
+        String gc = java.lang.management.ManagementFactory.getGarbageCollectorMXBeans()
+            .stream().map(b -> b.getName()).filter(n -> n.contains("ZGC")).findFirst().orElse("none");
+        return gc.contains("Generational");
+    }
+}
+```
 
 ## When to use / NOT
 

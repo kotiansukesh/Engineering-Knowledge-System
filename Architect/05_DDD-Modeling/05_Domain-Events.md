@@ -1,9 +1,16 @@
 ---
 title: "Domain Events"
+pattern: 5
 category: "DDD & Modeling"
 tags: [ddd, domain-events, events, outbox, spring]
 created: 2026-09-03
 completed: false
+reviewed: ""
+sr-due: ""
+difficulty: Medium
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 ## Why it Matters
 

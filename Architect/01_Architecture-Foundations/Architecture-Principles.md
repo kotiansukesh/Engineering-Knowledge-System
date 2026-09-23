@@ -1,86 +1,110 @@
 ---
-title: Architecture Principles
-category: architect
-tags: [architecture, principles]
+title: "Architecture Principles"
+pattern: 5
+category: "Architect/01_Architecture-Foundations"
+tags: [architecture, principles, governance, fitness-functions]
 created: 2026-09-03
 completed: false
+reviewed: ""
+sr-due: ""
+difficulty: Medium
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
-## Why it Matters
 
-Turn values into testable guardrails (e.g. "API-first, modular monolith first") that prune options before design.
+## 🎯 Intent
+Turn values into testable guardrails — "API-first, modular monolith first" — that prune options before design. A principle only becomes governance when a CI gate can fail on its violation.
 
-## Diagram
+## 💡 Why It Matters
+- **Interview signal**: "How do you turn 'we should be scalable' into a real architecture principle?" — untestable slogans get ignored; testable principles block PRs
+- **Decision velocity**: When team relitigates same choices (modularity, tech selection, API style), principles are the axioms; ADRs are the derived decisions
+- **Onboarding**: New engineer learns constraints from principles + fitness functions, not "ask the loudest senior"
 
+## 🧩 Diagram: Principle → Fitness Function Pipeline
 ```mermaid
-graph TD
- V[Values from strategy] --> P["Principle: statement + rationale + implication"]
- P --> F[Fitness test: ArchUnit / Gatling / OWASP]
- F --> G{CI gate}
- G -->|pass| O[Design options pruned before design]
- G -->|fail| R[PR blocked: fix drift or amend the principle]
- R --> P
+flowchart LR
+    V[Values from Strategy] --> P["Principle: Statement + Rationale + Implication"]
+    P --> F[Fitness Test: ArchUnit / Gatling / OWASP]
+    F --> G{CI Gate}
+    G -->|pass| O[Design Options Pruned Before Design]
+    G -->|fail| R[PR Blocked: Fix Drift or Amend Principle]
+    R --> P
+    style P fill:#e3f2fd
+    style F fill:#e8f5e9
+    style G fill:#fff3e0
 ```
 
-## Code
+## 💻 Code: Testable Principle Format (Java 25 + ArchUnit)
+```java
+// Why principle format: "Modular monolith first — Rationale: deploy simplicity;
+// Implication: ArchUnit boundaries; Test: mvn test passes boundary rules"
 
-```text
-Why principle format: "Modular monolith first — Rationale: deploy simplicity;
-Implication: ArchUnit boundaries; Test: mvn test passes boundary rules"
+@ArchTest
+static final ArchRule modularMonolithFirst = layeredArchitecture()
+    .layer("Domain").definedBy("com.shop..domain..")
+    .layer("Application").definedBy("com.shop..application..")
+    .layer("Infrastructure").definedBy("com.shop..infrastructure..")
+    .whereLayer("Domain").mayNotBeAccessedByAnyLayer()
+    .whereLayer("Application").mayOnlyBeAccessedByLayers("Infrastructure");
+
+// Principle: "Scale horizontally behind gateway"
+// Rationale: top SLO risk = stateful single point of failure
+// Implication: no session affinity, state externalised to Redis
+// Test: k6 ramp asserting p99 holds at 3× peak + ArchUnit banning stateful singletons in web layer
+
+@ArchTest
+static final ArchRule noStatefulSingletonsInWeb = noClasses()
+    .that().resideInAPackage("..web..")
+    .should().beAnnotatedWith("jakarta.ejb.Stateful"); // or custom @Stateful
 ```
 
-## When to use / not
+## ✅ When to Use / ❌ When NOT to Use
+| Scenario | Use? | Reason |
+|---|---|---|
+| Team keeps relitigating same choices | ✅ | Principles = axioms; ADRs = derived decisions |
+| Input to fitness functions (CI gates) | ✅ | Principle only becomes governance when testable |
+| Before writing any ADR | ✅ | Principles are the axioms |
+| Shipping untestable slogan ("be scalable") | ❌ | Slogans get ignored within a quarter |
+| Exceeding ~8 principles | ❌ | Beyond 8, nobody recalls under deadline pressure |
 
-- **Use:** whenever the team keeps relitigating the same choices, modularity level, tech selection, API style, and onboarding needs to be faster than "ask the loudest senior".
-- **Use:** as the input to fitness functions: a principle only becomes governance when a CI gate can fail on its violation.
-- **Use:** before writing any ADR, principles are the axioms; the ADR is the derived decision.
+## ⚖️ Trade-offs
+| Dimension | Pros | Cons |
+|---|---|---|
+| **Faster decisions** | Consistent trade-offs | **Rigid if never revisited** |
+| **Testable governance** | CI fails on drift | **Ignored if too many** (>8) |
+| **Onboarding** | Constraints documented | **Maintenance burden** if tests drift |
 
-**When NOT:** do not ship a principle that has no rationale, implication, and test, an untestable "be scalable" is a slogan, and slogans get ignored within a quarter. Do not exceed ~8 principles; beyond that, nobody can recall them under deadline pressure, so they stop mattering at all.
+## 🆚 Vs. Alternatives
+| Principle | Counters | Decide By |
+|---|---|---|
+| **Modularity first** | Microservices-by-default | Deploy/ops cost |
+| **API-first** | UI-driven schema | Consumer count |
+| **Boring tech** | Resume-driven | Team skill + SLO risk |
+| **Observability by default** | Logs-as-afterthought | MTTR target |
 
-## Trade-offs
+## ⚠️ Pitfalls
+1. **Untestable ("be scalable")** — rewrite as scenario with fitness function
+2. **Principles nobody can veto with** — if a principle can't block a PR, it's dead weight
+3. **Never revisiting** — amend in ADR when constraint is genuinely wrong; update fitness function
+4. **Living only in wiki** — principles belong in repo (`ARCHITECTURE.md`), CI gate, ADR template
 
-- Pros: faster decisions; consistent tradeoffs.
-- Cons: rigid if never revisited; ignored if too many (>8).
+## 🎤 Interview Q&A (Senior Depth)
 
-## Vs
+**Q1: "How do you turn 'we should be scalable' into a real architecture principle?"**
+> **Answer**: Rewrite as decision-shaped statement with three attachments: rationale, implication, test. "Scale horizontally behind the gateway" → rationale: top SLO risk is stateful single point of failure; implication: no session affinity, state externalised to Redis; test: k6 ramp asserting p99 holds at 3× current peak + ArchUnit rule banning stateful singletons in web layer. What can't be tested becomes a wish, not a principle. **Rejected**: "Add more servers" — that's capacity planning, not architecture.
 
-| Principle | Counters | Decide by |
-|-----------|----------|-----------|
-| Modularity first | Microservices-by-default | Deploy/ops cost |
-| API-first | UI-driven schema | Consumer count |
-| Boring tech | Resume-driven | Team skill + SLO risk |
+**Q2: "A team wants to bypass a principle they say is slowing them down. What do you do?"**
+> **Answer**: Take it as data, not insubordination: ask which of the three parts is wrong — rationale, implication, or test. If constraint is genuinely wrong now, amend principle in ADR and update fitness function (a principle nobody can be blocked by is dead weight). If it's right but costly, answer is usually automation: remove the friction, not the guardrail. **Rejected**: "Grant exception" — exceptions without ADR rot the principle.
 
-## Pitfalls
+**Q3: "Where should principles live so they actually get followed?"**
+> **Answer**: Three places, in order of effectiveness: 1) Repo (`ARCHITECTURE.md` or `docs/principles`) beside the code, 2) CI gate enforcing testable subset, 3) ADR template's "principles applied" field forcing every decision to cite one. A wiki page is where principles go to be ignored. **Metric**: PR blocked by principle test = principle working.
 
-- Untestable ("be scalable"), rewrite as scenario.
-- Principles nobody can veto with.
+**Q4: "How does this map to TOGAF?"**
+> **Answer**: TOGAF's Principles catalogue in Preliminary Phase / ADM has same shape: statement, rationale, implications. Difference: TOGAF leaves enforcement as governance-board activity. Adding automated fitness gate makes the same content stick in a delivery org. **Rejected**: "TOGAF is too heavy" — the shape is right; automation is the delivery adaptation.
 
-## Interview q&a
+**Q5: "How many principles, and how do you pick them?"**
+> **Answer**: 5–8 max. Each must have: statement, rationale, implication, test. Pick by: recurring decision pain (modularity, API style, tech selection), top SLO risks, onboarding friction. **Rejected**: "More principles = better governance" — >8 = nobody remembers = ignored.
 
-**Q: How do you turn "we should be scalable" into a real architecture principle?**
-A: Rewrite it as a decision-shaped statement with three attachments, rationale, implication, and test. "Scale horizontally behind the gateway" → rationale: the top SLO risk is a stateful single point of failure; implication: no session affinity, state externalised to Redis; test: a k6 ramp asserting p99 holds at 3× current peak and an ArchUnit rule banning stateful singletons in the web layer. What can't be tested becomes a wish, not a principle.
-
-**Q: A team wants to bypass a principle they say is slowing them down. What do you do?**
-A: Take it as data, not insubordination: ask which of the three parts is wrong, rationale, implication, or test. If the constraint is genuinely wrong now, amend the principle in an ADR and update the fitness function, because a principle nobody can be blocked by is dead weight. If it's right but costly, the answer is usually automation: remove the friction, not the guardrail.
-
-**Q: Where should principles live so they actually get followed?**
-A: Three places, in order of effectiveness: the repo (`ARCHITECTURE.md` or a `docs/principles` directory) beside the code, the CI gate that enforces the testable subset, and the ADR template's "principles applied" field that forces every decision to cite one. A wiki page is where principles go to be ignored.
-
-**Q: How does this map to TOGAF?**
-A: TOGAF's Principles catalogue in the Preliminary Phase / ADM has the same shape, statement, rationale, implications, the difference is that TOGAF leaves enforcement as a governance-board activity. Adding an automated fitness gate is what makes the same content stick in a delivery org.
-
-## Related
-
-- [[What-is-Architecture|What is Architecture]], [[../02_Requirements-Quality-Attributes/Fitness-Functions|Fitness Functions]]
-
-# Architecture Principles
-
-## When / not
-
-- Use to settle repeated debates and onboard quickly.
-- NOT slogans, every principle needs rationale + implication + test.
-
-## Q&A
-
-1. **How many?** 5–8, each with a fitness check.
-2. **Where live?** Vault + repo (ARCHITECTURE.md) + ADR template reference.
-3. **TOGAF link?** Principles catalog in Preliminary/ADM, same shape.
+## 🔗 Related
+- [[What-is-Architecture|What is Architecture]] • [[../02_Requirements-Quality-Attributes/Fitness-Functions|Fitness Functions]] • [[../09_Governance-Documentation/02_ADRs|ADRs]]

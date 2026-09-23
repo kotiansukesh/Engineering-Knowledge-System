@@ -4,6 +4,13 @@ category: Modern-Java
 tags: [java25, loom, virtual-threads, jep491, concurrency]
 created: 2026-09-03
 completed: false
+pattern: 5
+difficulty: Medium
+reviewed: ""
+sr-due: ""
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 ## Why it Matters
 
@@ -30,7 +37,8 @@ stateDiagram-v2
  VT --> SYNC["synchronized around IO<br/>safe on 25, no pinning"]
 ```
 ## Code
-```javaimport
+```java
+import
  java.util.concurrent.*;
 import java.time.Duration;
 

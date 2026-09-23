@@ -1,16 +1,22 @@
 ---
 title: "<% tp.file.title %>"
-category:
+category: "<% tp.file.folder(true).split('/').pop() %>"
 tags: [java]
 created: <% tp.date.now("YYYY-MM-DD") %>
 updated: <% tp.date.now("YYYY-MM-DD") %>
+pattern: <% await tp.system.prompt("Pattern number:") %>
+difficulty: <% await tp.system.suggester(["Easy", "Medium", "Hard"], ["Easy", "Medium", "Hard"], true, "Select difficulty:") %>
 completed: false
-reviewed:
-sr-due:
+reviewed: ""
+sr-due: ""
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
-# <% Tp.file.title %>
+# <% tp.file.title %>
 
-> Part of [[README|Java MOC]] • `<% tp.file.folder().split("/").pop() %>`
+> Part of [[README|Java MOC]] • `<% tp.file.folder(true).split("/").pop() %>`
+> 🎨 **Visual diagram:** Create Excalidraw drawing from template: `Cmd+P → Excalidraw: New from template → Java Diagram`
 
 > [!tip] How to use this note
 > - Press `Ctrl/Cmd + P` → `Templater: Replace templates` if prompts appear.
@@ -30,17 +36,10 @@ flowchart TD
  B --> C["Output"]
 ```
 
-## Operations , Complexity
+## Core Concepts
 
-| Operation | Cost | Notes |
-|---|---|---|
-| | | |
-
-## When to use / not
-
-| Use | NOT |
-|-----|-----|
-| | |
+- Concept 1
+- Concept 2
 
 ## Code
 
@@ -48,6 +47,21 @@ flowchart TD
 // Why this snippet matters in one line
 record Demo(String name) {}
 ```
+
+## When to use / not
+
+| Use | NOT |
+|-----|-----|
+| | |
+
+## Trade-offs
+
+| Dimension | This Approach | Alternative |
+|---|---|---|
+| Throughput | | |
+| Latency (p99) | | |
+| Heap footprint | | |
+| Complexity | | |
 
 ## Vs
 
@@ -95,4 +109,4 @@ limit 10
 - [[ ]]
 
 ---
-*Category: <% tp.file.folder().split("/").pop() %> • Part of [[README|Java MOC]]*
+*Category: <% tp.file.folder(true).split("/").pop() %> • Part of [[README|Java MOC]]*

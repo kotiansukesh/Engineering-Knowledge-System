@@ -1,9 +1,16 @@
 ---
 title: "Monolith vs Modular Monolith, Choice Guide"
+pattern: 6
 category: "Architecture Styles"
 tags: [architecture, monolith, modular-monolith, decision, spring]
 created: 2026-09-03
 completed: false
+reviewed: ""
+sr-due: ""
+difficulty: Hard
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 ## Why it Matters
 

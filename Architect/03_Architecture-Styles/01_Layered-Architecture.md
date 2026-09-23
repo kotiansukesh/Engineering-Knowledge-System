@@ -1,9 +1,16 @@
 ---
 title: "Layered Architecture"
+pattern: 1
 category: "Architecture Styles"
 tags: [architecture, layered, n-tier, spring]
 created: 2026-09-03
 completed: false
+reviewed: ""
+sr-due: ""
+difficulty: Easy
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 ## Why it Matters
 

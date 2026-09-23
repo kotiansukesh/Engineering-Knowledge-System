@@ -5,6 +5,11 @@ tags: [ai, agents, hitl, approval, checkpointing]
 weeks: "15"
 created: 2026-09-04
 completed: false
+reviewed: ""
+sr-due: ""
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 ## Why it Matters
 

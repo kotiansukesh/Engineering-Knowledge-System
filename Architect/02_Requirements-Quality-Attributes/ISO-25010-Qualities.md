@@ -1,11 +1,18 @@
 ---
-title: ISO 25010 Qualities
-category: architect
+title: "ISO 25010 Qualities"
+pattern: 3
+category: "architect"
 tags: [quality, iso-25010]
 created: 2026-09-03
 completed: false
+reviewed: ""
+sr-due: ""
+difficulty: Medium
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
-## Why it Matters
+Why it Matters
 
 Use the standard quality vocabulary (performance, reliability, security, maintainability…) to stop "scalable/secure" hand-waving.
 

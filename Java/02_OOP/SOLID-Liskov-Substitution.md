@@ -3,6 +3,14 @@ title: "SOLID , Liskov Substitution Principle"
 category: Java/02_OOP
 tags: [java, oop, solid, lsp, inheritance, design-principles]
 created: 2026-09-04
+pattern: 13
+difficulty: Medium
+completed: false
+reviewed: ""
+sr-due: ""
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 ## Why it Matters
 
@@ -18,7 +26,7 @@ created: 2026-09-04
 
 ## Diagram
 
-*Violation , `save()` throws, processor explodes:*
+*Violation — `save()` throws, processor explodes:*
 ```mermaid
 classDiagram
  class Document {
@@ -29,7 +37,11 @@ classDiagram
  class ReadOnlyDocument {
  +save(newData) throws Exception
  }
- Document <|-- ReadOnlyDocument```*Fix , split the contract so every subtype is substitutable:*```mermaid
+ Document <|-- ReadOnlyDocument
+```
+
+*Fix — split the contract so every subtype is substitutable:*
+```mermaid
 classDiagram
  class Document {
  <<interface>>

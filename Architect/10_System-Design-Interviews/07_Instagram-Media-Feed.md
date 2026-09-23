@@ -1,9 +1,16 @@
 ---
 title: "Instagram (Media Feed)"
+pattern: 7
 category: "System Design"
 tags: [system-design, interview, media, object-store, feed]
 created: 2026-09-04
 completed: false
+reviewed: ""
+sr-due: ""
+difficulty: Hard
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 ## Why it Matters
 

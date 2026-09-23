@@ -1,9 +1,16 @@
 ---
 title: "Capstone Checklist"
+pattern: 0
 category: "Revision"
 tags: [capstone, checklist, design-review]
 created: 2026-09-03
 completed: false
+reviewed: ""
+sr-due: ""
+difficulty: Easy
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 ## Why it Matters
 

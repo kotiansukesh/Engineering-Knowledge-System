@@ -1,9 +1,16 @@
 ---
 title: "Uber Location Tracking and Matching"
+pattern: 3
 category: "System Design"
 tags: [system-design, interview, geo, quadtree, websockets, matching]
 created: 2026-09-04
 completed: false
+reviewed: ""
+sr-due: ""
+difficulty: Medium
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 ## Why it Matters
 

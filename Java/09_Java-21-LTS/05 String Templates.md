@@ -4,6 +4,13 @@ category: java21
 tags: [java21, jep430, string-templates, interview, preview]
 created: 2026-09-03
 completed: false
+pattern: 6
+difficulty: Medium
+reviewed: ""
+sr-due: ""
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 ## Why it Matters
 

@@ -5,6 +5,13 @@ difficulty: Easy
 tags: [lld, machine-coding, task-management]
 source: https://github.com/ashishps1/awesome-low-level-design
 created: 2026-09-04
+pattern: 17
+completed: false
+reviewed: ""
+sr-due: ""
+problems-solved: []
+problems-solved-dates: {}
+excalidraw: ""
 ---
 ## Why it Matters
 
@@ -26,7 +33,7 @@ flowchart LR
  D --> E[DONE]
 ```
 ## Code
-```
+```java
 javaimport java.util.*;
 import java.util.stream.*;
 
