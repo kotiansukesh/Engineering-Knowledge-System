@@ -1,17 +1,23 @@
 ---
-title: "WhatsApp Chat"
-pattern: 4
-category: "System Design"
-tags: [system-design, interview, messaging, websockets, delivery-guarantees]
+title: WhatsApp Chat
+category: System Design
+tags:
+- system-design
+- interview
+- messaging
+- websockets
+- delivery-guarantees
 created: 2026-09-04
 completed: false
-reviewed: ""
-sr-due: ""
+reviewed: ''
+sr-due: ''
 difficulty: Medium
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+excalidraw: ''
+source: ''
+type: note
+weeks: ''
 ---
+
 ## Why it Matters
 
 Chat is where "exactly-once" gets tested honestly: networks redeliver, so the answer is at-least-once delivery plus client-side dedupe and a per-conversation sequence number. The other axis is connection scale, millions of sticky WebSockets, which is a completely different engineering problem from the message store itself.

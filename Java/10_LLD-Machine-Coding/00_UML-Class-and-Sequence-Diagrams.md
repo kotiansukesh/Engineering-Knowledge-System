@@ -1,17 +1,21 @@
 ---
-title: "UML Class and Sequence Diagrams"
+title: UML Class and Sequence Diagrams
 category: LLD
-tags: [lld, uml, diagrams]
+tags:
+- lld
+- uml
+- diagrams
 created: 2026-09-04
 pattern: 2
 difficulty: Hard
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+source: ''
+type: note
 ---
+
 ## Why it Matters
 
 - Class boxes: `+public / -private`, `<<interface>>`, `<<enum>>`; arrows: solid + hollow triangle = extends, dashed + hollow = implements, solid diamond = composition, hollow diamond = aggregation, dashed = dependency.

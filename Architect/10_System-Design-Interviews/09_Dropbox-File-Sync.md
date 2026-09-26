@@ -1,17 +1,24 @@
 ---
-title: "Dropbox File Sync"
-pattern: 9
-category: "System Design"
-tags: [system-design, interview, sync, chunking, object-store, delta]
+title: Dropbox File Sync
+category: System Design
+tags:
+- system-design
+- interview
+- sync
+- chunking
+- object-store
+- delta
 created: 2026-09-04
 completed: false
-reviewed: ""
-sr-due: ""
+reviewed: ''
+sr-due: ''
 difficulty: Hard
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+excalidraw: ''
+source: ''
+type: note
+weeks: ''
 ---
+
 ## Why it Matters
 
 Dropbox inverts the caching intuition: bytes are private and per-user, so a CDN is useless and *deduplication* is the win. Hash-before-upload means unchanged data never crosses the wire, and content-addressed storage means identical chunks are stored once. The design is about minimising bytes moved, not maximising bytes served.

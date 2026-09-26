@@ -1,17 +1,23 @@
 ---
-title: "API Gateway & BFF"
-pattern: 4
-category: "Design Patterns & Building Blocks"
-tags: [patterns, api-gateway, bff, spring-cloud-gateway, microservices]
+title: API Gateway & BFF
+category: Design Patterns & Building Blocks
+tags:
+- patterns
+- api-gateway
+- bff
+- spring-cloud-gateway
+- microservices
 created: 2026-09-03
 completed: false
-reviewed: ""
-sr-due: ""
+reviewed: ''
+sr-due: ''
 difficulty: Medium
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+excalidraw: ''
+source: ''
+type: note
+weeks: ''
 ---
+
 ## Why it Matters
 
 Cross-cutting traffic concerns have to live somewhere; writing auth, rate-limit and CORS into every service multiplies inconsistency and drift. Centralising them at the edge while pushing payload shaping into per-client BFFs keeps services honest about owning domain rules and lets each client get the chattiness it needs without churning services.

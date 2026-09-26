@@ -1,24 +1,20 @@
 {
   "main": {
-    "id": "e04571a5385c5cce",
+    "id": "c1f15af6144051ea",
     "type": "split",
     "children": [
       {
-        "id": "b7a8617816a9b03b",
+        "id": "670db7fcc10f0745",
         "type": "tabs",
         "children": [
           {
-            "id": "4771ca9599eecaa8",
+            "id": "a5f84b7cd7ab7d3f",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "README.md",
-                "mode": "source",
-                "source": false
-              },
+              "type": "empty",
+              "state": {},
               "icon": "lucide-file",
-              "title": "README"
+              "title": "New tab"
             }
           }
         ]
@@ -27,15 +23,15 @@
     "direction": "vertical"
   },
   "left": {
-    "id": "027799dbad9aa08d",
+    "id": "e96ecac0d6edc083",
     "type": "split",
     "children": [
       {
-        "id": "72240128e5cac36f",
+        "id": "b614365ed2e27753",
         "type": "tabs",
         "children": [
           {
-            "id": "62ff095b39b84ef3",
+            "id": "ab42bd8763d7f9a8",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -50,7 +46,7 @@
             }
           },
           {
-            "id": "0ad6fc2d2e5c90d9",
+            "id": "4252e03eac5a4c02",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -67,7 +63,7 @@
             }
           },
           {
-            "id": "517df72d6a8ac019",
+            "id": "0bb0e8f5505638e9",
             "type": "leaf",
             "state": {
               "type": "bookmarks",
@@ -86,20 +82,19 @@
     "width": 300
   },
   "right": {
-    "id": "3d5ea3f92eff0744",
+    "id": "d3facdecda1a489a",
     "type": "split",
     "children": [
       {
-        "id": "65ba47479a9e8a1c",
+        "id": "261ee92d4220886d",
         "type": "tabs",
         "children": [
           {
-            "id": "365981e1d3bf0100",
+            "id": "dd75f25c20030a11",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-                "file": "01_Architecture-Foundations/Architecture-Principles.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -113,12 +108,11 @@
             }
           },
           {
-            "id": "9a81cc82acfc5264",
+            "id": "112613decd161086",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "01_Architecture-Foundations/Architecture-Principles.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
@@ -127,7 +121,7 @@
             }
           },
           {
-            "id": "fcc30779b4ac55ac",
+            "id": "4d895dc18ef42c9f",
             "type": "leaf",
             "state": {
               "type": "tag",
@@ -142,7 +136,7 @@
             }
           },
           {
-            "id": "12860a4ccdca77de",
+            "id": "cc69185ad0f00df7",
             "type": "leaf",
             "state": {
               "type": "all-properties",
@@ -156,12 +150,11 @@
             }
           },
           {
-            "id": "e0ac2eb9c8a1131c",
+            "id": "88aaa36f30db43ef",
             "type": "leaf",
             "state": {
               "type": "outline",
               "state": {
-                "file": "01_Architecture-Foundations/Architecture-Principles.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -169,19 +162,8 @@
               "icon": "lucide-list",
               "title": "Outline"
             }
-          },
-          {
-            "id": "7305e53b4c14b63b",
-            "type": "leaf",
-            "state": {
-              "type": "review-queue-list-view",
-              "state": {},
-              "icon": "lucide-ghost",
-              "title": "review-queue-list-view"
-            }
           }
-        ],
-        "currentTab": 5
+        ]
       }
     ],
     "direction": "horizontal",
@@ -190,42 +172,15 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "obsidian-excalidraw-plugin:New drawing": false,
-      "templater-obsidian:Templater": false,
       "switcher:Open quick switcher": false,
       "graph:Open graph view": false,
       "canvas:Create new canvas": false,
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
-      "bases:Create new base": false,
-      "obsidian-spaced-repetition:Review flashcards": false
+      "bases:Create new base": false
     }
   },
-  "active": "7305e53b4c14b63b",
-  "lastOpenFiles": [
-    "README.md",
-    "00_Overview/Dashboard.md",
-    "99_Revision/README.md",
-    "09_Governance-Documentation/README.md",
-    "08_NonFunctional-Ops/README.md",
-    "06_Data-Architecture/README.md",
-    "05_DDD-Modeling/README.md",
-    "04_Design-Patterns-Building-Blocks/README.md",
-    "03_Architecture-Styles/README.md",
-    "02_Requirements-Quality-Attributes/README.md",
-    "01_Architecture-Foundations/README.md",
-    "99_Revision/Capstone-Checklist.md",
-    "99_Revision/Interview-Bank.md",
-    "04_Design-Patterns-Building-Blocks/06_Saga-Outbox-Inbox.md",
-    "04_Design-Patterns-Building-Blocks/03_Caching-Strategies.md",
-    "04_Design-Patterns-Building-Blocks/02_Resilience-Circuit-Breaker-Retry.md",
-    "04_Design-Patterns-Building-Blocks/01_Enterprise-Patterns.md",
-    "01_Architecture-Foundations/Architect-Roles.md",
-    "01_Architecture-Foundations/Architecture-Principles.md",
-    "04_Design-Patterns-Building-Blocks/07_Discovery-Config-Registry.md",
-    "08_NonFunctional-Ops/01_Security-OAuth2-JWT.md",
-    "04_Design-Patterns-Building-Blocks/05_Decomposition-Bounded-Context.md",
-    "00_Overview/Study Plan - Architect.md"
-  ]
+  "active": "a5f84b7cd7ab7d3f",
+  "lastOpenFiles": []
 }

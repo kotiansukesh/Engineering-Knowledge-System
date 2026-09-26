@@ -1,16 +1,22 @@
 ---
-title: "Event Sourcing & CQRS"
-pattern: 3
-category: "Architect/06_Data-Architecture"
-tags: [data, event-sourcing, cqrs, kafka, spring, audit]
+title: Event Sourcing & CQRS
+category: Architect/06_Data-Architecture
+tags:
+- data
+- event-sourcing
+- cqrs
+- kafka
+- spring
+- audit
 created: 2026-09-03
 completed: false
-reviewed: ""
-sr-due: ""
+reviewed: ''
+sr-due: ''
 difficulty: Hard
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+excalidraw: ''
+source: ''
+type: note
+weeks: ''
 ---
 
 ## 🎯 Intent

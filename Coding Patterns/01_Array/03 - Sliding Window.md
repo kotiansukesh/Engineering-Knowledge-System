@@ -3,21 +3,22 @@ title: Sliding Window
 pattern: 3
 category: Coding Patterns/01_Array
 tags:
-  - pattern/array
-  - pattern/array/sliding-window
+- pattern/array
+- pattern/array/sliding-window
 leetcode:
-  - 643
-  - 3
-  - 76
+- 643
+- 3
+- 76
 created: '2026-09-02'
 completed: false
 reviewed: ''
 sr-due: ''
 difficulty: Medium
-source: 'https://blog.algomaster.io/p/20-dsa-patterns'
+source: https://blog.algomaster.io/p/20-dsa-patterns
 problems-solved: []
 problems-solved-dates: {}
-excalidraw: ""
+excalidraw: ''
+type: note
 ---
 
 # Sliding Window

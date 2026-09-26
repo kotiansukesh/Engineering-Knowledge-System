@@ -1,17 +1,26 @@
 ---
-title: "Discovery, Config & Registry"
-pattern: 7
-category: "Design Patterns & Building Blocks"
-tags: [patterns, microservices, discovery, config, spring-cloud, kubernetes, eureka, consul]
+title: Discovery, Config & Registry
+category: Design Patterns & Building Blocks
+tags:
+- patterns
+- microservices
+- discovery
+- config
+- spring-cloud
+- kubernetes
+- eureka
+- consul
 created: 2026-09-03
 completed: false
-reviewed: ""
-sr-due: ""
+reviewed: ''
+sr-due: ''
 difficulty: Hard
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+excalidraw: ''
+source: ''
+type: note
+weeks: ''
 ---
+
 ## Why it Matters
 
 Hardcoded addresses break the first time autoscaling moves a pod; config baked into images makes a timeout change a full release pipeline. Discovery and externalised config are what let a fleet change shape and tune itself without redeploys, and on Kubernetes much of it is already built in, so the decision is often "don't build a second one."

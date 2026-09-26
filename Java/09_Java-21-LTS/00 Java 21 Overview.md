@@ -1,17 +1,23 @@
 ---
-title: "Java 21 Overview , LTS Map"
+title: Java 21 Overview , LTS Map
 category: java21
-tags: [java21, lts, overview, jep, interview]
+tags:
+- java21
+- lts
+- overview
+- jep
+- interview
 created: 2026-09-03
 completed: false
 pattern: 1
 difficulty: Medium
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+source: ''
+type: note
 ---
+
 ## Why it Matters
 
 Place Java 21 in context: **Java 17 LTS → 21 LTS → 25 LTS**. Know what became **final** in 21 so you can answer "what's new in 21?" and "what's new in 25 vs 21?" crisply.

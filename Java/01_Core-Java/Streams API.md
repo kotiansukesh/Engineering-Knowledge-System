@@ -1,18 +1,22 @@
 ---
-title: "Streams API"
+title: Streams API
 category: Core-Java
-tags: [java, streams, interview]
+tags:
+- java
+- streams
+- interview
 created: 2026-09-02
 updated: 2026-09-04
 pattern: 14
 difficulty: Easy
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+source: ''
+type: note
 ---
+
 # Streams api
 > Part of [[Java/01_Core-Java/README|Core Java]]
 

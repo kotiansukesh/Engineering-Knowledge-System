@@ -1,18 +1,22 @@
 ---
-title: "Queue"
+title: Queue
 category: Collections
-tags: [java, collections, queue]
+tags:
+- java
+- collections
+- queue
 created: 2026-01-18
 updated: 2026-09-04
 pattern: 3
 difficulty: Easy
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+source: ''
+type: note
 ---
+
 ## Why it Matters
 
 The **holds-elements-for-processing** abstraction: FIFO, **priority**, or **deque** orderings with **throwing vs special-value** method pairs (`add`/`offer`, `remove`/`poll`). Queues drive scheduling, BFS, and producer-consumer pipelines.

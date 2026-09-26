@@ -1,17 +1,23 @@
 ---
-title: "Hexagonal Architecture (Ports & Adapters)"
-pattern: 2
-category: "Architecture Styles"
-tags: [architecture, hexagonal, ports-adapters, clean-architecture, spring]
+title: Hexagonal Architecture (Ports & Adapters)
+category: Architecture Styles
+tags:
+- architecture
+- hexagonal
+- ports-adapters
+- clean-architecture
+- spring
 created: 2026-09-03
 completed: false
-reviewed: ""
-sr-due: ""
+reviewed: ''
+sr-due: ''
 difficulty: Easy
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+excalidraw: ''
+source: ''
+type: note
+weeks: ''
 ---
+
 ## Why it Matters
 
 The domain is the only thing that pays the business; everything else is a replaceable detail. Inverting dependency direction so frameworks plug *into* the core makes the rules unit-testable in milliseconds and lets REST, gRPC, JPA or a new broker change without touching the model, the property that keeps a five-year-old service cheap to evolve.

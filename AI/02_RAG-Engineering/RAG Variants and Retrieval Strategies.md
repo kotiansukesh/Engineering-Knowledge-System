@@ -1,16 +1,22 @@
 ---
-title: "RAG Variants and Retrieval Strategies"
+title: RAG Variants and Retrieval Strategies
 category: rag
-tags: [ai, rag, retrieval, reranking]
-weeks: "8-9"
+tags:
+- ai
+- rag
+- retrieval
+- reranking
+weeks: 8-9
 created: 2026-09-02
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+difficulty: ''
+source: ''
+type: note
 ---
+
 ## Why it Matters
 
 The variants are not a menu of features, they are a ladder of cost, and the interview question is always "why did you stop where you stopped". This note gives the reasoning for each rung plus the evaluation harness that decides which rung a query actually needs, so the choice is data rather than fashion.

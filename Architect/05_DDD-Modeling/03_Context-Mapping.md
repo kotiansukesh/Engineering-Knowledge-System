@@ -1,17 +1,23 @@
 ---
-title: "Context Mapping"
-pattern: 3
-category: "DDD & Modeling"
-tags: [ddd, context-mapping, integration, acl, open-host]
+title: Context Mapping
+category: DDD & Modeling
+tags:
+- ddd
+- context-mapping
+- integration
+- acl
+- open-host
 created: 2026-09-03
 completed: false
-reviewed: ""
-sr-due: ""
+reviewed: ''
+sr-due: ''
 difficulty: Medium
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+excalidraw: ''
+source: ''
+type: note
+weeks: ''
 ---
+
 ## Why it Matters
 
 Every integration has a power dynamic, and unspoken ones are the expensive ones: "we just call their API" is conformist acceptance of someone else's model, and you find out when it breaks you. Naming the relationship, ACL, open-host service, conformist, separate ways, makes who adapts, who versions and who pays for translation an explicit, reviewable design decision.

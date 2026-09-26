@@ -1,20 +1,23 @@
 ---
-title: "Bridge"
+title: Bridge
 category: Design-Patterns
 group: Structural
-tags: [design-patterns, structural, bridge]
+tags:
+- design-patterns
+- structural
+- bridge
 pattern: bridge
-source: "https://refactoring.guru/design-patterns/bridge"
+source: https://refactoring.guru/design-patterns/bridge
 created: 2026-09-02
 updated: 2026-09-04
 difficulty: Medium
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+type: note
 ---
+
 # Bridge
 
 > Category: Structural • Source: [Refactoring.Guru , Bridge](https://refactoring.guru/design-patterns/bridge) • Part of [[Java/README|Java MOC]] → [[06_Design-Patterns/README|Design Patterns MOC]]

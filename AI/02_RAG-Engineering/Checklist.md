@@ -1,15 +1,20 @@
 ---
-title: "Phase 02, RAG Engineering Checklist"
+title: Phase 02, RAG Engineering Checklist
 category: rag
-tags: [ai, checklist]
+tags:
+- ai
+- checklist
 created: 2026-09-02
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+difficulty: ''
+source: ''
+type: note
+weeks: ''
 ---
+
 ## Why it Matters
 
 Phase 02 is where the platform either becomes trustworthy or stays a demo, and the difference is entirely measurement. This checklist exists so that "we improved retrieval" is a claim backed by a before/after table rather than an impression, the evaluation habit it installs is what Phase 04's eval gate inherits.

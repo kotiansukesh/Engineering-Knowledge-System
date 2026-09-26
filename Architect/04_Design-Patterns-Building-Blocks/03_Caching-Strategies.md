@@ -1,17 +1,24 @@
 ---
-title: "Caching Strategies"
-pattern: 3
-category: "Design Patterns & Building Blocks"
-tags: [patterns, caching, cache-aside, write-through, redis, spring-cache]
+title: Caching Strategies
+category: Design Patterns & Building Blocks
+tags:
+- patterns
+- caching
+- cache-aside
+- write-through
+- redis
+- spring-cache
 created: 2026-09-03
 completed: false
-reviewed: ""
-sr-due: ""
+reviewed: ''
+sr-due: ''
 difficulty: Medium
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+excalidraw: ''
+source: ''
+type: note
+weeks: ''
 ---
+
 ## Why it Matters
 
 Caching is the cheapest latency and DB-load lever available, and the easiest way to serve wrong data. The value comes from matching the *invalidation strategy* to the staleness budget: TTL for the predictable, write-through for the correctness-critical, and no cache at all for data that must never be stale.

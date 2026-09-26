@@ -1,17 +1,23 @@
 ---
-title: "Event-Driven Architecture"
-pattern: 4
-category: "Architecture Styles"
-tags: [architecture, events, kafka, async, spring]
+title: Event-Driven Architecture
+category: Architecture Styles
+tags:
+- architecture
+- events
+- kafka
+- async
+- spring
 created: 2026-09-03
 completed: false
-reviewed: ""
-sr-due: ""
+reviewed: ''
+sr-due: ''
 difficulty: Medium
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+excalidraw: ''
+source: ''
+type: note
+weeks: ''
 ---
+
 ## Why it Matters
 
 Coupling through a log instead of a call: producers state facts, consumers react on their own schedule, so a flash sale is absorbed by broker buffers and a new consumer is added by subscribing. The price is eventual consistency and debugging that spans many apps, you adopt EDA when temporal decoupling and elasticity outweigh request/reply reasoning.

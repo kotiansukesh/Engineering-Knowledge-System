@@ -1,17 +1,24 @@
 ---
-title: "Yelp (Geo Reviews)"
-pattern: 12
-category: "System Design"
-tags: [system-design, interview, geo, search, reviews, quadtree]
+title: Yelp (Geo Reviews)
+category: System Design
+tags:
+- system-design
+- interview
+- geo
+- search
+- reviews
+- quadtree
 created: 2026-09-04
 completed: false
-reviewed: ""
-sr-due: ""
+reviewed: ''
+sr-due: ''
 difficulty: Hard
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+excalidraw: ''
+source: ''
+type: note
+weeks: ''
 ---
+
 ## Why it Matters
 
 Yelp is the drill where the naive query is the failure: sorting a hundred-million-row table by distance never finishes. Bounding the search to a small set of geo cells first turns it into an index lookup, and everything after, neighbour expansion, offline ranking, async review aggregation, is polish on that one decision.

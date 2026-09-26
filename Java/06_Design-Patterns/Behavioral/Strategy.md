@@ -1,20 +1,23 @@
 ---
-title: "Strategy"
+title: Strategy
 category: Design-Patterns
 group: Behavioral
-tags: [design-patterns, behavioral, strategy]
+tags:
+- design-patterns
+- behavioral
+- strategy
 pattern: strategy
-source: "https://refactoring.guru/design-patterns/strategy"
+source: https://refactoring.guru/design-patterns/strategy
 created: 2026-09-02
 updated: 2026-09-04
 difficulty: Medium
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+type: note
 ---
+
 # Strategy *Also Known as: Policy*
 
 > Category: Behavioral • Source: [Refactoring.Guru , Strategy](https://refactoring.guru/design-patterns/strategy) • Part of [[Java/README|Java MOC]] → [[06_Design-Patterns/README|Design Patterns MOC]]

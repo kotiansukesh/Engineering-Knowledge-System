@@ -1,17 +1,22 @@
 ---
-title: "Video Reference Map"
-pattern: 0
-category: "System Design"
-tags: [system-design, interview, videos, reference]
+title: Video Reference Map
+category: System Design
+tags:
+- system-design
+- interview
+- videos
+- reference
 created: 2026-09-04
 completed: false
-reviewed: ""
-sr-due: ""
+reviewed: ''
+sr-due: ''
 difficulty: Easy
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+excalidraw: ''
+source: ''
+type: note
+weeks: ''
 ---
+
 ## Why it Matters
 
 Videos teach *recognition*; interviews test *production*. The map exists to keep the two in the right order: watch after attempting the drill note, never instead of it, and pause before each decision is made, because the moment you watch a solution is the moment you stop practising.

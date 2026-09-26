@@ -1,17 +1,23 @@
 ---
-title: "Pattern Matching for Switch , JEP 441 (Java 21)"
+title: Pattern Matching for Switch , JEP 441 (Java 21)
 category: java21
-tags: [java21, jep441, switch, sealed, interview]
+tags:
+- java21
+- jep441
+- switch
+- sealed
+- interview
 created: 2026-09-03
 completed: false
 pattern: 5
 difficulty: Medium
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+source: ''
+type: note
 ---
+
 ## Why it Matters
 
 Replace `if-else` chains + visitor with exhaustive, type-safe `switch (obj)` over hierarchies.

@@ -2,17 +2,20 @@
 title: Tic-Tac-Toe
 category: LLD
 difficulty: Medium
-tags: [lld, machine-coding, tic-tac-toe]
+tags:
+- lld
+- machine-coding
+- tic-tac-toe
 source: https://github.com/ashishps1/awesome-low-level-design
 created: 2026-09-04
 pattern: 10
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+type: note
 ---
+
 ## Why it Matters
 
 - Small enough to implement *completely* in an interview, so it isolates what is actually graded: naming, separation of concerns, and whether the win check is O(1) per move instead of a full-board scan every turn.

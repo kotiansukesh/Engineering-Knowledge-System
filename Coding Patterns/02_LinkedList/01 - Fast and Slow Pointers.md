@@ -3,18 +3,22 @@ title: Fast and Slow Pointers
 pattern: 4
 category: Coding Patterns/02_LinkedList
 tags:
-  - pattern/linkedlist
-  - pattern/linkedlist/fast-slow
+- pattern/linkedlist
+- pattern/linkedlist/fast-slow
 leetcode:
-  - 141
-  - 202
-  - 287
+- 141
+- 202
+- 287
 created: 2026-09-02
 completed: false
-reviewed: ""
-sr-due: ""
+reviewed: ''
+sr-due: ''
 difficulty: Easy
 source: https://blog.algomaster.io/p/20-dsa-patterns
+excalidraw: ''
+type: note
+problems-solved: []
+problems-solved-dates: {}
 ---
 
 # Fast and Slow Pointers

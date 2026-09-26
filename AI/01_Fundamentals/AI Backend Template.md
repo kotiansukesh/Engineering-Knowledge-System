@@ -1,16 +1,20 @@
 ---
-title: "AI Backend Template"
-pattern: 8
-category: "AI/01_Fundamentals"
-tags: [project, fastapi, template, schema-first]
+title: AI Backend Template
+category: AI/01_Fundamentals
+tags:
+- project
+- fastapi
+- template
+- schema-first
 created: 2026-09-02
 completed: false
-reviewed: ""
-sr-due: ""
+reviewed: ''
+sr-due: ''
 difficulty: Medium
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+excalidraw: ''
+source: ''
+type: note
+weeks: ''
 ---
 
 ## 🎯 Intent

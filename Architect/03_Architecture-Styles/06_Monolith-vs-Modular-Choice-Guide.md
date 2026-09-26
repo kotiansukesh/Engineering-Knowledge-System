@@ -1,17 +1,23 @@
 ---
-title: "Monolith vs Modular Monolith, Choice Guide"
-pattern: 6
-category: "Architecture Styles"
-tags: [architecture, monolith, modular-monolith, decision, spring]
+title: Monolith vs Modular Monolith, Choice Guide
+category: Architecture Styles
+tags:
+- architecture
+- monolith
+- modular-monolith
+- decision
+- spring
 created: 2026-09-03
 completed: false
-reviewed: ""
-sr-due: ""
+reviewed: ''
+sr-due: ''
 difficulty: Hard
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+excalidraw: ''
+source: ''
+type: note
+weeks: ''
 ---
+
 ## Why it Matters
 
 The choice is not monolith-vs-microservices, it is "are the boundaries real yet?" A modular monolith keeps boundaries *and* in-process calls, so you discover the seams cheaply and can extract them later with the same interface. Microservices bought before boundaries stabilise give you a distributed monolith: all the costs, none of the independence.

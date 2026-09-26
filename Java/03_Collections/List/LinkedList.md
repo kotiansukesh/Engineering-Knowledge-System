@@ -1,18 +1,22 @@
 ---
-title: "LinkedList"
+title: LinkedList
 category: Collections
-tags: [java, collections, list]
+tags:
+- java
+- collections
+- list
 created: 2026-01-18
 updated: 2026-09-04
 pattern: 2
 difficulty: Easy
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+source: ''
+type: note
 ---
+
 ## Why it Matters
 
 A **doubly-linked `List` + `Deque`** in one class: **O(1) at both ends**, O(n) by index. The only JDK list that is also a queue , but heavier per element than `ArrayDeque`, so prefer the latter for pure queues.

@@ -1,18 +1,21 @@
 ---
-title: "Interactive setup , plugins and commands"
+title: Interactive setup , plugins and commands
 category: Revision
-tags: [revision, setup]
+tags:
+- revision
+- setup
 created: 2026-09-04
 updated: 2026-09-04
 pattern: 0
 difficulty: Easy
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+source: ''
+type: note
 ---
+
 ## Why it Matters
 
 This note is the **operating manual** for the vault's revision toolchain: Dataview, Spaced Repetition, Templater, and Tasks. Without it the progress bars, flashcard drills, and dated checklists in every topic note are invisible configuration, and a broken plugin install silently degrades the whole study loop.

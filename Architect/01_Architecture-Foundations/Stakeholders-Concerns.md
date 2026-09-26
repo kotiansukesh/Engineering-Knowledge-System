@@ -1,16 +1,20 @@
 ---
-title: "Stakeholders and Concerns"
-pattern: 2
-category: "Architect/01_Architecture-Foundations"
-tags: [architecture, stakeholders, concerns, tradeoffs]
+title: Stakeholders and Concerns
+category: Architect/01_Architecture-Foundations
+tags:
+- architecture
+- stakeholders
+- concerns
+- tradeoffs
 created: 2026-09-03
 completed: false
-reviewed: ""
-sr-due: ""
+reviewed: ''
+sr-due: ''
 difficulty: Medium
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+excalidraw: ''
+source: ''
+type: note
+weeks: ''
 ---
 
 ## 🎯 Intent

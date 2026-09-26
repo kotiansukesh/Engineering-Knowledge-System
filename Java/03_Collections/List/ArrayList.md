@@ -1,18 +1,22 @@
 ---
-title: "ArrayList"
+title: ArrayList
 category: Collections
-tags: [java, collections, list]
+tags:
+- java
+- collections
+- list
 created: 2026-01-18
 updated: 2026-09-04
 pattern: 1
 difficulty: Easy
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+source: ''
+type: note
 ---
+
 ## Why it Matters
 
 The **default `List`**: a **resizable array** with **O(1) random access**, amortised O(1) append, and 1.5x growth. Cache-friendly and compact , reach for it unless you need deque ends or concurrency.

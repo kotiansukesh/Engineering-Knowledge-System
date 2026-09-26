@@ -1,20 +1,23 @@
 ---
-title: "Visitor"
+title: Visitor
 category: Design-Patterns
 group: Behavioral
-tags: [design-patterns, behavioral, visitor]
+tags:
+- design-patterns
+- behavioral
+- visitor
 pattern: visitor
-source: "https://refactoring.guru/design-patterns/visitor"
+source: https://refactoring.guru/design-patterns/visitor
 created: 2026-09-02
 updated: 2026-09-04
 difficulty: Medium
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+type: note
 ---
+
 # Visitor
 
 > Category: Behavioral • Source: [Refactoring.Guru , Visitor](https://refactoring.guru/design-patterns/visitor) • Part of [[Java/README|Java MOC]] → [[06_Design-Patterns/README|Design Patterns MOC]]

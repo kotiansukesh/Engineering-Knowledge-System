@@ -1,17 +1,22 @@
 ---
-title: "Whats New in Java 25"
+title: Whats New in Java 25
 category: overview
-tags: [java25, jep, interview, whats-new]
+tags:
+- java25
+- jep
+- interview
+- whats-new
 created: 2026-09-03
 completed: false
 pattern: 6
 difficulty: Easy
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+source: ''
+type: note
 ---
+
 ## Why it Matters
 
 Java 25 (Sep 2025) is **the current LTS** and the release that finishes Project Loom: **`ScopedValue` (JEP 506, final)**, **Structured Concurrency (JEP 505, preview)**, **compact object headers (JEP 450)**, **primitive patterns (JEP 507)**, **flexible constructor bodies (JEP 513)**, and **module import declarations (JEP 511)**, on top of JEP 491 (since 24) making `synchronized` no longer pin virtual threads. This note is the one-page answer to "what is new in Java 25?", the single most-asked Java 25 question in backend interviews.

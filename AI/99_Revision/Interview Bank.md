@@ -1,14 +1,21 @@
 ---
-title: "Interview Bank"
+title: Interview Bank
 category: revision
-tags: [ai, interview, revision]
+tags:
+- ai
+- interview
+- revision
 created: 2026-09-02
 completed: false
-reviewed: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+excalidraw: ''
+sr-due: ''
+difficulty: ''
+source: ''
+type: note
+weeks: ''
 ---
+
 ## Why it Matters
 
 An interview bank only helps if it rehearses retrieval under pressure, not recognition. This note is organised by phase so a question can be answered with the specific artifact built in that phase, the answers are pointers to evidence, which is what separates a candidate who studied from one who built.

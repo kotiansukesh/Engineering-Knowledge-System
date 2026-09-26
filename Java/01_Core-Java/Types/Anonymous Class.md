@@ -1,18 +1,22 @@
 ---
-title: "Anonymous Class"
+title: Anonymous Class
 category: Core-Java
-tags: [java, class, java25]
+tags:
+- java
+- class
+- java25
 created: 2026-01-18
 updated: 2026-09-04
 pattern: 2
 difficulty: Easy
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+source: ''
+type: note
 ---
+
 # Anonymous Class
 > Part of [[Java/01_Core-Java/README|Core Java]]
 

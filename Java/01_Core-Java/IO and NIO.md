@@ -1,18 +1,23 @@
 ---
-title: "IO and NIO"
+title: IO and NIO
 category: Core-Java
-tags: [java, io, nio, interview]
+tags:
+- java
+- io
+- nio
+- interview
 created: 2026-09-02
 updated: 2026-09-04
 pattern: 8
 difficulty: Easy
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+source: ''
+type: note
 ---
+
 # IO and nio
 > Part of [[Java/01_Core-Java/README|Core Java]]
 

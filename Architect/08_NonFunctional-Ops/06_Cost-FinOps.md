@@ -1,17 +1,23 @@
 ---
-title: "Cost & FinOps, Rightsizing, Autoscaling & Unit Cost"
-pattern: 6
-category: "Non-Functional & Ops"
-tags: [finops, cost, rightsizing, autoscaling, unit-economics]
+title: Cost & FinOps, Rightsizing, Autoscaling & Unit Cost
+category: Non-Functional & Ops
+tags:
+- finops
+- cost
+- rightsizing
+- autoscaling
+- unit-economics
 created: 2026-09-03
 completed: false
-reviewed: ""
-sr-due: ""
+reviewed: ''
+sr-due: ''
 difficulty: Hard
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+excalidraw: ''
+source: ''
+type: note
+weeks: ''
 ---
+
 ## Why it Matters
 
 Cost behaves like latency: invisible until it is a problem, and then fixed only with measurement. Making it a first-class architecture constraint, unit cost per order, per-namespace attribution, rightsizing loops, turns cloud spend from a quarterly surprise into an engineering signal that competes fairly with SLOs.

@@ -1,17 +1,23 @@
 ---
-title: "String Templates , JEP 430 (Java 21 Preview)"
+title: String Templates , JEP 430 (Java 21 Preview)
 category: java21
-tags: [java21, jep430, string-templates, interview, preview]
+tags:
+- java21
+- jep430
+- string-templates
+- interview
+- preview
 created: 2026-09-03
 completed: false
 pattern: 6
 difficulty: Medium
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+source: ''
+type: note
 ---
+
 ## Why it Matters
 
 String Templates (JEP 430) promised **safe string interpolation** , `STR."x = \{x}"` with compile-time checking of embedded expressions, an alternative to `+` concatenation and `String.format`. It never finalized: preview in 21/22 and **withdrawn in Java 23**. Its value now is as an **interview trap** , knowing what was removed signals real LTS fluency.

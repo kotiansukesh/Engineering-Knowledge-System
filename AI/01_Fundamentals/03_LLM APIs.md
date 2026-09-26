@@ -1,16 +1,21 @@
 ---
-title: "LLM APIs"
-pattern: 3
-category: "AI/01_Fundamentals"
-tags: [llm-api, openai, anthropic, vertex, integration]
+title: LLM APIs
+category: AI/01_Fundamentals
+tags:
+- llm-api
+- openai
+- anthropic
+- vertex
+- integration
 created: 2026-09-02
 completed: false
-reviewed: ""
-sr-due: ""
+reviewed: ''
+sr-due: ''
 difficulty: Easy
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+excalidraw: ''
+source: ''
+type: note
+weeks: ''
 ---
 
 ## 🎯 Intent

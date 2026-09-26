@@ -1,17 +1,24 @@
 ---
-title: "YouTube Video Streaming"
-pattern: 8
-category: "System Design"
-tags: [system-design, interview, video, streaming, cdn, transcoding]
+title: YouTube Video Streaming
+category: System Design
+tags:
+- system-design
+- interview
+- video
+- streaming
+- cdn
+- transcoding
 created: 2026-09-04
 completed: false
-reviewed: ""
-sr-due: ""
+reviewed: ''
+sr-due: ''
 difficulty: Hard
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+excalidraw: ''
+source: ''
+type: note
+weeks: ''
 ---
+
 ## Why it Matters
 
 YouTube tests whether you will proxy bytes through your own servers, the answer is never. Upload goes direct to object storage via presigned URLs, transcode is a DAG of parallel encodes, and playback is segmented adaptive bitrate served from the edge. Storage economics, not API design, is the hard part.

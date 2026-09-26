@@ -1,17 +1,22 @@
 ---
-title: "ScopedValue"
+title: ScopedValue
 category: Modern-Java
-tags: [java25, scopedvalue, jep506, concurrency]
+tags:
+- java25
+- scopedvalue
+- jep506
+- concurrency
 created: 2026-09-03
 completed: false
 pattern: 6
 difficulty: Medium
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+source: ''
+type: note
 ---
+
 ## Why it Matters
 
 `ThreadLocal` + millions of virtual threads = memory leak + cost + no structured propagation. `ScopedValue` is cheaper, leak-free, and integrates with `StructuredTaskScope`.

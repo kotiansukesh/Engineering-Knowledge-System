@@ -3,22 +3,23 @@ title: Frequency Counting
 pattern: 6
 category: Coding Patterns/01_Array
 tags:
-  - pattern/array
-  - pattern/hashmap
-  - pattern/array/frequency-counting
+- pattern/array
+- pattern/hashmap
+- pattern/array/frequency-counting
 leetcode:
-  - 242
-  - 49
-  - 347
+- 242
+- 49
+- 347
 created: '2026-09-02'
 completed: false
 reviewed: ''
 sr-due: ''
 difficulty: Easy
-source: 'https://blog.algomaster.io/p/20-dsa-patterns'
+source: https://blog.algomaster.io/p/20-dsa-patterns
 problems-solved: []
 problems-solved-dates: {}
-excalidraw: ""
+excalidraw: ''
+type: note
 ---
 
 # Frequency Counting

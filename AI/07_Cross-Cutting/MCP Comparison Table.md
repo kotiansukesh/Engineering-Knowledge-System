@@ -1,14 +1,21 @@
 ---
-title: "MCP Comparison Table"
+title: MCP Comparison Table
 category: cross-cutting
-tags: [ai, comparison, rag]
+tags:
+- ai
+- comparison
+- rag
 created: 2026-09-02
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+completed: false
+difficulty: ''
+source: ''
+type: note
+weeks: ''
 ---
+
 ## Why it Matters
 
 These are the three decisions that recur at every architecture review in this vault: rerank or not, pgvector or a dedicated vector DB, managed API or self-hosted. The table exists so the answer is a row with trade-offs, not a preference, and so the *condition* under which each choice flips is written down next to it.

@@ -1,20 +1,23 @@
 ---
-title: "Facade"
+title: Facade
 category: Design-Patterns
 group: Structural
-tags: [design-patterns, structural, facade]
+tags:
+- design-patterns
+- structural
+- facade
 pattern: facade
-source: "https://refactoring.guru/design-patterns/facade"
+source: https://refactoring.guru/design-patterns/facade
 created: 2026-09-02
 updated: 2026-09-04
 difficulty: Medium
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+type: note
 ---
+
 # Facade
 
 > Category: Structural • Source: [Refactoring.Guru , Facade](https://refactoring.guru/design-patterns/facade) • Part of [[Java/README|Java MOC]] → [[06_Design-Patterns/README|Design Patterns MOC]]

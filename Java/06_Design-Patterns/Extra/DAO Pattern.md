@@ -1,18 +1,22 @@
 ---
-title: "DAO Pattern"
+title: DAO Pattern
 category: Design-Patterns
-tags: [design-patterns, dao, extra]
+tags:
+- design-patterns
+- dao
+- extra
 created: 2026-01-18
 updated: 2026-09-04
 pattern: 1
 difficulty: Medium
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+source: ''
+type: note
 ---
+
 # DAO Pattern
 
 > Category: Extra • Source: [Refactoring.Guru , DAO Pattern](https://refactoring.guru/design-patterns/dao-pattern) • Part of [[Java/README|Java MOC]] → [[06_Design-Patterns/README|Design Patterns MOC]]

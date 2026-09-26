@@ -3,21 +3,22 @@ title: LinkedList In-place Reversal
 pattern: 5
 category: Coding Patterns/02_LinkedList
 tags:
-  - pattern/linkedlist
-  - pattern/linkedlist/reversal
+- pattern/linkedlist
+- pattern/linkedlist/reversal
 leetcode:
-  - 206
-  - 92
-  - 24
+- 206
+- 92
+- 24
 created: '2026-09-02'
 completed: false
 reviewed: ''
 sr-due: ''
 difficulty: Easy
-source: 'https://blog.algomaster.io/p/20-dsa-patterns'
+source: https://blog.algomaster.io/p/20-dsa-patterns
 problems-solved: []
 problems-solved-dates: {}
-excalidraw: ""
+excalidraw: ''
+type: note
 ---
 
 # LinkedList In-place Reversal

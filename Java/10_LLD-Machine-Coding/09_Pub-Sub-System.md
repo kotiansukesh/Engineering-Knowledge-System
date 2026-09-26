@@ -2,17 +2,20 @@
 title: Pub-Sub System
 category: LLD
 difficulty: Medium
-tags: [lld, machine-coding, pub-sub]
+tags:
+- lld
+- machine-coding
+- pub-sub
 source: https://github.com/ashishps1/awesome-low-level-design
 created: 2026-09-04
 pattern: 11
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+type: note
 ---
+
 ## Why it Matters
 
 - The maximum decoupling statement: publishers publish to a *topic name* and know zero subscribers. Adding, removing, or crashing a consumer changes no producer code, this is the pattern behind every message broker, event bus, and webhook system.

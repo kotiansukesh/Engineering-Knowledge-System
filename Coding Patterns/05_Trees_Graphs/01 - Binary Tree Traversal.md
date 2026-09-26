@@ -3,21 +3,22 @@ title: Binary Tree Traversal
 pattern: 12
 category: Coding Patterns/05_Trees_Graphs
 tags:
-  - pattern/tree
-  - pattern/tree/traversal
+- pattern/tree
+- pattern/tree/traversal
 leetcode:
-  - 144
-  - 94
-  - 145
+- 144
+- 94
+- 145
 created: '2026-09-02'
 completed: false
 reviewed: ''
 sr-due: ''
 difficulty: Easy
-source: 'https://blog.algomaster.io/p/20-dsa-patterns'
+source: https://blog.algomaster.io/p/20-dsa-patterns
 problems-solved: []
 problems-solved-dates: {}
-excalidraw: ""
+excalidraw: ''
+type: note
 ---
 
 # Binary Tree Traversal

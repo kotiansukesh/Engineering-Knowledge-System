@@ -1,16 +1,25 @@
 ---
-title: "Model Context Protocol (MCP)"
+title: Model Context Protocol (MCP)
 category: cross-cutting
-tags: [ai, mcp, tools, integration, interview, 2026-trend]
+tags:
+- ai
+- mcp
+- tools
+- integration
+- interview
+- 2026-trend
 created: 2026-09-02
 updated: 2026-09-03
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+difficulty: ''
+source: ''
+type: note
+weeks: ''
 ---
+
 ## Why it Matters
 
 Standardize **LLM ↔ tools/data/prompts** integration so agents discover, version, and call capabilities through a single typed transport (Stdio/SSE/WebSocket) instead of hand-rolling `search_docs` JSON schemas per tool.

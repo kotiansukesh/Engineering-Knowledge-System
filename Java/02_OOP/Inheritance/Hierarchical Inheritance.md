@@ -1,18 +1,22 @@
 ---
-title: "Hierarchical inheritance"
+title: Hierarchical inheritance
 category: Java/02_OOP
-tags: [java, oop, inheritance]
+tags:
+- java
+- oop
+- inheritance
 created: 2026-01-18
 updated: 2026-09-04
 pattern: 1
 difficulty: Medium
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+source: ''
+type: note
 ---
+
 ## Why it Matters
 
 **Hierarchical inheritance** has one **superclass** with many **subclasses** , e.g. `Animal` is the parent of `Dog`, `Cat` and `Cow`. Common behaviour stays in the **parent**, specialised behaviour lives in each **child**. This is the most common, easiest-to-reason-about shape.

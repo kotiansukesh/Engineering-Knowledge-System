@@ -1,17 +1,21 @@
 ---
-title: "Capstone Checklist"
-pattern: 0
-category: "Revision"
-tags: [capstone, checklist, design-review]
+title: Capstone Checklist
+category: Revision
+tags:
+- capstone
+- checklist
+- design-review
 created: 2026-09-03
 completed: false
-reviewed: ""
-sr-due: ""
+reviewed: ''
+sr-due: ''
 difficulty: Easy
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+excalidraw: ''
+source: ''
+type: note
+weeks: ''
 ---
+
 ## Why it Matters
 
 A design is not done when it works; it's done when it survives review. This checklist is the pre-submission gate, the questions a senior reviewer or interviewer will ask anyway, answered before they're asked, so "done" means evidence rather than intention.

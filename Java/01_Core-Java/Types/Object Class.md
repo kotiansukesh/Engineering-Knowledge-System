@@ -1,18 +1,23 @@
 ---
-title: "Object Class"
+title: Object Class
 category: Core-Java
-tags: [java, class, object, java25]
+tags:
+- java
+- class
+- object
+- java25
 created: 2026-01-18
 updated: 2026-09-04
 pattern: 7
 difficulty: Easy
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+source: ''
+type: note
 ---
+
 # Object Class
 > Part of [[Java/01_Core-Java/README|Core Java]]
 

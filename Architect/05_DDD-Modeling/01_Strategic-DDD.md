@@ -1,17 +1,22 @@
 ---
-title: "Strategic DDD"
-pattern: 1
-category: "DDD & Modeling"
-tags: [ddd, strategic-design, ubiquitous-language, subdomain]
+title: Strategic DDD
+category: DDD & Modeling
+tags:
+- ddd
+- strategic-design
+- ubiquitous-language
+- subdomain
 created: 2026-09-03
 completed: false
-reviewed: ""
-sr-due: ""
+reviewed: ''
+sr-due: ''
 difficulty: Easy
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+excalidraw: ''
+source: ''
+type: note
+weeks: ''
 ---
+
 ## Why it Matters
 
 Before any technical decision, you have to know which part of the system is actually the business. Strategic DDD turns that into a concrete deliverable: a subdomain map that says where custom code buys competitive advantage and where it just burns calendar time. Get it wrong and your best engineers spend a year building auth; get it right and architecture effort flows to the core.

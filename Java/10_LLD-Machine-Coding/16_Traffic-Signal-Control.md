@@ -2,17 +2,21 @@
 title: Traffic Signal Control
 category: LLD
 difficulty: Medium
-tags: [lld, machine-coding, traffic-signal, state-machine]
+tags:
+- lld
+- machine-coding
+- traffic-signal
+- state-machine
 source: https://github.com/ashishps1/awesome-low-level-design
 created: 2026-09-04
 pattern: 18
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+type: note
 ---
+
 ## Why it Matters
 
 - The canonical *safety-by-construction* problem: the invariant is a negative one, never green on both axes, and the design's whole job is to make that state *unrepresentable* rather than merely avoided by careful code. A single mutual-exclusion bug here is a crash, not a degraded UX.

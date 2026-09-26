@@ -1,18 +1,21 @@
 ---
-title: "Stack (DSA)"
+title: Stack (DSA)
 category: DSA
-tags: [dsa, stack]
+tags:
+- dsa
+- stack
 created: 2026-01-18
 updated: 2026-09-04
 pattern: 9
 difficulty: Medium
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+source: ''
+type: note
 ---
+
 ## Why it Matters
 
 A **stack** is an abstract data type (ADT) with **Last-In-First-Out (LIFO)** semantics. Only the **top** element is accessible. It can be implemented with an [[Array]] (array-backed, amortised O(1)) or a [[Linked List]] (linked, guaranteed O(1) push/pop with pointer).

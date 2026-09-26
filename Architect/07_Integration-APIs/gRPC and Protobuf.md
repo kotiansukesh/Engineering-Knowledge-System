@@ -1,17 +1,20 @@
 ---
-title: "gRPC and Protobuf"
-pattern: 2
-category: "integration
-tags: [grpc, protobuf, latency, streaming, interview]
-created: 2026-09-03
-completed: false"
-reviewed: ""
-sr-due: ""
+title: gRPC and Protobuf
+category: 'integration tags: [grpc, protobuf, latency, streaming, interview] created:
+  2026-09-03 completed: false'
+reviewed: ''
+sr-due: ''
 difficulty: Easy
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
----## Why it Matters
+excalidraw: ''
+tags: []
+created: '2026-09-27'
+completed: false
+source: ''
+type: note
+weeks: ''
+---
+
+## Why it Matters
 
 gRPC is HTTP/2 + Protobuf + codegen: what makes it worth adopting is the *schema being the source of truth*, a contract that generates clients, stubs and docs, and binary frames that cut payload size. What makes it dangerous is that the contract is invisible to curl and field numbers are forever, so evolution discipline is not optional.
 

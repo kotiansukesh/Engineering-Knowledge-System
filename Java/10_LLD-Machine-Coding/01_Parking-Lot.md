@@ -2,17 +2,20 @@
 title: Parking Lot
 category: LLD
 difficulty: Easy
-tags: [lld, machine-coding, parking-lot]
+tags:
+- lld
+- machine-coding
+- parking-lot
 source: https://github.com/ashishps1/awesome-low-level-design
 created: 2026-09-04
 pattern: 3
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+type: note
 ---
+
 ## Why it Matters
 
 - The canonical "first LLD problem": it has no hard algorithm, so the interviewer grades your modelling directly, spot sizing as a hierarchy, fee logic as a strategy, availability as a concurrency problem.

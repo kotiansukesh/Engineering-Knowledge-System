@@ -2,17 +2,20 @@
 title: Logging Framework
 category: LLD
 difficulty: Easy
-tags: [lld, machine-coding, logging]
+tags:
+- lld
+- machine-coding
+- logging
 source: https://github.com/ashishps1/awesome-low-level-design
 created: 2026-09-04
 pattern: 5
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+type: note
 ---
+
 ## Why it Matters
 
 - Logging is where "design for variation you cannot predict" is cheapest to learn: the things that vary (destination, format, level policy) are *all* behind interfaces, so adding a JSON appender or an async writer touches nothing existing.

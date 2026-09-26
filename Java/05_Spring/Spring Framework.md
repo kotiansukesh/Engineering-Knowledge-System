@@ -1,18 +1,26 @@
 ---
-title: "Spring Framework"
+title: Spring Framework
 category: Spring
-tags: [spring, framework, ioc, di, aop, java25, virtual-threads]
+tags:
+- spring
+- framework
+- ioc
+- di
+- aop
+- java25
+- virtual-threads
 created: 2026-01-18
 updated: 2026-09-02
 pattern: 5
 difficulty: Hard
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+source: ''
+type: note
 ---
+
 ## Why it Matters
 
 **Spring Framework** is the **core container and ecosystem** that the rest of "Spring" is built on, and the reason Java backend interviews spend so much time on it: it makes enterprise code **POJO-centric** by moving cross-cutting infrastructure into the container. **Inversion of Control (IoC)** means the container instantiates, wires, and manages bean lifecycles; **Dependency Injection (DI)** means your code receives collaborators instead of constructing them; **AOP** applies transactions, security, and caching as proxies around your methods. Everything else in the ecosystem (Boot, Security, Data, Cloud) is a layer on this container.

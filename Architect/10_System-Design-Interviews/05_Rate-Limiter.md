@@ -1,17 +1,23 @@
 ---
-title: "Rate Limiter"
-pattern: 5
-category: "System Design"
-tags: [system-design, interview, rate-limiting, redis, gateway]
+title: Rate Limiter
+category: System Design
+tags:
+- system-design
+- interview
+- rate-limiting
+- redis
+- gateway
 created: 2026-09-04
 completed: false
-reviewed: ""
-sr-due: ""
+reviewed: ''
+sr-due: ''
 difficulty: Medium
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+excalidraw: ''
+source: ''
+type: note
+weeks: ''
 ---
+
 ## Why it Matters
 
 Rate limiting protects every other drill, which is why interviewers reach for it: it is the one cross-cutting concern where a wrong answer (per-instance counters, IP-only keys, silently dropping) visibly breaks the system. The real design tension is between exact fairness and per-request latency, a good answer states the approximation deliberately.

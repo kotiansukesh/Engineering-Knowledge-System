@@ -1,16 +1,22 @@
 ---
-title: "AI Gateway (C3, Resilient Microservices)"
+title: AI Gateway (C3, Resilient Microservices)
 category: production
-tags: [ai, gateway, resilience, 12-factor]
-weeks: "17-18"
+tags:
+- ai
+- gateway
+- resilience
+- 12-factor
+weeks: 17-18
 created: 2026-09-02
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+difficulty: ''
+source: ''
+type: note
 ---
+
 ## Why it Matters
 
 12-factor LLM gateway: config, statelessness, disposability, logs, plus fault tolerance for non-deterministic AI calls.

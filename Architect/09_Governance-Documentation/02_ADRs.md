@@ -1,17 +1,22 @@
 ---
-title: "ADRs, Architecture Decision Records"
-pattern: 2
-category: "Governance & Docs"
-tags: [adr, decisions, documentation, governance]
+title: ADRs, Architecture Decision Records
+category: Governance & Docs
+tags:
+- adr
+- decisions
+- documentation
+- governance
 created: 2026-09-03
 completed: false
-reviewed: ""
-sr-due: ""
+reviewed: ''
+sr-due: ''
 difficulty: Easy
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+excalidraw: ''
+source: ''
+type: note
+weeks: ''
 ---
+
 ## Why it Matters
 
 Code shows *what* was built; without a record of *why*, every future team re-derives the decision or silently overturns it. A one-page ADR per significant choice, context, options, decision, consequences, turns tribal memory into a searchable, immutable log that defends the system in audits and onboarding alike.

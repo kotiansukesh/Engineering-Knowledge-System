@@ -1,16 +1,20 @@
 ---
-title: "AI Coding Assistant"
-pattern: 11
-category: "AI/01_Fundamentals"
-tags: [project, coding-assistant, tool-calling, repo-scoped]
+title: AI Coding Assistant
+category: AI/01_Fundamentals
+tags:
+- project
+- coding-assistant
+- tool-calling
+- repo-scoped
 created: 2026-09-02
 completed: false
-reviewed: ""
-sr-due: ""
+reviewed: ''
+sr-due: ''
 difficulty: Medium
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+excalidraw: ''
+source: ''
+type: note
+weeks: ''
 ---
 
 ## 🎯 Intent

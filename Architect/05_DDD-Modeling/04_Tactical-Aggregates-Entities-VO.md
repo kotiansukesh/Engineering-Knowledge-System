@@ -1,17 +1,24 @@
 ---
-title: "Tactical DDD, Aggregates, Entities, Value Objects"
-pattern: 4
-category: "DDD & Modeling"
-tags: [ddd, tactical-design, aggregate, entity, value-object, spring-data]
+title: Tactical DDD, Aggregates, Entities, Value Objects
+category: DDD & Modeling
+tags:
+- ddd
+- tactical-design
+- aggregate
+- entity
+- value-object
+- spring-data
 created: 2026-09-03
 completed: false
-reviewed: ""
-sr-due: ""
+reviewed: ''
+sr-due: ''
 difficulty: Medium
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+excalidraw: ''
+source: ''
+type: note
+weeks: ''
 ---
+
 ## Why it Matters
 
 Aggregates are where correctness becomes a design property instead of a hope: the boundary defines what a transaction must cover, the root is the only door in, and value objects make invalid states unrepresentable. Size them by invariant, not by object graph, small aggregates keep locks, deadlocks and latency manageable and let contexts split later.

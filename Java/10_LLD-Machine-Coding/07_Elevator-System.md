@@ -2,17 +2,20 @@
 title: Elevator System
 category: LLD
 difficulty: Medium
-tags: [lld, machine-coding, elevator]
+tags:
+- lld
+- machine-coding
+- elevator
 source: https://github.com/ashishps1/awesome-low-level-design
 created: 2026-09-04
 pattern: 9
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+type: note
 ---
+
 ## Why it Matters
 
 - A real-time system whose design is *scheduling policy*, not data: correctness is "pick the right lift", and the policy (SCAN, LOOK, nearest-car, destination dispatch) is a swappable Strategy that changes behaviour without touching `Elevator`.

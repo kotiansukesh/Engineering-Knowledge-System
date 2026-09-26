@@ -3,21 +3,22 @@ title: Two Pointers
 pattern: 2
 category: Coding Patterns/01_Array
 tags:
-  - pattern/array
-  - pattern/array/two-pointers
+- pattern/array
+- pattern/array/two-pointers
 leetcode:
-  - 167
-  - 15
-  - 11
+- 167
+- 15
+- 11
 created: '2026-09-02'
 completed: false
 reviewed: ''
 sr-due: ''
 difficulty: Easy
-source: 'https://blog.algomaster.io/p/20-dsa-patterns'
+source: https://blog.algomaster.io/p/20-dsa-patterns
 problems-solved: []
 problems-solved-dates: {}
-excalidraw: ""
+excalidraw: ''
+type: note
 ---
 
 # Two Pointers

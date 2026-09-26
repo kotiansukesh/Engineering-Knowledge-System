@@ -3,19 +3,23 @@ title: Union Find
 pattern: 21
 category: Coding Patterns/05_Trees_Graphs
 tags:
-  - pattern/graph
-  - pattern/tree/union-find
-  - pattern/tree/disjoint-set
+- pattern/graph
+- pattern/tree/union-find
+- pattern/tree/disjoint-set
 leetcode:
-  - 684
-  - 721
-  - 547
+- 684
+- 721
+- 547
 created: '2026-09-04'
 completed: false
 reviewed: ''
 sr-due: ''
 difficulty: Medium
-source: 'https://algomaster.io/learn/dsa/'
+source: https://algomaster.io/learn/dsa/
+excalidraw: ''
+type: note
+problems-solved: []
+problems-solved-dates: {}
 ---
 
 # Union Find

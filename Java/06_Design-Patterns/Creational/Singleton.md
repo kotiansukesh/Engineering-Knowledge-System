@@ -1,20 +1,23 @@
 ---
-title: "Singleton"
+title: Singleton
 category: Design-Patterns
 group: Creational
-tags: [design-patterns, creational, singleton]
+tags:
+- design-patterns
+- creational
+- singleton
 pattern: singleton
-source: "https://refactoring.guru/design-patterns/singleton"
+source: https://refactoring.guru/design-patterns/singleton
 created: 2026-09-02
 updated: 2026-09-04
 difficulty: Medium
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+type: note
 ---
+
 # Singleton
 
 > Category: Creational • Source: [Refactoring.Guru , Singleton](https://refactoring.guru/design-patterns/singleton) • Part of [[Java/README|Java MOC]] → [[06_Design-Patterns/README|Design Patterns MOC]]

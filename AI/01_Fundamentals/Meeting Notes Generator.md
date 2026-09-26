@@ -1,16 +1,20 @@
 ---
-title: "Meeting Notes Generator"
-pattern: 12
-category: "AI/01_Fundamentals"
-tags: [project, summarization, structured-outputs, eval]
+title: Meeting Notes Generator
+category: AI/01_Fundamentals
+tags:
+- project
+- summarization
+- structured-outputs
+- eval
 created: 2026-09-02
 completed: false
-reviewed: ""
-sr-due: ""
+reviewed: ''
+sr-due: ''
 difficulty: Medium
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+excalidraw: ''
+source: ''
+type: note
+weeks: ''
 ---
 
 ## 🎯 Intent

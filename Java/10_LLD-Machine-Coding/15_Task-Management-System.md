@@ -2,17 +2,20 @@
 title: Task Management System
 category: LLD
 difficulty: Easy
-tags: [lld, machine-coding, task-management]
+tags:
+- lld
+- machine-coding
+- task-management
 source: https://github.com/ashishps1/awesome-low-level-design
 created: 2026-09-04
 pattern: 17
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+type: note
 ---
+
 ## Why it Matters
 
 - The canonical "state machine is the product" problem: the business rule is *which transitions are legal* (TODO → IN_PROGRESS → DONE), and that rule lives in the domain, not the UI. Encoding it in `setStatus` with a guard makes illegal states unrepresentable; leaving it to the controller makes every client a source of bugs.

@@ -1,17 +1,24 @@
 ---
-title: "Notification Service"
-pattern: 6
-category: "System Design"
-tags: [system-design, interview, notifications, fanout, retry, preferences]
+title: Notification Service
+category: System Design
+tags:
+- system-design
+- interview
+- notifications
+- fanout
+- retry
+- preferences
 created: 2026-09-04
 completed: false
-reviewed: ""
-sr-due: ""
+reviewed: ''
+sr-due: ''
 difficulty: Hard
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+excalidraw: ''
+source: ''
+type: note
+weeks: ''
 ---
+
 ## Why it Matters
 
 Notifications look trivial, send a message, but they concentrate every distributed-systems problem at once: provider quotas, retries that must not double-send, priority inversion (an OTP stuck behind a promo blast), and user prefs as a hard gate. It is the best drill for showing you can design a fan-out system *with taste*.

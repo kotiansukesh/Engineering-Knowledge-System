@@ -1,17 +1,22 @@
 ---
-title: "Java 25 Roadmap"
+title: Java 25 Roadmap
 category: overview
-tags: [java25, roadmap, overview, lts]
+tags:
+- java25
+- roadmap
+- overview
+- lts
 created: 2026-09-03
 completed: false
 pattern: 3
 difficulty: Easy
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+source: ''
+type: note
 ---
+
 ## Why it Matters
 
 This note is the **learning path through the vault**: which folder to open in which week, and which **LTS release each phase targets** (`8` → `11` → `17` → `21` → `25`). It matters because "I know Java 25" is not a single skill, it is five LTS dialects plus Spring, patterns, and DSA, and trying to learn them out of order wastes months. The plan is 10 weeks at 60-90 minutes a day, with every note compiled at its own `--release` flag.

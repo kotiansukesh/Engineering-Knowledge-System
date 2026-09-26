@@ -1,17 +1,23 @@
 ---
-title: "LTS Evolution 8 to 25"
+title: LTS Evolution 8 to 25
 category: overview
-tags: [lts, overview, jep, roadmap, interview]
+tags:
+- lts
+- overview
+- jep
+- roadmap
+- interview
 created: 2026-09-03
 completed: false
 pattern: 5
 difficulty: Easy
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+source: ''
+type: note
 ---
+
 ## Why it Matters
 
 The **LTS releases 8, 11, 17, 21, 25** are the five versions any Java backend role actually targets, and interviewers almost never ask "list everything", they ask a **delta**: "what is new since 8?", "what changed between 17 and 21?", "what did 25 add?". This note answers every such question with the *cumulative story*, each LTS is a strict superset of the last, and each jump has one or two features you must be able to name instantly.

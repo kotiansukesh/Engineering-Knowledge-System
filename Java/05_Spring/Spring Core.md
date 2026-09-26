@@ -1,18 +1,28 @@
 ---
-title: "Spring Core"
+title: Spring Core
 category: Spring
-tags: [spring, core, ioc, di, beans, aop, java25, virtual-threads, aot]
+tags:
+- spring
+- core
+- ioc
+- di
+- beans
+- aop
+- java25
+- virtual-threads
+- aot
 created: 2026-01-18
 updated: 2026-09-02
 pattern: 3
 difficulty: Hard
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+source: ''
+type: note
 ---
+
 ## Why it Matters
 
 **Spring Core** is the **engine room**: the `spring-core`, `spring-beans`, `spring-context`, and `spring-expression` modules that implement the IoC container, bean lifecycle, DI, AOP, SpEL, and the `Environment` abstraction. Every higher Spring module (Boot, Data, Security, Cloud) is built on it, so understanding it is what separates "I use annotations" from "I can debug a wiring failure". The mental model that unlocks it: **the container is a map of beans with lifecycle callbacks**, and scopes, proxies, and AOT hints all become predictable once you hold that picture.

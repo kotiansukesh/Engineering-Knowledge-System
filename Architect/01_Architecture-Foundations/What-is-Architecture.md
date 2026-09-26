@@ -1,16 +1,20 @@
 ---
-title: "What is Architecture"
-pattern: 1
-category: "Architect/01_Architecture-Foundations"
-tags: [architecture, foundations, definition, decision]
+title: What is Architecture
+category: Architect/01_Architecture-Foundations
+tags:
+- architecture
+- foundations
+- definition
+- decision
 created: 2026-09-03
 completed: false
-reviewed: ""
-sr-due: ""
+reviewed: ''
+sr-due: ''
 difficulty: Medium
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+excalidraw: ''
+source: ''
+type: note
+weeks: ''
 ---
 
 ## 🎯 Intent

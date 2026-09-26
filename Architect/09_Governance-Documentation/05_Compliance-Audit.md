@@ -1,17 +1,23 @@
 ---
-title: "Compliance & Audit, SOC2, PCI, DPDP/GDPR"
-pattern: 5
-category: "Governance & Docs"
-tags: [compliance, soc2, pci, gdpr, audit]
+title: Compliance & Audit, SOC2, PCI, DPDP/GDPR
+category: Governance & Docs
+tags:
+- compliance
+- soc2
+- pci
+- gdpr
+- audit
 created: 2026-09-03
 completed: false
-reviewed: ""
-sr-due: ""
+reviewed: ''
+sr-due: ''
 difficulty: Medium
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+excalidraw: ''
+source: ''
+type: note
+weeks: ''
 ---
+
 ## Why it Matters
 
 Compliance is not a document assembled the week before an audit, it is a property of the pipeline. When controls are expressed as automated evidence (signed images, reviewed migrations, encrypted PII, access reviews), proving them costs almost nothing and the same artefacts serve SOC 2, PCI and GDPR at once. Skipping it doesn't avoid the cost; it moves it to the most expensive possible moment.

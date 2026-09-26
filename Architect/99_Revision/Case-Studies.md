@@ -1,17 +1,22 @@
 ---
-title: "Case Studies"
-pattern: 0
-category: "Revision"
-tags: [case-study, ecommerce, banking, ai]
+title: Case Studies
+category: Revision
+tags:
+- case-study
+- ecommerce
+- banking
+- ai
 created: 2026-09-03
 completed: false
-reviewed: ""
-sr-due: ""
+reviewed: ''
+sr-due: ''
 difficulty: Easy
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+excalidraw: ''
+source: ''
+type: note
+weeks: ''
 ---
+
 ## Why it Matters
 
 Patterns in isolation don't transfer; three applied designs do. Each case below forces the trade-offs onto a real constraint, survival at any cost, correctness at any cost, cost-governed AI, so the *why* of each pattern is visible instead of just the *what*.

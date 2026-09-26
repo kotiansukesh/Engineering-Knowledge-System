@@ -1,18 +1,22 @@
 ---
-title: "Heap"
+title: Heap
 category: DSA
-tags: [dsa, heap, interview]
+tags:
+- dsa
+- heap
+- interview
 created: 2026-01-18
 updated: 2026-09-04
 pattern: 5
 difficulty: Medium
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+source: ''
+type: note
 ---
+
 ## Why it Matters
 
 A **heap** is a **complete binary tree** satisfying the **heap property**: every parent ≤ children (**min-heap**) or parent ≥ children (**max-heap**). The root is always the extremal element (min or max). Unlike a BST, a heap has **no ordering between siblings/subtrees**, only parent-child ordering.

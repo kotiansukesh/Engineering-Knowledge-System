@@ -1,17 +1,22 @@
 ---
-title: "C4 Modeling, Context to Code"
-pattern: 1
-category: "Governance & Docs"
-tags: [c4, architecture-diagrams, structurizr, documentation]
+title: C4 Modeling, Context to Code
+category: Governance & Docs
+tags:
+- c4
+- architecture-diagrams
+- structurizr
+- documentation
 created: 2026-09-03
 completed: false
-reviewed: ""
-sr-due: ""
+reviewed: ''
+sr-due: ''
 difficulty: Easy
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+excalidraw: ''
+source: ''
+type: note
+weeks: ''
 ---
+
 ## Why it Matters
 
 Most architecture diagrams fail by trying to say everything at once. C4 fixes the zoom problem: the same system at four levels, one per audience, so an executive reads C1 and a new joiner reads C3, and because the DSL lives in the repo, the diagram is reviewed, diffed and regenerated rather than rotting in a wiki.

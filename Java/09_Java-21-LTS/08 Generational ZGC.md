@@ -1,17 +1,23 @@
 ---
-title: "Generational ZGC , JEP 439 (Java 21)"
+title: Generational ZGC , JEP 439 (Java 21)
 category: java21
-tags: [java21, jep439, zgc, gc, interview]
+tags:
+- java21
+- jep439
+- zgc
+- gc
+- interview
 created: 2026-09-03
 completed: false
 pattern: 9
 difficulty: Medium
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+source: ''
+type: note
 ---
+
 ## Why it Matters
 
 Make ZGC viable as **default low-latency GC** without giving up throughput , young GC cheap, old GC rare.

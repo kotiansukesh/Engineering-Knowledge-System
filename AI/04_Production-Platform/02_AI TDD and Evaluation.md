@@ -1,16 +1,22 @@
 ---
-title: "AI TDD and Evaluation (C4, Refactor and Test)"
+title: AI TDD and Evaluation (C4, Refactor and Test)
 category: production
-tags: [ai, tdd, testing, evaluation]
-weeks: "19-20"
+tags:
+- ai
+- tdd
+- testing
+- evaluation
+weeks: 19-20
 created: 2026-09-02
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+difficulty: ''
+source: ''
+type: note
 ---
+
 ## Why it Matters
 
 Apply TDD and systematic refactoring to **non-deterministic** LLM services, test behavior, not string equality.

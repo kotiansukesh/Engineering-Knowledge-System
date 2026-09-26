@@ -1,17 +1,24 @@
 ---
-title: "Decomposition, Bounded Context to Service"
-pattern: 5
-category: "Design Patterns & Building Blocks"
-tags: [patterns, microservices, decomposition, ddd, strangler, spring]
+title: Decomposition, Bounded Context to Service
+category: Design Patterns & Building Blocks
+tags:
+- patterns
+- microservices
+- decomposition
+- ddd
+- strangler
+- spring
 created: 2026-09-03
 completed: false
-reviewed: ""
-sr-due: ""
+reviewed: ''
+sr-due: ''
 difficulty: Medium
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+excalidraw: ''
+source: ''
+type: note
+weeks: ''
 ---
+
 ## Why it Matters
 
 Services split along the wrong axis cost forever: layer-shaped splits couple everything to everything, and team-shaped splits re-architect on every re-org. Decomposing by bounded context with a strangler path means each extraction ships value, is reversible, and lands on a boundary that survives an org change.

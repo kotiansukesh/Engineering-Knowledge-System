@@ -1,16 +1,27 @@
 ---
-title: "AI Evaluation Frameworks"
+title: AI Evaluation Frameworks
 category: cross-cutting
-tags: [ai, evaluation, rag, hallucination, testing, ragas, interview, 2026-trend]
+tags:
+- ai
+- evaluation
+- rag
+- hallucination
+- testing
+- ragas
+- interview
+- 2026-trend
 created: 2026-09-02
 updated: 2026-09-03
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+difficulty: ''
+source: ''
+type: note
+weeks: ''
 ---
+
 ## Why it Matters
 
 Continuously measure **retrieval quality, answer quality, hallucination, and latency/cost**, with a **golden set + LLM-as-judge**, so RAG/agentic changes are gated in CI, not demo'd.

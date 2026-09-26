@@ -1,17 +1,21 @@
 ---
-title: "Realistic roadmap, Java vault"
+title: Realistic roadmap, Java vault
 category: overview
-tags: [roadmap, java, plan]
+tags:
+- roadmap
+- java
+- plan
 created: 2026-09-04
 completed: false
 pattern: 0
 difficulty: Easy
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+source: ''
+type: note
 ---
+
 ## Why it Matters
 
 This note is the **map of what is actually in the vault right now**: 191 markdown files across `00` to `10` plus `99_Revision`, ordered by **dependency, not by topic**. It matters because the vault is too large to read cover to cover, and without order you hit Spring's JPA proxies before core Java and bounce off. Every phase has an entry, an exit criterion, and "what to skip on a second pass", so progress is measurable instead of open-ended.

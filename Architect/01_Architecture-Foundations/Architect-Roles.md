@@ -1,16 +1,22 @@
 ---
-title: "Architect Roles"
-pattern: 4
-category: "Architect/01_Architecture-Foundations"
-tags: [architecture, roles, solution, domain, platform, enterprise]
+title: Architect Roles
+category: Architect/01_Architecture-Foundations
+tags:
+- architecture
+- roles
+- solution
+- domain
+- platform
+- enterprise
 created: 2026-09-03
 completed: false
-reviewed: ""
-sr-due: ""
+reviewed: ''
+sr-due: ''
 difficulty: Medium
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+excalidraw: ''
+source: ''
+type: note
+weeks: ''
 ---
 
 ## 🎯 Intent

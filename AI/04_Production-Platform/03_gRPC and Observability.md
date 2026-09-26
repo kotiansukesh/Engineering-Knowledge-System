@@ -1,16 +1,25 @@
 ---
-title: "gRPC and Observability (C5–C7)"
+title: gRPC and Observability (C5–C7)
 category: production
-tags: [ai, grpc, protobuf, observability, prometheus, opentelemetry, kubernetes]
-weeks: "21-24"
+tags:
+- ai
+- grpc
+- protobuf
+- observability
+- prometheus
+- opentelemetry
+- kubernetes
+weeks: 21-24
 created: 2026-09-02
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+difficulty: ''
+source: ''
+type: note
 ---
+
 ## Why it Matters
 
 Make the platform **scalable, deployable, and observable**, Helm, K8s, gRPC, Prometheus, OpenTelemetry.

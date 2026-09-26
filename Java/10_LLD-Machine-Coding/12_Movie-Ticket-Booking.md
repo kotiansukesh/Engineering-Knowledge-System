@@ -2,17 +2,20 @@
 title: Movie Ticket Booking
 category: LLD
 difficulty: Hard
-tags: [lld, machine-coding, bookmyshow]
+tags:
+- lld
+- machine-coding
+- bookmyshow
 source: https://github.com/ashishps1/awesome-low-level-design
 created: 2026-09-04
 pattern: 14
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+type: note
 ---
+
 ## Why it Matters
 
 - It shows that booking is *two* problems in one: correctness (no double-booking) and liveness (held seats must be released so the show can sell out). Solving only the first produces a system that locks up its own inventory forever.

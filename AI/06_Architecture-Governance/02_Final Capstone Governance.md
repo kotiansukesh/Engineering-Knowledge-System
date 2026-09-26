@@ -1,17 +1,23 @@
 ---
-title: "Final Capstone, Governed Platform"
+title: Final Capstone, Governed Platform
 category: governance
-tags: [ai, capstone, governance, mlops, drift]
-weeks: "35-36"
+tags:
+- ai
+- capstone
+- governance
+- mlops
+- drift
+weeks: 35-36
 created: 2026-09-02
 completed: false
 type: project
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+difficulty: ''
+source: ''
 ---
+
 ## Why it Matters
 
 Incorporate iSAQB concerns into [[AI/03_Agentic-AI/Enterprise AI Operations Platform|AI Operations Platform]] rather than adding features, show architectural maturity.

@@ -1,18 +1,22 @@
 ---
-title: "Interview Questions , Index"
+title: Interview Questions , Index
 category: Revision
-tags: [interview, revision, MOC]
+tags:
+- interview
+- revision
+- MOC
 created: 2026-01-18
 updated: 2026-09-02
 pattern: 0
 difficulty: Easy
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+source: ''
+type: note
 ---
+
 ## Why it Matters
 
 This is the **index layer** of the vault's interview prep: it stores no Q&A itself, it aggregates the `## Interview Q&A` blocks from every topic note with Dataview and sequences them into a 7-day cram plan. It keeps the bank de-duplicated and shows, in one screen, which categories still have un-reviewed notes.

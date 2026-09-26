@@ -1,17 +1,26 @@
 ---
-title: "Saga, Outbox & Inbox"
-pattern: 6
-category: "Design Patterns & Building Blocks"
-tags: [patterns, microservices, saga, outbox, inbox, idempotency, kafka, spring]
+title: Saga, Outbox & Inbox
+category: Design Patterns & Building Blocks
+tags:
+- patterns
+- microservices
+- saga
+- outbox
+- inbox
+- idempotency
+- kafka
+- spring
 created: 2026-09-03
 completed: false
-reviewed: ""
-sr-due: ""
+reviewed: ''
+sr-due: ''
 difficulty: Hard
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+excalidraw: ''
+source: ''
+type: note
+weeks: ''
 ---
+
 ## Why it Matters
 
 2PC across services blocks and fails; pretending you don't need distributed transactions silently loses events. Saga + outbox + inbox is the honest answer: each step commits locally, the outbox guarantees the event escapes the crash, and consumer-side dedupe makes redelivery harmless. It is the substrate that makes eventual consistency safe enough for money.

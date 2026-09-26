@@ -1,16 +1,21 @@
 ---
-title: "Views and Viewpoints — 4+1"
-pattern: 3
-category: "Architect/01_Architecture-Foundations"
-tags: [architecture, views, c4, 4plus1, documentation]
+title: Views and Viewpoints — 4+1
+category: Architect/01_Architecture-Foundations
+tags:
+- architecture
+- views
+- c4
+- 4plus1
+- documentation
 created: 2026-09-03
 completed: false
-reviewed: ""
-sr-due: ""
+reviewed: ''
+sr-due: ''
 difficulty: Medium
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+excalidraw: ''
+source: ''
+type: note
+weeks: ''
 ---
 
 ## 🎯 Intent

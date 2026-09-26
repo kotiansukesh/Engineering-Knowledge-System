@@ -1,18 +1,22 @@
 ---
-title: "HashMap (DSA)"
+title: HashMap (DSA)
 category: DSA
-tags: [dsa, hashmap, hashtable]
+tags:
+- dsa
+- hashmap
+- hashtable
 created: 2026-01-18
 updated: 2026-09-04
 pattern: 4
 difficulty: Medium
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+source: ''
+type: note
 ---
+
 ## Why it Matters
 
 A **HashMap / Hash Table** is a **[[Map]]** implementation that maps **keys → values** via a **hash function**: `index = hash(key) % capacity`. It provides expected O(1) `get`/`put`/`remove` by indexing into an array of **buckets**, each holding a chain (linked list / tree) for collisions.

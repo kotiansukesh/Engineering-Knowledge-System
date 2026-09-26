@@ -1,18 +1,25 @@
 ---
-title: "Threads & Concurrency"
+title: Threads & Concurrency
 category: Concurrency
-tags: [java, threads, concurrency, java25, virtual-threads, loom]
+tags:
+- java
+- threads
+- concurrency
+- java25
+- virtual-threads
+- loom
 created: 2026-01-18
 updated: 2026-09-02
 pattern: 6
 difficulty: Hard
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+source: ''
+type: note
 ---
+
 ## Why it Matters
 
 1. Better CPU & IO utilisation, one thread can compute while another waits on IO (virtual threads make blocking IO essentially free).

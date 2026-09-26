@@ -1,16 +1,19 @@
 ---
-title: "Phase 01 — Fundamentals Checklist"
-pattern: 9
-category: "AI/01_Fundamentals"
-tags: [checklist, phase-gate, testing]
+title: Phase 01 — Fundamentals Checklist
+category: AI/01_Fundamentals
+tags:
+- checklist
+- phase-gate
+- testing
 created: 2026-09-02
 completed: false
-reviewed: ""
-sr-due: ""
+reviewed: ''
+sr-due: ''
 difficulty: Easy
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+excalidraw: ''
+source: ''
+type: note
+weeks: ''
 ---
 
 ## 🎯 Intent

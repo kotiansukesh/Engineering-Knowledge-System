@@ -1,17 +1,22 @@
 ---
-title: "Microservices"
-pattern: 3
-category: "Architecture Styles"
-tags: [architecture, microservices, distributed-systems, spring-cloud]
+title: Microservices
+category: Architecture Styles
+tags:
+- architecture
+- microservices
+- distributed-systems
+- spring-cloud
 created: 2026-09-03
 completed: false
-reviewed: ""
-sr-due: ""
+reviewed: ''
+sr-due: ''
 difficulty: Medium
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+excalidraw: ''
+source: ''
+type: note
+weeks: ''
 ---
+
 ## Why it Matters
 
 Microservices buy deployment and scaling independence at the cost of a network between everything you used to call for free. That trade is worth it only when organisational pain, many teams, conflicting release cadences, divergent scaling needs, is real; otherwise the same boundaries as modules cost an order of magnitude less.

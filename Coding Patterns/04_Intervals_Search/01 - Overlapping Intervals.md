@@ -3,20 +3,21 @@ title: Overlapping Intervals
 pattern: 10
 category: Coding Patterns/04_Intervals_Search
 tags:
-  - pattern/intervals
+- pattern/intervals
 leetcode:
-  - 56
-  - 57
-  - 435
+- 56
+- 57
+- 435
 created: '2026-09-02'
 completed: false
 reviewed: ''
 sr-due: ''
 difficulty: Medium
-source: 'https://blog.algomaster.io/p/20-dsa-patterns'
+source: https://blog.algomaster.io/p/20-dsa-patterns
 problems-solved: []
 problems-solved-dates: {}
-excalidraw: ""
+excalidraw: ''
+type: note
 ---
 
 # Overlapping Intervals

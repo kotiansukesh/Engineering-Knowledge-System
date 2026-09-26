@@ -1,17 +1,23 @@
 ---
-title: "URL Shortener (TinyURL)"
-pattern: 1
-category: "System Design"
-tags: [system-design, interview, hashing, caching, cap]
+title: URL Shortener (TinyURL)
+category: System Design
+tags:
+- system-design
+- interview
+- hashing
+- caching
+- cap
 created: 2026-09-04
 completed: false
-reviewed: ""
-sr-due: ""
+reviewed: ''
+sr-due: ''
 difficulty: Easy
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+excalidraw: ''
+source: ''
+type: note
+weeks: ''
 ---
+
 ## Why it Matters
 
 This is the interview where the trap is doing the interesting part badly: the redirect path is a pure key-value lookup at 100:1 read/write, and the hard decisions are key generation, hot-key caching and keeping analytics off the hot path. It also doubles as the simplest possible system where storage math, sharding and cache sizing all have to be said out loud.

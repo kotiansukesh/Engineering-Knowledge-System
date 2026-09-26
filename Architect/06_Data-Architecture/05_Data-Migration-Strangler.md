@@ -1,16 +1,22 @@
 ---
-title: "Data Migration & Strangler Fig"
-pattern: 5
-category: "Architect/06_Data-Architecture"
-tags: [data, migration, strangler-fig, modernization, dual-write, cdc]
+title: Data Migration & Strangler Fig
+category: Architect/06_Data-Architecture
+tags:
+- data
+- migration
+- strangler-fig
+- modernization
+- dual-write
+- cdc
 created: 2026-09-03
 completed: false
-reviewed: ""
-sr-due: ""
+reviewed: ''
+sr-due: ''
 difficulty: Hard
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+excalidraw: ''
+source: ''
+type: note
+weeks: ''
 ---
 
 ## 🎯 Intent

@@ -1,18 +1,22 @@
 ---
-title: "Vector"
+title: Vector
 category: Collections
-tags: [java, collections, list]
+tags:
+- java
+- collections
+- list
 created: 2026-01-18
 updated: 2026-09-04
 pattern: 5
 difficulty: Easy
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+source: ''
+type: note
 ---
+
 ## Why it Matters
 
 The **legacy synchronized array** (Java 1.0): per-method locking, 2x growth. Know it to migrate away , to `ArrayList`, or to **copy-on-write / concurrent** collections for shared access.

@@ -1,17 +1,24 @@
 ---
-title: "Twitter Timeline and Feed"
-pattern: 2
-category: "System Design"
-tags: [system-design, interview, feed, fanout, kafka, redis]
+title: Twitter Timeline and Feed
+category: System Design
+tags:
+- system-design
+- interview
+- feed
+- fanout
+- kafka
+- redis
 created: 2026-09-04
 completed: false
-reviewed: ""
-sr-due: ""
+reviewed: ''
+sr-due: ''
 difficulty: Easy
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+excalidraw: ''
+source: ''
+type: note
+weeks: ''
 ---
+
 ## Why it Matters
 
 The feed drill is really a write-amplification problem disguised as a read problem: one celebrity post becomes ten million timeline writes. Everything else, hybrid fan-out, cursor pagination, ranking, follows from how you bound that amplification, which makes it the canonical answer-shape for any 1-to-N broadcast system.

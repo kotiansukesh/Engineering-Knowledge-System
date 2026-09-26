@@ -1,20 +1,23 @@
 ---
-title: "Adapter"
+title: Adapter
 category: Design-Patterns
 group: Structural
-tags: [design-patterns, structural, adapter]
+tags:
+- design-patterns
+- structural
+- adapter
 pattern: adapter
-source: "https://refactoring.guru/design-patterns/adapter"
+source: https://refactoring.guru/design-patterns/adapter
 created: 2026-09-02
 updated: 2026-09-04
 difficulty: Medium
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+type: note
 ---
+
 # Adapter *Also Known as: Wrapper*
 
 > Category: Structural • Source: [Refactoring.Guru , Adapter](https://refactoring.guru/design-patterns/adapter) • Part of [[Java/README|Java MOC]] → [[06_Design-Patterns/README|Design Patterns MOC]]

@@ -1,20 +1,23 @@
 ---
-title: "Builder"
+title: Builder
 category: Design-Patterns
 group: Creational
-tags: [design-patterns, creational, builder]
+tags:
+- design-patterns
+- creational
+- builder
 pattern: builder
-source: "https://refactoring.guru/design-patterns/builder"
+source: https://refactoring.guru/design-patterns/builder
 created: 2026-09-02
 updated: 2026-09-04
 difficulty: Medium
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+type: note
 ---
+
 # Builder
 
 > Category: Creational • Source: [Refactoring.Guru , Builder](https://refactoring.guru/design-patterns/builder) • Part of [[Java/README|Java MOC]] → [[06_Design-Patterns/README|Design Patterns MOC]]

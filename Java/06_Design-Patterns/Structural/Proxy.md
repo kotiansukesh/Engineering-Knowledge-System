@@ -1,20 +1,23 @@
 ---
-title: "Proxy"
+title: Proxy
 category: Design-Patterns
 group: Structural
-tags: [design-patterns, structural, proxy]
+tags:
+- design-patterns
+- structural
+- proxy
 pattern: proxy
-source: "https://refactoring.guru/design-patterns/proxy"
+source: https://refactoring.guru/design-patterns/proxy
 created: 2026-09-02
 updated: 2026-09-04
 difficulty: Medium
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+type: note
 ---
+
 # Proxy
 
 > Category: Structural • Source: [Refactoring.Guru , Proxy](https://refactoring.guru/design-patterns/proxy) • Part of [[Java/README|Java MOC]] → [[06_Design-Patterns/README|Design Patterns MOC]]

@@ -1,17 +1,21 @@
 ---
-title: "Interview Strategy , Java 25"
+title: Interview Strategy , Java 25
 category: overview
-tags: [java25, interview, strategy]
+tags:
+- java25
+- interview
+- strategy
 created: 2026-09-03
 completed: false
 pattern: 0
 difficulty: Easy
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+source: ''
+type: note
 ---
+
 ## Why it Matters
 
 Knowing the feature is not the same as **landing the answer**. This note converts the vault's canonical note structure into the **four-part interview answer**, Why it matters → When / When NOT → Code → Vs, plus the one-liner for the eight topics that actually get asked. It matters because interviewers reward *structured, bounded* answers: a candidate who says "records, probably, depends" loses to one who says "use a record for an immutable DTO, not for a JPA entity, and here is the three-line snippet".

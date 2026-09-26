@@ -1,17 +1,24 @@
 ---
-title: "Pragmatic Principles , DRY, YAGNI, KISS"
+title: Pragmatic Principles , DRY, YAGNI, KISS
 category: Java/02_OOP
-tags: [java, oop, dry, yagni, kiss, design-principles]
+tags:
+- java
+- oop
+- dry
+- yagni
+- kiss
+- design-principles
 created: 2026-09-04
 pattern: 10
 difficulty: Medium
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+source: ''
+type: note
 ---
+
 ## Why it Matters
 
 - DRY (Don't Repeat Yourself): duplicate *knowledge* (validation rule, rate formula), not duplicate *text* , coincidental similarity should stay separate until the third occurrence (Rule of Three).

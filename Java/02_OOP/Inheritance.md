@@ -1,18 +1,22 @@
 ---
-title: "Inheritance"
+title: Inheritance
 category: Java/02_OOP
-tags: [java, oop, inheritance]
+tags:
+- java
+- oop
+- inheritance
 created: 2026-01-18
 updated: 2026-09-04
 pattern: 6
 difficulty: Medium
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+source: ''
+type: note
 ---
+
 ## Why it Matters
 
 **Inheritance** lets a **subclass** acquire **fields** and **methods** from a **superclass**, then add or **override** behaviour. It creates an **is-a** relation , code written against `Bicycle` also works with `MountainBike` , so shared logic lives once in the parent.

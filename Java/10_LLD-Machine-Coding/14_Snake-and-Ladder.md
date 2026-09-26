@@ -2,17 +2,20 @@
 title: Snake and Ladder
 category: LLD
 difficulty: Easy
-tags: [lld, machine-coding, snake-and-ladder]
+tags:
+- lld
+- machine-coding
+- snake-and-ladder
 source: https://github.com/ashishps1/awesome-low-level-design
 created: 2026-09-04
 pattern: 16
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+type: note
 ---
+
 ## Why it Matters
 
 - The cleanest demonstration that *chance* changes the design: because the move comes from a dice roll, the player decides nothing, so the interesting seam is the **injectable dice**, which is what makes the game testable at all (a fixed-roll sequence turns a random game into a deterministic assertion).

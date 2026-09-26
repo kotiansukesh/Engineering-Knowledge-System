@@ -1,18 +1,22 @@
 ---
-title: "Spring MVC"
+title: Spring MVC
 category: Spring
-tags: [spring, mvc, interview]
+tags:
+- spring
+- mvc
+- interview
 created: 2026-01-18
 updated: 2026-09-02
 pattern: 6
 difficulty: Hard
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+source: ''
+type: note
 ---
+
 ## Why it Matters
 
 **Spring MVC** is the **Servlet-based web framework** every Spring backend serves HTTP through, and the reason Java 25 changed its calculus: with `spring.threads.virtual.enabled=true` (Boot 3.5, Java 25) **each request runs on a virtual thread**, so a straightforward imperative controller with blocking JDBC scales to thousands of concurrent requests *without reactive programming*. That single fact removed the main reason teams moved to WebFlux, and it is the most-asked MVC question in current interviews.

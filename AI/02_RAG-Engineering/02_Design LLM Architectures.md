@@ -1,16 +1,22 @@
 ---
-title: "Design, Compare and Analyze LLM Architectures (Coursera C2)"
+title: Design, Compare and Analyze LLM Architectures (Coursera C2)
 category: rag
-tags: [ai, architecture, coursera, cost]
-weeks: "7-10"
+tags:
+- ai
+- architecture
+- coursera
+- cost
+weeks: 7-10
 created: 2026-09-02
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+difficulty: ''
+source: ''
+type: note
 ---
+
 ## Why it Matters
 
 Go beyond "it works", compare architectures on quality, latency, and **cost**; run variant experiments on your own platform.

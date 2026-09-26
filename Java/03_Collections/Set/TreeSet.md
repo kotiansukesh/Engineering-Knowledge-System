@@ -1,18 +1,22 @@
 ---
-title: "TreeSet"
+title: TreeSet
 category: Collections
-tags: [java, collections, set]
+tags:
+- java
+- collections
+- set
 created: 2026-01-18
 updated: 2026-09-04
 pattern: 4
 difficulty: Easy
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+source: ''
+type: note
 ---
+
 ## Why it Matters
 
 The **sorted unique set** over **`TreeMap`** (Red-Black): O(log n) ops plus range and nearest-match queries (`subSet`, `ceiling`). Comparison , not `equals` , defines duplicates here.

@@ -1,18 +1,22 @@
 ---
-title: "Executor Framework"
+title: Executor Framework
 category: Concurrency
-tags: [concurrency, executor, interview]
+tags:
+- concurrency
+- executor
+- interview
 created: 2026-01-18
 updated: 2026-09-02
 pattern: 4
 difficulty: Hard
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+source: ''
+type: note
 ---
+
 ## Why it Matters
 
 1. Resource control, bounded or unbounded execution without manually creating/destroying `Thread` objects.

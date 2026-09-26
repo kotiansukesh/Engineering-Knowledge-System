@@ -1,16 +1,23 @@
 ---
-title: "CKAD Preparation"
+title: CKAD Preparation
 category: kubernetes
-tags: [ai, ckad, cka, kubernetes, certification]
-weeks: "28-30"
+tags:
+- ai
+- ckad
+- cka
+- kubernetes
+- certification
+weeks: 28-30
 created: 2026-09-02
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+difficulty: ''
+source: ''
+type: note
 ---
+
 ## Why it Matters
 
 Earn **CKAD** (or **CKA**) to validate deployment and operational skills after 25 weeks of building.

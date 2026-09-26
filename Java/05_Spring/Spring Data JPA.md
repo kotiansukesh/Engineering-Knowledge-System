@@ -1,18 +1,23 @@
 ---
-title: "Spring Data JPA"
+title: Spring Data JPA
 category: Spring
-tags: [spring, jpa, hibernate, interview]
+tags:
+- spring
+- jpa
+- hibernate
+- interview
 created: 2026-01-18
 updated: 2026-09-02
 pattern: 4
 difficulty: Hard
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+source: ''
+type: note
 ---
+
 ## Why it Matters
 
 **Spring Data JPA** is the **repository abstraction over JPA/Hibernate** and the layer where most backend interview time goes: you write an interface that `extends JpaRepository`, and the framework generates the implementation, CRUD, paging, sorting, and **query derivation from method names** (`findByEmail` → JPQL). It is also the layer with the classic failure modes interviewers probe, N+1 selects, `LazyInitializationException`, and the persistence-context/flush lifecycle, because the abstraction hides them until production.

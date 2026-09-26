@@ -1,17 +1,24 @@
 ---
-title: "Ticketmaster (Seat Booking)"
-pattern: 11
-category: "System Design"
-tags: [system-design, interview, booking, concurrency, queue, exactly-once]
+title: Ticketmaster (Seat Booking)
+category: System Design
+tags:
+- system-design
+- interview
+- booking
+- concurrency
+- queue
+- exactly-once
 created: 2026-09-04
 completed: false
-reviewed: ""
-sr-due: ""
+reviewed: ''
+sr-due: ''
 difficulty: Hard
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+excalidraw: ''
+source: ''
+type: note
+weeks: ''
 ---
+
 ## Why it Matters
 
 This is the concurrency drill with a fairness requirement: the hard part is not storing seats, it is that five million buyers want the same fifty thousand of them in the same minute. A waiting room plus one atomic hold primitive converts a thundering herd into a queue, and correctness is proven by making the *only* contested operation atomic.

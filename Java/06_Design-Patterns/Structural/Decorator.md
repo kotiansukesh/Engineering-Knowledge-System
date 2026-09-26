@@ -1,20 +1,23 @@
 ---
-title: "Decorator"
+title: Decorator
 category: Design-Patterns
 group: Structural
-tags: [design-patterns, structural, decorator]
+tags:
+- design-patterns
+- structural
+- decorator
 pattern: decorator
-source: "https://refactoring.guru/design-patterns/decorator"
+source: https://refactoring.guru/design-patterns/decorator
 created: 2026-09-02
 updated: 2026-09-04
 difficulty: Medium
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+type: note
 ---
+
 # Decorator *Also Known as: Wrapper*
 
 > Category: Structural • Source: [Refactoring.Guru , Decorator](https://refactoring.guru/design-patterns/decorator) • Part of [[Java/README|Java MOC]] → [[06_Design-Patterns/README|Design Patterns MOC]]

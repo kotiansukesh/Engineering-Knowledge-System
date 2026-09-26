@@ -1,16 +1,23 @@
 ---
-title: "Human in the Loop"
+title: Human in the Loop
 category: agentic
-tags: [ai, agents, hitl, approval, checkpointing]
-weeks: "15"
+tags:
+- ai
+- agents
+- hitl
+- approval
+- checkpointing
+weeks: '15'
 created: 2026-09-04
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+difficulty: ''
+source: ''
+type: note
 ---
+
 ## Why it Matters
 
 Pause the agent before anything irreversible, let a human approve, edit, or reject, then resume from exactly where it stopped. Gates belong before side effects: DB writes, deploys, external sends, money movement. Everything else runs free.

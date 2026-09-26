@@ -1,18 +1,22 @@
 ---
-title: "Encapsulation"
+title: Encapsulation
 category: Java/02_OOP
-tags: [java, oop, encapsulation]
+tags:
+- java
+- oop
+- encapsulation
 created: 2026-01-18
 updated: 2026-09-04
 pattern: 5
 difficulty: Medium
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+source: ''
+type: note
 ---
+
 ## Why it Matters
 
 **Encapsulation** bundles **data** and **behaviour**, hiding the data. Outside code reaches **state** only through **methods** that can **validate**, log, or change **representation** , so **invariants** live in one place and callers can't silently corrupt them.

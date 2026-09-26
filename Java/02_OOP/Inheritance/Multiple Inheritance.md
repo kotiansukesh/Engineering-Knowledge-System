@@ -1,18 +1,22 @@
 ---
-title: "Multiple inheritance"
+title: Multiple inheritance
 category: Java/02_OOP
-tags: [java, oop, inheritance]
+tags:
+- java
+- oop
+- inheritance
 created: 2026-01-18
 updated: 2026-09-04
 pattern: 4
 difficulty: Medium
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+source: ''
+type: note
 ---
+
 ## Why it Matters
 
 **Multiple inheritance** means one class inherits from more than one **superclass**. Java does **not** allow multiple class inheritance with `extends` because of the **diamond problem** , two parents providing the same method.

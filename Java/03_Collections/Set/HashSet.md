@@ -1,18 +1,22 @@
 ---
-title: "HashSet"
+title: HashSet
 category: Collections
-tags: [java, collections, set]
+tags:
+- java
+- collections
+- set
 created: 2026-01-18
 updated: 2026-09-04
 pattern: 1
 difficulty: Easy
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+source: ''
+type: note
 ---
+
 ## Why it Matters
 
 The **default `Set`**: a thin wrapper over **`HashMap`** (element as key, dummy `PRESENT` as value) with **O(1) average** add/contains. Correct `equals`/`hashCode` on elements is the whole contract.

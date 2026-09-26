@@ -1,16 +1,22 @@
 ---
-title: "LLM Engineering with RAG (Coursera C1)"
+title: LLM Engineering with RAG (Coursera C1)
 category: rag
-tags: [ai, rag, coursera, pgvector]
-weeks: "5-6"
+tags:
+- ai
+- rag
+- coursera
+- pgvector
+weeks: 5-6
 created: 2026-09-02
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+difficulty: ''
+source: ''
+type: note
 ---
+
 ## Why it Matters
 
 Build a production-aware RAG pipeline: ingest → chunk → embed → store (pgvector) → retrieve → generate, with 12-factor discipline.

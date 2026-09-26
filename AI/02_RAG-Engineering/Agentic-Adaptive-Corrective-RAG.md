@@ -1,16 +1,25 @@
 ---
-title: "Agentic Adaptive Corrective RAG"
+title: Agentic Adaptive Corrective RAG
 category: rag
-tags: [ai, rag, adaptive-rag, corrective-rag, agentic-rag, routing, evaluation]
-weeks: "8-9"
+tags:
+- ai
+- rag
+- adaptive-rag
+- corrective-rag
+- agentic-rag
+- routing
+- evaluation
+weeks: 8-9
 created: 2026-09-04
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+difficulty: ''
+source: ''
+type: note
 ---
+
 ## Why it Matters
 
 Naive RAG retrieves once and hopes; these three variants add the missing feedback loop, **grade what came back, rewrite if it is wrong, and let the model choose the source per step**. In 2026 the default has shifted from "one retrieval path" to "retrieval as a decision", which is exactly the shift interviewers probe when they ask why a RAG system gives confident wrong answers.

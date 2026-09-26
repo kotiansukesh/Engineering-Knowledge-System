@@ -1,17 +1,23 @@
 ---
-title: "Pattern Matching"
+title: Pattern Matching
 category: Modern-Java
-tags: [java25, pattern-matching, jep507, switch, interview]
+tags:
+- java25
+- pattern-matching
+- jep507
+- switch
+- interview
 created: 2026-09-03
 completed: false
 pattern: 3
 difficulty: Medium
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+source: ''
+type: note
 ---
+
 ## Why it Matters
 
 Replaces chains of `if (o instanceof X) { X x=(X)o; ... }` and visitor/switch boilerplate with exhaustive, type-safe deconstruction.

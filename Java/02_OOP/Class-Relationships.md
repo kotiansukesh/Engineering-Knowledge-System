@@ -1,18 +1,26 @@
 ---
-title: "Class Relationships , Association, Aggregation, Composition, Dependency"
+title: Class Relationships , Association, Aggregation, Composition, Dependency
 category: Java/02_OOP
-tags: [java, oop, uml, association, aggregation, composition, dependency]
+tags:
+- java
+- oop
+- uml
+- association
+- aggregation
+- composition
+- dependency
 created: 2026-09-04
 updated: 2026-09-04
 pattern: 3
 difficulty: Medium
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+source: ''
+type: note
 ---
+
 ## Why it Matters
 
 Four strengths of "uses": **dependency** (momentary use) → **association** (knows, long-term) → **aggregation** (has-a, parts outlive whole) → **composition** (owns-a, parts die with whole). **Ownership** and **lifetime** decide which one you mean , and interviewers test exactly that distinction.

@@ -1,17 +1,23 @@
 ---
-title: "Domain Events"
-pattern: 5
-category: "DDD & Modeling"
-tags: [ddd, domain-events, events, outbox, spring]
+title: Domain Events
+category: DDD & Modeling
+tags:
+- ddd
+- domain-events
+- events
+- outbox
+- spring
 created: 2026-09-03
 completed: false
-reviewed: ""
-sr-due: ""
+reviewed: ''
+sr-due: ''
 difficulty: Medium
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+excalidraw: ''
+source: ''
+type: note
+weeks: ''
 ---
+
 ## Why it Matters
 
 Without events, every cross-aggregate side effect becomes a cross-service call or a shared transaction, and the model bloats with other people's concerns. Raising a fact after commit keeps the aggregate focused and turns integration into a subscribable seam, but only if the event is versioned from day one and dispatch survives a broker outage, which is what the outbox is for.

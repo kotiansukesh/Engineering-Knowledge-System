@@ -1,20 +1,23 @@
 ---
-title: "Template Method"
+title: Template Method
 category: Design-Patterns
 group: Behavioral
-tags: [design-patterns, behavioral, template-method]
+tags:
+- design-patterns
+- behavioral
+- template-method
 pattern: template-method
-source: "https://refactoring.guru/design-patterns/template-method"
+source: https://refactoring.guru/design-patterns/template-method
 created: 2026-09-02
 updated: 2026-09-04
 difficulty: Medium
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+type: note
 ---
+
 # Template Method
 
 > Category: Behavioral • Source: [Refactoring.Guru , Template Method](https://refactoring.guru/design-patterns/template-method) • Part of [[Java/README|Java MOC]] → [[06_Design-Patterns/README|Design Patterns MOC]]

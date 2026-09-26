@@ -1,17 +1,22 @@
 ---
-title: "Enterprise Document Search"
+title: Enterprise Document Search
 category: rag
-tags: [ai, project, rag, pgvector]
-weeks: "5-10"
+tags:
+- ai
+- project
+- rag
+- pgvector
+weeks: 5-10
 created: 2026-09-02
 completed: false
 type: project
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+difficulty: ''
+source: ''
 ---
+
 ## Why it Matters
 
 Enterprise-grade semantic search that **replaces** the generic "build a semantic search engine" course exercise, aligned to C1/C2, production-minded.

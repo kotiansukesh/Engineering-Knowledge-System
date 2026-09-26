@@ -1,18 +1,22 @@
 ---
-title: "Interfaces"
+title: Interfaces
 category: Java/02_OOP
-tags: [java, oop, interfaces]
+tags:
+- java
+- oop
+- interfaces
 created: 2026-09-04
 updated: 2026-09-04
 pattern: 7
 difficulty: Medium
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+source: ''
+type: note
 ---
+
 ## Why it Matters
 
 An **interface** is a **contract** for behavior: *what* an object can do, with zero commitment to *how*. It is the **seam** that makes Strategy, State, and **Dependency Inversion** possible , callers depend on the contract, providers plug in behind it.

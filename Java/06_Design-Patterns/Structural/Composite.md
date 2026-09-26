@@ -1,20 +1,23 @@
 ---
-title: "Composite"
+title: Composite
 category: Design-Patterns
 group: Structural
-tags: [design-patterns, structural, composite]
+tags:
+- design-patterns
+- structural
+- composite
 pattern: composite
-source: "https://refactoring.guru/design-patterns/composite"
+source: https://refactoring.guru/design-patterns/composite
 created: 2026-09-02
 updated: 2026-09-04
 difficulty: Medium
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+type: note
 ---
+
 # Composite
 
 > Category: Structural • Source: [Refactoring.Guru , Composite](https://refactoring.guru/design-patterns/composite) • Part of [[Java/README|Java MOC]] → [[06_Design-Patterns/README|Design Patterns MOC]]

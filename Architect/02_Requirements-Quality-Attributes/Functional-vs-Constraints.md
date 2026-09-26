@@ -1,17 +1,20 @@
 ---
-title: "Functional vs Constraints"
-pattern: 5
-category: "architect"
-tags: [requirements, constraints]
+title: Functional vs Constraints
+category: architect
+tags:
+- requirements
+- constraints
 created: 2026-09-03
 completed: false
-reviewed: ""
-sr-due: ""
+reviewed: ''
+sr-due: ''
 difficulty: Medium
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+excalidraw: ''
+source: ''
+type: note
+weeks: ''
 ---
+
 Why it Matters
 
 Separate what the system does (functions) from what limits how (constraints) so estimates and style choices rest on facts.

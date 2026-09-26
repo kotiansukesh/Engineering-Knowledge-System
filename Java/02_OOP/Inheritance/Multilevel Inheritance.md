@@ -1,18 +1,22 @@
 ---
-title: "Multilevel inheritance"
+title: Multilevel inheritance
 category: Java/02_OOP
-tags: [java, oop, inheritance]
+tags:
+- java
+- oop
+- inheritance
 created: 2026-01-18
 updated: 2026-09-04
 pattern: 3
 difficulty: Medium
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+source: ''
+type: note
 ---
+
 ## Why it Matters
 
 **Multilevel inheritance** chains inheritance: `Animal → Dog → Puppy`. `Puppy` inherits from `Dog`, which inherits from `Animal`. Each level can add **state** or **override** methods. Keep chains short , deep hierarchies become **fragile** when a middle class changes.

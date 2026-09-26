@@ -1,17 +1,23 @@
 ---
-title: "Foreign Function and Memory API , JEP 442 (Java 21, 3rd Preview)"
+title: Foreign Function and Memory API , JEP 442 (Java 21, 3rd Preview)
 category: java21
-tags: [java21, jep442, ffm, panama, interview]
+tags:
+- java21
+- jep442
+- ffm
+- panama
+- interview
 created: 2026-09-03
 completed: false
 pattern: 10
 difficulty: Medium
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+source: ''
+type: note
 ---
+
 ## Why it Matters
 
 Invoke native code and manage off-heap memory **safely** (bounds, lifetime) , preview in 21, **final JEP 454 in Java 22**.

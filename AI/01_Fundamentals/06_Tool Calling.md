@@ -1,16 +1,20 @@
 ---
-title: "Tool Calling"
-pattern: 6
-category: "AI/01_Fundamentals"
-tags: [tool-calling, function-calling, mcp, agent]
+title: Tool Calling
+category: AI/01_Fundamentals
+tags:
+- tool-calling
+- function-calling
+- mcp
+- agent
 created: 2026-09-02
 completed: false
-reviewed: ""
-sr-due: ""
+reviewed: ''
+sr-due: ''
 difficulty: Easy
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+excalidraw: ''
+source: ''
+type: note
+weeks: ''
 ---
 
 ## 🎯 Intent

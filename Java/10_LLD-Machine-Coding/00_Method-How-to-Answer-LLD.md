@@ -2,16 +2,20 @@
 title: How to Answer LLD / Machine Coding
 category: LLD
 difficulty: Easy
-tags: [lld, machine-coding, method]
+tags:
+- lld
+- machine-coding
+- method
 created: 2026-09-04
 pattern: 1
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+source: ''
+type: note
 ---
+
 ## Why it Matters
 
 - A repeatable method is the actual deliverable: interviewers score the *process* (clarify → model → code → defend) more than feature count, and a fixed loop stops you from diving into code before the design is agreed.

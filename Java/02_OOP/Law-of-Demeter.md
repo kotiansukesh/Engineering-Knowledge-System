@@ -1,17 +1,23 @@
 ---
-title: "Law of Demeter , Talk Only to Friends"
+title: Law of Demeter , Talk Only to Friends
 category: Java/02_OOP
-tags: [java, oop, law-of-demeter, design-principles, coupling]
+tags:
+- java
+- oop
+- law-of-demeter
+- design-principles
+- coupling
 created: 2026-09-04
 pattern: 8
 difficulty: Medium
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+source: ''
+type: note
 ---
+
 ## Why it Matters
 
 - The rule: inside method `m` of object `O`, call methods only on `O` itself, `O`'s fields, `m`'s parameters, and objects `m` instantiates. Anything else is a stranger.

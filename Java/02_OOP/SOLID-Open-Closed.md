@@ -1,17 +1,24 @@
 ---
-title: "SOLID , Open/Closed Principle"
+title: SOLID , Open/Closed Principle
 category: Java/02_OOP
-tags: [java, oop, solid, ocp, strategy, design-principles]
+tags:
+- java
+- oop
+- solid
+- ocp
+- strategy
+- design-principles
 created: 2026-09-04
 pattern: 14
 difficulty: Medium
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+source: ''
+type: note
 ---
+
 ## Why it Matters
 
 - Course danger quartet of cracking the class open each time: (1) bug injection into working methods, (2) full re-test on every change, (3) unreadable branch sprawl, (4) progressively harder scaling.

@@ -1,17 +1,20 @@
 ---
-title: "Tradeoffs and Tensions"
-pattern: 2
-category: "architect"
-tags: [quality, tradeoffs]
+title: Tradeoffs and Tensions
+category: architect
+tags:
+- quality
+- tradeoffs
 created: 2026-09-03
 completed: false
-reviewed: ""
-sr-due: ""
+reviewed: ''
+sr-due: ''
 difficulty: Easy
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+excalidraw: ''
+source: ''
+type: note
+weeks: ''
 ---
+
 Why it Matters
 
 Name what you sacrifice (CAP, consistency vs availability, speed vs safety) so decisions are explicit and reversible.

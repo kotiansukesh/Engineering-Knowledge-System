@@ -1,18 +1,21 @@
 ---
-title: "Object oriented programming"
+title: Object oriented programming
 category: Java/02_OOP
-tags: [java, oop]
+tags:
+- java
+- oop
 created: 2026-01-18
 updated: 2026-09-04
 pattern: 1
 difficulty: Medium
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+source: ''
+type: note
 ---
+
 ## Why it Matters
 
 **OOP** groups **data** and the **methods** that operate on it into **objects**. Each object owns its **state** and exposes only the operations you want callers to use , so teams can work on separate objects without stepping on each other, and **representation** can change without breaking callers.

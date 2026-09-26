@@ -1,17 +1,24 @@
 ---
-title: "Enterprise Patterns"
-pattern: 1
-category: "Design Patterns & Building Blocks"
-tags: [patterns, enterprise, repository, unit-of-work, dto, spring]
+title: Enterprise Patterns
+category: Design Patterns & Building Blocks
+tags:
+- patterns
+- enterprise
+- repository
+- unit-of-work
+- dto
+- spring
 created: 2026-09-03
 completed: false
-reviewed: ""
-sr-due: ""
+reviewed: ''
+sr-due: ''
 difficulty: Easy
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+excalidraw: ''
+source: ''
+type: note
+weeks: ''
 ---
+
 ## Why it Matters
 
 These are the load-bearing vocabulary of business systems, names that let a design review be about "is the repository use-case shaped?" rather than re-litigating structure. Applied deliberately they make invariants and transaction boundaries visible in code; applied as dogma they become layers of indirection nobody benefits from.

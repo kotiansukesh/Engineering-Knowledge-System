@@ -3,21 +3,22 @@ title: Top K Elements
 pattern: 9
 category: Coding Patterns/03_Stack_Heap
 tags:
-  - pattern/heap
-  - pattern/stack/top-k
+- pattern/heap
+- pattern/stack/top-k
 leetcode:
-  - 215
-  - 347
-  - 973
+- 215
+- 347
+- 973
 created: '2026-09-02'
 completed: false
 reviewed: ''
 sr-due: ''
 difficulty: Medium
-source: 'https://blog.algomaster.io/p/20-dsa-patterns'
+source: https://blog.algomaster.io/p/20-dsa-patterns
 problems-solved: []
 problems-solved-dates: {}
-excalidraw: ""
+excalidraw: ''
+type: note
 ---
 
 # Top K Elements

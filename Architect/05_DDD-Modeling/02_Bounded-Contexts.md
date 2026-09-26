@@ -1,17 +1,22 @@
 ---
-title: "Bounded Contexts"
-pattern: 2
-category: "DDD & Modeling"
-tags: [ddd, bounded-context, modules, microservices]
+title: Bounded Contexts
+category: DDD & Modeling
+tags:
+- ddd
+- bounded-context
+- modules
+- microservices
 created: 2026-09-03
 completed: false
-reviewed: ""
-sr-due: ""
+reviewed: ''
+sr-due: ''
 difficulty: Easy
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+excalidraw: ''
+source: ''
+type: note
+weeks: ''
 ---
+
 ## Why it Matters
 
 One shared "Order" model is how a mid-size codebase becomes unmaintainable: sales, fulfilment and billing each need different fields and invariants of the same word, and every change negotiates between them. A bounded context makes the ambiguity explicit, inside the boundary one meaning holds, and integration with other meanings is a deliberate, versioned seam.

@@ -1,17 +1,23 @@
 ---
-title: "Java 11 LTS Overview"
+title: Java 11 LTS Overview
 category: overview
-tags: [java11, lts, overview, jep, interview]
+tags:
+- java11
+- lts
+- overview
+- jep
+- interview
 created: 2026-09-03
 completed: false
 pattern: 1
 difficulty: Easy
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+source: ''
+type: note
 ---
+
 ## Why it Matters
 
 Java 11 is **the first LTS after 8** and the first version to break compatibility in ways you must name in interviews: **`var` (local-variable type inference), a standard `java.net.http.HttpClient`, `String`/`Files` convenience methods, single-file source launch, nest-based access, and the removal of Java EE and CORBA modules** (`javax.xml.bind`, `javax.activation`) from the JDK. It is also the "quiet" LTS, small language surface, big ecosystem effects (Jakarta EE migration, module-path enforcement).

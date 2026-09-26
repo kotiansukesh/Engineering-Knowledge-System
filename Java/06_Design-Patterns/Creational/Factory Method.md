@@ -1,20 +1,23 @@
 ---
-title: "Factory Method"
+title: Factory Method
 category: Design-Patterns
 group: Creational
-tags: [design-patterns, creational, factory-method]
+tags:
+- design-patterns
+- creational
+- factory-method
 pattern: factory-method
-source: "https://refactoring.guru/design-patterns/factory-method"
+source: https://refactoring.guru/design-patterns/factory-method
 created: 2026-09-02
 updated: 2026-09-04
 difficulty: Medium
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+type: note
 ---
+
 # Factory Method
 
 > Category: Creational • Source: [Refactoring.Guru , Factory Method](https://refactoring.guru/design-patterns/factory-method) • Part of [[Java/README|Java MOC]] → [[06_Design-Patterns/README|Design Patterns MOC]]

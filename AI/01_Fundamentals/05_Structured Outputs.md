@@ -1,16 +1,20 @@
 ---
-title: "Structured Outputs"
-pattern: 5
-category: "AI/01_Fundamentals"
-tags: [structured-outputs, json-schema, pydantic, validation]
+title: Structured Outputs
+category: AI/01_Fundamentals
+tags:
+- structured-outputs
+- json-schema
+- pydantic
+- validation
 created: 2026-09-02
 completed: false
-reviewed: ""
-sr-due: ""
+reviewed: ''
+sr-due: ''
 difficulty: Easy
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+excalidraw: ''
+source: ''
+type: note
+weeks: ''
 ---
 
 ## 🎯 Intent

@@ -1,16 +1,20 @@
 ---
-title: "LLM Fundamentals"
-pattern: 1
-category: "AI/01_Fundamentals"
-tags: [llm, fundamentals, transformer, attention]
+title: LLM Fundamentals
+category: AI/01_Fundamentals
+tags:
+- llm
+- fundamentals
+- transformer
+- attention
 created: 2026-09-02
 completed: false
-reviewed: ""
-sr-due: ""
+reviewed: ''
+sr-due: ''
 difficulty: Medium
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+excalidraw: ''
+source: ''
+type: note
+weeks: ''
 ---
 
 ## 🎯 Intent

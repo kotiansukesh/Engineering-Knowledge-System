@@ -1,20 +1,23 @@
 ---
-title: "Chain of Responsibility"
+title: Chain of Responsibility
 category: Design-Patterns
 group: Behavioral
-tags: [design-patterns, behavioral, chain-of-responsibility]
+tags:
+- design-patterns
+- behavioral
+- chain-of-responsibility
 pattern: chain-of-responsibility
-source: "https://refactoring.guru/design-patterns/chain-of-responsibility"
+source: https://refactoring.guru/design-patterns/chain-of-responsibility
 created: 2026-09-02
 updated: 2026-09-04
 difficulty: Medium
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+type: note
 ---
+
 # Chain of Responsibility
 
 > Category: Behavioral • Source: [Refactoring.Guru , Chain of Responsibility](https://refactoring.guru/design-patterns/chain-of-responsibility) • Part of [[Java/README|Java MOC]] → [[06_Design-Patterns/README|Design Patterns MOC]]

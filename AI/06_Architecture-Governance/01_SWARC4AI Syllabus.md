@@ -1,16 +1,23 @@
 ---
-title: "SWARC4AI Syllabus (iSAQB)"
+title: SWARC4AI Syllabus (iSAQB)
 category: governance
-tags: [ai, isaqb, architecture, governance, compliance]
-weeks: "31-36"
+tags:
+- ai
+- isaqb
+- architecture
+- governance
+- compliance
+weeks: 31-36
 created: 2026-09-02
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+difficulty: ''
+source: ''
+type: note
 ---
+
 ## Why it Matters
 
 Internationally recognized, vendor-neutral architecture certification, bridge traditional enterprise architecture with AI's unique concerns.

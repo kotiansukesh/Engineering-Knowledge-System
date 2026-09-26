@@ -1,16 +1,22 @@
 ---
-title: "Kubernetes Deployment"
+title: Kubernetes Deployment
 category: kubernetes
-tags: [ai, kubernetes, helm, deployment]
-weeks: "25-27"
+tags:
+- ai
+- kubernetes
+- helm
+- deployment
+weeks: 25-27
 created: 2026-09-02
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+difficulty: ''
+source: ''
+type: note
 ---
+
 ## Why it Matters
 
 Run the entire AI platform on K8s, the deployment that validates CKAD skills and proves operational readiness.

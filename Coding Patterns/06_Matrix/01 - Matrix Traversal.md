@@ -3,21 +3,22 @@ title: Matrix Traversal
 pattern: 16
 category: Coding Patterns/06_Matrix
 tags:
-  - pattern/matrix
-  - pattern/matrix/traversal
+- pattern/matrix
+- pattern/matrix/traversal
 leetcode:
-  - 733
-  - 200
-  - 130
+- 733
+- 200
+- 130
 created: '2026-09-02'
 completed: false
 reviewed: ''
 sr-due: ''
 difficulty: Medium
-source: 'https://blog.algomaster.io/p/20-dsa-patterns'
+source: https://blog.algomaster.io/p/20-dsa-patterns
 problems-solved: []
 problems-solved-dates: {}
-excalidraw: ""
+excalidraw: ''
+type: note
 ---
 
 # Matrix Traversal

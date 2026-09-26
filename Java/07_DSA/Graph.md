@@ -1,18 +1,22 @@
 ---
-title: "Graph"
+title: Graph
 category: DSA
-tags: [dsa, graph, interview]
+tags:
+- dsa
+- graph
+- interview
 created: 2026-01-18
 updated: 2026-09-04
 pattern: 3
 difficulty: Medium
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+source: ''
+type: note
 ---
+
 ## Why it Matters
 
 A **graph** `G = (V, E)` is a set of **vertices** `V` and **edges** `E ⊆ V × V`. Edges may be **directed** (ordered pair) or **undirected** (unordered), **weighted** (cost) or **unweighted**, **cyclic** or **acyclic**. Graphs model networks, maps, dependencies, and social relations.

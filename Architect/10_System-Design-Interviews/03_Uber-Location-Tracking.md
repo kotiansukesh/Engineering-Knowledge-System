@@ -1,17 +1,24 @@
 ---
-title: "Uber Location Tracking and Matching"
-pattern: 3
-category: "System Design"
-tags: [system-design, interview, geo, quadtree, websockets, matching]
+title: Uber Location Tracking and Matching
+category: System Design
+tags:
+- system-design
+- interview
+- geo
+- quadtree
+- websockets
+- matching
 created: 2026-09-04
 completed: false
-reviewed: ""
-sr-due: ""
+reviewed: ''
+sr-due: ''
 difficulty: Medium
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+excalidraw: ''
+source: ''
+type: note
+weeks: ''
 ---
+
 ## Why it Matters
 
 Uber is the drill where writes are the load and reads must be spatial: a million drivers pinging every few seconds is a firehose, and "nearest car" is a geometry query, not a table scan. Partitioning the world into cells makes both tractable, cells as Kafka keys give you parallelism *and* locality in one decision.

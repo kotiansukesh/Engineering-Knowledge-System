@@ -1,20 +1,23 @@
 ---
-title: "Iterator"
+title: Iterator
 category: Design-Patterns
 group: Behavioral
-tags: [design-patterns, behavioral, iterator]
+tags:
+- design-patterns
+- behavioral
+- iterator
 pattern: iterator
-source: "https://refactoring.guru/design-patterns/iterator"
+source: https://refactoring.guru/design-patterns/iterator
 created: 2026-09-02
 updated: 2026-09-04
 difficulty: Medium
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+type: note
 ---
+
 # Iterator
 
 > Category: Behavioral • Source: [Refactoring.Guru , Iterator](https://refactoring.guru/design-patterns/iterator) • Part of [[Java/README|Java MOC]] → [[06_Design-Patterns/README|Design Patterns MOC]]

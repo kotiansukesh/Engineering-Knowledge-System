@@ -3,22 +3,23 @@ title: Trie
 pattern: 18
 category: Coding Patterns/05_Trees_Graphs
 tags:
-  - pattern/trie
-  - pattern/tree/prefix-tree
-  - pattern/tree/string
+- pattern/trie
+- pattern/tree/prefix-tree
+- pattern/tree/string
 leetcode:
-  - 208
-  - 211
-  - 212
+- 208
+- 211
+- 212
 created: '2026-09-02'
 completed: false
 reviewed: ''
 sr-due: ''
 difficulty: Medium
-source: 'https://blog.algomaster.io/p/20-dsa-patterns'
+source: https://blog.algomaster.io/p/20-dsa-patterns
 problems-solved: []
 problems-solved-dates: {}
-excalidraw: ""
+excalidraw: ''
+type: note
 ---
 
 # Trie

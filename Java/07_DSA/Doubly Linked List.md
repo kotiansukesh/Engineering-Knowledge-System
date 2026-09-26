@@ -1,18 +1,21 @@
 ---
-title: "Doubly Linked List"
+title: Doubly Linked List
 category: DSA
-tags: [dsa, linked-list]
+tags:
+- dsa
+- linked-list
 created: 2026-01-18
 updated: 2026-09-04
 pattern: 2
 difficulty: Medium
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+source: ''
+type: note
 ---
+
 ## Why it Matters
 
 A **doubly linked list** extends the singly linked list: each node stores `key`, `next`, and `prev` pointers. You get **bidirectional traversal** and O(1) `PopBack` / `AddBefore` when the target node is known, at the cost of one extra pointer per node and more link maintenance.

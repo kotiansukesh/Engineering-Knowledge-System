@@ -1,18 +1,24 @@
 ---
-title: "JVM Memory Model"
+title: JVM Memory Model
 category: Core-Java
-tags: [java, jvm, memory, interview, java25]
+tags:
+- java
+- jvm
+- memory
+- interview
+- java25
 created: 2026-09-02
 updated: 2026-09-04
 pattern: 9
 difficulty: Easy
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+source: ''
+type: note
 ---
+
 # JVM Memory Model
 > Part of [[Java/01_Core-Java/README|Core Java]]
 

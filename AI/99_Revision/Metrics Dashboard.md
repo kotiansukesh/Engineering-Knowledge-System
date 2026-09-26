@@ -1,15 +1,20 @@
 ---
-title: "Metrics Dashboard"
-category: "AI/99_Revision"
-tags: [ai]
+title: Metrics Dashboard
+category: AI/99_Revision
+tags:
+- ai
 created: 2026-09-17
 updated: 2026-09-17
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+completed: false
+difficulty: ''
+source: ''
+type: note
+weeks: ''
 ---
+
 ## Why it Matters
 
 Every claim this vault makes, retrieval quality, agent safety, cost, governance, is only as good as the metric behind it. This dashboard is the place those numbers live, one row per phase, so an interview answer or an architecture review can point at a measured target instead of an adjective.

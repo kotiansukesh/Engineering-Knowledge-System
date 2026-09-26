@@ -3,21 +3,22 @@ title: BFS
 pattern: 14
 category: Coding Patterns/05_Trees_Graphs
 tags:
-  - pattern/bfs
-  - pattern/tree/graph
+- pattern/bfs
+- pattern/tree/graph
 leetcode:
-  - 102
-  - 107
-  - 127
+- 102
+- 107
+- 127
 created: '2026-09-02'
 completed: false
 reviewed: ''
 sr-due: ''
 difficulty: Medium
-source: 'https://blog.algomaster.io/p/20-dsa-patterns'
+source: https://blog.algomaster.io/p/20-dsa-patterns
 problems-solved: []
 problems-solved-dates: {}
-excalidraw: ""
+excalidraw: ''
+type: note
 ---
 
 # BFS

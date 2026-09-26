@@ -1,18 +1,21 @@
 ---
-title: "Collection"
+title: Collection
 category: Collections
-tags: [java, collections]
+tags:
+- java
+- collections
 created: 2026-01-18
 updated: 2026-09-04
 pattern: 1
 difficulty: Easy
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+source: ''
+type: note
 ---
+
 ## Why it Matters
 
 The **root interface** of the collections framework: one common protocol (`add`, `remove`, `contains`, `size`, `iterator`) for every `List`, `Set`, and `Queue`. Learn it once, and every collection behaves predictably , including **fail-fast iteration** and `stream()` access.

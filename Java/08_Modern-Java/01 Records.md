@@ -1,17 +1,22 @@
 ---
-title: "Records"
+title: Records
 category: Modern-Java
-tags: [java25, record, modern-java, interview]
+tags:
+- java25
+- record
+- modern-java
+- interview
 created: 2026-09-03
 completed: false
 pattern: 1
 difficulty: Medium
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+source: ''
+type: note
 ---
+
 ## Why it Matters
 
 A **record** (JEP 395, final in Java 21) is a transparent **data carrier**: one header `record Point(int x, int y)` generates the canonical constructor, accessors, `equals`, `hashCode`, and `toString`. It deletes the DTO/value-object boilerplate that dominates enterprise Java, and it is the carrier type for sealed hierarchies and record patterns. "Record vs class" is a default interview question.

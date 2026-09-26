@@ -3,20 +3,21 @@ title: Modified Binary Search
 pattern: 11
 category: Coding Patterns/04_Intervals_Search
 tags:
-  - pattern/binary-search
+- pattern/binary-search
 leetcode:
-  - 33
-  - 153
-  - 74
+- 33
+- 153
+- 74
 created: '2026-09-02'
 completed: false
 reviewed: ''
 sr-due: ''
 difficulty: Medium
-source: 'https://blog.algomaster.io/p/20-dsa-patterns'
+source: https://blog.algomaster.io/p/20-dsa-patterns
 problems-solved: []
 problems-solved-dates: {}
-excalidraw: ""
+excalidraw: ''
+type: note
 ---
 
 # Modified Binary Search

@@ -1,20 +1,23 @@
 ---
-title: "Interpreter"
+title: Interpreter
 category: Design-Patterns
 group: Behavioral
-tags: [design-patterns, behavioral, interpreter]
+tags:
+- design-patterns
+- behavioral
+- interpreter
 pattern: interpreter
-source: "https://refactoring.guru/design-patterns/interpreter"
+source: https://refactoring.guru/design-patterns/interpreter
 created: 2026-09-04
 updated: 2026-09-04
 difficulty: Medium
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+type: note
 ---
+
 # Interpreter
 
 > Category: Behavioral • Source: [Refactoring.Guru , Interpreter](https://refactoring.guru/design-patterns/interpreter) • Part of [[Java/README|Java MOC]] → [[06_Design-Patterns/README|Design Patterns MOC]]

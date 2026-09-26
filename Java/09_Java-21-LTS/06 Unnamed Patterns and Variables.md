@@ -1,17 +1,22 @@
 ---
-title: "Unnamed Patterns and Variables , JEP 443 (Java 21)"
+title: Unnamed Patterns and Variables , JEP 443 (Java 21)
 category: java21
-tags: [java21, jep443, unnamed, interview]
+tags:
+- java21
+- jep443
+- unnamed
+- interview
 created: 2026-09-03
 completed: false
 pattern: 7
 difficulty: Medium
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+source: ''
+type: note
 ---
+
 ## Why it Matters
 
 Mark intentionally unused components/vars without inventing names like `ignored` or `unused`.

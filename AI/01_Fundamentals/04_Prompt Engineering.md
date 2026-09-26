@@ -1,16 +1,20 @@
 ---
-title: "Prompt Engineering"
-pattern: 4
-category: "AI/01_Fundamentals"
-tags: [prompt-engineering, llm, prompting, eval]
+title: Prompt Engineering
+category: AI/01_Fundamentals
+tags:
+- prompt-engineering
+- llm
+- prompting
+- eval
 created: 2026-09-02
 completed: false
-reviewed: ""
-sr-due: ""
+reviewed: ''
+sr-due: ''
 difficulty: Easy
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+excalidraw: ''
+source: ''
+type: note
+weeks: ''
 ---
 
 ## 🎯 Intent

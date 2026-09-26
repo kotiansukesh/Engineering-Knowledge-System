@@ -1,17 +1,24 @@
 ---
-title: "SOLID , Interface Segregation Principle"
+title: SOLID , Interface Segregation Principle
 category: Java/02_OOP
-tags: [java, oop, solid, isp, interfaces, design-principles]
+tags:
+- java
+- oop
+- solid
+- isp
+- interfaces
+- design-principles
 created: 2026-09-04
 pattern: 12
 difficulty: Medium
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+source: ''
+type: note
 ---
+
 ## Why it Matters
 
 - Course narrative: fat `MediaPlayer` (~7 methods , play/stop audio + play video + subtitles + brightness…) forces `AudioOnlyPlayer` into empty methods / `throw new UnsupportedOperationException()`. That is **interface pollution**. Fragility: adding one method (e.g. `enablePictureInPicture()`) breaks *every* implementer.

@@ -1,16 +1,26 @@
 ---
-title: "LLM Observability"
+title: LLM Observability
 category: cross-cutting
-tags: [ai, observability, langfuse, phoenix, opentelemetry, interview, 2026-trend]
+tags:
+- ai
+- observability
+- langfuse
+- phoenix
+- opentelemetry
+- interview
+- 2026-trend
 created: 2026-09-02
 updated: 2026-09-03
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+difficulty: ''
+source: ''
+type: note
+weeks: ''
 ---
+
 ## Why it Matters
 
 Trace every **prompt → tool/MCP call → retrieval → LLM → citations** with latency, tokens, cost, and faithfulness, so you can debug, alert, and A/B route.

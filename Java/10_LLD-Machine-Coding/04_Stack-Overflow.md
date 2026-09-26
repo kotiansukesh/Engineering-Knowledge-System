@@ -2,17 +2,20 @@
 title: Stack Overflow
 category: LLD
 difficulty: Easy
-tags: [lld, machine-coding, stack-overflow]
+tags:
+- lld
+- machine-coding
+- stack-overflow
 source: https://github.com/ashishps1/awesome-low-level-design
 created: 2026-09-04
 pattern: 6
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+type: note
 ---
+
 ## Why it Matters
 
 - Reputation is *derived* state, not stored data: it is the projection of every vote ever cast. Keeping vote storage and reputation computation separate is what lets you change the scoring rule without touching the vote path.

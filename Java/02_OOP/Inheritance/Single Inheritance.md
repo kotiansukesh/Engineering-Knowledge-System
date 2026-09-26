@@ -1,18 +1,22 @@
 ---
-title: "Single inheritance"
+title: Single inheritance
 category: Java/02_OOP
-tags: [java, oop, inheritance]
+tags:
+- java
+- oop
+- inheritance
 created: 2026-01-18
 updated: 2026-09-04
 pattern: 5
 difficulty: Medium
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+source: ''
+type: note
 ---
+
 ## Why it Matters
 
 **Single inheritance** is one **subclass** inheriting from one **superclass** , the simplest form. Use it when the **is-a** relation is clear and you need to add or refine behaviour. Keep the hierarchy shallow.

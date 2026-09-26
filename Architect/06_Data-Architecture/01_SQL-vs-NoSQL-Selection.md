@@ -1,16 +1,23 @@
 ---
-title: "SQL vs NoSQL Selection"
-pattern: 1
-category: "Architect/06_Data-Architecture"
-tags: [data, sql, nosql, postgres, mongodb, decision, polyglot]
+title: SQL vs NoSQL Selection
+category: Architect/06_Data-Architecture
+tags:
+- data
+- sql
+- nosql
+- postgres
+- mongodb
+- decision
+- polyglot
 created: 2026-09-03
 completed: false
-reviewed: ""
-sr-due: ""
+reviewed: ''
+sr-due: ''
 difficulty: Medium
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+excalidraw: ''
+source: ''
+type: note
+weeks: ''
 ---
 
 ## 🎯 Intent

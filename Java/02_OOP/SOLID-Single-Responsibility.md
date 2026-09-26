@@ -1,17 +1,23 @@
 ---
-title: "SOLID , Single Responsibility Principle"
+title: SOLID , Single Responsibility Principle
 category: Java/02_OOP
-tags: [java, oop, solid, srp, design-principles]
+tags:
+- java
+- oop
+- solid
+- srp
+- design-principles
 created: 2026-09-04
 pattern: 15
 difficulty: Medium
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+source: ''
+type: note
 ---
+
 ## Why it Matters
 
 - One class = one responsibility; count reasons to change, not methods.

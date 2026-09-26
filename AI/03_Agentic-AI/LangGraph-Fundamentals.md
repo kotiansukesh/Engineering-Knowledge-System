@@ -1,16 +1,24 @@
 ---
-title: "LangGraph Fundamentals"
+title: LangGraph Fundamentals
 category: agentic
-tags: [ai, agents, langgraph, state, tools, streaming]
-weeks: "11-13"
+tags:
+- ai
+- agents
+- langgraph
+- state
+- tools
+- streaming
+weeks: 11-13
 created: 2026-09-04
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+difficulty: ''
+source: ''
+type: note
 ---
+
 ## Why it Matters
 
 How to build stateful agent graphs in LangGraph without turning them into spaghetti. Covers state, nodes, memory, ReAct loops, streaming, and the workflow shapes you will reuse everywhere.

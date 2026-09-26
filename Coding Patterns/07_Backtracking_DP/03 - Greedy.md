@@ -3,21 +3,22 @@ title: Greedy
 pattern: 19
 category: Coding Patterns/07_Backtracking_DP
 tags:
-  - pattern/greedy
-  - pattern/dp/optimization
+- pattern/greedy
+- pattern/dp/optimization
 leetcode:
-  - 55
-  - 45
-  - 121
+- 55
+- 45
+- 121
 created: '2026-09-02'
 completed: false
 reviewed: ''
 sr-due: ''
 difficulty: Medium
-source: 'https://blog.algomaster.io/p/20-dsa-patterns'
+source: https://blog.algomaster.io/p/20-dsa-patterns
 problems-solved: []
 problems-solved-dates: {}
-excalidraw: ""
+excalidraw: ''
+type: note
 ---
 
 # Greedy

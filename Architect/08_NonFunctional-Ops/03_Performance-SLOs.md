@@ -1,17 +1,23 @@
 ---
-title: "Performance, SLOs, Latency Budgets & Tuning"
-pattern: 3
-category: "Non-Functional & Ops"
-tags: [performance, slo, latency, tuning, spring-boot]
+title: Performance, SLOs, Latency Budgets & Tuning
+category: Non-Functional & Ops
+tags:
+- performance
+- slo
+- latency
+- tuning
+- spring-boot
 created: 2026-09-03
 completed: false
-reviewed: ""
-sr-due: ""
+reviewed: ''
+sr-due: ''
 difficulty: Medium
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+excalidraw: ''
+source: ''
+type: note
+weeks: ''
 ---
+
 ## Why it Matters
 
 "Make it fast" is unmeetable and unfinishable; a percentile budget per endpoint is both. SLOs convert performance from a complaint into a design input, they tell you when to stop, which optimisation is worth doing, and whether a regression actually hurt users or just hurt a dashboard.

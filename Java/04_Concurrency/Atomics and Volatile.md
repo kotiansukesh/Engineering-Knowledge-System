@@ -1,18 +1,23 @@
 ---
-title: "Atomics and Volatile"
+title: Atomics and Volatile
 category: Concurrency
-tags: [concurrency, atomics, volatile, interview]
+tags:
+- concurrency
+- atomics
+- volatile
+- interview
 created: 2026-01-18
 updated: 2026-09-02
 pattern: 1
 difficulty: Hard
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+source: ''
+type: note
 ---
+
 ## Why it Matters
 
 1. Visibility: Without `volatile`/synchronization, a thread may never see another thread's write (cached in register/core).

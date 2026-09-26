@@ -1,20 +1,23 @@
 ---
-title: "Memento"
+title: Memento
 category: Design-Patterns
 group: Behavioral
-tags: [design-patterns, behavioral, memento]
+tags:
+- design-patterns
+- behavioral
+- memento
 pattern: memento
-source: "https://refactoring.guru/design-patterns/memento"
+source: https://refactoring.guru/design-patterns/memento
 created: 2026-09-02
 updated: 2026-09-04
 difficulty: Medium
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+type: note
 ---
+
 # Memento *Also Known as: Snapshot*
 
 > Category: Behavioral • Source: [Refactoring.Guru , Memento](https://refactoring.guru/design-patterns/memento) • Part of [[Java/README|Java MOC]] → [[06_Design-Patterns/README|Design Patterns MOC]]

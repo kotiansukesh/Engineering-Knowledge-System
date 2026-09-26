@@ -1,17 +1,23 @@
 ---
-title: "Flexible Constructors and Module Imports"
+title: Flexible Constructors and Module Imports
 category: Modern-Java
-tags: [java25, jep513, jep511, constructor, modules]
+tags:
+- java25
+- jep513
+- jep511
+- constructor
+- modules
 created: 2026-09-03
 completed: false
 pattern: 7
 difficulty: Medium
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+source: ''
+type: note
 ---
+
 ## Why it Matters
 
 A **module import** (`import module java.base`, JEP 511) imports every public type exported by a module in one line, and **flexible constructors** (JEP 513) let statements run before `super()`/`this()`. The high-value half is JEP 513: argument validation and computation can now happen inline before delegation, so invalid input fails fast instead of after the superclass has already built half an object.

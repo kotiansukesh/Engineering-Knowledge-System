@@ -1,18 +1,23 @@
 ---
-title: "Classes and Objects"
+title: Classes and Objects
 category: Java/02_OOP
-tags: [java, oop, classes, objects]
+tags:
+- java
+- oop
+- classes
+- objects
 created: 2026-09-04
 updated: 2026-09-04
 pattern: 4
 difficulty: Medium
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+source: ''
+type: note
 ---
+
 ## Why it Matters
 
 A **class** is the **blueprint** (**state** + **behavior**); an **object** is a living **instance** with its own state. Every LLD problem starts here: **nouns** become classes, **verbs** become methods. Getting this split right decides whether later principles (SRP, OCP, DIP) have anything clean to work on.

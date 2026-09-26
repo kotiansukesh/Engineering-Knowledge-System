@@ -2,17 +2,20 @@
 title: Splitwise (Expense Sharing)
 category: LLD
 difficulty: Medium
-tags: [lld, machine-coding, splitwise]
+tags:
+- lld
+- machine-coding
+- splitwise
 source: https://github.com/ashishps1/awesome-low-level-design
 created: 2026-09-04
 pattern: 13
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+type: note
 ---
+
 ## Why it Matters
 
 - The canonical money-modelling problem: every amount is an integer in the *smallest currency unit* (paise/cents), never a `double`. Floating-point rounding is not an edge case here, it is how real apps lose or create money, and it is a correctness bug that compounds across millions of ledgers.

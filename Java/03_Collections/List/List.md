@@ -1,18 +1,22 @@
 ---
-title: "List"
+title: List
 category: Collections
-tags: [java, collections, list]
+tags:
+- java
+- collections
+- list
 created: 2026-01-18
 updated: 2026-09-04
 pattern: 3
 difficulty: Easy
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+source: ''
+type: note
 ---
+
 ## Why it Matters
 
 The **ordered, indexed** collection: **duplicates allowed**, positional `get`/`set`, and , since Java 21 , **`SequencedCollection`** access (`getFirst`, `getLast`, `reversed`). The default choice when order matters.

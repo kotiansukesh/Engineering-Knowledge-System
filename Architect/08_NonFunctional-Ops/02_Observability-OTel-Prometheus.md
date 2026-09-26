@@ -1,17 +1,23 @@
 ---
-title: "Observability, OTel, Prometheus & Grafana"
-pattern: 2
-category: "Non-Functional & Ops"
-tags: [observability, opentelemetry, prometheus, grafana, tracing]
+title: Observability, OTel, Prometheus & Grafana
+category: Non-Functional & Ops
+tags:
+- observability
+- opentelemetry
+- prometheus
+- grafana
+- tracing
 created: 2026-09-03
 completed: false
-reviewed: ""
-sr-due: ""
+reviewed: ''
+sr-due: ''
 difficulty: Easy
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+excalidraw: ''
+source: ''
+type: note
+weeks: ''
 ---
+
 ## Why it Matters
 
 In a distributed system the incident question is never "which log line" but "which causal path", and only correlated signals answer it. One trace-id from edge to database is what turns a two-hour hunt into a ten-minute one, and burn-rate alerts on SLOs are what tells you a slow regression is happening before users do.

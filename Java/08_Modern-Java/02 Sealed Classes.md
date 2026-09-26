@@ -1,17 +1,22 @@
 ---
-title: "Sealed Classes"
+title: Sealed Classes
 category: Modern-Java
-tags: [java25, sealed, modern-java, interview]
+tags:
+- java25
+- sealed
+- modern-java
+- interview
 created: 2026-09-03
 completed: false
 pattern: 2
 difficulty: Medium
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+source: ''
+type: note
 ---
+
 ## Why it Matters
 
 **Sealed classes** (JEP 409, final in Java 17) let an interface or class declare its complete set of permitted subtypes: `sealed interface Shape permits Circle, Rect`. The compiler then **proves exhaustiveness** , a `switch` over a sealed type is checked, not hoped. Together with records and pattern matching it replaces the GoF Visitor and every `if (x instanceof Y)` cascade, and it is the mechanism behind domain modelling, ADTs, and safe `switch` in modern Java.

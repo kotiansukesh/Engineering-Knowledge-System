@@ -1,18 +1,21 @@
 ---
-title: "Queue (DSA)"
+title: Queue (DSA)
 category: DSA
-tags: [dsa, queue]
+tags:
+- dsa
+- queue
 created: 2026-01-18
 updated: 2026-09-04
 pattern: 7
 difficulty: Medium
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+source: ''
+type: note
 ---
+
 ## Why it Matters
 
 A **queue** is an abstract data type with **First-In-First-Out (FIFO)** semantics. Elements are added at the **rear (tail)** and removed from the **front (head)**. Can be implemented with an [[Array]] (circular buffer, amortised O(1)) or a [[Linked List]] (guaranteed O(1) with head/tail pointers).

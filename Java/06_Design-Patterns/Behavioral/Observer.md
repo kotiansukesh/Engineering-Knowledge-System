@@ -1,20 +1,23 @@
 ---
-title: "Observer"
+title: Observer
 category: Design-Patterns
 group: Behavioral
-tags: [design-patterns, behavioral, observer]
+tags:
+- design-patterns
+- behavioral
+- observer
 pattern: observer
-source: "https://refactoring.guru/design-patterns/observer"
+source: https://refactoring.guru/design-patterns/observer
 created: 2026-09-02
 updated: 2026-09-04
 difficulty: Medium
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+type: note
 ---
+
 # Observer *Also Known as: Pub-Sub*
 
 > Category: Behavioral • Source: [Refactoring.Guru , Observer](https://refactoring.guru/design-patterns/observer) • Part of [[Java/README|Java MOC]] → [[06_Design-Patterns/README|Design Patterns MOC]]

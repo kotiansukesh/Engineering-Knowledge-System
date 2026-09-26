@@ -3,21 +3,22 @@ title: DFS
 pattern: 13
 category: Coding Patterns/05_Trees_Graphs
 tags:
-  - pattern/dfs
-  - pattern/tree/graph
+- pattern/dfs
+- pattern/tree/graph
 leetcode:
-  - 200
-  - 133
-  - 113
+- 200
+- 133
+- 113
 created: '2026-09-02'
 completed: false
 reviewed: ''
 sr-due: ''
 difficulty: Medium
-source: 'https://blog.algomaster.io/p/20-dsa-patterns'
+source: https://blog.algomaster.io/p/20-dsa-patterns
 problems-solved: []
 problems-solved-dates: {}
-excalidraw: ""
+excalidraw: ''
+type: note
 ---
 
 # DFS

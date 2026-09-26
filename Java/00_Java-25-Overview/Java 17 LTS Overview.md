@@ -1,17 +1,23 @@
 ---
-title: "Java 17 LTS Overview"
+title: Java 17 LTS Overview
 category: overview
-tags: [java17, lts, overview, jep, interview]
+tags:
+- java17
+- lts
+- overview
+- jep
+- interview
 created: 2026-09-03
 completed: false
 pattern: 2
 difficulty: Easy
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+source: ''
+type: note
 ---
+
 ## Why it Matters
 
 Java 17 is **the modern baseline that most new code targets** and the version where interview questions about "modern Java" actually begin: **`sealed` classes/interfaces (JEP 409, final), `record` classes (JEP 395, final), pattern matching for `instanceof` (JEP 394), `switch` expressions (JEP 361), text blocks (JEP 378), strong encapsulation of JDK internals (JEP 403), and `jpackage`**. Roughly 70% of "what's new since 8?" answers are really 17 answers, because that is where the data-modeling primitives changed.

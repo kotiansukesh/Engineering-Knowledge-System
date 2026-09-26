@@ -1,16 +1,22 @@
 ---
-title: "Multi-Agent Patterns"
+title: Multi-Agent Patterns
 category: agentic
-tags: [ai, agents, patterns, orchestration]
-weeks: "12-15"
+tags:
+- ai
+- agents
+- patterns
+- orchestration
+weeks: 12-15
 created: 2026-09-02
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+difficulty: ''
+source: ''
+type: note
 ---
+
 ## Why it Matters
 
 Catalog of collaboration patterns, choose based on task complexity and autonomy needs.

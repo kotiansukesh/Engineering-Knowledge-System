@@ -1,18 +1,21 @@
 ---
-title: "Linked List"
+title: Linked List
 category: DSA
-tags: [dsa, linked-list]
+tags:
+- dsa
+- linked-list
 created: 2026-01-18
 updated: 2026-09-04
 pattern: 6
 difficulty: Medium
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+source: ''
+type: note
 ---
+
 ## Why it Matters
 
 A **linked list** is a linear data structure where elements (**nodes**) are not stored contiguously but are linked via **references/pointers**. Each node holds a key (value) and one or two pointers to neighbours. Size is dynamic; insertion/deletion at known positions is O(1) without shifting, at the cost of O(n) random access.

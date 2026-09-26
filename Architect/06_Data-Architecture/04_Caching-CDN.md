@@ -1,16 +1,23 @@
 ---
-title: "Caching & CDN — Multi-Layer Strategy"
-pattern: 4
-category: "Architect/06_Data-Architecture"
-tags: [data, caching, cdn, http-caching, redis, performance, invalidation]
+title: Caching & CDN — Multi-Layer Strategy
+category: Architect/06_Data-Architecture
+tags:
+- data
+- caching
+- cdn
+- http-caching
+- redis
+- performance
+- invalidation
 created: 2026-09-03
 completed: false
-reviewed: ""
-sr-due: ""
+reviewed: ''
+sr-due: ''
 difficulty: Medium
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+excalidraw: ''
+source: ''
+type: note
+weeks: ''
 ---
 
 ## 🎯 Intent

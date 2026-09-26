@@ -1,17 +1,23 @@
 ---
-title: "Instagram (Media Feed)"
-pattern: 7
-category: "System Design"
-tags: [system-design, interview, media, object-store, feed]
+title: Instagram (Media Feed)
+category: System Design
+tags:
+- system-design
+- interview
+- media
+- object-store
+- feed
 created: 2026-09-04
 completed: false
-reviewed: ""
-sr-due: ""
+reviewed: ''
+sr-due: ''
 difficulty: Hard
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+excalidraw: ''
+source: ''
+type: note
+weeks: ''
 ---
+
 ## Why it Matters
 
 Instagram separates the people who conflate data and bytes from the ones who don't. Metadata and media live in different stores, transcode happens off the request path, and the read path is a feed problem you already solved. Say the split early and the rest of the design is about rendition management and CDN cost.

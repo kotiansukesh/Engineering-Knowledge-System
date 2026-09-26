@@ -1,18 +1,26 @@
 ---
-title: "Spring Transaction"
+title: Spring Transaction
 category: Spring
-tags: [spring, transaction, aop, jdbc, jpa, java25, virtual-threads]
+tags:
+- spring
+- transaction
+- aop
+- jdbc
+- jpa
+- java25
+- virtual-threads
 created: 2026-01-18
 updated: 2026-09-02
 pattern: 8
 difficulty: Hard
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+source: ''
+type: note
 ---
+
 ## Why it Matters
 
 **Spring Transactions** is how a Spring app states **ACID boundaries declaratively**: put `@Transactional` on a service method and an AOP proxy starts a transaction before the method, commits on normal return, and rolls back on an unchecked exception. It matters because it removes hand-written `commit/rollback` boilerplate, and because its three classic traps are exactly what interviews probe: **self-invocation bypasses the proxy**, **checked exceptions do not roll back by default**, and **the transaction is thread-bound**, so it does not propagate to child virtual threads.

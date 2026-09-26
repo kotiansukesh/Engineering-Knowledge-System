@@ -2,17 +2,20 @@
 title: Chess Game
 category: LLD
 difficulty: Hard
-tags: [lld, machine-coding, chess]
+tags:
+- lld
+- machine-coding
+- chess
 source: https://github.com/ashishps1/awesome-low-level-design
 created: 2026-09-04
 pattern: 12
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+type: note
 ---
+
 ## Why it Matters
 
 - The canonical demonstration that polymorphism beats conditionals: each piece owns its own `isValidMove`, so the board never asks `if (piece == ROOK)`, adding a variant (Chess960, a fairy piece) is a new subclass, not an edit to a switch.

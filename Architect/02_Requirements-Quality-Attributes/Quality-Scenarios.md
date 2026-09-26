@@ -1,17 +1,20 @@
 ---
-title: "Quality Scenarios"
-pattern: 1
-category: "architect"
-tags: [quality, scenarios]
+title: Quality Scenarios
+category: architect
+tags:
+- quality
+- scenarios
 created: 2026-09-03
 completed: false
-reviewed: ""
-sr-due: ""
+reviewed: ''
+sr-due: ''
 difficulty: Easy
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+excalidraw: ''
+source: ''
+type: note
+weeks: ''
 ---
+
 Why it Matters
 
 Make qualities testable: stimulus → environment → response + measure (e.g. "p99 checkout < 300ms at 500 rps").

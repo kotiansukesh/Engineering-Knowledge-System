@@ -1,18 +1,22 @@
 ---
-title: "Dependency Injection Pattern"
+title: Dependency Injection Pattern
 category: Design-Patterns
-tags: [design-patterns, di, extra]
+tags:
+- design-patterns
+- di
+- extra
 created: 2026-01-18
 updated: 2026-09-04
 pattern: 2
 difficulty: Medium
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+source: ''
+type: note
 ---
+
 # Dependency Injection Pattern
 
 > Category: Extra • Source: [Refactoring.Guru , Dependency Injection Pattern](https://refactoring.guru/design-patterns/dependency-injection-pattern) • Part of [[Java/README|Java MOC]] → [[06_Design-Patterns/README|Design Patterns MOC]]

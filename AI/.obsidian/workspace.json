@@ -1,24 +1,24 @@
 {
   "main": {
-    "id": "53ab2a8478765a7b",
+    "id": "27064fe4e82a3888",
     "type": "split",
     "children": [
       {
-        "id": "e7c9abd7fc723f02",
+        "id": "a3c0aeaabc9cd0a8",
         "type": "tabs",
         "children": [
           {
-            "id": "8b12a8749b7abda9",
+            "id": "b3d49e68bda051f9",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "01_Fundamentals/Prompt Playground.md",
+                "file": "01_Fundamentals/01_LLM Fundamentals.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Prompt Playground"
+              "title": "01_LLM Fundamentals"
             }
           }
         ]
@@ -27,15 +27,15 @@
     "direction": "vertical"
   },
   "left": {
-    "id": "deec74438ee5ad3a",
+    "id": "65b5cb2636c2fa82",
     "type": "split",
     "children": [
       {
-        "id": "60500c2ac574e06f",
+        "id": "a38cfc99c41271ef",
         "type": "tabs",
         "children": [
           {
-            "id": "8d73d0977e8a48b9",
+            "id": "7db89d0256dcd4b4",
             "type": "leaf",
             "state": {
               "type": "file-explorer",
@@ -50,7 +50,7 @@
             }
           },
           {
-            "id": "f7b89e8868598ee2",
+            "id": "1d04bc2140405a7a",
             "type": "leaf",
             "state": {
               "type": "search",
@@ -67,7 +67,7 @@
             }
           },
           {
-            "id": "1b2ab3e7bd25c5df",
+            "id": "aea86b7778d701aa",
             "type": "leaf",
             "state": {
               "type": "bookmarks",
@@ -86,20 +86,20 @@
     "width": 300
   },
   "right": {
-    "id": "525d7ae298d39c03",
+    "id": "bc9449493fe90b70",
     "type": "split",
     "children": [
       {
-        "id": "b1b172c3b668170a",
+        "id": "c3993027a4472edd",
         "type": "tabs",
         "children": [
           {
-            "id": "948adfa60cc19060",
+            "id": "9998cfc0ddb1e6f3",
             "type": "leaf",
             "state": {
               "type": "backlink",
               "state": {
-                "file": "00_Overview/Roadmap Overview.md",
+                "file": "01_Fundamentals/01_LLM Fundamentals.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -113,12 +113,12 @@
             }
           },
           {
-            "id": "e3faa45576e44e85",
+            "id": "00021115bda9134a",
             "type": "leaf",
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "00_Overview/Roadmap Overview.md",
+                "file": "01_Fundamentals/01_LLM Fundamentals.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
@@ -127,7 +127,7 @@
             }
           },
           {
-            "id": "d741c397f946ff87",
+            "id": "98cab38033750e5c",
             "type": "leaf",
             "state": {
               "type": "tag",
@@ -142,7 +142,7 @@
             }
           },
           {
-            "id": "d45d646710339269",
+            "id": "98b21dc50d6b308d",
             "type": "leaf",
             "state": {
               "type": "all-properties",
@@ -156,12 +156,12 @@
             }
           },
           {
-            "id": "42229d36175b99b3",
+            "id": "54e9a896b69dd6ab",
             "type": "leaf",
             "state": {
               "type": "outline",
               "state": {
-                "file": "00_Overview/Roadmap Overview.md",
+                "file": "01_Fundamentals/01_LLM Fundamentals.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
@@ -169,19 +169,8 @@
               "icon": "lucide-list",
               "title": "Outline"
             }
-          },
-          {
-            "id": "5c1f5249ffc2b515",
-            "type": "leaf",
-            "state": {
-              "type": "review-queue-list-view",
-              "state": {},
-              "icon": "lucide-ghost",
-              "title": "review-queue-list-view"
-            }
           }
-        ],
-        "currentTab": 5
+        ]
       }
     ],
     "direction": "horizontal",
@@ -196,38 +185,9 @@
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
-      "bases:Create new base": false,
-      "templater-obsidian:Templater": false,
-      "obsidian-spaced-repetition:Review flashcards": false
+      "bases:Create new base": false
     }
   },
-  "active": "5c1f5249ffc2b515",
-  "lastOpenFiles": [
-    "01_Fundamentals/Prompt Playground.md",
-    "01_Fundamentals/Interview-Bank.md",
-    "00_Overview/Certification Guide.md",
-    "00_Overview/2026 Trends Update.md",
-    "01_Fundamentals/01_Python for AI.md",
-    "README.md",
-    "07_Cross-Cutting/README.md",
-    "00_Overview/Roadmap Overview.md",
-    "07_Cross-Cutting/02_AI Evaluation.md",
-    "03_Agentic-AI/LangGraph-Fundamentals.md",
-    "03_Agentic-AI/Human-in-the-Loop.md",
-    "02_RAG-Engineering/Agentic-Adaptive-Corrective-RAG.md",
-    "07_Cross-Cutting/01_MCP.md",
-    "07_Cross-Cutting/06_Multi-Model Routing.md",
-    "07_Cross-Cutting/MCP Comparison Table.md",
-    "00_Overview/Weekly Tracker.md",
-    "03_Agentic-AI/Enterprise AI Operations Platform.md",
-    "03_Agentic-AI/Architecting Agentic AI Solutions.md",
-    "02_RAG-Engineering/01_LLM Engineering with RAG.md",
-    "02_RAG-Engineering/02_Design LLM Architectures.md",
-    "02_RAG-Engineering/Checklist.md",
-    "02_RAG-Engineering/Enterprise Document Search.md",
-    "02_RAG-Engineering/RAG Variants and Retrieval Strategies.md",
-    "02_RAG-Engineering/README.md",
-    "01_Fundamentals/AI Backend Template.md",
-    "01_Fundamentals/06_Tool Calling.md"
-  ]
+  "active": "b3d49e68bda051f9",
+  "lastOpenFiles": []
 }

@@ -1,18 +1,23 @@
 ---
-title: "String Handling"
+title: String Handling
 category: Core-Java
-tags: [java, string, interview, java25]
+tags:
+- java
+- string
+- interview
+- java25
 created: 2026-09-02
 updated: 2026-09-04
 pattern: 15
 difficulty: Easy
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+source: ''
+type: note
 ---
+
 # String Handling
 > Part of [[Java/01_Core-Java/README|Core Java]]
 

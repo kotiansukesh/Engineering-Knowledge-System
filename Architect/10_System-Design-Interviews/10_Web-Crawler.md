@@ -1,17 +1,24 @@
 ---
-title: "Web Crawler"
-pattern: 10
-category: "System Design"
-tags: [system-design, interview, crawler, frontier, dedupe, politeness]
+title: Web Crawler
+category: System Design
+tags:
+- system-design
+- interview
+- crawler
+- frontier
+- dedupe
+- politeness
 created: 2026-09-04
 completed: false
-reviewed: ""
-sr-due: ""
+reviewed: ''
+sr-due: ''
 difficulty: Hard
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+excalidraw: ''
+source: ''
+type: note
+weeks: ''
 ---
+
 ## Why it Matters
 
 A crawler's throughput is set by politeness, not bandwidth: a ≥1s-per-host gap means scale comes from host diversity, so the frontier, sharded queues per host with adaptive revisit, *is* the system. It is also the drill where deduplication and trap defence separate a design that runs from one that eats itself.

@@ -1,17 +1,23 @@
 ---
-title: "TOGAF & iSAQB Primer, What to Borrow"
-pattern: 4
-category: "Governance & Docs"
-tags: [togaf, isaqb, adm, certification, governance]
+title: TOGAF & iSAQB Primer, What to Borrow
+category: Governance & Docs
+tags:
+- togaf
+- isaqb
+- adm
+- certification
+- governance
 created: 2026-09-03
 completed: false
-reviewed: ""
-sr-due: ""
+reviewed: ''
+sr-due: ''
 difficulty: Medium
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+excalidraw: ''
+source: ''
+type: note
+weeks: ''
 ---
+
 ## Why it Matters
 
 You will rarely apply TOGAF literally, but its vocabulary shows up in every enterprise interview and every audit conversation. Borrowing the useful skeleton, a repository, a principles catalogue, a repeatable ADM slice, gives just enough governance to be credible in a bank without burying a startup in ceremony.

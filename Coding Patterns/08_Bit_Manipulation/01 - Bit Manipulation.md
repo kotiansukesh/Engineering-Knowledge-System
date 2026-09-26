@@ -3,22 +3,23 @@ title: Bit Manipulation
 pattern: 8
 category: Coding Patterns/08_Bit_Manipulation
 tags:
-  - pattern/bit-manipulation
-  - pattern/bit-manipulation/bitwise
-  - pattern/bit-manipulation/xor
+- pattern/bit-manipulation
+- pattern/bit-manipulation/bitwise
+- pattern/bit-manipulation/xor
 leetcode:
-  - 136
-  - 191
-  - 231
+- 136
+- 191
+- 231
 created: '2026-09-02'
 completed: false
 reviewed: ''
 sr-due: ''
 difficulty: Easy
-source: 'https://blog.algomaster.io/p/20-dsa-patterns'
+source: https://blog.algomaster.io/p/20-dsa-patterns
 problems-solved: []
 problems-solved-dates: {}
-excalidraw: ""
+excalidraw: ''
+type: note
 ---
 
 # Bit Manipulation

@@ -1,16 +1,21 @@
 ---
-title: "FastAPI Backend"
-pattern: 7
-category: "AI/01_Fundamentals"
-tags: [fastapi, backend, async, streaming, pydantic]
+title: FastAPI Backend
+category: AI/01_Fundamentals
+tags:
+- fastapi
+- backend
+- async
+- streaming
+- pydantic
 created: 2026-09-02
 completed: false
-reviewed: ""
-sr-due: ""
+reviewed: ''
+sr-due: ''
 difficulty: Easy
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+excalidraw: ''
+source: ''
+type: note
+weeks: ''
 ---
 
 ## 🎯 Intent

@@ -1,18 +1,22 @@
 ---
-title: "Abstraction"
+title: Abstraction
 category: Java/02_OOP
-tags: [java, oop, abstraction]
+tags:
+- java
+- oop
+- abstraction
 created: 2026-01-18
 updated: 2026-09-04
 pattern: 2
 difficulty: Medium
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+source: ''
+type: note
 ---
+
 ## Why it Matters
 
 **Abstraction** means showing **what** an object does and hiding **how** it does it. Callers depend on the **contract**, not the concrete class , so implementations can be swapped (UPI ↔ card ↔ COD) without touching callers.

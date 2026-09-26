@@ -1,18 +1,21 @@
 ---
-title: "CompletableFuture"
+title: CompletableFuture
 category: Concurrency
-tags: [concurrency, interview]
+tags:
+- concurrency
+- interview
 created: 2026-01-18
 updated: 2026-09-02
 pattern: 2
 difficulty: Hard
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+source: ''
+type: note
 ---
+
 ## Why it Matters
 
 1. Composition, `thenApply`/`thenCompose` chain without nested callbacks.

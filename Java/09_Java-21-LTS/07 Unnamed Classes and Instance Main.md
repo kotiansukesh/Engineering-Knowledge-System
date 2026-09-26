@@ -1,17 +1,22 @@
 ---
-title: "Unnamed Classes and Instance Main , JEP 445 (Java 21 Preview)"
+title: Unnamed Classes and Instance Main , JEP 445 (Java 21 Preview)
 category: java21
-tags: [java21, jep445, preview, interview]
+tags:
+- java21
+- jep445
+- preview
+- interview
 created: 2026-09-03
 completed: false
 pattern: 8
 difficulty: Medium
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+source: ''
+type: note
 ---
+
 ## Why it Matters
 
 Lower ceremony for beginners/scripts , `java Hello.java` direct launch (JEP 458 in 21 also).

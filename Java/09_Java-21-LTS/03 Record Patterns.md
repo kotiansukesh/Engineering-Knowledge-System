@@ -1,17 +1,22 @@
 ---
-title: "Record Patterns , JEP 440 (Java 21)"
+title: Record Patterns , JEP 440 (Java 21)
 category: java21
-tags: [java21, jep440, record-patterns, interview]
+tags:
+- java21
+- jep440
+- record-patterns
+- interview
 created: 2026-09-03
 completed: false
 pattern: 4
 difficulty: Medium
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+source: ''
+type: note
 ---
+
 ## Why it Matters
 
 Pattern-match data carriers without manual `p.x()` accessors , concise, type-safe, nestable.

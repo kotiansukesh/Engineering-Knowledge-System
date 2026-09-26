@@ -1,18 +1,22 @@
 ---
-title: "Concurrent Collections"
+title: Concurrent Collections
 category: Concurrency
-tags: [concurrency, collections, interview]
+tags:
+- concurrency
+- collections
+- interview
 created: 2026-01-18
 updated: 2026-09-02
 pattern: 3
 difficulty: Hard
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+source: ''
+type: note
 ---
+
 ## Why it Matters
 
 1. Coarse locking, single mutex for entire collection → contention bottleneck.

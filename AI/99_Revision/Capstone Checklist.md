@@ -1,15 +1,22 @@
 ---
-title: "Capstone Checklist"
+title: Capstone Checklist
 category: revision
-tags: [ai, capstone, checklist, revision]
+tags:
+- ai
+- capstone
+- checklist
+- revision
 created: 2026-09-02
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+difficulty: ''
+source: ''
+type: note
+weeks: ''
 ---
+
 ## Why it Matters
 
 The capstone is not the platform, it is the **defence** of the platform, the moment 36 weeks of building has to survive an architecture review. This checklist asks the questions an interviewer actually asks: can you show evolution rather than rebuild, trace each certification to an artifact, and defend the trade-offs out loud.

@@ -1,17 +1,22 @@
 ---
-title: "Layered Architecture"
-pattern: 1
-category: "Architecture Styles"
-tags: [architecture, layered, n-tier, spring]
+title: Layered Architecture
+category: Architecture Styles
+tags:
+- architecture
+- layered
+- n-tier
+- spring
 created: 2026-09-03
 completed: false
-reviewed: ""
-sr-due: ""
+reviewed: ''
+sr-due: ''
 difficulty: Easy
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+excalidraw: ''
+source: ''
+type: note
+weeks: ''
 ---
+
 ## Why it Matters
 
 The default most teams actually ship: a familiar horizontal split that keeps concerns separated and onboarding fast. It earns its keep when it is *enforced*, layering that is only convention drifts into a tangled anemic domain, and the cost of that drift shows up as slow feature changes and service classes nothing owns.

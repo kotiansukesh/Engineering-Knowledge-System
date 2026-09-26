@@ -1,17 +1,23 @@
 ---
-title: "Resilience & Chaos, Bulkheads, Backpressure & GameDays"
-pattern: 4
-category: "Non-Functional & Ops"
-tags: [resilience, chaos, bulkhead, backpressure, gameday]
+title: Resilience & Chaos, Bulkheads, Backpressure & GameDays
+category: Non-Functional & Ops
+tags:
+- resilience
+- chaos
+- bulkhead
+- backpressure
+- gameday
 created: 2026-09-03
 completed: false
-reviewed: ""
-sr-due: ""
+reviewed: ''
+sr-due: ''
 difficulty: Medium
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+excalidraw: ''
+source: ''
+type: note
+weeks: ''
 ---
+
 ## Why it Matters
 
 Graceful degradation is not something you can declare; it has to be proven under failure. Isolating failure domains and bounding queues is the design, but a GameDay with a hypothesis and a blast radius is the test, the first time a bulkhead matters must not be during an outage.

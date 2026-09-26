@@ -1,18 +1,23 @@
 ---
-title: "Annotations"
+title: Annotations
 category: Core-Java
-tags: [java, annotations, interview, java25]
+tags:
+- java
+- annotations
+- interview
+- java25
 created: 2026-01-18
 updated: 2026-09-04
 pattern: 1
 difficulty: Easy
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+source: ''
+type: note
 ---
+
 # Annotations
 > Part of [[Java/01_Core-Java/README|Core Java]]
 

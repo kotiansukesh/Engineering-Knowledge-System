@@ -1,16 +1,25 @@
 ---
-title: "Multi-Model Routing"
+title: Multi-Model Routing
 category: cross-cutting
-tags: [ai, routing, multi-model, fallback, interview, 2026-trend]
+tags:
+- ai
+- routing
+- multi-model
+- fallback
+- interview
+- 2026-trend
 created: 2026-09-02
 updated: 2026-09-03
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+difficulty: ''
+source: ''
+type: note
+weeks: ''
 ---
+
 ## Why it Matters
 
 Dynamically choose the cheapest capable model per query (e.g., Haiku for fact lookup, Sonnet for coding, Gemini for long context, self-hosted Llama for cheap bulk), with **fallbacks** on 429/timeout.

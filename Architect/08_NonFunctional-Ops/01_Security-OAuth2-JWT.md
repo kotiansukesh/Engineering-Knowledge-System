@@ -1,17 +1,23 @@
 ---
-title: "Security, OAuth2, OIDC & JWT"
-pattern: 1
-category: "Non-Functional & Ops"
-tags: [security, oauth2, oidc, jwt, spring-security]
+title: Security, OAuth2, OIDC & JWT
+category: Non-Functional & Ops
+tags:
+- security
+- oauth2
+- oidc
+- jwt
+- spring-security
 created: 2026-09-03
 completed: false
-reviewed: ""
-sr-due: ""
+reviewed: ''
+sr-due: ''
 difficulty: Easy
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+excalidraw: ''
+source: ''
+type: note
+weeks: ''
 ---
+
 ## Why it Matters
 
 Authentication is the one subsystem where inventing your own is a liability, and OAuth2/OIDC exists so you don't. Short-lived signed tokens validated locally let a fleet scale statelessly while an identity provider owns the credentials; the hard parts move to token lifetime, revocation and keeping secrets out of logs, all cheaper than a breach.

@@ -1,18 +1,24 @@
 ---
-title: "Dependency Injection"
+title: Dependency Injection
 category: Spring
-tags: [spring, di, ioc, java25, virtual-threads]
+tags:
+- spring
+- di
+- ioc
+- java25
+- virtual-threads
 created: 2026-01-18
 updated: 2026-09-02
 pattern: 1
 difficulty: Hard
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+source: ''
+type: note
 ---
+
 ## Why it Matters
 
 **Dependency Injection (DI)** is *the* design principle behind the Spring container and the most-tested concept in a Spring interview: a class receives its collaborators from outside instead of building them with `new`. **Inversion of Control (IoC)** is the broader idea, the container decides what to instantiate and when; **DI** is the concrete mechanism, constructor, setter, or field. It matters because it is what makes a Spring app testable (swap a real `PaymentGateway` for a fake), loosely coupled (swap implementations without touching the client), and AOP-friendly (the container proxy is what makes `@Transactional` work).

@@ -1,16 +1,26 @@
 ---
-title: "Cost Optimization"
+title: Cost Optimization
 category: cross-cutting
-tags: [ai, cost, caching, routing, batching, interview, 2026-trend]
+tags:
+- ai
+- cost
+- caching
+- routing
+- batching
+- interview
+- 2026-trend
 created: 2026-09-02
 updated: 2026-09-03
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+difficulty: ''
+source: ''
+type: note
+weeks: ''
 ---
+
 ## Why it Matters
 
 Cut **$ + latency** per query via layered optimization: **semantic cache → batching → routing (small/cheap first) → fallback**, without hurting faithfulness.

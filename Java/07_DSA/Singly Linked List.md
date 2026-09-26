@@ -1,18 +1,21 @@
 ---
-title: "Singly Linked List"
+title: Singly Linked List
 category: DSA
-tags: [dsa, linked-list]
+tags:
+- dsa
+- linked-list
 created: 2026-01-18
 updated: 2026-09-04
 pattern: 8
 difficulty: Medium
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+source: ''
+type: note
 ---
+
 ## Why it Matters
 
 A **singly linked list** is a chain of **nodes** where each node stores a `key` and a single pointer `next` to the successor. The list is accessed via `head` (first node) and optionally `tail` (last node). Traversal is **forward-only**.

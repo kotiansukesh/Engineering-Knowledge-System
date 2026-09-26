@@ -3,22 +3,23 @@ title: Shortest Path
 pattern: 15
 category: Coding Patterns/05_Trees_Graphs
 tags:
-  - pattern/graph
-  - pattern/tree/shortest-path
-  - pattern/tree/dijkstra
+- pattern/graph
+- pattern/tree/shortest-path
+- pattern/tree/dijkstra
 leetcode:
-  - 743
-  - 787
-  - 1334
+- 743
+- 787
+- 1334
 created: '2026-09-02'
 completed: false
 reviewed: ''
 sr-due: ''
 difficulty: Hard
-source: 'https://blog.algomaster.io/p/20-dsa-patterns'
+source: https://blog.algomaster.io/p/20-dsa-patterns
 problems-solved: []
 problems-solved-dates: {}
-excalidraw: ""
+excalidraw: ''
+type: note
 ---
 
 # Shortest Path

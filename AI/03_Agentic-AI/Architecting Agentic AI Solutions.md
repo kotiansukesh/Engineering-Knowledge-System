@@ -1,16 +1,22 @@
 ---
-title: "Architecting Agentic AI Solutions (NUS-ISS)"
+title: Architecting Agentic AI Solutions (NUS-ISS)
 category: agentic
-tags: [ai, agents, nus-iss, architecture]
-weeks: "11-16"
+tags:
+- ai
+- agents
+- nus-iss
+- architecture
+weeks: 11-16
 created: 2026-09-02
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+difficulty: ''
+source: ''
+type: note
 ---
+
 ## Why it Matters
 
 Graduate-level intensive for engineers who want to **lead** multi-agent system design, logical/physical architecture, trade-offs, deployment.

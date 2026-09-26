@@ -1,17 +1,23 @@
 ---
-title: "Serverless"
-pattern: 5
-category: "Architecture Styles"
-tags: [architecture, serverless, lambda, faas, spring-cloud-function]
+title: Serverless
+category: Architecture Styles
+tags:
+- architecture
+- serverless
+- lambda
+- faas
+- spring-cloud-function
 created: 2026-09-03
 completed: false
-reviewed: ""
-sr-due: ""
+reviewed: ''
+sr-due: ''
 difficulty: Medium
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+excalidraw: ''
+source: ''
+type: note
+weeks: ''
 ---
+
 ## Why it Matters
 
 Serverless converts ops cost into per-invocation cost and makes elasticity someone else's problem. That is a winning trade for spiky, rare or glue workloads, and a losing one for sustained throughput and sub-100ms latency paths, the bill and the cold starts will tell you which side you are on.

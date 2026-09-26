@@ -1,17 +1,23 @@
 ---
-title: "SOLID , Summary & Field Guide"
+title: SOLID , Summary & Field Guide
 category: Java/02_OOP
-tags: [java, oop, solid, design-principles, summary]
+tags:
+- java
+- oop
+- solid
+- design-principles
+- summary
 created: 2026-09-04
 pattern: 16
 difficulty: Medium
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+source: ''
+type: note
 ---
+
 ## Why it Matters
 
 SOLID is five independent bets about where change hurts: SRP splits reasons to change, OCP keeps shipped code closed, LSP keeps substitutes honest, ISP keeps interfaces lean, DIP points dependencies at abstractions. Memorize the table; internalize the conflicts , principles collide, and judgment is picking the right loser.

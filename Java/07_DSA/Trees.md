@@ -1,18 +1,23 @@
 ---
-title: "Trees"
+title: Trees
 category: DSA
-tags: [dsa, trees, binary-tree, bst]
+tags:
+- dsa
+- trees
+- binary-tree
+- bst
 created: 2026-01-18
 updated: 2026-09-04
 pattern: 10
 difficulty: Medium
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+source: ''
+type: note
 ---
+
 ## Why it Matters
 
 A **tree** is a hierarchical, acyclic connected structure of **nodes** with a single **root**; each node has zero or more **children** and at most one **parent**. Commonly used for searching, ordering, and representing hierarchies.

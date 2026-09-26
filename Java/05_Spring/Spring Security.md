@@ -1,18 +1,26 @@
 ---
-title: "Spring Security"
+title: Spring Security
 category: Spring
-tags: [spring, security, authentication, authorization, oauth2, java25, virtual-threads]
+tags:
+- spring
+- security
+- authentication
+- authorization
+- oauth2
+- java25
+- virtual-threads
 created: 2026-01-18
 updated: 2026-09-02
 pattern: 7
 difficulty: Hard
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+source: ''
+type: note
 ---
+
 ## Why it Matters
 
 **Spring Security** is the **filter-chain framework** that protects every request in a Spring app, and it is deliberately layered so it can be misunderstood: `DelegatingFilterProxy` (servlet filter) → `FilterChainProxy` → a `SecurityFilterChain` of filters → `AuthenticationManager` + `AuthenticationProvider` → `SecurityContext` → authorization rules. It matters because security misconfiguration is not a bug you find in QA, it is a breach. The Java 25 wrinkle that interviewers now probe: `SecurityContext` is `ThreadLocal`-based, so virtual threads, `@Async`, and `StructuredTaskScope` need explicit delegation rather than `InheritableThreadLocal`.

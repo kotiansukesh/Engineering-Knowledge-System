@@ -2,17 +2,20 @@
 title: Vending Machine
 category: LLD
 difficulty: Easy
-tags: [lld, machine-coding, vending-machine]
+tags:
+- lld
+- machine-coding
+- vending-machine
 source: https://github.com/ashishps1/awesome-low-level-design
 created: 2026-09-04
 pattern: 4
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+type: note
 ---
+
 ## Why it Matters
 
 - The cleanest demonstration that behaviour *depends on history*: the same `select` call is legal after inserting money and illegal before it. Modelling that as an object instead of a flag is the whole point of the [[06_Design-Patterns/Behavioral/State|State]] pattern.

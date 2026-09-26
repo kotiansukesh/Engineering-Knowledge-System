@@ -1,18 +1,22 @@
 ---
-title: "Sorted set"
+title: Sorted set
 category: Collections
-tags: [java, collections, set]
+tags:
+- java
+- collections
+- set
 created: 2026-01-18
 updated: 2026-09-04
 pattern: 3
 difficulty: Easy
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+source: ''
+type: note
 ---
+
 ## Why it Matters
 
 The **sorted-view interfaces** (`SortedSet` → `NavigableSet`): range views (`subSet`, `headSet`) and nearest-match ops (`lower`, `floor`, `ceiling`, `higher`) over a `TreeSet`. Views are live, not copies.

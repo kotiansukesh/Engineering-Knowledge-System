@@ -1,17 +1,22 @@
 ---
-title: "Compact Object Headers and Performance"
+title: Compact Object Headers and Performance
 category: Modern-Java
-tags: [java25, jep450, performance, jvm]
+tags:
+- java25
+- jep450
+- performance
+- jvm
 created: 2026-09-03
 completed: false
 pattern: 8
 difficulty: Medium
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+source: ''
+type: note
 ---
+
 ## Why it Matters
 
 Heap is often header-heavy (small objects, `HashMap` nodes, `record` instances). Halving header doubles object density, improves GC and cache.

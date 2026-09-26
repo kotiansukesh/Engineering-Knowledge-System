@@ -1,18 +1,23 @@
 ---
-title: "Exception Handling"
+title: Exception Handling
 category: Core-Java
-tags: [java, exceptions, interview, java25]
+tags:
+- java
+- exceptions
+- interview
+- java25
 created: 2026-01-18
 updated: 2026-09-04
 pattern: 5
 difficulty: Easy
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+source: ''
+type: note
 ---
+
 # Exception Handling
 > Part of [[Java/01_Core-Java/README|Core Java]]
 

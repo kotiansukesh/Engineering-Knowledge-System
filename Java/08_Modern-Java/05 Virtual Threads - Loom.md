@@ -1,17 +1,23 @@
 ---
-title: "Virtual Threads , Loom"
+title: Virtual Threads , Loom
 category: Modern-Java
-tags: [java25, loom, virtual-threads, jep491, concurrency]
+tags:
+- java25
+- loom
+- virtual-threads
+- jep491
+- concurrency
 created: 2026-09-03
 completed: false
 pattern: 5
 difficulty: Medium
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+source: ''
+type: note
 ---
+
 ## Why it Matters
 
 Handle **millions** of concurrent blocking tasks on one JVM without pool tuning, queue saturation, or reactive rewrite. Blocking (`Thread.sleep`, DB, HTTP) parks the virtual thread, carrier thread is reused.

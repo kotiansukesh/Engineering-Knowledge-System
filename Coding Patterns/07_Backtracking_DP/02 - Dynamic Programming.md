@@ -3,20 +3,21 @@ title: Dynamic Programming
 pattern: 20
 category: Coding Patterns/07_Backtracking_DP
 tags:
-  - pattern/dp
+- pattern/dp
 leetcode:
-  - 70
-  - 322
-  - 1143
+- 70
+- 322
+- 1143
 created: '2026-09-02'
 completed: false
 reviewed: ''
 sr-due: ''
 difficulty: Hard
-source: 'https://blog.algomaster.io/p/20-dsa-patterns'
+source: https://blog.algomaster.io/p/20-dsa-patterns
 problems-solved: []
 problems-solved-dates: {}
-excalidraw: ""
+excalidraw: ''
+type: note
 ---
 
 # Dynamic Programming

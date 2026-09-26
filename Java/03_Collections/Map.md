@@ -1,18 +1,22 @@
 ---
-title: "Map"
+title: Map
 category: Collections
-tags: [java, collections, map]
+tags:
+- java
+- collections
+- map
 created: 2026-01-18
 updated: 2026-09-04
 pattern: 2
 difficulty: Easy
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+source: ''
+type: note
 ---
+
 ## Why it Matters
 
 The **key→value lookup** abstraction: **unique keys**, O(1) average access with hashing, O(log n) with trees. Maps back caches, indexes, frequency tables, and configs , pick the impl by ordering and concurrency needs.

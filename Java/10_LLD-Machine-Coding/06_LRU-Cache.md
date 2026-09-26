@@ -2,17 +2,20 @@
 title: LRU Cache
 category: LLD
 difficulty: Medium
-tags: [lld, machine-coding, lru-cache]
+tags:
+- lld
+- machine-coding
+- lru-cache
 source: https://github.com/ashishps1/awesome-low-level-design
 created: 2026-09-04
 pattern: 8
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+type: note
 ---
+
 ## Why it Matters
 
 - The canonical demonstration that a *data structure* is a design: HashMap for O(1) lookup + doubly-linked list for O(1) recency reordering, glued by holding node references in the map. Neither alone gives both operations in O(1).

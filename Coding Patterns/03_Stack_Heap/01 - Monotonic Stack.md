@@ -3,21 +3,22 @@ title: Monotonic Stack
 pattern: 7
 category: Coding Patterns/03_Stack_Heap
 tags:
-  - pattern/stack
-  - pattern/stack/monotonic-stack
+- pattern/stack
+- pattern/stack/monotonic-stack
 leetcode:
-  - 739
-  - 496
-  - 84
+- 739
+- 496
+- 84
 created: '2026-09-02'
 completed: false
 reviewed: ''
 sr-due: ''
 difficulty: Medium
-source: 'https://blog.algomaster.io/p/20-dsa-patterns'
+source: https://blog.algomaster.io/p/20-dsa-patterns
 problems-solved: []
 problems-solved-dates: {}
-excalidraw: ""
+excalidraw: ''
+type: note
 ---
 
 # Monotonic Stack

@@ -2,17 +2,20 @@
 title: ATM
 category: LLD
 difficulty: Medium
-tags: [lld, machine-coding, atm]
+tags:
+- lld
+- machine-coding
+- atm
 source: https://github.com/ashishps1/awesome-low-level-design
 created: 2026-09-04
 pattern: 7
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+type: note
 ---
+
 ## Why it Matters
 
 - The clearest case that "what you may do depends on where you are": `withdraw` is legal after PIN auth and nonsense from idle. Modelling that with a state object per phase removes the scattered guards that rot in real banking code.

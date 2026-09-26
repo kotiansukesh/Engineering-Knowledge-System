@@ -1,18 +1,21 @@
 ---
-title: "Array"
+title: Array
 category: DSA
-tags: [dsa, array]
+tags:
+- dsa
+- array
 created: 2026-01-18
 updated: 2026-09-04
 pattern: 1
 difficulty: Medium
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+source: ''
+type: note
 ---
+
 ## Why it Matters
 
 An **array** is a contiguous block of memory holding equal-sized elements indexed by contiguous integers. Element address is computed arithmetically: `addr(i) = base + elem_size × (i - first_index)`, hence O(1) random access. Fixed capacity; dynamic growth requires reallocation (e.g., `ArrayList`).

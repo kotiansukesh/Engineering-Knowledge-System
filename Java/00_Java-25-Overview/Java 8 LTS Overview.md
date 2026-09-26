@@ -1,17 +1,23 @@
 ---
-title: "Java 8 LTS Overview"
+title: Java 8 LTS Overview
 category: overview
-tags: [java8, lts, overview, jep, interview]
+tags:
+- java8
+- lts
+- overview
+- jep
+- interview
 created: 2026-09-03
 completed: false
 pattern: 4
 difficulty: Easy
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+source: ''
+type: note
 ---
+
 ## Why it Matters
 
 Java 8 is the **baseline dialect of Java** that nearly all production code and most interview questions are still written in: **lambdas + functional interfaces, Streams, `java.time`, `default` methods, `Optional`, `CompletableFuture`**. Every later LTS is a *delta* on 8, so if you can explain 8 precisely, "what's new since 8?" becomes a diff question instead of a rewrite.

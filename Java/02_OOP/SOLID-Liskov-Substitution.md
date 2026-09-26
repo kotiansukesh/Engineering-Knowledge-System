@@ -1,17 +1,24 @@
 ---
-title: "SOLID , Liskov Substitution Principle"
+title: SOLID , Liskov Substitution Principle
 category: Java/02_OOP
-tags: [java, oop, solid, lsp, inheritance, design-principles]
+tags:
+- java
+- oop
+- solid
+- lsp
+- inheritance
+- design-principles
 created: 2026-09-04
 pattern: 13
 difficulty: Medium
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+source: ''
+type: note
 ---
+
 ## Why it Matters
 
 - The Problem: base `Document` promises `save()`; new `ReadOnlyDocument extends Document` overrides `save()` to throw. `DocumentProcessor` takes any `Document` and calls `save()` , blows up at runtime on the read-only subtype. Base class promised too much; fix is to split readable vs writable contracts.

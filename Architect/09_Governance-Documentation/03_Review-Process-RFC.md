@@ -1,17 +1,22 @@
 ---
-title: "Review Process, RFCs & Design Reviews"
-pattern: 3
-category: "Governance & Docs"
-tags: [rfc, design-review, governance, process]
+title: Review Process, RFCs & Design Reviews
+category: Governance & Docs
+tags:
+- rfc
+- design-review
+- governance
+- process
 created: 2026-09-03
 completed: false
-reviewed: ""
-sr-due: ""
+reviewed: ''
+sr-due: ''
 difficulty: Medium
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+excalidraw: ''
+source: ''
+type: note
+weeks: ''
 ---
+
 ## Why it Matters
 
 Rejecting a direction in code review costs ten times what it costs in a design review, because code review comes after the work. A short written RFC with alternatives, an SLO and a rollback plan is the cheapest risk reduction available, it catches coupling, security and cost mistakes while they are still paragraphs, not pull requests.

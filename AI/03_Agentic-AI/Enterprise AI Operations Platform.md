@@ -1,17 +1,22 @@
 ---
-title: "Enterprise AI Operations Platform"
+title: Enterprise AI Operations Platform
 category: agentic
-tags: [ai, project, agents, orchestration]
-weeks: "11-16"
+tags:
+- ai
+- project
+- agents
+- orchestration
+weeks: 11-16
 created: 2026-09-02
 completed: false
 type: project
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+difficulty: ''
+source: ''
 ---
+
 ## Why it Matters
 
 Evolve [[AI/02_RAG-Engineering/Enterprise Document Search|Enterprise Document Search]] into a 7-agent platform with orchestration, memory, human approval, monitoring, and audit logs. This is your NUS-ISS capstone.

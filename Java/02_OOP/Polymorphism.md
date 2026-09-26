@@ -1,18 +1,22 @@
 ---
-title: "Polymorphism"
+title: Polymorphism
 category: Java/02_OOP
-tags: [java, oop, polymorphism]
+tags:
+- java
+- oop
+- polymorphism
 created: 2026-01-18
 updated: 2026-09-04
 pattern: 9
 difficulty: Medium
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+source: ''
+type: note
 ---
+
 ## Why it Matters
 
 **Polymorphism** lets one **interface** have many **implementations**. The same call behaves differently depending on the actual object , so callers depend on a **supertype** and stay unaware of concrete types. New types plug in without changing existing code (**open-closed**).

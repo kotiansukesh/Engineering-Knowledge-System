@@ -2,17 +2,20 @@
 title: Ride Sharing (Uber)
 category: LLD
 difficulty: Hard
-tags: [lld, machine-coding, uber]
+tags:
+- lld
+- machine-coding
+- uber
 source: https://github.com/ashishps1/awesome-low-level-design
 created: 2026-09-04
 pattern: 15
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+type: note
 ---
+
 ## Why it Matters
 
 - The clearest demonstration of two independent lifecycles that must stay consistent: the *driver's* availability (AVAILABLE ⇄ ON_TRIP) and the *trip's* status (REQUESTED → ASSIGNED → ONGOING → COMPLETED). When they disagree, you get the classic bug, a driver shown free who is already in a ride, and two riders dispatched to one car.

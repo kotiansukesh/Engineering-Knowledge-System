@@ -1,18 +1,22 @@
 ---
-title: "Stack"
+title: Stack
 category: Collections
-tags: [java, collections, list]
+tags:
+- java
+- collections
+- list
 created: 2026-01-18
 updated: 2026-09-04
 pattern: 4
 difficulty: Easy
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+source: ''
+type: note
 ---
+
 ## Why it Matters
 
 The **legacy LIFO stack** over `Vector`: a cautionary tale of **inheritance leaking encapsulation** (indexed ops break LIFO) plus **coarse synchronization**. Know it to replace it , with `ArrayDeque` as `Deque`.

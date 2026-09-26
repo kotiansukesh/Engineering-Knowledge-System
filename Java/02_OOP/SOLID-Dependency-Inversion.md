@@ -1,17 +1,24 @@
 ---
-title: "SOLID , Dependency Inversion Principle"
+title: SOLID , Dependency Inversion Principle
 category: Java/02_OOP
-tags: [java, oop, solid, dip, di, design-principles]
+tags:
+- java
+- oop
+- solid
+- dip
+- di
+- design-principles
 created: 2026-09-04
 pattern: 11
 difficulty: Medium
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+source: ''
+type: note
 ---
+
 ## Why it Matters
 
 - The two rules, verbatim: (1) high-level modules should not depend on low-level modules , both should depend on abstractions; (2) abstractions should not depend on details , details should depend on abstractions.

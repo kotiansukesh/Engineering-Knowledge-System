@@ -1,16 +1,20 @@
 ---
-title: "Architecture Principles"
-pattern: 5
-category: "Architect/01_Architecture-Foundations"
-tags: [architecture, principles, governance, fitness-functions]
+title: Architecture Principles
+category: Architect/01_Architecture-Foundations
+tags:
+- architecture
+- principles
+- governance
+- fitness-functions
 created: 2026-09-03
 completed: false
-reviewed: ""
-sr-due: ""
+reviewed: ''
+sr-due: ''
 difficulty: Medium
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+excalidraw: ''
+source: ''
+type: note
+weeks: ''
 ---
 
 ## 🎯 Intent

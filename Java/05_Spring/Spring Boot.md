@@ -1,18 +1,22 @@
 ---
-title: "Spring Boot"
+title: Spring Boot
 category: Spring
-tags: [spring, boot, interview]
+tags:
+- spring
+- boot
+- interview
 created: 2026-01-18
 updated: 2026-09-02
 pattern: 2
 difficulty: Hard
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+source: ''
+type: note
 ---
+
 ## Why it Matters
 
 **Spring Boot** is the **opinionated layer that made Spring the default Java backend**: it takes the Framework container and adds **auto-configuration** (conditional beans driven by your classpath), **starters** (dependency bundles), an **embedded server** (Tomcat/Jetty/Undertow), **externalised configuration** (`application.yml` + profiles), and **Actuator** (production endpoints + Micrometer). The result is that a working, observable, container-ready service is one `@SpringBootApplication` class and one `java -jar`. On Java 25 / Boot 3.5, one flag (`spring.threads.virtual.enabled=true`) moves the whole web + async + scheduled stack onto virtual threads.

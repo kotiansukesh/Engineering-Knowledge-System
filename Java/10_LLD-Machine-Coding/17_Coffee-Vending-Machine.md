@@ -2,17 +2,21 @@
 title: Coffee Vending Machine
 category: LLD
 difficulty: Medium
-tags: [lld, machine-coding, coffee-vending, strategy]
+tags:
+- lld
+- machine-coding
+- coffee-vending
+- strategy
 source: https://github.com/ashishps1/awesome-low-level-design
 created: 2026-09-04
 pattern: 19
 completed: false
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+type: note
 ---
+
 ## Why it Matters
 
 - The canonical **multi-resource atomicity** problem: one brew decrements *several* ingredient stocks at once (water + milk + beans), so partial failure means a cup poured with no milk, an undrinkable product that still consumed inventory. Check-then-act across ingredients must be one unit.

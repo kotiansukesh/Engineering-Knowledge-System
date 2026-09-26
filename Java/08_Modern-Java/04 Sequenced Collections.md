@@ -1,17 +1,22 @@
 ---
-title: "Sequenced Collections"
+title: Sequenced Collections
 category: Modern-Java
-tags: [java25, sequenced, collections, jep431]
+tags:
+- java25
+- sequenced
+- collections
+- jep431
 created: 2026-09-03
 completed: false
 pattern: 4
 difficulty: Medium
-reviewed: ""
-sr-due: ""
-problems-solved: []
-problems-solved-dates: {}
-excalidraw: ""
+reviewed: ''
+sr-due: ''
+excalidraw: ''
+source: ''
+type: note
 ---
+
 ## Why it Matters
 
 Before 21: `list.get(0)` / `list.get(list.size()-1)`, `map.keySet().iterator().next()`, no `reversed()`. Now: one API across `List`, `Deque`, `LinkedHashSet`, `LinkedHashMap`.
