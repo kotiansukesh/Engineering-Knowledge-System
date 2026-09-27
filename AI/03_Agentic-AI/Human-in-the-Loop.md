@@ -1,6 +1,6 @@
 ---
 title: Human in the Loop
-category: agentic
+category: AI/03_Agentic-AI
 tags:
 - ai
 - agents
@@ -13,7 +13,7 @@ completed: false
 reviewed: ''
 sr-due: ''
 excalidraw: ''
-difficulty: ''
+difficulty: Medium
 source: ''
 type: note
 ---

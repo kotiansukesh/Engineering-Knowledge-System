@@ -1,12 +1,11 @@
 ---
 title: Lambdas and Functional Interfaces
-category: Core-Java
+category: Java/01_Core-Java
 tags:
 - java
 - lambdas
 - interview
 created: 2026-09-02
-updated: 2026-09-04
 pattern: 10
 difficulty: Easy
 completed: false

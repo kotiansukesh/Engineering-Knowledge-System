@@ -1,21 +1,29 @@
 ---
 title: Bounded Contexts
-category: DDD & Modeling
+category: Architect/05_DDD-Modeling
 tags:
-- ddd
 - bounded-context
-- modules
+- concept/aggregate
+- concept/bounded-context
+- concept/domain-event
+- concept/saga
+- ddd
+- difficulty/easy
 - microservices
+- modules
+- pattern/ddd
 created: 2026-09-03
 completed: false
-reviewed: ''
-sr-due: ''
+reviewed: '2026-09-03'
+sr-due: '2026-09-06'
 difficulty: Easy
 excalidraw: ''
 source: ''
 type: note
 weeks: ''
 ---
+
+
 
 ## Why it Matters
 

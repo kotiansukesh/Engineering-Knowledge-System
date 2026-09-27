@@ -1,6 +1,6 @@
 ---
 title: AI Evaluation Frameworks
-category: cross-cutting
+category: AI/07_Cross-Cutting
 tags:
 - ai
 - evaluation
@@ -11,12 +11,11 @@ tags:
 - interview
 - 2026-trend
 created: 2026-09-02
-updated: 2026-09-03
 completed: false
 reviewed: ''
 sr-due: ''
 excalidraw: ''
-difficulty: ''
+difficulty: Medium
 source: ''
 type: note
 weeks: ''

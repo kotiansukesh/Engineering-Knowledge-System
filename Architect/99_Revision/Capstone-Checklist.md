@@ -1,20 +1,23 @@
 ---
 title: Capstone Checklist
-category: Revision
+category: Architect/99_Revision
 tags:
 - capstone
 - checklist
 - design-review
+- difficulty/easy
 created: 2026-09-03
 completed: false
-reviewed: ''
-sr-due: ''
+reviewed: '2026-08-31'
+sr-due: '2026-09-03'
 difficulty: Easy
 excalidraw: ''
 source: ''
 type: note
 weeks: ''
 ---
+
+
 
 ## Why it Matters
 

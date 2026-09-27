@@ -1,19 +1,25 @@
 ---
 title: Tradeoffs and Tensions
-category: architect
+category: Architect/02_Requirements-Quality-Attributes
 tags:
+- concept/quality-attributes
+- concept/quality-scenarios
+- concept/tactics
+- difficulty/easy
 - quality
 - tradeoffs
 created: 2026-09-03
 completed: false
-reviewed: ''
-sr-due: ''
+reviewed: '2026-09-02'
+sr-due: '2026-09-05'
 difficulty: Easy
 excalidraw: ''
 source: ''
 type: note
 weeks: ''
 ---
+
+
 
 Why it Matters
 

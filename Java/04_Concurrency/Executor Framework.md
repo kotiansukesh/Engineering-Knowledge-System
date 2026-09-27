@@ -1,12 +1,11 @@
 ---
 title: Executor Framework
-category: Concurrency
+category: Java/04_Concurrency
 tags:
 - concurrency
 - executor
 - interview
 created: 2026-01-18
-updated: 2026-09-02
 pattern: 4
 difficulty: Hard
 completed: false
@@ -16,6 +15,7 @@ excalidraw: ''
 source: ''
 type: note
 ---
+
 
 ## Why it Matters
 
@@ -108,6 +108,7 @@ How to handle exceptions from tasks?:: `Future.get()` wraps in `ExecutionExcepti
 # Executor Framework
 
 > Part of [[README|Java MOC]] • `Concurrency` • Java 25 (LTS)
+- [[Architect/10_System-Design-Interviews/ASYNC-01-Async-Patterns.md|ASYNC-01-Async-Patterns]] — Async patterns in distributed systems
 
 ## Core Interfaces & Classes
 

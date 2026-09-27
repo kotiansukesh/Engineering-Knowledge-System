@@ -1,22 +1,33 @@
 ---
 title: Hexagonal Architecture (Ports & Adapters)
-category: Architecture Styles
+category: Architect/03_Architecture-Styles
 tags:
 - architecture
-- hexagonal
-- ports-adapters
 - clean-architecture
+- company/youtube
+- concept/clean-architecture
+- concept/event-driven
+- concept/hexagonal
+- concept/microservices
+- concept/monolith
+- concept/serverless
+- difficulty/easy
+- hexagonal
+- pattern/architecture-style
+- ports-adapters
 - spring
 created: 2026-09-03
 completed: false
-reviewed: ''
-sr-due: ''
+reviewed: '2026-09-05'
+sr-due: '2026-09-08'
 difficulty: Easy
 excalidraw: ''
 source: ''
 type: note
 weeks: ''
 ---
+
+
 
 ## Why it Matters
 

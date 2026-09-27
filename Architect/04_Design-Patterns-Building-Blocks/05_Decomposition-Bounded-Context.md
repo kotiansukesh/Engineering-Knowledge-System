@@ -1,23 +1,30 @@
 ---
 title: Decomposition, Bounded Context to Service
-category: Design Patterns & Building Blocks
+category: Architect/04_Design-Patterns-Building-Blocks
 tags:
-- patterns
-- microservices
-- decomposition
 - ddd
-- strangler
+- decomposition
+- difficulty/medium
+- microservices
+- pattern/cloud
+- pattern/enterprise
+- pattern/integration
+- pattern/resilience
+- patterns
 - spring
+- strangler
 created: 2026-09-03
 completed: false
-reviewed: ''
-sr-due: ''
+reviewed: '2026-08-29'
+sr-due: '2026-09-05'
 difficulty: Medium
 excalidraw: ''
 source: ''
 type: note
 weeks: ''
 ---
+
+
 
 ## Why it Matters
 

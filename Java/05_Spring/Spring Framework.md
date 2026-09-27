@@ -1,6 +1,6 @@
 ---
 title: Spring Framework
-category: Spring
+category: Java/05_Spring
 tags:
 - spring
 - framework
@@ -10,7 +10,6 @@ tags:
 - java25
 - virtual-threads
 created: 2026-01-18
-updated: 2026-09-02
 pattern: 5
 difficulty: Hard
 completed: false

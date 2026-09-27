@@ -1,12 +1,11 @@
 ---
 title: Queue
-category: Collections
+category: Java/03_Collections
 tags:
 - java
 - collections
 - queue
 created: 2026-01-18
-updated: 2026-09-04
 pattern: 3
 difficulty: Easy
 completed: false

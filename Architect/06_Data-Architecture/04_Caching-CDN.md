@@ -2,23 +2,31 @@
 title: Caching & CDN — Multi-Layer Strategy
 category: Architect/06_Data-Architecture
 tags:
-- data
 - caching
 - cdn
+- concept/cqrs
+- concept/event-sourcing
+- concept/polyglot-persistence
+- concept/sql-vs-nosql
+- data
+- difficulty/medium
 - http-caching
-- redis
-- performance
 - invalidation
+- pattern/data-architecture
+- performance
+- redis
 created: 2026-09-03
 completed: false
-reviewed: ''
-sr-due: ''
+reviewed: '2026-08-31'
+sr-due: '2026-09-07'
 difficulty: Medium
 excalidraw: ''
 source: ''
 type: note
 weeks: ''
 ---
+
+
 
 ## 🎯 Intent
 Layer caches from browser → CDN edge → gateway → app → DB so each request is served by the cheapest layer that may hold a valid answer, with invalidation and TTLs designed per layer, not improvised.

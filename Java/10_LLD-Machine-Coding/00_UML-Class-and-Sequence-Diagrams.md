@@ -1,6 +1,6 @@
 ---
 title: UML Class and Sequence Diagrams
-category: LLD
+category: Java/10_LLD-Machine-Coding
 tags:
 - lld
 - uml

@@ -1,6 +1,6 @@
 ---
 title: Flexible Constructors and Module Imports
-category: Modern-Java
+category: Java/08_Modern-Java
 tags:
 - java25
 - jep513

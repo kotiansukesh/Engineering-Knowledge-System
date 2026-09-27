@@ -1,22 +1,30 @@
 ---
 title: API Gateway & BFF
-category: Design Patterns & Building Blocks
+category: Architect/04_Design-Patterns-Building-Blocks
 tags:
-- patterns
 - api-gateway
 - bff
-- spring-cloud-gateway
+- company/youtube
+- difficulty/medium
 - microservices
+- pattern/cloud
+- pattern/enterprise
+- pattern/integration
+- pattern/resilience
+- patterns
+- spring-cloud-gateway
 created: 2026-09-03
 completed: false
-reviewed: ''
-sr-due: ''
+reviewed: '2026-09-04'
+sr-due: '2026-09-11'
 difficulty: Medium
 excalidraw: ''
 source: ''
 type: note
 weeks: ''
 ---
+
+
 
 ## Why it Matters
 

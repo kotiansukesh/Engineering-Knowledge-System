@@ -7,7 +7,6 @@ tags:
 - classes
 - objects
 created: 2026-09-04
-updated: 2026-09-04
 pattern: 4
 difficulty: Medium
 completed: false

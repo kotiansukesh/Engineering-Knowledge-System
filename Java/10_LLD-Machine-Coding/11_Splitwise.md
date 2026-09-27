@@ -1,6 +1,6 @@
 ---
 title: Splitwise (Expense Sharing)
-category: LLD
+category: Java/10_LLD-Machine-Coding
 difficulty: Medium
 tags:
 - lld

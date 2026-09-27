@@ -1,22 +1,31 @@
 ---
 title: Cloud & K8s Deploy, Helm, GitOps & Rollouts
-category: Non-Functional & Ops
+category: Architect/08_NonFunctional-Ops
 tags:
-- kubernetes
-- helm
-- gitops
 - argo-cd
+- company/uber
+- company/youtube
+- concept/chaos-engineering
+- concept/deployment
+- concept/observability
+- concept/security
 - deployment
+- difficulty/medium
+- gitops
+- helm
+- kubernetes
 created: 2026-09-03
 completed: false
-reviewed: ''
-sr-due: ''
+reviewed: '2026-09-22'
+sr-due: '2026-09-29'
 difficulty: Medium
 excalidraw: ''
 source: ''
 type: note
 weeks: ''
 ---
+
+
 
 ## Why it Matters
 

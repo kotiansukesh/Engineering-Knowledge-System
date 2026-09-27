@@ -1,19 +1,25 @@
 ---
 title: Functional vs Constraints
-category: architect
+category: Architect/02_Requirements-Quality-Attributes
 tags:
-- requirements
+- concept/quality-attributes
+- concept/quality-scenarios
+- concept/tactics
 - constraints
+- difficulty/medium
+- requirements
 created: 2026-09-03
 completed: false
-reviewed: ''
-sr-due: ''
+reviewed: '2026-09-05'
+sr-due: '2026-09-12'
 difficulty: Medium
 excalidraw: ''
 source: ''
 type: note
 weeks: ''
 ---
+
+
 
 Why it Matters
 

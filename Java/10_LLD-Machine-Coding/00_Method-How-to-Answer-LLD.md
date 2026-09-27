@@ -1,6 +1,6 @@
 ---
 title: How to Answer LLD / Machine Coding
-category: LLD
+category: Java/10_LLD-Machine-Coding
 difficulty: Easy
 tags:
 - lld

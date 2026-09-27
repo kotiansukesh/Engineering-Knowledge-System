@@ -20,6 +20,7 @@ excalidraw: ''
 type: note
 ---
 
+
 # Backtracking
 
 > Part of [[README|20 DSA Patterns]] • `Coding Patterns/07_Backtracking_DP` • Pattern #17
@@ -238,3 +239,4 @@ void solve(char[][] board, int row, java.util.List<java.util.List<String>> res,
 
 ---
 *Category: Coding Patterns/07_Backtracking_DP*
+- [[Architect/10_System-Design-Interviews/OOD-01-Design-Parking-Lot.md|OOD-01-Design-Parking-Lot]] — State space search in OOD

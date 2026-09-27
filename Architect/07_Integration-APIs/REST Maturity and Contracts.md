@@ -1,18 +1,27 @@
 ---
 title: REST Maturity and Contracts
-category: 'integration tags: [rest, openapi, contracts, versioning, interview] created:
-  2026-09-03 completed: false'
-reviewed: ''
-sr-due: ''
+category: Architect/07_Integration-APIs
+reviewed: '2026-08-30'
+sr-due: '2026-09-02'
 difficulty: Easy
 excalidraw: ''
-tags: []
+tags:
+- concept/async-messaging
+- concept/graphql
+- concept/grpc
+- concept/idempotency
+- concept/kafka
+- concept/rest
+- difficulty/easy
+- pattern/integration
 created: '2026-09-27'
 completed: false
 source: ''
 type: note
 weeks: ''
 ---
+
+
 
 ## Why it Matters
 

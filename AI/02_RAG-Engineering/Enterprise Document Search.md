@@ -1,6 +1,6 @@
 ---
 title: Enterprise Document Search
-category: rag
+category: AI/02_RAG-Engineering
 tags:
 - ai
 - project
@@ -13,9 +13,10 @@ type: project
 reviewed: ''
 sr-due: ''
 excalidraw: ''
-difficulty: ''
+difficulty: Medium
 source: ''
 ---
+
 
 ## Why it Matters
 
@@ -109,6 +110,8 @@ async def health() -> dict[str, str]:
 
 > Part of [[README|02_RAG-Engineering]] • `project` • The RAG evolution of [[AI/01_Fundamentals/AI Backend Template|AI Backend Template]]
 > Watch: [RAG at 10 Million Documents, System Design](https://www.youtube.com/watch?v=NQZqET-jjws)
+- [[Architect/10_System-Design-Interviews/DB-04-Vector-Databases.md|DB-04-Vector-Databases]] — Vector DB internals
+- [[Architect/10_System-Design-Interviews/INT-08-Design-Autocomplete.md|INT-08-Design-Autocomplete]] — Prefix search with vectors
 
 ## Features
 

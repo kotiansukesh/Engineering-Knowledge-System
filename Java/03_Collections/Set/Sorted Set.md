@@ -1,12 +1,11 @@
 ---
 title: Sorted set
-category: Collections
+category: Java/03_Collections/Set
 tags:
 - java
 - collections
 - set
 created: 2026-01-18
-updated: 2026-09-04
 pattern: 3
 difficulty: Easy
 completed: false

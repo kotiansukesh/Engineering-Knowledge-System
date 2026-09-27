@@ -1,7 +1,6 @@
 ---
 title: Observer
-category: Design-Patterns
-group: Behavioral
+category: Java/06_Design-Patterns/Behavioral
 tags:
 - design-patterns
 - behavioral
@@ -9,7 +8,6 @@ tags:
 pattern: observer
 source: https://refactoring.guru/design-patterns/observer
 created: 2026-09-02
-updated: 2026-09-04
 difficulty: Medium
 completed: false
 reviewed: ''
@@ -17,6 +15,7 @@ sr-due: ''
 excalidraw: ''
 type: note
 ---
+
 
 # Observer *Also Known as: Pub-Sub*
 
@@ -115,6 +114,7 @@ Always pair subscribe with unsubscribe (lifecycle methods, try-with-resources, w
 
 ---
 *Category: Behavioral • Tags: design-patterns • Source: refactoring.guru*
+- [[Architect/04_Design-Patterns-Building-Blocks/01_Enterprise-Patterns.md|01_Enterprise-Patterns]] — Enterprise patterns - Observer
 
 ## Problem
 

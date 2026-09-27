@@ -1,22 +1,29 @@
 ---
 title: Performance, SLOs, Latency Budgets & Tuning
-category: Non-Functional & Ops
+category: Architect/08_NonFunctional-Ops
 tags:
+- concept/chaos-engineering
+- concept/deployment
+- concept/observability
+- concept/security
+- difficulty/medium
+- latency
 - performance
 - slo
-- latency
-- tuning
 - spring-boot
+- tuning
 created: 2026-09-03
 completed: false
-reviewed: ''
-sr-due: ''
+reviewed: '2026-09-06'
+sr-due: '2026-09-13'
 difficulty: Medium
 excalidraw: ''
 source: ''
 type: note
 weeks: ''
 ---
+
+
 
 ## Why it Matters
 

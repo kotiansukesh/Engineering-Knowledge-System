@@ -1,6 +1,6 @@
 ---
 title: Parking Lot
-category: LLD
+category: Java/10_LLD-Machine-Coding
 difficulty: Easy
 tags:
 - lld

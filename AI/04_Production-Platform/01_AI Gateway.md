@@ -1,6 +1,6 @@
 ---
 title: AI Gateway (C3, Resilient Microservices)
-category: production
+category: AI/04_Production-Platform
 tags:
 - ai
 - gateway
@@ -12,7 +12,7 @@ completed: false
 reviewed: ''
 sr-due: ''
 excalidraw: ''
-difficulty: ''
+difficulty: Medium
 source: ''
 type: note
 ---

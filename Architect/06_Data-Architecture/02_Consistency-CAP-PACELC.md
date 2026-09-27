@@ -2,21 +2,29 @@
 title: Consistency, CAP & PACELC
 category: Architect/06_Data-Architecture
 tags:
-- data
 - cap
-- pacelc
+- concept/cqrs
+- concept/event-sourcing
+- concept/polyglot-persistence
+- concept/sql-vs-nosql
 - consistency
+- data
+- difficulty/medium
 - distributed-systems
+- pacelc
+- pattern/data-architecture
 created: 2026-09-03
 completed: false
-reviewed: ''
-sr-due: ''
+reviewed: '2026-08-30'
+sr-due: '2026-09-06'
 difficulty: Medium
 excalidraw: ''
 source: ''
 type: note
 weeks: ''
 ---
+
+
 
 ## 🎯 Intent
 Make consistency-vs-availability trade-offs explicit per operation — not per database. CAP (partition → choose C or A) + PACELC (else → choose Latency or Consistency) turns trivia into a design tool.

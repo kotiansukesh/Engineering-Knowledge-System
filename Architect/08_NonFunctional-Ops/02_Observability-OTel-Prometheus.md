@@ -1,22 +1,30 @@
 ---
 title: Observability, OTel, Prometheus & Grafana
-category: Non-Functional & Ops
+category: Architect/08_NonFunctional-Ops
 tags:
+- company/youtube
+- concept/chaos-engineering
+- concept/deployment
+- concept/observability
+- concept/security
+- difficulty/easy
+- grafana
 - observability
 - opentelemetry
 - prometheus
-- grafana
 - tracing
 created: 2026-09-03
 completed: false
-reviewed: ''
-sr-due: ''
+reviewed: '2026-08-31'
+sr-due: '2026-09-03'
 difficulty: Easy
 excalidraw: ''
 source: ''
 type: note
 weeks: ''
 ---
+
+
 
 ## Why it Matters
 

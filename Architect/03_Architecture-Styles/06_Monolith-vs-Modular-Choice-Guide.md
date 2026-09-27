@@ -1,22 +1,33 @@
 ---
 title: Monolith vs Modular Monolith, Choice Guide
-category: Architecture Styles
+category: Architect/03_Architecture-Styles
 tags:
 - architecture
-- monolith
-- modular-monolith
+- company/youtube
+- concept/clean-architecture
+- concept/event-driven
+- concept/hexagonal
+- concept/microservices
+- concept/monolith
+- concept/serverless
 - decision
+- difficulty/hard
+- modular-monolith
+- monolith
+- pattern/architecture-style
 - spring
 created: 2026-09-03
 completed: false
-reviewed: ''
-sr-due: ''
+reviewed: '2026-09-01'
+sr-due: '2026-09-15'
 difficulty: Hard
 excalidraw: ''
 source: ''
 type: note
 weeks: ''
 ---
+
+
 
 ## Why it Matters
 

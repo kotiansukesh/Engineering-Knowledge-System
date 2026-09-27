@@ -1,6 +1,6 @@
 ---
 title: Movie Ticket Booking
-category: LLD
+category: Java/10_LLD-Machine-Coding
 difficulty: Hard
 tags:
 - lld

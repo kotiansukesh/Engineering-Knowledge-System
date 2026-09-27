@@ -3,19 +3,25 @@ title: Architecture Principles
 category: Architect/01_Architecture-Foundations
 tags:
 - architecture
-- principles
-- governance
+- concept/architecture-principles
+- concept/quality-attributes
+- concept/trade-offs
+- difficulty/medium
 - fitness-functions
+- governance
+- principles
 created: 2026-09-03
 completed: false
-reviewed: ''
-sr-due: ''
+reviewed: '2026-09-17'
+sr-due: '2026-09-24'
 difficulty: Medium
 excalidraw: ''
 source: ''
 type: note
 weeks: ''
 ---
+
+
 
 ## 🎯 Intent
 Turn values into testable guardrails — "API-first, modular monolith first" — that prune options before design. A principle only becomes governance when a CI gate can fail on its violation.

@@ -1,13 +1,12 @@
 ---
 title: Singleton Class
-category: Core-Java
+category: Java/01_Core-Java/Types
 tags:
 - java
 - class
 - singleton
 - java25
 created: 2026-01-18
-updated: 2026-09-04
 pattern: 9
 difficulty: Easy
 completed: false

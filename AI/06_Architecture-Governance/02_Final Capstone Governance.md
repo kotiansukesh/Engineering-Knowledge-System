@@ -1,6 +1,6 @@
 ---
 title: Final Capstone, Governed Platform
-category: governance
+category: AI/06_Architecture-Governance
 tags:
 - ai
 - capstone
@@ -14,7 +14,7 @@ type: project
 reviewed: ''
 sr-due: ''
 excalidraw: ''
-difficulty: ''
+difficulty: Medium
 source: ''
 ---
 

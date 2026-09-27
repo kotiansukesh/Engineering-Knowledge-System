@@ -1,13 +1,12 @@
 ---
 title: Nested Classes Overview
-category: Core-Java
+category: Java/01_Core-Java/Types
 tags:
 - java
 - class
 - nested
 - java25
 created: 2026-01-18
-updated: 2026-09-04
 pattern: 6
 difficulty: Easy
 completed: false

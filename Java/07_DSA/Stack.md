@@ -1,11 +1,10 @@
 ---
 title: Stack (DSA)
-category: DSA
+category: Java/07_DSA
 tags:
 - dsa
 - stack
 created: 2026-01-18
-updated: 2026-09-04
 pattern: 9
 difficulty: Medium
 completed: false

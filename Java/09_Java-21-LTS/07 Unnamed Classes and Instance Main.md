@@ -1,6 +1,6 @@
 ---
 title: Unnamed Classes and Instance Main , JEP 445 (Java 21 Preview)
-category: java21
+category: Java/09_Java-21-LTS
 tags:
 - java21
 - jep445

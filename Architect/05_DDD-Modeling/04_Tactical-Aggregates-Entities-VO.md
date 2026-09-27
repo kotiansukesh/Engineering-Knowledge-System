@@ -1,23 +1,31 @@
 ---
 title: Tactical DDD, Aggregates, Entities, Value Objects
-category: DDD & Modeling
+category: Architect/05_DDD-Modeling
 tags:
-- ddd
-- tactical-design
 - aggregate
+- concept/aggregate
+- concept/bounded-context
+- concept/domain-event
+- concept/saga
+- ddd
+- difficulty/medium
 - entity
-- value-object
+- pattern/ddd
 - spring-data
+- tactical-design
+- value-object
 created: 2026-09-03
 completed: false
-reviewed: ''
-sr-due: ''
+reviewed: '2026-08-31'
+sr-due: '2026-09-07'
 difficulty: Medium
 excalidraw: ''
 source: ''
 type: note
 weeks: ''
 ---
+
+
 
 ## Why it Matters
 

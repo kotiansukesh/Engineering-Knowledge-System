@@ -1,18 +1,28 @@
 ---
 title: Kafka Messaging and Idempotency
-category: 'integration tags: [kafka, messaging, idempotency, outbox, interview] created:
-  2026-09-03 completed: false'
-reviewed: ''
-sr-due: ''
+category: Architect/07_Integration-APIs
+reviewed: '2026-09-03'
+sr-due: '2026-09-10'
 difficulty: Medium
 excalidraw: ''
-tags: []
+tags:
+- company/youtube
+- concept/async-messaging
+- concept/graphql
+- concept/grpc
+- concept/idempotency
+- concept/kafka
+- concept/rest
+- difficulty/medium
+- pattern/integration
 created: '2026-09-27'
 completed: false
 source: ''
 type: note
 weeks: ''
 ---
+
+
 
 ## Why it Matters
 

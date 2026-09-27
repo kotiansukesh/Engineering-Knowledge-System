@@ -1,12 +1,11 @@
 ---
 title: Optional
-category: Core-Java
+category: Java/01_Core-Java
 tags:
 - java
 - optional
 - interview
 created: 2026-09-02
-updated: 2026-09-04
 pattern: 12
 difficulty: Easy
 completed: false

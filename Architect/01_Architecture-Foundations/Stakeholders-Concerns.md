@@ -3,19 +3,25 @@ title: Stakeholders and Concerns
 category: Architect/01_Architecture-Foundations
 tags:
 - architecture
-- stakeholders
+- concept/architecture-principles
+- concept/quality-attributes
+- concept/trade-offs
 - concerns
+- difficulty/medium
+- stakeholders
 - tradeoffs
 created: 2026-09-03
 completed: false
-reviewed: ''
-sr-due: ''
+reviewed: '2026-09-27'
+sr-due: '2026-10-04'
 difficulty: Medium
 excalidraw: ''
 source: ''
 type: note
 weeks: ''
 ---
+
+
 
 ## 🎯 Intent
 Map who cares about what so views, priorities, and trade-off ADRs target real concerns, not generic diagrams. The stakeholder → concern → quality → scenario chain is the traceability backbone for audits and interviews.

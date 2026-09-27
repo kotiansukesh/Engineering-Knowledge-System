@@ -1,6 +1,6 @@
 ---
 title: Enterprise AI Operations Platform
-category: agentic
+category: AI/03_Agentic-AI
 tags:
 - ai
 - project
@@ -13,7 +13,7 @@ type: project
 reviewed: ''
 sr-due: ''
 excalidraw: ''
-difficulty: ''
+difficulty: Medium
 source: ''
 ---
 

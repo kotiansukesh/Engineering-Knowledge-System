@@ -1,22 +1,33 @@
 ---
 title: Event-Driven Architecture
-category: Architecture Styles
+category: Architect/03_Architecture-Styles
 tags:
 - architecture
+- async
+- company/youtube
+- concept/clean-architecture
+- concept/event-driven
+- concept/hexagonal
+- concept/microservices
+- concept/monolith
+- concept/serverless
+- difficulty/medium
 - events
 - kafka
-- async
+- pattern/architecture-style
 - spring
 created: 2026-09-03
 completed: false
-reviewed: ''
-sr-due: ''
+reviewed: '2026-09-07'
+sr-due: '2026-09-14'
 difficulty: Medium
 excalidraw: ''
 source: ''
 type: note
 weeks: ''
 ---
+
+
 
 ## Why it Matters
 

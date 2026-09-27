@@ -1,23 +1,32 @@
 ---
 title: Resilience, Circuit Breaker & Retry
-category: Design Patterns & Building Blocks
+category: Architect/04_Design-Patterns-Building-Blocks
 tags:
+- circuit-breaker
+- company/youtube
+- difficulty/easy
+- pattern/circuit-breaker
+- pattern/cloud
+- pattern/enterprise
+- pattern/integration
+- pattern/resilience
 - patterns
 - resilience
-- circuit-breaker
-- retry
 - resilience4j
+- retry
 - spring
 created: 2026-09-03
 completed: false
-reviewed: ''
-sr-due: ''
+reviewed: '2026-09-03'
+sr-due: '2026-09-06'
 difficulty: Easy
 excalidraw: ''
 source: ''
 type: note
 weeks: ''
 ---
+
+
 
 ## Why it Matters
 

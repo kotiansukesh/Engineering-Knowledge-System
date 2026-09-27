@@ -1,6 +1,6 @@
 ---
 title: LLM Engineering with RAG (Coursera C1)
-category: rag
+category: AI/02_RAG-Engineering
 tags:
 - ai
 - rag
@@ -12,7 +12,7 @@ completed: false
 reviewed: ''
 sr-due: ''
 excalidraw: ''
-difficulty: ''
+difficulty: Medium
 source: ''
 type: note
 ---

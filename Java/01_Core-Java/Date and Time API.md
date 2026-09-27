@@ -1,12 +1,11 @@
 ---
 title: Date and Time API
-category: Core-Java
+category: Java/01_Core-Java
 tags:
 - java
 - datetime
 - interview
 created: 2026-09-02
-updated: 2026-09-04
 pattern: 3
 difficulty: Easy
 completed: false

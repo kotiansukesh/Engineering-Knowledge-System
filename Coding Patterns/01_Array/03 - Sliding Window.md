@@ -21,6 +21,7 @@ excalidraw: ''
 type: note
 ---
 
+
 # Sliding Window
 
 > Part of [[README|20 DSA Patterns]] • `Coding Patterns/01_Array` • Pattern #3
@@ -237,3 +238,5 @@ String minWindow(String s, String t) {
 
 ---
 *Category: Coding Patterns/01_Array*
+- [[Architect/10_System-Design-Interviews/BB-04-Rate-Limiter.md|BB-04-Rate-Limiter]] — Sliding window rate limiting
+- [[Architect/10_System-Design-Interviews/CACHE-02-Cache-Strategies.md|CACHE-02-Cache-Strategies]] — Sliding window cache eviction

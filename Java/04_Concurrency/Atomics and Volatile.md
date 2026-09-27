@@ -1,13 +1,12 @@
 ---
 title: Atomics and Volatile
-category: Concurrency
+category: Java/04_Concurrency
 tags:
 - concurrency
 - atomics
 - volatile
 - interview
 created: 2026-01-18
-updated: 2026-09-02
 pattern: 1
 difficulty: Hard
 completed: false

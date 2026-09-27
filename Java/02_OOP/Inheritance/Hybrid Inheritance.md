@@ -1,12 +1,11 @@
 ---
 title: Hybrid inheritance
-category: Java/02_OOP
+category: Java/02_OOP/Inheritance
 tags:
 - java
 - oop
 - inheritance
 created: 2026-01-18
-updated: 2026-09-04
 pattern: 2
 difficulty: Medium
 completed: false

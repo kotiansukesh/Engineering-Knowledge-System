@@ -3,19 +3,26 @@ title: What is Architecture
 category: Architect/01_Architecture-Foundations
 tags:
 - architecture
-- foundations
-- definition
+- company/slack
+- concept/architecture-principles
+- concept/quality-attributes
+- concept/trade-offs
 - decision
+- definition
+- difficulty/medium
+- foundations
 created: 2026-09-03
 completed: false
-reviewed: ''
-sr-due: ''
+reviewed: '2026-09-04'
+sr-due: '2026-09-11'
 difficulty: Medium
 excalidraw: ''
 source: ''
 type: note
 weeks: ''
 ---
+
+
 
 ## 🎯 Intent
 Define software architecture precisely — the set of significant, hard-to-reverse decisions that shape system qualities, cost, and rate of change — so you can distinguish architecture from design, justify governance, and answer the interview classic in one line.

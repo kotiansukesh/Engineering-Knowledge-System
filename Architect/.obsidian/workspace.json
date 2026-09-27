@@ -4,17 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "670db7fcc10f0745",
+        "id": "fb5405f64241f161",
         "type": "tabs",
         "children": [
           {
-            "id": "a5f84b7cd7ab7d3f",
+            "id": "0810adfd0f45f87e",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {},
+              "type": "markdown",
+              "state": {
+                "file": "01_Architecture-Foundations/Architect-Roles.md",
+                "mode": "source",
+                "source": false
+              },
               "icon": "lucide-file",
-              "title": "New tab"
+              "title": "Architect-Roles"
             }
           }
         ]
@@ -178,9 +182,48 @@
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
       "command-palette:Open command palette": false,
-      "bases:Create new base": false
+      "bases:Create new base": false,
+      "templater-obsidian:Templater": false,
+      "obsidian-excalidraw-plugin:New drawing": false
     }
   },
-  "active": "a5f84b7cd7ab7d3f",
-  "lastOpenFiles": []
+  "active": "0810adfd0f45f87e",
+  "lastOpenFiles": [
+    "_templates/Daily-Review-Queue.md",
+    "_templates/Architect-Note-Template.md",
+    "01_Architecture-Foundations/README.md",
+    "01_Architecture-Foundations/Architecture-Principles.md",
+    "01_Architecture-Foundations/Architect-Roles.md",
+    "10_System-Design-Interviews/README.md",
+    "10_System-Design-Interviews/REF-01-Additional-Interview-Questions.md",
+    "10_System-Design-Interviews/ASYNC-01-Asynchronism-Overview.md",
+    "99_Revision/README.md",
+    "09_Governance-Documentation/README.md",
+    "08_NonFunctional-Ops/README.md",
+    "07_Integration-APIs/README.md",
+    "06_Data-Architecture/README.md",
+    "05_DDD-Modeling/README.md",
+    "04_Design-Patterns-Building-Blocks/README.md",
+    "03_Architecture-Styles/README.md",
+    "02_Requirements-Quality-Attributes/README.md",
+    "99_Revision/Study-Plan.md",
+    "10_System-Design-Interviews/Practice-Problems/README.md",
+    "11_Real-World-Case-Studies/README.md",
+    "11_Real-World-Case-Studies",
+    "10_System-Design-Interviews/Practice-Problems",
+    "_attachments/excalidraw-templates/Rate-Limiter-Algorithms.excalidraw.json",
+    "_attachments/excalidraw-templates/Kafka-ExactlyOnce.excalidraw.json",
+    "_attachments/excalidraw-templates/Cache-MultiLevel.excalidraw.json",
+    "_attachments/excalidraw-templates/Sharding-Consistent-Hashing.excalidraw.json",
+    "_attachments/excalidraw-templates/Load-Balancer-Architecture.excalidraw.json",
+    "_attachments/excalidraw-templates/CAP-Theorem-Decision.excalidraw.json",
+    "_attachments/excalidraw-templates",
+    "_attachments",
+    "10_System-Design-Interviews/BB-18-Google-Maps.md",
+    "IMPROVEMENT_PLAN.md",
+    "Architect/10_System-Design-Interviews/README.md",
+    "README.md",
+    "10_System-Design-Interviews/BB-01-Scaling-Zero-to-Millions.md",
+    "10_System-Design-Interviews/ASYNC-04-Back-Pressure.md"
+  ]
 }

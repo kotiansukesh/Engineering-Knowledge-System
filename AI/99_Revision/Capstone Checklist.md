@@ -1,6 +1,6 @@
 ---
 title: Capstone Checklist
-category: revision
+category: AI/99_Revision
 tags:
 - ai
 - capstone
@@ -11,7 +11,7 @@ completed: false
 reviewed: ''
 sr-due: ''
 excalidraw: ''
-difficulty: ''
+difficulty: Medium
 source: ''
 type: note
 weeks: ''

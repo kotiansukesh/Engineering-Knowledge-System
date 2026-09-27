@@ -1,7 +1,6 @@
 ---
 title: Iterator
-category: Design-Patterns
-group: Behavioral
+category: Java/06_Design-Patterns/Behavioral
 tags:
 - design-patterns
 - behavioral
@@ -9,7 +8,6 @@ tags:
 pattern: iterator
 source: https://refactoring.guru/design-patterns/iterator
 created: 2026-09-02
-updated: 2026-09-04
 difficulty: Medium
 completed: false
 reviewed: ''

@@ -1,6 +1,6 @@
 ---
 title: Pattern Matching
-category: Modern-Java
+category: Java/08_Modern-Java
 tags:
 - java25
 - pattern-matching

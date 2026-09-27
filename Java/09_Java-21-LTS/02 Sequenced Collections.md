@@ -1,6 +1,6 @@
 ---
 title: Sequenced Collections , JEP 431 (Java 21)
-category: java21
+category: Java/09_Java-21-LTS
 tags:
 - java21
 - jep431

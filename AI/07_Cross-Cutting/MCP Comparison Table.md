@@ -1,6 +1,6 @@
 ---
 title: MCP Comparison Table
-category: cross-cutting
+category: AI/07_Cross-Cutting
 tags:
 - ai
 - comparison
@@ -10,7 +10,7 @@ reviewed: ''
 sr-due: ''
 excalidraw: ''
 completed: false
-difficulty: ''
+difficulty: Medium
 source: ''
 type: note
 weeks: ''

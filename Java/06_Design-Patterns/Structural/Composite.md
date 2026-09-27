@@ -1,7 +1,6 @@
 ---
 title: Composite
-category: Design-Patterns
-group: Structural
+category: Java/06_Design-Patterns/Structural
 tags:
 - design-patterns
 - structural
@@ -9,7 +8,6 @@ tags:
 pattern: composite
 source: https://refactoring.guru/design-patterns/composite
 created: 2026-09-02
-updated: 2026-09-04
 difficulty: Medium
 completed: false
 reviewed: ''

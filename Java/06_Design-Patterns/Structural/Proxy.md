@@ -1,7 +1,6 @@
 ---
 title: Proxy
-category: Design-Patterns
-group: Structural
+category: Java/06_Design-Patterns/Structural
 tags:
 - design-patterns
 - structural
@@ -9,7 +8,6 @@ tags:
 pattern: proxy
 source: https://refactoring.guru/design-patterns/proxy
 created: 2026-09-02
-updated: 2026-09-04
 difficulty: Medium
 completed: false
 reviewed: ''
@@ -17,6 +15,7 @@ sr-due: ''
 excalidraw: ''
 type: note
 ---
+
 
 # Proxy
 
@@ -122,6 +121,7 @@ JDK dynamic proxies implement interfaces at runtime (Spring AOP's default for in
 
 ---
 *Category: Structural • Tags: design-patterns • Source: refactoring.guru*
+- [[Architect/10_System-Design-Interviews/NET-01-Load-Balancer.md|NET-01-Load-Balancer]] — Proxy pattern for load balancing
 
 ## Problem
 

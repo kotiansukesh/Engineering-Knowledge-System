@@ -1,13 +1,12 @@
 ---
 title: IO and NIO
-category: Core-Java
+category: Java/01_Core-Java
 tags:
 - java
 - io
 - nio
 - interview
 created: 2026-09-02
-updated: 2026-09-04
 pattern: 8
 difficulty: Easy
 completed: false

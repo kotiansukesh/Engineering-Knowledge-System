@@ -21,6 +21,7 @@ excalidraw: ''
 type: note
 ---
 
+
 # Two Pointers
 
 > Part of [[README|20 DSA Patterns]] • `Coding Patterns/01_Array` • Pattern #2
@@ -245,3 +246,4 @@ java.util.List<java.util.List<Integer>> threeSum(int[] nums) {
 
 ---
 *Category: Coding Patterns/01_Array*
+- [[Architect/10_System-Design-Interviews/DB-05-Sharding.md|DB-05-Sharding]] — Two-pointer for range queries across shards

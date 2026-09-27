@@ -10,7 +10,6 @@ tags:
 - composition
 - dependency
 created: 2026-09-04
-updated: 2026-09-04
 pattern: 3
 difficulty: Medium
 completed: false

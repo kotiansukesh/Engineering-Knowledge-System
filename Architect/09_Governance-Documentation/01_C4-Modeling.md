@@ -1,21 +1,28 @@
 ---
 title: C4 Modeling, Context to Code
-category: Governance & Docs
+category: Architect/09_Governance-Documentation
 tags:
-- c4
 - architecture-diagrams
-- structurizr
+- c4
+- company/youtube
+- concept/adr
+- concept/fitness-function
+- concept/governance
+- difficulty/easy
 - documentation
+- structurizr
 created: 2026-09-03
 completed: false
-reviewed: ''
-sr-due: ''
+reviewed: '2026-09-03'
+sr-due: '2026-09-06'
 difficulty: Easy
 excalidraw: ''
 source: ''
 type: note
 weeks: ''
 ---
+
+
 
 ## Why it Matters
 

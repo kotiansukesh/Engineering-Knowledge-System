@@ -1,13 +1,12 @@
 ---
 title: String Handling
-category: Core-Java
+category: Java/01_Core-Java
 tags:
 - java
 - string
 - interview
 - java25
 created: 2026-09-02
-updated: 2026-09-04
 pattern: 15
 difficulty: Easy
 completed: false

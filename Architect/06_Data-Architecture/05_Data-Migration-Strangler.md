@@ -2,22 +2,30 @@
 title: Data Migration & Strangler Fig
 category: Architect/06_Data-Architecture
 tags:
-- data
-- migration
-- strangler-fig
-- modernization
-- dual-write
 - cdc
+- concept/cqrs
+- concept/event-sourcing
+- concept/polyglot-persistence
+- concept/sql-vs-nosql
+- data
+- difficulty/hard
+- dual-write
+- migration
+- modernization
+- pattern/data-architecture
+- strangler-fig
 created: 2026-09-03
 completed: false
-reviewed: ''
-sr-due: ''
+reviewed: '2026-09-19'
+sr-due: '2026-10-03'
 difficulty: Hard
 excalidraw: ''
 source: ''
 type: note
 weeks: ''
 ---
+
+
 
 ## 🎯 Intent
 Modernise without big-bang rewrites: Strangler Fig incrementally routes traffic/data from legacy to new (facade → migrate → retire), with dual-write/read-reconciliation keeping both worlds consistent until cutover.

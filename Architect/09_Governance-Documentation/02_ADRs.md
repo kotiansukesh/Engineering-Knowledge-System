@@ -1,21 +1,28 @@
 ---
 title: ADRs, Architecture Decision Records
-category: Governance & Docs
+category: Architect/09_Governance-Documentation
 tags:
 - adr
+- company/youtube
+- concept/adr
+- concept/fitness-function
+- concept/governance
 - decisions
+- difficulty/easy
 - documentation
 - governance
 created: 2026-09-03
 completed: false
-reviewed: ''
-sr-due: ''
+reviewed: '2026-09-24'
+sr-due: '2026-09-27'
 difficulty: Easy
 excalidraw: ''
 source: ''
 type: note
 weeks: ''
 ---
+
+
 
 ## Why it Matters
 

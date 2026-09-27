@@ -1,6 +1,6 @@
 ---
 title: Spring Transaction
-category: Spring
+category: Java/05_Spring
 tags:
 - spring
 - transaction
@@ -10,7 +10,6 @@ tags:
 - java25
 - virtual-threads
 created: 2026-01-18
-updated: 2026-09-02
 pattern: 8
 difficulty: Hard
 completed: false

@@ -1,6 +1,6 @@
 ---
 title: AI TDD and Evaluation (C4, Refactor and Test)
-category: production
+category: AI/04_Production-Platform
 tags:
 - ai
 - tdd
@@ -12,7 +12,7 @@ completed: false
 reviewed: ''
 sr-due: ''
 excalidraw: ''
-difficulty: ''
+difficulty: Medium
 source: ''
 type: note
 ---

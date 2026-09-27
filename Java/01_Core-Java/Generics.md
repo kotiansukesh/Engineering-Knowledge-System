@@ -1,13 +1,12 @@
 ---
 title: Generics
-category: Core-Java
+category: Java/01_Core-Java
 tags:
 - java
 - generics
 - interview
 - java25
 created: 2026-01-18
-updated: 2026-09-04
 pattern: 6
 difficulty: Easy
 completed: false

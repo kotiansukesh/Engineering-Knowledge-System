@@ -1,6 +1,6 @@
 ---
 title: SWARC4AI Syllabus (iSAQB)
-category: governance
+category: AI/06_Architecture-Governance
 tags:
 - ai
 - isaqb
@@ -13,7 +13,7 @@ completed: false
 reviewed: ''
 sr-due: ''
 excalidraw: ''
-difficulty: ''
+difficulty: Medium
 source: ''
 type: note
 ---

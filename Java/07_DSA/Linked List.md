@@ -1,11 +1,10 @@
 ---
 title: Linked List
-category: DSA
+category: Java/07_DSA
 tags:
 - dsa
 - linked-list
 created: 2026-01-18
-updated: 2026-09-04
 pattern: 6
 difficulty: Medium
 completed: false

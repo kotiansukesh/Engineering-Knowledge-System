@@ -1,12 +1,11 @@
 ---
 title: Interview Questions , Index
-category: Revision
+category: Java/99_Revision
 tags:
 - interview
 - revision
 - MOC
 created: 2026-01-18
-updated: 2026-09-02
 pattern: 0
 difficulty: Easy
 completed: false

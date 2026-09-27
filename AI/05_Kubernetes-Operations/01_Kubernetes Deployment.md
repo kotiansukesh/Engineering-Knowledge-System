@@ -1,6 +1,6 @@
 ---
 title: Kubernetes Deployment
-category: kubernetes
+category: AI/05_Kubernetes-Operations
 tags:
 - ai
 - kubernetes
@@ -12,7 +12,7 @@ completed: false
 reviewed: ''
 sr-due: ''
 excalidraw: ''
-difficulty: ''
+difficulty: Medium
 source: ''
 type: note
 ---

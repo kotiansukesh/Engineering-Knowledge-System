@@ -1,19 +1,25 @@
 ---
 title: ISO 25010 Qualities
-category: architect
+category: Architect/02_Requirements-Quality-Attributes
 tags:
-- quality
+- concept/quality-attributes
+- concept/quality-scenarios
+- concept/tactics
+- difficulty/medium
 - iso-25010
+- quality
 created: 2026-09-03
 completed: false
-reviewed: ''
-sr-due: ''
+reviewed: '2026-09-06'
+sr-due: '2026-09-13'
 difficulty: Medium
 excalidraw: ''
 source: ''
 type: note
 weeks: ''
 ---
+
+
 
 Why it Matters
 

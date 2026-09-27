@@ -1,12 +1,11 @@
 ---
 title: HashMap (DSA)
-category: DSA
+category: Java/07_DSA
 tags:
 - dsa
 - hashmap
 - hashtable
 created: 2026-01-18
-updated: 2026-09-04
 pattern: 4
 difficulty: Medium
 completed: false

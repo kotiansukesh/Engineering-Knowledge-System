@@ -1,7 +1,6 @@
 ---
 title: Singleton
-category: Design-Patterns
-group: Creational
+category: Java/06_Design-Patterns/Creational
 tags:
 - design-patterns
 - creational
@@ -9,7 +8,6 @@ tags:
 pattern: singleton
 source: https://refactoring.guru/design-patterns/singleton
 created: 2026-09-02
-updated: 2026-09-04
 difficulty: Medium
 completed: false
 reviewed: ''

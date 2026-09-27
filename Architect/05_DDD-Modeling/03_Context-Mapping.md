@@ -1,22 +1,30 @@
 ---
 title: Context Mapping
-category: DDD & Modeling
+category: Architect/05_DDD-Modeling
 tags:
-- ddd
-- context-mapping
-- integration
 - acl
+- concept/aggregate
+- concept/bounded-context
+- concept/domain-event
+- concept/saga
+- context-mapping
+- ddd
+- difficulty/medium
+- integration
 - open-host
+- pattern/ddd
 created: 2026-09-03
 completed: false
-reviewed: ''
-sr-due: ''
+reviewed: '2026-09-20'
+sr-due: '2026-09-27'
 difficulty: Medium
 excalidraw: ''
 source: ''
 type: note
 weeks: ''
 ---
+
+
 
 ## Why it Matters
 

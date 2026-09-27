@@ -1,13 +1,12 @@
 ---
 title: Spring Data JPA
-category: Spring
+category: Java/05_Spring
 tags:
 - spring
 - jpa
 - hibernate
 - interview
 created: 2026-01-18
-updated: 2026-09-02
 pattern: 4
 difficulty: Hard
 completed: false

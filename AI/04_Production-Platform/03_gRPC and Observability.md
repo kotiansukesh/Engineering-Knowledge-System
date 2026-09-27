@@ -1,6 +1,6 @@
 ---
 title: gRPC and Observability (C5–C7)
-category: production
+category: AI/04_Production-Platform
 tags:
 - ai
 - grpc
@@ -15,7 +15,7 @@ completed: false
 reviewed: ''
 sr-due: ''
 excalidraw: ''
-difficulty: ''
+difficulty: Medium
 source: ''
 type: note
 ---

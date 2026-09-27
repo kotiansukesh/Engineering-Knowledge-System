@@ -20,6 +20,7 @@ excalidraw: ''
 type: note
 ---
 
+
 # Dynamic Programming
 
 > Part of [[README|20 DSA Patterns]] • `Coding Patterns/07_Backtracking_DP` • Pattern #20
@@ -250,3 +251,4 @@ int rob(int[] nums) {
 
 ---
 *Category: Coding Patterns/07_Backtracking_DP*
+- [[Architect/10_System-Design-Interviews/DB-01-Database-Internals.md|DB-01-Database-Internals]] — DP for query optimization

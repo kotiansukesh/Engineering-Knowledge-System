@@ -22,6 +22,7 @@ excalidraw: ''
 type: note
 ---
 
+
 # Trie
 
 > Part of [[README|20 DSA Patterns]] • `Coding Patterns/05_Trees_Graphs` • Pattern #18
@@ -256,3 +257,5 @@ class Solution {
 
 ---
 *Category: Coding Patterns/05_Trees_Graphs*
+- [[Architect/10_System-Design-Interviews/NET-05-API-Gateway.md|NET-05-API-Gateway]] — Trie for URL routing
+- [[Architect/10_System-Design-Interviews/INT-08-Design-Autocomplete.md|INT-08-Design-Autocomplete]] — Trie for autocomplete

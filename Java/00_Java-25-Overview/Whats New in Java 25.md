@@ -1,6 +1,6 @@
 ---
 title: Whats New in Java 25
-category: overview
+category: Java/00_Java-25-Overview
 tags:
 - java25
 - jep

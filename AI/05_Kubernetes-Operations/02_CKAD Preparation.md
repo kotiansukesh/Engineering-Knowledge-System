@@ -1,6 +1,6 @@
 ---
 title: CKAD Preparation
-category: kubernetes
+category: AI/05_Kubernetes-Operations
 tags:
 - ai
 - ckad
@@ -13,7 +13,7 @@ completed: false
 reviewed: ''
 sr-due: ''
 excalidraw: ''
-difficulty: ''
+difficulty: Medium
 source: ''
 type: note
 ---

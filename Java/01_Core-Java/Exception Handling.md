@@ -1,13 +1,12 @@
 ---
 title: Exception Handling
-category: Core-Java
+category: Java/01_Core-Java
 tags:
 - java
 - exceptions
 - interview
 - java25
 created: 2026-01-18
-updated: 2026-09-04
 pattern: 5
 difficulty: Easy
 completed: false

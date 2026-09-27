@@ -4,12 +4,11 @@ category: AI/99_Revision
 tags:
 - ai
 created: 2026-09-17
-updated: 2026-09-17
 reviewed: ''
 sr-due: ''
 excalidraw: ''
 completed: false
-difficulty: ''
+difficulty: Medium
 source: ''
 type: note
 weeks: ''

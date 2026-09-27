@@ -1,6 +1,6 @@
 ---
 title: Java 25 Roadmap
-category: overview
+category: Java/00_Java-25-Overview
 tags:
 - java25
 - roadmap

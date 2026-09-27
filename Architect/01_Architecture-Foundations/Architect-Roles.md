@@ -3,21 +3,27 @@ title: Architect Roles
 category: Architect/01_Architecture-Foundations
 tags:
 - architecture
+- concept/architecture-principles
+- concept/quality-attributes
+- concept/trade-offs
+- difficulty/medium
+- domain
+- enterprise
+- platform
 - roles
 - solution
-- domain
-- platform
-- enterprise
 created: 2026-09-03
 completed: false
-reviewed: ''
-sr-due: ''
+reviewed: '2026-08-29'
+sr-due: '2026-09-05'
 difficulty: Medium
 excalidraw: ''
 source: ''
 type: note
 weeks: ''
 ---
+
+
 
 ## 🎯 Intent
 Distinguish Solution / Domain / Platform / Enterprise Architect so you operate at the right scope, resolve conflicts via RACI, and avoid becoming a PowerPoint architect who never validates decisions in code.

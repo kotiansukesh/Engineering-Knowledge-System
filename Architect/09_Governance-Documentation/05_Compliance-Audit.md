@@ -1,22 +1,28 @@
 ---
 title: Compliance & Audit, SOC2, PCI, DPDP/GDPR
-category: Governance & Docs
+category: Architect/09_Governance-Documentation
 tags:
-- compliance
-- soc2
-- pci
-- gdpr
 - audit
+- compliance
+- concept/adr
+- concept/fitness-function
+- concept/governance
+- difficulty/medium
+- gdpr
+- pci
+- soc2
 created: 2026-09-03
 completed: false
-reviewed: ''
-sr-due: ''
+reviewed: '2026-09-21'
+sr-due: '2026-09-28'
 difficulty: Medium
 excalidraw: ''
 source: ''
 type: note
 weeks: ''
 ---
+
+
 
 ## Why it Matters
 

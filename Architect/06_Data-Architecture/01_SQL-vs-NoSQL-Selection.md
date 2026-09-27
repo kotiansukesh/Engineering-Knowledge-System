@@ -2,23 +2,31 @@
 title: SQL vs NoSQL Selection
 category: Architect/06_Data-Architecture
 tags:
+- concept/cqrs
+- concept/event-sourcing
+- concept/polyglot-persistence
+- concept/sql-vs-nosql
 - data
-- sql
-- nosql
-- postgres
-- mongodb
 - decision
+- difficulty/medium
+- mongodb
+- nosql
+- pattern/data-architecture
 - polyglot
+- postgres
+- sql
 created: 2026-09-03
 completed: false
-reviewed: ''
-sr-due: ''
+reviewed: '2026-09-01'
+sr-due: '2026-09-08'
 difficulty: Medium
 excalidraw: ''
 source: ''
 type: note
 weeks: ''
 ---
+
+
 
 ## 🎯 Intent
 Choose the store by access pattern and consistency needs — relational for structured data with joins/invariants, document/key-value/column/graph where shape, scale, or query demands it — defaulting to Postgres until a concrete force pushes elsewhere.

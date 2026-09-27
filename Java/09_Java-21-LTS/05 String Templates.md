@@ -1,6 +1,6 @@
 ---
 title: String Templates , JEP 430 (Java 21 Preview)
-category: java21
+category: Java/09_Java-21-LTS
 tags:
 - java21
 - jep430

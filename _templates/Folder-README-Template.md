@@ -16,9 +16,10 @@ sr-due: ""
 ## Progress Overview
 
 ```dataviewjs
-const pages = dv.pages(`"${category}"`).where(p => p.category && p.file.name != "README");
+const category = dv.current().category;
+const pages = dv.pages(`"${category}"`).where(p => p.category != null && p.file.name != "README");
 const total = pages.length;
-const done = pages.where(p => p.completed).length;
+const done = pages.where(p => p.completed === true).length;
 const pct = total ? Math.round(done/total*100) : 0;
 const bar = (p, w=20) => "█".repeat(Math.round(p/100*w)) + "░".repeat(w-Math.round(p/100*w));
 dv.paragraph(`**Total: ${total} notes | Completed: ${done} | Remaining: ${total-done}** — \`${pct}%\``);
@@ -74,6 +75,8 @@ sort by due
 group by filename
 limit 20
 ```
+
+> ⚠️ **Template Note:** The `{{category}}` placeholder above is replaced by the generate script (`python3 generate_folder_readmes.py`). The template file itself will show a Tasks error — this is expected. Generated README files have the actual folder path and work correctly.
 
 ## Quick Links
 

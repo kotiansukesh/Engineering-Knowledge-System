@@ -1,21 +1,31 @@
 ---
 title: Layered Architecture
-category: Architecture Styles
+category: Architect/03_Architecture-Styles
 tags:
 - architecture
+- concept/clean-architecture
+- concept/event-driven
+- concept/hexagonal
+- concept/microservices
+- concept/monolith
+- concept/serverless
+- difficulty/easy
 - layered
 - n-tier
+- pattern/architecture-style
 - spring
 created: 2026-09-03
 completed: false
-reviewed: ''
-sr-due: ''
+reviewed: '2026-09-18'
+sr-due: '2026-09-21'
 difficulty: Easy
 excalidraw: ''
 source: ''
 type: note
 weeks: ''
 ---
+
+
 
 ## Why it Matters
 

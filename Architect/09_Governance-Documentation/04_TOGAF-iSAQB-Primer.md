@@ -1,22 +1,29 @@
 ---
 title: TOGAF & iSAQB Primer, What to Borrow
-category: Governance & Docs
+category: Architect/09_Governance-Documentation
 tags:
-- togaf
-- isaqb
 - adm
 - certification
+- company/meta
+- concept/adr
+- concept/fitness-function
+- concept/governance
+- difficulty/medium
 - governance
+- isaqb
+- togaf
 created: 2026-09-03
 completed: false
-reviewed: ''
-sr-due: ''
+reviewed: '2026-08-30'
+sr-due: '2026-09-06'
 difficulty: Medium
 excalidraw: ''
 source: ''
 type: note
 weeks: ''
 ---
+
+
 
 ## Why it Matters
 

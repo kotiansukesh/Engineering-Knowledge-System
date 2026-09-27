@@ -1,6 +1,6 @@
 ---
 title: Java 8 LTS Overview
-category: overview
+category: Java/00_Java-25-Overview
 tags:
 - java8
 - lts

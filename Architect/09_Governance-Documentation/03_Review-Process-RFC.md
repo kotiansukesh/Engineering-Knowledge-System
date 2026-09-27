@@ -1,21 +1,27 @@
 ---
 title: Review Process, RFCs & Design Reviews
-category: Governance & Docs
+category: Architect/09_Governance-Documentation
 tags:
-- rfc
+- concept/adr
+- concept/fitness-function
+- concept/governance
 - design-review
+- difficulty/medium
 - governance
 - process
+- rfc
 created: 2026-09-03
 completed: false
-reviewed: ''
-sr-due: ''
+reviewed: '2026-09-03'
+sr-due: '2026-09-10'
 difficulty: Medium
 excalidraw: ''
 source: ''
 type: note
 weeks: ''
 ---
+
+
 
 ## Why it Matters
 

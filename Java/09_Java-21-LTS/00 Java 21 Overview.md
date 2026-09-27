@@ -1,6 +1,6 @@
 ---
 title: Java 21 Overview , LTS Map
-category: java21
+category: Java/09_Java-21-LTS
 tags:
 - java21
 - lts

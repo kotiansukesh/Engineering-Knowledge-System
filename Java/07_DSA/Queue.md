@@ -1,11 +1,10 @@
 ---
 title: Queue (DSA)
-category: DSA
+category: Java/07_DSA
 tags:
 - dsa
 - queue
 created: 2026-01-18
-updated: 2026-09-04
 pattern: 7
 difficulty: Medium
 completed: false

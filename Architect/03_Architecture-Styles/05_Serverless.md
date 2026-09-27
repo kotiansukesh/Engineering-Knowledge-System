@@ -1,22 +1,32 @@
 ---
 title: Serverless
-category: Architecture Styles
+category: Architect/03_Architecture-Styles
 tags:
 - architecture
-- serverless
-- lambda
+- concept/clean-architecture
+- concept/event-driven
+- concept/hexagonal
+- concept/microservices
+- concept/monolith
+- concept/serverless
+- difficulty/medium
 - faas
+- lambda
+- pattern/architecture-style
+- serverless
 - spring-cloud-function
 created: 2026-09-03
 completed: false
-reviewed: ''
-sr-due: ''
+reviewed: '2026-08-28'
+sr-due: '2026-09-04'
 difficulty: Medium
 excalidraw: ''
 source: ''
 type: note
 weeks: ''
 ---
+
+
 
 ## Why it Matters
 

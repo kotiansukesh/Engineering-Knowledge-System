@@ -1,12 +1,11 @@
 ---
 title: Heap
-category: DSA
+category: Java/07_DSA
 tags:
 - dsa
 - heap
 - interview
 created: 2026-01-18
-updated: 2026-09-04
 pattern: 5
 difficulty: Medium
 completed: false

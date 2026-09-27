@@ -1,0 +1,115 @@
+{
+  "type": "excalidraw",
+  "version": 2,
+  "source": "https://excalidraw.com",
+  "elements": [
+    {
+      "id": "template_rl",
+      "type": "rectangle",
+      "x": 100,
+      "y": 100,
+      "width": 500,
+      "height": 350,
+      "strokeColor": "#1976d2",
+      "backgroundColor": "transparent",
+      "strokeWidth": 2,
+      "roughness": 1,
+      "label": "Rate Limiter Algorithms Comparison"
+    },
+    {
+      "id": "template_rl_token",
+      "type": "rectangle",
+      "x": 150,
+      "y": 150,
+      "width": 150,
+      "height": 120,
+      "strokeColor": "#2e7d32",
+      "backgroundColor": "#e8f5e9",
+      "strokeWidth": 2,
+      "roughness": 1,
+      "label": "Token Bucket\n- Burst allowance\n- Smooth rate\n- Refill: tokens/sec\n- Redis: Lua script\n- Best for: API Gateway"
+    },
+    {
+      "id": "template_rl_leaky",
+      "type": "rectangle",
+      "x": 330,
+      "y": 150,
+      "width": 150,
+      "height": 120,
+      "strokeColor": "#f57c00",
+      "backgroundColor": "#fff3e0",
+      "strokeWidth": 2,
+      "roughness": 1,
+      "label": "Leaky Bucket\n- Fixed rate\n- No burst\n- Queue + constant drain\n- Best for: Streaming\n- Smooths traffic"
+    },
+    {
+      "id": "template_rl_sliding_log",
+      "type": "rectangle",
+      "x": 150,
+      "y": 300,
+      "width": 150,
+      "height": 120,
+      "strokeColor": "#6a1b9a",
+      "backgroundColor": "#f3e5f5",
+      "strokeWidth": 2,
+      "roughness": 1,
+      "label": "Sliding Window Log\n- Precise\n- Memory heavy\n- Store all timestamps\n- Best for: Login\n- Exact counting"
+    },
+    {
+      "id": "template_rl_sliding_counter",
+      "type": "rectangle",
+      "x": 330,
+      "y": 300,
+      "width": 150,
+      "height": 120,
+      "strokeColor": "#c62828",
+      "backgroundColor": "#ffebee",
+      "strokeWidth": 2,
+      "roughness": 1,
+      "label": "Sliding Window Counter\n- Approximate\n- Low memory\n- Weighted: prev + curr\n- Best for: High QPS\n- Trade-off: accuracy"
+    },
+    {
+      "id": "template_rl_edge",
+      "type": "rectangle",
+      "x": 50,
+      "y": 450,
+      "width": 200,
+      "height": 80,
+      "strokeColor": "#1976d2",
+      "backgroundColor": "#e3f2fd",
+      "strokeWidth": 2,
+      "roughness": 1,
+      "label": "Edge Layer (Cloudflare/AWS WAF)\n- DDoS protection\n- IP-based\n- Volumetric attacks\n- Low latency"
+    },
+    {
+      "id": "template_rl_app",
+      "type": "rectangle",
+      "x": 280,
+      "y": 450,
+      "width": 200,
+      "height": 80,
+      "strokeColor": "#7b1fa2",
+      "backgroundColor": "#f3e5f5",
+      "strokeWidth": 2,
+      "roughness": 1,
+      "label": "Application Layer\n- User/API-key level\n- Business logic aware\n- Premium tier handling\n- Semantic rate limiting"
+    },
+    {
+      "id": "template_rl_response",
+      "type": "rectangle",
+      "x": 50,
+      "y": 550,
+      "width": 430,
+      "height": 60,
+      "strokeColor": "#c62828",
+      "backgroundColor": "#ffebee",
+      "strokeWidth": 2,
+      "roughness": 1,
+      "label": "Response: HTTP 429 + Retry-After header + JSON {limit, remaining, reset} → Client: exponential backoff + jitter"
+    }
+  ],
+  "appState": {
+    "gridSize": 20,
+    "viewBackgroundColor": "#ffffff"
+  }
+}

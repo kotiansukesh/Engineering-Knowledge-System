@@ -1,6 +1,6 @@
 ---
 title: Interview Bank
-category: revision
+category: AI/99_Revision
 tags:
 - ai
 - interview
@@ -10,7 +10,7 @@ completed: false
 reviewed: ''
 excalidraw: ''
 sr-due: ''
-difficulty: ''
+difficulty: Medium
 source: ''
 type: note
 weeks: ''

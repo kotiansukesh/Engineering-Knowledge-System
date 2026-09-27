@@ -1,6 +1,6 @@
 ---
 title: Spring Core
-category: Spring
+category: Java/05_Spring
 tags:
 - spring
 - core
@@ -12,7 +12,6 @@ tags:
 - virtual-threads
 - aot
 created: 2026-01-18
-updated: 2026-09-02
 pattern: 3
 difficulty: Hard
 completed: false

@@ -21,6 +21,7 @@ excalidraw: ''
 type: note
 ---
 
+
 # BFS
 
 > Part of [[README|20 DSA Patterns]] • `Coding Patterns/05_Trees_Graphs` • Pattern #14
@@ -267,3 +268,4 @@ int orangesRotting(int[][] grid) {
 
 ---
 *Category: Coding Patterns/05_Trees_Graphs*
+- [[Architect/10_System-Design-Interviews/INT-03-Web-Crawler.md|INT-03-Web-Crawler]] — Web crawler graph traversal

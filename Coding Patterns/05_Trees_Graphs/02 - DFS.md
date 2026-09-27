@@ -21,6 +21,7 @@ excalidraw: ''
 type: note
 ---
 
+
 # DFS
 
 > Part of [[README|20 DSA Patterns]] • `Coding Patterns/05_Trees_Graphs` • Pattern #13
@@ -260,3 +261,4 @@ void dfsGrid(char[][] g, int r, int c) {
 
 ---
 *Category: Coding Patterns/05_Trees_Graphs*
+- [[Architect/10_System-Design-Interviews/INT-03-Web-Crawler.md|INT-03-Web-Crawler]] — DFS for deep crawling

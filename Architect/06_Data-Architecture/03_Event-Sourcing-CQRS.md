@@ -2,22 +2,32 @@
 title: Event Sourcing & CQRS
 category: Architect/06_Data-Architecture
 tags:
-- data
-- event-sourcing
-- cqrs
-- kafka
-- spring
 - audit
+- concept/cqrs
+- concept/event-sourcing
+- concept/polyglot-persistence
+- concept/sql-vs-nosql
+- cqrs
+- data
+- difficulty/hard
+- event-sourcing
+- kafka
+- pattern/cqrs
+- pattern/data-architecture
+- pattern/event-sourcing
+- spring
 created: 2026-09-03
 completed: false
-reviewed: ''
-sr-due: ''
+reviewed: '2026-09-01'
+sr-due: '2026-09-15'
 difficulty: Hard
 excalidraw: ''
 source: ''
 type: note
 weeks: ''
 ---
+
+
 
 ## 🎯 Intent
 Event Sourcing: persist state *changes* as an append-only event log (the log is truth; state is a fold). CQRS: split write models (commands, invariants) from read models (queries, shape-optimised). Combine them when auditability and divergent read/write needs justify the complexity.

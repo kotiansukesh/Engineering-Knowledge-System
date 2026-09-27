@@ -1,23 +1,31 @@
 ---
 title: Caching Strategies
-category: Design Patterns & Building Blocks
+category: Architect/04_Design-Patterns-Building-Blocks
 tags:
-- patterns
-- caching
 - cache-aside
-- write-through
+- caching
+- company/youtube
+- difficulty/medium
+- pattern/cloud
+- pattern/enterprise
+- pattern/integration
+- pattern/resilience
+- patterns
 - redis
 - spring-cache
+- write-through
 created: 2026-09-03
 completed: false
-reviewed: ''
-sr-due: ''
+reviewed: '2026-09-22'
+sr-due: '2026-09-29'
 difficulty: Medium
 excalidraw: ''
 source: ''
 type: note
 weeks: ''
 ---
+
+
 
 ## Why it Matters
 

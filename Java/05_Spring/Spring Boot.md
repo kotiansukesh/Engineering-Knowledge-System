@@ -1,12 +1,11 @@
 ---
 title: Spring Boot
-category: Spring
+category: Java/05_Spring
 tags:
 - spring
 - boot
 - interview
 created: 2026-01-18
-updated: 2026-09-02
 pattern: 2
 difficulty: Hard
 completed: false

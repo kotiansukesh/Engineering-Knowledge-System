@@ -1,22 +1,31 @@
 ---
 title: Security, OAuth2, OIDC & JWT
-category: Non-Functional & Ops
+category: Architect/08_NonFunctional-Ops
 tags:
-- security
+- company/google
+- company/youtube
+- concept/chaos-engineering
+- concept/deployment
+- concept/observability
+- concept/security
+- difficulty/easy
+- jwt
 - oauth2
 - oidc
-- jwt
+- security
 - spring-security
 created: 2026-09-03
 completed: false
-reviewed: ''
-sr-due: ''
+reviewed: '2026-09-25'
+sr-due: '2026-09-28'
 difficulty: Easy
 excalidraw: ''
 source: ''
 type: note
 weeks: ''
 ---
+
+
 
 ## Why it Matters
 

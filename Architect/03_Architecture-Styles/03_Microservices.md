@@ -1,21 +1,32 @@
 ---
 title: Microservices
-category: Architecture Styles
+category: Architect/03_Architecture-Styles
 tags:
 - architecture
-- microservices
+- company/youtube
+- concept/clean-architecture
+- concept/event-driven
+- concept/hexagonal
+- concept/microservices
+- concept/monolith
+- concept/serverless
+- difficulty/medium
 - distributed-systems
+- microservices
+- pattern/architecture-style
 - spring-cloud
 created: 2026-09-03
 completed: false
-reviewed: ''
-sr-due: ''
+reviewed: '2026-09-20'
+sr-due: '2026-09-27'
 difficulty: Medium
 excalidraw: ''
 source: ''
 type: note
 weeks: ''
 ---
+
+
 
 ## Why it Matters
 

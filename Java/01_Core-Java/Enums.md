@@ -1,13 +1,12 @@
 ---
 title: Enums
-category: Core-Java
+category: Java/01_Core-Java
 tags:
 - java
 - enum
 - interview
 - java25
 created: 2026-01-18
-updated: 2026-09-04
 pattern: 4
 difficulty: Easy
 completed: false

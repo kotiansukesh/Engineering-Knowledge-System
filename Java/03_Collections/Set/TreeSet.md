@@ -1,12 +1,11 @@
 ---
 title: TreeSet
-category: Collections
+category: Java/03_Collections/Set
 tags:
 - java
 - collections
 - set
 created: 2026-01-18
-updated: 2026-09-04
 pattern: 4
 difficulty: Easy
 completed: false

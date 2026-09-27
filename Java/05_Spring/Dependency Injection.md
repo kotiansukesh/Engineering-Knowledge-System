@@ -1,6 +1,6 @@
 ---
 title: Dependency Injection
-category: Spring
+category: Java/05_Spring
 tags:
 - spring
 - di
@@ -8,7 +8,6 @@ tags:
 - java25
 - virtual-threads
 created: 2026-01-18
-updated: 2026-09-02
 pattern: 1
 difficulty: Hard
 completed: false

@@ -1,6 +1,6 @@
 ---
 title: Java 17 LTS Overview
-category: overview
+category: Java/00_Java-25-Overview
 tags:
 - java17
 - lts

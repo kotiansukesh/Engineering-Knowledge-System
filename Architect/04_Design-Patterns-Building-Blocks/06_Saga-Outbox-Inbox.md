@@ -1,25 +1,34 @@
 ---
 title: Saga, Outbox & Inbox
-category: Design Patterns & Building Blocks
+category: Architect/04_Design-Patterns-Building-Blocks
 tags:
-- patterns
-- microservices
-- saga
-- outbox
-- inbox
+- company/youtube
+- difficulty/hard
 - idempotency
+- inbox
 - kafka
+- microservices
+- outbox
+- pattern/cloud
+- pattern/enterprise
+- pattern/integration
+- pattern/resilience
+- pattern/saga
+- patterns
+- saga
 - spring
 created: 2026-09-03
 completed: false
-reviewed: ''
-sr-due: ''
+reviewed: '2026-09-20'
+sr-due: '2026-10-04'
 difficulty: Hard
 excalidraw: ''
 source: ''
 type: note
 weeks: ''
 ---
+
+
 
 ## Why it Matters
 

@@ -1,12 +1,11 @@
 ---
 title: Locks and Synchronizers
-category: Concurrency
+category: Java/04_Concurrency
 tags:
 - concurrency
 - locks
 - interview
 created: 2026-01-18
-updated: 2026-09-02
 pattern: 5
 difficulty: Hard
 completed: false

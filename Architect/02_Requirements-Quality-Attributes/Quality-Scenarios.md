@@ -1,19 +1,25 @@
 ---
 title: Quality Scenarios
-category: architect
+category: Architect/02_Requirements-Quality-Attributes
 tags:
+- concept/quality-attributes
+- concept/quality-scenarios
+- concept/tactics
+- difficulty/easy
 - quality
 - scenarios
 created: 2026-09-03
 completed: false
-reviewed: ''
-sr-due: ''
+reviewed: '2026-09-14'
+sr-due: '2026-09-17'
 difficulty: Easy
 excalidraw: ''
 source: ''
 type: note
 weeks: ''
 ---
+
+
 
 Why it Matters
 

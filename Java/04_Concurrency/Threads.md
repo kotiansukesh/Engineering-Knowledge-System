@@ -1,6 +1,6 @@
 ---
 title: Threads & Concurrency
-category: Concurrency
+category: Java/04_Concurrency
 tags:
 - java
 - threads
@@ -9,7 +9,6 @@ tags:
 - virtual-threads
 - loom
 created: 2026-01-18
-updated: 2026-09-02
 pattern: 6
 difficulty: Hard
 completed: false

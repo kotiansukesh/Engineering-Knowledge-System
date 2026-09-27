@@ -1,12 +1,11 @@
 ---
 title: Graph
-category: DSA
+category: Java/07_DSA
 tags:
 - dsa
 - graph
 - interview
 created: 2026-01-18
-updated: 2026-09-04
 pattern: 3
 difficulty: Medium
 completed: false

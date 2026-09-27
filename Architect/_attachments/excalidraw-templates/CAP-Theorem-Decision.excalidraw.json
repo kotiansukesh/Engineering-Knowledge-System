@@ -1,0 +1,86 @@
+{
+  "type": "excalidraw",
+  "version": 2,
+  "source": "https://excalidraw.com",
+  "elements": [
+    {
+      "id": "template_cap",
+      "type": "rectangle",
+      "x": 100,
+      "y": 100,
+      "width": 300,
+      "height": 200,
+      "strokeColor": "#1976d2",
+      "backgroundColor": "transparent",
+      "strokeWidth": 2,
+      "roughness": 1,
+      "label": "CAP Theorem Decision Framework"
+    },
+    {
+      "id": "template_cap_cp",
+      "type": "rectangle",
+      "x": 150,
+      "y": 150,
+      "width": 120,
+      "height": 80,
+      "strokeColor": "#c62828",
+      "backgroundColor": "#ffebee",
+      "strokeWidth": 2,
+      "roughness": 1,
+      "label": "CP Systems\n(HBase, ZooKeeper,\netcd, Consul)\nConsistency + Partition Tolerance"
+    },
+    {
+      "id": "template_cap_ap",
+      "type": "rectangle",
+      "x": 300,
+      "y": 150,
+      "width": 120,
+      "height": 80,
+      "strokeColor": "#2e7d32",
+      "backgroundColor": "#e8f5e9",
+      "strokeWidth": 2,
+      "roughness": 1,
+      "label": "AP Systems\n(Cassandra, DynamoDB,\nRiak, Cosmos DB)\nAvailability + Partition Tolerance"
+    },
+    {
+      "id": "template_cap_arrow1",
+      "type": "arrow",
+      "x": 270,
+      "y": 180,
+      "width": 30,
+      "height": 0,
+      "strokeColor": "#666",
+      "strokeWidth": 2,
+      "roughness": 1
+    },
+    {
+      "id": "template_cap_network",
+      "type": "diamond",
+      "x": 200,
+      "y": 50,
+      "width": 100,
+      "height": 60,
+      "strokeColor": "#f57c00",
+      "backgroundColor": "#fff3e0",
+      "strokeWidth": 2,
+      "roughness": 1,
+      "label": "Network\nPartition?"
+    },
+    {
+      "id": "template_cap_yes",
+      "type": "arrow",
+      "x": 250,
+      "y": 110,
+      "width": 0,
+      "height": 40,
+      "strokeColor": "#f57c00",
+      "strokeWidth": 2,
+      "roughness": 1,
+      "label": "YES"
+    }
+  ],
+  "appState": {
+    "gridSize": 20,
+    "viewBackgroundColor": "#ffffff"
+  }
+}

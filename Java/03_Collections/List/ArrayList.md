@@ -1,12 +1,11 @@
 ---
 title: ArrayList
-category: Collections
+category: Java/03_Collections/List
 tags:
 - java
 - collections
 - list
 created: 2026-01-18
-updated: 2026-09-04
 pattern: 1
 difficulty: Easy
 completed: false

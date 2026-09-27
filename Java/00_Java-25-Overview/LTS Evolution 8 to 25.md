@@ -1,6 +1,6 @@
 ---
 title: LTS Evolution 8 to 25
-category: overview
+category: Java/00_Java-25-Overview
 tags:
 - lts
 - overview

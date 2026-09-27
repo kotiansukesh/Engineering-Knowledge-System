@@ -2,21 +2,27 @@
 title: Views and Viewpoints — 4+1
 category: Architect/01_Architecture-Foundations
 tags:
-- architecture
-- views
-- c4
 - 4plus1
+- architecture
+- c4
+- concept/architecture-principles
+- concept/quality-attributes
+- concept/trade-offs
+- difficulty/medium
 - documentation
+- views
 created: 2026-09-03
 completed: false
-reviewed: ''
-sr-due: ''
+reviewed: '2026-09-22'
+sr-due: '2026-09-29'
 difficulty: Medium
 excalidraw: ''
 source: ''
 type: note
 weeks: ''
 ---
+
+
 
 ## 🎯 Intent
 Show the system from complementary angles — Logical, Process, Development, Physical + Scenarios — so no single diagram lies by omission. The "+1" scenarios are the only view that validates the other four against real quality requirements.

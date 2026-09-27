@@ -1,12 +1,11 @@
 ---
 title: Spring MVC
-category: Spring
+category: Java/05_Spring
 tags:
 - spring
 - mvc
 - interview
 created: 2026-01-18
-updated: 2026-09-02
 pattern: 6
 difficulty: Hard
 completed: false

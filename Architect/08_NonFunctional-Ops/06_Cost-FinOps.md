@@ -1,22 +1,29 @@
 ---
 title: Cost & FinOps, Rightsizing, Autoscaling & Unit Cost
-category: Non-Functional & Ops
+category: Architect/08_NonFunctional-Ops
 tags:
-- finops
-- cost
-- rightsizing
 - autoscaling
+- concept/chaos-engineering
+- concept/deployment
+- concept/observability
+- concept/security
+- cost
+- difficulty/hard
+- finops
+- rightsizing
 - unit-economics
 created: 2026-09-03
 completed: false
-reviewed: ''
-sr-due: ''
+reviewed: '2026-09-06'
+sr-due: '2026-09-20'
 difficulty: Hard
 excalidraw: ''
 source: ''
 type: note
 weeks: ''
 ---
+
+
 
 ## Why it Matters
 

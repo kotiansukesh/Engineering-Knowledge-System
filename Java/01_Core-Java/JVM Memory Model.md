@@ -1,6 +1,6 @@
 ---
 title: JVM Memory Model
-category: Core-Java
+category: Java/01_Core-Java
 tags:
 - java
 - jvm
@@ -8,7 +8,6 @@ tags:
 - interview
 - java25
 created: 2026-09-02
-updated: 2026-09-04
 pattern: 9
 difficulty: Easy
 completed: false

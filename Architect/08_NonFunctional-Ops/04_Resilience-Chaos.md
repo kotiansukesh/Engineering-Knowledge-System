@@ -1,22 +1,29 @@
 ---
 title: Resilience & Chaos, Bulkheads, Backpressure & GameDays
-category: Non-Functional & Ops
+category: Architect/08_NonFunctional-Ops
 tags:
-- resilience
-- chaos
-- bulkhead
 - backpressure
+- bulkhead
+- chaos
+- concept/chaos-engineering
+- concept/deployment
+- concept/observability
+- concept/security
+- difficulty/medium
 - gameday
+- resilience
 created: 2026-09-03
 completed: false
-reviewed: ''
-sr-due: ''
+reviewed: '2026-09-10'
+sr-due: '2026-09-17'
 difficulty: Medium
 excalidraw: ''
 source: ''
 type: note
 weeks: ''
 ---
+
+
 
 ## Why it Matters
 

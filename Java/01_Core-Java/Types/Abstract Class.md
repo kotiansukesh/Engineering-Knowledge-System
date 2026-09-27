@@ -1,13 +1,12 @@
 ---
 title: Abstract Class
-category: Core-Java
+category: Java/01_Core-Java/Types
 tags:
 - java
 - class
 - abstract
 - java25
 created: 2026-01-18
-updated: 2026-09-04
 pattern: 1
 difficulty: Easy
 completed: false

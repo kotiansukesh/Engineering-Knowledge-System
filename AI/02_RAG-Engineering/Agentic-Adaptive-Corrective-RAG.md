@@ -1,6 +1,6 @@
 ---
 title: Agentic Adaptive Corrective RAG
-category: rag
+category: AI/02_RAG-Engineering
 tags:
 - ai
 - rag
@@ -15,7 +15,7 @@ completed: false
 reviewed: ''
 sr-due: ''
 excalidraw: ''
-difficulty: ''
+difficulty: Medium
 source: ''
 type: note
 ---

@@ -1,12 +1,11 @@
 ---
 title: Concurrent Collections
-category: Concurrency
+category: Java/04_Concurrency
 tags:
 - concurrency
 - collections
 - interview
 created: 2026-01-18
-updated: 2026-09-02
 pattern: 3
 difficulty: Hard
 completed: false
@@ -16,6 +15,7 @@ excalidraw: ''
 source: ''
 type: note
 ---
+
 
 ## Why it Matters
 
@@ -107,6 +107,8 @@ When does `StructuredTaskScope` replace `ConcurrentHashMap` + `CountDownLatch`?:
 # Concurrent Collections
 
 > Part of [[README|Java MOC]] • `Concurrency` • Java 25 (LTS)
+- [[Architect/10_System-Design-Interviews/ASYNC-02-Message-Queues.md|ASYNC-02-Message-Queues]] — Message Queues - distributed concurrency
+- [[Architect/10_System-Design-Interviews/ASYNC-03-Event-Driven-Architecture.md|ASYNC-03-Event-Driven-Architecture]] — Event-driven patterns
 
 ## Core Collections
 

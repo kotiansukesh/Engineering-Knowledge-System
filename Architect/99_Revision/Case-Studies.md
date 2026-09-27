@@ -1,21 +1,24 @@
 ---
 title: Case Studies
-category: Revision
+category: Architect/99_Revision
 tags:
-- case-study
-- ecommerce
-- banking
 - ai
+- banking
+- case-study
+- difficulty/easy
+- ecommerce
 created: 2026-09-03
 completed: false
-reviewed: ''
-sr-due: ''
+reviewed: '2026-09-21'
+sr-due: '2026-09-24'
 difficulty: Easy
 excalidraw: ''
 source: ''
 type: note
 weeks: ''
 ---
+
+
 
 ## Why it Matters
 

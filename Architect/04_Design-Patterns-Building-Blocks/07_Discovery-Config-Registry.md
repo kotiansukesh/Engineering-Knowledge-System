@@ -1,25 +1,34 @@
 ---
 title: Discovery, Config & Registry
-category: Design Patterns & Building Blocks
+category: Architect/04_Design-Patterns-Building-Blocks
 tags:
-- patterns
-- microservices
-- discovery
+- company/uber
+- company/youtube
 - config
-- spring-cloud
-- kubernetes
-- eureka
 - consul
+- difficulty/hard
+- discovery
+- eureka
+- kubernetes
+- microservices
+- pattern/cloud
+- pattern/enterprise
+- pattern/integration
+- pattern/resilience
+- patterns
+- spring-cloud
 created: 2026-09-03
 completed: false
-reviewed: ''
-sr-due: ''
+reviewed: '2026-08-31'
+sr-due: '2026-09-14'
 difficulty: Hard
 excalidraw: ''
 source: ''
 type: note
 weeks: ''
 ---
+
+
 
 ## Why it Matters
 

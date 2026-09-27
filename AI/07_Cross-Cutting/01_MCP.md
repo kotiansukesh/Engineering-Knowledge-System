@@ -1,6 +1,6 @@
 ---
 title: Model Context Protocol (MCP)
-category: cross-cutting
+category: AI/07_Cross-Cutting
 tags:
 - ai
 - mcp
@@ -9,12 +9,11 @@ tags:
 - interview
 - 2026-trend
 created: 2026-09-02
-updated: 2026-09-03
 completed: false
 reviewed: ''
 sr-due: ''
 excalidraw: ''
-difficulty: ''
+difficulty: Medium
 source: ''
 type: note
 weeks: ''

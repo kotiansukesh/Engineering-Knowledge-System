@@ -1,11 +1,10 @@
 ---
 title: CompletableFuture
-category: Concurrency
+category: Java/04_Concurrency
 tags:
 - concurrency
 - interview
 created: 2026-01-18
-updated: 2026-09-02
 pattern: 2
 difficulty: Hard
 completed: false
@@ -15,6 +14,7 @@ excalidraw: ''
 source: ''
 type: note
 ---
+
 
 ## Why it Matters
 
@@ -106,6 +106,7 @@ Is CompletableFuture blocking?:: Chaining is non-blocking; only terminal `join()
 # CompletableFuture
 
 > Part of [[README|Java MOC]] • `Concurrency` • Java 25 (LTS)
+- [[Architect/10_System-Design-Interviews/ASYNC-01-Async-Patterns.md|ASYNC-01-Async-Patterns]] — Async composition patterns
 
 ## Core api & Execution Model
 

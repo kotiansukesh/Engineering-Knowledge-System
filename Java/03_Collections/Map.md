@@ -1,12 +1,11 @@
 ---
 title: Map
-category: Collections
+category: Java/03_Collections
 tags:
 - java
 - collections
 - map
 created: 2026-01-18
-updated: 2026-09-04
 pattern: 2
 difficulty: Easy
 completed: false

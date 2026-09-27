@@ -21,6 +21,7 @@ excalidraw: ''
 type: note
 ---
 
+
 # Top K Elements
 
 > Part of [[README|20 DSA Patterns]] • `Coding Patterns/03_Stack_Heap` • Pattern #9
@@ -234,3 +235,5 @@ int[] topKFrequentBucket(int[] nums, int k) {
 
 ---
 *Category: Coding Patterns/03_Stack_Heap*
+- [[Architect/10_System-Design-Interviews/NET-01-Load-Balancer.md|NET-01-Load-Balancer]] — Least connections = min heap
+- [[Architect/10_System-Design-Interviews/INT-02-Twitter-Timeline.md|INT-02-Twitter-Timeline]] — Merge k sorted lists = heap

@@ -1,6 +1,6 @@
 ---
 title: Design, Compare and Analyze LLM Architectures (Coursera C2)
-category: rag
+category: AI/02_RAG-Engineering
 tags:
 - ai
 - architecture
@@ -12,7 +12,7 @@ completed: false
 reviewed: ''
 sr-due: ''
 excalidraw: ''
-difficulty: ''
+difficulty: Medium
 source: ''
 type: note
 ---

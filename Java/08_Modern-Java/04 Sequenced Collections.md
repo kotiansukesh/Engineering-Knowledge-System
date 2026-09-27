@@ -1,6 +1,6 @@
 ---
 title: Sequenced Collections
-category: Modern-Java
+category: Java/08_Modern-Java
 tags:
 - java25
 - sequenced

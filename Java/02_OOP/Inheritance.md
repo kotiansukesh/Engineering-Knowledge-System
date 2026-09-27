@@ -6,7 +6,6 @@ tags:
 - oop
 - inheritance
 created: 2026-01-18
-updated: 2026-09-04
 pattern: 6
 difficulty: Medium
 completed: false

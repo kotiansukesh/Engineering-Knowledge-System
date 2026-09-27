@@ -1,0 +1,161 @@
+{
+  "type": "excalidraw",
+  "version": 2,
+  "source": "https://excalidraw.com",
+  "elements": [
+    {
+      "id": "template_lb",
+      "type": "rectangle",
+      "x": 100,
+      "y": 100,
+      "width": 400,
+      "height": 300,
+      "strokeColor": "#1976d2",
+      "backgroundColor": "transparent",
+      "strokeWidth": 2,
+      "roughness": 1,
+      "label": "Load Balancer Architecture"
+    },
+    {
+      "id": "template_lb_client",
+      "type": "rectangle",
+      "x": 50,
+      "y": 200,
+      "width": 80,
+      "height": 50,
+      "strokeColor": "#666",
+      "backgroundColor": "#e0e0e0",
+      "strokeWidth": 2,
+      "roughness": 1,
+      "label": "Client"
+    },
+    {
+      "id": "template_lb_l4",
+      "type": "rectangle",
+      "x": 200,
+      "y": 130,
+      "width": 150,
+      "height": 80,
+      "strokeColor": "#1976d2",
+      "backgroundColor": "#e3f2fd",
+      "strokeWidth": 2,
+      "roughness": 1,
+      "label": "L4 Load Balancer\n(TCP/UDP)\nHAProxy / NLB / Envoy"
+    },
+    {
+      "id": "template_lb_l7",
+      "type": "rectangle",
+      "x": 200,
+      "y": 250,
+      "width": 150,
+      "height": 80,
+      "strokeColor": "#7b1fa2",
+      "backgroundColor": "#f3e5f5",
+      "strokeWidth": 2,
+      "roughness": 1,
+      "label": "L7 Load Balancer\n(HTTP/HTTPS)\nALB / Traefik / Nginx"
+    },
+    {
+      "id": "template_lb_backend1",
+      "type": "rectangle",
+      "x": 400,
+      "y": 130,
+      "width": 100,
+      "height": 60,
+      "strokeColor": "#2e7d32",
+      "backgroundColor": "#e8f5e9",
+      "strokeWidth": 2,
+      "roughness": 1,
+      "label": "Backend 1\nHealthy ✓"
+    },
+    {
+      "id": "template_lb_backend2",
+      "type": "rectangle",
+      "x": 400,
+      "y": 220,
+      "width": 100,
+      "height": 60,
+      "strokeColor": "#2e7d32",
+      "backgroundColor": "#e8f5e9",
+      "strokeWidth": 2,
+      "roughness": 1,
+      "label": "Backend 2\nHealthy ✓"
+    },
+    {
+      "id": "template_lb_backend3",
+      "type": "rectangle",
+      "x": 400,
+      "y": 310,
+      "width": 100,
+      "height": 60,
+      "strokeColor": "#c62828",
+      "backgroundColor": "#ffebee",
+      "strokeWidth": 2,
+      "roughness": 1,
+      "label": "Backend 3\nUnhealthy ✗"
+    },
+    {
+      "id": "template_lb_health",
+      "type": "rectangle",
+      "x": 200,
+      "y": 350,
+      "width": 150,
+      "height": 40,
+      "strokeColor": "#f57c00",
+      "backgroundColor": "#fff3e0",
+      "strokeWidth": 2,
+      "roughness": 1,
+      "label": "Health Checker\n(Active + Passive)"
+    },
+    {
+      "id": "template_lb_arrow1",
+      "type": "arrow",
+      "x": 130,
+      "y": 225,
+      "width": 70,
+      "height": -95,
+      "strokeColor": "#666",
+      "strokeWidth": 2,
+      "roughness": 1
+    },
+    {
+      "id": "template_lb_arrow2",
+      "type": "arrow",
+      "x": 350,
+      "y": 170,
+      "width": 50,
+      "height": 0,
+      "strokeColor": "#1976d2",
+      "strokeWidth": 2,
+      "roughness": 1
+    },
+    {
+      "id": "template_lb_arrow3",
+      "type": "arrow",
+      "x": 350,
+      "y": 290,
+      "width": 50,
+      "height": 0,
+      "strokeColor": "#7b1fa2",
+      "strokeWidth": 2,
+      "roughness": 1
+    },
+    {
+      "id": "template_lb_ssl",
+      "type": "rectangle",
+      "x": 200,
+      "y": 390,
+      "width": 150,
+      "height": 40,
+      "strokeColor": "#6a1b9a",
+      "backgroundColor": "#f3e5f5",
+      "strokeWidth": 2,
+      "roughness": 1,
+      "label": "SSL Termination"
+    }
+  ],
+  "appState": {
+    "gridSize": 20,
+    "viewBackgroundColor": "#ffffff"
+  }
+}

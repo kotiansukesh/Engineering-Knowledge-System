@@ -1,6 +1,6 @@
 ---
 title: Compact Object Headers and Performance
-category: Modern-Java
+category: Java/08_Modern-Java
 tags:
 - java25
 - jep450

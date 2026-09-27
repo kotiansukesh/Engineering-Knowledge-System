@@ -1,12 +1,11 @@
 ---
 title: Interface
-category: Core-Java
+category: Java/01_Core-Java
 tags:
 - java
 - interface
 - java25
 created: 2026-01-18
-updated: 2026-09-04
 pattern: 7
 difficulty: Easy
 completed: false

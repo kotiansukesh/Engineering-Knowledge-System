@@ -1,22 +1,30 @@
 ---
 title: Domain Events
-category: DDD & Modeling
+category: Architect/05_DDD-Modeling
 tags:
+- concept/aggregate
+- concept/bounded-context
+- concept/domain-event
+- concept/saga
 - ddd
+- difficulty/medium
 - domain-events
 - events
 - outbox
+- pattern/ddd
 - spring
 created: 2026-09-03
 completed: false
-reviewed: ''
-sr-due: ''
+reviewed: '2026-09-18'
+sr-due: '2026-09-25'
 difficulty: Medium
 excalidraw: ''
 source: ''
 type: note
 weeks: ''
 ---
+
+
 
 ## Why it Matters
 

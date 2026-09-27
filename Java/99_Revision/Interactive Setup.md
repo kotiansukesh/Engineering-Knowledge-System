@@ -1,11 +1,10 @@
 ---
 title: Interactive setup , plugins and commands
-category: Revision
+category: Java/99_Revision
 tags:
 - revision
 - setup
 created: 2026-09-04
-updated: 2026-09-04
 pattern: 0
 difficulty: Easy
 completed: false

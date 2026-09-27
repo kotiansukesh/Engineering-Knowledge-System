@@ -1,23 +1,30 @@
 ---
 title: Enterprise Patterns
-category: Design Patterns & Building Blocks
+category: Architect/04_Design-Patterns-Building-Blocks
 tags:
-- patterns
-- enterprise
-- repository
-- unit-of-work
+- difficulty/easy
 - dto
+- enterprise
+- pattern/cloud
+- pattern/enterprise
+- pattern/integration
+- pattern/resilience
+- patterns
+- repository
 - spring
+- unit-of-work
 created: 2026-09-03
 completed: false
-reviewed: ''
-sr-due: ''
+reviewed: '2026-09-02'
+sr-due: '2026-09-05'
 difficulty: Easy
 excalidraw: ''
 source: ''
 type: note
 weeks: ''
 ---
+
+
 
 ## Why it Matters
 

@@ -1,6 +1,6 @@
 ---
 title: Phase 02, RAG Engineering Checklist
-category: rag
+category: AI/02_RAG-Engineering
 tags:
 - ai
 - checklist
@@ -9,7 +9,7 @@ completed: false
 reviewed: ''
 sr-due: ''
 excalidraw: ''
-difficulty: ''
+difficulty: Medium
 source: ''
 type: note
 weeks: ''

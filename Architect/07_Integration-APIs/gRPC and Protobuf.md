@@ -1,18 +1,28 @@
 ---
 title: gRPC and Protobuf
-category: 'integration tags: [grpc, protobuf, latency, streaming, interview] created:
-  2026-09-03 completed: false'
-reviewed: ''
-sr-due: ''
+category: Architect/07_Integration-APIs
+reviewed: '2026-09-01'
+sr-due: '2026-09-04'
 difficulty: Easy
 excalidraw: ''
-tags: []
+tags:
+- company/youtube
+- concept/async-messaging
+- concept/graphql
+- concept/grpc
+- concept/idempotency
+- concept/kafka
+- concept/rest
+- difficulty/easy
+- pattern/integration
 created: '2026-09-27'
 completed: false
 source: ''
 type: note
 weeks: ''
 ---
+
+
 
 ## Why it Matters
 
