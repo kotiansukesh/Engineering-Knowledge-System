@@ -34,7 +34,10 @@ for rel, path in files.items():
             if not resolves(m.group(1)):
                 errors.append(f"{rel}:{n}: unresolved wikilink [[{m.group(1)}]]")
 
-        if "|" in line and "[[" in line and "]]" in line:
+        # Only Markdown table rows need the pipe-alias warning. A normal prose
+        # line or fenced example may legitimately contain both pipes and links.
+        stripped = line.strip()
+        if stripped.startswith("|") and "|" in line and "[[" in line and "]]" in line:
             warnings.append(f"{rel}:{n}: wikilink alias inside table; use path-only wikilink")
 
     for marker in (
