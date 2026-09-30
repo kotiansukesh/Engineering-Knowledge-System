@@ -25,3 +25,29 @@ Evaluation is part of architecture because model behavior changes over time.
 ## Fitness function
 
 Define measurable thresholds before changing prompts, models, retrieval or agent policies.
+## Evaluation design
+
+Treat evaluation as a production subsystem, not a one-time benchmark.
+
+Define:
+
+- representative and adversarial datasets;
+- deterministic checks where possible;
+- retrieval metrics;
+- task-success metrics;
+- safety/constraint checks;
+- human-review sampling;
+- regression thresholds;
+- versioning of datasets, prompts, models and evaluators.
+
+## Fitness function
+
+Set thresholds before changing the system. A change is acceptable only when it satisfies the required quality constraints without violating latency, reliability, safety or cost budgets.
+
+## Failure modes
+
+Test evaluator blind spots, dataset leakage, distribution shift and metric gaming.
+
+## Evidence
+
+Maintain a golden evaluation set and record baseline versus changed-system results, including regressions.
