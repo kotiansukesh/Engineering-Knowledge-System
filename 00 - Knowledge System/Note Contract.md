@@ -21,7 +21,7 @@ prerequisites: []
 related: []
 implementation: ""
 evidence: []
-source: []
+source: []\nsource-quality: []
 applies-to: ""
 introduced: ""
 last-verified: ""
@@ -40,3 +40,8 @@ sr-due: ""
 - `last-verified` is required for version-sensitive notes.
 - Do not add metadata merely to satisfy a schema; metadata must have a query or workflow consumer.
 - Existing domain-specific fields remain valid.
+
+
+## Health
+
+See [[Vault Health]] for diagnostics and review categories.
