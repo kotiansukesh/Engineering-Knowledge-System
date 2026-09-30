@@ -1,119 +1,85 @@
 ---
-title: "{{title}}"
-category: "AI/01_Fundamentals"
-tags: [ai]
-created: "{{date:YYYY-MM-DD}}"
-completed: false
-difficulty: "Medium"
-reviewed: ""
-sr-due: ""
-source: ""
-type: "note"
-weeks: ""
+title: "<% tp.file.title %>"
+type: concept
+domain: ai
+status: active
+difficulty: intermediate
+created: "<% tp.date.now('YYYY-MM-DD') %>"
+reviewed:
+next_review:
+source:
+tags:
+  - ai
 ---
 
-# {{title}}
+# <% tp.file.title %>
 
-> Part of [[README|AI MOC]] • `{{category}}`
+## 1. Problem
 
-## Intent
+What problem does this solve?
 
-**Problem:** What problem does this solve?
+## 2. Mental model
 
-**Mechanism:** What is the smallest correct mental model?
+Explain the mechanism in 3–5 sentences.
 
-## Why It Matters
+## 3. Minimal example
 
-- Production impact:
-- Architecture impact:
-- Interview signal:
-
-## Core Model
-
-Explain the mechanism step by step.
-
-## Minimal Implementation
-
-Use the smallest realistic example.
+Show the smallest realistic example.
 
 ```text
-Replace this with a real, runnable example.
+Example
 ```
 
-## When to Use / When Not to Use
+## 4. When to use
 
-| Condition | Use? | Reason |
+- 
+- 
+
+## 5. When not to use
+
+- 
+- 
+
+## 6. Trade-offs
+
+| Dimension | Option / choice | Implication |
 |---|---|---|
-| [Concrete condition] | ✅ | [Specific reason] |
-| [Concrete condition] | ❌ | [Specific reason] |
+| Quality | | |
+| Latency | | |
+| Cost | | |
+| Security / privacy | | |
+| Operability | | |
 
-## Decision & Trade-offs
+## 7. Failure & evaluation
 
-Start with a real decision. Do not populate a generic matrix.
+**Failure:**  
+**Detection:**  
+**Mitigation:**  
+**Metric:**  
+**Test:**  
 
-**Decision:** [What are we choosing?]
+## 8. Explain
 
-**Drivers:** [Quality, latency, cost, freshness, security, operability, etc.]
+**What is the core idea?**  
 
-| Dimension | Option A | Option B | Evidence / implication |
-|---|---|---|---|
-| [Relevant dimension] | [fact] | [fact] | [what changes] |
-| [Relevant dimension] | [fact] | [fact] | [what changes] |
+**What constraint changes the design?**  
 
-**Decision rule:** Choose A when [condition]. Choose B when [condition].
+**What breaks first at 10× scale?**  
 
-## Failure Modes
+## 9. Practice
 
-- **Failure:** [observable symptom]
-- **Cause:** [root cause]
-- **Detection:** [metric/test/log]
-- **Mitigation:** [control]
-
-## Evaluation
-
-| Property | Metric | Target | Test |
-|---|---|---|---|
-| Quality | [metric] | [target] | [evaluation] |
-| Performance | [metric] | [target] | [load test] |
-
-## Interview Q&A
-
-**Q1:** Explain the mechanism without product names.
-
-**Q2:** What constraint would make you choose an alternative?
-
-**Q3:** What fails first at 10× scale?
-
-**Q4:** What would you measure before changing the architecture?
-
-## Flashcards
-
-Create concept-specific cards:
-- Recall a concrete fact.
-- Contrast two options under a stated constraint.
-- Diagnose a symptom from a failure mode.
-- Choose an option from a constraint.
-
-## Practice Tasks
-
-- [ ] Explain the concept from memory
-- [ ] Implement the minimal path
+- [ ] Explain from memory
+- [ ] Build the minimal path
 - [ ] Test one failure mode
 - [ ] Record one measurement
-- [ ] Review after the next implementation
 
 ```tasks
 not done
-path includes {{file.folder}}
+path includes <% tp.file.folder(true) %>
 sort by due
 limit 10
 ```
 
 ## Related
 
-- [[README|AI MOC]]
-- Add only links that actually exist.
-
----
-
-*Category: {{category}} • AI Engineering Vault*
+Add only links that actually exist in this vault.
