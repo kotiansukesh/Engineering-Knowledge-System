@@ -1,0 +1,23 @@
+# macOS
+.DS_Store
+
+# IDEs / editors
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS / temporary files
+Thumbs.db
+*.tmp
+*.temp
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+
+# Generated validation output
+reports/
