@@ -1,137 +1,55 @@
 ---
-title: "12_Data Quality"
+title: "ML Data Quality"
 category: "AI/04_Production-Platform"
-tags:
-- data-quality
-- validation
-- great-expectations
-- drift
-- monitoring
-created: "2026-09-29"
+tags: [data-quality, validation, schema, anomaly, drift]
+created: "2026-09-30"
 completed: false
-difficulty: "Medium"
-reviewed: "2026-09-29"
-sr-due: "2026-09-30"
-source: ""
-excalidraw: ""
-weeks: "11"
+difficulty: "Advanced"
+reviewed: "2026-09-30"
+sr-due: "2026-10-14"
 type: "note"
 ---
 
-# 12_Data Quality
-
-> Part of [[README|AI MOC]] • `AI/04_Production-Platform` • Weeks 11
-> 🎨 **Visual diagram:** Create Excalidraw drawing from template: `Cmd+P → Excalidraw: New from template → AI Diagram`
+# ML Data Quality
 
 ## Intent
-Understand **data quality** — schema validation, statistical profiling, drift detection (KS-test, PSI), anomaly detection, and automated remediation — to prevent garbage-in-garbage-out.
+Detect data problems before they become model-quality, reliability, or business problems.
 
-## Why It Matters
-- Where this appears in interviews (FAANG, senior vs. junior)
-- Production impact (cost, latency, quality, GPU utilization)
-- Senior signal: recognizing the *disguised* form of this pattern
+## Quality Dimensions
+- schema/type validity
+- completeness
+- uniqueness
+- range/domain validity
+- freshness
+- distribution changes
+- referential integrity
+- semantic/business rules
 
-## Diagram
-```mermaid
-graph TD
-    A[Input / Context] --> B[Core Mechanism]
-    B --> C[Output / Result]
-    style B fill:#e8f5e9
-```
+## Layered Checks
+**Schema → row-level validation → aggregate/statistical checks → drift → downstream model-quality checks**
 
-## Key Points
-- Key point 1
-- Key point 2
+Not every anomaly should block a pipeline. Classify checks as hard failure, quarantine, warning, or observe.
 
-## Code / Config Example
-```python
-# Python 3.11+: Minimal example for 12_Data Quality
-# Core concept - implementation varies by framework
+## Statistical Detection
+KS-test, PSI, and similar techniques can detect distribution changes, but statistical significance is not the same as business significance. Thresholds need a baseline, sample-size context, owner, and response action.
 
-from dataclasses import dataclass
-from typing import Optional
+## Failure Modes
+- Check is too strict → healthy data is blocked.
+- Check is too weak → bad data reaches production.
+- Drift alert has no owner/action.
+- Small sample creates noisy alerts.
+- Quality is measured without connecting it to downstream model behavior.
 
-@dataclass
-class 12_DataQualityConfig:
-    component: str = "12_Data Quality"
-    capacity: int = 10000
-    strategy: str = "default"
+## Practice
+- [ ] Define hard and soft quality checks.
+- [ ] Inject nulls and schema changes.
+- [ ] Simulate a distribution shift.
+- [ ] Connect a data-quality alert to a model-quality investigation.
+- [ ] Document the action associated with each threshold.
 
-# Example usage
-config = 12_DataQualityConfig()
-```
-
-## When to Use / NOT
-| Scenario | Use? | Reason |
-|----------|------|--------|
-|          | ✅   |        |
-|          | ❌   |        |
-
-## Trade-offs / Decision Matrix
-| Dimension | This Approach | Alternative A | Alternative B | Pick When |
-|-----------|---------------|---------------|---------------|-----------|
-| Complexity | | | | |
-| Latency | | | | |
-| Cost (GPU/hr) | | | | |
-| Quality | | | | |
-
-## Vs. Alternatives
-| Alternative | When to Choose It | Decision Rule |
-|-------------|-------------------|---------------|
-| | | |
-
-## Pitfalls
-1. [Concrete mistake] → [Fix]
-2. [Concrete mistake] → [Fix]
-
-## Interview Q&A (Senior Depth)
-
-**Q1: Walk me through the core mechanism of 12_Data Quality. Why does it work?**
-**A:** In 2–3 sentences. Connect the *why* to the mathematical/architectural invariant.
-
-**Q2: When would you choose an alternative over this approach?**
-**A:** Cite concrete constraints (scale, latency, cost, quality) and name the alternative.
-
-**Q3: How does this change for production vs. prototype?**
-**A:** Explain the hardening needed: evaluation, monitoring, cost optimization, guardrails.
-
-**Q4: Walk me through a non-obvious problem that reduces to this pattern.**
-**A:** Describe the reduction step-by-step.
-
-**Q5: What is the GPU memory / latency implication at scale?**
-**A:** Discuss VRAM, batching, KV cache, quantization trade-offs.
-
-## Flashcards (Spaced Repetition)
-
-#flashcard
-**Q:** What is the trigger keyword for 12_Data Quality? :: **A:** [trigger keywords] #flashcard
-
-#flashcard
-**Q:** Key hyperparameter for 12_Data Quality? :: **A:** [hyperparameter + typical range] #flashcard
-
-#flashcard
-**Q:** When do you NOT use 12_Data Quality? :: **A:** [anti-pattern scenarios] #flashcard
-
-#flashcard
-**Q:** Cost order of magnitude for 12_Data Quality? :: **A:** [GPU hours / $ per 1M tokens] #flashcard
-
-## Practice Tasks (Tasks Plugin)
-- [ ] Restate the intent from memory 📅 2026-09-30
-- [ ] Code the config without looking 📅 2026-10-02
-- [ ] Answer all Interview Q&A aloud 📅 2026-10-06
-- [ ] Review flashcards (Spaced Repetition) 📅 2026-09-30
-
-```tasks
-not done
-path includes 04_Production-Platform
-sort by due
-limit 10
-```
-
-## Related
-- [[README|AI MOC]]
-- [[04_Production-Platform/README|04_Production-Platform Folder]]
-
----
-
-*Category: AI/04_Production-Platform • Part of [[README|AI MOC]]*
+## Senior Interview Prompts
+1. Which data checks should block a pipeline?
+2. Why is drift not automatically a model failure?
+3. How do you reduce alert fatigue?
+4. How do you distinguish statistical from practical significance?
+5. What evidence connects a data anomaly to model degradation?
