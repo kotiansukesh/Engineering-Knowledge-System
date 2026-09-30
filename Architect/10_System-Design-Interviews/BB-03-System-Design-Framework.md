@@ -277,7 +277,7 @@ limit 10
 
 - [[Architect/10_System-Design-Interviews/FND-10-Interview-Approach|Interview Approach (Primer)]]
 - [[Architect/10_System-Design-Interviews/FND-11-Back-of-Envelope|Back-of-Envelope Estimation]]
-- [[Architect/10_System-Design-Interviews/BB-01-Scaling-Zero-to-Millions|Scaling Zero to Millions]]
+- [[FND-02-Performance-vs-Scalability|Performance vs Scalability]]
 
 ---
 
