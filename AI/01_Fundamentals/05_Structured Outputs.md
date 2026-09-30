@@ -28,8 +28,8 @@ Force LLM to emit validated schemas (JSON/Pydantic) instead of free text — ena
 ## 🧩 Diagram: Structured Output Loop
 ```mermaid
 flowchart LR
-    S[Pydantic Model<br/>(Answer, citations)] -->|model_json_schema| J[JSON Schema]
-    J --> P[Provider Call:<br/>response_format / tool]
+    S["Pydantic Model<br/>(Answer, citations)"] -->|model_json_schema| J["JSON Schema"]
+    J --> P["Provider Call:<br/>response_format / tool"]
     P --> L[LLM]
     L --> R[Raw JSON]
     R -->|model_validate| S
