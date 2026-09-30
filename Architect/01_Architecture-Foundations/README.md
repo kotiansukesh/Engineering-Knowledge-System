@@ -1,88 +1,59 @@
 ---
-title: "01 Architecture Foundations README"
-category: "Architect/01_Architecture-Foundations"
-type: "folder-MOC"
-tags: [MOC, folder]
-created: "2026-09-27"
+title: Architecture Foundations
+type: folder-MOC
+category: Architect/01_Architecture-Foundations
+difficulty: Beginner
 completed: false
-reviewed: ""
-sr-due: ""
+tags: [architecture, foundations, MOC]
 ---
 
-# 01 Architecture Foundations
+# Architecture Foundations
 
-> Part of [[README|Architect MOC]] • `Architect/01_Architecture-Foundations`
+> The conceptual spine: **what architecture is, how architects reason, how quality is made measurable, and how decisions are communicated and evolved.**
 
-## Progress Overview
+## Learning path
 
-```dataviewjs
-const category = dv.current().category;
-const pages = dv.pages(`"${category}"`).where(p => p.category != null && p.file.name != "README");
-const total = pages.length;
-const done = pages.where(p => p.completed === true).length;
-const pct = total ? Math.round(done/total*100) : 0;
-const bar = (p, w=20) => "█".repeat(Math.round(p/100*w)) + "░".repeat(w-Math.round(p/100*w));
-dv.paragraph(`**Total: ${total} notes | Completed: ${done} | Remaining: ${total-done}** — \`${pct}%\``);
-dv.paragraph(`\`${bar(pct)}\` **${pct}%**`);
-if (total === done && total > 0) dv.paragraph(`🎉 *All notes completed!*`);
-```
+**Architecture → System Boundaries → Stakeholders → Quality Attributes → Constraints & Trade-offs → Principles → Views → ADRs → Fitness Functions → Evolution**
 
-> **Fallback (if DataviewJS disabled):**
-```dataview
-TABLE WITHOUT ID
- length(rows) as "Total",
- length(filter(rows, (r) => r.completed)) as "Completed",
- length(filter(rows, (r) => !r.completed)) as "Remaining"
-FROM "Architect/01_Architecture-Foundations"
-WHERE category AND file.name != "README"
-GROUP BY true
-```
+| Stage | Outcome |
+|---|---|
+| [[What-is-Architecture]] | Distinguish architecture, design and implementation |
+| [[Systems-Boundaries-and-Context]] | Establish scope, ownership and trust boundaries |
+| [[Stakeholders-Concerns]] | Convert concerns into architectural drivers |
+| [[Quality-Attributes-and-Scenarios]] | Turn vague NFRs into measurable scenarios |
+| [[Constraints-and-Trade-offs]] | Make compromises explicit |
+| [[Architecture-Principles]] | Create durable decision rules |
+| [[Views-and-Viewpoints-4-plus-1]] | Communicate architecture through purposeful views |
+| [[Architecture-Decisions-and-ADRs]] | Capture why decisions were made |
+| [[Fitness-Functions-and-Architecture-Runway]] | Detect drift with evidence |
+| [[Architecture-Evolution-and-Technical-Debt]] | Change architecture when evidence demands it |
 
-## Notes Index
+## Foundation outcome
 
-```dataview
-TABLE WITHOUT ID
- file.link as "Note",
- category as "Category",
- choice(completed, "✅", "⬜") as "Done",
- difficulty as "Difficulty",
- reviewed as "Last Reviewed",
- "sr-due" as "SR Due"
-FROM "Architect/01_Architecture-Foundations"
-WHERE category AND file.name != "README"
-SORT file.name ASC
-```
+Given an ambiguous problem, produce:
 
-## Spaced Repetition Status
+**Context → stakeholders → drivers → constraints → quality scenarios → boundaries → candidate structures → trade-offs → decision → evidence → evolution trigger**
 
-```dataview
-TABLE WITHOUT ID
- file.link as "Note",
- reviewed as "Last Reviewed",
- "sr-due" as "Due",
- choice(!reviewed, "🔴 Never", choice(date(now)-reviewed > dur(7 days), "🟡 Stale", "🟢 Fresh")) as "Status"
-FROM "Architect/01_Architecture-Foundations"
-WHERE category AND file.name != "README" AND (reviewed OR "sr-due")
-SORT "sr-due" ASC
-```
+## Practice
 
-## Practice Tasks (from Notes)
+- [ ] Classify architecture vs design vs implementation decisions
+- [ ] Draw a system context and trust boundaries
+- [ ] Build a stakeholder/concern matrix
+- [ ] Write three measurable quality scenarios
+- [ ] Separate hard constraints from preferences
+- [ ] Write three architecture principles
+- [ ] Choose views based on stakeholder questions
+- [ ] Write an ADR
+- [ ] Define one fitness function
+- [ ] Define a redesign trigger
 
-```tasks
-not done
-path includes Architect/01_Architecture-Foundations
-sort by due
-group by filename
-limit 20
-```
+## Boundary of this folder
 
-> ⚠️ **Template Note:** The `Architect/01_Architecture-Foundations` placeholder above is replaced by the generate script (`python3 generate_folder_readmes.py`). The template file itself will show a Tasks error — this is expected. Generated README files have the actual folder path and work correctly.
+Teach **reasoning primitives**, not technology catalogs. Data, integration, operations, enterprise and AI architecture belong in their dedicated layers.
 
-## Quick Links
+## Related
 
-- [[README|← Back to Architect MOC]]
-- [[Master Dashboard|📊 Master Dashboard]]
-
----
-
-*Folder: Architect/01_Architecture-Foundations • Part of [[README|Architect MOC]]*
+- [[00 - Architecture Decision Framework]]
+- [[00 - System Design Decision Tree]]
+- [[00 - NFR Decision Matrix]]
+- [[00 - Architecture Practice Engine]]
