@@ -108,3 +108,11 @@ limit 25
 ## Operating rule
 
 > **Do not add infrastructure because it is familiar. Add it because a quantified requirement, failure mode, organizational constraint or measured bottleneck demands it.**
+
+
+## Knowledge System Integration
+
+- [[00 - Knowledge System/README|Knowledge System]] — shared learning model
+- [[Evidence/Architecture Decisions/README|Architecture Decisions]] — durable ADR evidence
+- [[Evidence/README|Evidence]] — failure and evaluation records
+- [[Build Lab/README|Build Lab]] — systems to design, defend and evolve
