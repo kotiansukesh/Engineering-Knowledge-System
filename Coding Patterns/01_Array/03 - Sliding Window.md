@@ -103,13 +103,10 @@ String minWindow(String s, String t) {
 Use the implementation above as the base case. Extend it only after the invariant remains explicit.
 
 ## When to use
-
 - contiguous subarray/substring with max/min/longest/shortest condition; fixed-k sums/averages; "window" / "substring" / "subarray" keywords.
-- **NOT:** non-contiguous subsequence (use DP/backtracking); need original order but not contiguous; sorted pair search (use two pointers).
 
 ## When NOT to use
-
-non-contiguous subsequence (use DP/backtracking); need original order but not contiguous; sorted pair search (use two pointers).
+- non-contiguous subsequence (use DP/backtracking); need original order but not contiguous; sorted pair search (use two pointers).
 
 ## Complexity & trade-offs
 
