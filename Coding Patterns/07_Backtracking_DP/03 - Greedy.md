@@ -93,13 +93,10 @@ int eraseOverlapIntervals(int[][] intervals) {
 Start with the core implementation. Introduce a variant only when the required state or proof changes.
 
 ## When to use
-
 - interval scheduling, activity selection, jump game, Huffman coding, gas station, "minimum", "maximum", "optimal", "earliest", "farthest reachable".
-- **NOT:** future consequences can invalidate local pick (use DP); need all solutions (use backtracking); "coin change" with arbitrary denominations (greedy fails on [1,3,4] for amount 6).
 
 ## When NOT to use
-
-future consequences can invalidate local pick (use DP); need all solutions (use backtracking); "coin change" with arbitrary denominations (greedy fails on [1,3,4] for amount 6).
+- future consequences can invalidate local pick (use DP); need all solutions (use backtracking); "coin change" with arbitrary denominations (greedy fails on [1,3,4] for amount 6).
 
 ## Complexity & trade-offs
 
