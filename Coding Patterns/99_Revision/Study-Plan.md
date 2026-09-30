@@ -225,3 +225,143 @@ SORT file.folder, file.name
 ---
 
 *Next: [[Architect/_templates/Daily-Review-Queue|Daily Review Queue]]*
+
+## Mastery Model
+
+A pattern progresses through:
+
+**Learn → Guided → Blind → Mixed → Mastered**
+
+A pattern is **Mastered** only when you can:
+1. identify it on an unseen problem;
+2. explain the invariant without notes;
+3. write the core template from memory;
+4. solve a representative problem within the target time;
+5. explain when the pattern does not apply;
+6. handle a variation or a combination with another pattern.
+
+### Weekly rhythm
+
+**Day 1 — Learn:** mental model, recognition signals, one canonical implementation.
+
+**Day 2 — Guided:** two canonical problems; record mistakes.
+
+**Day 3 — Variants:** one or two variants; state the invariant before coding.
+
+**Day 4 — Blind:** two unseen problems with no pattern hint.
+
+**Day 5 — Explain:** explain the pattern aloud, complexity, alternatives, and limits.
+
+**Weekend — Review:** re-solve one old problem and update review metadata.
+
+## 20-Week Sequence
+
+This is a sequence, not a calendar. Missing a day does not mean skipping a mastery gate.
+
+### Phase 1 — Arrays, Strings & Linked Lists (Weeks 1–4)
+
+**Week 1:** Prefix Sum + Two Pointers  
+Gate: recognize both without hints and explain safe pointer movement.
+
+**Week 2:** Sliding Window  
+Gate: distinguish fixed/variable windows and explain the window-validity invariant.
+
+**Week 3:** Frequency Counting + Intervals + Modified Binary Search  
+Gate: identify the property that makes each technique applicable.
+
+**Week 4:** Fast/Slow Pointers + In-place Reversal  
+Gate: implement cycle detection and reversal from memory.
+
+### Phase 2 — Trees, Graphs, Stack & Heap (Weeks 5–9)
+
+**Week 5:** Tree Traversal + BFS  
+Gate: choose BFS vs DFS based on the required output.
+
+**Week 6:** DFS  
+Gate: define recursive state before writing recursion.
+
+**Week 7:** Shortest Path + Union Find  
+Gate: distinguish BFS, Dijkstra, and Union Find by graph properties.
+
+**Week 8:** Trie + tree variants  
+Gate: explain what state a trie node represents.
+
+**Week 9:** Monotonic Stack + Top K  
+Gate: explain why each element is pushed/popped at most once for a monotonic stack.
+
+### Phase 3 — Backtracking, DP, Greedy, Matrix & Bits (Weeks 10–14)
+
+**Week 10:** DP foundations — brute force → repeated state → state → recurrence → base case.
+
+**Week 11:** DP variants — knapsack, LIS, strings, grids.
+
+**Week 12:** Backtracking — choose → explore → undo + pruning.
+
+**Week 13:** Greedy + Matrix — prove why the local choice is safe; practice grid traversal/BFS.
+
+**Week 14:** Bit Manipulation — derive XOR, masks, shifts and bit-counting operations.
+
+### Phase 4 — Recognition & Interview Integration (Weeks 15–20)
+
+**Week 15:** 10 mixed blind problems; record pattern guess, confidence, invariant and recognition time.
+
+**Week 16:** Pattern combinations: Sliding Window + HashMap, Prefix Sum + HashMap, Binary Search + Greedy, BFS + HashSet, DFS + Memoization, Heap + HashMap.
+
+**Week 17:** Connect patterns to engineering systems: rate limiting, autocomplete, crawling, ranking/top-N, connectivity and range queries.
+
+**Week 18:** Weak-area blitz driven by [[00 - Mistake Log|Mistake Log]].
+
+**Week 19:** Three 45–60 minute interview simulations with no pattern hints.
+
+**Week 20:** Final mastery audit using 10 unseen problems sampled across the pattern space.
+
+## Practice Targets
+
+| Skill | Target |
+|---|---:|
+| Pattern recognition | ≤ 3 minutes |
+| Explain invariant | ≤ 2 minutes |
+| Medium implementation | ≤ 15–20 minutes |
+| Complexity explanation | ≤ 1 minute |
+| Alternative discussion | At least 1 valid alternative |
+| Unseen variation | Correct without pattern hint |
+
+These are practice targets, not predictions of interview performance.
+
+## Mastery Metadata
+
+Recommended frontmatter for pattern notes:
+
+~~~yaml
+mastery: blind
+recognition_score: 4
+last_reviewed: 2026-09-30
+next_review: 2026-10-07
+~~~
+
+Use:
+
+**learn → guided → blind → mixed → mastered**
+
+> **Solved ≠ Learned ≠ Recognized ≠ Mastered**
+
+## Weekly Review
+
+Ask:
+1. Which pattern did I fail to recognize?
+2. Which invariant did I misunderstand?
+3. Which two patterns did I confuse?
+4. Which implementation detail caused the most errors?
+5. Can I implement the template without looking?
+6. Can I explain when the pattern should not be used?
+7. Which pattern should be reviewed next?
+
+Record significant failures in [[00 - Mistake Log|Mistake Log]].
+
+## Related
+
+- [[Patterns Index|Patterns Index]]
+- [[00 - Pattern Decision Tree|Pattern Decision Tree]]
+- [[00 - Blind Practice|Blind Practice]]
+- [[00 - Mistake Log|Mistake Log]]
+- [[README|Coding Patterns MOC]]
