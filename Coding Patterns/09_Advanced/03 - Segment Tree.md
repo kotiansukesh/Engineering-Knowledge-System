@@ -154,13 +154,10 @@ var gcdTree = new SegTree(nums, (a, b) -> {
 Start with the core implementation. Introduce a variant only when the required state or proof changes.
 
 ## When to use
-
 - range query + point update interleaved; range min/max/gcd; non-invertible operations; 2D segment tree (matrix).
-- **NOT:** static array (use Prefix Sum / Sparse Table); prefix sum only (use Fenwick/BIT — simpler); only count queries (use BIT).
 
 ## When NOT to use
-
-static array (use Prefix Sum / Sparse Table); prefix sum only (use Fenwick/BIT — simpler); only count queries (use BIT).
+- static array (use Prefix Sum / Sparse Table); prefix sum only (use Fenwick/BIT — simpler); only count queries (use BIT).
 
 ## Complexity & trade-offs
 
