@@ -21,3 +21,4 @@ venv/
 
 # Generated validation output
 reports/
+.obsidian/workspace.json
