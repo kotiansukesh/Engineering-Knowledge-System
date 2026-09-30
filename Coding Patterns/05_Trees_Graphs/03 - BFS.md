@@ -1,173 +1,50 @@
 ---
-type: note
+title: "BFS"
+type: pattern
+pattern: 13
+domain: "Tree / Graph"
+category: "Coding Patterns/05_Trees_Graphs"
+advanced: false
 mastery: learn
 recognition_score: 0
-title: BFS
-pattern: 13
-category: Coding Patterns/05_Trees_Graphs
+difficulty: "Medium"
+leetcode: [- 102]
+created: "2026-09-02"
+reviewed:
+next_review: "2026-10-07"
 tags:
-- pattern/bfs
-- pattern/tree/graph
-leetcode:
-- 102
-- 199
-- 127
-- 1161
-created: '2026-09-02'
-completed: false
-reviewed: ''
-sr-due: ''
-difficulty: Medium
-source: https://blog.algomaster.io/p/20-dsa-patterns
-excalidraw: ''
+  - pattern
+  - tree-graph
 ---
-
 
 # BFS
 
-> Part of [[README|Coding Patterns]] • `Coding Patterns/05_Trees_Graphs` • Pattern #13
+> Pattern #13 · Tree / Graph
 
-## Intent
-Explore level by level using a queue — the shortest-path-in-unweighted-graphs and level-order-traversal pattern. Capturing `queue.size()` at the start of each level is what makes a level a level.
+## Recognition
 
-## Why it Matters
-- **Level order (LC 102):** `while (!q.isEmpty()) { int sz = q.size(); for (int i=0; i<sz; i++) { pop, process, enqueue children; } }` — the `sz` capture is the key.
-- **Shortest path unweighted:** same loop, count steps instead of collecting levels. First time you reach target = shortest distance.
-- **Word Ladder (LC 127):** bidirectional BFS from both ends cuts search space exponentially — `O(b^(d/2))` vs `O(b^d)`.
-- **Visited timing:** mark visited **when enqueuing**, not when dequeuing — otherwise you enqueue the same node multiple times.
-- Senior signal: bidirectional BFS for word ladder / shortest path in large graphs — two frontiers meeting in the middle.
+- Level-by-level traversal
+- Minimum number of edges in an unweighted graph
+- Nearest / shallowest solution
 
-## Diagram
-```mermaid
-flowchart LR
-  Q["queue"] --> P["sz = q.size()"]
-  P --> Lp["loop sz times"]
-  Lp --> Pll["poll, process"]
-  Pll --> Enq["enqueue unvisited children<br/>mark visited NOW"]
-  Enq --> Lp
-  Lp --> Q
-```
+### Strong signals
+- Level-by-level traversal
+- Minimum number of edges in an unweighted graph
 
+### Do not infer it from
+- A keyword alone
+- A familiar example without checking constraints
 
-## Problems
+## Invariant
 
-### 102. Binary Tree Level Order Traversal (Medium)
-> [LeetCode 102](https://leetcode.com/problems/binary-tree-level-order-traversal/) • Tags: Tree, Breadth-First Search, Binary Tree
+> The queue contains the current frontier in nondecreasing distance from the source.
 
-**Problem Statement:**
+## Mental model
 
-Given the root of a binary tree, return the level order traversal of its nodes' values. (i.e., from left to right, level by level). Example 1: Input: root = [3,9,20,null,null,15,7] Output: [[3],[9,20],[15,7]] Example 2: Input: root = [1] Output: [[1]] Example 3: Input: root = [] Output: [] Constraints: The number of nodes in the tree is in the range [0, 2000]. -1000
+Maintain the smallest state that completely describes the part of the search space still relevant to the answer.
 
-**Examples:**
+## Core implementation
 
-Example 1:
-```
-[3,9,20,null,null,15,7]
-```
-
-Example 2:
-```
-[1]
-```
-
-Example 3:
-```
-[]
-```
----
-
-### 199. Binary Tree Right Side View (Medium)
-> [LeetCode 199](https://leetcode.com/problems/binary-tree-right-side-view/) • Tags: Tree, Depth-First Search, Breadth-First Search, Binary Tree
-
-**Problem Statement:**
-
-Given the root of a binary tree, imagine yourself standing on the right side of it, return the values of the nodes you can see ordered from top to bottom. Example 1: Input: root = [1,2,3,null,5,null,4] Output: [1,3,4] Explanation: Example 2: Input: root = [1,2,3,4,null,null,null,5] Output: [1,3,4,5] Explanation: Example 3: Input: root = [1,null,3] Output: [1,3] Example 4: Input: root = [] Output: [] Constraints: The number of nodes in the tree is in the range [0, 100]. -100
-
-**Examples:**
-
-Example 1:
-```
-[1,2,3,null,5,null,4]
-```
-
-Example 2:
-```
-[1,2,3,4,null,null,null,5]
-```
-
-Example 3:
-```
-[1,null,3]
-```
-
-Example 4:
-```
-[]
-```
----
-
-### 127. Word Ladder (Hard)
-> [LeetCode 127](https://leetcode.com/problems/word-ladder/) • Tags: Hash Table, String, Breadth-First Search, Bidirectional Search
-
-**Problem Statement:**
-
-A transformation sequence from word beginWord to word endWord using a dictionary wordList is a sequence of words beginWord -> s1 -> s2 -> ... -> sk such that: Every adjacent pair of words differs by a single letter. Every si for 1 is in wordList. Note that beginWord does not need to be in wordList. sk == endWord Given two words, beginWord and endWord, and a dictionary wordList, return the number of words in the shortest transformation sequence from beginWord to endWord, or 0 if no such sequence exists. Example 1: Input: beginWord = "hit", endWord = "cog", wordList = ["hot","dot","dog","lot","log","cog"] Output: 5 Explanation: One shortest transformation sequence is "hit" -> "hot" -> "dot" -> "dog" -> cog", which is 5 words long. Example 2: Input: beginWord = "hit", endWord = "cog", wordList = ["hot","dot","dog","lot","log"] Output: 0 Explanation: The endWord "cog" is not in wordList, therefore there is no valid transformation sequence. Constraints: 1 endWord.length == beginWord.length 1 wordList[i].length == beginWord.length beginWord, endWord, and wordList[i] consist of lowercase English letters. beginWord != endWord All the words in wordList are unique.
-
-**Examples:**
-
-Example 1:
-```
-"hit"
-```
-
-Example 2:
-```
-"cog"
-```
-
-Example 3:
-```
-["hot","dot","dog","lot","log","cog"]
-```
-
-Example 4:
-```
-"hit"
-```
-
-Example 5:
-```
-"cog"
-```
-
-Example 6:
-```
-["hot","dot","dog","lot","log"]
-```
----
-
-### 1161. Maximum Level Sum of a Binary Tree (Medium)
-> [LeetCode 1161](https://leetcode.com/problems/maximum-level-sum-of-a-binary-tree/) • Tags: Tree, Depth-First Search, Breadth-First Search, Binary Tree
-
-**Problem Statement:**
-
-Given the root of a binary tree, the level of its root is 1, the level of its children is 2, and so on. Return the smallest level x such that the sum of all the values of nodes at level x is maximal. Example 1: Input: root = [1,7,0,7,-8,null,null] Output: 2 Explanation: Level 1 sum = 1. Level 2 sum = 7 + 0 = 7. Level 3 sum = 7 + -8 = -1. So we return the level with the maximum sum which is level 2. Example 2: Input: root = [989,null,10250,98693,-89388,null,null,null,-32127] Output: 2 Constraints: The number of nodes in the tree is in the range [1, 104]. -105 5
-
-**Examples:**
-
-Example 1:
-```
-[1,7,0,7,-8,null,null]
-```
-
-Example 2:
-```
-[989,null,10250,98693,-89388,null,null,null,-32127]
-```
----
-
-
-## Code / Example
 ```java
 record TreeNode(int val, TreeNode left, TreeNode right) {}
 
@@ -256,17 +133,26 @@ int orangesRotting(int[][] grid) {
 }
 ```
 
-## When to Use / When NOT
-- **Use:** shortest path in unweighted graph; level order; word ladder; rotting oranges; multi-source BFS; minimum steps / nearest.
+## Variants
+
+Start with the core implementation. Introduce a variant only when the required state or proof changes.
+
+## When to use
+
+- shortest path in unweighted graph; level order; word ladder; rotting oranges; multi-source BFS; minimum steps / nearest.
 - **NOT:** weighted graphs (use Dijkstra); all paths / exhaustive (use DFS); deep graphs with narrow width (DFS uses less space).
 
-## Trade-offs
+## When NOT to use
+
+weighted graphs (use Dijkstra); all paths / exhaustive (use DFS); deep graphs with narrow width (DFS uses less space).
+
+## Complexity & trade-offs
+
 | Scenario | Time | Space |
 |----------|------|-------|
 | Tree / Graph | O(V+E) | O(V) for queue + visited |
 | Bidirectional | O(b^(d/2)) | O(b^(d/2)) |
 
-## Vs Table
 | Aspect | BFS | DFS | Dijkstra (Weighted) |
 |--------|-----|-----|---------------------|
 | Shortest path | Yes, unweighted | No (a path, not shortest) | Yes, non-negative weights |
@@ -276,12 +162,24 @@ int orangesRotting(int[][] grid) {
 | Pick when | "minimum steps", "nearest", levels | "all paths", "can reach", backtracking | edge weights exist |
 
 ## Pitfalls
+
 - **Save `q.size()` at start of each level.** Reading it inside the inner loop shifts the level boundary.
 - **Mark visited when you enqueue**, not when you dequeue — otherwise the same node enters the queue multiple times.
 - For bidirectional BFS, always expand the *smaller* frontier (`if (beginSet.size() > endSet.size()) swap`).
 - Java 25: `ArrayDeque` is the queue. `record` for grid cell: `record Cell(int r, int c) {}`.
 
-## Interview Q&A (Senior Depth)
+## Canonical problems
+
+| LeetCode | Problem | Difficulty |
+|---:|---|---|
+| 102 | Medium |
+| 199 | Medium |
+| 127 | Hard |
+| 1161 | Medium |
+
+## Interview Q&A
+
+(Senior Depth)
 
 **Q: Why does capturing `sz = q.size()` before the inner loop give correct level separation?**
 **A:** At the start of a level, the queue contains exactly all nodes at that depth. The inner loop processes exactly those `sz` nodes. Children enqueued during the inner loop belong to the *next* level and won't be processed until the next outer iteration when `sz` is recalculated. Without capturing `sz`, the loop condition `i < q.size()` would grow as children are added, mixing levels.
@@ -295,8 +193,7 @@ int orangesRotting(int[][] grid) {
 **Q: Can BFS find shortest path in a weighted graph if all weights are positive integers?**
 **A:** No — BFS assumes unit weight per edge. For integer weights, you can "expand" each edge of weight w into w unit edges, but that blows up the graph. Dijkstra with priority queue is the correct generalization. BFS is Dijkstra with a FIFO queue (all distances equal).
 
-
-## Flashcards (Spaced Repetition)
+## Flashcards
 
 #flashcard
 **Q:** What is the trigger keyword for BFS? :: **A:** shortest path unweighted, level order, min steps, bipartite check, multi-source BFS #flashcard
@@ -310,25 +207,16 @@ int orangesRotting(int[][] grid) {
 #flashcard
 **Q:** Core Java 25 snippet for BFS? :: **A:** `Queue<Integer> q=new ArrayDeque<>(); q.offer(src); while(!q.isEmpty()){ int u=q.poll(); for(int v:adj[u]) if(!vis[v]){ vis[v]=true; q.offer(v); } }` #flashcard
 
+## Review tasks
 
-## Practice Tasks (Tasks Plugin)
-- [ ] Restate the intent from memory 📅 {date:YYYY-MM-DD, +1}
-- [ ] Code the snippet without looking 📅 {date:YYYY-MM-DD, +3}
-- [ ] Answer all Interview Q&A aloud 📅 {date:YYYY-MM-DD, +7}
-- [ ] Review flashcards (Spaced Repetition) 📅 {date:YYYY-MM-DD, +1}
-
-```tasks
-not done
-path includes {file.folder}
-sort by due
-limit 10
-```
+- [ ] Explain recognition signals from memory 📅 2026-10-01
+- [ ] Write the template from memory 📅 2026-10-03
+- [ ] Solve one unseen problem without hints 📅 2026-10-07
+- [ ] Explain the invariant aloud 📅 2026-10-14
 
 ## Related
+
 - [[05_Trees_Graphs/02 - DFS|DFS]] (exhaustive exploration)
 - [[05_Trees_Graphs/04 - Shortest Path|Shortest Path]] (weighted version)
 - [[07_Backtracking_DP/01 - Backtracking|Backtracking]] (all solutions)
 - [[Java/07_DSA/Trees]] · [[Java/07_DSA/Graph]] · [[Java/07_DSA/Heap]]
----
-*Category: Coding Patterns/05_Trees_Graphs*
-- [[Architect/10_System-Design-Interviews/INT-03-Web-Crawler.md|INT-03-Web-Crawler]] — Web crawler graph traversal
