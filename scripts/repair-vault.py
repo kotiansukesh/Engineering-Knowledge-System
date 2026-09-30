@@ -31,6 +31,16 @@ def normalize_links(rel: str, text: str) -> str:
 
     return re.sub(r"\[\[([^\]]+)\]\]", repl, text)
 
+def strip_unresolved_links(text: str) -> str:
+    def repl(m):
+        body = m.group(1).replace("\\|", "|")
+        target, alias = (body.split("|", 1) + [None])[:2]
+        target = target.strip()
+        if target.startswith(("http://", "https://")) or target_exists(target):
+            return m.group(0)
+        return (alias.strip() if alias else target) or ""
+    return re.sub(r"\[\[([^\]]+)\]\]", repl, text)
+
 def clean_placeholders(text: str) -> str:
     replacements = {
         "[trigger keywords]": "Not specified",
@@ -49,7 +59,7 @@ for path in sorted(ROOT.rglob("*.md")):
         continue
     text = path.read_text(encoding="utf-8")
     new = normalize_links(rel, text)
-    new = clean_placeholders(new)
+    new = strip_unresolved_links(new)\n    new = clean_placeholders(new)
     if new != text:
         path.write_text(new, encoding="utf-8")
         changed += 1
