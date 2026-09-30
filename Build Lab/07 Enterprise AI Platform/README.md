@@ -16,3 +16,10 @@ Capstone: **ingest → retrieve → reason → act → evaluate → observe → 
 - migration strategy
 - 10×/100× redesign
 - interview/certification defense
+
+## Evidence locations
+
+- [[Evidence/README]]
+- [[Evidence/Evaluations/README]]
+- [[Evidence/Failure Experiments/README]]
+- [[Evidence/Architecture Decisions/README]]
