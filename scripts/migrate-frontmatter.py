@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""Migrate durable-note frontmatter from generic type: note to semantic types.
+"""Migrate durable-note frontmatter to semantic types.
 
 Default mode is dry-run. Use --write to modify files.
-The classifier is intentionally conservative: ambiguous notes remain type: note
-and are reported for manual review rather than being assigned a misleading type.
+The classifier is conservative where semantics are genuinely ambiguous, but
+all known durable areas have explicit classifications.
 """
 from __future__ import annotations
 import argparse, re
@@ -23,6 +23,12 @@ RULES = [
     (re.compile(r"(^|/)Interview Bank\.md$", re.I), "interview"),
     (re.compile(r"(^|/)Practice Dashboard\.md$", re.I), "dashboard"),
     (re.compile(r"(^|/)Dashboard\.md$", re.I), "dashboard"),
+    (re.compile(r"^00 - Start Here\.md$", re.I), "MOC"),
+    (re.compile(r"^Study Plan\.md$", re.I), "syllabus"),
+    (re.compile(r"^00 - Knowledge System/Learning Graph\.md$", re.I), "MOC"),
+    (re.compile(r"^00 - Knowledge System/Cross Domain Map\.md$", re.I), "MOC"),
+    (re.compile(r"^00 - Knowledge System/10x Exercises\.md$", re.I), "exercise"),
+    (re.compile(r"^00 - Knowledge System/.*\.md$", re.I), "reference"),
 ]
 
 PREFIX_TYPES = [
@@ -32,9 +38,7 @@ PREFIX_TYPES = [
     ("Architect/_templates/", "template"),
 ]
 
-CATEGORY_TYPES = [
-    ("/99_Revision/", "reference"),
-]
+CATEGORY_TYPES = [("/99_Revision/", "reference")]
 
 DOMAIN_TYPES = [
     ("AI/", "concept"),
@@ -46,6 +50,9 @@ def infer(path: Path, text: str) -> str | None:
     rel = path.relative_to(ROOT).as_posix()
     if rel in EXCLUDED or any(x in path.parts for x in EXCLUDED_PARTS):
         return None
+    existing = re.search(r"^type:\s*(.+)$", text, re.I | re.M)
+    if existing and existing.group(1).strip().lower() not in {"note"}:
+        return existing.group(1).strip()
     for rx, typ in RULES:
         if rx.search(rel):
             return typ
@@ -58,17 +65,6 @@ def infer(path: Path, text: str) -> str | None:
     for prefix, typ in DOMAIN_TYPES:
         if rel.startswith(prefix):
             return typ
-
-    # Strong semantic signals inside existing frontmatter.
-    if re.search(r"^type:\s*pattern\s*$", text, re.I | re.M):
-        return "pattern"
-    if re.search(r"^type:\s*(ADR|architecture-decision)\s*$", text, re.I | re.M):
-        return "ADR"
-    if re.search(r"^type:\s*(evaluation|benchmark)\s*$", text, re.I | re.M):
-        return "evaluation"
-    if re.search(r"^type:\s*(failure|failure-experiment)\s*$", text, re.I | re.M):
-        return "failure"
-
     return None
 
 def replace_type(text: str, typ: str) -> str:
@@ -82,12 +78,15 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--write", action="store_true")
     args = ap.parse_args()
-    changed = ambiguous = 0
+    changed = 0
+    unresolved = []
     for path in sorted(ROOT.rglob("*.md")):
-        typ = infer(path, path.read_text(encoding="utf-8"))
-        if not typ:
-            continue
         text = path.read_text(encoding="utf-8")
+        typ = infer(path, text)
+        if not typ:
+            if path.name not in EXCLUDED and not any(x in path.parts for x in EXCLUDED_PARTS):
+                unresolved.append(path.relative_to(ROOT).as_posix())
+            continue
         current = re.search(r"^type:\s*(.+)$", text, re.I | re.M)
         current_type = current.group(1).strip() if current else None
         if current_type == typ:
@@ -97,8 +96,9 @@ def main():
         if args.write:
             path.write_text(replace_type(text, typ), encoding="utf-8")
     print(f"changed={changed} mode={'write' if args.write else 'dry-run'}")
-    if ambiguous:
-        print(f"ambiguous={ambiguous}")
+    print(f"unresolved={len(unresolved)}")
+    for rel in unresolved[:100]:
+        print(f"[REVIEW] {rel}")
 
 if __name__ == "__main__":
     main()
