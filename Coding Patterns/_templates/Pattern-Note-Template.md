@@ -1,140 +1,99 @@
 ---
 title: "<% tp.file.title %>"
 type: pattern
-pattern: <% await tp.system.prompt('Pattern number') %>
-domain: "<% await tp.system.prompt('Domain') %>"
-category: "Coding Patterns/<% await tp.system.prompt('Folder') %>"
-advanced: false
-mastery: learn
+domain: coding-patterns
+pattern:
+mastery: learning
 recognition_score: 0
 implementation_score: 0
 attempts: 0
-successful_attempts: 0
-recognition_attempts: 0
-recognition_successes: 0
-avg_time_minutes:
-hint_count: 0
-last_attempt:
-last_success:
-failure_category:
-difficulty: Medium
-leetcode: []
+difficulty: medium
 created: "<% tp.date.now('YYYY-MM-DD') %>"
 reviewed:
 next_review: "<% tp.date.now('YYYY-MM-DD', 7) %>"
+leetcode: []
 tags:
-  - pattern/<% await tp.system.prompt('Tag') %>
+  - dsa
 ---
 
 # <% tp.file.title %>
 
-> **Purpose:** one reusable reasoning technique, not a collection of copied solutions.
-
-## Recognition
-
-### Think of this pattern when
-- 
+## 1. Recognition
 
 ### Strong signals
+
 - 
 
 ### Do not infer it from
+
 - 
 
-## Invariant
+## 2. Invariant
 
-> State exactly what remains true after each iteration, recursive call, or state transition.
+> What remains true after every state transition?
 
-## Mental model
+## 3. Mental model
 
-Explain the pattern in 2–4 sentences without implementation details.
+Explain the pattern in 2–4 sentences.
 
-## Core template
+## 4. Core template
 
-~~~java
+```java
 // Minimal Java template.
 // Keep the invariant visible.
-~~~
+```
 
-## Variants
-
-| Variant | Use when | What changes |
-|---|---|---|
-| | | |
-
-## When to use
+## 5. When to use
 
 - 
 - 
-- 
 
-## When NOT to use
+## 6. When NOT to use
 
-- 
 - 
 - 
 
-## Complexity
+## 7. Complexity
 
 | Metric | Cost |
 |---|---|
 | Time | |
 | Space | |
 
-## Canonical problems
+## 8. Canonical problems
 
 | LeetCode | Problem | Difficulty | Recognition cue |
 |---:|---|---|---|
 | | | | |
 
-## Pattern combinations
-
-| Primary | Secondary | Why they combine |
-|---|---|---|
-| | | |
-
-## Edge cases
+## 9. Common mistakes
 
 - 
 - 
+
+## 10. Variations
+
 - 
 
-## Common mistakes
+## 11. Explain
 
-- 
-- 
-- 
+**Why is the state transition correct?**  
 
-## Interview proof
+**What work does the invariant eliminate?**  
 
-**Why is the main state transition safe?**
+**What changes if a constraint changes?**  
 
-**What work does the invariant eliminate?**
+## 12. Practice
 
-**What alternative would you use if a constraint changed?**
-
-## Flashcards
-
-#flashcard
-**Q:** What is the strongest recognition signal? :: **A:** 
-
-#flashcard
-**Q:** What is the invariant? :: **A:** 
-
-#flashcard
-**Q:** When should this pattern NOT be used? :: **A:** 
-
-## Review evidence\n\nUpdate attempts and scores after every meaningful blind or mixed attempt. Use [[00 - Adaptive Review Engine]] to choose the next interval.\n\n## Review tasks
-
-- [ ] Explain the recognition signals from memory 📅 <% tp.date.now('YYYY-MM-DD', 1) %>
-- [ ] Write the core template from memory 📅 <% tp.date.now('YYYY-MM-DD', 3) %>
-- [ ] Solve one unseen problem without hints 📅 <% tp.date.now('YYYY-MM-DD', 7) %>
-- [ ] Explain the invariant aloud 📅 <% tp.date.now('YYYY-MM-DD', 14) %>
+- [ ] Recognize one unseen problem
+- [ ] Write the template from memory
+- [ ] Solve without hints
+- [ ] Explain the invariant aloud
 
 ## Visual
 
-Use an Excalidraw diagram only when the algorithm is spatial or state-transition heavy. Prefer Mermaid for simple flow.
+Use Mermaid for simple flows. Use Excalidraw only when the algorithm is spatial/state-heavy.
 
 ## Related
 
-[[Patterns Index]] · [[00 - Pattern Decision Tree]] · [[00 - Blind Practice]] · [[00 - Mistake Log]]
+Add only links that exist in this vault.
