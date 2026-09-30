@@ -1,4 +1,7 @@
 ---
+type: note
+mastery: learn
+recognition_score: 0
 title: DFS
 pattern: 12
 category: Coding Patterns/05_Trees_Graphs
@@ -22,7 +25,7 @@ excalidraw: ''
 
 # DFS
 
-> Part of [[README|20 DSA Patterns]] • `Coding Patterns/05_Trees_Graphs` • Pattern #12
+> Part of [[README|Coding Patterns]] • `Coding Patterns/05_Trees_Graphs` • Pattern #12
 
 ## Intent
 Explore as deep as possible before backtracking — the exhaustive search pattern for trees and graphs. Use recursion (implicit stack) or explicit stack + visited set. For trees, no visited set needed; for graphs, it prevents cycles.
