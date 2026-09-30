@@ -52,7 +52,7 @@ def infer(path: Path, text: str) -> str | None:
         return None
     existing = re.search(r"^type:\s*(.+)$", text, re.I | re.M)
     if existing:
-        current = existing.group(1).strip()
+        current = existing.group(1).strip().strip('"').strip("'")
         legacy_aliases = {"plan": "syllabus", "architecture-decision": "ADR", "failure-experiment": "failure"}
         if current.lower() in legacy_aliases:
             return legacy_aliases[current.lower()]
@@ -93,7 +93,7 @@ def main():
                 unresolved.append(path.relative_to(ROOT).as_posix())
             continue
         current = re.search(r"^type:\s*(.+)$", text, re.I | re.M)
-        current_type = current.group(1).strip() if current else None
+        current_type = current.group(1).strip().strip('"').strip("'") if current else None
         if current_type == typ:
             continue
         print(f"{'[WRITE]' if args.write else '[PLAN]'} {path.relative_to(ROOT)}: {current_type or '<missing>'} -> {typ}")
