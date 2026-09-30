@@ -11,7 +11,7 @@ sr-due: ""
 
 # AI Engineering & Architecture
 
-> **20-week practical path:** AI Engineering → RAG → Agentic AI → Production AI Platform → Governance → AI Architecture.
+> **20-week practical core + certification validation extension:** AI Engineering → RAG → Agentic AI → Production AI Platform → Governance → AI Architecture.
 
 ## Learning Spine
 
@@ -34,10 +34,23 @@ Use the least autonomous mechanism that satisfies the requirement. Introduce mor
 - [[05_Kubernetes-Operations/README|05 Kubernetes Operations]]
 - [[06_Architecture-Governance/README|06 Architecture Governance]]
 - [[07_Cross-Cutting/README|07 Cross-Cutting]]
-- [[99_Revision/Study-Plan.md|20-Week Study Plan]]
+- [[99_Revision/Study-Plan.md|Study Plan]]
+- [[99_Revision/Certification Integration Roadmap|Certification Roadmap]]
 - [[Master Dashboard|Master Dashboard]]
 - [[00 - AI Engineering Decision Framework|AI Decision Framework]]
 - [[00 - AI Practice Engine|AI Practice Engine]]
+
+## Certification Strategy
+
+Certifications are **validation overlays**, not parallel curricula.
+
+Use the existing Enterprise AI Platform as the recurring project and map external learning onto it rather than creating duplicate course projects.
+
+Recommended sequence:
+
+**LLM/RAG validation → Agent architecture → Production/platform hardening → Kubernetes validation → AI architecture validation**
+
+See [[99_Revision/Certification Integration Roadmap|Certification Roadmap]] for the mapping and evidence gates.
 
 ## Architecture Bridge
 
