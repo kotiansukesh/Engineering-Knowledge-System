@@ -1,136 +1,77 @@
 ---
-title: "10_Agent Evaluation"
+title: "Agent Evaluation"
 category: "AI/03_Agentic-AI"
-tags:
-- agent
-- evaluation
-- benchmarks
-- tool-use
-created: "2026-09-29"
+tags: [ai, agents, evaluation, reliability]
+created: "2026-09-30"
 completed: false
-difficulty: "Medium"
-reviewed: "2026-09-29"
-sr-due: "2026-09-30"
-source: ""
-excalidraw: ""
-weeks: "7"
+difficulty: "Advanced"
+reviewed: "2026-09-30"
+sr-due: "2026-10-05"
 type: "note"
 ---
 
-# 10_Agent Evaluation
-
-> Part of [[README|AI MOC]] • `AI/03_Agentic-AI` • Weeks 7
-> 🎨 **Visual diagram:** Create Excalidraw drawing from template: `Cmd+P → Excalidraw: New from template → AI Diagram`
+# Agent Evaluation
 
 ## Intent
-Understand **agent evaluation** — task success rate, tool accuracy, trajectory correctness, cost/latency, and benchmarks (BFCL, τ-bench, AgentBench) — to measure agent reliability.
+Measure whether an agent completes its intended task safely, reliably, and within latency and cost constraints.
 
-## Why It Matters
-- Where this appears in interviews (FAANG, senior vs. junior)
-- Production impact (cost, latency, quality, GPU utilization)
-- Senior signal: recognizing the *disguised* form of this pattern
+## Evaluation Layers
+| Layer | Metric examples | Failure caught |
+|---|---|---|
+| Final answer | correctness, groundedness | bad output |
+| Tool selection | selection accuracy | wrong capability |
+| Arguments | schema/semantic validity | bad parameters |
+| Trajectory | transition/step correctness | unnecessary or unsafe actions |
+| Outcome | task success | business failure |
+| Operations | p95 latency, cost, errors | production viability |
+| Safety | policy violations, unauthorized actions | unacceptable behavior |
 
-## Diagram
-```mermaid
-graph TD
-    A[Input / Context] --> B[Core Mechanism]
-    B --> C[Output / Result]
-    style B fill:#e8f5e9
-```
+## Dataset
+Version representative success cases, ambiguous requests, known failures, adversarial cases, tool failures, permission boundaries, long-context cases, and production regressions. Keep a held-out set for tuning.
 
-## Key Points
-- Key point 1
-- Key point 2
+## Evaluation Loop
+~~~~mermaid
+flowchart LR
+D[Versioned eval set] --> R[Agent run] --> T[Trace] --> M[Metrics] --> G[Regression gate]
+G -->|pass| P[Release]
+G -->|fail| F[Failure analysis] --> X[Change] --> R
+~~~~
 
-## Code / Config Example
-```python
-# Python 3.11+: Minimal example for 10_Agent Evaluation
-# Core concept - implementation varies by framework
+## Decision Rule
+Choose metrics from the system's failure modes, not from a generic benchmark list. A transactional agent needs strong controls for authorization and duplicate side effects even if language quality is high.
 
-from dataclasses import dataclass
-from typing import Optional
+## Trade-offs
+| Method | Benefit | Limitation |
+|---|---|---|
+| Reference answers | Reproducible | Expensive to author |
+| LLM judge | Scalable semantic comparison | Bias/calibration drift |
+| Human review | Nuanced business quality | Slow/expensive |
+| Offline replay | Repeatable regression gate | Misses live distribution shifts |
+| Online monitoring | Real traffic evidence | Slower feedback/privacy constraints |
 
-@dataclass
-class 10_AgentEvaluationConfig:
-    component: str = "10_Agent Evaluation"
-    capacity: int = 10000
-    strategy: str = "default"
+## Failure Analysis
+Classify the first meaningful failure as **retrieval → reasoning → tool selection → argument → execution → policy → state → final response**. Preserve the trace and turn important incidents into regression cases.
 
-# Example usage
-config = 10_AgentEvaluationConfig()
-```
+## Release Gate
+Define application-specific thresholds for critical safety regressions, task success, tool validity, p95 latency, and cost per successful task. There is no universal good-agent score.
 
-## When to Use / NOT
-| Scenario | Use? | Reason |
-|----------|------|--------|
-|          | ✅   |        |
-|          | ❌   |        |
+## Practice
+- [ ] Build a 30-case evaluation set.
+- [ ] Add adversarial and tool-failure cases.
+- [ ] Capture full traces.
+- [ ] Compute task success, tool accuracy, latency, and cost.
+- [ ] Introduce a regression and verify the gate blocks release.
 
-## Trade-offs / Decision Matrix
-| Dimension | This Approach | Alternative A | Alternative B | Pick When |
-|-----------|---------------|---------------|---------------|-----------|
-| Complexity | | | | |
-| Latency | | | | |
-| Cost (GPU/hr) | | | | |
-| Quality | | | | |
+## Senior Interview Prompts
+1. Why is final-answer accuracy insufficient?
+2. How do you evaluate irreversible actions?
+3. How do you calibrate an LLM judge?
+4. What belongs offline versus online?
+5. How do incidents become regression tests?
 
-## Vs. Alternatives
-| Alternative | When to Choose It | Decision Rule |
-|-------------|-------------------|---------------|
-| | | |
-
-## Pitfalls
-1. [Concrete mistake] → [Fix]
-2. [Concrete mistake] → [Fix]
-
-## Interview Q&A (Senior Depth)
-
-**Q1: Walk me through the core mechanism of 10_Agent Evaluation. Why does it work?**
-**A:** In 2–3 sentences. Connect the *why* to the mathematical/architectural invariant.
-
-**Q2: When would you choose an alternative over this approach?**
-**A:** Cite concrete constraints (scale, latency, cost, quality) and name the alternative.
-
-**Q3: How does this change for production vs. prototype?**
-**A:** Explain the hardening needed: evaluation, monitoring, cost optimization, guardrails.
-
-**Q4: Walk me through a non-obvious problem that reduces to this pattern.**
-**A:** Describe the reduction step-by-step.
-
-**Q5: What is the GPU memory / latency implication at scale?**
-**A:** Discuss VRAM, batching, KV cache, quantization trade-offs.
-
-## Flashcards (Spaced Repetition)
+## Flashcards
+#flashcard
+**Q:** What is the unit of evaluation for an agent? :: **A:** The task plus trajectory and side effects, not only the final text.
 
 #flashcard
-**Q:** What is the trigger keyword for 10_Agent Evaluation? :: **A:** [trigger keywords] #flashcard
-
-#flashcard
-**Q:** Key hyperparameter for 10_Agent Evaluation? :: **A:** [hyperparameter + typical range] #flashcard
-
-#flashcard
-**Q:** When do you NOT use 10_Agent Evaluation? :: **A:** [anti-pattern scenarios] #flashcard
-
-#flashcard
-**Q:** Cost order of magnitude for 10_Agent Evaluation? :: **A:** [GPU hours / $ per 1M tokens] #flashcard
-
-## Practice Tasks (Tasks Plugin)
-- [ ] Restate the intent from memory 📅 2026-09-30
-- [ ] Code the config without looking 📅 2026-10-02
-- [ ] Answer all Interview Q&A aloud 📅 2026-10-06
-- [ ] Review flashcards (Spaced Repetition) 📅 2026-09-30
-
-```tasks
-not done
-path includes 03_Agentic-AI
-sort by due
-limit 10
-```
-
-## Related
-- [[README|AI MOC]]
-- [[03_Agentic-AI/README|03_Agentic-AI Folder]]
-
----
-
-*Category: AI/03_Agentic-AI • Part of [[README|AI MOC]]*
+**Q:** How should evaluation thresholds be chosen? :: **A:** From business, safety, latency, and cost requirements of the application.
