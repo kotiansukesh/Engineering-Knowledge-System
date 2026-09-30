@@ -52,7 +52,7 @@ TABLE WITHOUT ID
   category AS "Category",
   reviewed AS "Reviewed"
 FROM "Evidence"
-WHERE file.name != "README" AND type
+WHERE file.name != "README" AND !contains(file.name, "Template")
 SORT reviewed ASC
 LIMIT 20
 ~~~
@@ -61,11 +61,9 @@ LIMIT 20
 
 ~~~dataview
 TABLE WITHOUT ID
-  file.link AS "Project",
-  completed AS "Done",
-  reviewed AS "Reviewed"
+  file.link AS "Project"
 FROM "Build Lab"
-WHERE type = "project" OR file.name = "README"
+WHERE file.name = "README"
 SORT file.path ASC
 ~~~
 
