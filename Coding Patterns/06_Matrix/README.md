@@ -1,86 +1,47 @@
 ---
-title: "06 Matrix README"
-category: "Coding Patterns/06_Matrix"
-tags: [MOC, folder]
-created: "2026-09-27"
-completed: false
-reviewed: ""
-sr-due: ""
+title: "Matrix & Grid"
+type: moc
+category: Coding Patterns/06_Matrix
+tags:
+  - moc
+  - dsa
 ---
 
-# 06 Matrix
+# Matrix & Grid
 
-> Part of [[README|Coding Patterns MOC]] • `Coding Patterns/06_Matrix`
+> Folder MOC generated from the pattern notes in this area.
 
-## Progress Overview
-
-```dataviewjs
-const category = dv.current().category;
-const pages = dv.pages(`"${category}"`).where(p => p.category != null && p.file.name != "README");
-const total = pages.length;
-const done = pages.where(p => p.completed === true).length;
-const pct = total ? Math.round(done/total*100) : 0;
-const bar = (p, w=20) => "█".repeat(Math.round(p/100*w)) + "░".repeat(w-Math.round(p/100*w));
-dv.paragraph(`**Total: ${total} notes | Completed: ${done} | Remaining: ${total-done}** — \`${pct}%\``);
-dv.paragraph(`\`${bar(pct)}\` **${pct}%**`);
-if (total === done && total > 0) dv.paragraph(`🎉 *All notes completed!*`);
-```
-
-> **Fallback (if DataviewJS disabled):**
-```dataview
+~~~dataview
 TABLE WITHOUT ID
- length(rows) as "Total",
- length(filter(rows, (r) => r.completed)) as "Completed",
- length(filter(rows, (r) => !r.completed)) as "Remaining"
+  pattern as "#",
+  file.link as "Pattern",
+  mastery as "Mastery",
+  recognition_score as "Recognition",
+  difficulty as "Difficulty",
+  length(leetcode) as "Problems"
 FROM "Coding Patterns/06_Matrix"
-WHERE category AND file.name != "README"
-GROUP BY true
-```
+WHERE type = "pattern"
+SORT pattern ASC
+~~~
 
-## Notes Index
+## How to study this family
 
-```dataview
-TABLE WITHOUT ID
- file.link as "Note",
- category as "Category",
- choice(completed, "✅", "⬜") as "Done",
- difficulty as "Difficulty",
- reviewed as "Last Reviewed",
- "sr-due" as "SR Due"
-FROM "Coding Patterns/06_Matrix"
-WHERE category AND file.name != "README"
-SORT file.name ASC
-```
+1. Open a pattern from the table.
+2. Read **Recognition** and **Invariant** first.
+3. Write the core template from memory.
+4. Solve one guided problem.
+5. Solve one blind problem.
+6. Update the pattern frontmatter after review.
 
-## Spaced Repetition Status
+## Review tasks
 
-```dataview
-TABLE WITHOUT ID
- file.link as "Note",
- reviewed as "Last Reviewed",
- "sr-due" as "Due",
- choice(!reviewed, "🔴 Never", choice(date(now)-reviewed > dur(7 days), "🟡 Stale", "🟢 Fresh")) as "Status"
-FROM "Coding Patterns/06_Matrix"
-WHERE category AND file.name != "README" AND (reviewed OR "sr-due")
-SORT "sr-due" ASC
-```
-
-## Practice Tasks (from Notes)
-
-```tasks
+~~~tasks
 not done
 path includes Coding Patterns/06_Matrix
 sort by due
-group by filename
-limit 20
-```
+limit 10
+~~~
 
-> ⚠️ **Template Note:** The `Coding Patterns/06_Matrix` placeholder above is replaced by the generate script (`python3 generate_folder_readmes.py`). The template file itself will show a Tasks error — this is expected. Generated README files have the actual folder path and work correctly.
+## Related
 
-## Quick Links
-
-- [[README|← Back to Coding Patterns MOC]]
-- [[Master Dashboard|📊 Master Dashboard]]
----
-
-*Folder: Coding Patterns/06_Matrix • Part of [[README|Coding Patterns MOC]]*
+[[../Patterns Index|Patterns Index]] · [[../00 - Pattern Decision Tree|Pattern Decision Tree]] · [[../99_Revision/Practice Dashboard|Practice Dashboard]]
