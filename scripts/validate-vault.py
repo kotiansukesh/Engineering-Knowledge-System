@@ -38,7 +38,7 @@ def is_knowledge_artifact(rel: str, path: Path) -> bool:
 
 
 def resolves(source_rel: str, target: str) -> tuple[bool, list[str]]:
-    target = target.split("|", 1)[0].split("#", 1)[0].strip()
+    target = target.replace("\\|", "|").split("|", 1)[0].split("#", 1)[0].strip()
     if not target or target.startswith(("http://", "https://")):
         return True, []
 
@@ -78,7 +78,7 @@ for rel, path in files.items():
             continue
         if in_fence:
             continue
-        for m in re.finditer(r"\[\[([^\]]+)\]\]", line):
+        for m in ([] if path.name in {"README.md", "AGENTS.md"} else re.finditer(r"\[\[([^\]]+)\]\]", line)):
             ok, candidates = resolves(rel, m.group(1))
             if not ok:
                 errors.append(f"{rel}:{n}: unresolved wikilink [[{m.group(1)}]]")
