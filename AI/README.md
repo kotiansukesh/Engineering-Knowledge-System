@@ -36,7 +36,7 @@ Use the least autonomous mechanism that satisfies the requirement.
 - [[05_Kubernetes-Operations/README|05 Kubernetes Operations]]
 - [[06_Architecture-Governance/README|06 Architecture Governance]]
 - [[07_Cross-Cutting/README|07 Cross-Cutting]]
-- [[99_Revision/Study-Plan.md|Study Plan]]
+- [[99_Revision/Study-Plan|AI Syllabus]]
 - [[99_Revision/Certification Integration Roadmap|Certification Roadmap]]
 - [[99_Revision/Career and Portfolio Strategy|Career & Portfolio Strategy]]
 
