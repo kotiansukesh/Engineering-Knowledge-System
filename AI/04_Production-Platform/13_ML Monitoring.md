@@ -1,137 +1,69 @@
 ---
-title: "13_ML Monitoring"
+title: "ML Monitoring"
 category: "AI/04_Production-Platform"
-tags:
-- monitoring
-- drift
-- performance
-- prometheus
-- evidently
-created: "2026-09-29"
+tags: [monitoring, drift, performance, mlops]
+created: "2026-09-30"
 completed: false
 difficulty: "Advanced"
-reviewed: "2026-09-29"
-sr-due: "2026-09-30"
-source: ""
-excalidraw: ""
-weeks: "12"
+reviewed: "2026-09-30"
+sr-due: "2026-10-04"
 type: "note"
 ---
 
-# 13_ML Monitoring
-
-> Part of [[README|AI MOC]] • `AI/04_Production-Platform` • Weeks 12
-> 🎨 **Visual diagram:** Create Excalidraw drawing from template: `Cmd+P → Excalidraw: New from template → AI Diagram`
+# ML Monitoring
 
 ## Intent
-Understand **ML monitoring** — data drift, concept drift, prediction drift, performance metrics, alerting thresholds, and root cause analysis — to detect model degradation early.
+Detect changes in inputs, model behavior, service health, and business outcomes early enough to trigger investigation or remediation.
 
-## Why It Matters
-- Where this appears in interviews (FAANG, senior vs. junior)
-- Production impact (cost, latency, quality, GPU utilization)
-- Senior signal: recognizing the *disguised* form of this pattern
+## Monitoring Layers
+| Layer | Examples | Typical action |
+|---|---|---|
+| Service | latency, errors, saturation | scale/fail over |
+| Data | missingness, schema, distribution | investigate pipeline |
+| Model output | score distribution, refusal rate | investigate model behavior |
+| Quality | precision/recall, groundedness, task success | evaluate/retrain/change system |
+| Business | conversion, resolution, escalation | validate real-world impact |
 
-## Diagram
-```mermaid
-graph TD
-    A[Input / Context] --> B[Core Mechanism]
-    B --> C[Output / Result]
-    style B fill:#e8f5e9
-```
+## Decision Rule
+Do not treat drift as synonymous with model failure. A distribution change is a signal; connect it to quality or business impact before automated retraining or rollback.
 
-## Key Points
-- Key point 1
-- Key point 2
+## Architecture
+~~~~mermaid
+flowchart LR
+P[Production traffic] --> M[Metrics + traces]
+P --> S[Sampled quality evaluation]
+M --> A[Alerts]
+S --> A
+A --> I[Investigation] --> R[Remediation]
+~~~~
 
-## Code / Config Example
-```python
-# Python 3.11+: Minimal example for 13_ML Monitoring
-# Core concept - implementation varies by framework
+## Failure Modes
+1. Alert on every distribution change → alert fatigue.
+2. Monitor only infrastructure → silent quality degradation.
+3. No labels available → quality cannot be measured directly; use proxy evaluation.
+4. Threshold without seasonality → false alerts.
+5. Automatic retraining on noisy signal → model churn and regression.
 
-from dataclasses import dataclass
-from typing import Optional
+## Evaluation
+Define thresholds from historical baselines and business impact. Track alert precision, time-to-detect, time-to-recover, false-alert rate, service SLOs, and quality regression rate.
 
-@dataclass
-class 13_MLMonitoringConfig:
-    component: str = "13_ML Monitoring"
-    capacity: int = 10000
-    strategy: str = "default"
+## Practice
+- [ ] Instrument request latency and error rate.
+- [ ] Add an input-distribution monitor.
+- [ ] Add a sampled quality evaluation path.
+- [ ] Create one alert that requires human investigation before remediation.
+- [ ] Replay a known incident and measure detection time.
 
-# Example usage
-config = 13_MLMonitoringConfig()
-```
+## Senior Interview Prompts
+1. What is the difference between data drift and model degradation?
+2. What do you monitor when labels arrive weeks later?
+3. Which metrics belong on the service dashboard versus the quality dashboard?
+4. Why is automatic retraining dangerous?
+5. How do you prevent alert fatigue?
 
-## When to Use / NOT
-| Scenario | Use? | Reason |
-|----------|------|--------|
-|          | ✅   |        |
-|          | ❌   |        |
-
-## Trade-offs / Decision Matrix
-| Dimension | This Approach | Alternative A | Alternative B | Pick When |
-|-----------|---------------|---------------|---------------|-----------|
-| Complexity | | | | |
-| Latency | | | | |
-| Cost (GPU/hr) | | | | |
-| Quality | | | | |
-
-## Vs. Alternatives
-| Alternative | When to Choose It | Decision Rule |
-|-------------|-------------------|---------------|
-| | | |
-
-## Pitfalls
-1. [Concrete mistake] → [Fix]
-2. [Concrete mistake] → [Fix]
-
-## Interview Q&A (Senior Depth)
-
-**Q1: Walk me through the core mechanism of 13_ML Monitoring. Why does it work?**
-**A:** In 2–3 sentences. Connect the *why* to the mathematical/architectural invariant.
-
-**Q2: When would you choose an alternative over this approach?**
-**A:** Cite concrete constraints (scale, latency, cost, quality) and name the alternative.
-
-**Q3: How does this change for production vs. prototype?**
-**A:** Explain the hardening needed: evaluation, monitoring, cost optimization, guardrails.
-
-**Q4: Walk me through a non-obvious problem that reduces to this pattern.**
-**A:** Describe the reduction step-by-step.
-
-**Q5: What is the GPU memory / latency implication at scale?**
-**A:** Discuss VRAM, batching, KV cache, quantization trade-offs.
-
-## Flashcards (Spaced Repetition)
+## Flashcards
+#flashcard
+**Q:** Does drift prove model failure? :: **A:** No. Drift is evidence that the input distribution changed; its impact on model quality must be measured.
 
 #flashcard
-**Q:** What is the trigger keyword for 13_ML Monitoring? :: **A:** [trigger keywords] #flashcard
-
-#flashcard
-**Q:** Key hyperparameter for 13_ML Monitoring? :: **A:** [hyperparameter + typical range] #flashcard
-
-#flashcard
-**Q:** When do you NOT use 13_ML Monitoring? :: **A:** [anti-pattern scenarios] #flashcard
-
-#flashcard
-**Q:** Cost order of magnitude for 13_ML Monitoring? :: **A:** [GPU hours / $ per 1M tokens] #flashcard
-
-## Practice Tasks (Tasks Plugin)
-- [ ] Restate the intent from memory 📅 2026-09-30
-- [ ] Code the config without looking 📅 2026-10-02
-- [ ] Answer all Interview Q&A aloud 📅 2026-10-06
-- [ ] Review flashcards (Spaced Repetition) 📅 2026-09-30
-
-```tasks
-not done
-path includes 04_Production-Platform
-sort by due
-limit 10
-```
-
-## Related
-- [[README|AI MOC]]
-- [[04_Production-Platform/README|04_Production-Platform Folder]]
-
----
-
-*Category: AI/04_Production-Platform • Part of [[README|AI MOC]]*
+**Q:** What are the major ML monitoring layers? :: **A:** Service health, data, model behavior, quality, and business outcomes.
