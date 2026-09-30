@@ -10,6 +10,28 @@ completed: false
 
 > Live tracking across all 4 vaults: `Java/`, `Architect/`, `AI/`, `Coding Patterns/`. Tables update on reload. Pin this tab.
 
+## 🧭 Knowledge System Control Plane
+
+**Learning:** Understand → Build → Measure → Break → Decide → Explain → Review → Redesign
+
+| Control | Purpose |
+|---|---|
+| [[00 - Knowledge System/Knowledge Model]] | note types and quality model |
+| [[00 - Knowledge System/Learning Graph]] | prerequisites and cross-domain relationships |
+| [[Evidence/README]] | implementations, benchmarks, failures, ADRs and evaluations |
+| [[Build Lab/README]] | portfolio systems and capstone progression |
+| [[00 - Knowledge System/10x Exercises]] | 1× / 10× / 100× redesign reasoning |
+| [[00 - Knowledge System/Failure Engineering]] | deliberate failure analysis |
+| [[00 - Knowledge System/Decision Notes]] | reusable engineering decisions |
+| [[00 - Knowledge System/Agent Workflow]] | AI-assisted repository operating loop |
+| [[00 - Knowledge System/Maintenance Guide]] | freshness and cleanup cadence |
+
+### Evidence pipeline
+
+**Knowledge → Practice → Evidence → Capability**
+
+A completion checkbox is not mastery. Prefer an implementation, measurement, failure experiment, decision record or independent defense.
+
 ## Overall Progress
 
 ```dataviewjs
