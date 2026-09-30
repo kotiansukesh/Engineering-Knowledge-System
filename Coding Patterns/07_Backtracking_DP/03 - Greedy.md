@@ -8,7 +8,7 @@ advanced: false
 mastery: learn
 recognition_score: 0
 difficulty: "Medium"
-leetcode: [- 455]
+leetcode: [455, 135, 435]
 created: "2026-09-02"
 reviewed:
 next_review: "2026-10-07"
