@@ -28,10 +28,10 @@ Systematically design prompts that are testable, versioned, and evaluable — no
 ## 🧩 Diagram: Prompt Assembly Pipeline
 ```mermaid
 flowchart LR
-    I[Instruction<br/>(role + task)] --> C[Context<br/>(retrieved chunks)]
-    C --> E[Examples<br/>(few-shot)]
-    E --> F[Format Spec<br/>(JSON Schema)]
-    F --> G[Guardrails<br/>(refusal + validation)]
+    I["Instruction<br/>(role + task)"] --> C["Context<br/>(retrieved chunks)"]
+    C --> E["Examples<br/>(few-shot)"]
+    E --> F["Format Spec<br/>(JSON Schema)"]
+    F --> G["Guardrails<br/>(refusal + validation)"]
     G --> L[LLM]
     L --> V[Pydantic Validation]
     V -->|invalid| R[Retry w/ Error Feedback]
