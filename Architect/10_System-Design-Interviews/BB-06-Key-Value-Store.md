@@ -349,7 +349,7 @@ limit 10
 
 - [[Architect/10_System-Design-Interviews/BB-05-Consistent-Hashing|Consistent Hashing]]
 - [[Architect/10_System-Design-Interviews/DB-05-Sharding|Database Sharding]]
-- [[Architect/10_System-Design-Interviews/BB-19-Distributed-Message-Queue|Distributed Message Queue]]
+- [[Architect/07_Integration-APIs/Kafka Messaging and Idempotency|Messaging and Idempotency]]
 
 ---
 
