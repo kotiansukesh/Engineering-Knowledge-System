@@ -1,4 +1,4 @@
-name: Validate repository vault Vault
+name: Validate Architect Vault
 
 on:
   push:
