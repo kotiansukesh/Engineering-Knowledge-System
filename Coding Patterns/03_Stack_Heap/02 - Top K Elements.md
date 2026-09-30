@@ -103,13 +103,10 @@ int[] topKFrequentBucket(int[] nums, int k) {
 Start with the core implementation. Introduce a variant only when the problem changes the invariant or required state.
 
 ## When to use
-
 - k largest/smallest/most frequent/closest; stream of data where k << n; online algorithms (heap processes elements one at a time).
-- **NOT:** k ≈ n (just sort O(n log n)); need all elements sorted; static array with single query (quickselect O(n) average).
 
 ## When NOT to use
-
-k ≈ n (just sort O(n log n)); need all elements sorted; static array with single query (quickselect O(n) average).
+- k ≈ n (just sort O(n log n)); need all elements sorted; static array with single query (quickselect O(n) average).
 
 ## Complexity & trade-offs
 
