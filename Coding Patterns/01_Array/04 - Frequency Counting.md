@@ -8,7 +8,7 @@ advanced: false
 mastery: learn
 recognition_score: 0
 difficulty: "Easy"
-leetcode: [242, 49]
+leetcode: [242, 49, 347]
 created: "2026-09-02"
 reviewed:
 next_review: "2026-10-07"
@@ -91,13 +91,10 @@ int[] topKFrequent(int[] nums, int k) {
 Use the implementation above as the base case. Extend it only after the invariant remains explicit.
 
 ## When to use
-
 - anagram, duplicate detection, grouping by frequency, "how many appear k times", top-k frequent.
-- **NOT:** only order matters (use sort); range sum queries (use prefix sum); streaming with bounded memory (use Count-Min Sketch / reservoir sampling).
 
 ## When NOT to use
-
-only order matters (use sort); range sum queries (use prefix sum); streaming with bounded memory (use Count-Min Sketch / reservoir sampling).
+- only order matters (use sort); range sum queries (use prefix sum); streaming with bounded memory (use Count-Min Sketch / reservoir sampling).
 
 ## Complexity & trade-offs
 
@@ -126,6 +123,7 @@ only order matters (use sort); range sum queries (use prefix sum); streaming wit
 |---:|---|---|
 | 242 | Valid Anagram | Easy |
 | 49 | Group Anagrams | Medium |
+| 347 | Top K Frequent Elements | Medium |
 
 ## Interview Q&A
 
