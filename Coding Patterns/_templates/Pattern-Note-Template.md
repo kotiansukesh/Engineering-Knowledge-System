@@ -2,6 +2,8 @@
 title: "<% tp.file.title %>"
 type: pattern
 domain: coding-patterns
+category: "Coding Patterns"
+advanced: false
 pattern:
 mastery: learning
 recognition_score: 0
