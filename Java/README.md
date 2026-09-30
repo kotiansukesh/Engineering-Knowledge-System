@@ -72,7 +72,7 @@ flowchart LR
 
 ### Parallel practice
 
-- **DSA + Coding Patterns**: solve problems using the Java implementations in [[07_DSA/README|DSA]] and the repository's [[../Coding Patterns/README|Coding Patterns]] vault.
+- **DSA + Coding Patterns**: solve problems using the Java implementations in [[07_DSA/README|DSA]] and the repository's [[Coding Patterns/README|Coding Patterns]] domain.
 - **Modern Java**: learn features when they solve a real language, API, concurrency, or runtime problem.
 - **Revision**: use [[99_Revision/Study-Plan|Study Plan]] continuously rather than waiting until the end.
 
