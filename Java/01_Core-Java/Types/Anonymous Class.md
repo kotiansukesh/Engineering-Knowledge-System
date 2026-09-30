@@ -104,5 +104,5 @@ Can an anonymous class have a constructor?:: No explicit constructor, but can us
 ## Related
 
 - [[Java/01_Core-Java/Types/Nested/Anonymous Inner Class|Anonymous Inner Class]] (nested variant)
-- [[Interface]], functional interfaces & lambdas
+- Interface, functional interfaces & lambdas
 - [[Java/01_Core-Java/Types/Nested Classes Overview|Nested Classes Overview]]

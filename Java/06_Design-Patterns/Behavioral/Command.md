@@ -18,7 +18,7 @@ type: concept
 
 # Command
 
-> Category: Behavioral • Source: [Refactoring.Guru , Command](https://refactoring.guru/design-patterns/command) • Part of [[Java/README|Java MOC]] → [[06_Design-Patterns/README|Design Patterns MOC]]
+> Category: Behavioral • Source: [Refactoring.Guru , Command](https://refactoring.guru/design-patterns/command) • Part of [[Java/README|Java MOC]] → Design Patterns MOC
 
 ## Why it Matters
 
@@ -117,7 +117,7 @@ When the request needs state beyond execution: undo data, queueing metadata, ret
 ## Flashcards (Spaced Repetition)
 
 #flashcard
-Behavioral • Source: [Refactoring.Guru , Command](https://refactoring.guru/design-patterns/command) • Part of [[Java/README|Java MOC]] → [[06_Design-Patterns/README|Design Patterns MOC]]
+Behavioral • Source: [Refactoring.Guru , Command](https://refactoring.guru/design-patterns/command) • Part of [[Java/README|Java MOC]] → Design Patterns MOC
 
 ## Why it Matters
 
@@ -220,7 +220,7 @@ limit 10
 
 ## Related
 
-[[06_Design-Patterns/Behavioral/Memento|Memento]] (state undo) • [[06_Design-Patterns/Behavioral/Strategy|Strategy]] (algorithm swap) • [[06_Design-Patterns/Behavioral/Chain of Responsibility|Chain of Responsibility]]
+Memento (state undo) • Strategy (algorithm swap) • Chain of Responsibility
 
 ---
 

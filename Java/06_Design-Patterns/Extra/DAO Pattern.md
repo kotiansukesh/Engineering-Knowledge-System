@@ -18,7 +18,7 @@ type: concept
 
 # DAO Pattern
 
-> Category: Extra • Source: [Refactoring.Guru , DAO Pattern](https://refactoring.guru/design-patterns/1) • Part of [[Java/README|Java MOC]] → [[06_Design-Patterns/README|Design Patterns MOC]]
+> Category: Extra • Source: [Refactoring.Guru , DAO Pattern](https://refactoring.guru/design-patterns/1) • Part of [[Java/README|Java MOC]] → Design Patterns MOC
 
 ## Why it Matters
 
@@ -136,7 +136,7 @@ Unit tests inject the in-memory implementation , no database, no containers, mil
 ## Flashcards (Spaced Repetition)
 
 #flashcard
-Extra • Source: [Refactoring.Guru , DAO Pattern](https://refactoring.guru/design-patterns/dao-pattern) • Part of [[Java/README|Java MOC]] → [[06_Design-Patterns/README|Design Patterns MOC]]
+Extra • Source: [Refactoring.Guru , DAO Pattern](https://refactoring.guru/design-patterns/dao-pattern) • Part of [[Java/README|Java MOC]] → Design Patterns MOC
 
 ## Why it Matters
 
@@ -258,7 +258,7 @@ limit 10
 
 ## Related
 
-[[06_Design-Patterns/Extra/Dependency Injection Pattern|Dependency Injection]] (inject the DAO) • [[06_Design-Patterns/Structural/Facade|Facade]] (simplified front) • [[06_Design-Patterns/Structural/Proxy|Proxy]] (lazy/remote stand-in)
+Dependency Injection (inject the DAO) • Facade (simplified front) • Proxy (lazy/remote stand-in)
 
 ---
 

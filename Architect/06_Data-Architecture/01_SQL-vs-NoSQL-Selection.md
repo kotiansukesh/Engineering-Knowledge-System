@@ -98,11 +98,11 @@ interface OrderViewRepository extends MongoRepository<OrderView, String> {
 ## Trade-offs
 | Dimension | This Approach | Alternative | Trade-off Rationale | Decision Rule |
 |-----------|---------------|-------------|---------------------|---------------|
-| Complexity | [TBD] | [TBD] | [TBD] | [TBD] |
-| Operational Burden | [TBD] | [TBD] | [TBD] | [TBD] |
-| Latency | [TBD] | [TBD] | [TBD] | [TBD] |
-| Consistency | [TBD] | [TBD] | [TBD] | [TBD] |
-| Cost at Scale | [TBD] | [TBD] | [TBD] | [TBD] |
+| Complexity | Not specified | Not specified | Not specified | Not specified |
+| Operational Burden | Not specified | Not specified | Not specified | Not specified |
+| Latency | Not specified | Not specified | Not specified | Not specified |
+| Consistency | Not specified | Not specified | Not specified | Not specified |
+| Cost at Scale | Not specified | Not specified | Not specified | Not specified |
 
 ## Flashcards (Spaced Repetition)
 
@@ -180,7 +180,7 @@ limit 10
 | Alternative | When to Choose | Decision Rule |
 |---|---|---|
 | **Postgres JSONB** | 80% "flexible" needs | Can this be JSONB + GIN instead of new cluster? |
-| **CQRS + Event Sourcing** | Audit + divergent reads | See [[03_Event-Sourcing-CQRS]] |
+| **CQRS + Event Sourcing** | Audit + divergent reads | See 03_Event-Sourcing-CQRS |
 | **Single Shared DB** | Never | Recreates monolith at data layer — ownership unclear |
 
 ## ⚠️ Pitfalls
@@ -217,4 +217,4 @@ limit 10
 > **Answer**: Backup strategy, monitoring dashboards, upgrade cadence, incident runbooks, team skill ramp, schema migration tooling, connection pooling. If the derived store saves <50% latency or <30% compute vs Postgres JSONB, it's not worth it. **Metric**: Store count vs incident frequency correlation.
 
 ## 🔗 Related
-- [[02_Consistency-CAP-PACELC]] · [[03_Event-Sourcing-CQRS]] · [[05_Data-Migration-Strangler]]
+- 02_Consistency-CAP-PACELC · 03_Event-Sourcing-CQRS · 05_Data-Migration-Strangler

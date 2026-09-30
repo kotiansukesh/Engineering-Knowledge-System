@@ -105,7 +105,7 @@ void demo() {
 
 **Q: BFS vs DFS, when to use which?** BFS for **unweighted shortest path** and level-order (Word Ladder, Rotting Oranges). DFS for **path existence, connected components, topological sort, cycle detection, Clone Graph**. Both `O(V+E)`.
 
-**Q: How does Dijkstra work? Why does it fail with negative weights?** Greedy + min-heap (`[[Heap]]`): always expand smallest `dist[u]`; relax neighbors `dist[v] = min(dist[v], dist[u]+w)`. Fails with negative weights because a later path through a negative edge could improve an already-finalized node; Bellman-Ford handles negatives and detects negative cycles.
+**Q: How does Dijkstra work? Why does it fail with negative weights?** Greedy + min-heap (`Heap`): always expand smallest `dist[u]`; relax neighbors `dist[v] = min(dist[v], dist[u]+w)`. Fails with negative weights because a later path through a negative edge could improve an already-finalized node; Bellman-Ford handles negatives and detects negative cycles.
 
 **Q: How to detect a cycle?** Undirected: DFS/BFS + parent check. Directed: DFS with 3-color states (0=unvisited, 1=visiting, 2=visited), if visiting neighbor → cycle; or Kahn's topological sort (if not all nodes ordered → cycle).
 
@@ -115,7 +115,7 @@ void demo() {
 
 Adjacency list vs matrix, which to use?:: List: `O(V+E)` space, `O(V+E)` traversal, default for sparse graphs (most interviews). Matrix: `O(V²)` space, `O(1)` edge check, only for dense graphs or Floyd-Warshall. #flashcard
 BFS vs DFS, when to use which?:: BFS for unweighted shortest path and level-order (Word Ladder, Rotting Oranges). DFS for path existence, connected components, topological sort, cycle detection, Clone Graph. Both `O(V+E)`. #flashcard
-How does Dijkstra work? Why does it fail with negative weights?:: Greedy + min-heap (`[[Heap]]`): always expand smallest `dist[u]`; relax neighbors `dist[v] = min(dist[v], dist[u]+w)`. Fails with negative weights because a later path through a negative edge could improve an already-finalized node; Bellman-Ford handles negatives and detects negative cycles. #flashcard
+How does Dijkstra work? Why does it fail with negative weights?:: Greedy + min-heap (`Heap`): always expand smallest `dist[u]`; relax neighbors `dist[v] = min(dist[v], dist[u]+w)`. Fails with negative weights because a later path through a negative edge could improve an already-finalized node; Bellman-Ford handles negatives and detects negative cycles. #flashcard
 How to detect a cycle?:: Undirected: DFS/BFS + parent check. Directed: DFS with 3-color states (0=unvisited, 1=visiting, 2=visited), if visiting neighbor → cycle; or Kahn's topological sort (if not all nodes ordered → cycle). #flashcard
 What is topological sort?:: Linear order of DAG where `u→v` implies `u` before `v`. Kahn (BFS, indegree queue) or DFS post-order reversed; `O(V+E)`. #flashcard
 Why `ArrayDeque` over `Stack` / `LinkedList`?:: `Stack` is legacy synchronized `Vector`; `LinkedList` allocates nodes. `ArrayDeque` is faster, array-backed, `SequencedCollection`, and forbids `null`. #flashcard
@@ -126,7 +126,7 @@ Why `ArrayDeque` over `Stack` / `LinkedList`?:: `Stack` is legacy synchronized `
 
 ## Related
 
-- [[Heap]] (PriorityQueue for Dijkstra) • [[Trees]] (tree is a special graph) • [[Java/07_DSA/Queue|Queue]] (BFS) • [[Java/07_DSA/Stack|Stack]] (DFS) • [[Java/07_DSA/HashMap|HashMap (DSA)]]
+- Heap (PriorityQueue for Dijkstra) • Trees (tree is a special graph) • [[Java/07_DSA/Queue|Queue]] (BFS) • [[Java/07_DSA/Stack|Stack]] (DFS) • [[Java/07_DSA/HashMap|HashMap (DSA)]]
 - [[README|Java MOC]]
 
 # Graph

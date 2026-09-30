@@ -188,6 +188,6 @@ Start with the core implementation. Introduce a variant only when the problem ch
 
 ## Related
 
-- [[01_Array/03 - Sliding Window|Sliding Window]] (monotonic deque for sliding window max)
-- [[03_Stack_Heap/02 - Top K Elements|Top K Elements]] (heap for top-k, different use case)
+- Sliding Window (monotonic deque for sliding window max)
+- Top K Elements (heap for top-k, different use case)
 - [[Java/07_DSA/Stack]]

@@ -18,7 +18,7 @@ type: concept
 
 # Adapter *Also Known as: Wrapper*
 
-> Category: Structural • Source: [Refactoring.Guru , Adapter](https://refactoring.guru/design-patterns/adapter) • Part of [[Java/README|Java MOC]] → [[06_Design-Patterns/README|Design Patterns MOC]]
+> Category: Structural • Source: [Refactoring.Guru , Adapter](https://refactoring.guru/design-patterns/adapter) • Part of [[Java/README|Java MOC]] → Design Patterns MOC
 
 ## Why it Matters
 
@@ -129,7 +129,7 @@ Object (composition) adapter , hold the adaptee, implement the target , is the J
 #flashcard
 Wrapper*
 
-> Category: Structural • Source: [Refactoring.Guru , Adapter](https://refactoring.guru/design-patterns/adapter) • Part of [[Java/README|Java MOC]] → [[06_Design-Patterns/README|Design Patterns MOC]]
+> Category: Structural • Source: [Refactoring.Guru , Adapter](https://refactoring.guru/design-patterns/adapter) • Part of [[Java/README|Java MOC]] → Design Patterns MOC
 
 ## Why it Matters
 
@@ -242,7 +242,7 @@ limit 10
 
 ## Related
 
-[[06_Design-Patterns/Structural/Bridge|Bridge]] (designed split vs after-the-fact) • [[06_Design-Patterns/Structural/Facade|Facade]] (simplify vs translate) • [[06_Design-Patterns/Structural/Decorator|Decorator]] (same interface)
+Bridge (designed split vs after-the-fact) • Facade (simplify vs translate) • Decorator (same interface)
 
 ---
 

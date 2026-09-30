@@ -90,7 +90,7 @@ Infra checklist: service discovery / gateway, distributed tracing (Micrometer + 
 - Sub-domains with wildly different scaling/consistency needs.
 - Large monolith where build/test/deploy times block delivery.
 
-**When NOT:** < ~3 teams, unclear domain boundaries, no DevOps/observability maturity. Start modular, extract later (→ [[06_Monolith-vs-Modular-Choice-Guide]]).
+**When NOT:** < ~3 teams, unclear domain boundaries, no DevOps/observability maturity. Start modular, extract later (→ 06_Monolith-vs-Modular-Choice-Guide).
 
 
 
@@ -99,16 +99,16 @@ Infra checklist: service discovery / gateway, distributed tracing (Micrometer + 
 ## Trade-offs
 | Dimension | This Approach | Alternative | Trade-off Rationale | Decision Rule |
 |-----------|---------------|-------------|---------------------|---------------|
-| Complexity | [TBD] | [TBD] | [TBD] | [TBD] |
-| Operational Burden | [TBD] | [TBD] | [TBD] | [TBD] |
-| Latency | [TBD] | [TBD] | [TBD] | [TBD] |
-| Consistency | [TBD] | [TBD] | [TBD] | [TBD] |
-| Cost at Scale | [TBD] | [TBD] | [TBD] | [TBD] |
+| Complexity | Not specified | Not specified | Not specified | Not specified |
+| Operational Burden | Not specified | Not specified | Not specified | Not specified |
+| Latency | Not specified | Not specified | Not specified | Not specified |
+| Consistency | Not specified | Not specified | Not specified | Not specified |
+| Cost at Scale | Not specified | Not specified | Not specified | Not specified |
 
 ## Vs
 
 - **Vs Modular Monolith:** same module boundaries, zero network cost, one deployable. Microservices add *deployment* independence at *operational* cost.
-- **Vs [[04_Event-Driven-Architecture|Event-Driven]]:** orthogonal, microservices are a *deployment* style; events are a *communication* style often used between them.
+- **Vs Event-Driven:** orthogonal, microservices are a *deployment* style; events are a *communication* style often used between them.
 
 ## Pitfalls
 
@@ -129,7 +129,7 @@ Infra checklist: service discovery / gateway, distributed tracing (Micrometer + 
 ## Interview q&a
 
 **Q: How do services share data?**
-A: They don't share DBs, each owns its store; expose APIs/events; duplicate reference data via [[05_DDD-Modeling/05_Domain-Events|domain events]] and accept eventual consistency.
+A: They don't share DBs, each owns its store; expose APIs/events; duplicate reference data via domain events and accept eventual consistency.
 
 **Q: How do you handle a transaction across services?**
 A: Saga (choreography via events, or orchestration) with compensating actions, never 2PC/XA across services.
@@ -201,7 +201,7 @@ limit 10
 
 ## Related
 
-- [[06_Monolith-vs-Modular-Choice-Guide]] · [[04_Event-Driven-Architecture]] · [[05_DDD-Modeling/02_Bounded-Contexts|Bounded Contexts]] · [[04_Design-Patterns-Building-Blocks/02_Resilience-Circuit-Breaker-Retry|Resilience]]
+- 06_Monolith-vs-Modular-Choice-Guide · 04_Event-Driven-Architecture · Bounded Contexts · Resilience
 
 # Microservices
 
@@ -210,7 +210,7 @@ limit 10
 
 ## 8. Microservices Patterns (in`04_Design-Patterns-Building-Blocks/`)
 
-- [[04_Design-Patterns-Building-Blocks/05_Decomposition-Bounded-Context|05 Decomposition]], seams + strangler extract
-- [[04_Design-Patterns-Building-Blocks/06_Saga-Outbox-Inbox|06 Saga-Outbox-Inbox]], consistent writes, safe redelivery
-- [[04_Design-Patterns-Building-Blocks/07_Discovery-Config-Registry|07 Discovery-Config]], find services, roll config
-- [[04_Design-Patterns-Building-Blocks/04_API-Gateway-BFF|Gateway-BFF]] · [[04_Design-Patterns-Building-Blocks/02_Resilience-Circuit-Breaker-Retry|Circuit-Breaker-Retry]] · [[04_Design-Patterns-Building-Blocks/03_Caching-Strategies|Caching]]
+- 05 Decomposition, seams + strangler extract
+- 06 Saga-Outbox-Inbox, consistent writes, safe redelivery
+- 07 Discovery-Config, find services, roll config
+- Gateway-BFF · Circuit-Breaker-Retry · Caching

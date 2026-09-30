@@ -116,7 +116,7 @@ Avoid deep **override chains** that make behaviour hard to trace, and avoid **ov
 | Form | Binding | Decides | Rule |
 |---|---|---|---|
 | **Overloading** | compile time | parameter list | return type irrelevant; avoid ambiguous signatures |
-| **Overriding** | runtime (**dynamic dispatch**) | object's **runtime type** | same signature, `@Override`, **covariant** return OK, never reduce visibility, respect [[02_OOP/SOLID-Liskov-Substitution\|LSP]] |
+| **Overriding** | runtime (**dynamic dispatch**) | object's **runtime type** | same signature, `@Override`, **covariant** return OK, never reduce visibility, respect LSP |
 
 ## Pitfalls
 
@@ -142,8 +142,8 @@ A: The runtime type of the object, not the reference type.
 
 ## Related
 
-- [[02_OOP/Inheritance\|Inheritance]] • [[02_OOP/Abstraction\|Abstraction]] • [[02_OOP/Interfaces\|Interfaces]]
-- [[02_OOP/SOLID-Open-Closed\|Open-Closed]] • [[02_OOP/SOLID-Liskov-Substitution\|Liskov Substitution]]
+- Inheritance • Abstraction • Interfaces
+- Open-Closed • Liskov Substitution
 
 ---
 *Category: Java/02_OOP*
@@ -157,4 +157,4 @@ A: The runtime type of the object, not the reference type.
 - **Overloading** (compile-time polymorphism): same method **name**, different **parameter list**, in one class; the compiler picks the signature; return type is irrelevant.
 - **Overriding** (runtime polymorphism): subclass redefines the **same signature**; dispatch picks the implementation by the object's **runtime type**; needs `@Override`, covariant return OK, visibility can't shrink.
 
-Static methods are **hidden**, not overridden , the reference type decides. Overloading is convenience; overriding is the mechanism behind dynamic dispatch, [[02_OOP/SOLID-Open-Closed\|OCP]], and [[02_OOP/SOLID-Liskov-Substitution\|LSP]].
+Static methods are **hidden**, not overridden , the reference type decides. Overloading is convenience; overriding is the mechanism behind dynamic dispatch, OCP, and LSP.

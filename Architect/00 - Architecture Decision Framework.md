@@ -21,7 +21,7 @@ tags:
 4. **Choose the simplest viable shape** — do not distribute until a constraint requires it.
 5. **Identify bottlenecks and failure modes** — what breaks first and how?
 6. **Compare alternatives** — include at least one simpler option and one scale-oriented option.
-7. **Record the decision** — use [[_templates/ADR-Template]].
+7. **Record the decision** — use _templates/ADR-Template.
 8. **Define evidence** — metrics, load tests, architecture fitness functions, operational signals.
 
 ## Decision canvas
@@ -67,4 +67,4 @@ A boundary should exist because one or more constraints justify it.
 
 ## Related
 
-[[00 - System Design Decision Tree]] · [[00 - NFR Decision Matrix]] · [[00 - Architecture Trade-off Matrix]] · [[00 - Interview Mode]]
+00 - System Design Decision Tree · 00 - NFR Decision Matrix · 00 - Architecture Trade-off Matrix · 00 - Interview Mode

@@ -108,9 +108,9 @@ Can an enum have a constructor, fields, and methods?:: Yes. Enum constructors ar
 
 ## Related
 
-- [[Classes]]
+- Classes
 - [[Java/01_Core-Java/Types/Abstract Class|Abstract Class]]
-- [[Interface]]
+- Interface
 - [[Java/01_Core-Java/Types/Singleton Class|Singleton Class]]
 - [[Java/01_Core-Java/Types/Immutable Class|Immutable Class]]
 

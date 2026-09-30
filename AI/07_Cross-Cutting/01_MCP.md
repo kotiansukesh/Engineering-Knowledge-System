@@ -79,6 +79,6 @@ Design a server exposing one read-only resource and one mutating tool. Define:
 
 ## Related
 
-- [[03_Agentic-AI/06_Tool Calling|Tool Calling]]
-- [[03_Agentic-AI/11_Guardrails|Guardrails]]
-- [[07_Cross-Cutting/04_AI Security|AI Security]]
+- Tool Calling
+- Guardrails
+- AI Security

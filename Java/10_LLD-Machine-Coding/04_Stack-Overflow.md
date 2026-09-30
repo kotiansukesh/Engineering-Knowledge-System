@@ -24,7 +24,7 @@ type: concept
 
 ## Diagram
 
-![[_attachments/stackoverflow-class-diagram.png]]
+!_attachments/stackoverflow-class-diagram.png
 *Source: [awesome-low-level-design](https://github.com/ashishps1/awesome-low-level-design) , use alongside the class table above.*
 *Runtime flow: ask → answer → accept.*
 ```mermaid
@@ -84,10 +84,10 @@ class StackOverflowDemo {
 
 ## Vs
 
-- **Vs [[15_Task-Management-System|Task Management System]]:** Stack Overflow models *content* with an emergent rank; tasks model an *ongoing process* with an owner and status. The shared part is the observer for reactions (badge vs assignment notification); the difference is that votes accumulate forever while a task terminates.
-- **Vs [[09_Pub-Sub-System|Pub-Sub System]]:** the badge observer here is a in-process fan-out to one or two listeners; pub-sub is that pattern scaled to durable per-subscriber queues with replay. Same shape, different delivery contract.
+- **Vs Task Management System:** Stack Overflow models *content* with an emergent rank; tasks model an *ongoing process* with an owner and status. The shared part is the observer for reactions (badge vs assignment notification); the difference is that votes accumulate forever while a task terminates.
+- **Vs Pub-Sub System:** the badge observer here is a in-process fan-out to one or two listeners; pub-sub is that pattern scaled to durable per-subscriber queues with replay. Same shape, different delivery contract.
 - **Vs a vote as a boolean flag:** an idempotent `(userId, postId, dir)` vote record supports undo, recount, and audit; a bare `++counter` supports none of them. The record is the design, the counter is the optimisation.
-- **Vs [[04_Stack-Overflow|Reddit/HN-style]] ranking:** a pure score sum ranks by consensus; time-decay (HN) ranks by recency. If the requirement says "trending", the vote service needs a decay strategy, not just an add.
+- **Vs Reddit/HN-style ranking:** a pure score sum ranks by consensus; time-decay (HN) ranks by recency. If the requirement says "trending", the vote service needs a decay strategy, not just an add.
 
 ## Pitfalls
 
@@ -109,12 +109,12 @@ Scale search by tag?:: Inverted index `tag → questionIds`; keyword search move
 
 ## Related
 
-- [[06_Design-Patterns/Behavioral/Strategy\|Strategy]], [[06_Design-Patterns/Behavioral/Observer\|Observer]], [[02_OOP/SOLID-Single-Responsibility\|SRP]]
+- Strategy, Observer, SRP
 - Source: [awesome-low-level-design](https://github.com/ashishps1/awesome-low-level-design)
 
 # Stack Overflow
 
-> Part of [[README|Java MOC]] -> [[10_LLD-Machine-Coding/README|LLD MOC]]
+> Part of [[README|Java MOC]] -> LLD MOC
 
 ## Requirements
 
@@ -128,9 +128,9 @@ Scale search by tag?:: Inverted index `tag → questionIds`; keyword search move
 |---|---|---|
 | `User` | id, reputation, badges | , |
 | `Question` / `Answer` / `Comment` | votable content tree | , |
-| `VoteService` | applies vote + reputation delta | [[06_Design-Patterns/Behavioral/Strategy\|Strategy]] (vote weight rules) |
-| `QuestionRepository` | tag/keyword index | [[06_Design-Patterns/Extra/DAO Pattern\|DAO/Repository]] |
-| `BadgeService` (optional) | observes reputation milestones | [[06_Design-Patterns/Behavioral/Observer\|Observer]] |
+| `VoteService` | applies vote + reputation delta | Strategy (vote weight rules) |
+| `QuestionRepository` | tag/keyword index | DAO/Repository |
+| `BadgeService` (optional) | observes reputation milestones | Observer |
 
 ## Concurrency
 

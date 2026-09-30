@@ -14,4 +14,4 @@ Deliberately break systems and record:
 - preventive control
 - evidence
 
-Template: [[Failure Experiment Template]].
+Template: Failure Experiment Template.

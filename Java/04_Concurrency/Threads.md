@@ -140,11 +140,11 @@ When to use `ScopedValue` vs `ThreadLocal`?:: `ScopedValue` for request/tenant c
 ## Related
 
 - [[README|Java MOC]]
-- [[Array]], thread-safe variants `CopyOnWriteArrayList`
+- Array, thread-safe variants `CopyOnWriteArrayList`
 - [[Java/07_DSA/HashMap|HashMap (DSA)]], vs `ConcurrentHashMap`
-- [[Spring Framework]], `spring.threads.virtual.enabled=true` (Boot 3.2+/3.5)
-- [[Spring Security]], SecurityContext propagation with virtual threads
-- [[Spring Transaction]], TransactionSynchronizationManager + ScopedValue
+- Spring Framework, `spring.threads.virtual.enabled=true` (Boot 3.2+/3.5)
+- Spring Security, SecurityContext propagation with virtual threads
+- Spring Transaction, TransactionSynchronizationManager + ScopedValue
 
 # Threads
 
@@ -175,7 +175,7 @@ stateDiagram-v2
 ```
 > Call `start()` exactly once; a second call throws `IllegalThreadStateException`. A **virtual thread** parks (same `Thread.State`) while its **carrier** stays `RUNNABLE` and is reused , no pinning since **JEP 491**.
 
-Related image: ![[Pasted image 20211116081758.png]]
+Related image: !Pasted image 20211116081758.png
 
 > Virtual-thread lifecycle note (Java 25): Virtual threads use the same `Thread.State` enum but their carrier thread stays `RUNNABLE` while the virtual thread is parked (blocked on IO / `sleep`). Pinning no longer applies (see JEP 491 below), so `synchronized` park no longer pins the carrier.
 
@@ -439,7 +439,7 @@ class ContextDemo {
 - Carrier pool: JVM-managed `ForkJoinPool` sized to `Runtime.getRuntime().availableProcessors()`. Override only for testing: `-Djdk.virtualThreadScheduler.parallelism=N` or `-Djdk.virtualThreadScheduler.maxPoolSize=N`.
 - Monitoring: `Thread.ofVirtual()` threads appear in thread dumps / JFR with `virtual` flag; `jcmd Thread.dump_to_file` includes them; Micrometer `jvm.threads.virtual` gauges.
 - Pinning is gone (JEP 491) but avoid long `synchronized` + native/JNI pinning, native frames still pin.
-- Spring Boot 3.2+/3.5: set `spring.threads.virtual.enabled=true` to run Tomcat/Jetty + `@Async` on virtual threads (see [[Spring Framework]]).
+- Spring Boot 3.2+/3.5: set `spring.threads.virtual.enabled=true` to run Tomcat/Jetty + `@Async` on virtual threads (see Spring Framework).
 
 ## Stopping a Thread, Cooperative Cancellation
 

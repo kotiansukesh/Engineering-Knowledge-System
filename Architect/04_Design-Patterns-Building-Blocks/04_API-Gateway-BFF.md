@@ -101,16 +101,16 @@ Auth pattern: gateway validates JWT (opaque → token introspection once), forwa
 ## Trade-offs
 | Dimension | This Approach | Alternative | Trade-off Rationale | Decision Rule |
 |-----------|---------------|-------------|---------------------|---------------|
-| Complexity | [TBD] | [TBD] | [TBD] | [TBD] |
-| Operational Burden | [TBD] | [TBD] | [TBD] | [TBD] |
-| Latency | [TBD] | [TBD] | [TBD] | [TBD] |
-| Consistency | [TBD] | [TBD] | [TBD] | [TBD] |
-| Cost at Scale | [TBD] | [TBD] | [TBD] | [TBD] |
+| Complexity | Not specified | Not specified | Not specified | Not specified |
+| Operational Burden | Not specified | Not specified | Not specified | Not specified |
+| Latency | Not specified | Not specified | Not specified | Not specified |
+| Consistency | Not specified | Not specified | Not specified | Not specified |
+| Cost at Scale | Not specified | Not specified | Not specified | Not specified |
 
 ## Vs
 
 - **Vs direct client→service:** direct is simpler at small scale; gateway pays off when policy/client-count grows.
-- **Vs [[03_Caching-Strategies|app caching]] at edge:** gateway may cache GETs briefly (per-key TTL), but canonical caching stays in services/CDN.
+- **Vs app caching at edge:** gateway may cache GETs briefly (per-key TTL), but canonical caching stays in services/CDN.
 
 ## Pitfalls
 
@@ -200,7 +200,7 @@ limit 10
 
 ## Related
 
-- [[03_Architecture-Styles/03_Microservices|Microservices]] · [[02_Resilience-Circuit-Breaker-Retry|Resilience]]
+- Microservices · Resilience
 
 # API Gateway & bff (Backend-for-Frontend)
 

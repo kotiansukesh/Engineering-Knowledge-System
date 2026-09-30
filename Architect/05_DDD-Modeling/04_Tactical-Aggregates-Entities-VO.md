@@ -99,16 +99,16 @@ JPA mapping: root = `@Entity`, internal entities = `@ElementCollection`/`@OneToM
 ## Trade-offs
 | Dimension | This Approach | Alternative | Trade-off Rationale | Decision Rule |
 |-----------|---------------|-------------|---------------------|---------------|
-| Complexity | [TBD] | [TBD] | [TBD] | [TBD] |
-| Operational Burden | [TBD] | [TBD] | [TBD] | [TBD] |
-| Latency | [TBD] | [TBD] | [TBD] | [TBD] |
-| Consistency | [TBD] | [TBD] | [TBD] | [TBD] |
-| Cost at Scale | [TBD] | [TBD] | [TBD] | [TBD] |
+| Complexity | Not specified | Not specified | Not specified | Not specified |
+| Operational Burden | Not specified | Not specified | Not specified | Not specified |
+| Latency | Not specified | Not specified | Not specified | Not specified |
+| Consistency | Not specified | Not specified | Not specified | Not specified |
+| Cost at Scale | Not specified | Not specified | Not specified | Not specified |
 
 ## Vs
 
 - **Vs anemic CRUD entities:** anemic = data + service-layer rules (rules scatter); rich aggregates = rules live with data (rules co-locate).
-- **Vs [[06_Data-Architecture/03_Event-Sourcing-CQRS|event-sourced aggregates]]:** same boundary thinking; state-stored vs event-stored persistence differs.
+- **Vs event-sourced aggregates:** same boundary thinking; state-stored vs event-stored persistence differs.
 
 ## Pitfalls
 
@@ -201,7 +201,7 @@ limit 10
 
 ## Related
 
-- [[01_Strategic-DDD]] · [[02_Bounded-Contexts]] · [[05_Domain-Events]] · [[04_Design-Patterns-Building-Blocks/01_Enterprise-Patterns|Enterprise Patterns]]
+- 01_Strategic-DDD · 02_Bounded-Contexts · 05_Domain-Events · Enterprise Patterns
 
 # Tactical DDD, Aggregates, Entities, Value Objects
 

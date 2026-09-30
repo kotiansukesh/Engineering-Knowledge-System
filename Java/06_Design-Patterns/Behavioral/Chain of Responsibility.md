@@ -18,7 +18,7 @@ type: concept
 
 # Chain of Responsibility
 
-> Category: Behavioral • Source: [Refactoring.Guru , Chain of Responsibility](https://refactoring.guru/design-patterns/chain-of-responsibility) • Part of [[Java/README|Java MOC]] → [[06_Design-Patterns/README|Design Patterns MOC]]
+> Category: Behavioral • Source: [Refactoring.Guru , Chain of Responsibility](https://refactoring.guru/design-patterns/chain-of-responsibility) • Part of [[Java/README|Java MOC]] → Design Patterns MOC
 
 ## Why it Matters
 
@@ -125,7 +125,7 @@ Always terminate the chain: a default handler that logs, dead-letters, or return
 ## Flashcards (Spaced Repetition)
 
 #flashcard
-Behavioral • Source: [Refactoring.Guru , Chain of Responsibility](https://refactoring.guru/design-patterns/chain-of-responsibility) • Part of [[Java/README|Java MOC]] → [[06_Design-Patterns/README|Design Patterns MOC]]
+Behavioral • Source: [Refactoring.Guru , Chain of Responsibility](https://refactoring.guru/design-patterns/chain-of-responsibility) • Part of [[Java/README|Java MOC]] → Design Patterns MOC
 
 ## Why it Matters
 
@@ -236,7 +236,7 @@ limit 10
 
 ## Related
 
-[[06_Design-Patterns/Behavioral/Command|Command]] (encapsulated request) • [[06_Design-Patterns/Structural/Decorator|Decorator]] (all run vs first handles) • [[06_Design-Patterns/Behavioral/Mediator|Mediator]]
+Command (encapsulated request) • Decorator (all run vs first handles) • Mediator
 
 ---
 

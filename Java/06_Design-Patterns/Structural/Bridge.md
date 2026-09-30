@@ -18,7 +18,7 @@ type: concept
 
 # Bridge
 
-> Category: Structural • Source: [Refactoring.Guru , Bridge](https://refactoring.guru/design-patterns/bridge) • Part of [[Java/README|Java MOC]] → [[06_Design-Patterns/README|Design Patterns MOC]]
+> Category: Structural • Source: [Refactoring.Guru , Bridge](https://refactoring.guru/design-patterns/bridge) • Part of [[Java/README|Java MOC]] → Design Patterns MOC
 
 ## Why it Matters
 
@@ -132,7 +132,7 @@ Bridge is structural and permanent: two dimensions (shape × renderer) coexist a
 ## Flashcards (Spaced Repetition)
 
 #flashcard
-Structural • Source: [Refactoring.Guru , Bridge](https://refactoring.guru/design-patterns/bridge) • Part of [[Java/README|Java MOC]] → [[06_Design-Patterns/README|Design Patterns MOC]]
+Structural • Source: [Refactoring.Guru , Bridge](https://refactoring.guru/design-patterns/bridge) • Part of [[Java/README|Java MOC]] → Design Patterns MOC
 
 ## Why it Matters
 
@@ -250,7 +250,7 @@ limit 10
 
 ## Related
 
-[[06_Design-Patterns/Structural/Adapter|Adapter]] • [[06_Design-Patterns/Behavioral/Strategy|Strategy]] (swappable behavior) • [[06_Design-Patterns/Structural/Composite|Composite]]
+Adapter • Strategy (swappable behavior) • Composite
 
 ---
 

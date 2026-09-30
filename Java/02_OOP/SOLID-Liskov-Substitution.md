@@ -127,9 +127,9 @@ A: (1) Substitute test: would all existing base-type tests pass with the subtype
 
 ## Related
 
-- [[SOLID-Open-Closed]] • [[SOLID-Interface-Segregation]] • [[SOLID-Single-Responsibility]]
-- [[02_OOP/Inheritance|Inheritance]] • [[02_OOP/Polymorphism|Polymorphism]] • [[Class-Relationships]]
-- [[06_Design-Patterns/Behavioral/Template Method|Template Method]] • [[06_Design-Patterns/Behavioral/Strategy|Strategy]]
+- SOLID-Open-Closed • SOLID-Interface-Segregation • SOLID-Single-Responsibility
+- Inheritance • Polymorphism • Class-Relationships
+- Template Method • Strategy
 
 ---
 *Category: Java/02_OOP*

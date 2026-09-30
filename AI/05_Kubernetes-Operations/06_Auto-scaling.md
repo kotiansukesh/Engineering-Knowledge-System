@@ -7,7 +7,7 @@ completed: false
 difficulty: "Advanced"
 reviewed: "2026-09-30"
 sr-due: "2026-10-05"
-type: "note"
+type: concept
 ---
 
 # Kubernetes Auto-scaling for AI

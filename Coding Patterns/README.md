@@ -17,15 +17,15 @@ Use [[00 - Start Here]] to decide how much coding-pattern practice belongs in th
 
 ## Start here inside this domain
 
-1. [[Patterns Index|Patterns]]
-2. [[00 - Pattern Decision Tree|Decision Tree]]
-3. [[00 - Pattern Recognition Lab|Recognition Lab]]
-4. [[Problem Bank|Problem Bank]]
-5. [[Canonical Problems|Canonical Problems]]
-6. [[00 - Mixed Pattern Sets|Mixed Practice]]
-7. [[99_Revision/Practice Dashboard|Review]]
-8. [[00 - Mistake Log|Mistake Log]]
-9. [[99_Revision/Study-Plan|Study Plan]]
+1. Patterns
+2. Decision Tree
+3. Recognition Lab
+4. Problem Bank
+5. Canonical Problems
+6. Mixed Practice
+7. Review
+8. Mistake Log
+9. Study Plan
 
 ## Pattern mastery
 

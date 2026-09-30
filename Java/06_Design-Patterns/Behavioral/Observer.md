@@ -18,7 +18,7 @@ type: concept
 
 # Observer *Also Known as: Pub-Sub*
 
-> Category: Behavioral • Source: [Refactoring.Guru , Observer](https://refactoring.guru/design-patterns/observer) • Part of [[Java/README|Java MOC]] → [[06_Design-Patterns/README|Design Patterns MOC]]
+> Category: Behavioral • Source: [Refactoring.Guru , Observer](https://refactoring.guru/design-patterns/observer) • Part of [[Java/README|Java MOC]] → Design Patterns MOC
 
 ## Why it Matters
 
@@ -121,7 +121,7 @@ Always pair subscribe with unsubscribe (lifecycle methods, try-with-resources, w
 #flashcard
 Pub-Sub*
 
-> Category: Behavioral • Source: [Refactoring.Guru , Observer](https://refactoring.guru/design-patterns/observer) • Part of [[Java/README|Java MOC]] → [[06_Design-Patterns/README|Design Patterns MOC]]
+> Category: Behavioral • Source: [Refactoring.Guru , Observer](https://refactoring.guru/design-patterns/observer) • Part of [[Java/README|Java MOC]] → Design Patterns MOC
 
 ## Why it Matters
 
@@ -226,7 +226,7 @@ limit 10
 
 ## Related
 
-[[06_Design-Patterns/Behavioral/Mediator|Mediator]] • [[06_Design-Patterns/Behavioral/Iterator|Iterator]] • [[06_Design-Patterns/Behavioral/State|State]]
+Mediator • Iterator • State
 
 ---
 

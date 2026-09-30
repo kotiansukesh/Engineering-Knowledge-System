@@ -10,7 +10,7 @@ reviewed: "2026-09-29"
 sr-due: "2026-10-06"
 source: ""
 excalidraw: ""
-type: "note"
+type: concept
 ---
 
 # Fenwick Tree (Binary Indexed Tree)
@@ -230,9 +230,9 @@ limit 10
 ## Related
 
 - [[README|Java MOC]]
-- [[07_DSA/README|DSA MOC]]
+- DSA MOC
 - [[Java/07_DSA/Segment Tree|Segment Tree]]
-- [[Java/07_DSA/Inversion Count|Inversion Count]]
+- Inversion Count
 
 ---
 

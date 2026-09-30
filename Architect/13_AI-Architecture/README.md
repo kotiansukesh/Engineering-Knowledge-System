@@ -11,17 +11,17 @@ AI architecture applies the same constraint-driven reasoning to systems where mo
 
 ## Learning map
 
-- [[13_AI-Architecture/01 - AI System Architecture]]
-- [[13_AI-Architecture/02 - Model Gateway and Routing]]
-- [[13_AI-Architecture/03 - RAG Architecture]]
-- [[13_AI-Architecture/04 - Agent Architecture]]
-- [[13_AI-Architecture/05 - Tool and Integration Architecture]]
-- [[13_AI-Architecture/06 - Memory Architecture]]
-- [[13_AI-Architecture/07 - Evaluation Architecture]]
-- [[13_AI-Architecture/08 - AI Observability]]
-- [[13_AI-Architecture/09 - AI Security and Guardrails]]
-- [[13_AI-Architecture/10 - AI Cost Engineering]]
-- [[13_AI-Architecture/11 - Enterprise AI Platform]]
+- 13_AI-Architecture/01 - AI System Architecture
+- 13_AI-Architecture/02 - Model Gateway and Routing
+- 13_AI-Architecture/03 - RAG Architecture
+- 13_AI-Architecture/04 - Agent Architecture
+- 13_AI-Architecture/05 - Tool and Integration Architecture
+- 13_AI-Architecture/06 - Memory Architecture
+- 13_AI-Architecture/07 - Evaluation Architecture
+- 13_AI-Architecture/08 - AI Observability
+- 13_AI-Architecture/09 - AI Security and Guardrails
+- 13_AI-Architecture/10 - AI Cost Engineering
+- 13_AI-Architecture/11 - Enterprise AI Platform
 
 ## AI architecture loop
 

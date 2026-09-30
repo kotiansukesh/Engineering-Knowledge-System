@@ -68,7 +68,7 @@ classDiagram
 
 - Interview one-liner: "**College** *has* Professors (aggregation , professors survive closure); **House** *owns* Rooms (composition , demolition destroys rooms)."
 - Strength of coupling rises left → right in the table; prefer the **weakest** that models reality.
-- Composition + [[02_OOP/SOLID-Dependency-Inversion\|DIP]]: own the lifetime but still inject the **interface** where you need testability.
+- Composition + DIP: own the lifetime but still inject the **interface** where you need testability.
 
 ## Code
 
@@ -143,7 +143,7 @@ void main() {
 
 - Modelling everything as composition , over-owns shared parts, kills reuse.
 - Association fields that are only used once , downgrade to dependency parameters.
-- `new`-ing volatile collaborators inside business logic , inject the interface instead ([[02_OOP/SOLID-Dependency-Inversion\|DIP]]).
+- `new`-ing volatile collaborators inside business logic , inject the interface instead (DIP).
 
 ## Interview q&a
 
@@ -157,9 +157,9 @@ A: Dependency = short-lived: parameter, local, or return (`schedule(Course)`). A
 
 ## Related
 
-- [[02_OOP/SOLID-Single-Responsibility\|Single Responsibility]] • [[02_OOP/SOLID-Dependency-Inversion\|Dependency Inversion]] • [[02_OOP/SOLID-Liskov-Substitution\|Liskov Substitution]]
-- [[02_OOP/Inheritance\|Inheritance]] • [[02_OOP/Encapsulation\|Encapsulation]] • [[02_OOP/00 - OOP Overview\|OOP Overview]]
-- [[06_Design-Patterns/Structural/Composite\|Composite]] • [[06_Design-Patterns/Structural/Adapter\|Adapter]] • [[06_Design-Patterns/Extra/DAO Pattern\|DAO Pattern]]
+- Single Responsibility • Dependency Inversion • Liskov Substitution
+- Inheritance • Encapsulation • OOP Overview
+- Composite • Adapter • DAO Pattern
 
 ---
 *Category: Java/02_OOP*

@@ -24,7 +24,7 @@ type: concept
 
 ## Diagram
 
-![[_attachments/lrucache-class-diagram.png]]
+!_attachments/lrucache-class-diagram.png
 *Source: [awesome-low-level-design](https://github.com/ashishps1/awesome-low-level-design) , use alongside the class table above.*
 *Runtime flow: O(1) get promotes, put evicts tail.*
 ```mermaid
@@ -89,11 +89,11 @@ class LRUCacheDemo {
 
 ## Vs
 
-- **Vs [[09_Pub-Sub-System|Pub-Sub System]]:** an LRU is a stateful store that *silently drops* old entries; a pub-sub topic is an append-only log that *keeps* entries for replay by offset. Bounded recency store vs durable log.
+- **Vs Pub-Sub System:** an LRU is a stateful store that *silently drops* old entries; a pub-sub topic is an append-only log that *keeps* entries for replay by offset. Bounded recency store vs durable log.
 - **Vs LFU (least frequently used):** LRU tracks *when* (cheap counters, adapts to shifts in popularity); LFU tracks *how often* (stable popularity, but never forgets cold keys that were once hot, and is costlier to update).
 - **Vs FIFO:** FIFO is simpler (one queue) but evicts regardless of reuse, a hot key that arrived first is dropped, which LRU avoids by promoting on access.
 - **Vs a plain `HashMap`:** unbounded, no eviction, no capacity policy; correct only when the key set is fixed and small. The LRU's value *is* the policy.
-- **Vs [[12_Movie-Ticket-Booking|seat hold expiry]] / TTL caches:** TTL evicts by wall-clock age regardless of use; LRU evicts by *use* regardless of age. TTL is right for data with a validity lifetime (a held seat, a token); LRU is right for capacity pressure.
+- **Vs seat hold expiry / TTL caches:** TTL evicts by wall-clock age regardless of use; LRU evicts by *use* regardless of age. TTL is right for data with a validity lifetime (a held seat, a token); LRU is right for capacity pressure.
 - **Vs Redis `allkeys-lru`:** same policy, but Redis approximates LRU with sampled eviction (not a true linked-list reordering) to avoid per-access contention, precision traded for throughput.
 
 ## Pitfalls
@@ -118,12 +118,12 @@ LFU or TTL expiry instead?:: LFU needs frequency buckets (`freq → LinkedHashSe
 
 ## Related
 
-- [[02_OOP/SOLID-Single-Responsibility\|SRP]] (eviction policy separate from storage), [[06_Design-Patterns/Behavioral/Observer\|Observer]]
+- SRP (eviction policy separate from storage), Observer
 - Source: [awesome-low-level-design](https://github.com/ashishps1/awesome-low-level-design)
 
 # LRU Cache
 
-> Part of [[README|Java MOC]] -> [[10_LLD-Machine-Coding/README|LLD MOC]]
+> Part of [[README|Java MOC]] -> LLD MOC
 
 ## Requirements
 
@@ -137,7 +137,7 @@ LFU or TTL expiry instead?:: LFU needs frequency buckets (`freq → LinkedHashSe
 |---|---|---|
 | `LRUCache` | HashMap + doubly-linked list, public `get/put` | , |
 | `Node` | key, value, prev/next | , |
-| `EvictionListener` (optional) | callback on evict | [[06_Design-Patterns/Behavioral/Observer\|Observer]] |
+| `EvictionListener` (optional) | callback on evict | Observer |
 
 ## Concurrency
 

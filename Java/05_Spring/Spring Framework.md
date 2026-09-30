@@ -5,7 +5,7 @@ tags: [spring, framework, ioc, di, aop, java25]
 created: "2026-09-30"
 completed: false
 difficulty: "Advanced"
-type: "note"
+type: concept
 ---
 
 # Spring Framework

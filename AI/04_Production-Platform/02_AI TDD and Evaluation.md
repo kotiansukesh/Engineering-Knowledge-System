@@ -86,16 +86,16 @@ def test_retrieval_regression(case, baseline: float = 0.8):
 ## Flashcards (Spaced Repetition)
 
 #flashcard
-**Q:** What is the trigger keyword for AI TDD and Evaluation (C4, Refactor and Test)? :: **A:** [trigger keywords] #flashcard
+**Q:** What is the trigger keyword for AI TDD and Evaluation (C4, Refactor and Test)? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** Key hyperparameter for AI TDD and Evaluation (C4, Refactor and Test)? :: **A:** [hyperparameter + typical range] #flashcard
+**Q:** Key hyperparameter for AI TDD and Evaluation (C4, Refactor and Test)? :: **A:** Not specified #flashcard
 
 #flashcard
 **Q:** When do you NOT use AI TDD and Evaluation (C4, Refactor and Test)? :: **A:** [anti-pattern scenarios] #flashcard
 
 #flashcard
-**Q:** Cost order of magnitude for AI TDD and Evaluation (C4, Refactor and Test)? :: **A:** [GPU hours / $ per 1M tokens] #flashcard
+**Q:** Cost order of magnitude for AI TDD and Evaluation (C4, Refactor and Test)? :: **A:** Not specified #flashcard
 
 ## Practice Tasks (Tasks Plugin)
 - [ ] Restate the intent from memory 📅 2026-09-30
@@ -112,7 +112,7 @@ limit 10
 
 ## Related
 - [[README|AI MOC]]
-- [[04_Production-Platform/README|04_Production-Platform Folder]]
+- 04_Production-Platform Folder
 
 ---
 

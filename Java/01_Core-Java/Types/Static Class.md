@@ -107,4 +107,4 @@ Can a static nested class access non-static outer members?:: Only through an exp
 
 - [[Java/01_Core-Java/Types/Nested/Static Nested Class|Static Nested Class]]
 - [[Java/01_Core-Java/Types/Nested Classes Overview|Nested Classes Overview]]
-- [[Classes]]
+- Classes

@@ -219,6 +219,6 @@ Start with the core implementation. Introduce a variant only when the required s
 
 ## Related
 
-- [[05_Trees_Graphs/02 - DFS|DFS]] (directed cycles)
-- [[05_Trees_Graphs/04 - Shortest Path|Shortest Path]] (weighted)
+- DFS (directed cycles)
+- Shortest Path (weighted)
 - [[Java/07_DSA/Graph]]

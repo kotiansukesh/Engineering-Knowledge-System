@@ -80,26 +80,26 @@ ORDER BY embedding <=> :query_embedding LIMIT 5;
 ## Pitfalls
 
 - Not normalizing embeddings before cosine distance.
-- Missing citations → hallucination risk (addressed in [[Enterprise Document Search]]).
+- Missing citations → hallucination risk (addressed in Enterprise Document Search).
 
 ## Interview q&a
 
-- **Q:** pgvector vs dedicated vector DB? **A:** pgvector reuses PG ops/joins/transactions; dedicated DBs scale vectors further, compare in [[02_Design LLM Architectures]].
+- **Q:** pgvector vs dedicated vector DB? **A:** pgvector reuses PG ops/joins/transactions; dedicated DBs scale vectors further, compare in 02_Design LLM Architectures.
 - **Q:** Chunk size trade-off? **A:** Small → precise but fragmented; large → context-rich but noisy. Evaluate retrieval precision@k.
 
 ## Flashcards (Spaced Repetition)
 
 #flashcard
-**Q:** What is the trigger keyword for LLM Engineering with RAG (Coursera C1)? :: **A:** [trigger keywords] #flashcard
+**Q:** What is the trigger keyword for LLM Engineering with RAG (Coursera C1)? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** Key hyperparameter for LLM Engineering with RAG (Coursera C1)? :: **A:** [hyperparameter + typical range] #flashcard
+**Q:** Key hyperparameter for LLM Engineering with RAG (Coursera C1)? :: **A:** Not specified #flashcard
 
 #flashcard
 **Q:** When do you NOT use LLM Engineering with RAG (Coursera C1)? :: **A:** [anti-pattern scenarios] #flashcard
 
 #flashcard
-**Q:** Cost order of magnitude for LLM Engineering with RAG (Coursera C1)? :: **A:** [GPU hours / $ per 1M tokens] #flashcard
+**Q:** Cost order of magnitude for LLM Engineering with RAG (Coursera C1)? :: **A:** Not specified #flashcard
 
 ## Practice Tasks (Tasks Plugin)
 - [ ] Restate the intent from memory 📅 2026-09-30
@@ -116,7 +116,7 @@ limit 10
 
 ## Related
 - [[README|AI MOC]]
-- [[02_RAG-Engineering/README|02_RAG-Engineering Folder]]
+- 02_RAG-Engineering Folder
 
 ---
 

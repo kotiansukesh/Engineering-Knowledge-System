@@ -119,4 +119,4 @@ async def health() -> dict[str, str]:
 > **Answer**: `tools/search_docs` becomes MCP server; `schemas/` gets document metadata; `services/` adds hybrid search + reranker; eval harness (`tests/eval/`) gates CI. Template is the seed; Phase 02 is the growth.
 
 ## 🔗 Related
-- [[02_FastAPI Backend]] • [[Enterprise Document Search]] (next evolution) • [[MCP]]
+- 02_FastAPI Backend • Enterprise Document Search (next evolution) • MCP

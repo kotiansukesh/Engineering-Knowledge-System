@@ -112,7 +112,7 @@ Is a POJO allowed to have methods beyond getters/setters?:: Yes, strictly it may
 
 ## Related
 
-- [[Classes]]
+- Classes
 - [[Java/01_Core-Java/Types/Concrete Class|Concrete Class]]
 - [[Java/01_Core-Java/Types/Immutable Class|Immutable Class]]
 - [[Java/01_Core-Java/Types/Wrapper Class|Wrapper Class]]

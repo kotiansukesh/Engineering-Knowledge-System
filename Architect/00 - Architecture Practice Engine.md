@@ -61,8 +61,8 @@ A mastery claim requires at least one **blind design**, one **failure injection*
 
 ## Related
 
-- [[00 - Architecture Decision Framework]]
-- [[00 - Architecture Failure Log]]
-- [[00 - Interview Mode]]
-- [[00 - Architecture Mastery Dashboard]]
-- [[00 - System Design Problem Bank]]
+- 00 - Architecture Decision Framework
+- 00 - Architecture Failure Log
+- 00 - Interview Mode
+- 00 - Architecture Mastery Dashboard
+- 00 - System Design Problem Bank

@@ -18,7 +18,7 @@ type: concept
 
 # Factory Method
 
-> Category: Creational • Source: [Refactoring.Guru , Factory Method](https://refactoring.guru/design-patterns/factory-method) • Part of [[Java/README|Java MOC]] → [[06_Design-Patterns/README|Design Patterns MOC]]
+> Category: Creational • Source: [Refactoring.Guru , Factory Method](https://refactoring.guru/design-patterns/factory-method) • Part of [[Java/README|Java MOC]] → Design Patterns MOC
 
 ## Why it Matters
 
@@ -120,7 +120,7 @@ Everywhere creation is deferred: `LoggerFactory.getLogger`, Spring `FactoryBean`
 ## Flashcards (Spaced Repetition)
 
 #flashcard
-Creational • Source: [Refactoring.Guru , Factory Method](https://refactoring.guru/design-patterns/factory-method) • Part of [[Java/README|Java MOC]] → [[06_Design-Patterns/README|Design Patterns MOC]]
+Creational • Source: [Refactoring.Guru , Factory Method](https://refactoring.guru/design-patterns/factory-method) • Part of [[Java/README|Java MOC]] → Design Patterns MOC
 
 ## Why it Matters
 
@@ -226,7 +226,7 @@ limit 10
 
 ## Related
 
-[[06_Design-Patterns/Creational/Abstract Factory|Abstract Factory]] (families vs single product) • [[06_Design-Patterns/Behavioral/Template Method|Template Method]] (deferred step) • [[06_Design-Patterns/Creational/Singleton|Singleton]]
+Abstract Factory (families vs single product) • Template Method (deferred step) • Singleton
 
 ---
 

@@ -231,6 +231,6 @@ A: After cyclic sort, every index `i` should have value `i+1`. The missing value
 
 ## Related
 
-- [[01_Array/01 - Prefix Sum|Prefix Sum]] (XOR alternative for missing number)
-- [[01_Array/04 - Frequency Counting|Frequency Counting]] (HashMap alternative)
-- [[08_Bit_Manipulation/01 - Bit Manipulation|Bit Manipulation]] (XOR for single missing)
+- Prefix Sum (XOR alternative for missing number)
+- Frequency Counting (HashMap alternative)
+- Bit Manipulation (XOR for single missing)

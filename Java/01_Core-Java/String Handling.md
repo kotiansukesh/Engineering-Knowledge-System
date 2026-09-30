@@ -108,11 +108,11 @@ What is the String Constant Pool and how does `intern()` work?:: The pool is a s
 
 ## Related
 
-- [[Classes]]
-- [[Interface]]
+- Classes
+- Interface
 - [[Java/01_Core-Java/Types/Immutable Class|Immutable Class]]
 - [[Java/01_Core-Java/Types/Wrapper Class|Wrapper Class]]
-- [[Method Overload]]
+- Method Overload
 
 ---
 *Category: Core-Java • Part of [[README|Java MOC]] • java25*

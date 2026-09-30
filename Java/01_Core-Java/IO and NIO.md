@@ -105,10 +105,10 @@ How does `try-with-resources` work? What about suppressed exceptions?:: Resource
 
 ## Related
 
-- [[Exception Handling]]
-- [[Serialization]]
-- [[Classes]]
-- [[String Handling]]
+- Exception Handling
+- Serialization
+- Classes
+- String Handling
 
 ---
 *Category: Core-Java • Part of [[README|Java MOC]] • java25*

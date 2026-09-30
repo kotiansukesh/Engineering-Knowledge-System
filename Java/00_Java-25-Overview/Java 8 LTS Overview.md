@@ -129,7 +129,7 @@ What is the difference between intermediate and terminal stream operations?:: In
 
 ## Related
 
-- [[Java 11 LTS Overview]] → next delta • [[Whats New in Java 25]] (timeline) • [[../01_Core-Java/Streams API|Streams API]] • [[../01_Core-Java/JVM Memory Model|JVM - Metaspace]] • [[LTS Evolution 8 to 25]]
+- Java 11 LTS Overview → next delta • Whats New in Java 25 (timeline) • [[Java/00_Java-25-Overview/../01_Core-Java/Streams API|Streams API]] • [[Java/00_Java-25-Overview/../01_Core-Java/JVM Memory Model|JVM - Metaspace]] • LTS Evolution 8 to 25
 
 ---
 *Category: overview • java8*

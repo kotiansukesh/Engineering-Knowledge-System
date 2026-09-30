@@ -181,6 +181,6 @@ Start with the core implementation. Introduce a variant only when the problem ch
 
 ## Related
 
-- [[04_Intervals_Search/02 - Modified Binary Search|Modified Binary Search]] (search in intervals)
-- [[07_Backtracking_DP/03 - Greedy|Greedy]] (activity selection is greedy)
+- Modified Binary Search (search in intervals)
+- Greedy (activity selection is greedy)
 - [[Java/07_DSA/Array]]

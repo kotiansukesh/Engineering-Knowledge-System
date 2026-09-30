@@ -187,6 +187,6 @@ Start with the core implementation. Introduce a variant only when the required s
 
 ## Related
 
-- [[01_Array/04 - Frequency Counting|Frequency Counting]] (XOR vs HashMap for single number)
-- [[07_Backtracking_DP/01 - Backtracking|Backtracking]] (subset generation alternative)
+- Frequency Counting (XOR vs HashMap for single number)
+- Backtracking (subset generation alternative)
 - [[Java/07_DSA/Array]]

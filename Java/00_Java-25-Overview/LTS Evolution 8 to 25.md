@@ -7,7 +7,7 @@ completed: false
 difficulty: "Medium"
 reviewed: "2026-09-30"
 sr-due: "2026-10-07"
-type: "note"
+type: concept
 ---
 
 # LTS Evolution: Java 8 → 11 → 17 → 21 → 25
@@ -68,9 +68,9 @@ No. Learn the LTS milestones and use non-LTS releases to understand where a feat
 
 ## Related
 
-- [[Java 8 LTS Overview]]
-- [[Java 11 LTS Overview]]
-- [[Java 17 LTS Overview]]
-- [[../09_Java-21-LTS/README|Java 21 Deep Dive]]
-- [[Whats New in Java 25]]
-- [[Java 25 Roadmap]]
+- Java 8 LTS Overview
+- Java 11 LTS Overview
+- Java 17 LTS Overview
+- [[Java/00_Java-25-Overview/../09_Java-21-LTS/README|Java 21 Deep Dive]]
+- Whats New in Java 25
+- Java 25 Roadmap

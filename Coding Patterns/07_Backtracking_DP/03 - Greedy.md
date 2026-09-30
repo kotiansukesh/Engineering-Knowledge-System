@@ -181,7 +181,7 @@ Start with the core implementation. Introduce a variant only when the required s
 
 ## Related
 
-- [[07_Backtracking_DP/02 - Dynamic Programming|Dynamic Programming]] (greedy = DP with memo deleted + choice made permanent)
-- [[04_Intervals_Search/01 - Overlapping Intervals|Overlapping Intervals]] (activity selection is greedy)
-- [[05_Trees_Graphs/03 - BFS|BFS]] (level-order is greedy by distance)
+- Dynamic Programming (greedy = DP with memo deleted + choice made permanent)
+- Overlapping Intervals (activity selection is greedy)
+- BFS (level-order is greedy by distance)
 - [[Java/07_DSA/Array]]

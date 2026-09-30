@@ -93,14 +93,14 @@ A: A class inherits from a class that itself inherits from another class, formin
 
 ## Related
 
-- [[02_OOP/Inheritance\|Inheritance]] • [[02_OOP/Inheritance/Hierarchical Inheritance\|Hierarchical Inheritance]] • [[02_OOP/SOLID-Liskov-Substitution\|Liskov Substitution]]
+- Inheritance • Hierarchical Inheritance • Liskov Substitution
 
 ---
 *Category: Java/02_OOP*
 
 # Multilevel Inheritance
 
-> Part of [[02_OOP/Inheritance\|Inheritance]] • `Java/02_OOP`
+> Part of Inheritance • `Java/02_OOP`
 
 ## Vs , Multilevel vs Multiple
 

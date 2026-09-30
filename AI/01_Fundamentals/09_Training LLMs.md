@@ -14,7 +14,7 @@ sr-due: "2026-09-30"
 source: ""
 excalidraw: ""
 weeks: "1"
-type: "note"
+type: concept
 ---
 
 # 09_Training LLMs
@@ -103,16 +103,16 @@ config = 09_TrainingLLMsConfig()
 ## Flashcards (Spaced Repetition)
 
 #flashcard
-**Q:** What is the trigger keyword for 09_Training LLMs? :: **A:** [trigger keywords] #flashcard
+**Q:** What is the trigger keyword for 09_Training LLMs? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** Key hyperparameter for 09_Training LLMs? :: **A:** [hyperparameter + typical range] #flashcard
+**Q:** Key hyperparameter for 09_Training LLMs? :: **A:** Not specified #flashcard
 
 #flashcard
 **Q:** When do you NOT use 09_Training LLMs? :: **A:** [anti-pattern scenarios] #flashcard
 
 #flashcard
-**Q:** Cost order of magnitude for 09_Training LLMs? :: **A:** [GPU hours / $ per 1M tokens] #flashcard
+**Q:** Cost order of magnitude for 09_Training LLMs? :: **A:** Not specified #flashcard
 
 ## Practice Tasks (Tasks Plugin)
 - [ ] Restate the intent from memory 📅 2026-09-30
@@ -129,7 +129,7 @@ limit 10
 
 ## Related
 - [[README|AI MOC]]
-- [[01_Fundamentals/README|01_Fundamentals Folder]]
+- 01_Fundamentals Folder
 
 ---
 

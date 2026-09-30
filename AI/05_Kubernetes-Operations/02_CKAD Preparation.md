@@ -68,16 +68,16 @@ flowchart LR
 ## Flashcards (Spaced Repetition)
 
 #flashcard
-**Q:** What is the trigger keyword for CKAD Preparation? :: **A:** [trigger keywords] #flashcard
+**Q:** What is the trigger keyword for CKAD Preparation? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** Key hyperparameter for CKAD Preparation? :: **A:** [hyperparameter + typical range] #flashcard
+**Q:** Key hyperparameter for CKAD Preparation? :: **A:** Not specified #flashcard
 
 #flashcard
 **Q:** When do you NOT use CKAD Preparation? :: **A:** [anti-pattern scenarios] #flashcard
 
 #flashcard
-**Q:** Cost order of magnitude for CKAD Preparation? :: **A:** [GPU hours / $ per 1M tokens] #flashcard
+**Q:** Cost order of magnitude for CKAD Preparation? :: **A:** Not specified #flashcard
 
 ## Practice Tasks (Tasks Plugin)
 - [ ] Restate the intent from memory 📅 2026-09-30
@@ -94,7 +94,7 @@ limit 10
 
 ## Related
 - [[README|AI MOC]]
-- [[05_Kubernetes-Operations/README|05_Kubernetes-Operations Folder]]
+- 05_Kubernetes-Operations Folder
 
 ---
 

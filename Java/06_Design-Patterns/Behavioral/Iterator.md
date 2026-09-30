@@ -18,7 +18,7 @@ type: concept
 
 # Iterator
 
-> Category: Behavioral • Source: [Refactoring.Guru , Iterator](https://refactoring.guru/design-patterns/iterator) • Part of [[Java/README|Java MOC]] → [[06_Design-Patterns/README|Design Patterns MOC]]
+> Category: Behavioral • Source: [Refactoring.Guru , Iterator](https://refactoring.guru/design-patterns/iterator) • Part of [[Java/README|Java MOC]] → Design Patterns MOC
 
 ## Why it Matters
 
@@ -109,7 +109,7 @@ Expose `Iterable`/`Stream` from APIs , clients get for-each and pipelines free. 
 ## Flashcards (Spaced Repetition)
 
 #flashcard
-Behavioral • Source: [Refactoring.Guru , Iterator](https://refactoring.guru/design-patterns/iterator) • Part of [[Java/README|Java MOC]] → [[06_Design-Patterns/README|Design Patterns MOC]]
+Behavioral • Source: [Refactoring.Guru , Iterator](https://refactoring.guru/design-patterns/iterator) • Part of [[Java/README|Java MOC]] → Design Patterns MOC
 
 ## Why it Matters
 
@@ -204,7 +204,7 @@ limit 10
 
 ## Related
 
-[[06_Design-Patterns/Behavioral/Visitor|Visitor]] • [[06_Design-Patterns/Behavioral/Observer|Observer]] (fan-out vs step-through) • [[06_Design-Patterns/Structural/Composite|Composite]]
+Visitor • Observer (fan-out vs step-through) • Composite
 
 ---
 

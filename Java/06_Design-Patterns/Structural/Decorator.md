@@ -18,7 +18,7 @@ type: concept
 
 # Decorator *Also Known as: Wrapper*
 
-> Category: Structural • Source: [Refactoring.Guru , Decorator](https://refactoring.guru/design-patterns/decorator) • Part of [[Java/README|Java MOC]] → [[06_Design-Patterns/README|Design Patterns MOC]]
+> Category: Structural • Source: [Refactoring.Guru , Decorator](https://refactoring.guru/design-patterns/decorator) • Part of [[Java/README|Java MOC]] → Design Patterns MOC
 
 ## Why it Matters
 
@@ -130,7 +130,7 @@ Deep stacks produce confusing stack traces and ordering bugs (compression before
 #flashcard
 Wrapper*
 
-> Category: Structural • Source: [Refactoring.Guru , Decorator](https://refactoring.guru/design-patterns/decorator) • Part of [[Java/README|Java MOC]] → [[06_Design-Patterns/README|Design Patterns MOC]]
+> Category: Structural • Source: [Refactoring.Guru , Decorator](https://refactoring.guru/design-patterns/decorator) • Part of [[Java/README|Java MOC]] → Design Patterns MOC
 
 ## Why it Matters
 
@@ -244,7 +244,7 @@ limit 10
 
 ## Related
 
-[[06_Design-Patterns/Structural/Proxy|Proxy]] (access vs features) • [[06_Design-Patterns/Structural/Adapter|Adapter]] (different interface) • [[06_Design-Patterns/Structural/Composite|Composite]]
+Proxy (access vs features) • Adapter (different interface) • Composite
 
 ---
 

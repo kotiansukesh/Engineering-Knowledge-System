@@ -13,8 +13,8 @@ This folder contains the **operational layer** for coding-pattern mastery.
 
 ## Dashboards
 
-- [[Practice Dashboard]]
-- [[Study-Plan]]
+- Practice Dashboard
+- Study-Plan
 
 ## Workflow
 

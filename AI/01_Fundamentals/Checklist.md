@@ -128,4 +128,4 @@ def test_gate5_uv_sync_pytest_green():
 > **Answer**: Phase 02 retrieval work built on noise. Flaky retries → noisy retrieval scores. Untyped outputs → downstream parsing failures. Gates are not bureaucracy; they're load-bearing walls.
 
 ## 🔗 Related
-- [[AI Backend Template]] • [[01_Python for AI]] • [[02_FastAPI Backend]] • [[AI Evaluation]]
+- AI Backend Template • 01_Python for AI • 02_FastAPI Backend • AI Evaluation

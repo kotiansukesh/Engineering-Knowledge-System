@@ -25,7 +25,7 @@ type: concept
 
 ## Diagram
 
-![[_attachments/movieticketbookingsystem-class-diagram.png]]
+!_attachments/movieticketbookingsystem-class-diagram.png
 *Source: [awesome-low-level-design](https://github.com/ashishps1/awesome-low-level-design) , use alongside the class table above.*
 *Runtime flow: hold expires unless paid.*
 ```mermaid
@@ -88,11 +88,11 @@ public class MovieTicketDemo {
 
 ## Vs
 
-- **Vs [[01_Parking-Lot|Parking Lot]]:** a parking spot is claimed on *arrival* and released by an explicit exit event; a seat is *reserved in advance* and released by a *timeout* if not confirmed. Explicit release vs time-based expiry is the axis.
-- **Vs [[10_Chess-Game|Chess Game]]:** a chess square holds at most one piece and has no third state, a seat has AVAILABLE → HELD → BOOKED, so it can be *reserved without being occupied*. Both are one-per-cell, but only one permits a pending state.
-- **Vs [[06_LRU-Cache|LRU Cache]]:** the LRU evicts by *recency of use* to bound memory; a seat hold expires by *age* to free inventory. Both reclaim unused capacity; the trigger is use vs time.
-- **Vs [[12_Movie-Ticket-Booking|flight/hotel booking]]:** cinema seats within a screen are interchangeable within a tier, so a *seat map* is the right model; a hotel room or flight seat is a named unique resource, so availability is per-resource. Same hold/confirm flow, different inventory model.
-- **Vs [[11_Splitwise|Splitwise]]:** booking moves money to the system immediately in exchange for a seat; Splitwise records *debt* that may never be settled (netted away). Immediate payment vs deferred obligation.
+- **Vs Parking Lot:** a parking spot is claimed on *arrival* and released by an explicit exit event; a seat is *reserved in advance* and released by a *timeout* if not confirmed. Explicit release vs time-based expiry is the axis.
+- **Vs Chess Game:** a chess square holds at most one piece and has no third state, a seat has AVAILABLE → HELD → BOOKED, so it can be *reserved without being occupied*. Both are one-per-cell, but only one permits a pending state.
+- **Vs LRU Cache:** the LRU evicts by *recency of use* to bound memory; a seat hold expires by *age* to free inventory. Both reclaim unused capacity; the trigger is use vs time.
+- **Vs flight/hotel booking:** cinema seats within a screen are interchangeable within a tier, so a *seat map* is the right model; a hotel room or flight seat is a named unique resource, so availability is per-resource. Same hold/confirm flow, different inventory model.
+- **Vs Splitwise:** booking moves money to the system immediately in exchange for a seat; Splitwise records *debt* that may never be settled (netted away). Immediate payment vs deferred obligation.
 
 ## Pitfalls
 
@@ -116,12 +116,12 @@ Per-show lock vs per-seat lock tradeoff?:: Per-show lock is simple and correct f
 
 ## Related
 
-- [[06_Design-Patterns/Behavioral/State|State]] (seat AVAILABLE→HELD→BOOKED) · [[06_Design-Patterns/Creational/Singleton|Singleton]] (booking service) · [[06_Design-Patterns/Structural/Facade|Facade]] (booking API over show/payment)
+- State (seat AVAILABLE→HELD→BOOKED) · Singleton (booking service) · Facade (booking API over show/payment)
 - Source: [awesome-low-level-design](https://github.com/ashishps1/awesome-low-level-design)
 
 # Movie Ticket Booking
 
-> Part of [[README|Java MOC]] -> [[10_LLD-Machine-Coding/README|LLD MOC]]
+> Part of [[README|Java MOC]] -> LLD MOC
 
 ## Requirements
 

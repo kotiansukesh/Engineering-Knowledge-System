@@ -116,7 +116,7 @@ class PromptEngine {
 | **Model version risk** | High (prompt breaks) | Low (baked in) | Medium (retrieval adapts) |
 
 ## ⚠️ Pitfalls
-1. **Prompt injection via user input** — sanitize; use delimiters (`<user_input>...</user_input>`); instruction hierarchy ("data, not instructions"). See [[AI Security|Security]].
+1. **Prompt injection via user input** — sanitize; use delimiters (`<user_input>...</user_input>`); instruction hierarchy ("data, not instructions"). See Security.
 2. **Mixing temperature + prompt changes in one comparison** — cannot attribute difference. One variable per version.
 3. **No cost column** — a prompt that looks better but costs 5×/call is usually wrong. Track `tokens × $/1k`.
 4. **Versions living only in vendor UI** — export to repo (git) or they're lost when seat expires.
@@ -142,16 +142,16 @@ class PromptEngine {
 ## Flashcards (Spaced Repetition)
 
 #flashcard
-**Q:** What is the trigger keyword for Prompt Engineering? :: **A:** [trigger keywords] #flashcard
+**Q:** What is the trigger keyword for Prompt Engineering? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** Key hyperparameter for Prompt Engineering? :: **A:** [hyperparameter + typical range] #flashcard
+**Q:** Key hyperparameter for Prompt Engineering? :: **A:** Not specified #flashcard
 
 #flashcard
 **Q:** When do you NOT use Prompt Engineering? :: **A:** [anti-pattern scenarios] #flashcard
 
 #flashcard
-**Q:** Cost order of magnitude for Prompt Engineering? :: **A:** [GPU hours / $ per 1M tokens] #flashcard
+**Q:** Cost order of magnitude for Prompt Engineering? :: **A:** Not specified #flashcard
 
 ## Practice Tasks (Tasks Plugin)
 - [ ] Restate the intent from memory 📅 2026-09-30
@@ -168,7 +168,7 @@ limit 10
 
 ## Related
 - [[README|AI MOC]]
-- [[01_Fundamentals/README|01_Fundamentals Folder]]
+- 01_Fundamentals Folder
 
 ---
 

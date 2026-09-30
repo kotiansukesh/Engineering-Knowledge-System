@@ -183,7 +183,7 @@ Measure:
 
 Certifications validate selected capability areas; they do not define the roadmap.
 
-Use [[99_Revision/Certification Integration Roadmap|Certification Integration Roadmap]] to map:
+Use Certification Integration Roadmap to map:
 - Coursera → LLM/RAG/production learning
 - NUS-ISS → agent architecture
 - CKAD/CKA → Kubernetes

@@ -79,11 +79,11 @@ graph TD
 ## Trade-offs
 | Dimension | This Approach | Alternative | Trade-off Rationale | Decision Rule |
 |-----------|---------------|-------------|---------------------|---------------|
-| Complexity | [TBD] | [TBD] | [TBD] | [TBD] |
-| Operational Burden | [TBD] | [TBD] | [TBD] | [TBD] |
-| Latency | [TBD] | [TBD] | [TBD] | [TBD] |
-| Consistency | [TBD] | [TBD] | [TBD] | [TBD] |
-| Cost at Scale | [TBD] | [TBD] | [TBD] | [TBD] |
+| Complexity | Not specified | Not specified | Not specified | Not specified |
+| Operational Burden | Not specified | Not specified | Not specified | Not specified |
+| Latency | Not specified | Not specified | Not specified | Not specified |
+| Consistency | Not specified | Not specified | Not specified | Not specified |
+| Cost at Scale | Not specified | Not specified | Not specified | Not specified |
 
 ## Vs
 
@@ -117,7 +117,7 @@ A: The bet: availability and throughput win over exact stock counts. We gain, th
 A: Attach a scenario measure and a cost note to each side: latency in ms, throughput in rps, cost per request, and the business cost of the failure mode (downtime revenue per minute vs oversell rate). Then write both into the ADR consequences. "We lose consistency" is an assertion; "we accept up to N stale reads per hour, auto-corrected within 5 minutes, costing roughly X in reconciliation" is a trade-off someone can approve or reject.
 
 **Q: Who decides when two stakeholders' qualities conflict?**
-A: The stakeholder who owns the commercial or regulatory risk, not the loudest engineer, see [[../01_Architecture-Foundations/Stakeholders-Concerns|Stakeholders]]. The architect's job is to make the conflict visible and quantified, present the options with their costs, and record the resolution in an ADR with a named decider and a supersede condition.
+A: The stakeholder who owns the commercial or regulatory risk, not the loudest engineer, see [[Architect/02_Requirements-Quality-Attributes/../01_Architecture-Foundations/Stakeholders-Concerns|Stakeholders]]. The architect's job is to make the conflict visible and quantified, present the options with their costs, and record the resolution in an ADR with a named decider and a supersede condition.
 
 **Q: How do you know when a trade-off you made is no longer right?**
 A: Watch the assumptions, not the metrics: the ADR's context section is the bet's expiry date. When an assumption breaks, a new compliance regime, a 10× traffic shift, an SLO breach that the chosen tactic can't fix, it's time to supersede, not patch. Chain the ADRs so the reasoning history survives.
@@ -186,7 +186,7 @@ limit 10
 
 ## Related
 
-- [[Quality-Scenarios|Quality Scenarios]], [[ISO-25010-Qualities|ISO 25010]]
+- Quality Scenarios, ISO 25010
 
 # Tradeoffs and Tensions
 
@@ -198,5 +198,5 @@ limit 10
 ## Q&A
 
 1. **How to quantify?** Scenario measures + cost/latency notes in ADR.
-2. **Who breaks ties?** Stakeholder with the top concern (see [[../01_Architecture-Foundations/Stakeholders-Concerns|Stakeholders]]).
+2. **Who breaks ties?** Stakeholder with the top concern (see [[Architect/02_Requirements-Quality-Attributes/../01_Architecture-Foundations/Stakeholders-Concerns|Stakeholders]]).
 3. **Revisit when?** Assumption change or SLO breach, link ADR supersede chain.

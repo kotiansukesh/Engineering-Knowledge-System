@@ -33,20 +33,20 @@ Do not add a framework, abstraction, thread pool, reactive pipeline, or design p
 
 | Domain | Purpose |
 |---|---|
-| [[00_Java-25-Overview/README|00 · Java & LTS Overview]] | Java 8→25 evolution, current Java 25 LTS, roadmap, interview strategy |
-| [[01_Core-Java/README|01 · Core Java]] | Language fundamentals, types, generics, exceptions, streams, I/O, JPMS |
-| [[02_OOP/README|02 · OOP & Design Principles]] | OOP, SOLID, object relationships, maintainability |
-| [[03_Collections/README|03 · Collections]] | Collection contracts, implementations, ordering, complexity, modern APIs |
-| [[04_Concurrency/README|04 · Concurrency]] | Threads, executors, futures, locks, atomics, virtual threads |
-| [[05_Spring/README|05 · Spring]] | Spring Framework, Boot, MVC, Data, transactions, security, Spring AI |
-| [[06_Design-Patterns/README|06 · Design Patterns]] | GoF patterns plus practical enterprise patterns |
-| [[07_DSA/README|07 · DSA]] | Data structures and algorithms implemented in Java |
-| [[08_Modern-Java/README|08 · Modern Java]] | Java 9→25 language/library/runtime evolution |
-| [[09_Java-21-LTS/README|09 · Java 21 Deep Dive]] | Java 21 LTS features and migration reference; not a second primary roadmap |
-| [[10_LLD-Machine-Coding/README|10 · LLD & Machine Coding]] | Requirements, object design, UML, state, concurrency and implementation |
-| [[11_JVM-Performance/README|11 · JVM & Performance]] | GC, JIT, diagnostics, profiling, memory and production troubleshooting |
-| [[12_Testing-Tooling/README|12 · Testing & Tooling]] | JUnit, Mockito, Testcontainers, Maven/Gradle and engineering feedback loops |
-| [[99_Revision/README|99 · Revision]] | Study plan, interview bank, spaced repetition and mock practice |
+| 00 · Java & LTS Overview | Java 8→25 evolution, current Java 25 LTS, roadmap, interview strategy |
+| 01 · Core Java | Language fundamentals, types, generics, exceptions, streams, I/O, JPMS |
+| 02 · OOP & Design Principles | OOP, SOLID, object relationships, maintainability |
+| 03 · Collections | Collection contracts, implementations, ordering, complexity, modern APIs |
+| 04 · Concurrency | Threads, executors, futures, locks, atomics, virtual threads |
+| 05 · Spring | Spring Framework, Boot, MVC, Data, transactions, security, Spring AI |
+| 06 · Design Patterns | GoF patterns plus practical enterprise patterns |
+| 07 · DSA | Data structures and algorithms implemented in Java |
+| 08 · Modern Java | Java 9→25 language/library/runtime evolution |
+| 09 · Java 21 Deep Dive | Java 21 LTS features and migration reference; not a second primary roadmap |
+| 10 · LLD & Machine Coding | Requirements, object design, UML, state, concurrency and implementation |
+| 11 · JVM & Performance | GC, JIT, diagnostics, profiling, memory and production troubleshooting |
+| 12 · Testing & Tooling | JUnit, Mockito, Testcontainers, Maven/Gradle and engineering feedback loops |
+| 99 · Revision | Study plan, interview bank, spaced repetition and mock practice |
 
 ---
 
@@ -72,9 +72,9 @@ flowchart LR
 
 ### Parallel practice
 
-- **DSA + Coding Patterns**: solve problems using the Java implementations in [[07_DSA/README|DSA]] and the repository's [[Coding Patterns/README|Coding Patterns]] domain.
+- **DSA + Coding Patterns**: solve problems using the Java implementations in DSA and the repository's [[Coding Patterns/README|Coding Patterns]] domain.
 - **Modern Java**: learn features when they solve a real language, API, concurrency, or runtime problem.
-- **Revision**: use [[99_Revision/Study-Plan|Study Plan]] continuously rather than waiting until the end.
+- **Revision**: use Study Plan continuously rather than waiting until the end.
 
 ---
 
@@ -126,8 +126,8 @@ A topic is complete only when the note contains enough evidence to answer:
 
 ## Quality Rules
 
-- Use vault-relative wikilinks such as `[[01_Core-Java/README|Core Java]]`.
-- Do not use `[[../...]]` links.
+- Use vault-relative wikilinks such as `Core Java`.
+- Do not use `../...` links.
 - Avoid aliased wikilinks inside Markdown tables when a plain link is sufficient.
 - Every code example must be syntactically plausible and identify its required Java release/preview status.
 - Do not present benchmark numbers without a workload and measurement method.
@@ -166,9 +166,9 @@ limit 30
 
 ## Related Vaults
 
-- [[../Coding Patterns/README|Coding Patterns]] — problem-solving patterns
-- [[../Architect/README|Architect]] — system design and architecture
-- [[../AI/README|AI]] — AI engineering and enterprise AI
+- [[Java/../Coding Patterns/README|Coding Patterns]] — problem-solving patterns
+- [[Java/../Architect/README|Architect]] — system design and architecture
+- [[Java/../AI/README|AI]] — AI engineering and enterprise AI
 
 ---
 

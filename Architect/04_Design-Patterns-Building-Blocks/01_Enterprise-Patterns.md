@@ -100,16 +100,16 @@ record OrderDto(long id, String status, Money total) {
 ## Trade-offs
 | Dimension | This Approach | Alternative | Trade-off Rationale | Decision Rule |
 |-----------|---------------|-------------|---------------------|---------------|
-| Complexity | [TBD] | [TBD] | [TBD] | [TBD] |
-| Operational Burden | [TBD] | [TBD] | [TBD] | [TBD] |
-| Latency | [TBD] | [TBD] | [TBD] | [TBD] |
-| Consistency | [TBD] | [TBD] | [TBD] | [TBD] |
-| Cost at Scale | [TBD] | [TBD] | [TBD] | [TBD] |
+| Complexity | Not specified | Not specified | Not specified | Not specified |
+| Operational Burden | Not specified | Not specified | Not specified | Not specified |
+| Latency | Not specified | Not specified | Not specified | Not specified |
+| Consistency | Not specified | Not specified | Not specified | Not specified |
+| Cost at Scale | Not specified | Not specified | Not specified | Not specified |
 
 ## Vs
 
-- **Vs [[02_Resilience-Circuit-Breaker-Retry|Resilience patterns]]:** enterprise patterns structure *correctness*; resilience patterns structure *failure*.
-- **Vs [[05_DDD-Modeling/04_Tactical-Aggregates-Entities-VO|DDD tactical]]:** repositories/aggregates overlap, DDD adds the rule "one repository per aggregate".
+- **Vs Resilience patterns:** enterprise patterns structure *correctness*; resilience patterns structure *failure*.
+- **Vs DDD tactical:** repositories/aggregates overlap, DDD adds the rule "one repository per aggregate".
 
 ## Pitfalls
 
@@ -199,7 +199,7 @@ limit 10
 
 ## Related
 
-- [[02_Resilience-Circuit-Breaker-Retry]] · [[05_DDD-Modeling/04_Tactical-Aggregates-Entities-VO|Aggregates & Entities]]
+- 02_Resilience-Circuit-Breaker-Retry · Aggregates & Entities
 
 # Enterprise Patterns (Fowler p of EAA, Spring Edition)
 

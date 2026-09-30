@@ -142,16 +142,16 @@ var results = index.search(embed(query), 10);
 ## Flashcards (Spaced Repetition)
 
 #flashcard
-**Q:** What is the trigger keyword for Embeddings and Vector Search? :: **A:** [trigger keywords] #flashcard
+**Q:** What is the trigger keyword for Embeddings and Vector Search? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** Key hyperparameter for Embeddings and Vector Search? :: **A:** [hyperparameter + typical range] #flashcard
+**Q:** Key hyperparameter for Embeddings and Vector Search? :: **A:** Not specified #flashcard
 
 #flashcard
 **Q:** When do you NOT use Embeddings and Vector Search? :: **A:** [anti-pattern scenarios] #flashcard
 
 #flashcard
-**Q:** Cost order of magnitude for Embeddings and Vector Search? :: **A:** [GPU hours / $ per 1M tokens] #flashcard
+**Q:** Cost order of magnitude for Embeddings and Vector Search? :: **A:** Not specified #flashcard
 
 ## Practice Tasks (Tasks Plugin)
 - [ ] Restate the intent from memory 📅 2026-09-30
@@ -168,7 +168,7 @@ limit 10
 
 ## Related
 - [[README|AI MOC]]
-- [[01_Fundamentals/README|01_Fundamentals Folder]]
+- 01_Fundamentals Folder
 
 ---
 

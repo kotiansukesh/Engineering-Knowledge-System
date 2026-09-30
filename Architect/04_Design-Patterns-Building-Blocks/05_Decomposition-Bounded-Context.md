@@ -97,11 +97,11 @@ public class OrderServiceApp { public static void main(String[] a) { SpringAppli
 ## Trade-offs
 | Dimension | This Approach | Alternative | Trade-off Rationale | Decision Rule |
 |-----------|---------------|-------------|---------------------|---------------|
-| Complexity | [TBD] | [TBD] | [TBD] | [TBD] |
-| Operational Burden | [TBD] | [TBD] | [TBD] | [TBD] |
-| Latency | [TBD] | [TBD] | [TBD] | [TBD] |
-| Consistency | [TBD] | [TBD] | [TBD] | [TBD] |
-| Cost at Scale | [TBD] | [TBD] | [TBD] | [TBD] |
+| Complexity | Not specified | Not specified | Not specified | Not specified |
+| Operational Burden | Not specified | Not specified | Not specified | Not specified |
+| Latency | Not specified | Not specified | Not specified | Not specified |
+| Consistency | Not specified | Not specified | Not specified | Not specified |
+| Cost at Scale | Not specified | Not specified | Not specified | Not specified |
 
 ## Pitfalls
 
@@ -194,7 +194,7 @@ limit 10
 
 ## Related
 
-- [[../../03_Architecture-Styles/03_Microservices|Microservices]] · [[../../05_DDD-Modeling/02_Bounded-Contexts|Bounded Contexts]] · [[06_Saga-Outbox-Inbox|Saga-Outbox]] · [[../../06_Data-Architecture/05_Data-Migration-Strangler|Strangler]]
+- Microservices · Bounded Contexts · Saga-Outbox · Strangler
 
 # Decomposition — Bounded Context to Service
 

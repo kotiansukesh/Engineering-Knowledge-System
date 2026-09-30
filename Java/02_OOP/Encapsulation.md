@@ -171,8 +171,8 @@ A: **Copy** on construction and return an unmodifiable view or `List.copyOf`.
 
 ## Related
 
-- [[02_OOP/Abstraction\|Abstraction]] • [[02_OOP/Classes-and-Objects\|Classes and Objects]] • [[02_OOP/Class-Relationships\|Class Relationships]]
-- [[02_OOP/SOLID-Single-Responsibility\|Single Responsibility]] • [[02_OOP/Law-of-Demeter\|Law of Demeter]]
+- Abstraction • Classes and Objects • Class Relationships
+- Single Responsibility • Law of Demeter
 
 ---
 *Category: Java/02_OOP*

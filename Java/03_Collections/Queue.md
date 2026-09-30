@@ -10,7 +10,7 @@ reviewed: "2026-09-29"
 sr-due: "2026-10-06"
 source: ""
 excalidraw: ""
-type: "note"
+type: concept
 ---
 
 # Queue
@@ -114,7 +114,7 @@ ArrayDeque is backed by an array, less memory, better locality, O(1) ops, no nod
 ## Flashcards (Spaced Repetition)
 
 #flashcard
-**Q:** What is the trigger keyword for Queue? :: **A:** [trigger keywords] #flashcard
+**Q:** What is the trigger keyword for Queue? :: **A:** Not specified #flashcard
 
 #flashcard
 **Q:** Time/space complexity of Queue? :: **A:** Time: O(), Space: O() #flashcard

@@ -5,7 +5,7 @@ tags: [spring, spring-ai, ai, java, rag, mcp]
 created: "2026-09-30"
 completed: false
 difficulty: "Advanced"
-type: "note"
+type: concept
 ---
 
 # Spring AI
@@ -102,8 +102,8 @@ MCP is useful when interoperability with external tool/resource/prompt providers
 
 ## Related
 
-- [[Spring Boot]]
-- [[Spring Security]]
-- [[../AI/02_RAG-Engineering/README|AI RAG Engineering]]
-- [[../AI/03_Agentic-AI/README|AI Agentic AI]]
-- [[../AI/04_Production-Platform/README|AI Production Platform]]
+- Spring Boot
+- Spring Security
+- AI RAG Engineering
+- AI Agentic AI
+- AI Production Platform

@@ -103,6 +103,6 @@ What happens when passing `null` to overloaded `foo(String)` and `foo(Integer)`?
 
 ## Related
 
-- [[Classes]]
-- [[Interface]]
+- Classes
+- Interface
 - [[Java/01_Core-Java/Types/Abstract Class|Abstract Class]]

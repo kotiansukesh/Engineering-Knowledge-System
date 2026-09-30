@@ -10,7 +10,7 @@ reviewed: "2026-09-29"
 sr-due: "2026-10-06"
 source: ""
 excalidraw: ""
-type: "note"
+type: concept
 ---
 
 # Collection
@@ -104,7 +104,7 @@ Collection is an interface, Collections is a utility class with static methods l
 ## Flashcards (Spaced Repetition)
 
 #flashcard
-**Q:** What is the trigger keyword for Collection? :: **A:** [trigger keywords] #flashcard
+**Q:** What is the trigger keyword for Collection? :: **A:** Not specified #flashcard
 
 #flashcard
 **Q:** Time/space complexity of Collection? :: **A:** Time: O(), Space: O() #flashcard

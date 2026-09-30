@@ -107,7 +107,7 @@ limit 10
 
 ## Related
 - [[README|AI MOC]]
-- [[03_Agentic-AI/README|03_Agentic-AI Folder]]
+- 03_Agentic-AI Folder
 - [[Architect/13_AI-Architecture/04 - Agent Architecture|Architect: Agent Architecture]]
 - [[Architect/13_AI-Architecture/07 - Evaluation Architecture|Architect: Evaluation Architecture]]
 

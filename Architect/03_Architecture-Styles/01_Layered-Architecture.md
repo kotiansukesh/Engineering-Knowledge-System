@@ -95,7 +95,7 @@ interface OrderRepository extends JpaRepository<Order, Long> {}
 - Small teams where simplicity beats strict decoupling.
 - When you need fast onboarding, every Spring dev knows `controller → service → repository`.
 
-**When NOT:** rich domains with tangled business rules (layers leak), or systems needing independent deployability (→ [[03_Microservices]]).
+**When NOT:** rich domains with tangled business rules (layers leak), or systems needing independent deployability (→ 03_Microservices).
 
 
 
@@ -104,16 +104,16 @@ interface OrderRepository extends JpaRepository<Order, Long> {}
 ## Trade-offs
 | Dimension | This Approach | Alternative | Trade-off Rationale | Decision Rule |
 |-----------|---------------|-------------|---------------------|---------------|
-| Complexity | [TBD] | [TBD] | [TBD] | [TBD] |
-| Operational Burden | [TBD] | [TBD] | [TBD] | [TBD] |
-| Latency | [TBD] | [TBD] | [TBD] | [TBD] |
-| Consistency | [TBD] | [TBD] | [TBD] | [TBD] |
-| Cost at Scale | [TBD] | [TBD] | [TBD] | [TBD] |
+| Complexity | Not specified | Not specified | Not specified | Not specified |
+| Operational Burden | Not specified | Not specified | Not specified | Not specified |
+| Latency | Not specified | Not specified | Not specified | Not specified |
+| Consistency | Not specified | Not specified | Not specified | Not specified |
+| Cost at Scale | Not specified | Not specified | Not specified | Not specified |
 
 ## Vs
 
-- **Vs [[02_Hexagonal-Ports-Adapters|Hexagonal]]:** layered depends inward-down toward frameworks (JPA entities leak into API); hexagonal inverts that, domain is centre, frameworks are adapters.
-- **Vs [[06_Monolith-vs-Modular-Choice-Guide|Modular Monolith]]:** layered is *technical* layering; modular monolith adds *vertical* module boundaries.
+- **Vs Hexagonal:** layered depends inward-down toward frameworks (JPA entities leak into API); hexagonal inverts that, domain is centre, frameworks are adapters.
+- **Vs Modular Monolith:** layered is *technical* layering; modular monolith adds *vertical* module boundaries.
 
 ## Pitfalls
 
@@ -203,8 +203,8 @@ limit 10
 
 ## Related
 
-- [[02_Hexagonal-Ports-Adapters]] · [[06_Monolith-vs-Modular-Choice-Guide]] · [[03_Microservices]]
-- Tactical modelling: [[05_DDD-Modeling/04_Tactical-Aggregates-Entities-VO|Aggregates & Entities]]
+- 02_Hexagonal-Ports-Adapters · 06_Monolith-vs-Modular-Choice-Guide · 03_Microservices
+- Tactical modelling: Aggregates & Entities
 
 # Layered Architecture
 

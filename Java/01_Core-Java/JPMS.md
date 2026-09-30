@@ -10,7 +10,7 @@ reviewed: "2026-09-29"
 sr-due: "2026-10-06"
 source: ""
 excalidraw: ""
-type: "note"
+type: concept
 ---
 
 # JPMS (Java Platform Module System)
@@ -181,7 +181,7 @@ limit 10
 ## Related
 
 - [[README|Java MOC]]
-- [[01_Core-Java/README|Core Java MOC]]
+- Core Java MOC
 - [[Java/09_Java-21-LTS/09 Foreign Function and Memory API|FFM API]]
 - [[Java/08_Modern-Java/07 Flexible Constructors and Module Imports|Module Imports]]
 

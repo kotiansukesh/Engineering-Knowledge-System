@@ -102,10 +102,10 @@ When do you use `Instant` vs `LocalDate` vs `ZonedDateTime`?:: `Instant`, absolu
 
 ## Related
 
-- [[Exception Handling]]
-- [[String Handling]]
-- [[Classes]]
-- [[Serialization]]
+- Exception Handling
+- String Handling
+- Classes
+- Serialization
 
 ---
 *Category: Core-Java • Part of [[README|Java MOC]] • java25*

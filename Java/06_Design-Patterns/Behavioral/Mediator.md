@@ -18,7 +18,7 @@ type: concept
 
 # Mediator
 
-> Category: Behavioral • Source: [Refactoring.Guru , Mediator](https://refactoring.guru/design-patterns/mediator) • Part of [[Java/README|Java MOC]] → [[06_Design-Patterns/README|Design Patterns MOC]]
+> Category: Behavioral • Source: [Refactoring.Guru , Mediator](https://refactoring.guru/design-patterns/mediator) • Part of [[Java/README|Java MOC]] → Design Patterns MOC
 
 ## Why it Matters
 
@@ -122,7 +122,7 @@ One mediator per bounded concern, thin routing only, domain rules pushed back in
 ## Flashcards (Spaced Repetition)
 
 #flashcard
-Behavioral • Source: [Refactoring.Guru , Mediator](https://refactoring.guru/design-patterns/mediator) • Part of [[Java/README|Java MOC]] → [[06_Design-Patterns/README|Design Patterns MOC]]
+Behavioral • Source: [Refactoring.Guru , Mediator](https://refactoring.guru/design-patterns/mediator) • Part of [[Java/README|Java MOC]] → Design Patterns MOC
 
 ## Why it Matters
 
@@ -230,7 +230,7 @@ limit 10
 
 ## Related
 
-[[06_Design-Patterns/Behavioral/Observer|Observer]] (broadcast vs hub) • [[06_Design-Patterns/Structural/Facade|Facade]] (simplify vs coordinate) • [[06_Design-Patterns/Behavioral/Chain of Responsibility|Chain of Responsibility]]
+Observer (broadcast vs hub) • Facade (simplify vs coordinate) • Chain of Responsibility
 
 ---
 

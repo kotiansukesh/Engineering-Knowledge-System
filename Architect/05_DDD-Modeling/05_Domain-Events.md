@@ -97,16 +97,16 @@ Design: past-tense name, immutable, carries IDs + snapshot of decision-relevant 
 ## Trade-offs
 | Dimension | This Approach | Alternative | Trade-off Rationale | Decision Rule |
 |-----------|---------------|-------------|---------------------|---------------|
-| Complexity | [TBD] | [TBD] | [TBD] | [TBD] |
-| Operational Burden | [TBD] | [TBD] | [TBD] | [TBD] |
-| Latency | [TBD] | [TBD] | [TBD] | [TBD] |
-| Consistency | [TBD] | [TBD] | [TBD] | [TBD] |
-| Cost at Scale | [TBD] | [TBD] | [TBD] | [TBD] |
+| Complexity | Not specified | Not specified | Not specified | Not specified |
+| Operational Burden | Not specified | Not specified | Not specified | Not specified |
+| Latency | Not specified | Not specified | Not specified | Not specified |
+| Consistency | Not specified | Not specified | Not specified | Not specified |
+| Cost at Scale | Not specified | Not specified | Not specified | Not specified |
 
 ## Vs
 
 - **Vs application events (generic pub/sub):** domain events use ubiquitous language and are part of the model; infra events (`CacheEvicted`) are plumbing. Don't mix them in one bus unprefixed.
-- **Vs [[06_Data-Architecture/03_Event-Sourcing-CQRS|event sourcing]]:** domain events *notify*; sourced events *persist state*. You can publish the former without storing the latter.
+- **Vs event sourcing:** domain events *notify*; sourced events *persist state*. You can publish the former without storing the latter.
 
 ## Pitfalls
 
@@ -199,7 +199,7 @@ limit 10
 
 ## Related
 
-- [[04_Tactical-Aggregates-Entities-VO]] · [[03_Context-Mapping]] · [[03_Architecture-Styles/04_Event-Driven-Architecture|EDA]]
+- 04_Tactical-Aggregates-Entities-VO · 03_Context-Mapping · EDA
 
 # Domain Events
 

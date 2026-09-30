@@ -10,7 +10,7 @@ reviewed: "2026-09-29"
 sr-due: "2026-10-06"
 source: ""
 excalidraw: ""
-type: "note"
+type: concept
 ---
 
 # Map
@@ -116,7 +116,7 @@ HashMap is not thread safe and allows nulls. ConcurrentHashMap is thread safe, d
 ## Flashcards (Spaced Repetition)
 
 #flashcard
-**Q:** What is the trigger keyword for Map? :: **A:** [trigger keywords] #flashcard
+**Q:** What is the trigger keyword for Map? :: **A:** Not specified #flashcard
 
 #flashcard
 **Q:** Time/space complexity of Map? :: **A:** Time: O(), Space: O() #flashcard

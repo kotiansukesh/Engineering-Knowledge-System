@@ -142,7 +142,7 @@ Where can `var` NOT be used?:: Only method locals with an initializer. Not field
 
 ## Related
 
-- [[Java 8 LTS Overview]] ← prev • [[Java 17 LTS Overview]] → next • [[LTS Evolution 8 to 25]] • [[Whats New in Java 25]]
+- Java 8 LTS Overview ← prev • Java 17 LTS Overview → next • LTS Evolution 8 to 25 • Whats New in Java 25
 
 ---
 *Category: overview • java11*

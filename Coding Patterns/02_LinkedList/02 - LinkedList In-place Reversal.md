@@ -185,6 +185,6 @@ Use the implementation above as the base case. Extend it only after the invarian
 
 ## Related
 
-- [[02_LinkedList/01 - Fast and Slow Pointers|Fast & Slow Pointers]] (find middle for palindrome)
-- [[07_Backtracking_DP/01 - Backtracking|Backtracking]] (recursive reversal is backtracking)
+- Fast & Slow Pointers (find middle for palindrome)
+- Backtracking (recursive reversal is backtracking)
 - [[Java/07_DSA/Singly Linked List]] · [[Java/07_DSA/Linked List]]

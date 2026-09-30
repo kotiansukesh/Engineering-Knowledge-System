@@ -119,7 +119,7 @@ Skip it when the logic is a **pure transformation** with no identity, for one-of
 | Approach | Coupling | Flexibility | Rule |
 |---|---|---|---|
 | Reuse by copy / call (procedural) | none | low | fine for scripts |
-| Reuse by `extends` (**inheritance**) | **tight** | medium | only for true **is-a** satisfying [[02_OOP/SOLID-Liskov-Substitution\|LSP]] |
+| Reuse by `extends` (**inheritance**) | **tight** | medium | only for true **is-a** satisfying LSP |
 | Reuse by **has-a** field + delegation (**composition**) | **loose** | high | default , swappable at runtime |
 
 Prefer composition unless you have a true **is-a** relation that satisfies **Liskov substitution**.
@@ -151,8 +151,8 @@ A: For **stateless pipelines**, pure functions, or scripts where a class adds no
 
 ## Related
 
-- [[02_OOP/Abstraction\|Abstraction]] • [[02_OOP/Encapsulation\|Encapsulation]] • [[02_OOP/Inheritance\|Inheritance]] • [[02_OOP/Polymorphism\|Polymorphism]]
-- [[02_OOP/Classes-and-Objects\|Classes and Objects]] • [[02_OOP/Class-Relationships\|Class Relationships]]
+- Abstraction • Encapsulation • Inheritance • Polymorphism
+- Classes and Objects • Class Relationships
 
 ---
 *Category: Java/02_OOP*

@@ -18,7 +18,7 @@ type: concept
 
 # Strategy *Also Known as: Policy*
 
-> Category: Behavioral • Source: [Refactoring.Guru , Strategy](https://refactoring.guru/design-patterns/strategy) • Part of [[Java/README|Java MOC]] → [[06_Design-Patterns/README|Design Patterns MOC]]
+> Category: Behavioral • Source: [Refactoring.Guru , Strategy](https://refactoring.guru/design-patterns/strategy) • Part of [[Java/README|Java MOC]] → Design Patterns MOC
 
 ## Why it Matters
 
@@ -121,7 +121,7 @@ A `Map<String, Route>` registry (or DI-injected map of all strategy beans) keyed
 #flashcard
 Policy*
 
-> Category: Behavioral • Source: [Refactoring.Guru , Strategy](https://refactoring.guru/design-patterns/strategy) • Part of [[Java/README|Java MOC]] → [[06_Design-Patterns/README|Design Patterns MOC]]
+> Category: Behavioral • Source: [Refactoring.Guru , Strategy](https://refactoring.guru/design-patterns/strategy) • Part of [[Java/README|Java MOC]] → Design Patterns MOC
 
 ## Why it Matters
 
@@ -226,7 +226,7 @@ limit 10
 
 ## Related
 
-[[06_Design-Patterns/Behavioral/State|State]] • [[06_Design-Patterns/Behavioral/Command|Command]] • [[06_Design-Patterns/Behavioral/Template Method|Template Method]]
+State • Command • Template Method
 
 ---
 

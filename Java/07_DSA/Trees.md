@@ -133,7 +133,7 @@ Why is `TreeMap` O(log n)?:: Red-black tree, self-balancing ensures height O(log
 
 ## Related
 
-- [[Array]] • [[Linked List]] • [[Java/07_DSA/Stack|Stack]] (DFS) • [[Java/07_DSA/Queue|Queue]] (BFS) • [[Java/07_DSA/HashMap|HashMap (DSA)]]
+- Array • Linked List • [[Java/07_DSA/Stack|Stack]] (DFS) • [[Java/07_DSA/Queue|Queue]] (BFS) • [[Java/07_DSA/HashMap|HashMap (DSA)]]
 - [[README|Java MOC]]
 
 # Trees

@@ -166,7 +166,7 @@ How does DI interact with virtual threads (Java 25)?:: DI is unchanged, but inje
 
 ## Related
 
-- [[Spring Core]] • [[Spring Framework]] • [[Spring Security]] • [[Spring Transaction]] • [[Threads]]
+- Spring Core • Spring Framework • Spring Security • Spring Transaction • Threads
 - [[README|Java MOC]]
 
 ---
@@ -260,7 +260,7 @@ class NotificationService {
  void notifyAsync(String msg) { exec.submit(() -> System.out.println(msg)); }
 }
 ```
-> ScopedValue + DI: On Java 25, request-scoped context (correlation ID, tenant) should be a `ScopedValue`, not a `ThreadLocal` bean. Inject a holder or use `ScopedValue.where(...)` in the call site, see [[Threads]] for the `ScopedValue` vs `ThreadLocal` table.
+> ScopedValue + DI: On Java 25, request-scoped context (correlation ID, tenant) should be a `ScopedValue`, not a `ThreadLocal` bean. Inject a holder or use `ScopedValue.where(...)` in the call site, see Threads for the `ScopedValue` vs `ThreadLocal` table.
 
 ## Service + Component Example (Full)
 ```

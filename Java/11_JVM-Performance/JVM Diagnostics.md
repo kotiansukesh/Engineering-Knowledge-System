@@ -5,7 +5,7 @@ tags: [java, jvm, diagnostics, production]
 created: "2026-09-30"
 completed: false
 difficulty: "Advanced"
-type: "note"
+type: concept
 ---
 
 # JVM Diagnostics

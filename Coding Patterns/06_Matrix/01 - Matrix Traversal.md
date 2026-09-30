@@ -217,7 +217,7 @@ Start with the core implementation. Introduce a variant only when the required s
 
 ## Related
 
-- [[05_Trees_Graphs/02 - DFS|DFS]] (recursive grid traversal)
-- [[05_Trees_Graphs/03 - BFS|BFS]] (level-order, shortest unweighted)
-- [[05_Trees_Graphs/06 - Union Find|Union Find]] (offline connectivity)
+- DFS (recursive grid traversal)
+- BFS (level-order, shortest unweighted)
+- Union Find (offline connectivity)
 - [[Java/07_DSA/Graph]]

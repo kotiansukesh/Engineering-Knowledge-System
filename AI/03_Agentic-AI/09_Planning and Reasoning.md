@@ -15,7 +15,7 @@ sr-due: "2026-09-30"
 source: ""
 excalidraw: ""
 weeks: "6"
-type: "note"
+type: concept
 ---
 
 # 09_Planning and Reasoning
@@ -104,16 +104,16 @@ config = 09_PlanningandReasoningConfig()
 ## Flashcards (Spaced Repetition)
 
 #flashcard
-**Q:** What is the trigger keyword for 09_Planning and Reasoning? :: **A:** [trigger keywords] #flashcard
+**Q:** What is the trigger keyword for 09_Planning and Reasoning? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** Key hyperparameter for 09_Planning and Reasoning? :: **A:** [hyperparameter + typical range] #flashcard
+**Q:** Key hyperparameter for 09_Planning and Reasoning? :: **A:** Not specified #flashcard
 
 #flashcard
 **Q:** When do you NOT use 09_Planning and Reasoning? :: **A:** [anti-pattern scenarios] #flashcard
 
 #flashcard
-**Q:** Cost order of magnitude for 09_Planning and Reasoning? :: **A:** [GPU hours / $ per 1M tokens] #flashcard
+**Q:** Cost order of magnitude for 09_Planning and Reasoning? :: **A:** Not specified #flashcard
 
 ## Practice Tasks (Tasks Plugin)
 - [ ] Restate the intent from memory 📅 2026-09-30
@@ -130,7 +130,7 @@ limit 10
 
 ## Related
 - [[README|AI MOC]]
-- [[03_Agentic-AI/README|03_Agentic-AI Folder]]
+- 03_Agentic-AI Folder
 
 ---
 

@@ -138,4 +138,4 @@ async def agent_loop(user_query: str, workspace_root: str) -> CodeAnswer:
 > **Answer**: Free text hides missing citations. `CodeAnswer` forces `references: list[str]` — if empty, answer failed grounding check. The schema *is* the quality gate.
 
 ## 🔗 Related
-- [[03_LLM APIs]] • [[06_Tool Calling]] • [[AI Backend Template]] • [[AI Evaluation]]
+- 03_LLM APIs • 06_Tool Calling • AI Backend Template • AI Evaluation

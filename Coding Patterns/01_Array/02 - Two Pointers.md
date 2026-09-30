@@ -183,6 +183,6 @@ Use the implementation above as the base case. Extend it only after the invarian
 
 ## Related
 
-- [[01_Array/03 - Sliding Window|Sliding Window]] (variable window also uses two pointers but both advance forward)
-- [[02_LinkedList/01 - Fast and Slow Pointers|Fast & Slow Pointers]] (same direction, different speeds)
+- Sliding Window (variable window also uses two pointers but both advance forward)
+- Fast & Slow Pointers (same direction, different speeds)
 - [[Java/07_DSA/Array]]

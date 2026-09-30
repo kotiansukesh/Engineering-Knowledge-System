@@ -112,4 +112,4 @@ def ab_test(old: PromptVersion, new: PromptVersion, golden: list[GoldenCase]) ->
 > **Answer**: Prompt version = (template, model, temperature). When model upgrades, re-run golden set; if score drops, bisect: model or prompt? Store results in eval harness, not playground.
 
 ## 🔗 Related
-- [[04_Prompt Engineering]] • [[AI Evaluation]] • [[AI Backend Template]]
+- 04_Prompt Engineering • AI Evaluation • AI Backend Template

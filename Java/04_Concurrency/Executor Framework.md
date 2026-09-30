@@ -100,15 +100,15 @@ How to handle exceptions from tasks?:: `Future.get()` wraps in `ExecutionExcepti
 
 ## Related
 
-- [[Threads]], lifecycle, virtual threads, JEP 491/505/506
-- [[CompletableFuture]], async pipelines on virtual executors
-- [[Locks and Synchronizers]], coordination primitives
-- [[Concurrent Collections]], thread-safe data structures
+- Threads, lifecycle, virtual threads, JEP 491/505/506
+- CompletableFuture, async pipelines on virtual executors
+- Locks and Synchronizers, coordination primitives
+- Concurrent Collections, thread-safe data structures
 
 # Executor Framework
 
 > Part of [[README|Java MOC]] • `Concurrency` • Java 25 (LTS)
-- [[Architect/10_System-Design-Interviews/ASYNC-01-Async-Patterns.md|ASYNC-01-Async-Patterns]] — Async patterns in distributed systems
+- ASYNC-01-Async-Patterns — Async patterns in distributed systems
 
 ## Core Interfaces & Classes
 
@@ -140,7 +140,7 @@ Lifecycle: `RUNNING → SHUTDOWN (no new tasks, running tasks continue) → TERM
 | Structured fan-out | `invokeAll()` / `CompletableFuture.allOf()` | `StructuredTaskScope` (preview, JEP 505), preferred for scoped tasks |
 | Carrier pool | N/A | JVM `ForkJoinPool` sized to CPUs; `-Djdk.virtualThreadScheduler.parallelism=N` |
 
-> StructuredTaskScope note (JEP 505, preview in Java 25): For *scoped* fan-out where subtasks share a deadline or must fail together, prefer `StructuredTaskScope.ShutdownOnFailure` / `ShutdownOnSuccess` over raw `ExecutorService.invokeAll()`. Executor remains correct for long-lived services / fire-and-forget. See [[Threads]] § Structured Concurrency.
+> StructuredTaskScope note (JEP 505, preview in Java 25): For *scoped* fan-out where subtasks share a deadline or must fail together, prefer `StructuredTaskScope.ShutdownOnFailure` / `ShutdownOnSuccess` over raw `ExecutorService.invokeAll()`. Executor remains correct for long-lived services / fire-and-forget. See Threads § Structured Concurrency.
 
 ### Executor Types
 

@@ -185,7 +185,7 @@ Does `spring.threads.virtual.enabled=true` affect Security?:: It moves the web l
 
 ## Related
 
-- [[Spring Framework]] • [[Spring Core]] • [[Dependency Injection]] • [[Spring Transaction]] • [[Threads]]
+- Spring Framework • Spring Core • Dependency Injection • Spring Transaction • Threads
 - [[README|Java MOC]]
 
 ---
@@ -246,7 +246,7 @@ flowchart TD
  → obtains access_token / id_token (JWT)
  → Resource Server validates JWT via JwtDecoder
 ```
-Additional diagram: ![[Pasted image 20211019220915.png]]
+Additional diagram: !Pasted image 20211019220915.png
 
 ### Core Security Chain Elements
 

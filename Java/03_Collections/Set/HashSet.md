@@ -10,7 +10,7 @@ reviewed: "2026-09-29"
 sr-due: "2026-10-06"
 source: ""
 excalidraw: ""
-type: "note"
+type: concept
 ---
 
 # HashSet
@@ -105,7 +105,7 @@ Pick HashSet unless you need order or sorting.
 ## Flashcards (Spaced Repetition)
 
 #flashcard
-**Q:** What is the trigger keyword for HashSet? :: **A:** [trigger keywords] #flashcard
+**Q:** What is the trigger keyword for HashSet? :: **A:** Not specified #flashcard
 
 #flashcard
 **Q:** Time/space complexity of HashSet? :: **A:** Time: O(), Space: O() #flashcard

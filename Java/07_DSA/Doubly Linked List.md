@@ -21,7 +21,7 @@ A **doubly linked list** extends the singly linked list: each node stores `key`,
 
 - Node: `{ key, next, prev }`
 
-![[Pasted image 20230728114551.png]]
+!Pasted image 20230728114551.png
 
 ## Diagram
 
@@ -101,7 +101,7 @@ How to reverse a doubly list?:: Swap `next`/`prev` for each node, then swap `hea
 
 ## Related
 
-- [[Linked List]] • [[Singly Linked List]] • [[Array]]
+- Linked List • Singly Linked List • Array
 - [[README|Java MOC]]
 
 # Doubly Linked List

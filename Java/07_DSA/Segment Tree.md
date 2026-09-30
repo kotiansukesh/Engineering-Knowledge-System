@@ -10,7 +10,7 @@ reviewed: "2026-09-29"
 sr-due: "2026-10-06"
 source: ""
 excalidraw: ""
-type: "note"
+type: concept
 ---
 
 # Segment Tree
@@ -247,9 +247,9 @@ limit 10
 ## Related
 
 - [[README|Java MOC]]
-- [[07_DSA/README|DSA MOC]]
+- DSA MOC
 - [[Java/07_DSA/Fenwick Tree|Fenwick Tree (BIT)]]
-- [[Java/07_DSA/Sparse Table|Sparse Table]]
+- Sparse Table
 
 ---
 

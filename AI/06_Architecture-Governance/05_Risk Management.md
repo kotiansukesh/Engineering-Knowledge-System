@@ -7,7 +7,7 @@ completed: false
 difficulty: "Advanced"
 reviewed: "2026-09-30"
 sr-due: "2026-10-07"
-type: "note"
+type: concept
 ---
 
 # AI Risk Management

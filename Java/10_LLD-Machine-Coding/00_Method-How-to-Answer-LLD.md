@@ -116,14 +116,14 @@ When do you introduce patterns in an interview?:: Only where behaviour genuinely
 
 ## Related
 
-- [[00_UML-Class-and-Sequence-Diagrams|UML Class & Sequence Diagrams]], what to draw in the diagram phase
-- [[10_LLD-Machine-Coding/README|LLD MOC]], the problem set this loop applies to
-- [[02_OOP/SOLID-Single-Responsibility|SRP]] · [[02_OOP/SOLID-Open-Closed|OCP]] · [[02_OOP/SOLID-Dependency-Inversion|DIP]], the anchors behind "interfaces for behaviour that varies"
-- [[06_Design-Patterns/Behavioral/Strategy|Strategy]] · [[06_Design-Patterns/Behavioral/State|State]] · [[06_Design-Patterns/Behavioral/Observer|Observer]], the three patterns this loop reaches for most
+- UML Class & Sequence Diagrams, what to draw in the diagram phase
+- LLD MOC, the problem set this loop applies to
+- SRP · OCP · DIP, the anchors behind "interfaces for behaviour that varies"
+- Strategy · State · Observer, the three patterns this loop reaches for most
 
 # How to Answer lld / Machine Coding
 
-> Part of [[README|Java MOC]] -> [[10_LLD-Machine-Coding/README|LLD MOC]]
+> Part of [[README|Java MOC]] -> LLD MOC
 
 ## The Loop
 
@@ -145,8 +145,8 @@ When do you introduce patterns in an interview?:: Only where behaviour genuinely
 
 ## Rules of Thumb
 
-- Start with interfaces for behavior that varies (pricing, eviction, dispatch) → [[06_Design-Patterns/Behavioral/Strategy|Strategy]].
-- Encapsulate lifecycle states (idle → active → done) → [[06_Design-Patterns/Behavioral/State|State]], never int flags.
+- Start with interfaces for behavior that varies (pricing, eviction, dispatch) → Strategy.
+- Encapsulate lifecycle states (idle → active → done) → State, never int flags.
 - One `synchronized` bottleneck beats clever lock-free code in an interview; name it explicitly.
 - Say your tradeoffs: extensibility vs simplicity, memory vs time.
-- SOLID anchors: [[02_OOP/SOLID-Single-Responsibility|SRP]], [[02_OOP/SOLID-Open-Closed|OCP]], [[02_OOP/SOLID-Dependency-Inversion|DIP]].
+- SOLID anchors: SRP, OCP, DIP.

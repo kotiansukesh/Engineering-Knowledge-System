@@ -14,7 +14,7 @@ sr-due: "2026-09-30"
 source: ""
 excalidraw: ""
 weeks: "1"
-type: "note"
+type: concept
 ---
 
 # 08_Attention Mechanism
@@ -103,16 +103,16 @@ config = 08_AttentionMechanismConfig()
 ## Flashcards (Spaced Repetition)
 
 #flashcard
-**Q:** What is the trigger keyword for 08_Attention Mechanism? :: **A:** [trigger keywords] #flashcard
+**Q:** What is the trigger keyword for 08_Attention Mechanism? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** Key hyperparameter for 08_Attention Mechanism? :: **A:** [hyperparameter + typical range] #flashcard
+**Q:** Key hyperparameter for 08_Attention Mechanism? :: **A:** Not specified #flashcard
 
 #flashcard
 **Q:** When do you NOT use 08_Attention Mechanism? :: **A:** [anti-pattern scenarios] #flashcard
 
 #flashcard
-**Q:** Cost order of magnitude for 08_Attention Mechanism? :: **A:** [GPU hours / $ per 1M tokens] #flashcard
+**Q:** Cost order of magnitude for 08_Attention Mechanism? :: **A:** Not specified #flashcard
 
 ## Practice Tasks (Tasks Plugin)
 - [ ] Restate the intent from memory 📅 2026-09-30
@@ -129,7 +129,7 @@ limit 10
 
 ## Related
 - [[README|AI MOC]]
-- [[01_Fundamentals/README|01_Fundamentals Folder]]
+- 01_Fundamentals Folder
 
 ---
 

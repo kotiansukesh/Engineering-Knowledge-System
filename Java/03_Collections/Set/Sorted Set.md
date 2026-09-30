@@ -10,7 +10,7 @@ reviewed: "2026-09-29"
 sr-due: "2026-10-06"
 source: ""
 excalidraw: ""
-type: "note"
+type: concept
 ---
 
 # Sorted set
@@ -111,7 +111,7 @@ System.out.println(nav); // => [10, 15, 20, 30]
 ## Flashcards (Spaced Repetition)
 
 #flashcard
-**Q:** What is the trigger keyword for Sorted set? :: **A:** [trigger keywords] #flashcard
+**Q:** What is the trigger keyword for Sorted set? :: **A:** Not specified #flashcard
 
 #flashcard
 **Q:** Time/space complexity of Sorted set? :: **A:** Time: O(), Space: O() #flashcard

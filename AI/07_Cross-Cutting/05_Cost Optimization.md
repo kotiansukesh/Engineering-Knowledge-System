@@ -99,16 +99,16 @@ Routing = choose cheap model **before** call (classifier). Fallback = retry chea
 ## Flashcards (Spaced Repetition)
 
 #flashcard
-**Q:** What is the trigger keyword for Cost Optimization? :: **A:** [trigger keywords] #flashcard
+**Q:** What is the trigger keyword for Cost Optimization? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** Key hyperparameter for Cost Optimization? :: **A:** [hyperparameter + typical range] #flashcard
+**Q:** Key hyperparameter for Cost Optimization? :: **A:** Not specified #flashcard
 
 #flashcard
 **Q:** When do you NOT use Cost Optimization? :: **A:** [anti-pattern scenarios] #flashcard
 
 #flashcard
-**Q:** Cost order of magnitude for Cost Optimization? :: **A:** [GPU hours / $ per 1M tokens] #flashcard
+**Q:** Cost order of magnitude for Cost Optimization? :: **A:** Not specified #flashcard
 
 ## Practice Tasks (Tasks Plugin)
 - [ ] Restate the intent from memory 📅 2026-09-30
@@ -125,7 +125,7 @@ limit 10
 
 ## Related
 - [[README|AI MOC]]
-- [[07_Cross-Cutting/README|07_Cross-Cutting Folder]]
+- 07_Cross-Cutting Folder
 
 ---
 

@@ -157,13 +157,13 @@ Explain PECS, when do you use `? extends` vs `? super`?:: *Producer Extends, Con
 
 ## Related
 
-- [[Classes]], generic classes build on class basics
-- [[Interface]], generic interfaces (`Comparable<T>`, `Iterable<T>`, `Function<T,R>`)
+- Classes, generic classes build on class basics
+- Interface, generic interfaces (`Comparable<T>`, `Iterable<T>`, `Function<T,R>`)
 - [[Java/01_Core-Java/Types/Wrapper Class|Wrapper Class]], why primitives need wrappers for generics
 - [[Java/01_Core-Java/Types/Object Class|Object Class]], erasure bound defaults to `Object`
-- [[Method Overload]], overloading vs generic erasure collisions
+- Method Overload, overloading vs generic erasure collisions
 - [[Java/03_Collections/README|Collections]], primary consumer of generics (`List`, `Map`, `Set`)
-- [[Exception Handling|Exceptions]], generics cannot extend `Throwable`
+- Exceptions, generics cannot extend `Throwable`
 
 ---
 *Category: Core-Java • java25*

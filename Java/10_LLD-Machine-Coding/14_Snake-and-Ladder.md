@@ -25,7 +25,7 @@ type: concept
 
 ## Diagram
 
-![[_attachments/snakeandladder-class-diagram.png]]
+!_attachments/snakeandladder-class-diagram.png
 *Source: [awesome-low-level-design](https://github.com/ashishps1/awesome-low-level-design) , use alongside the class table above.*
 *Runtime flow: roll → move → jump → win check.*
 ```mermaid
@@ -78,7 +78,7 @@ class SnakeLadderDemo {
 **Use** an injectable dice/RNG seam whenever a random game must be tested deterministically (fixed sequence) or replayed (seeded RNG).
 **Use** a `Map<Integer, Integer>` (or array) for jump resolution whenever the domain is "position → effective position" — teleporters, warp tiles, portals, shortcuts.
 **Use** a win-condition strategy when the termination rule is a product choice (exact-land vs overshoot-stay vs overshoot-bounce).
-**NOT when** players make *decisions* — in a strategy game ([[08_Tic-Tac-Toe|Tic-Tac-Toe]], [[10_Chess-Game|Chess]]) the move is *chosen*, so the seam must be a decision strategy (possibly a bot), not an RNG. This distinction is the whole design.
+**NOT when** players make *decisions* — in a strategy game (Tic-Tac-Toe, Chess) the move is *chosen*, so the seam must be a decision strategy (possibly a bot), not an RNG. This distinction is the whole design.
 **NOT when** the board is genuinely spatial and positions are 2D, a 1D number line with jumps is the wrong model for a grid game; a `Position(x,y)` type and a 2D array apply instead.
 **NOT when** the game has no turn order or no terminal condition, without alternating turns and a winner, the turn loop and status machine have nothing to do.
 
@@ -93,11 +93,11 @@ class SnakeLadderDemo {
 
 ## Vs
 
-- **Vs [[08_Tic-Tac-Toe|Tic-Tac-Toe]] / [[10_Chess-Game|Chess]]:** in those games the move is a *chosen* decision, so the seam is a decision strategy (human input or a bot/minimax); in snakes & ladders the move is a *dice roll*, so the seam is a random source. Decision games vs chance games, this single distinction determines the entire interface shape.
-- **Vs [[08_Tic-Tac-Toe|Tic-Tac-Toe]] (board model):** tic-tac-toe's board is a grid where cells get *occupied* and blocked; snakes & ladders' board is a track where a position *resolves to another position*. Occupancy grid vs jump function.
-- **Vs [[10_Chess-Game|Chess]] (win condition):** chess ends by a *derived condition* (checkmate, a search over legal replies); snakes & ladders ends by a *position test* (cell 100). A search vs a counter check.
-- **Vs [[15_Task-Management-System|Task Management System]]:** a task board has legal *transitions* enforced and rejected (TODO → IN_PROGRESS); a game position always advances. Rules that *block* vs rules that *transform*.
-- **Vs [[07_Elevator-System|Elevator System]]:** both advance a position by a step count, but an elevator's target is *chosen* by a request while a token's advance is *rolled*. Scheduled movement vs random advance.
+- **Vs Tic-Tac-Toe / Chess:** in those games the move is a *chosen* decision, so the seam is a decision strategy (human input or a bot/minimax); in snakes & ladders the move is a *dice roll*, so the seam is a random source. Decision games vs chance games, this single distinction determines the entire interface shape.
+- **Vs Tic-Tac-Toe (board model):** tic-tac-toe's board is a grid where cells get *occupied* and blocked; snakes & ladders' board is a track where a position *resolves to another position*. Occupancy grid vs jump function.
+- **Vs Chess (win condition):** chess ends by a *derived condition* (checkmate, a search over legal replies); snakes & ladders ends by a *position test* (cell 100). A search vs a counter check.
+- **Vs Task Management System:** a task board has legal *transitions* enforced and rejected (TODO → IN_PROGRESS); a game position always advances. Rules that *block* vs rules that *transform*.
+- **Vs Elevator System:** both advance a position by a step count, but an elevator's target is *chosen* by a request while a token's advance is *rolled*. Scheduled movement vs random advance.
 - **Vs a dice-utility library:** this is a game *built on* chance with turns, players, and a terminal condition; a dice library is the injectable seam it uses, the two are often conflated, and the game state machine is the difference.
 
 ## Pitfalls
@@ -123,12 +123,12 @@ How to test a dice game deterministically?:: Inject a `Dice` returning a fixed s
 
 ## Related
 
-- [[06_Design-Patterns/Structural/Facade\|Facade]], [[06_Design-Patterns/Behavioral/Strategy\|Strategy]], [[02_OOP/SOLID-Open-Closed\|OCP]]
+- Facade, Strategy, OCP
 - Source: [awesome-low-level-design](https://github.com/ashishps1/awesome-low-level-design)
 
 # Snake and Ladder
 
-> Part of [[README|Java MOC]] -> [[10_LLD-Machine-Coding/README|LLD MOC]]
+> Part of [[README|Java MOC]] -> LLD MOC
 
 ## Requirements
 
@@ -140,10 +140,10 @@ How to test a dice game deterministically?:: Inject a `Dice` returning a fixed s
 
 | Class | Role | Pattern |
 |---|---|---|
-| `SnakeLadderGame` | turn loop, win check, facade | [[06_Design-Patterns/Structural/Facade\|Facade]] |
+| `SnakeLadderGame` | turn loop, win check, facade | Facade |
 | `Board` | size + snakes/ladders maps, resolves landing cell | , |
 | `Player` | name + current position | , |
-| `Dice` | `roll()` 1-6 (injectable for tests) | [[06_Design-Patterns/Creational/Strategy\|Strategy]] (roll behavior) |
+| `Dice` | `roll()` 1-6 (injectable for tests) | Strategy (roll behavior) |
 
 ## Concurrency
 

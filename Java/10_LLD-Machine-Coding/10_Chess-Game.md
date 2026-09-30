@@ -25,7 +25,7 @@ type: concept
 
 ## Diagram
 
-![[_attachments/chessgame-class-diagram.png]]
+!_attachments/chessgame-class-diagram.png
 *Source: [awesome-low-level-design](https://github.com/ashishps1/awesome-low-level-design) , use alongside the class table above.*
 *Runtime flow: validate → apply → check end state.*
 ```mermaid
@@ -80,7 +80,7 @@ public class ChessDemo {
 **Use when** a grid hosts actors with different behaviours and rules must validate before mutating, chess, checkers, Othello/Reversi, battleship, tactical RPG movement, board-game engines generally.
 **Use** a per-actor behaviour interface (`Piece`) when the number of actor kinds is open-ended or will grow.
 **Use** a move-history stack when undo or replay is a requirement.
-**NOT when** all actors behave identically, tic-tac-toe's marks need no per-piece rule class, and a `Piece` hierarchy there is empty ceremony (see [[08_Tic-Tac-Toe|Tic-Tac-Toe]]).
+**NOT when** all actors behave identically, tic-tac-toe's marks need no per-piece rule class, and a `Piece` hierarchy there is empty ceremony (see Tic-Tac-Toe).
 **NOT when** the rules have no validation gate at all (a toy grid where any cell can be set), the validation layers carry their cost only when rejection is real behaviour.
 **NOT when** the board is unbounded or continuous (an open-world map), an 8×8 fixed grid with nullable cells is the wrong model; spatial indexes apply instead.
 
@@ -95,11 +95,11 @@ public class ChessDemo {
 
 ## Vs
 
-- **Vs [[08_Tic-Tac-Toe|Tic-Tac-Toe]]:** chess has a *per-piece* rule hierarchy and capture; tic-tac-toe has uniform marks with one placement rule. The difference is whether validation is polymorphic or a guard.
-- **Vs [[14_Snake-and-Ladder|Snake and Ladder]]:** chess is deterministic strategy, every move is a *choice* with full information; snake-and-ladder is pure chance, the move is a dice roll and the player decides nothing. Chess needs a decision/search seam (minimax); a chance game needs an injectable RNG.
-- **Vs [[08_Tic-Tac-Toe|Tic-Tac-Toe]] (win detection):** tic-tac-toe ends by a line of marks (O(1) counters); chess ends by a *condition derived from all legal replies* (checkmate), so terminal detection is a search, not a counter, the hardest part of the model.
-- **Vs [[07_Elevator-System|Elevator System]]:** both need path-occupancy checks (is a square/floor blocked); elevators schedule mobile resources over time, chess validates one discrete move against a static board.
-- **Vs [[12_Movie-Ticket-Booking|Movie Ticket Booking]]:** a chess square holds *at most one piece* (mutual exclusion by occupancy); a seat may be AVAILABLE → HELD → BOOKED, a *third state* that a square never has. Both are "one thing per cell", but only one permits reserving without occupying.
+- **Vs Tic-Tac-Toe:** chess has a *per-piece* rule hierarchy and capture; tic-tac-toe has uniform marks with one placement rule. The difference is whether validation is polymorphic or a guard.
+- **Vs Snake and Ladder:** chess is deterministic strategy, every move is a *choice* with full information; snake-and-ladder is pure chance, the move is a dice roll and the player decides nothing. Chess needs a decision/search seam (minimax); a chance game needs an injectable RNG.
+- **Vs Tic-Tac-Toe (win detection):** tic-tac-toe ends by a line of marks (O(1) counters); chess ends by a *condition derived from all legal replies* (checkmate), so terminal detection is a search, not a counter, the hardest part of the model.
+- **Vs Elevator System:** both need path-occupancy checks (is a square/floor blocked); elevators schedule mobile resources over time, chess validates one discrete move against a static board.
+- **Vs Movie Ticket Booking:** a chess square holds *at most one piece* (mutual exclusion by occupancy); a seat may be AVAILABLE → HELD → BOOKED, a *third state* that a square never has. Both are "one thing per cell", but only one permits reserving without occupying.
 
 ## Pitfalls
 
@@ -123,12 +123,12 @@ Inheritance-per-piece vs move-strategy tradeoff?:: Subclassing keeps piece rules
 
 ## Related
 
-- [[06_Design-Patterns/Behavioral/Strategy|Strategy]] (pluggable move rules) · [[06_Design-Patterns/Behavioral/State|State]] (game status lifecycle) · [[06_Design-Patterns/Behavioral/Command|Command]] (move as undoable command)
+- Strategy (pluggable move rules) · State (game status lifecycle) · Command (move as undoable command)
 - Source: [awesome-low-level-design](https://github.com/ashishps1/awesome-low-level-design)
 
 # Chess Game
 
-> Part of [[README|Java MOC]] -> [[10_LLD-Machine-Coding/README|LLD MOC]]
+> Part of [[README|Java MOC]] -> LLD MOC
 
 ## Requirements
 

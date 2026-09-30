@@ -89,7 +89,7 @@ record Order(long id, List<Line> items, OrderStatus status) {}
 ## When to use / not
 
 - Any system where misunderstood requirements cost more than code, i.e. most backend systems.
-- Precedes every other decision here: no strategic map → [[02_Bounded-Contexts]] and [[03_Microservices|service splits]] are guesses.
+- Precedes every other decision here: no strategic map → 02_Bounded-Contexts and service splits are guesses.
 - Revisit when language diverges ("order" means 3 things in standup), that's a missing boundary.
 
 **Triage:** Core (differentiator, best engineers, custom code) · Supporting (necessary, buy-or-boring) · Generic (commodity, adopt, don't build: auth, billing, email).
@@ -101,21 +101,21 @@ record Order(long id, List<Line> items, OrderStatus status) {}
 ## Trade-offs
 | Dimension | This Approach | Alternative | Trade-off Rationale | Decision Rule |
 |-----------|---------------|-------------|---------------------|---------------|
-| Complexity | [TBD] | [TBD] | [TBD] | [TBD] |
-| Operational Burden | [TBD] | [TBD] | [TBD] | [TBD] |
-| Latency | [TBD] | [TBD] | [TBD] | [TBD] |
-| Consistency | [TBD] | [TBD] | [TBD] | [TBD] |
-| Cost at Scale | [TBD] | [TBD] | [TBD] | [TBD] |
+| Complexity | Not specified | Not specified | Not specified | Not specified |
+| Operational Burden | Not specified | Not specified | Not specified | Not specified |
+| Latency | Not specified | Not specified | Not specified | Not specified |
+| Consistency | Not specified | Not specified | Not specified | Not specified |
+| Cost at Scale | Not specified | Not specified | Not specified | Not specified |
 
 ## Vs
 
 - **Vs data-first modelling:** data-first asks "what tables?"; strategic DDD asks "what business capabilities, and which matter?" Tables follow contexts, not vice versa.
-- **Vs [[03_Architecture-Styles/06_Monolith-vs-Modular-Choice-Guide|tech-first splits]]:** split by subdomain value, not by class count.
+- **Vs tech-first splits:** split by subdomain value, not by class count.
 
 ## Pitfalls
 
 - Ubiquitous language that only devs speak, experts must use (and correct) it.
-- One shared "Order" object across contexts, see [[02_Bounded-Contexts]].
+- One shared "Order" object across contexts, see 02_Bounded-Contexts.
 - Treating generic subdomains as interesting work (build auth yourself = delay).
 
 
@@ -200,7 +200,7 @@ limit 10
 
 ## Related
 
-- [[02_Bounded-Contexts]] · [[03_Context-Mapping]] · [[04_Tactical-Aggregates-Entities-VO]]
+- 02_Bounded-Contexts · 03_Context-Mapping · 04_Tactical-Aggregates-Entities-VO
 
 # Strategic ddd
 
@@ -216,7 +216,7 @@ class Order {
  void cancel() {
  if (status == SHIPPED) throw new DomainException("shipped orders cannot be cancelled");
  status = CANCELLED;
- register(new OrderCancelled(id)); // → [[05_Domain-Events]]
+ register(new OrderCancelled(id)); // → 05_Domain-Events
  }
 }
 // Subdomain triage visible in repo layout:

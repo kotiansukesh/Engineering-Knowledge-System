@@ -104,4 +104,4 @@ Can a static nested class access non-static outer fields?:: Only via an explicit
 
 - [[Java/01_Core-Java/Types/Nested Classes Overview|Nested Classes Overview]]
 - [[Java/01_Core-Java/Types/Nested/Nested Inner Class|Nested Inner Class]]
-- [[Classes]]
+- Classes

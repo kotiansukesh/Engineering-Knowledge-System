@@ -102,11 +102,11 @@ class OrderProjector {
 ## Trade-offs
 | Dimension | This Approach | Alternative | Trade-off Rationale | Decision Rule |
 |-----------|---------------|-------------|---------------------|---------------|
-| Complexity | [TBD] | [TBD] | [TBD] | [TBD] |
-| Operational Burden | [TBD] | [TBD] | [TBD] | [TBD] |
-| Latency | [TBD] | [TBD] | [TBD] | [TBD] |
-| Consistency | [TBD] | [TBD] | [TBD] | [TBD] |
-| Cost at Scale | [TBD] | [TBD] | [TBD] | [TBD] |
+| Complexity | Not specified | Not specified | Not specified | Not specified |
+| Operational Burden | Not specified | Not specified | Not specified | Not specified |
+| Latency | Not specified | Not specified | Not specified | Not specified |
+| Consistency | Not specified | Not specified | Not specified | Not specified |
+| Cost at Scale | Not specified | Not specified | Not specified | Not specified |
 
 ## Flashcards (Spaced Repetition)
 
@@ -218,4 +218,4 @@ limit 10
 > **Answer**: CQRS = split write/read models. Sourcing = log is truth. CQRS without sourcing = write to DB, publish events via outbox, projectors build read models. 80% of cases need only this. **Rejected**: "They're the same" — sourcing adds immutable log + replay; CQRS doesn't require it.
 
 ## 🔗 Related
-- [[02_Consistency-CAP-PACELC]] · [[../05_DDD-Modeling/05_Domain-Events|Domain Events]] · [[01_SQL-vs-NoSQL-Selection]]
+- 02_Consistency-CAP-PACELC · [[Architect/06_Data-Architecture/../05_DDD-Modeling/05_Domain-Events|Domain Events]] · 01_SQL-vs-NoSQL-Selection

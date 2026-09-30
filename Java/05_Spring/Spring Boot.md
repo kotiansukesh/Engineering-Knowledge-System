@@ -5,7 +5,7 @@ tags: [spring, spring-boot, java25, auto-configuration]
 created: "2026-09-30"
 completed: false
 difficulty: "Advanced"
-type: "note"
+type: concept
 ---
 
 # Spring Boot
@@ -86,10 +86,10 @@ Boot 4 is a major generation based on Spring Framework 7, with Java 25 as a firs
 
 ## Related
 
-- [[Spring Framework]]
-- [[Dependency Injection]]
-- [[Spring MVC]]
-- [[Spring Security]]
-- [[Spring Transaction]]
-- [[Spring AI]]
-- [[../12_Testing-Tooling/Maven and Gradle|Maven and Gradle]]
+- Spring Framework
+- Dependency Injection
+- Spring MVC
+- Spring Security
+- Spring Transaction
+- Spring AI
+- [[Java/05_Spring/../12_Testing-Tooling/Maven and Gradle|Maven and Gradle]]

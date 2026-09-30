@@ -98,15 +98,15 @@ Is CompletableFuture blocking?:: Chaining is non-blocking; only terminal `join()
 
 ## Related
 
-- [[Executor Framework]], executors, virtual-thread-per-task
-- [[Threads]], virtual threads, StructuredTaskScope, ScopedValue
-- [[Locks and Synchronizers]], coordination alternatives
-- [[Concurrent Collections]], thread-safe data flow between stages
+- Executor Framework, executors, virtual-thread-per-task
+- Threads, virtual threads, StructuredTaskScope, ScopedValue
+- Locks and Synchronizers, coordination alternatives
+- Concurrent Collections, thread-safe data flow between stages
 
 # CompletableFuture
 
 > Part of [[README|Java MOC]] • `Concurrency` • Java 25 (LTS)
-- [[Architect/10_System-Design-Interviews/ASYNC-01-Async-Patterns.md|ASYNC-01-Async-Patterns]] — Async composition patterns
+- ASYNC-01-Async-Patterns — Async composition patterns
 
 ## Core api & Execution Model
 

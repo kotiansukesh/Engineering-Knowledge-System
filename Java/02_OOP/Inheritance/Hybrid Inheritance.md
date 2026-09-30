@@ -90,7 +90,7 @@ d.swim();
 - Use when a type needs one real **is-a** parent plus several **roles** (`Duck extends Animal implements Flyable, Swimmable`).
 - Use when the class hierarchy and the capability set are genuinely independent , combine without entangling them.
 - NOT when the class hierarchy itself is deep , keep `extends` shallow and put variation in composed collaborators.
-- NOT when a role is a **has-a** in disguise , model it as a **field** and delegate ([[02_OOP/Class-Relationships\|composition]]), not another `implements`.
+- NOT when a role is a **has-a** in disguise , model it as a **field** and delegate (composition), not another `implements`.
 
 ## Trade-offs
 
@@ -118,14 +118,14 @@ A: Only via interfaces. A class can extend one class and implement many interfac
 
 ## Related
 
-- [[02_OOP/Inheritance\|Inheritance]] • [[02_OOP/Inheritance/Multiple Inheritance\|Multiple Inheritance]] • [[02_OOP/Interfaces\|Interfaces]]
+- Inheritance • Multiple Inheritance • Interfaces
 
 ---
 *Category: Java/02_OOP*
 
 # Hybrid Inheritance
 
-> Part of [[02_OOP/Inheritance\|Inheritance]] • `Java/02_OOP`
+> Part of Inheritance • `Java/02_OOP`
 
 ## Vs , Hybrid vs Multiple Inheritance
 

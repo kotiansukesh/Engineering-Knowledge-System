@@ -110,12 +110,12 @@ What does `transient` do? Is `transient` vs `static` the same?:: `transient` exc
 
 ## Related
 
-- [[Classes]], class basics; where `implements Serializable` is declared
-- [[Interface]], `Serializable` and `Externalizable` are interfaces (marker vs contract)
-- [[Inheritance]], serialization walks the inheritance chain; non-serializable parent constructor behavior
+- Classes, class basics; where `implements Serializable` is declared
+- Interface, `Serializable` and `Externalizable` are interfaces (marker vs contract)
+- Inheritance, serialization walks the inheritance chain; non-serializable parent constructor behavior
 - [[Java/01_Core-Java/Types/Singleton Class|Singleton Class]], `readResolve()` to preserve singleton on deserialization
-- [[JVM Memory Model]], why static state is not part of object bytes
-- [[Exception Handling]], `NotSerializableException`, `InvalidClassException`, `InvalidObjectException`
+- JVM Memory Model, why static state is not part of object bytes
+- Exception Handling, `NotSerializableException`, `InvalidClassException`, `InvalidObjectException`
 
 ---
 *Category: Core-Java • java25*

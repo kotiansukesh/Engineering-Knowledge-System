@@ -41,7 +41,7 @@ tags:
 
 ## Entry fields
 
-Use [[_templates/Mistake-Log-Template]] for new entries.
+Use _templates/Mistake-Log-Template for new entries.
 
 Minimum metadata:
 

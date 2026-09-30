@@ -212,6 +212,6 @@ Start with the core implementation. Introduce a variant only when the required s
 
 ## Related
 
-- [[05_Trees_Graphs/03 - BFS|BFS]] (unweighted shortest)
-- [[05_Trees_Graphs/06 - Union Find|Union Find]] (connectivity, not distances)
+- BFS (unweighted shortest)
+- Union Find (connectivity, not distances)
 - [[Java/07_DSA/Graph]] · [[Java/07_DSA/Heap]]

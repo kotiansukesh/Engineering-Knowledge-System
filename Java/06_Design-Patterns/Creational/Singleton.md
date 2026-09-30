@@ -18,7 +18,7 @@ type: concept
 
 # Singleton
 
-> Category: Creational • Source: [Refactoring.Guru , Singleton](https://refactoring.guru/design-patterns/singleton) • Part of [[Java/README|Java MOC]] → [[06_Design-Patterns/README|Design Patterns MOC]]
+> Category: Creational • Source: [Refactoring.Guru , Singleton](https://refactoring.guru/design-patterns/singleton) • Part of [[Java/README|Java MOC]] → Design Patterns MOC
 
 ## Why it Matters
 
@@ -105,7 +105,7 @@ Singleton is acceptable for truly global, stable infrastructure with no test-var
 ## Flashcards (Spaced Repetition)
 
 #flashcard
-Creational • Source: [Refactoring.Guru , Singleton](https://refactoring.guru/design-patterns/singleton) • Part of [[Java/README|Java MOC]] → [[06_Design-Patterns/README|Design Patterns MOC]]
+Creational • Source: [Refactoring.Guru , Singleton](https://refactoring.guru/design-patterns/singleton) • Part of [[Java/README|Java MOC]] → Design Patterns MOC
 
 ## Why it Matters
 
@@ -196,7 +196,7 @@ limit 10
 
 ## Related
 
-[[06_Design-Patterns/Extra/Dependency Injection Pattern|Dependency Injection]] (one instance without globals) • [[06_Design-Patterns/Creational/Factory Method|Factory Method]] (controlled creation) • [[06_Design-Patterns/Creational/Builder|Builder]]
+Dependency Injection (one instance without globals) • Factory Method (controlled creation) • Builder
 
 ---
 

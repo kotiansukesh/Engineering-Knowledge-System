@@ -121,7 +121,7 @@ Match `case null` explicitly; otherwise `switch (null)` throws NPE. Since Java 2
 
 ## Related
 
-- [[01 Records]] • [[02 Sealed Classes]] • [[07 Flexible Constructors and Module Imports|Flexible Constructors]]
+- 01 Records • 02 Sealed Classes • Flexible Constructors
 
 ---
 *Category: Modern-Java • java25*

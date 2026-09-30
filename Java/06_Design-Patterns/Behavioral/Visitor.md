@@ -18,7 +18,7 @@ type: concept
 
 # Visitor
 
-> Category: Behavioral • Source: [Refactoring.Guru , Visitor](https://refactoring.guru/design-patterns/visitor) • Part of [[Java/README|Java MOC]] → [[06_Design-Patterns/README|Design Patterns MOC]]
+> Category: Behavioral • Source: [Refactoring.Guru , Visitor](https://refactoring.guru/design-patterns/visitor) • Part of [[Java/README|Java MOC]] → Design Patterns MOC
 
 ## Why it Matters
 
@@ -120,7 +120,7 @@ You touch the Visitor interface and every visitor implementation , that is the p
 ## Flashcards (Spaced Repetition)
 
 #flashcard
-Behavioral • Source: [Refactoring.Guru , Visitor](https://refactoring.guru/design-patterns/visitor) • Part of [[Java/README|Java MOC]] → [[06_Design-Patterns/README|Design Patterns MOC]]
+Behavioral • Source: [Refactoring.Guru , Visitor](https://refactoring.guru/design-patterns/visitor) • Part of [[Java/README|Java MOC]] → Design Patterns MOC
 
 ## Why it Matters
 
@@ -226,7 +226,7 @@ limit 10
 
 ## Related
 
-[[06_Design-Patterns/Behavioral/Strategy|Strategy]] • [[06_Design-Patterns/Behavioral/Interpreter|Interpreter]] • [[06_Design-Patterns/Structural/Composite|Composite]]
+Strategy • Interpreter • Composite
 
 ---
 

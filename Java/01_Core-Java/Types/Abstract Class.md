@@ -114,7 +114,7 @@ Can we create an abstract + final class? An abstract method in a final class?:: 
 
 ## Related
 
-- [[Classes]]
-- [[Interface]]
+- Classes
+- Interface
 - [[Java/01_Core-Java/Types/Concrete Class|Concrete Class]]
 - [[Java/01_Core-Java/Types/Abstract Class|Abstract Class]], vs [[Java/01_Core-Java/Types/Final Class|Final Class]]

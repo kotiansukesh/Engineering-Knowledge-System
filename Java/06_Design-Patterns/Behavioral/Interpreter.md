@@ -18,7 +18,7 @@ type: concept
 
 # Interpreter
 
-> Category: Behavioral • Source: [Refactoring.Guru , Interpreter](https://refactoring.guru/design-patterns/interpreter) • Part of [[Java/README|Java MOC]] → [[06_Design-Patterns/README|Design Patterns MOC]]
+> Category: Behavioral • Source: [Refactoring.Guru , Interpreter](https://refactoring.guru/design-patterns/interpreter) • Part of [[Java/README|Java MOC]] → Design Patterns MOC
 
 ## Why it Matters
 
@@ -120,7 +120,7 @@ Rule engines, feature-flag evaluators, spreadsheet-style filters, and regex matc
 ## Flashcards (Spaced Repetition)
 
 #flashcard
-Behavioral • Source: [Refactoring.Guru , Interpreter](https://refactoring.guru/design-patterns/interpreter) • Part of [[Java/README|Java MOC]] → [[06_Design-Patterns/README|Design Patterns MOC]]
+Behavioral • Source: [Refactoring.Guru , Interpreter](https://refactoring.guru/design-patterns/interpreter) • Part of [[Java/README|Java MOC]] → Design Patterns MOC
 
 ## Why it Matters
 
@@ -226,7 +226,7 @@ limit 10
 
 ## Related
 
-[[06_Design-Patterns/Behavioral/Visitor|Visitor]] (operations over trees) • [[06_Design-Patterns/Behavioral/Command|Command]] • [[06_Design-Patterns/Behavioral/Iterator|Iterator]]
+Visitor (operations over trees) • Command • Iterator
 
 ---
 

@@ -182,8 +182,8 @@ Start with the core implementation. Introduce a variant only when the problem ch
 
 ## Related
 
-- [[05_Trees_Graphs/01 - Binary Tree Traversal|Binary Tree Traversal]] (tree DFS)
-- [[05_Trees_Graphs/03 - BFS|BFS]] (shortest unweighted)
-- [[05_Trees_Graphs/06 - Union Find|Union Find]] (connectivity queries)
-- [[07_Backtracking_DP/01 - Backtracking|Backtracking]] (DFS with state restoration)
+- Binary Tree Traversal (tree DFS)
+- BFS (shortest unweighted)
+- Union Find (connectivity queries)
+- Backtracking (DFS with state restoration)
 - [[Java/07_DSA/Trees]] · [[Java/07_DSA/Graph]]

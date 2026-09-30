@@ -10,7 +10,7 @@ reviewed: "2026-09-29"
 sr-due: "2026-10-06"
 source: ""
 excalidraw: ""
-type: "note"
+type: concept
 ---
 
 # TreeSet
@@ -117,7 +117,7 @@ Pick TreeSet when you need sorted uniqueness or range and nearest queries, other
 ## Flashcards (Spaced Repetition)
 
 #flashcard
-**Q:** What is the trigger keyword for TreeSet? :: **A:** [trigger keywords] #flashcard
+**Q:** What is the trigger keyword for TreeSet? :: **A:** Not specified #flashcard
 
 #flashcard
 **Q:** Time/space complexity of TreeSet? :: **A:** Time: O(), Space: O() #flashcard

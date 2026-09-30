@@ -202,6 +202,6 @@ Start with the core implementation. Introduce a variant only when the problem ch
 
 ## Related
 
-- [[05_Trees_Graphs/02 - DFS|DFS]] (generalizes to graphs)
-- [[05_Trees_Graphs/03 - BFS|BFS]] (level order)
+- DFS (generalizes to graphs)
+- BFS (level order)
 - [[Java/07_DSA/Trees]]

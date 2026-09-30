@@ -87,7 +87,7 @@ Yes , `Point(_, _)` both unnamed , no conflict.
 
 ## Related
 
-- [[03 Record Patterns]] • [[04 Pattern Matching for Switch]] • [[07 Unnamed Classes and Instance Main]]
+- 03 Record Patterns • 04 Pattern Matching for Switch • 07 Unnamed Classes and Instance Main
 
 ---
 *Category: java21*

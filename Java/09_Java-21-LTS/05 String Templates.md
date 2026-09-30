@@ -85,7 +85,7 @@ Text blocks (`"""`), `formatted()`, `String.join`, `strip()` , not templates.
 
 ## Related
 
-- [[00 Java 21 Overview]] • [[07 Unnamed Classes and Instance Main]] • [[../01_Core-Java/String Handling|String Handling]]
+- 00 Java 21 Overview • 07 Unnamed Classes and Instance Main • [[Java/09_Java-21-LTS/../01_Core-Java/String Handling|String Handling]]
 
 ---
 *Category: java21*

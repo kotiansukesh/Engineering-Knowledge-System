@@ -177,11 +177,11 @@ public final class InterviewFramework {
 ## Trade-offs
 | Dimension | This Approach | Alternative | Trade-off Rationale | Decision Rule |
 |-----------|---------------|-------------|---------------------|---------------|
-| Complexity | [TBD] | [TBD] | [TBD] | [TBD] |
-| Operational Burden | [TBD] | [TBD] | [TBD] | [TBD] |
-| Latency | [TBD] | [TBD] | [TBD] | [TBD] |
-| Consistency | [TBD] | [TBD] | [TBD] | [TBD] |
-| Cost at Scale | [TBD] | [TBD] | [TBD] | [TBD] |
+| Complexity | Not specified | Not specified | Not specified | Not specified |
+| Operational Burden | Not specified | Not specified | Not specified | Not specified |
+| Latency | Not specified | Not specified | Not specified | Not specified |
+| Consistency | Not specified | Not specified | Not specified | Not specified |
+| Cost at Scale | Not specified | Not specified | Not specified | Not specified |
 
 ## Vs Table
 | Aspect | 4-Step Framework | "Just Start Drawing" |
@@ -277,7 +277,7 @@ limit 10
 
 - [[Architect/10_System-Design-Interviews/FND-10-Interview-Approach|Interview Approach (Primer)]]
 - [[Architect/10_System-Design-Interviews/FND-11-Back-of-Envelope|Back-of-Envelope Estimation]]
-- [[FND-02-Performance-vs-Scalability|Performance vs Scalability]]
+- Performance vs Scalability
 
 ---
 

@@ -107,7 +107,7 @@ Interface vs Abstract class, when to pick which?:: Interface for contracts acros
 
 ## Related
 
-- [[Classes]]
+- Classes
 - [[Java/01_Core-Java/Types/Abstract Class|Abstract Class]]
 - [[Java/01_Core-Java/Types/Anonymous Class|Anonymous Class]]
-- [[Method Overload]]
+- Method Overload

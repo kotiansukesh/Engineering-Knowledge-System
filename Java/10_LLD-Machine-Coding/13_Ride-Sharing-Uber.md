@@ -25,7 +25,7 @@ type: concept
 
 ## Diagram
 
-![[_attachments/ridesharingservice-class-diagram.png]]
+!_attachments/ridesharingservice-class-diagram.png
 *Source: [awesome-low-level-design](https://github.com/ashishps1/awesome-low-level-design) , use alongside the class table above.*
 *Runtime flow: trip lifecycle.*
 ```mermaid
@@ -93,11 +93,11 @@ public class RideSharingDemo {
 
 ## Vs
 
-- **Vs [[07_Elevator-System|Elevator System]]:** both dispatch a pool to requests via a Strategy, but elevators move on *fixed tracks* with exactly computable travel, while ride dispatch is over *open geography* with ETA estimation and traffic uncertainty. Deterministic scheduling vs probabilistic ETA matching.
-- **Vs [[01_Parking-Lot|Parking Lot]]:** parking assigns a *fixed* spot that the user travels to; ride-hailing dispatches a *mobile* resource that travels to the user. Assignment of a place vs dispatch of an actor.
-- **Vs [[13_Ride-Sharing-Uber|public transit routing]]:** transit is fixed routes and schedules, matching is a timetable lookup with no per-vehicle availability; ride-hailing is dynamic, per-vehicle, and real-time. Static schedule vs live fleet state.
-- **Vs [[12_Movie-Ticket-Booking|Movie Ticket Booking]]:** both claim a scarce resource, but a driver is a *renewable* resource that becomes free again after the trip, while a seat is *perishable* — once the show starts, an unsold seat is gone forever. Renewable vs perishable inventory.
-- **Vs [[15_Task-Management-System|Task Management System]]:** assigning a task to a user changes ownership but not the user's physical location, and no real-time position or ETA is involved; ride dispatch is assignment *plus* spatial state plus travel time.
+- **Vs Elevator System:** both dispatch a pool to requests via a Strategy, but elevators move on *fixed tracks* with exactly computable travel, while ride dispatch is over *open geography* with ETA estimation and traffic uncertainty. Deterministic scheduling vs probabilistic ETA matching.
+- **Vs Parking Lot:** parking assigns a *fixed* spot that the user travels to; ride-hailing dispatches a *mobile* resource that travels to the user. Assignment of a place vs dispatch of an actor.
+- **Vs public transit routing:** transit is fixed routes and schedules, matching is a timetable lookup with no per-vehicle availability; ride-hailing is dynamic, per-vehicle, and real-time. Static schedule vs live fleet state.
+- **Vs Movie Ticket Booking:** both claim a scarce resource, but a driver is a *renewable* resource that becomes free again after the trip, while a seat is *perishable* — once the show starts, an unsold seat is gone forever. Renewable vs perishable inventory.
+- **Vs Task Management System:** assigning a task to a user changes ownership but not the user's physical location, and no real-time position or ETA is involved; ride dispatch is assignment *plus* spatial state plus travel time.
 
 ## Pitfalls
 
@@ -122,12 +122,12 @@ Linear scan vs spatial index tradeoff?:: Linear scan is correct and trivial for 
 
 ## Related
 
-- [[06_Design-Patterns/Behavioral/State|State]] (trip + driver lifecycles) · [[06_Design-Patterns/Behavioral/Strategy|Strategy]] (matching / pricing strategies) · [[06_Design-Patterns/Behavioral/Observer|Observer]] (rider/driver notifications)
+- State (trip + driver lifecycles) · Strategy (matching / pricing strategies) · Observer (rider/driver notifications)
 - Source: [awesome-low-level-design](https://github.com/ashishps1/awesome-low-level-design)
 
 # Ride Sharing (Uber)
 
-> Part of [[README|Java MOC]] -> [[10_LLD-Machine-Coding/README|LLD MOC]]
+> Part of [[README|Java MOC]] -> LLD MOC
 
 ## Requirements
 

@@ -114,11 +114,11 @@ Can a Java file have multiple public classes?:: No, only one `public` top-level 
 
 ## Related
 
-- [[Concrete Class]]
-- [[Abstract Class]]
-- [[POJO Class]]
-- [[Object Class]]
-- [[Interface]]
+- Concrete Class
+- Abstract Class
+- POJO Class
+- Object Class
+- Interface
 - [[Java/01_Core-Java/Types/Wrapper Class|Wrapper Class]]
 - [[Java/01_Core-Java/Types/Singleton Class|Singleton Class]]
 - [[Java/01_Core-Java/Types/Immutable Class|Immutable Class]]

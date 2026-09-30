@@ -86,11 +86,11 @@ graph LR
 ## Trade-offs
 | Dimension | This Approach | Alternative | Trade-off Rationale | Decision Rule |
 |-----------|---------------|-------------|---------------------|---------------|
-| Complexity | [TBD] | [TBD] | [TBD] | [TBD] |
-| Operational Burden | [TBD] | [TBD] | [TBD] | [TBD] |
-| Latency | [TBD] | [TBD] | [TBD] | [TBD] |
-| Consistency | [TBD] | [TBD] | [TBD] | [TBD] |
-| Cost at Scale | [TBD] | [TBD] | [TBD] | [TBD] |
+| Complexity | Not specified | Not specified | Not specified | Not specified |
+| Operational Burden | Not specified | Not specified | Not specified | Not specified |
+| Latency | Not specified | Not specified | Not specified | Not specified |
+| Consistency | Not specified | Not specified | Not specified | Not specified |
+| Cost at Scale | Not specified | Not specified | Not specified | Not specified |
 
 ## Pitfalls
 
@@ -183,7 +183,7 @@ limit 10
 
 ## Related
 
-- [[03_Review-Process-RFC]] · [[01_C4-Modeling]] · [[05_Compliance-Audit]]
+- 03_Review-Process-RFC · 01_C4-Modeling · 05_Compliance-Audit
 
 # ADRs — Architecture Decision Records
 

@@ -89,16 +89,16 @@ async def with_human_gate(approve: Callable[[], Awaitable[bool]],
 ## Flashcards (Spaced Repetition)
 
 #flashcard
-**Q:** What is the trigger keyword for Human in the Loop? :: **A:** [trigger keywords] #flashcard
+**Q:** What is the trigger keyword for Human in the Loop? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** Key hyperparameter for Human in the Loop? :: **A:** [hyperparameter + typical range] #flashcard
+**Q:** Key hyperparameter for Human in the Loop? :: **A:** Not specified #flashcard
 
 #flashcard
 **Q:** When do you NOT use Human in the Loop? :: **A:** [anti-pattern scenarios] #flashcard
 
 #flashcard
-**Q:** Cost order of magnitude for Human in the Loop? :: **A:** [GPU hours / $ per 1M tokens] #flashcard
+**Q:** Cost order of magnitude for Human in the Loop? :: **A:** Not specified #flashcard
 
 ## Practice Tasks (Tasks Plugin)
 - [ ] Restate the intent from memory 📅 2026-09-30
@@ -115,7 +115,7 @@ limit 10
 
 ## Related
 - [[README|AI MOC]]
-- [[03_Agentic-AI/README|03_Agentic-AI Folder]]
+- 03_Agentic-AI Folder
 
 ---
 

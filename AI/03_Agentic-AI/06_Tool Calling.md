@@ -11,7 +11,7 @@ completed: false
 difficulty: "Medium"
 reviewed: "2026-09-30"
 sr-due: "2026-10-02"
-type: "note"
+type: concept
 ---
 
 # Tool Calling
@@ -105,7 +105,7 @@ A high task-success score can hide unsafe or unreliable tool behavior, so evalua
 **Q:** What is the key defense against duplicate side effects? :: **A:** Idempotency keys plus server-side deduplication for retryable commands.
 
 ## Related
-- [[00 - AI Engineering Decision Framework]]
-- [[00 - AI Practice Engine]]
-- [[07_Cross-Cutting/01_MCP]]
-- [[11_Guardrails]]
+- 00 - AI Engineering Decision Framework
+- 00 - AI Practice Engine
+- 07_Cross-Cutting/01_MCP
+- 11_Guardrails

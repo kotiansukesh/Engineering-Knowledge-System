@@ -18,7 +18,7 @@ type: concept
 
 # Abstract Factory
 
-> Category: Creational • Source: [Refactoring.Guru , Abstract Factory](https://refactoring.guru/design-patterns/abstract-factory) • Part of [[Java/README|Java MOC]] → [[06_Design-Patterns/README|Design Patterns MOC]]
+> Category: Creational • Source: [Refactoring.Guru , Abstract Factory](https://refactoring.guru/design-patterns/abstract-factory) • Part of [[Java/README|Java MOC]] → Design Patterns MOC
 
 ## Why it Matters
 
@@ -126,7 +126,7 @@ Adding a new family (e.g. `FuturisticFactory`) is easy , one class implementing 
 ## Flashcards (Spaced Repetition)
 
 #flashcard
-Creational • Source: [Refactoring.Guru , Abstract Factory](https://refactoring.guru/design-patterns/abstract-factory) • Part of [[Java/README|Java MOC]] → [[06_Design-Patterns/README|Design Patterns MOC]]
+Creational • Source: [Refactoring.Guru , Abstract Factory](https://refactoring.guru/design-patterns/abstract-factory) • Part of [[Java/README|Java MOC]] → Design Patterns MOC
 
 ## Why it Matters
 
@@ -238,7 +238,7 @@ limit 10
 
 ## Related
 
-[[06_Design-Patterns/Creational/Factory Method|Factory Method]] (single product) • [[06_Design-Patterns/Creational/Builder|Builder]] (assembly) • [[06_Design-Patterns/Creational/Prototype|Prototype]] (copy vs create)
+Factory Method (single product) • Builder (assembly) • Prototype (copy vs create)
 
 ---
 

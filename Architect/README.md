@@ -14,15 +14,15 @@ This is a domain inside the **single repository-wide Obsidian vault**. The maste
 
 ## Start here when architecture becomes the current phase
 
-1. [[01_Architecture-Foundations/README|Foundations]]
-2. [[02_Requirements-Quality-Attributes/README|Requirements & Quality Attributes]]
-3. [[03_Architecture-Styles/README|Architecture Styles]]
-4. [[06_Data-Architecture/README|Data Architecture]]
-5. [[07_Integration-APIs/README|Integration & APIs]]
-6. [[08_NonFunctional-Ops/README|Reliability & Operations]]
-7. [[10_System-Design-Interviews/README|System Design Practice]]
-8. [[13_AI-Architecture/README|AI Architecture]]
-9. [[99_Revision/Study Plan|Revision]]
+1. Foundations
+2. Requirements & Quality Attributes
+3. Architecture Styles
+4. Data Architecture
+5. Integration & APIs
+6. Reliability & Operations
+7. System Design Practice
+8. AI Architecture
+9. Revision
 
 ## Architecture loop
 

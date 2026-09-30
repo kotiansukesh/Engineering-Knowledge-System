@@ -18,7 +18,7 @@ type: concept
 
 # State
 
-> Category: Behavioral • Source: [Refactoring.Guru , State](https://refactoring.guru/design-patterns/state) • Part of [[Java/README|Java MOC]] → [[06_Design-Patterns/README|Design Patterns MOC]]
+> Category: Behavioral • Source: [Refactoring.Guru , State](https://refactoring.guru/design-patterns/state) • Part of [[Java/README|Java MOC]] → Design Patterns MOC
 
 ## Why it Matters
 
@@ -134,7 +134,7 @@ Rules live in the state objects themselves , each state decides its valid exits 
 ## Flashcards (Spaced Repetition)
 
 #flashcard
-Behavioral • Source: [Refactoring.Guru , State](https://refactoring.guru/design-patterns/state) • Part of [[Java/README|Java MOC]] → [[06_Design-Patterns/README|Design Patterns MOC]]
+Behavioral • Source: [Refactoring.Guru , State](https://refactoring.guru/design-patterns/state) • Part of [[Java/README|Java MOC]] → Design Patterns MOC
 
 ## Why it Matters
 
@@ -254,7 +254,7 @@ limit 10
 
 ## Related
 
-[[06_Design-Patterns/Behavioral/Strategy|Strategy]] (external choice vs internal transition) • [[06_Design-Patterns/Behavioral/Template Method|Template Method]] • [[06_Design-Patterns/Behavioral/Memento|Memento]]
+Strategy (external choice vs internal transition) • Template Method • Memento
 
 ---
 

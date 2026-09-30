@@ -25,7 +25,7 @@ type: concept
 
 ## Diagram
 
-![[_attachments/taskmanagement-class-diagram.png]]
+!_attachments/taskmanagement-class-diagram.png
 *Source: [awesome-low-level-design](https://github.com/ashishps1/awesome-low-level-design) , use alongside the class table above.*
 *Runtime flow: task lifecycle with notify on assign/status.*
 ```mermaid
@@ -96,11 +96,11 @@ class TaskManagerDemo {
 
 ## Vs
 
-- **Vs [[16_Traffic-Signal-Control|Traffic Signal Control]]:** both are state machines, but traffic transitions are *timer-driven and perpetual* — the cycle never ends; task transitions are *event-driven and terminal* — every task reaches DONE and stops. Perpetual cycle vs terminating lifecycle.
-- **Vs [[08_Tic-Tac-Toe|Tic-Tac-Toe]]:** a game has a *win condition* and a terminal state reached by rules; a task board has *legal transitions* but no victory, the goal is completion of each item, not defeating an opponent. Terminal-by-rules vs terminal-by-completion.
-- **Vs [[05_ATM|ATM]]:** the ATM's states are *session-scoped* and reset on eject; a task's lifecycle is *persistent* and outlives any user session. Session state machine vs durable workflow.
-- **Vs [[04_Stack-Overflow|Stack Overflow]]:** Stack Overflow's reputation is *derived from community votes* and never settles; a task's status is *set by an actor* and converges to DONE. Emergent score vs assigned status.
-- **Vs [[15_Task-Management-System|Jira/kanban board]]:** this model is the engine; a kanban board is the *projection* of that engine by status column. The board is a view, not a separate model, conflating them is why hand-rolled boards drift from the data.
+- **Vs Traffic Signal Control:** both are state machines, but traffic transitions are *timer-driven and perpetual* — the cycle never ends; task transitions are *event-driven and terminal* — every task reaches DONE and stops. Perpetual cycle vs terminating lifecycle.
+- **Vs Tic-Tac-Toe:** a game has a *win condition* and a terminal state reached by rules; a task board has *legal transitions* but no victory, the goal is completion of each item, not defeating an opponent. Terminal-by-rules vs terminal-by-completion.
+- **Vs ATM:** the ATM's states are *session-scoped* and reset on eject; a task's lifecycle is *persistent* and outlives any user session. Session state machine vs durable workflow.
+- **Vs Stack Overflow:** Stack Overflow's reputation is *derived from community votes* and never settles; a task's status is *set by an actor* and converges to DONE. Emergent score vs assigned status.
+- **Vs Jira/kanban board:** this model is the engine; a kanban board is the *projection* of that engine by status column. The board is a view, not a separate model, conflating them is why hand-rolled boards drift from the data.
 - **Vs a plain CRUD list:** CRUD has no transition rules, no derived views, and no notification side effects; the state machine and the observer are the entire value-add, and they are what the interviewer is grading.
 
 ## Pitfalls
@@ -119,19 +119,19 @@ class TaskManagerDemo {
 ## Interview q&a
 
 - **How to prevent illegal status jumps?** Encode transitions in the `Status` enum (`allowedNext()`) so the rule lives in one place , adding a state can't silently break callers.
-- **Notify on assignment vs status change?** Both go through one `notify()` path ([[06_Design-Patterns/Behavioral/Observer\|Observer]]); the manager never hardcodes email/push , subscribers decide.
+- **Notify on assignment vs status change?** Both go through one `notify()` path (Observer); the manager never hardcodes email/push , subscribers decide.
 
 How to prevent illegal status jumps?:: Encode transitions in the `Status` enum (`allowedNext()`) so the rule lives in one place , adding a state can't silently break callers. #flashcard
-Notify on assignment vs status change?:: Both go through one `notify()` path ([[06_Design-Patterns/Behavioral/Observer\|Observer]]); the manager never hardcodes email/push , subscribers decide. #flashcard
+Notify on assignment vs status change?:: Both go through one `notify()` path (Observer); the manager never hardcodes email/push , subscribers decide. #flashcard
 
 ## Related
 
-- [[06_Design-Patterns/Creational/Singleton\|Singleton]], [[06_Design-Patterns/Behavioral/Observer\|Observer]], [[02_OOP/SOLID-Single-Responsibility\|SRP]]
+- Singleton, Observer, SRP
 - Source: [awesome-low-level-design](https://github.com/ashishps1/awesome-low-level-design)
 
 # Task Management System
 
-> Part of [[README|Java MOC]] -> [[10_LLD-Machine-Coding/README|LLD MOC]]
+> Part of [[README|Java MOC]] -> LLD MOC
 
 ## Requirements
 
@@ -143,8 +143,8 @@ Notify on assignment vs status change?:: Both go through one `notify()` path ([[
 
 | Class | Role | Pattern |
 |---|---|---|
-| `TaskManager` (singleton) | create/assign/update/filter facade | [[06_Design-Patterns/Creational/Singleton\|Singleton]], [[06_Design-Patterns/Structural/Facade\|Facade]] |
-| `Task` | title, priority, status, assignee; observes assignment | [[06_Design-Patterns/Behavioral/Observer\|Observer]] (notification) |
+| `TaskManager` (singleton) | create/assign/update/filter facade | Singleton, Facade |
+| `Task` | title, priority, status, assignee; observes assignment | Observer (notification) |
 | `User` | id, name, task list | , |
 | `Priority` / `Status` enums | LOW/MED/HIGH; TODO/IN_PROGRESS/DONE | , |
 

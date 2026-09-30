@@ -165,6 +165,6 @@ Use the implementation above as the base case. Extend it only after the invarian
 
 ## Related
 
-- [[01_Array/03 - Sliding Window|Sliding Window]] (fixed-k sums use prefix internally)
-- [[01_Array/04 - Frequency Counting|Frequency Counting]] (hashmap on prefix for subarray count)
+- Sliding Window (fixed-k sums use prefix internally)
+- Frequency Counting (hashmap on prefix for subarray count)
 - [[Java/07_DSA/Array]] · [[Java/07_DSA/HashMap]]

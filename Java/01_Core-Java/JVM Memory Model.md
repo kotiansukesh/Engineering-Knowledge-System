@@ -104,8 +104,8 @@ How does generational GC work, Young vs Old?:: Heap is split by object age (weak
 
 ## Related
 
-- [[Classes]], objects that live on heap
-- [[Object Class]], base of every heap object
+- Classes, objects that live on heap
+- Object Class, base of every heap object
 - [[Java/01_Core-Java/Types/Wrapper Class|Wrapper Class]], boxing moves primitives to heap
 - [[Java/01_Core-Java/Types/Immutable Class|Immutable Class]], GC-friendly, no synchronization on heap
 - [[Java/04_Concurrency/Threads|Threads]], each thread gets its own stack + PC register

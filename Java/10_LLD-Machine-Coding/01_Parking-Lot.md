@@ -143,8 +143,8 @@ The example intentionally focuses on the state transition. A production design w
 
 ## Related concepts
 
-- [[02_OOP/SOLID-Single-Responsibility|Single Responsibility]]
-- [[06_Design-Patterns/Behavioral/Strategy|Strategy]]
-- [[06_Design-Patterns/Creational/Singleton|Singleton]]
+- Single Responsibility
+- Strategy
+- Singleton
 
 > If a related link does not resolve inside this vault, remove it or replace it with a valid local note.

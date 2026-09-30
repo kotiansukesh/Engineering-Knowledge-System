@@ -18,7 +18,7 @@ type: concept
 
 # Builder
 
-> Category: Creational • Source: [Refactoring.Guru , Builder](https://refactoring.guru/design-patterns/builder) • Part of [[Java/README|Java MOC]] → [[06_Design-Patterns/README|Design Patterns MOC]]
+> Category: Creational • Source: [Refactoring.Guru , Builder](https://refactoring.guru/design-patterns/builder) • Part of [[Java/README|Java MOC]] → Design Patterns MOC
 
 ## Why it Matters
 
@@ -115,7 +115,7 @@ Telescoping constructors explode combinatorially and mislead at call sites; stat
 ## Flashcards (Spaced Repetition)
 
 #flashcard
-Creational • Source: [Refactoring.Guru , Builder](https://refactoring.guru/design-patterns/builder) • Part of [[Java/README|Java MOC]] → [[06_Design-Patterns/README|Design Patterns MOC]]
+Creational • Source: [Refactoring.Guru , Builder](https://refactoring.guru/design-patterns/builder) • Part of [[Java/README|Java MOC]] → Design Patterns MOC
 
 ## Why it Matters
 
@@ -216,7 +216,7 @@ limit 10
 
 ## Related
 
-[[06_Design-Patterns/Creational/Abstract Factory|Abstract Factory]] • [[06_Design-Patterns/Creational/Prototype|Prototype]] (copy existing) • [[06_Design-Patterns/Creational/Factory Method|Factory Method]]
+Abstract Factory • Prototype (copy existing) • Factory Method
 
 ---
 

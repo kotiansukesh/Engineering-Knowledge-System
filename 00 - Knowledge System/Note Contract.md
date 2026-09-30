@@ -77,4 +77,4 @@ The validator intentionally exempts:
 
 ## Health
 
-See [[Vault Health]] for diagnostics and review categories.
+See Vault Health for diagnostics and review categories.

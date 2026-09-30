@@ -7,7 +7,7 @@ completed: false
 difficulty: "Advanced"
 reviewed: "2026-09-30"
 sr-due: "2026-10-07"
-type: "note"
+type: concept
 ---
 
 # Structured Concurrency
@@ -130,7 +130,7 @@ The scope provides lifecycle structure while virtual threads make large numbers 
 ## Related
 
 - [[README|Core Java]]
-- [[../04_Concurrency/README|Concurrency]]
-- [[../04_Concurrency/Threads|Threads]]
-- [[../08_Modern-Java/06 ScopedValue|Scoped Values]]
-- [[../00_Java-25-Overview/Whats New in Java 25|What is New in Java 25]]
+- [[Java/01_Core-Java/../04_Concurrency/README|Concurrency]]
+- [[Java/01_Core-Java/../04_Concurrency/Threads|Threads]]
+- [[Java/01_Core-Java/../08_Modern-Java/06 ScopedValue|Scoped Values]]
+- [[Java/01_Core-Java/../00_Java-25-Overview/Whats New in Java 25|What is New in Java 25]]

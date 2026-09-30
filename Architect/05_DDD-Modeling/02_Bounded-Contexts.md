@@ -75,7 +75,7 @@ package fulfilment; record Order(long id, Address shipTo, List<Parcel> parcels) 
 // Modules depend on each other's API, never internals:
 // com.shop.sales.api.SalesOrderApi ↔ com.shop.fulfilment.internal.* (forbidden — ArchUnit/Spring Modulith)
 ```
-Physical mapping: package/module per context in a monolith; service per context in microservices (→ [[03_Context-Mapping]] for how they talk).
+Physical mapping: package/module per context in a monolith; service per context in microservices (→ 03_Context-Mapping for how they talk).
 
 ## When to use / not
 
@@ -92,16 +92,16 @@ Physical mapping: package/module per context in a monolith; service per context 
 ## Trade-offs
 | Dimension | This Approach | Alternative | Trade-off Rationale | Decision Rule |
 |-----------|---------------|-------------|---------------------|---------------|
-| Complexity | [TBD] | [TBD] | [TBD] | [TBD] |
-| Operational Burden | [TBD] | [TBD] | [TBD] | [TBD] |
-| Latency | [TBD] | [TBD] | [TBD] | [TBD] |
-| Consistency | [TBD] | [TBD] | [TBD] | [TBD] |
-| Cost at Scale | [TBD] | [TBD] | [TBD] | [TBD] |
+| Complexity | Not specified | Not specified | Not specified | Not specified |
+| Operational Burden | Not specified | Not specified | Not specified | Not specified |
+| Latency | Not specified | Not specified | Not specified | Not specified |
+| Consistency | Not specified | Not specified | Not specified | Not specified |
+| Cost at Scale | Not specified | Not specified | Not specified | Not specified |
 
 ## Vs
 
 - **Vs namespaces/packages:** a package is a *code* grouping; a bounded context is a *language + ownership + persistence* boundary. Packages implement contexts; they aren't contexts by themselves.
-- **Vs [[03_Architecture-Styles/03_Microservices|microservice]]:** 1 context : N services is fine (scale split); N contexts : 1 service is the distributed-monolith smell.
+- **Vs microservice:** 1 context : N services is fine (scale split); N contexts : 1 service is the distributed-monolith smell.
 
 ## Pitfalls
 
@@ -125,7 +125,7 @@ Physical mapping: package/module per context in a monolith; service per context 
 A: Translation arguments in reviews, `OrderV2ForWarehouse`, booleans like `isForReturns`, two teams blocking each other on one PR.
 
 **Q: Shared kernel or duplicate the model?**
-A: Duplicate across contexts (sync via [[05_Domain-Events|events]]); share only tiny stable value objects (Money, IDs), and even those versioned.
+A: Duplicate across contexts (sync via events); share only tiny stable value objects (Money, IDs), and even those versioned.
 
 
 ## Flashcards (Spaced Repetition)
@@ -191,7 +191,7 @@ limit 10
 
 ## Related
 
-- [[01_Strategic-DDD]] · [[03_Context-Mapping]] · [[05_Domain-Events]] · [[03_Architecture-Styles/06_Monolith-vs-Modular-Choice-Guide|Choice Guide]]
+- 01_Strategic-DDD · 03_Context-Mapping · 05_Domain-Events · Choice Guide
 
 # Bounded Contexts
 

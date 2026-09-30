@@ -15,7 +15,7 @@ sr-due: "2026-09-30"
 source: ""
 excalidraw: ""
 weeks: "2"
-type: "note"
+type: concept
 ---
 
 # 12_Vector Similarity
@@ -104,16 +104,16 @@ config = 12_VectorSimilarityConfig()
 ## Flashcards (Spaced Repetition)
 
 #flashcard
-**Q:** What is the trigger keyword for 12_Vector Similarity? :: **A:** [trigger keywords] #flashcard
+**Q:** What is the trigger keyword for 12_Vector Similarity? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** Key hyperparameter for 12_Vector Similarity? :: **A:** [hyperparameter + typical range] #flashcard
+**Q:** Key hyperparameter for 12_Vector Similarity? :: **A:** Not specified #flashcard
 
 #flashcard
 **Q:** When do you NOT use 12_Vector Similarity? :: **A:** [anti-pattern scenarios] #flashcard
 
 #flashcard
-**Q:** Cost order of magnitude for 12_Vector Similarity? :: **A:** [GPU hours / $ per 1M tokens] #flashcard
+**Q:** Cost order of magnitude for 12_Vector Similarity? :: **A:** Not specified #flashcard
 
 ## Practice Tasks (Tasks Plugin)
 - [ ] Restate the intent from memory 📅 2026-09-30
@@ -130,7 +130,7 @@ limit 10
 
 ## Related
 - [[README|AI MOC]]
-- [[01_Fundamentals/README|01_Fundamentals Folder]]
+- 01_Fundamentals Folder
 
 ---
 

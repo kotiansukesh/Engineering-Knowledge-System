@@ -17,7 +17,7 @@ type: concept
 
 ## Why it Matters
 
-A **queue** is an abstract data type with **First-In-First-Out (FIFO)** semantics. Elements are added at the **rear (tail)** and removed from the **front (head)**. Can be implemented with an [[Array]] (circular buffer, amortised O(1)) or a [[Linked List]] (guaranteed O(1) with head/tail pointers).
+A **queue** is an abstract data type with **First-In-First-Out (FIFO)** semantics. Elements are added at the **rear (tail)** and removed from the **front (head)**. Can be implemented with an Array (circular buffer, amortised O(1)) or a Linked List (guaranteed O(1) with head/tail pointers).
 
 | Operation | Meaning | List mapping |
 |---|---|---|
@@ -115,7 +115,7 @@ When to use `BlockingQueue`?:: Producer-consumer across threads, `put()` blocks 
 
 ## Related
 
-- [[Java/07_DSA/Stack|Stack]] • [[Array]] • [[Linked List]] • [[Java/07_DSA/HashMap|HashMap (DSA)]]
+- [[Java/07_DSA/Stack|Stack]] • Array • Linked List • [[Java/07_DSA/HashMap|HashMap (DSA)]]
 - [[README|Java MOC]]
 
 # Queue (DSA)

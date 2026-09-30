@@ -176,7 +176,7 @@ Use the implementation above as the base case. Extend it only after the invarian
 
 ## Related
 
-- [[01_Array/01 - Prefix Sum|Prefix Sum]] (hashmap on prefix sums for subarray sum = k)
-- [[01_Array/03 - Sliding Window|Sliding Window]] (frequency map inside variable window)
-- [[03_Stack_Heap/02 - Top K Elements|Top K Elements]] (frequency + heap)
+- Prefix Sum (hashmap on prefix sums for subarray sum = k)
+- Sliding Window (frequency map inside variable window)
+- Top K Elements (frequency + heap)
 - [[Java/07_DSA/Array]] · [[Java/07_DSA/HashMap]]

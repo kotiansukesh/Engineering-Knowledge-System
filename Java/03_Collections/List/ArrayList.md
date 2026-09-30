@@ -10,7 +10,7 @@ reviewed: "2026-09-29"
 sr-due: "2026-10-06"
 source: ""
 excalidraw: ""
-type: "note"
+type: concept
 ---
 
 # ArrayList
@@ -101,7 +101,7 @@ var imm = List.of("a","b","c");
 ## Flashcards (Spaced Repetition)
 
 #flashcard
-**Q:** What is the trigger keyword for ArrayList? :: **A:** [trigger keywords] #flashcard
+**Q:** What is the trigger keyword for ArrayList? :: **A:** Not specified #flashcard
 
 #flashcard
 **Q:** Time/space complexity of ArrayList? :: **A:** Time: O(), Space: O() #flashcard

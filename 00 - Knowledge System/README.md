@@ -18,16 +18,16 @@ A note explains a concept. Practice tests recognition and implementation. Eviden
 
 ## System components
 
-- [[Knowledge Model]] — canonical concepts and note types.
-- [[Note Contract]] — metadata and structural contract.
-- [[Learning Graph]] — prerequisites and cross-domain relationships.
-- [[Cross Domain Map]] — concepts that connect Java, patterns, AI and architecture.
-- [[Evidence Model]] — what counts as evidence.
-- [[Review System]] — spaced review and mastery.
-- [[Failure Engineering]] — systematic failure analysis.
-- [[Decision Notes]] — reusable engineering decisions.
-- [[Agent Workflow]] — instructions for AI-assisted work.
-- [[Maintenance Guide]] — how to keep the vault healthy.
+- Knowledge Model — canonical concepts and note types.
+- Note Contract — metadata and structural contract.
+- Learning Graph — prerequisites and cross-domain relationships.
+- Cross Domain Map — concepts that connect Java, patterns, AI and architecture.
+- Evidence Model — what counts as evidence.
+- Review System — spaced review and mastery.
+- Failure Engineering — systematic failure analysis.
+- Decision Notes — reusable engineering decisions.
+- Agent Workflow — instructions for AI-assisted work.
+- Maintenance Guide — how to keep the vault healthy.
 
 ## Four domains
 

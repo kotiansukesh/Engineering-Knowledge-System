@@ -167,7 +167,7 @@ AOT / native image for JPA?:: Boot's AOT generates entity reflection hints at bu
 
 ## Related
 
-- [[Spring Framework]] • [[Spring Core]] • [[Spring Transaction]] • [[Spring Boot]] • [[Spring MVC]] • [[Threads]]
+- Spring Framework • Spring Core • Spring Transaction • Spring Boot • Spring MVC • Threads
 - [[README|Java MOC]]
 
 ---

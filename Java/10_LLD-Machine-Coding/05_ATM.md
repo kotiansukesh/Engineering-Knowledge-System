@@ -24,7 +24,7 @@ type: concept
 
 ## Diagram
 
-![[_attachments/atm-class-diagram.png]]
+!_attachments/atm-class-diagram.png
 *Source: [awesome-low-level-design](https://github.com/ashishps1/awesome-low-level-design) , use alongside the class table above.*
 *Runtime flow: card session states.*
 ```mermaid
@@ -97,10 +97,10 @@ class ATMDemo {
 
 ## Vs
 
-- **Vs [[02_Vending-Machine|Vending Machine]]:** identical state-machine shape, opposite money direction, vending *accepts* cash and dispenses a product; the ATM *dispenses* cash and debits a remote ledger. The ATM's product and its cash inventory are the same physical resource, which is why its failure modes are worse.
-- **Vs [[17_Coffee-Vending-Machine|Coffee Vending Machine]]:** both are machines with states and inventory, but the coffee machine's inventory is a set of *ingredients* consumed in combination, while the ATM's is denominations of one thing it must *give out* — no ingredient mixing, but a harder partial-failure story.
-- **Vs [[12_Movie-Ticket-Booking|Movie Ticket Booking]]:** both hold-then-confirm, but a seat hold expires by timeout while a cash withdrawal is one atomic transaction with no lease; the ATM has no "hold" phase because cash cannot be reserved and returned later.
-- **Vs [[05_ATM|online banking]]:** the ATM is a *hardware-attached* client of bank services, cash inventory and physical failure modes are in scope; a pure online banking API has no dispenser and no card slot, so the state machine collapses to auth + ledger.
+- **Vs Vending Machine:** identical state-machine shape, opposite money direction, vending *accepts* cash and dispenses a product; the ATM *dispenses* cash and debits a remote ledger. The ATM's product and its cash inventory are the same physical resource, which is why its failure modes are worse.
+- **Vs Coffee Vending Machine:** both are machines with states and inventory, but the coffee machine's inventory is a set of *ingredients* consumed in combination, while the ATM's is denominations of one thing it must *give out* — no ingredient mixing, but a harder partial-failure story.
+- **Vs Movie Ticket Booking:** both hold-then-confirm, but a seat hold expires by timeout while a cash withdrawal is one atomic transaction with no lease; the ATM has no "hold" phase because cash cannot be reserved and returned later.
+- **Vs online banking:** the ATM is a *hardware-attached* client of bank services, cash inventory and physical failure modes are in scope; a pure online banking API has no dispenser and no card slot, so the state machine collapses to auth + ledger.
 - **Vs a distributed two-phase commit:** the ATM cannot atomally commit "cash out" with "ledger debit" across a machine and a bank; it uses a journal + reconciliation instead. XA/2PC would give atomicity at the cost of availability and much higher latency.
 
 ## Pitfalls
@@ -124,12 +124,12 @@ Why Facade + State together?:: Facade gives one simple client API; State keeps e
 
 ## Related
 
-- [[06_Design-Patterns/Behavioral/State\|State]], [[06_Design-Patterns/Structural/Facade\|Facade]], [[02_OOP/SOLID-Single-Responsibility\|SRP]]
+- State, Facade, SRP
 - Source: [awesome-low-level-design](https://github.com/ashishps1/awesome-low-level-design)
 
 # ATM
 
-> Part of [[README|Java MOC]] -> [[10_LLD-Machine-Coding/README|LLD MOC]]
+> Part of [[README|Java MOC]] -> LLD MOC
 
 ## Requirements
 
@@ -141,8 +141,8 @@ Why Facade + State together?:: Facade gives one simple client API; State keeps e
 
 | Class | Role | Pattern |
 |---|---|---|
-| `ATM` (facade) | `insertCard/pin/withdraw/eject`, owns state + services | [[06_Design-Patterns/Structural/Facade\|Facade]], [[06_Design-Patterns/Creational/Singleton\|Singleton]] |
-| `AtmState` / `Idle` / `CardInserted` / `Authenticated` | per-state transition rules | [[06_Design-Patterns/Behavioral/State\|State]] |
+| `ATM` (facade) | `insertCard/pin/withdraw/eject`, owns state + services | Facade, Singleton |
+| `AtmState` / `Idle` / `CardInserted` / `Authenticated` | per-state transition rules | State |
 | `BankService` | auth + balance + ledger (external system seam) | , |
 | `CashDispenser` | denomination breakdown of inventory | , |
 

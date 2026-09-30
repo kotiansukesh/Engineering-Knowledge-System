@@ -191,6 +191,6 @@ Start with the core implementation. Introduce a variant only when the problem ch
 
 ## Related
 
-- [[03_Stack_Heap/01 - Monotonic Stack|Monotonic Stack]] (different stack/heap pattern)
-- [[07_Backtracking_DP/02 - Dynamic Programming|Dynamic Programming]] (knapsack variants use different DP)
+- Monotonic Stack (different stack/heap pattern)
+- Dynamic Programming (knapsack variants use different DP)
 - [[Java/07_DSA/Heap]] · [[Java/07_DSA/HashMap]]

@@ -114,11 +114,11 @@ Do not mark a phase complete until you can:
 - connect it to a real backend problem.
 
 ## Related
-- [[LTS Evolution 8 to 25]]
-- [[Whats New in Java 25]]
-- [[Realistic Roadmap]]
-- [[../01_Core-Java/README|Core Java]]
-- [[../04_Concurrency/README|Concurrency]]
-- [[../11_JVM-Performance/README|JVM & Performance]]
-- [[../12_Testing-Tooling/README|Testing & Tooling]]
-- [[../99_Revision/Study-Plan|Study Plan]]
+- LTS Evolution 8 to 25
+- Whats New in Java 25
+- Realistic Roadmap
+- [[Java/00_Java-25-Overview/../01_Core-Java/README|Core Java]]
+- [[Java/00_Java-25-Overview/../04_Concurrency/README|Concurrency]]
+- [[Java/00_Java-25-Overview/../11_JVM-Performance/README|JVM & Performance]]
+- [[Java/00_Java-25-Overview/../12_Testing-Tooling/README|Testing & Tooling]]
+- [[Java/00_Java-25-Overview/../99_Revision/Study-Plan|Study Plan]]

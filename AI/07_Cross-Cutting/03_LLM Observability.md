@@ -95,7 +95,7 @@ async def chat(model: str, messages: list[dict]) -> str:
 Prompt (+ filtered PII), MCP/tool args + latency, retrieved `doc_ids` + precision@k, LLM model/tokens/cost, answer + citations, judge score. All as OTel spans.
 
 **Q: How to alert on drift?**
-Prometheus alert: `avg(faithfulness) by (model) < 0.85` over 1h → page + auto-fallback routing (see [[06_Multi-Model Routing|Routing]]).
+Prometheus alert: `avg(faithfulness) by (model) < 0.85` over 1h → page + auto-fallback routing (see Routing).
 
 **Q: PII in traces?**
 Redact before export — middleware that strips `email/ssn` from spans; Langfuse scrub + retention policy.
@@ -103,16 +103,16 @@ Redact before export — middleware that strips `email/ssn` from spans; Langfuse
 ## Flashcards (Spaced Repetition)
 
 #flashcard
-**Q:** What is the trigger keyword for LLM Observability? :: **A:** [trigger keywords] #flashcard
+**Q:** What is the trigger keyword for LLM Observability? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** Key hyperparameter for LLM Observability? :: **A:** [hyperparameter + typical range] #flashcard
+**Q:** Key hyperparameter for LLM Observability? :: **A:** Not specified #flashcard
 
 #flashcard
 **Q:** When do you NOT use LLM Observability? :: **A:** [anti-pattern scenarios] #flashcard
 
 #flashcard
-**Q:** Cost order of magnitude for LLM Observability? :: **A:** [GPU hours / $ per 1M tokens] #flashcard
+**Q:** Cost order of magnitude for LLM Observability? :: **A:** Not specified #flashcard
 
 ## Practice Tasks (Tasks Plugin)
 - [ ] Restate the intent from memory 📅 2026-09-30
@@ -129,7 +129,7 @@ limit 10
 
 ## Related
 - [[README|AI MOC]]
-- [[07_Cross-Cutting/README|07_Cross-Cutting Folder]]
+- 07_Cross-Cutting Folder
 
 ---
 

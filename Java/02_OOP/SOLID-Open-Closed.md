@@ -84,7 +84,7 @@ void main() {
 
 - Use at **volatility hotspots** , pricing, shipping, validation rules, payment methods , where new variants arrive.
 - Use when a new variant should mean **one new class + one registration line**, zero edits to working code.
-- NOT for two cases that never change , a plain conditional is cheaper (see [[Pragmatic-Principles-DRY-YAGNI-KISS\|YAGNI]]).
+- NOT for two cases that never change , a plain conditional is cheaper (see YAGNI).
 - NOT when the axis of change is unknown , speculative strategy frameworks for imaginary variants are cost without benefit.
 
 ## Trade-offs
@@ -118,10 +118,10 @@ A: YAGNI says don't abstract for one variant; OCP says don't edit working code f
 
 ## Related
 
-- [[SOLID-Single-Responsibility]] • [[SOLID-Liskov-Substitution]] • [[SOLID-Dependency-Inversion]]
-- [[Pragmatic-Principles-DRY-YAGNI-KISS]]
-- [[06_Design-Patterns/Behavioral/Strategy|Strategy]] • [[06_Design-Patterns/Creational/Factory Method|Factory Method]] • [[06_Design-Patterns/Behavioral/Template Method|Template Method]]
-- [[02_OOP/Polymorphism|Polymorphism]] • [[02_OOP/Inheritance|Inheritance]]
+- SOLID-Single-Responsibility • SOLID-Liskov-Substitution • SOLID-Dependency-Inversion
+- Pragmatic-Principles-DRY-YAGNI-KISS
+- Strategy • Factory Method • Template Method
+- Polymorphism • Inheritance
 
 ---
 *Category: Java/02_OOP*
@@ -139,7 +139,7 @@ Open for extension, closed for modification , Bertrand Meyer: *"Software entitie
 
 - Switching on type for real domain concepts (payment methods, discount rules) instead of introducing a `PaymentMethod`/`Discount` interface.
 - Modifying tested, working code to bolt on variant N instead of adding a new class + registration.
-- Speculative abstraction for a single variant , building the whole strategy hierarchy before the second case exists (YAGNI; see [[Pragmatic-Principles-DRY-YAGNI-KISS]]).
+- Speculative abstraction for a single variant , building the whole strategy hierarchy before the second case exists (YAGNI; see Pragmatic-Principles-DRY-YAGNI-KISS).
 
 ## Self-Check
 

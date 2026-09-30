@@ -155,7 +155,7 @@ When to choose WebFlux over MVC + virtual threads?:: Streaming/SSE, backpressure
 
 ## Related
 
-- [[Spring Boot]] • [[Spring Framework]] • [[Spring Core]] • [[Spring Data JPA]] • [[Spring Security]] • [[Threads]]
+- Spring Boot • Spring Framework • Spring Core • Spring Data JPA • Spring Security • Threads
 - [[README|Java MOC]]
 
 ---

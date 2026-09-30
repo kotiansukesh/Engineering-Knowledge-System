@@ -10,7 +10,7 @@ reviewed: "2026-09-29"
 sr-due: "2026-10-06"
 source: ""
 excalidraw: ""
-type: "note"
+type: concept
 ---
 
 # Set
@@ -110,7 +110,7 @@ a.retainAll(b);
 ## Flashcards (Spaced Repetition)
 
 #flashcard
-**Q:** What is the trigger keyword for Set? :: **A:** [trigger keywords] #flashcard
+**Q:** What is the trigger keyword for Set? :: **A:** Not specified #flashcard
 
 #flashcard
 **Q:** Time/space complexity of Set? :: **A:** Time: O(), Space: O() #flashcard

@@ -191,7 +191,7 @@ Use the implementation above as the base case. Extend it only after the invarian
 
 ## Related
 
-- [[01_Array/01 - Prefix Sum|Prefix Sum]] (fixed-k sums, alternative for static arrays)
-- [[01_Array/04 - Frequency Counting|Frequency Counting]] (hashmap on window for variable windows)
-- [[01_Array/02 - Two Pointers|Two Pointers]] (two pointers move inward; window moves forward)
+- Prefix Sum (fixed-k sums, alternative for static arrays)
+- Frequency Counting (hashmap on window for variable windows)
+- Two Pointers (two pointers move inward; window moves forward)
 - [[Java/07_DSA/Array]] · [[Java/07_DSA/HashMap]]

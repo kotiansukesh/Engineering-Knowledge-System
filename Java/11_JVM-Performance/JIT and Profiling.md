@@ -5,7 +5,7 @@ tags: [java, jvm, jit, profiling, jfr]
 created: "2026-09-30"
 completed: false
 difficulty: "Advanced"
-type: "note"
+type: concept
 ---
 
 # JIT and Profiling

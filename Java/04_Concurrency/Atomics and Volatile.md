@@ -102,10 +102,10 @@ When does `StructuredTaskScope` replace atomics?:: For *scoped* results (one req
 
 ## Related
 
-- [[Threads]], JMM happens-before, virtual threads, ScopedValue
-- [[Locks and Synchronizers]], when CAS is insufficient (multi-variable invariants)
-- [[Concurrent Collections]], `ConcurrentHashMap` bins use CAS + `synchronized`
-- [[Executor Framework]], executors sharing atomic counters/metrics
+- Threads, JMM happens-before, virtual threads, ScopedValue
+- Locks and Synchronizers, when CAS is insufficient (multi-variable invariants)
+- Concurrent Collections, `ConcurrentHashMap` bins use CAS + `synchronized`
+- Executor Framework, executors sharing atomic counters/metrics
 
 # Atomics and Volatile
 

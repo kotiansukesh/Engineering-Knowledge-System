@@ -18,11 +18,11 @@ type: concept
 
 ## Why it Matters
 
-A **HashMap / Hash Table** is a **[[Map]]** implementation that maps **keys → values** via a **hash function**: `index = hash(key) % capacity`. It provides expected O(1) `get`/`put`/`remove` by indexing into an array of **buckets**, each holding a chain (linked list / tree) for collisions.
+A **HashMap / Hash Table** is a **Map** implementation that maps **keys → values** via a **hash function**: `index = hash(key) % capacity`. It provides expected O(1) `get`/`put`/`remove` by indexing into an array of **buckets**, each holding a chain (linked list / tree) for collisions.
 
 - **Hashing**, `hash(key)` → integer → bucket index. Good hash spreads keys uniformly.
 
-![[Pasted image 20230727120429.png]]
+!Pasted image 20230727120429.png
 
 ## Diagram
 
@@ -117,7 +117,7 @@ Time complexity of resize?:: O(n) to rehash all entries; amortised O(1) per `put
 
 ## Related
 
-- [[Array]] • [[Linked List]] • [[Trees]] (bucket tree)
+- Array • Linked List • Trees (bucket tree)
 - [[README|Java MOC]]
 
 # HashMap (DSA)

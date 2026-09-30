@@ -106,6 +106,6 @@ Contract between `equals` and `hashCode`?:: Equal objects *must* have equal hash
 
 ## Related
 
-- [[Classes]]
+- Classes
 - [[Java/01_Core-Java/Types/Wrapper Class|Wrapper Class]]
 - [[Java/01_Core-Java/Types/Immutable Class|Immutable Class]], `equals`/`hashCode` for immutable keys

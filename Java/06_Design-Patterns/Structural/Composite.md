@@ -18,7 +18,7 @@ type: concept
 
 # Composite
 
-> Category: Structural • Source: [Refactoring.Guru , Composite](https://refactoring.guru/design-patterns/composite) • Part of [[Java/README|Java MOC]] → [[06_Design-Patterns/README|Design Patterns MOC]]
+> Category: Structural • Source: [Refactoring.Guru , Composite](https://refactoring.guru/design-patterns/composite) • Part of [[Java/README|Java MOC]] → Design Patterns MOC
 
 ## Why it Matters
 
@@ -126,7 +126,7 @@ Transparency (add/remove on the shared interface) treats everything uniformly bu
 ## Flashcards (Spaced Repetition)
 
 #flashcard
-Structural • Source: [Refactoring.Guru , Composite](https://refactoring.guru/design-patterns/composite) • Part of [[Java/README|Java MOC]] → [[06_Design-Patterns/README|Design Patterns MOC]]
+Structural • Source: [Refactoring.Guru , Composite](https://refactoring.guru/design-patterns/composite) • Part of [[Java/README|Java MOC]] → Design Patterns MOC
 
 ## Why it Matters
 
@@ -238,7 +238,7 @@ limit 10
 
 ## Related
 
-[[06_Design-Patterns/Structural/Decorator|Decorator]] (wrap vs contain) • [[06_Design-Patterns/Behavioral/Visitor|Visitor]] (operations over the tree) • [[06_Design-Patterns/Behavioral/Iterator|Iterator]] (traversal)
+Decorator (wrap vs contain) • Visitor (operations over the tree) • Iterator (traversal)
 
 ---
 

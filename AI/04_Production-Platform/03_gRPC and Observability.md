@@ -106,16 +106,16 @@ message DocumentList {
 ## Flashcards (Spaced Repetition)
 
 #flashcard
-**Q:** What is the trigger keyword for gRPC and Observability (C5–C7)? :: **A:** [trigger keywords] #flashcard
+**Q:** What is the trigger keyword for gRPC and Observability (C5–C7)? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** Key hyperparameter for gRPC and Observability (C5–C7)? :: **A:** [hyperparameter + typical range] #flashcard
+**Q:** Key hyperparameter for gRPC and Observability (C5–C7)? :: **A:** Not specified #flashcard
 
 #flashcard
 **Q:** When do you NOT use gRPC and Observability (C5–C7)? :: **A:** [anti-pattern scenarios] #flashcard
 
 #flashcard
-**Q:** Cost order of magnitude for gRPC and Observability (C5–C7)? :: **A:** [GPU hours / $ per 1M tokens] #flashcard
+**Q:** Cost order of magnitude for gRPC and Observability (C5–C7)? :: **A:** Not specified #flashcard
 
 ## Practice Tasks (Tasks Plugin)
 - [ ] Restate the intent from memory 📅 2026-09-30
@@ -132,7 +132,7 @@ limit 10
 
 ## Related
 - [[README|AI MOC]]
-- [[04_Production-Platform/README|04_Production-Platform Folder]]
+- 04_Production-Platform Folder
 
 ---
 

@@ -94,7 +94,7 @@ graph TD
 ## Vs
 
 - **Vs naive `@Retryable`:** Spring Retry alone retries forever into an outage; the breaker *stops calling* and lets the downstream recover.
-- **Vs [[04_Event-Driven-Architecture|going async]]:** async + queue is the deeper fix for overload; resilience patterns are the sync-call seatbelt.
+- **Vs going async:** async + queue is the deeper fix for overload; resilience patterns are the sync-call seatbelt.
 
 
 
@@ -104,11 +104,11 @@ graph TD
 ## Trade-offs
 | Dimension | This Approach | Alternative | Trade-off Rationale | Decision Rule |
 |-----------|---------------|-------------|---------------------|---------------|
-| Complexity | [TBD] | [TBD] | [TBD] | [TBD] |
-| Operational Burden | [TBD] | [TBD] | [TBD] | [TBD] |
-| Latency | [TBD] | [TBD] | [TBD] | [TBD] |
-| Consistency | [TBD] | [TBD] | [TBD] | [TBD] |
-| Cost at Scale | [TBD] | [TBD] | [TBD] | [TBD] |
+| Complexity | Not specified | Not specified | Not specified | Not specified |
+| Operational Burden | Not specified | Not specified | Not specified | Not specified |
+| Latency | Not specified | Not specified | Not specified | Not specified |
+| Consistency | Not specified | Not specified | Not specified | Not specified |
+| Cost at Scale | Not specified | Not specified | Not specified | Not specified |
 
 ## Pitfalls
 
@@ -201,7 +201,7 @@ limit 10
 
 ## Related
 
-- [[03_Architecture-Styles/03_Microservices|Microservices]] · [[01_Enterprise-Patterns]]
+- Microservices · 01_Enterprise-Patterns
 
 # Resilience — Circuit Breaker, Retry, Bulkhead, Timeout
 

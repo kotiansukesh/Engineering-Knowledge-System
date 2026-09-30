@@ -13,9 +13,9 @@ completed: false
 
 ## Topics
 
-- [[JUnit 5|JUnit 5]] — unit-test structure, parameterized tests and assertions.
-- [[Testcontainers|Testcontainers]] — realistic integration tests against disposable dependencies.
-- [[Maven and Gradle|Maven and Gradle]] — build lifecycle, dependency management and reproducibility.
+- JUnit 5 — unit-test structure, parameterized tests and assertions.
+- Testcontainers — realistic integration tests against disposable dependencies.
+- Maven and Gradle — build lifecycle, dependency management and reproducibility.
 
 ## Testing Pyramid for Backend Java
 
@@ -25,6 +25,6 @@ The correct mix depends on architecture and failure modes.
 
 ## Related
 
-- [[../05_Spring/README|Spring]]
-- [[../11_JVM-Performance/README|JVM & Performance]]
-- [[../README|Java MOC]]
+- [[Java/12_Testing-Tooling/../05_Spring/README|Spring]]
+- [[Java/12_Testing-Tooling/../11_JVM-Performance/README|JVM & Performance]]
+- [[Java/12_Testing-Tooling/../README|Java MOC]]

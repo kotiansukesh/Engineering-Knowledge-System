@@ -25,7 +25,7 @@ type: concept
 
 ## Diagram
 
-![[_attachments/pubsubsystem-class-diagram.png]]
+!_attachments/pubsubsystem-class-diagram.png
 *Source: [awesome-low-level-design](https://github.com/ashishps1/awesome-low-level-design) , use alongside the class table above.*
 *Runtime flow: publish fans out to topic subscribers.*
 ```mermaid
@@ -86,11 +86,11 @@ public class PubSubDemo {
 
 ## Vs
 
-- **Vs [[03_Logging-Framework|Logging Framework]]:** logging fans one event to many *appenders* in-process with fire-and-forget; pub-sub decouples *independent services* with durable logs, offsets, and replay. Same observer shape, different delivery contract and durability.
+- **Vs Logging Framework:** logging fans one event to many *appenders* in-process with fire-and-forget; pub-sub decouples *independent services* with durable logs, offsets, and replay. Same observer shape, different delivery contract and durability.
 - **Vs the Observer pattern:** Observer is in-process, synchronous-ish, and typically coupled to the subject's lifetime; pub-sub adds a broker, a topic namespace, and independent consumer lifecycles. The names are routinely conflated, the distinguishing feature is the intermediary.
 - **Vs a direct method call / REST:** a call answers a value and fails loudly to the caller; pub-sub cannot answer and hides consumer failure from the publisher. Choose by whether the caller needs a result.
-- **Vs [[06_LRU-Cache|LRU Cache]]:** a topic is an append-only log that *keeps* entries for replay; an LRU is a bounded store that *silently drops* the least recently used. Durable history vs capacity-bounded present.
-- **Vs [[04_Stack-Overflow|Stack Overflow]] badges:** the badge observer is a one-to-few in-process fan-out with no durability; a pub-sub topic is the same fan-out with per-subscriber offsets, backpressure, and crash recovery.
+- **Vs LRU Cache:** a topic is an append-only log that *keeps* entries for replay; an LRU is a bounded store that *silently drops* the least recently used. Durable history vs capacity-bounded present.
+- **Vs Stack Overflow badges:** the badge observer is a one-to-few in-process fan-out with no durability; a pub-sub topic is the same fan-out with per-subscriber offsets, backpressure, and crash recovery.
 
 ## Pitfalls
 
@@ -114,12 +114,12 @@ In-memory fan-out vs real message queue (Kafka/RabbitMQ) tradeoff?:: In-memory i
 
 ## Related
 
-- [[06_Design-Patterns/Behavioral/Observer|Observer]] (subscribe/notify core) · [[06_Design-Patterns/Behavioral/Mediator|Mediator]] (broker decoupling publishers/subscribers) · [[06_Design-Patterns/Creational/Singleton|Singleton]] (single broker instance)
+- Observer (subscribe/notify core) · Mediator (broker decoupling publishers/subscribers) · Singleton (single broker instance)
 - Source: [awesome-low-level-design](https://github.com/ashishps1/awesome-low-level-design)
 
 # Pub-Sub System
 
-> Part of [[README|Java MOC]] -> [[10_LLD-Machine-Coding/README|LLD MOC]]
+> Part of [[README|Java MOC]] -> LLD MOC
 
 ## Requirements
 

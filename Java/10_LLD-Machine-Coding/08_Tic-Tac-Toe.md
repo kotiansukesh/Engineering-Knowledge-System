@@ -25,7 +25,7 @@ type: concept
 
 ## Diagram
 
-![[_attachments/tictactoe-class-diagram.png]]
+!_attachments/tictactoe-class-diagram.png
 *Source: [awesome-low-level-design](https://github.com/ashishps1/awesome-low-level-design) , use alongside the class table above.*
 *Runtime flow: alternate moves, O(1) win check per row/col/diag counter.*
 ```mermaid
@@ -94,11 +94,11 @@ public class TicTacToeDemo {
 
 ## Vs
 
-- **Vs [[10_Chess-Game|Chess Game]]:** tic-tac-toe has *uniform* pieces (every move is a mark) and no capture or movement rules, so validation is "cell empty"; chess has a per-piece rule hierarchy and capture, which changes validation from a guard into a polymorphic method per piece.
-- **Vs [[14_Snake-and-Ladder|Snake and Ladder]]:** tic-tac-toe is *pure strategy* — every move is chosen; snake-and-ladder is *pure chance* — the move is a dice roll and the player chooses nothing. Strategy games need a decision seam; chance games need an injectable RNG for testable determinism.
-- **Vs [[14_Snake-and-Ladder|Snake and Ladder]] (shared turn loop):** both own an alternating turn loop and a terminal condition; the difference is *who decides* — the player or the dice.
-- **Vs [[15_Task-Management-System|Task Management System]]:** a task board is a grid of states with legal transitions (TODO → IN_PROGRESS → DONE) and *no* terminal win condition; tic-tac-toe's board owns rules that *end the game*. Both model a grid; only one has a victory condition.
-- **Vs [[02_Vending-Machine|Vending Machine]]:** both reject invalid operations (move on a taken cell / select without money); the difference is that a game's validity depends on *game state*, while a vending machine's depends on *transaction state*. Same guard pattern, different state owner.
+- **Vs Chess Game:** tic-tac-toe has *uniform* pieces (every move is a mark) and no capture or movement rules, so validation is "cell empty"; chess has a per-piece rule hierarchy and capture, which changes validation from a guard into a polymorphic method per piece.
+- **Vs Snake and Ladder:** tic-tac-toe is *pure strategy* — every move is chosen; snake-and-ladder is *pure chance* — the move is a dice roll and the player chooses nothing. Strategy games need a decision seam; chance games need an injectable RNG for testable determinism.
+- **Vs Snake and Ladder (shared turn loop):** both own an alternating turn loop and a terminal condition; the difference is *who decides* — the player or the dice.
+- **Vs Task Management System:** a task board is a grid of states with legal transitions (TODO → IN_PROGRESS → DONE) and *no* terminal win condition; tic-tac-toe's board owns rules that *end the game*. Both model a grid; only one has a victory condition.
+- **Vs Vending Machine:** both reject invalid operations (move on a taken cell / select without money); the difference is that a game's validity depends on *game state*, while a vending machine's depends on *transaction state*. Same guard pattern, different state owner.
 
 ## Pitfalls
 
@@ -121,12 +121,12 @@ Counter tradeoff vs scanning the board?:: Counters give O(1) win checks but only
 
 ## Related
 
-- [[06_Design-Patterns/Behavioral/State|State]] (game lifecycle) · [[06_Design-Patterns/Behavioral/Strategy|Strategy]] (human vs bot move strategies) · [[06_Design-Patterns/Creational/Factory Method|Factory Method]] (player creation)
+- State (game lifecycle) · Strategy (human vs bot move strategies) · Factory Method (player creation)
 - Source: [awesome-low-level-design](https://github.com/ashishps1/awesome-low-level-design)
 
 # Tic-Tac-Toe
 
-> Part of [[README|Java MOC]] -> [[10_LLD-Machine-Coding/README|LLD MOC]]
+> Part of [[README|Java MOC]] -> LLD MOC
 
 ## Requirements
 

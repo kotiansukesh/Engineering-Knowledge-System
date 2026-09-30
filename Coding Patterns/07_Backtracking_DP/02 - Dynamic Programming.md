@@ -193,7 +193,7 @@ Start with the core implementation. Introduce a variant only when the required s
 
 ## Related
 
-- [[07_Backtracking_DP/01 - Backtracking|Backtracking]] (DP = backtracking + memo)
-- [[07_Backtracking_DP/03 - Greedy|Greedy]] (local vs global optimum)
-- [[01_Array/01 - Prefix Sum|Prefix Sum]] (DP often uses prefix sums)
+- Backtracking (DP = backtracking + memo)
+- Greedy (local vs global optimum)
+- Prefix Sum (DP often uses prefix sums)
 - [[Java/07_DSA/Array]]

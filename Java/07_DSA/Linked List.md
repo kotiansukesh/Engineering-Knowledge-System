@@ -100,7 +100,7 @@ How to detect a cycle?:: Floyd's tortoise-and-hare (two pointers at 1× and 2× 
 
 ## Related
 
-- [[Singly Linked List]] • [[Doubly Linked List]] • [[Array]] • [[Java/07_DSA/Stack|Stack]] • [[Java/07_DSA/Queue|Queue]]
+- Singly Linked List • Doubly Linked List • Array • [[Java/07_DSA/Stack|Stack]] • [[Java/07_DSA/Queue|Queue]]
 - [[README|Java MOC]]
 
 # Linked List
@@ -111,8 +111,8 @@ How to detect a cycle?:: Floyd's tortoise-and-hare (two pointers at 1× and 2× 
 
 | Variant | Node fields | Navigation | Extra memory |
 |---|---|---|---|
-| **[[Singly Linked List]]** | `key`, `next` | Forward only | 1 pointer |
-| **[[Doubly Linked List]]** | `key`, `next`, `prev` | Forward & backward | 2 pointers |
+| **Singly Linked List** | `key`, `next` | Forward only | 1 pointer |
+| **Doubly Linked List** | `key`, `next`, `prev` | Forward & backward | 2 pointers |
 | Circular (singly/doubly) | last node points to head | Wrap-around | , |
 | With `tail` pointer | head + tail references | O(1) pushBack / topBack | 1 ref |
 

@@ -110,4 +110,4 @@ Why does `Integer.valueOf(127) == Integer.valueOf(127)` but not for 128?:: `Inte
 
 - [[Java/01_Core-Java/Types/Object Class|Object Class]]
 - [[Java/01_Core-Java/Types/Immutable Class|Immutable Class]], wrappers are immutable
-- [[Classes]]
+- Classes

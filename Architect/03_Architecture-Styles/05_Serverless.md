@@ -103,16 +103,16 @@ State goes to managed stores (DynamoDB/S3/queues), never to the function's own m
 ## Trade-offs
 | Dimension | This Approach | Alternative | Trade-off Rationale | Decision Rule |
 |-----------|---------------|-------------|---------------------|---------------|
-| Complexity | [TBD] | [TBD] | [TBD] | [TBD] |
-| Operational Burden | [TBD] | [TBD] | [TBD] | [TBD] |
-| Latency | [TBD] | [TBD] | [TBD] | [TBD] |
-| Consistency | [TBD] | [TBD] | [TBD] | [TBD] |
-| Cost at Scale | [TBD] | [TBD] | [TBD] | [TBD] |
+| Complexity | Not specified | Not specified | Not specified | Not specified |
+| Operational Burden | Not specified | Not specified | Not specified | Not specified |
+| Latency | Not specified | Not specified | Not specified | Not specified |
+| Consistency | Not specified | Not specified | Not specified | Not specified |
+| Cost at Scale | Not specified | Not specified | Not specified | Not specified |
 
 ## Vs
 
 - **Vs Containers/K8s:** containers = steady-state control + cost; serverless = elasticity − control.
-- **Vs [[04_Event-Driven-Architecture|EDA]]:** serverless *consumes* events; EDA is the pattern, FaaS one runtime for it.
+- **Vs EDA:** serverless *consumes* events; EDA is the pattern, FaaS one runtime for it.
 
 ## Pitfalls
 
@@ -202,7 +202,7 @@ limit 10
 
 ## Related
 
-- [[04_Event-Driven-Architecture]] · [[03_Microservices]]
+- 04_Event-Driven-Architecture · 03_Microservices
 
 # Serverless (FaaS + Managed Services)
 

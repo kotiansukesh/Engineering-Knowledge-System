@@ -5,7 +5,7 @@ tags: [java, maven, gradle, build]
 created: "2026-09-30"
 completed: false
 difficulty: "Medium"
-type: "note"
+type: concept
 ---
 
 # Maven and Gradle

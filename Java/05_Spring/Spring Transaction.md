@@ -189,7 +189,7 @@ How do transactions work with virtual threads (Java 25)?:: TX is still thread-bo
 
 ## Related
 
-- [[Spring Framework]] • [[Spring Core]] • [[Dependency Injection]] • [[Spring Security]] • [[Threads]]
+- Spring Framework • Spring Core • Dependency Injection • Spring Security • Threads
 - [[README|Java MOC]]
 
 ---

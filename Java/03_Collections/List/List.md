@@ -10,7 +10,7 @@ reviewed: "2026-09-29"
 sr-due: "2026-10-06"
 source: ""
 excalidraw: ""
-type: "note"
+type: concept
 ---
 
 # List
@@ -104,7 +104,7 @@ ArrayList is array backed, O(1) get, O(n) insert in middle. LinkedList is node b
 ## Flashcards (Spaced Repetition)
 
 #flashcard
-**Q:** What is the trigger keyword for List? :: **A:** [trigger keywords] #flashcard
+**Q:** What is the trigger keyword for List? :: **A:** Not specified #flashcard
 
 #flashcard
 **Q:** Time/space complexity of List? :: **A:** Time: O(), Space: O() #flashcard

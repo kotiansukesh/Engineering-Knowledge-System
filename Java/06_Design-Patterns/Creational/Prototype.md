@@ -18,7 +18,7 @@ type: concept
 
 # Prototype
 
-> Category: Creational • Source: [Refactoring.Guru , Prototype](https://refactoring.guru/design-patterns/prototype) • Part of [[Java/README|Java MOC]] → [[06_Design-Patterns/README|Design Patterns MOC]]
+> Category: Creational • Source: [Refactoring.Guru , Prototype](https://refactoring.guru/design-patterns/prototype) • Part of [[Java/README|Java MOC]] → Design Patterns MOC
 
 ## Why it Matters
 
@@ -112,7 +112,7 @@ Copy constructors or static copy factories over records, defensively copying eac
 ## Flashcards (Spaced Repetition)
 
 #flashcard
-Creational • Source: [Refactoring.Guru , Prototype](https://refactoring.guru/design-patterns/prototype) • Part of [[Java/README|Java MOC]] → [[06_Design-Patterns/README|Design Patterns MOC]]
+Creational • Source: [Refactoring.Guru , Prototype](https://refactoring.guru/design-patterns/prototype) • Part of [[Java/README|Java MOC]] → Design Patterns MOC
 
 ## Why it Matters
 
@@ -210,7 +210,7 @@ limit 10
 
 ## Related
 
-[[06_Design-Patterns/Creational/Factory Method|Factory Method]] (create vs clone) • [[06_Design-Patterns/Structural/Flyweight|Flyweight]] (share vs clone) • [[06_Design-Patterns/Creational/Builder|Builder]]
+Factory Method (create vs clone) • Flyweight (share vs clone) • Builder
 
 ---
 

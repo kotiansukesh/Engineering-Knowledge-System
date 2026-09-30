@@ -109,4 +109,4 @@ Does `final` make an object immutable?:: No. `final` reference cannot be reassig
 
 - [[Java/01_Core-Java/Types/Immutable Class|Immutable Class]]
 - [[Java/01_Core-Java/Types/Concrete Class|Concrete Class]]
-- [[Classes]]
+- Classes

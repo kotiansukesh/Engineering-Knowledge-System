@@ -111,11 +111,11 @@ public void onProductUpdated(ProductUpdatedEvent e) {
 ## Trade-offs
 | Dimension | This Approach | Alternative | Trade-off Rationale | Decision Rule |
 |-----------|---------------|-------------|---------------------|---------------|
-| Complexity | [TBD] | [TBD] | [TBD] | [TBD] |
-| Operational Burden | [TBD] | [TBD] | [TBD] | [TBD] |
-| Latency | [TBD] | [TBD] | [TBD] | [TBD] |
-| Consistency | [TBD] | [TBD] | [TBD] | [TBD] |
-| Cost at Scale | [TBD] | [TBD] | [TBD] | [TBD] |
+| Complexity | Not specified | Not specified | Not specified | Not specified |
+| Operational Burden | Not specified | Not specified | Not specified | Not specified |
+| Latency | Not specified | Not specified | Not specified | Not specified |
+| Consistency | Not specified | Not specified | Not specified | Not specified |
+| Cost at Scale | Not specified | Not specified | Not specified | Not specified |
 
 ## Flashcards (Spaced Repetition)
 
@@ -226,4 +226,4 @@ limit 10
 > **Answer**: Blue/green: warm new version's cache before cutover (prefetch critical keys). Canary: route 5% to new, let it warm naturally. Never deploy cold cache to 100% traffic. **Metric**: Cache hit rate > 95% within 5min of cutover.
 
 ## 🔗 Related
-- [[../04_Design-Patterns-Building-Blocks/03_Caching-Strategies|Caching Strategies]] · [[../04_Design-Patterns-Building-Blocks/04_API-Gateway-BFF|Gateway/BFF]]
+- [[Architect/06_Data-Architecture/../04_Design-Patterns-Building-Blocks/03_Caching-Strategies|Caching Strategies]] · [[Architect/06_Data-Architecture/../04_Design-Patterns-Building-Blocks/04_API-Gateway-BFF|Gateway/BFF]]

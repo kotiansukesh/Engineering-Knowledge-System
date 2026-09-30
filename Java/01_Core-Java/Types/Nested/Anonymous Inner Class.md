@@ -105,4 +105,4 @@ Can anonymous class capture local variables?:: Yes, if final or effectively fina
 
 - [[Java/01_Core-Java/Types/Anonymous Class|Anonymous Class]] (top-level overview)
 - [[Java/01_Core-Java/Types/Nested Classes Overview|Nested Classes Overview]]
-- [[Interface]], functional interfaces
+- Interface, functional interfaces

@@ -17,7 +17,7 @@ type: concept
 
 ## Why it Matters
 
-A **stack** is an abstract data type (ADT) with **Last-In-First-Out (LIFO)** semantics. Only the **top** element is accessible. It can be implemented with an [[Array]] (array-backed, amortised O(1)) or a [[Linked List]] (linked, guaranteed O(1) push/pop with pointer).
+A **stack** is an abstract data type (ADT) with **Last-In-First-Out (LIFO)** semantics. Only the **top** element is accessible. It can be implemented with an Array (array-backed, amortised O(1)) or a Linked List (linked, guaranteed O(1) push/pop with pointer).
 
 | Operation | Meaning |
 |---|---|
@@ -117,7 +117,7 @@ How to get min in O(1)?:: Auxiliary min-stack or store `(value, currentMin)`. #f
 
 ## Related
 
-- [[Array]] • [[Linked List]] • [[Java/07_DSA/Queue|Queue]] • [[Trees]] (DFS uses stack)
+- Array • Linked List • [[Java/07_DSA/Queue|Queue]] • Trees (DFS uses stack)
 - [[README|Java MOC]]
 
 # Stack (DSA)

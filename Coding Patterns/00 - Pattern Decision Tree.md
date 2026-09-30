@@ -55,11 +55,11 @@ Ask what the brute-force solution recomputes. The answer often points to the sta
 
 ### 6. State the invariant
 
-Use [[00 - Invariant Library]] before writing code.
+Use 00 - Invariant Library before writing code.
 
 ### 7. Disambiguate
 
-Use [[00 - Pattern Confusion Matrix]] when two candidates remain plausible.
+Use 00 - Pattern Confusion Matrix when two candidates remain plausible.
 
 ## Object → candidate patterns
 
@@ -80,11 +80,11 @@ Use [[00 - Pattern Confusion Matrix]] when two candidates remain plausible.
 
 ## Complexity filter
 
-Use [[00 - Complexity Decision Matrix]] before coding.
+Use 00 - Complexity Decision Matrix before coding.
 
 ## Pattern combinations
 
-Use [[00 - Pattern Combinations]] for problems where one technique does not remove all repeated work.
+Use 00 - Pattern Combinations for problems where one technique does not remove all repeated work.
 
 ## Pre-code checklist
 

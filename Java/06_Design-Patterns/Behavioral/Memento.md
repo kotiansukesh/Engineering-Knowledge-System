@@ -18,7 +18,7 @@ type: concept
 
 # Memento *Also Known as: Snapshot*
 
-> Category: Behavioral • Source: [Refactoring.Guru , Memento](https://refactoring.guru/design-patterns/memento) • Part of [[Java/README|Java MOC]] → [[06_Design-Patterns/README|Design Patterns MOC]]
+> Category: Behavioral • Source: [Refactoring.Guru , Memento](https://refactoring.guru/design-patterns/memento) • Part of [[Java/README|Java MOC]] → Design Patterns MOC
 
 ## Why it Matters
 
@@ -118,7 +118,7 @@ Memento keeps encapsulation: the token is opaque, versioning stays inside the or
 #flashcard
 Snapshot*
 
-> Category: Behavioral • Source: [Refactoring.Guru , Memento](https://refactoring.guru/design-patterns/memento) • Part of [[Java/README|Java MOC]] → [[06_Design-Patterns/README|Design Patterns MOC]]
+> Category: Behavioral • Source: [Refactoring.Guru , Memento](https://refactoring.guru/design-patterns/memento) • Part of [[Java/README|Java MOC]] → Design Patterns MOC
 
 ## Why it Matters
 
@@ -220,7 +220,7 @@ limit 10
 
 ## Related
 
-[[06_Design-Patterns/Behavioral/Command|Command]] (action undo) • [[06_Design-Patterns/Behavioral/State|State]] (state-driven behavior) • [[06_Design-Patterns/Behavioral/Iterator|Iterator]]
+Command (action undo) • State (state-driven behavior) • Iterator
 
 ---
 

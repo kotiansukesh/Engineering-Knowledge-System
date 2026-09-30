@@ -91,16 +91,16 @@ void main() {
 **Q1: "When is duplication better than DRY?"**
 A: When the two copies change for different reasons (different domains, different owners) , merging them creates false coupling where one ticket breaks the other. DRY targets shared *knowledge with a shared change-axis*; wait for the third occurrence to confirm the axis is real.
 
-**Q2: How do YAGNI and [[SOLID-Open-Closed|OCP]] coexist , one says don't build, the other says build extensible?**
+**Q2: How do YAGNI and OCP coexist , one says don't build, the other says build extensible?**
 A: YAGNI governs *what* to build (only today's requirement); OCP governs *how* to shape what you build (seams at genuine volatility). Write the simple code now, but keep methods small and dependencies behind interfaces so extension is cheap later , reversible decisions, not speculative frameworks.
 
-: "When is duplication better than DRY?"?:: A: When the two copies change for different reasons (different domains, different owners) , merging them creates false coupling where one ticket breaks the other. DRY targets shared *knowledge with a shared change-axis*; wait for the third occurrence to confirm the axis is real. **Q2: How do YAGNI and [[SOLID-Open-Closed|OCP]] coexist , one says don't build, the other says build extensible?** A: YAGNI governs *what* to build (only today's requ... #flashcard
+: "When is duplication better than DRY?"?:: A: When the two copies change for different reasons (different domains, different owners) , merging them creates false coupling where one ticket breaks the other. DRY targets shared *knowledge with a shared change-axis*; wait for the third occurrence to confirm the axis is real. **Q2: How do YAGNI and OCP coexist , one says don't build, the other says build extensible?** A: YAGNI governs *what* to build (only today's requ... #flashcard
 
 ## Related
 
-- [[SOLID-Single-Responsibility]] • [[SOLID-Open-Closed]] • [[SOLID-Interface-Segregation]] • [[SOLID-Dependency-Inversion]]
-- [[Class-Relationships]] • [[02_OOP/00 - OOP Overview|OOP Overview]]
-- [[06_Design-Patterns/Behavioral/Strategy|Strategy]] • [[06_Design-Patterns/Creational/Builder|Builder]]
+- SOLID-Single-Responsibility • SOLID-Open-Closed • SOLID-Interface-Segregation • SOLID-Dependency-Inversion
+- Class-Relationships • OOP Overview
+- Strategy • Builder
 
 ---
 *Category: Java/02_OOP*

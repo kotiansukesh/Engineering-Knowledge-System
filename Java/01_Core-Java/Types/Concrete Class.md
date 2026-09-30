@@ -100,7 +100,7 @@ Must a concrete class implement every interface method?:: Yes, unless it is decl
 
 ## Related
 
-- [[Classes]]
+- Classes
 - [[Java/01_Core-Java/Types/Abstract Class|Abstract Class]]
 - [[Java/01_Core-Java/Types/Final Class|Final Class]]
-- [[Interface]]
+- Interface

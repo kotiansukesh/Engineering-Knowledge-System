@@ -130,11 +130,11 @@ What makes a stream pipeline safe for `parallel()` and when does parallel hurt?:
 
 ## Related
 
-- [[Lambdas and Functional Interfaces]], lambdas/method refs that feed streams
-- [[Optional]], `Optional.stream()` interop and `findFirst` returns `Optional`
+- Lambdas and Functional Interfaces, lambdas/method refs that feed streams
+- Optional, `Optional.stream()` interop and `findFirst` returns `Optional`
 - [[Java/03_Collections/README|Collections]], `List.of`, `SequencedCollection`, source of streams
-- [[Generics]], `Stream<T>`, `Collector<T,A,R>` generics and PECS
-- [[Exception Handling]], checked exceptions in stream lambdas
+- Generics, `Stream<T>`, `Collector<T,A,R>` generics and PECS
+- Exception Handling, checked exceptions in stream lambdas
 
 ---
 *Category: Core-Java*

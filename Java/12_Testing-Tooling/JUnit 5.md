@@ -5,7 +5,7 @@ tags: [java, testing, junit5]
 created: "2026-09-30"
 completed: false
 difficulty: "Medium"
-type: "note"
+type: concept
 ---
 
 # JUnit 5

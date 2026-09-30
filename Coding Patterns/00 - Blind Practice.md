@@ -80,4 +80,4 @@ Move a pattern to Mastered only after:
 
 ## Related
 
-[[Patterns Index]] · [[00 - Pattern Decision Tree]] · [[00 - Mistake Log]] · [[99_Revision/Practice Dashboard|Practice Dashboard]]
+Patterns Index · 00 - Pattern Decision Tree · 00 - Mistake Log · Practice Dashboard

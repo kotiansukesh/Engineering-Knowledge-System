@@ -18,7 +18,7 @@ type: concept
 
 # Facade
 
-> Category: Structural • Source: [Refactoring.Guru , Facade](https://refactoring.guru/design-patterns/facade) • Part of [[Java/README|Java MOC]] → [[06_Design-Patterns/README|Design Patterns MOC]]
+> Category: Structural • Source: [Refactoring.Guru , Facade](https://refactoring.guru/design-patterns/facade) • Part of [[Java/README|Java MOC]] → Design Patterns MOC
 
 ## Why it Matters
 
@@ -122,7 +122,7 @@ No , and that is deliberate. A facade is a convenient front door; power clients 
 ## Flashcards (Spaced Repetition)
 
 #flashcard
-Structural • Source: [Refactoring.Guru , Facade](https://refactoring.guru/design-patterns/facade) • Part of [[Java/README|Java MOC]] → [[06_Design-Patterns/README|Design Patterns MOC]]
+Structural • Source: [Refactoring.Guru , Facade](https://refactoring.guru/design-patterns/facade) • Part of [[Java/README|Java MOC]] → Design Patterns MOC
 
 ## Why it Matters
 
@@ -230,7 +230,7 @@ limit 10
 
 ## Related
 
-[[06_Design-Patterns/Structural/Adapter|Adapter]] • [[06_Design-Patterns/Behavioral/Mediator|Mediator]] (coordinate vs simplify) • [[06_Design-Patterns/Structural/Proxy|Proxy]]
+Adapter • Mediator (coordinate vs simplify) • Proxy
 
 ---
 

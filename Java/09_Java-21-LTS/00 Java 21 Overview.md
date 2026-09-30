@@ -107,7 +107,7 @@ String Templates , interviewers ask `STR."..."` ; answer: preview in 21, **withd
 
 ## Related
 
-- [[01 Virtual Threads]] • [[02 Sequenced Collections]] • [[03 Record Patterns]] • [[08 Generational ZGC]] • [[../08_Modern-Java/README|08 Modern 21→25 delta]]
+- 01 Virtual Threads • 02 Sequenced Collections • 03 Record Patterns • 08 Generational ZGC • [[Java/09_Java-21-LTS/../08_Modern-Java/README|08 Modern 21→25 delta]]
 
 ---
 *Category: java21*

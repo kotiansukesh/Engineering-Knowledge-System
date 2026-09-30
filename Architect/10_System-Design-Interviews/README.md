@@ -20,7 +20,7 @@ Use this folder as a problem bank, not a reading list.
 
 ## Core framework
 
-[[00 - System Design Decision Tree]] → [[00 - Architecture Practice Engine]] → [[00 - Interview Mode]]
+00 - System Design Decision Tree → 00 - Architecture Practice Engine → 00 - Interview Mode
 
 ## Practice rule
 

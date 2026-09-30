@@ -103,6 +103,6 @@ Why is singleton considered an anti-pattern by some?:: It introduces global stat
 
 ## Related
 
-- [[Classes]]
+- Classes
 - [[Java/01_Core-Java/Types/Final Class|Final Class]]
 - [[Java/01_Core-Java/Types/Static Class|Static Class]]

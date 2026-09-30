@@ -14,7 +14,7 @@ sr-due: "2026-09-30"
 source: ""
 excalidraw: ""
 weeks: "2"
-type: "note"
+type: concept
 ---
 
 # 11_Tokenization
@@ -103,16 +103,16 @@ config = 11_TokenizationConfig()
 ## Flashcards (Spaced Repetition)
 
 #flashcard
-**Q:** What is the trigger keyword for 11_Tokenization? :: **A:** [trigger keywords] #flashcard
+**Q:** What is the trigger keyword for 11_Tokenization? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** Key hyperparameter for 11_Tokenization? :: **A:** [hyperparameter + typical range] #flashcard
+**Q:** Key hyperparameter for 11_Tokenization? :: **A:** Not specified #flashcard
 
 #flashcard
 **Q:** When do you NOT use 11_Tokenization? :: **A:** [anti-pattern scenarios] #flashcard
 
 #flashcard
-**Q:** Cost order of magnitude for 11_Tokenization? :: **A:** [GPU hours / $ per 1M tokens] #flashcard
+**Q:** Cost order of magnitude for 11_Tokenization? :: **A:** Not specified #flashcard
 
 ## Practice Tasks (Tasks Plugin)
 - [ ] Restate the intent from memory 📅 2026-09-30
@@ -129,7 +129,7 @@ limit 10
 
 ## Related
 - [[README|AI MOC]]
-- [[01_Fundamentals/README|01_Fundamentals Folder]]
+- 01_Fundamentals Folder
 
 ---
 

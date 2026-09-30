@@ -5,7 +5,7 @@ tags: [java, testing, integration, testcontainers, docker]
 created: "2026-09-30"
 completed: false
 difficulty: "Advanced"
-type: "note"
+type: concept
 ---
 
 # Testcontainers

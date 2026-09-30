@@ -91,15 +91,15 @@ DB: one Postgres, separate schemas per module; module-private tables never joine
 ## Trade-offs
 | Dimension | This Approach | Alternative | Trade-off Rationale | Decision Rule |
 |-----------|---------------|-------------|---------------------|---------------|
-| Complexity | [TBD] | [TBD] | [TBD] | [TBD] |
-| Operational Burden | [TBD] | [TBD] | [TBD] | [TBD] |
-| Latency | [TBD] | [TBD] | [TBD] | [TBD] |
-| Consistency | [TBD] | [TBD] | [TBD] | [TBD] |
-| Cost at Scale | [TBD] | [TBD] | [TBD] | [TBD] |
+| Complexity | Not specified | Not specified | Not specified | Not specified |
+| Operational Burden | Not specified | Not specified | Not specified | Not specified |
+| Latency | Not specified | Not specified | Not specified | Not specified |
+| Consistency | Not specified | Not specified | Not specified | Not specified |
+| Cost at Scale | Not specified | Not specified | Not specified | Not specified |
 
 ## Vs
 
-- **Vs Distributed:** extraction path, module → separate deployable with same API, switching in-process calls to HTTP/events behind the port (see [[02_Hexagonal-Ports-Adapters|Hexagonal]]).
+- **Vs Distributed:** extraction path, module → separate deployable with same API, switching in-process calls to HTTP/events behind the port (see Hexagonal).
 - **Migration trigger checklist:** deploy queue >1 day, module needs 10× scale of rest, team stepping on each other weekly, compliance isolation.
 
 ## Pitfalls
@@ -190,7 +190,7 @@ limit 10
 
 ## Related
 
-- [[01_Layered-Architecture]] · [[02_Hexagonal-Ports-Adapters]] · [[03_Microservices]] · [[05_DDD-Modeling/02_Bounded-Contexts|Bounded Contexts]]
+- 01_Layered-Architecture · 02_Hexagonal-Ports-Adapters · 03_Microservices · Bounded Contexts
 
 # Monolith vs Modular Monolith, Choice Guide
 
@@ -201,7 +201,7 @@ limit 10
 
 | Signal | Choice |
 |---|---|
-| 1 team, 1 deploy cadence, fuzzy domain | Classic monolith ([[01_Layered-Architecture]]) |
+| 1 team, 1 deploy cadence, fuzzy domain | Classic monolith (01_Layered-Architecture) |
 | 1–4 teams, clear sub-domains, one DB acceptable | **Modular monolith** (this note) |
-| Independent scaling/deploy per context, ≥3 autonomous teams | [[03_Microservices]] |
-| Spiky peripheral work (reports, webhooks) | [[05_Serverless]] offshoots |
+| Independent scaling/deploy per context, ≥3 autonomous teams | 03_Microservices |
+| Spiky peripheral work (reports, webhooks) | 05_Serverless offshoots |

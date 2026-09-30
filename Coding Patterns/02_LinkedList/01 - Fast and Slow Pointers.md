@@ -199,6 +199,6 @@ Use the implementation above as the base case. Extend it only after the invarian
 
 ## Related
 
-- [[02_LinkedList/02 - LinkedList In-place Reversal|LinkedList In-place Reversal]]
-- [[05_Trees_Graphs/02 - DFS|DFS]] (graph cycle detection uses visited set, not fast/slow)
+- LinkedList In-place Reversal
+- DFS (graph cycle detection uses visited set, not fast/slow)
 - [[Java/07_DSA/Singly Linked List]] · [[Java/07_DSA/Linked List]]

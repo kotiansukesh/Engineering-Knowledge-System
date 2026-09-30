@@ -103,7 +103,7 @@ Order matters , specific before general: `case Circle _` before `case Shape s` (
 
 ## Related
 
-- [[03 Record Patterns]] • [[06 Unnamed Patterns and Variables]] • [[../02_OOP/Polymorphism|OOP Polymorphism]]
+- 03 Record Patterns • 06 Unnamed Patterns and Variables • [[Java/09_Java-21-LTS/../02_OOP/Polymorphism|OOP Polymorphism]]
 
 ---
 *Category: java21*

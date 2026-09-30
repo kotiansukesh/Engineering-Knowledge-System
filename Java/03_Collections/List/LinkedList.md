@@ -10,7 +10,7 @@ reviewed: "2026-09-29"
 sr-due: "2026-10-06"
 source: ""
 excalidraw: ""
-type: "note"
+type: concept
 ---
 
 # LinkedList
@@ -103,7 +103,7 @@ Deque<String> fast = new ArrayDeque<>(List.of("a","b"));
 ## Flashcards (Spaced Repetition)
 
 #flashcard
-**Q:** What is the trigger keyword for LinkedList? :: **A:** [trigger keywords] #flashcard
+**Q:** What is the trigger keyword for LinkedList? :: **A:** Not specified #flashcard
 
 #flashcard
 **Q:** Time/space complexity of LinkedList? :: **A:** Time: O(), Space: O() #flashcard

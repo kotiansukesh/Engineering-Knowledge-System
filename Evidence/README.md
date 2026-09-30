@@ -11,16 +11,16 @@ Evidence converts notes into demonstrable engineering capability.
 
 ## Evidence store
 
-- [[Implementations/README]]
-- [[Benchmarks/README]]
-- [[Benchmarks/Benchmark Template]]
-- [[Failure Experiments/README]]
-- [[Architecture Decisions/README]]
-- [[Evaluations/README]]
-- [[Evaluations/Evaluation Template]]
-- [[Certifications/README]]
-- [[Interview Defenses/README]]
-- [[Interview Defenses/Interview Defense Template]]
+- Implementations/README
+- Benchmarks/README
+- Benchmarks/Benchmark Template
+- Failure Experiments/README
+- Architecture Decisions/README
+- Evaluations/README
+- Evaluations/Evaluation Template
+- Certifications/README
+- Interview Defenses/README
+- Interview Defenses/Interview Defense Template
 
 ## Evidence rule
 

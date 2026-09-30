@@ -90,11 +90,11 @@ graph LR
 ## Trade-offs
 | Dimension | This Approach | Alternative | Trade-off Rationale | Decision Rule |
 |-----------|---------------|-------------|---------------------|---------------|
-| Complexity | [TBD] | [TBD] | [TBD] | [TBD] |
-| Operational Burden | [TBD] | [TBD] | [TBD] | [TBD] |
-| Latency | [TBD] | [TBD] | [TBD] | [TBD] |
-| Consistency | [TBD] | [TBD] | [TBD] | [TBD] |
-| Cost at Scale | [TBD] | [TBD] | [TBD] | [TBD] |
+| Complexity | Not specified | Not specified | Not specified | Not specified |
+| Operational Burden | Not specified | Not specified | Not specified | Not specified |
+| Latency | Not specified | Not specified | Not specified | Not specified |
+| Consistency | Not specified | Not specified | Not specified | Not specified |
+| Cost at Scale | Not specified | Not specified | Not specified | Not specified |
 
 ## Pitfalls
 
@@ -187,7 +187,7 @@ limit 10
 
 ## Related
 
-- [[02_Observability-OTel-Prometheus]] · [[03_Performance-SLOs]] · [[02_ADRs]]
+- 02_Observability-OTel-Prometheus · 03_Performance-SLOs · 02_ADRs
 
 # Cloud & K8s Deploy — Helm, GitOps & Rollouts
 

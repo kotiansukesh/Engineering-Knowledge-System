@@ -122,11 +122,11 @@ How do lambdas capture variables and how does `this` differ from anonymous class
 
 ## Related
 
-- [[Streams API]], primary consumer of lambdas and method refs
-- [[Optional]], `map`/`filter`/`ifPresent` take functional arguments
-- [[Interface]], `default`/`static`/`private` methods and `@FunctionalInterface`
-- [[Classes]], anonymous vs lambda scoping
-- [[Method Overload]], overload resolution with lambda targets
+- Streams API, primary consumer of lambdas and method refs
+- Optional, `map`/`filter`/`ifPresent` take functional arguments
+- Interface, `default`/`static`/`private` methods and `@FunctionalInterface`
+- Classes, anonymous vs lambda scoping
+- Method Overload, overload resolution with lambda targets
 
 ---
 *Category: Core-Java*

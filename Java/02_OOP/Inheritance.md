@@ -44,7 +44,7 @@ classDiagram
  Bicycle <|-- MountainBike : extends
  Bicycle <|-- RoadBike : extends
 ```
-One parent, many children (**hierarchical** shape , the most common). See the `Inheritance/` subnotes for [[02_OOP/Inheritance/Single Inheritance\|single]], [[02_OOP/Inheritance/Multilevel Inheritance\|multilevel]], [[02_OOP/Inheritance/Hierarchical Inheritance\|hierarchical]], [[02_OOP/Inheritance/Multiple Inheritance\|multiple]] and [[02_OOP/Inheritance/Hybrid Inheritance\|hybrid]] forms.
+One parent, many children (**hierarchical** shape , the most common). See the `Inheritance/` subnotes for single, multilevel, hierarchical, multiple and hybrid forms.
 
 ## Code
 
@@ -124,7 +124,7 @@ Prefer **composition** when reuse is just code sharing without is-a, when the hi
 ## Pitfalls
 
 - Deep hierarchies , a change in a middle class ripples unpredictably (**fragile base class**).
-- Inheriting for reuse where no is-a holds , breaks [[02_OOP/SOLID-Liskov-Substitution\|LSP]] (see `Square extends Rectangle`).
+- Inheriting for reuse where no is-a holds , breaks LSP (see `Square extends Rectangle`).
 - Forgetting `@Override`, or trying to reduce visibility in an override.
 
 What is inheritance?:: A subclass acquires fields and methods from a superclass and can add or override. #flashcard
@@ -145,8 +145,8 @@ A: Inheritance is is-a with tight coupling; composition is has-a with delegation
 
 ## Related
 
-- [[02_OOP/Polymorphism\|Polymorphism]] • [[02_OOP/Encapsulation\|Encapsulation]] • [[02_OOP/Class-Relationships\|Class Relationships]]
-- [[02_OOP/SOLID-Liskov-Substitution\|Liskov Substitution]] • [[02_OOP/SOLID-Open-Closed\|Open-Closed]]
+- Polymorphism • Encapsulation • Class Relationships
+- Liskov Substitution • Open-Closed
 
 ---
 *Category: Java/02_OOP*
@@ -168,4 +168,4 @@ A: Inheritance is is-a with tight coupling; composition is has-a with delegation
 - **Inheritance** (`extends`): **is-a**, tight compile-time coupling; the child sees and depends on the parent's internals (**fragile base class**); behaviour is fixed at compile time.
 - **Composition** (has-a + delegation): uses-a, loose coupling behind an injected **interface**; the delegate is **swappable at runtime**; no diamond problem.
 
-Inherit only for a true **is-a** that satisfies [[02_OOP/SOLID-Liskov-Substitution\|LSP]]; reach for composition for everything else. **Favour composition over inheritance** , reuse without the fragility tax.
+Inherit only for a true **is-a** that satisfies LSP; reach for composition for everything else. **Favour composition over inheritance** , reuse without the fragility tax.

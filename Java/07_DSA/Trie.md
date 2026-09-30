@@ -10,7 +10,7 @@ reviewed: "2026-09-29"
 sr-due: "2026-10-06"
 source: ""
 excalidraw: ""
-type: "note"
+type: concept
 ---
 
 # Trie (Prefix Tree)
@@ -229,7 +229,7 @@ limit 10
 ## Related
 
 - [[README|Java MOC]]
-- [[07_DSA/README|DSA MOC]]
+- DSA MOC
 - [[Java/03_Collections/Set/HashSet|HashSet]]
 - [[Java/07_DSA/HashMap|HashMap (DSA)]]
 

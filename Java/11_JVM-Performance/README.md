@@ -13,9 +13,9 @@ completed: false
 
 ## Topics
 
-- [[JVM Diagnostics|JVM Diagnostics]] — thread dumps, heap, GC and native-memory investigation.
-- [[Garbage Collection|Garbage Collection]] — G1, ZGC, generational behavior and pause/throughput trade-offs.
-- [[JIT and Profiling|JIT and Profiling]] — warmup, compilation, allocation, JFR and measurement.
+- JVM Diagnostics — thread dumps, heap, GC and native-memory investigation.
+- Garbage Collection — G1, ZGC, generational behavior and pause/throughput trade-offs.
+- JIT and Profiling — warmup, compilation, allocation, JFR and measurement.
 
 ## Operating Principle
 
@@ -25,7 +25,7 @@ Do not treat JVM flags as configuration folklore.
 
 ## Related
 
-- [[../01_Core-Java/JVM Memory Model|JVM Memory Model]]
-- [[../04_Concurrency/README|Concurrency]]
-- [[../12_Testing-Tooling/README|Testing & Tooling]]
-- [[../README|Java MOC]]
+- [[Java/11_JVM-Performance/../01_Core-Java/JVM Memory Model|JVM Memory Model]]
+- [[Java/11_JVM-Performance/../04_Concurrency/README|Concurrency]]
+- [[Java/11_JVM-Performance/../12_Testing-Tooling/README|Testing & Tooling]]
+- [[Java/11_JVM-Performance/../README|Java MOC]]

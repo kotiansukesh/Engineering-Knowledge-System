@@ -26,7 +26,7 @@ type: concept
 
 ## Diagram
 
-![[_attachments/trafficcontrol-class-diagram.png]]
+!_attachments/trafficcontrol-class-diagram.png
 *Source: [awesome-low-level-design](https://github.com/ashishps1/awesome-low-level-design) , use alongside the class table above.*
 *Runtime flow: 4-state cycle, dual-green unrepresentable.*
 ```mermaid
@@ -94,11 +94,11 @@ class TrafficDemo {
 
 ## Vs
 
-- **Vs [[05_ATM|ATM]]:** the ATM's states are *session-scoped* and terminate on eject; traffic phases are *perpetual* and cycle forever with no terminal state. Terminating session machine vs infinite cycle machine.
-- **Vs [[15_Task-Management-System|Task Management System]]:** a task transitions *event-driven* toward a terminal DONE; a signal transitions *timer-driven* and never terminates. The distinction is what drives transitions, user events vs a clock.
-- **Vs [[02_Vending-Machine|Vending Machine]]:** both are state machines, but the vending machine's transitions are *triggered by user actions* and terminate; traffic's are *triggered by time* and loop. A stalled transaction is a lost sale; a stalled signal is a traffic jam or a crash.
-- **Vs [[07_Elevator-System|Elevator System]]:** both own spatial state and move through phases, but an elevator is a *dedicated* cabin with no mutual exclusion on its shaft, while an intersection *arbitrates conflicting access* between two axes. Scheduling vs safety arbitration is the axis.
-- **Vs [[12_Movie-Ticket-Booking|Movie Ticket Booking]]:** booking holds a *specific seat* exclusively among many; traffic grants *temporary* access to a shared lane to one axis at a time. Exclusive ownership vs time-shared access.
+- **Vs ATM:** the ATM's states are *session-scoped* and terminate on eject; traffic phases are *perpetual* and cycle forever with no terminal state. Terminating session machine vs infinite cycle machine.
+- **Vs Task Management System:** a task transitions *event-driven* toward a terminal DONE; a signal transitions *timer-driven* and never terminates. The distinction is what drives transitions, user events vs a clock.
+- **Vs Vending Machine:** both are state machines, but the vending machine's transitions are *triggered by user actions* and terminate; traffic's are *triggered by time* and loop. A stalled transaction is a lost sale; a stalled signal is a traffic jam or a crash.
+- **Vs Elevator System:** both own spatial state and move through phases, but an elevator is a *dedicated* cabin with no mutual exclusion on its shaft, while an intersection *arbitrates conflicting access* between two axes. Scheduling vs safety arbitration is the axis.
+- **Vs Movie Ticket Booking:** booking holds a *specific seat* exclusively among many; traffic grants *temporary* access to a shared lane to one axis at a time. Exclusive ownership vs time-shared access.
 - **Vs a mutex/semaphore:** a mutex is a traffic light in software, it grants mutual exclusion with no timing guarantees; a signal controller adds *fairness and timing policy* (yellow clearance, minimum green) on top of the same exclusion. The mutex is the primitive; this is the policy.
 
 ## Pitfalls
@@ -124,12 +124,12 @@ Where does the timer live?:: The controller schedules; states only declare durat
 
 ## Related
 
-- [[06_Design-Patterns/Behavioral/State\|State]], [[06_Design-Patterns/Creational/Singleton\|Singleton]], [[02_OOP/SOLID-Open-Closed\|OCP]]
+- State, Singleton, OCP
 - Source: [awesome-low-level-design](https://github.com/ashishps1/awesome-low-level-design)
 
 # Traffic Signal Control
 
-> Part of [[README|Java MOC]] -> [[10_LLD-Machine-Coding/README|LLD MOC]]
+> Part of [[README|Java MOC]] -> LLD MOC
 
 ## Requirements
 
@@ -141,8 +141,8 @@ Where does the timer live?:: The controller schedules; states only declare durat
 
 | Class | Role | Pattern |
 |---|---|---|
-| `IntersectionController` (singleton) | owns signals, runs the cycle | [[06_Design-Patterns/Creational/Singleton\|Singleton]] |
-| `SignalState` / `NSGreenState` / `EWGreenState` / yellow states | per-phase timer + next transition | [[06_Design-Patterns/Behavioral/State\|State]] |
+| `IntersectionController` (singleton) | owns signals, runs the cycle | Singleton |
+| `SignalState` / `NSGreenState` / `EWGreenState` / yellow states | per-phase timer + next transition | State |
 | `TrafficSignal` | one direction's RED/YELLOW/GREEN lamp | , |
 | `Direction` enum | NS / EW | , |
 

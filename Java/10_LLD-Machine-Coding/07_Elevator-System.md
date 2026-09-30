@@ -25,7 +25,7 @@ type: concept
 
 ## Diagram
 
-![[_attachments/elevatorsystem-class-diagram.png]]
+!_attachments/elevatorsystem-class-diagram.png
 *Source: [awesome-low-level-design](https://github.com/ashishps1/awesome-low-level-design) , use alongside the class table above.*
 *Runtime flow: SCAN serves in direction, reverses at last stop.*
 ```mermaid
@@ -106,11 +106,11 @@ public class ElevatorDemo {
 
 ## Vs
 
-- **Vs [[13_Ride-Sharing-Uber|Ride Sharing (Uber)]]:** elevators run on *fixed tracks* with a known finite topology and deterministic travel time; ride-hailing dispatches over open geography with ETA estimation and traffic. Both are Strategy-over-a-pool, but elevator assignment is exactly computable while ride ETA is probabilistic.
-- **Vs [[01_Parking-Lot|Parking Lot]]:** an elevator is a *mobile* resource moving toward requests; a parking spot is *fixed* and the user comes to it. Dispatch vs assignment is the axis.
-- **Vs [[16_Traffic-Signal-Control|Traffic Signal Control]]:** traffic control arbitrates *conflicting access* to an intersection (never green on both axes) on a timer; elevators are *dedicated* cabins with no mutual exclusion on a shaft, scheduling, not safety arbitration, is the problem.
+- **Vs Ride Sharing (Uber):** elevators run on *fixed tracks* with a known finite topology and deterministic travel time; ride-hailing dispatches over open geography with ETA estimation and traffic. Both are Strategy-over-a-pool, but elevator assignment is exactly computable while ride ETA is probabilistic.
+- **Vs Parking Lot:** an elevator is a *mobile* resource moving toward requests; a parking spot is *fixed* and the user comes to it. Dispatch vs assignment is the axis.
+- **Vs Traffic Signal Control:** traffic control arbitrates *conflicting access* to an intersection (never green on both axes) on a timer; elevators are *dedicated* cabins with no mutual exclusion on a shaft, scheduling, not safety arbitration, is the problem.
 - **Vs round-robin / FIFO job queue:** FIFO serves the first request regardless of a passing lift travelling the other way; SCAN/LOOK exploit *direction* to batch stops, which is the whole efficiency gain.
-- **Vs [[15_Task-Management-System|Task Management System]]:** a task queue with priority is scheduling by declared importance; elevator scheduling is by physical state (floor + direction). Both are queues; only one needs to know where anything *is*.
+- **Vs Task Management System:** a task queue with priority is scheduling by declared importance; elevator scheduling is by physical state (floor + direction). Both are queues; only one needs to know where anything *is*.
 
 ## Pitfalls
 
@@ -134,12 +134,12 @@ SCAN vs nearest-first tradeoff?:: Nearest-first minimizes wait for one call but 
 
 ## Related
 
-- [[06_Design-Patterns/Behavioral/State|State]] (direction / door state machine) · [[06_Design-Patterns/Behavioral/Mediator|Mediator]] (controller as dispatch hub) · [[06_Design-Patterns/Creational/Singleton|Singleton]] (single building controller)
+- State (direction / door state machine) · Mediator (controller as dispatch hub) · Singleton (single building controller)
 - Source: [awesome-low-level-design](https://github.com/ashishps1/awesome-low-level-design)
 
 # Elevator System
 
-> Part of [[README|Java MOC]] -> [[10_LLD-Machine-Coding/README|LLD MOC]]
+> Part of [[README|Java MOC]] -> LLD MOC
 
 ## Requirements
 

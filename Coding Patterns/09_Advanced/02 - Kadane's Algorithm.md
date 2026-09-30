@@ -208,6 +208,6 @@ A: Yes — sliding window + deque (monotonic queue on prefix sums) or DP with `d
 
 ## Related
 
-- [[07_Backtracking_DP/02 - Dynamic Programming|Dynamic Programming]] (Kadane is 1D DP)
-- [[01_Array/01 - Prefix Sum|Prefix Sum]] (circular variant uses total sum)
-- [[03_Stack_Heap/01 - Monotonic Stack|Monotonic Stack]] (sliding window max for k-constraint)
+- Dynamic Programming (Kadane is 1D DP)
+- Prefix Sum (circular variant uses total sum)
+- Monotonic Stack (sliding window max for k-constraint)

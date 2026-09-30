@@ -5,12 +5,12 @@ tags: [java, jpms, modules, migration, jdeps, jlink]
 created: "2026-09-30"
 completed: false
 difficulty: "Advanced"
-type: "note"
+type: concept
 ---
 
 # JPMS Migration and Tooling
 
-> Companion to [[JPMS]]. Use [[JPMS]] for the module model; use this note when migrating a real codebase.
+> Companion to JPMS. Use JPMS for the module model; use this note when migrating a real codebase.
 
 ## Migration Strategy
 
@@ -61,6 +61,6 @@ For a small service, library, or application where classpath packaging already p
 
 ## Related
 
-- [[JPMS]]
-- [[../12_Testing-Tooling/Maven and Gradle|Maven and Gradle]]
-- [[../05_Spring/Spring Boot|Spring Boot]]
+- JPMS
+- [[Java/01_Core-Java/../12_Testing-Tooling/Maven and Gradle|Maven and Gradle]]
+- [[Java/01_Core-Java/../05_Spring/Spring Boot|Spring Boot]]

@@ -94,7 +94,7 @@ Records are small, immutable , header dominates size; compaction helps most ther
 
 ## Related
 
-- [[05 Virtual Threads - Loom|Virtual Threads]] • [[06 ScopedValue]] • [[../01_Core-Java/JVM Memory Model|JVM Memory Model]] • [[04 Sequenced Collections]]
+- Virtual Threads • 06 ScopedValue • [[Java/08_Modern-Java/../01_Core-Java/JVM Memory Model|JVM Memory Model]] • 04 Sequenced Collections
 
 ---
 *Category: Modern-Java • java25*

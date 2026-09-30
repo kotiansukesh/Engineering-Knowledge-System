@@ -97,15 +97,15 @@ class DemeterDemo {
 **Q1: "Isn't `order.getCustomer().getAddress()` sometimes fine?"**
 A: For anemic DTOs / records , yes, data holders exist to be read. The Law targets *behavioral* objects: if you find yourself chaining to *decide or act* (`...getDiscount().apply(...)`), move that decision into the object that owns the data instead.
 
-**Q2: How does this relate to [[SOLID-Dependency-Inversion|DIP]] and [[SOLID-Single-Responsibility|SRP]]?**
-A: Same direction: depend on narrow stable interfaces, not deep object graphs. Demeter reduces *how far* you reach; DIP reduces *what* you depend on (abstraction over concrete); SRP keeps each friend small enough to be worth talking to. See [[SOLID-Summary]] for the conflict map.
+**Q2: How does this relate to DIP and SRP?**
+A: Same direction: depend on narrow stable interfaces, not deep object graphs. Demeter reduces *how far* you reach; DIP reduces *what* you depend on (abstraction over concrete); SRP keeps each friend small enough to be worth talking to. See SOLID-Summary for the conflict map.
 
-: "Isn't `order.getCustomer().getAddress()` sometimes fine?"?:: A: For anemic DTOs / records , yes, data holders exist to be read. The Law targets *behavioral* objects: if you find yourself chaining to *decide or act* (`...getDiscount().apply(...)`), move that decision into the object that owns the data instead. **Q2: How does this relate to [[SOLID-Dependency-Inversion|DIP]] and [[SOLID-Single-Responsibility|SRP]]?** A: Same direction: depend on narrow stable interfaces, not deep object graphs. Demeter re... #flashcard
+: "Isn't `order.getCustomer().getAddress()` sometimes fine?"?:: A: For anemic DTOs / records , yes, data holders exist to be read. The Law targets *behavioral* objects: if you find yourself chaining to *decide or act* (`...getDiscount().apply(...)`), move that decision into the object that owns the data instead. **Q2: How does this relate to DIP and SRP?** A: Same direction: depend on narrow stable interfaces, not deep object graphs. Demeter re... #flashcard
 
 ## Related
 
-- [[SOLID-Summary]] • [[SOLID-Single-Responsibility]] • [[SOLID-Dependency-Inversion]]
-- [[Pragmatic-Principles-DRY-YAGNI-KISS]] • [[Class-Relationships]] • [[Encapsulation]]
+- SOLID-Summary • SOLID-Single-Responsibility • SOLID-Dependency-Inversion
+- Pragmatic-Principles-DRY-YAGNI-KISS • Class-Relationships • Encapsulation
 
 ---
 *Category: Java/02_OOP*

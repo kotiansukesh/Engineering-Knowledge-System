@@ -18,7 +18,7 @@ type: concept
 
 # Dependency Injection Pattern
 
-> Category: Extra • Source: [Refactoring.Guru , Dependency Injection Pattern](https://refactoring.guru/design-patterns/2) • Part of [[Java/README|Java MOC]] → [[06_Design-Patterns/README|Design Patterns MOC]]
+> Category: Extra • Source: [Refactoring.Guru , Dependency Injection Pattern](https://refactoring.guru/design-patterns/2) • Part of [[Java/README|Java MOC]] → Design Patterns MOC
 
 ## Why it Matters
 
@@ -131,7 +131,7 @@ The single place , `main`, a config class, the framework container , where the o
 ## Flashcards (Spaced Repetition)
 
 #flashcard
-Extra • Source: [Refactoring.Guru , Dependency Injection Pattern](https://refactoring.guru/design-patterns/dependency-injection-pattern) • Part of [[Java/README|Java MOC]] → [[06_Design-Patterns/README|Design Patterns MOC]]
+Extra • Source: [Refactoring.Guru , Dependency Injection Pattern](https://refactoring.guru/design-patterns/dependency-injection-pattern) • Part of [[Java/README|Java MOC]] → Design Patterns MOC
 
 ## Why it Matters
 
@@ -248,7 +248,7 @@ limit 10
 
 ## Related
 
-[[06_Design-Patterns/Extra/DAO Pattern|DAO]] (injected seam) • [[06_Design-Patterns/Creational/Factory Method|Factory Method]] (creation) • [[06_Design-Patterns/Creational/Singleton|Singleton]] (single instance without globals)
+DAO (injected seam) • Factory Method (creation) • Singleton (single instance without globals)
 
 ---
 

@@ -71,8 +71,8 @@ a2.eat();
 ## When to use / not
 
 - Use when several types share one genuine parent and differ only in specialisations (`Dog`, `Cat`, `Cow` all **are** `Animal`).
-- Use at **extension points** where new variants plug in without touching the parent , pairs with [[02_OOP/SOLID-Open-Closed\|OCP]].
-- NOT when siblings would need to override inherited behaviour to throw or no-op , that breaks [[02_OOP/SOLID-Liskov-Substitution\|LSP]].
+- Use at **extension points** where new variants plug in without touching the parent , pairs with OCP.
+- NOT when siblings would need to override inherited behaviour to throw or no-op , that breaks LSP.
 - NOT when one "sibling" is really a role a class plays alongside other roles , model it as an **interface** or a composed collaborator instead.
 
 ## Trade-offs
@@ -97,14 +97,14 @@ A: One parent class with multiple child classes.
 
 ## Related
 
-- [[02_OOP/Inheritance\|Inheritance]] • [[02_OOP/Inheritance/Multilevel Inheritance\|Multilevel Inheritance]] • [[02_OOP/Polymorphism\|Polymorphism]]
+- Inheritance • Multilevel Inheritance • Polymorphism
 
 ---
 *Category: Java/02_OOP*
 
 # Hierarchical Inheritance
 
-> Part of [[02_OOP/Inheritance\|Inheritance]] • `Java/02_OOP`
+> Part of Inheritance • `Java/02_OOP`
 
 ## Vs , Hierarchical vs Multiple
 

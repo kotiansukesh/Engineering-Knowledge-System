@@ -248,6 +248,6 @@ A: 2D BIT: `O(log^2 n)` for prefix sum + point update. Simpler. 2D Segment Tree:
 
 ## Related
 
-- [[01_Array/01 - Prefix Sum|Prefix Sum]] (static range sum)
-- [[09_Advanced/02 - Kadane's Algorithm|Kadane's Algorithm]] (max subarray = segment tree with custom node)
-- [[Java/07_DSA/Tree]] (tree structure)
+- Prefix Sum (static range sum)
+- Kadane's Algorithm (max subarray = segment tree with custom node)
+- Java/07_DSA/Tree (tree structure)

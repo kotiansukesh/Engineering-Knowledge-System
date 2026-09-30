@@ -18,7 +18,7 @@ type: concept
 
 # Proxy
 
-> Category: Structural • Source: [Refactoring.Guru , Proxy](https://refactoring.guru/design-patterns/proxy) • Part of [[Java/README|Java MOC]] → [[06_Design-Patterns/README|Design Patterns MOC]]
+> Category: Structural • Source: [Refactoring.Guru , Proxy](https://refactoring.guru/design-patterns/proxy) • Part of [[Java/README|Java MOC]] → Design Patterns MOC
 
 ## Why it Matters
 
@@ -126,7 +126,7 @@ JDK dynamic proxies implement interfaces at runtime (Spring AOP's default for in
 ## Flashcards (Spaced Repetition)
 
 #flashcard
-Structural • Source: [Refactoring.Guru , Proxy](https://refactoring.guru/design-patterns/proxy) • Part of [[Java/README|Java MOC]] → [[06_Design-Patterns/README|Design Patterns MOC]]
+Structural • Source: [Refactoring.Guru , Proxy](https://refactoring.guru/design-patterns/proxy) • Part of [[Java/README|Java MOC]] → Design Patterns MOC
 
 ## Why it Matters
 
@@ -238,7 +238,7 @@ limit 10
 
 ## Related
 
-[[06_Design-Patterns/Structural/Decorator|Decorator]] • [[06_Design-Patterns/Structural/Adapter|Adapter]] • [[06_Design-Patterns/Structural/Facade|Facade]]
+Decorator • Adapter • Facade
 
 ---
 

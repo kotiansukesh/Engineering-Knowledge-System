@@ -15,14 +15,14 @@ sr-due: "2026-10-07"
 
 ## Canonical Reading Order
 
-1. [[Spring Framework]] — IoC, bean lifecycle, AOP and proxy model.
-2. [[Dependency Injection]] — composition and dependency boundaries.
-3. [[Spring Boot]] — auto-configuration, configuration and production defaults.
-4. [[Spring MVC]] — HTTP request processing and web boundaries.
-5. [[Spring Data JPA]] — repositories, persistence context and query behavior.
-6. [[Spring Transaction]] — transaction boundaries, propagation and isolation.
-7. [[Spring Security]] — filter chain, authentication, authorization and method security.
-8. [[Spring AI]] — Java/Spring integration with models, RAG and tool calling.
+1. Spring Framework — IoC, bean lifecycle, AOP and proxy model.
+2. Dependency Injection — composition and dependency boundaries.
+3. Spring Boot — auto-configuration, configuration and production defaults.
+4. Spring MVC — HTTP request processing and web boundaries.
+5. Spring Data JPA — repositories, persistence context and query behavior.
+6. Spring Transaction — transaction boundaries, propagation and isolation.
+7. Spring Security — filter chain, authentication, authorization and method security.
+8. Spring AI — Java/Spring integration with models, RAG and tool calling.
 
 ## Version Strategy
 
@@ -48,8 +48,8 @@ As of September 2026, the current Spring generation is Spring Framework 7 and Sp
 
 ## Related
 
-- [[../04_Concurrency/README|Concurrency]]
-- [[../11_JVM-Performance/README|JVM & Performance]]
-- [[../12_Testing-Tooling/README|Testing & Tooling]]
-- [[../AI/README|AI Engineering]]
-- [[../README|Java MOC]]
+- [[Java/05_Spring/../04_Concurrency/README|Concurrency]]
+- [[Java/05_Spring/../11_JVM-Performance/README|JVM & Performance]]
+- [[Java/05_Spring/../12_Testing-Tooling/README|Testing & Tooling]]
+- AI Engineering
+- [[Java/05_Spring/../README|Java MOC]]

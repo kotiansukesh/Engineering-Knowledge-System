@@ -206,6 +206,6 @@ Start with the core implementation. Introduce a variant only when the required s
 
 ## Related
 
-- [[05_Trees_Graphs/01 - Binary Tree Traversal|Binary Tree Traversal]] (Trie is a tree)
-- [[01_Array/03 - Sliding Window|Sliding Window]] (string problems)
+- Binary Tree Traversal (Trie is a tree)
+- Sliding Window (string problems)
 - [[Java/07_DSA/Trees]]

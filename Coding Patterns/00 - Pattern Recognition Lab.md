@@ -77,4 +77,4 @@ Recognition improves when the pattern is selected before implementation, not mer
 
 ## Related
 
-[[00 - Pattern Decision Tree]] · [[00 - Pattern Confusion Matrix]] · [[00 - Mixed Pattern Sets]] · [[99_Revision/Practice Dashboard]]
+00 - Pattern Decision Tree · 00 - Pattern Confusion Matrix · 00 - Mixed Pattern Sets · 99_Revision/Practice Dashboard

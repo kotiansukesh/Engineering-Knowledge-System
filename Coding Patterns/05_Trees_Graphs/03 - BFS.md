@@ -225,7 +225,7 @@ Start with the core implementation. Introduce a variant only when the required s
 
 ## Related
 
-- [[05_Trees_Graphs/02 - DFS|DFS]] (exhaustive exploration)
-- [[05_Trees_Graphs/04 - Shortest Path|Shortest Path]] (weighted version)
-- [[07_Backtracking_DP/01 - Backtracking|Backtracking]] (all solutions)
+- DFS (exhaustive exploration)
+- Shortest Path (weighted version)
+- Backtracking (all solutions)
 - [[Java/07_DSA/Trees]] · [[Java/07_DSA/Graph]] · [[Java/07_DSA/Heap]]

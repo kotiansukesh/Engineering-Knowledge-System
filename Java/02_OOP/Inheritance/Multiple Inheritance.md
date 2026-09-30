@@ -72,7 +72,7 @@ d.move();
 ## When to use / not
 
 - Use when one type legitimately holds several independent **roles** , `Duck implements Flyable, Swimmable`.
-- Use **role interfaces** (small, cohesive) so each capability is separable and mockable ([[02_OOP/SOLID-Interface-Segregation\|ISP]]).
+- Use **role interfaces** (small, cohesive) so each capability is separable and mockable (ISP).
 - NOT to reuse code from multiple parents , share behaviour by **composing** helper objects and delegating.
 - NOT when the roles are unrelated to the class's core identity , the contract becomes unreadable and the type dilutes.
 
@@ -87,7 +87,7 @@ d.move();
 
 ## Pitfalls
 
-- Collecting unrelated `default` methods into one class , split **roles** into separate interfaces (see [[02_OOP/SOLID-Interface-Segregation\|ISP]]).
+- Collecting unrelated `default` methods into one class , split **roles** into separate interfaces (see ISP).
 
 Why does Java not allow multiple class inheritance?:: To avoid the diamond problem and method ambiguity. #flashcard
 How do you resolve conflicting default methods from two interfaces?:: Override the method and call InterfaceName.super.method(). #flashcard
@@ -102,14 +102,14 @@ A: **Override** the method in the implementing class and choose which super to c
 
 ## Related
 
-- [[02_OOP/Inheritance\|Inheritance]] • [[02_OOP/Inheritance/Hybrid Inheritance\|Hybrid Inheritance]] • [[02_OOP/Interfaces\|Interfaces]]
+- Inheritance • Hybrid Inheritance • Interfaces
 
 ---
 *Category: Java/02_OOP*
 
 # Multiple Inheritance
 
-> Part of [[02_OOP/Inheritance\|Inheritance]] • `Java/02_OOP`
+> Part of Inheritance • `Java/02_OOP`
 
 ## Vs , Multiple Inheritance vs Multiple Interface Implementation
 

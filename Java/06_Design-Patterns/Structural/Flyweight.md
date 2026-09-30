@@ -18,7 +18,7 @@ type: concept
 
 # Flyweight
 
-> Category: Structural • Source: [Refactoring.Guru , Flyweight](https://refactoring.guru/design-patterns/flyweight) • Part of [[Java/README|Java MOC]] → [[06_Design-Patterns/README|Design Patterns MOC]]
+> Category: Structural • Source: [Refactoring.Guru , Flyweight](https://refactoring.guru/design-patterns/flyweight) • Part of [[Java/README|Java MOC]] → Design Patterns MOC
 
 ## Why it Matters
 
@@ -121,7 +121,7 @@ String interning, `Integer`/`Long` caches for small values, and `EnumSet`/`Colle
 ## Flashcards (Spaced Repetition)
 
 #flashcard
-Structural • Source: [Refactoring.Guru , Flyweight](https://refactoring.guru/design-patterns/flyweight) • Part of [[Java/README|Java MOC]] → [[06_Design-Patterns/README|Design Patterns MOC]]
+Structural • Source: [Refactoring.Guru , Flyweight](https://refactoring.guru/design-patterns/flyweight) • Part of [[Java/README|Java MOC]] → Design Patterns MOC
 
 ## Why it Matters
 
@@ -228,7 +228,7 @@ limit 10
 
 ## Related
 
-[[06_Design-Patterns/Creational/Singleton|Singleton]] (one vs shared many) • [[06_Design-Patterns/Creational/Prototype|Prototype]] (clone vs share) • [[06_Design-Patterns/Structural/Composite|Composite]]
+Singleton (one vs shared many) • Prototype (clone vs share) • Composite
 
 ---
 

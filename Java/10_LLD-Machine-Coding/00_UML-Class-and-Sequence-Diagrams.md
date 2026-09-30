@@ -123,10 +123,10 @@ A: Classes with fields + key methods, no getters/setters noise. One sequence per
 
 ## Related
 
-- [[00_Method-How-to-Answer-LLD|LLD Method]] · [[../02_OOP/Class-Relationships|Class Relationships]] · [[../02_OOP/Classes-and-Objects|Classes and Objects]]
+- LLD Method · [[Java/10_LLD-Machine-Coding/../02_OOP/Class-Relationships|Class Relationships]] · [[Java/10_LLD-Machine-Coding/../02_OOP/Classes-and-Objects|Classes and Objects]]
 ---
 *Category: LLD*
 
 # UML Class and Sequence Diagrams
 
-> Part of [[README|Java MOC]] → [[10_LLD-Machine-Coding/README|LLD MOC]] • Course map: [AlgoMaster LLD](https://algomaster.io/learn/lld/course-introduction) §2
+> Part of [[README|Java MOC]] → LLD MOC • Course map: [AlgoMaster LLD](https://algomaster.io/learn/lld/course-introduction) §2

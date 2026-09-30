@@ -24,7 +24,7 @@ type: concept
 
 ## Diagram
 
-![[_attachments/loggingframework-class-diagram.png]]
+!_attachments/loggingframework-class-diagram.png
 *Source: [awesome-low-level-design](https://github.com/ashishps1/awesome-low-level-design) , use alongside the class table above.*
 *Runtime flow: message down the chain, appender at the end.*
 ```mermaid
@@ -87,9 +87,9 @@ class LoggerDemo {
 
 ## Vs
 
-- **Vs [[09_Pub-Sub-System|Pub-Sub System]]:** logging fans one event to many *appenders* inside one process; pub-sub decouples publishers from subscribers across topics with per-subscriber queues and offsets. Same observer shape, different delivery contract (fire-and-forget vs durable replay).
+- **Vs Pub-Sub System:** logging fans one event to many *appenders* inside one process; pub-sub decouples publishers from subscribers across topics with per-subscriber queues and offsets. Same observer shape, different delivery contract (fire-and-forget vs durable replay).
 - **Vs `System.out.println`:** direct calls have zero indirection and zero policy, no level filtering, no format consistency, no way to add a file sink without editing call sites. The framework exists so the call site never changes.
-- **Vs Chain of Responsibility in [[10_Chess-Game|Chess]] / request pipelines:** a logging chain filters by level and stops or passes on; an auth/validation chain decides whether to *serve* a request. Same structure, different intent (route vs gate).
+- **Vs Chain of Responsibility in Chess / request pipelines:** a logging chain filters by level and stops or passes on; an auth/validation chain decides whether to *serve* a request. Same structure, different intent (route vs gate).
 - **Vs SLF4J/logback:** the real libraries add MDC, markers, and lazy message suppliers (`() -> expensive()`); the design above keeps the seams (level, appender, formatter) that make those features additive.
 
 ## Pitfalls
@@ -112,12 +112,12 @@ Chain vs simple `if (level >= threshold)`?:: Chain wins when handlers differ per
 
 ## Related
 
-- [[06_Design-Patterns/Behavioral/Chain of Responsibility\|Chain of Responsibility]], [[06_Design-Patterns/Behavioral/Observer\|Observer]], [[02_OOP/SOLID-Single-Responsibility\|SRP]]
+- Chain of Responsibility, Observer, SRP
 - Source: [awesome-low-level-design](https://github.com/ashishps1/awesome-low-level-design)
 
 # Logging Framework
 
-> Part of [[README|Java MOC]] -> [[10_LLD-Machine-Coding/README|LLD MOC]]
+> Part of [[README|Java MOC]] -> LLD MOC
 
 ## Requirements
 
@@ -129,9 +129,9 @@ Chain vs simple `if (level >= threshold)`?:: Chain wins when handlers differ per
 
 | Class | Role | Pattern |
 |---|---|---|
-| `Logger` (singleton facade) | `log(level, msg)`, holds chain head + appenders | [[06_Design-Patterns/Creational/Singleton\|Singleton]], [[06_Design-Patterns/Structural/Facade\|Facade]] |
-| `LevelHandler` chain | DEBUG → INFO → WARN → ERROR, first match handles | [[06_Design-Patterns/Behavioral/Chain of Responsibility\|Chain of Responsibility]] |
-| `Appender` / `ConsoleAppender` / `ListAppender` | subscribers receiving formatted records | [[06_Design-Patterns/Behavioral/Observer\|Observer]] |
+| `Logger` (singleton facade) | `log(level, msg)`, holds chain head + appenders | Singleton, Facade |
+| `LevelHandler` chain | DEBUG → INFO → WARN → ERROR, first match handles | Chain of Responsibility |
+| `Appender` / `ConsoleAppender` / `ListAppender` | subscribers receiving formatted records | Observer |
 | `LogRecord` + `Formatter` | immutable event + layout | , |
 
 ## Concurrency

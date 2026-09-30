@@ -108,9 +108,9 @@ A: Constructor injection: `final` field, required dependency explicit in the sig
 
 ## Related
 
-- [[SOLID-Interface-Segregation]] • [[SOLID-Open-Closed]] • [[SOLID-Single-Responsibility]]
-- [[06_Design-Patterns/Extra/Dependency Injection Pattern|Dependency Injection Pattern]] • [[06_Design-Patterns/Behavioral/Strategy|Strategy]] • [[06_Design-Patterns/Behavioral/Observer|Observer]]
-- [[Class-Relationships]] • [[02_OOP/00 - OOP Overview|OOP Overview]]
+- SOLID-Interface-Segregation • SOLID-Open-Closed • SOLID-Single-Responsibility
+- Dependency Injection Pattern • Strategy • Observer
+- Class-Relationships • OOP Overview
 
 ---
 *Category: Java/02_OOP*

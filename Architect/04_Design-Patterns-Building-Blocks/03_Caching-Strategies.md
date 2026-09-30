@@ -99,16 +99,16 @@ Golden rule: cache at the **service boundary** (DTOs), not entities, entities ca
 ## Trade-offs
 | Dimension | This Approach | Alternative | Trade-off Rationale | Decision Rule |
 |-----------|---------------|-------------|---------------------|---------------|
-| Complexity | [TBD] | [TBD] | [TBD] | [TBD] |
-| Operational Burden | [TBD] | [TBD] | [TBD] | [TBD] |
-| Latency | [TBD] | [TBD] | [TBD] | [TBD] |
-| Consistency | [TBD] | [TBD] | [TBD] | [TBD] |
-| Cost at Scale | [TBD] | [TBD] | [TBD] | [TBD] |
+| Complexity | Not specified | Not specified | Not specified | Not specified |
+| Operational Burden | Not specified | Not specified | Not specified | Not specified |
+| Latency | Not specified | Not specified | Not specified | Not specified |
+| Consistency | Not specified | Not specified | Not specified | Not specified |
+| Cost at Scale | Not specified | Not specified | Not specified | Not specified |
 
 ## Vs
 
-- **Vs [[06_Data-Architecture/04_Caching-CDN|CDN/HTTP caching]]:** app cache = per-object compute savings; CDN = edge bytes + origin offload. Use both, keyed differently.
-- **Vs materialised views / CQRS read models:** caches are *ephemeral derivations*; read models are *durable*, pick durable when rebuild cost is high (see [[06_Data-Architecture/03_Event-Sourcing-CQRS|CQRS]]).
+- **Vs CDN/HTTP caching:** app cache = per-object compute savings; CDN = edge bytes + origin offload. Use both, keyed differently.
+- **Vs materialised views / CQRS read models:** caches are *ephemeral derivations*; read models are *durable*, pick durable when rebuild cost is high (see CQRS).
 
 ## Pitfalls
 
@@ -198,7 +198,7 @@ limit 10
 
 ## Related
 
-- [[06_Data-Architecture/04_Caching-CDN]] · [[01_Enterprise-Patterns]]
+- 06_Data-Architecture/04_Caching-CDN · 01_Enterprise-Patterns
 
 # Caching Strategies
 

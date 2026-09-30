@@ -88,7 +88,7 @@ public class InterfacesDemo {
 
 ## Pitfalls
 
-- **Fat interfaces** forcing empty/throwing implementations , split by client need (see [[02_OOP/SOLID-Interface-Segregation\|ISP]]).
+- **Fat interfaces** forcing empty/throwing implementations , split by client need (see ISP).
 - `default` methods used as a dumping ground for logic implementors can't see.
 - Depending on concrete classes at seams (`ArrayList` params) instead of the interface.
 
@@ -98,13 +98,13 @@ public class InterfacesDemo {
 A: Interface = pure contract, multiple allowed; abstract class = shared state + partial implementation, single inheritance. Default to interfaces; reach for abstract classes only when subclasses genuinely share code and identity.
 
 **Q2: Why do LLD solutions start with interfaces?**
-A: They name the varying **behavior** (pricing, eviction, dispatch) before any implementation exists , so new variants (see [[02_OOP/SOLID-Open-Closed\|Open-Closed]]) plug in without touching callers.
+A: They name the varying **behavior** (pricing, eviction, dispatch) before any implementation exists , so new variants (see Open-Closed) plug in without touching callers.
 
-: Interface vs abstract class?:: A: Interface = pure contract, multiple allowed; abstract class = shared state + partial implementation, single inheritance. Default to interfaces; reach for abstract classes only when subclasses genuinely share code and identity. **Q2: Why do LLD solutions start with interfaces?** A: They name the varying **behavior** (pricing, eviction, dispatch) before any implementation exists , so new variants (see [[02_OOP/SOLID-Open-Closed\|Open-Closed]]... #flashcard
+: Interface vs abstract class?:: A: Interface = pure contract, multiple allowed; abstract class = shared state + partial implementation, single inheritance. Default to interfaces; reach for abstract classes only when subclasses genuinely share code and identity. **Q2: Why do LLD solutions start with interfaces?** A: They name the varying **behavior** (pricing, eviction, dispatch) before any implementation exists , so new variants (see Open-Closed... #flashcard
 
 ## Related
 
-- [[02_OOP/SOLID-Open-Closed\|Open-Closed]] • [[02_OOP/SOLID-Dependency-Inversion\|Dependency Inversion]] • [[02_OOP/SOLID-Interface-Segregation\|Interface Segregation]] • [[02_OOP/Class-Relationships\|Class Relationships]] • [[02_OOP/Abstraction\|Abstraction]]
+- Open-Closed • Dependency Inversion • Interface Segregation • Class Relationships • Abstraction
 
 ---
 *Category: Java/02_OOP*

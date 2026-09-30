@@ -140,7 +140,7 @@ Why not use `java.util.Stack` for heap?:: Unrelated, Stack is LIFO `Vector`; hea
 
 ## Related
 
-- [[Array]] • [[Trees]] (heap is a complete binary tree) • [[Java/07_DSA/Queue|Queue]] (PriorityQueue is a Queue) • [[Java/07_DSA/Stack|Stack]] • [[Java/07_DSA/HashMap|HashMap (DSA)]]
+- Array • Trees (heap is a complete binary tree) • [[Java/07_DSA/Queue|Queue]] (PriorityQueue is a Queue) • [[Java/07_DSA/Stack|Stack]] • [[Java/07_DSA/HashMap|HashMap (DSA)]]
 - [[README|Java MOC]]
 
 # Heap

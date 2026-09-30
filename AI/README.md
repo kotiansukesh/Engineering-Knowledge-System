@@ -29,22 +29,22 @@ Use the least autonomous mechanism that satisfies the requirement.
 
 ## Vault Map
 
-- [[01_Fundamentals/README|01 Fundamentals]]
-- [[02_RAG-Engineering/README|02 RAG Engineering]]
-- [[03_Agentic-AI/README|03 Agentic AI]]
-- [[04_Production-Platform/README|04 Production Platform]]
-- [[05_Kubernetes-Operations/README|05 Kubernetes Operations]]
-- [[06_Architecture-Governance/README|06 Architecture Governance]]
-- [[07_Cross-Cutting/README|07 Cross-Cutting]]
-- [[99_Revision/Study-Plan|AI Syllabus]]
-- [[99_Revision/Certification Integration Roadmap|Certification Roadmap]]
-- [[99_Revision/Career and Portfolio Strategy|Career & Portfolio Strategy]]
+- 01 Fundamentals
+- 02 RAG Engineering
+- 03 Agentic AI
+- 04 Production Platform
+- 05 Kubernetes Operations
+- 06 Architecture Governance
+- 07 Cross-Cutting
+- AI Syllabus
+- Certification Roadmap
+- Career & Portfolio Strategy
 
 ## Career Strategy
 
 Build on backend and distributed-systems expertise rather than restarting as a generic AI developer.
 
-See [[99_Revision/Career and Portfolio Strategy|Career & Portfolio Strategy]] for the capability model and portfolio progression.
+See Career & Portfolio Strategy for the capability model and portfolio progression.
 
 ## Certification Strategy
 

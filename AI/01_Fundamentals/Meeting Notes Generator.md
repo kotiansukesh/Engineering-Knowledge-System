@@ -133,4 +133,4 @@ def eval_faithfulness(golden: list[GoldenCase]) -> float:
 > **Answer**: 5 diverse transcripts (different speakers, topics, lengths). Each has human-annotated `MeetingNotes` ground truth. Scores: faithfulness (no hallucinated decisions), coverage (key decisions captured), format validity (schema passes). Ship only if faithfulness ≥ 0.9 AND coverage ≥ 0.8.
 
 ## 🔗 Related
-- [[04_Prompt Engineering]] • [[05_Structured Outputs]] • [[AI Evaluation]] • [[AI Backend Template]]
+- 04_Prompt Engineering • 05_Structured Outputs • AI Evaluation • AI Backend Template

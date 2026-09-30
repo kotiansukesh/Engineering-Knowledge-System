@@ -106,9 +106,9 @@ Why does Java have checked exceptions? Should you always use them?:: Checked exc
 
 ## Related
 
-- [[Classes]]
-- [[Interface]]
-- [[Method Overload]]
+- Classes
+- Interface
+- Method Overload
 - [[Java/01_Core-Java/Types/Abstract Class|Abstract Class]]
 - [[Java/01_Core-Java/Types/Final Class|Final Class]]
 

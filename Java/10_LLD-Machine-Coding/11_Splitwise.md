@@ -25,7 +25,7 @@ type: concept
 
 ## Diagram
 
-![[_attachments/splitwise-class-diagram.png]]
+!_attachments/splitwise-class-diagram.png
 *Source: [awesome-low-level-design](https://github.com/ashishps1/awesome-low-level-design) , use alongside the class table above.*
 *Runtime flow: expenses build balances, settle minimizes transfers.*
 ```mermaid
@@ -89,11 +89,11 @@ public class SplitwiseDemo {
 
 ## Vs
 
-- **Vs [[01_Parking-Lot|Parking Lot]]:** parking computes a fee for one *transaction* (no debt between parties); Splitwise maintains an ongoing *web of debt* that persists across many expenses and is simplified over time. Fee computation vs obligation graph.
-- **Vs [[04_Stack-Overflow|Stack Overflow]]:** Stack Overflow's reputation is a *score* with no settlement (it never needs to be paid out or netted); Splitwise's balances are *claims* that are netted to minimise transactions. Derived rank vs derived debt.
-- **Vs [[12_Movie-Ticket-Booking|Movie Ticket Booking]]:** booking is a two-party payment to the system (money goes out); Splitwise is peer-to-peer debt (money is *owed*, not yet paid). The booking's money moves immediately; Splitwise's money moves later, or never (netted away).
+- **Vs Parking Lot:** parking computes a fee for one *transaction* (no debt between parties); Splitwise maintains an ongoing *web of debt* that persists across many expenses and is simplified over time. Fee computation vs obligation graph.
+- **Vs Stack Overflow:** Stack Overflow's reputation is a *score* with no settlement (it never needs to be paid out or netted); Splitwise's balances are *claims* that are netted to minimise transactions. Derived rank vs derived debt.
+- **Vs Movie Ticket Booking:** booking is a two-party payment to the system (money goes out); Splitwise is peer-to-peer debt (money is *owed*, not yet paid). The booking's money moves immediately; Splitwise's money moves later, or never (netted away).
 - **Vs a payment gateway:** a gateway *moves* money atomally between accounts; Splitwise *accounts* for who owes whom without moving anything. Ledger accounting vs funds transfer, the two are routinely conflated, and the distinction is the interview answer.
-- **Vs [[15_Task-Management-System|Task Management System]]:** a task's state machine has *legal transitions* (TODO → DONE); a balance has no transitions, only arithmetic, so the "state" in Splitwise is the numeric projection, not a status enum.
+- **Vs Task Management System:** a task's state machine has *legal transitions* (TODO → DONE); a balance has no transitions, only arithmetic, so the "state" in Splitwise is the numeric projection, not a status enum.
 
 ## Pitfalls
 
@@ -117,12 +117,12 @@ Strategy-per-split-type vs if/else tradeoff?:: Strategy isolates validation per 
 
 ## Related
 
-- [[06_Design-Patterns/Behavioral/Strategy|Strategy]] (split algorithms) · [[06_Design-Patterns/Creational/Factory Method|Factory Method]] (strategy per split type) · [[06_Design-Patterns/Behavioral/Command|Command]] (expense as ledger transaction)
+- Strategy (split algorithms) · Factory Method (strategy per split type) · Command (expense as ledger transaction)
 - Source: [awesome-low-level-design](https://github.com/ashishps1/awesome-low-level-design)
 
 # Splitwise (Expense Sharing)
 
-> Part of [[README|Java MOC]] -> [[10_LLD-Machine-Coding/README|LLD MOC]]
+> Part of [[README|Java MOC]] -> LLD MOC
 
 ## Requirements
 

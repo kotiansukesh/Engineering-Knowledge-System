@@ -83,7 +83,7 @@ Choose based on:
 - query flexibility;
 - cost.
 
-See [[00 - NFR Decision Matrix]] and [[00 - Architecture Trade-off Matrix]].
+See 00 - NFR Decision Matrix and 00 - Architecture Trade-off Matrix.
 
 ## 7. Failure-first design
 

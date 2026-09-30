@@ -102,10 +102,10 @@ StructuredTaskScope vs CountDownLatch?:: `StructuredTaskScope` is *structured*, 
 
 ## Related
 
-- [[Threads]], lifecycle, JEP 491 pinning fix, ScopedValue
-- [[Executor Framework]], executors that use these locks internally
-- [[Concurrent Collections]], lock-free / striped alternatives to locking
-- [[Atomics and Volatile]], CAS vs locking
+- Threads, lifecycle, JEP 491 pinning fix, ScopedValue
+- Executor Framework, executors that use these locks internally
+- Concurrent Collections, lock-free / striped alternatives to locking
+- Atomics and Volatile, CAS vs locking
 
 # Locks and Synchronizers
 

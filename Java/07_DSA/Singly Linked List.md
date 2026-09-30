@@ -22,7 +22,7 @@ A **singly linked list** is a chain of **nodes** where each node stores a `key` 
 - Node: `{ key, next }`
 - Head: first node; Tail: last node (`tail.next == null`)
 
-![[Pasted image 20230725103254.png]]
+!Pasted image 20230725103254.png
 
 ## Diagram
 
@@ -111,7 +111,7 @@ When is `PushBack` O(1) without tail?:: Never, need tail or circular trick; othe
 
 ## Related
 
-- [[Linked List]] • [[Doubly Linked List]] • [[Java/07_DSA/Stack|Stack]] • [[Java/07_DSA/Queue|Queue]]
+- Linked List • Doubly Linked List • [[Java/07_DSA/Stack|Stack]] • [[Java/07_DSA/Queue|Queue]]
 - [[README|Java MOC]]
 
 # Singly Linked List

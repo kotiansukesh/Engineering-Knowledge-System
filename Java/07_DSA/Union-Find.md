@@ -10,7 +10,7 @@ reviewed: "2026-09-29"
 sr-due: "2026-10-06"
 source: ""
 excalidraw: ""
-type: "note"
+type: concept
 ---
 
 # Union-Find (Disjoint Set Union)
@@ -257,9 +257,9 @@ limit 10
 ## Related
 
 - [[README|Java MOC]]
-- [[07_DSA/README|DSA MOC]]
+- DSA MOC
 - [[Java/07_DSA/Graph|Graph]]
-- [[Java/07_DSA/Kruskal MST|Kruskal MST]]
+- Kruskal MST
 
 ---
 

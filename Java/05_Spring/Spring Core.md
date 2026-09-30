@@ -147,7 +147,7 @@ What are AOT hints?:: `RuntimeHintsRegistrar` / `@RegisterReflectionForBinding` 
 
 ## Related
 
-- [[Spring Framework]] • [[Dependency Injection]] • [[Spring Transaction]] • [[Spring Security]] • [[Threads]]
+- Spring Framework • Dependency Injection • Spring Transaction • Spring Security • Threads
 - [[README|Java MOC]]
 
 ---
@@ -215,7 +215,7 @@ Bean lifecycle (simplified): `instantiate → populate properties (DI) → Aware
 | `request` / `session` | Per HTTP request/session | Web-only (`spring-web`); with `spring.threads.virtual.enabled=true` each request is a virtual thread, scope still works |
 | `application` / `websocket` | Per `ServletContext` / WebSocket | Web-only |
 
-> Java 25 note: Scopes are stored via `ThreadLocal` internally but Spring 6.2+ bridges them to virtual threads correctly. For custom context propagation prefer `ScopedValue` over `ThreadLocal` (see [[Threads]]).
+> Java 25 note: Scopes are stored via `ThreadLocal` internally but Spring 6.2+ bridges them to virtual threads correctly. For custom context propagation prefer `ScopedValue` over `ThreadLocal` (see Threads).
 
 ## Virtual Threads in Spring Core (Java 25)
 ```yamlspring

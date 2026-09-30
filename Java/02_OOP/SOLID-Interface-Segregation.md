@@ -112,9 +112,9 @@ A: When all implementers genuinely honour every method and all clients use most 
 
 ## Related
 
-- [[SOLID-Dependency-Inversion]] • [[SOLID-Single-Responsibility]] • [[SOLID-Liskov-Substitution]]
-- [[02_OOP/Abstraction|Abstraction]] • [[Class-Relationships]]
-- [[06_Design-Patterns/Structural/Adapter|Adapter]] • [[06_Design-Patterns/Structural/Facade|Facade]] • [[06_Design-Patterns/Behavioral/Observer|Observer]]
+- SOLID-Dependency-Inversion • SOLID-Single-Responsibility • SOLID-Liskov-Substitution
+- Abstraction • Class-Relationships
+- Adapter • Facade • Observer
 
 ---
 *Category: Java/02_OOP*

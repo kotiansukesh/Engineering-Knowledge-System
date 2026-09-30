@@ -190,8 +190,8 @@ A: It must be declared `abstract` or compilation fails.
 
 ## Related
 
-- [[02_OOP/Encapsulation\|Encapsulation]] • [[02_OOP/Interfaces\|Interfaces]] • [[02_OOP/Polymorphism\|Polymorphism]]
-- [[02_OOP/SOLID-Open-Closed\|Open-Closed]] • [[02_OOP/SOLID-Dependency-Inversion\|Dependency Inversion]]
+- Encapsulation • Interfaces • Polymorphism
+- Open-Closed • Dependency Inversion
 
 ---
 *Category: Java/02_OOP*

@@ -123,7 +123,7 @@ View , mutations reflect. `var rev = seq.reversed(); rev.addFirst("x")` adds to 
 
 ## Related
 
-- [[../03_Collections/List/ArrayList|ArrayList]] • [[../03_Collections/Set/HashSet|HashSet]] • [[01 Records]] (records in Sequenced collections)
+- [[Java/08_Modern-Java/../03_Collections/List/ArrayList|ArrayList]] • [[Java/08_Modern-Java/../03_Collections/Set/HashSet|HashSet]] • 01 Records (records in Sequenced collections)
 
 ---
 *Category: Modern-Java • java25*

@@ -129,10 +129,10 @@ When do you need `flatMap` instead of `map` on an `Optional`?:: When the mapping
 
 ## Related
 
-- [[Lambdas and Functional Interfaces]], `map`/`flatMap`/`filter` take functional arguments
-- [[Streams API]], `Optional.stream()`, `findFirst`/`findAny` return `Optional`
-- [[Generics]], `Optional<T>` generics and variance
-- [[Exception Handling]], `orElseThrow` vs checked exceptions
+- Lambdas and Functional Interfaces, `map`/`flatMap`/`filter` take functional arguments
+- Streams API, `Optional.stream()`, `findFirst`/`findAny` return `Optional`
+- Generics, `Optional<T>` generics and variance
+- Exception Handling, `orElseThrow` vs checked exceptions
 - [[Java/03_Collections/README|Collections]], prefer empty `List` over `Optional<List>`
 
 ---

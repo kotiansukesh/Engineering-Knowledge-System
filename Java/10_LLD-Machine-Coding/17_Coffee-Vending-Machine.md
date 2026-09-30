@@ -20,13 +20,13 @@ type: concept
 ## Why it Matters
 
 - The canonical **multi-resource atomicity** problem: one brew decrements *several* ingredient stocks at once (water + milk + beans), so partial failure means a cup poured with no milk, an undrinkable product that still consumed inventory. Check-then-act across ingredients must be one unit.
-- It is the clean demonstration that recipes are *data*, not code: a new drink is a `Recipe` entry, a map of ingredient quantities, and the machine never changes. That is [[02_OOP/SOLID-Open-Closed|OCP]] in a form you can point at in 10 lines.
+- It is the clean demonstration that recipes are *data*, not code: a new drink is a `Recipe` entry, a map of ingredient quantities, and the machine never changes. That is OCP in a form you can point at in 10 lines.
 - It shows where a state machine is *not* the answer: the interesting variation here is not transitions but *behaviour* (payment method, recipe), so Strategy is the right pattern, and reaching for State here is the over-engineering the interviewer is probing for.
 - Payment and fulfilment are separable concerns that must still be coordinated: charge before brew, refund on failure, and never brew a drink whose ingredients were already consumed by a failed charge.
 
 ## Diagram
 
-![[_attachments/coffeevending-class-diagram.png]]
+!_attachments/coffeevending-class-diagram.png
 *Source: [awesome-low-level-design](https://github.com/ashishps1/awesome-low-level-design) , use alongside the class table above.*
 *Runtime flow: recipe gates brewing on all ingredients.*
 ```mermaid
@@ -81,7 +81,7 @@ class CoffeeDemo {
 **Use when** a product is assembled from a combination of consumable resources, each with its own stock level, vending machines, soda fountains with syrups, paint/chemical mixing, recipe-driven manufacturing, restaurant kitchen order fulfilment.
 **Use** a recipe-as-data model whenever new products must be added without code changes.
 **Use** a strategy seam for payment whenever cash/card/coupon/wallet differ in charge and refund logic.
-**NOT when** the product is a single discrete item, a snack vending machine has a count per item, no combination, and no multi-resource atomicity; the ingredient model is dead weight there (see [[02_Vending-Machine|Vending Machine]]).
+**NOT when** the product is a single discrete item, a snack vending machine has a count per item, no combination, and no multi-resource atomicity; the ingredient model is dead weight there (see Vending Machine).
 **NOT when** stock is effectively unbounded or replenished instantly, the whole value of the check-then-consume atomicity evaporates if nothing can run out.
 **NOT when** recipes are genuinely one-of-a-kind per order (a bespoke kitchen), a data-driven recipe table adds nothing if every order is custom; model it as a bill of materials per order instead.
 **NOT when** fulfilment is asynchronous and long-running (a barista calling your name), a synchronous brew-and-charge model is wrong; a ticket/queue model applies.
@@ -98,11 +98,11 @@ class CoffeeDemo {
 
 ## Vs
 
-- **Vs [[02_Vending-Machine|Vending Machine]]:** generic vending models *discrete items* with a count (decrement one); the coffee machine models *ingredient combinations* decremented together (water + milk + beans). Single-stock decrement vs multi-resource atomic transaction.
-- **Vs [[05_ATM|ATM]]:** the ATM *dispenses* its own inventory (cash denominations) and debits a remote ledger; the coffee machine *consumes* internal ingredients to produce a product. The ATM's cash is both product and payment; here they are separate.
-- **Vs [[01_Parking-Lot|Parking Lot]]:** parking *occupies and releases* a reusable spot; a brew permanently *consumes* ingredients that must be restocked. Reusable resource vs consumable resource.
-- **Vs [[12_Movie-Ticket-Booking|Movie Ticket Booking]]:** booking *holds then confirms* a specific seat with a timeout; brewing has no hold phase, stock is consumed atomically and cannot be "released" back mid-transaction.
-- **Vs [[11_Splitwise|Splitwise]]:** Splitwise records *who owes whom* (deferred obligation) with no inventory; the coffee machine moves ingredients and money immediately.
+- **Vs Vending Machine:** generic vending models *discrete items* with a count (decrement one); the coffee machine models *ingredient combinations* decremented together (water + milk + beans). Single-stock decrement vs multi-resource atomic transaction.
+- **Vs ATM:** the ATM *dispenses* its own inventory (cash denominations) and debits a remote ledger; the coffee machine *consumes* internal ingredients to produce a product. The ATM's cash is both product and payment; here they are separate.
+- **Vs Parking Lot:** parking *occupies and releases* a reusable spot; a brew permanently *consumes* ingredients that must be restocked. Reusable resource vs consumable resource.
+- **Vs Movie Ticket Booking:** booking *holds then confirms* a specific seat with a timeout; brewing has no hold phase, stock is consumed atomically and cannot be "released" back mid-transaction.
+- **Vs Splitwise:** Splitwise records *who owes whom* (deferred obligation) with no inventory; the coffee machine moves ingredients and money immediately.
 - **Vs a recipe/ERP system:** the ERP owns recipes and bills of materials as *planning* data; this machine *executes* them against live stock. Planning model vs execution model, the two share the recipe concept and differ in the atomicity requirement.
 
 ## Pitfalls
@@ -120,20 +120,20 @@ class CoffeeDemo {
 
 ## Interview q&a
 
-- **How is this different from a plain Vending Machine?** Stock is multi-ingredient recipes, not per-item counts , one brew touches N inventories atomically; see [[02_Vending-Machine\|Vending Machine]] for the state-machine half.
-- **Adding a drink , what changes?** Only a new `Recipe` ([[06_Design-Patterns/Behavioral/Strategy\|Strategy]]); the machine is closed for modification , [[02_OOP/SOLID-Open-Closed\|OCP]].
+- **How is this different from a plain Vending Machine?** Stock is multi-ingredient recipes, not per-item counts , one brew touches N inventories atomically; see Vending Machine for the state-machine half.
+- **Adding a drink , what changes?** Only a new `Recipe` (Strategy); the machine is closed for modification , OCP.
 
-How is this different from a plain Vending Machine?:: Stock is multi-ingredient recipes, not per-item counts , one brew touches N inventories atomically; see [[02_Vending-Machine\|Vending Machine]] for the state-machine half. #flashcard
-Adding a drink , what changes?:: Only a new `Recipe` ([[06_Design-Patterns/Behavioral/Strategy\|Strategy]]); the machine is closed for modification , [[02_OOP/SOLID-Open-Closed\|OCP]]. #flashcard
+How is this different from a plain Vending Machine?:: Stock is multi-ingredient recipes, not per-item counts , one brew touches N inventories atomically; see Vending Machine for the state-machine half. #flashcard
+Adding a drink , what changes?:: Only a new `Recipe` (Strategy); the machine is closed for modification , OCP. #flashcard
 
 ## Related
 
-- [[02_Vending-Machine\|Vending Machine]], [[06_Design-Patterns/Behavioral/Strategy\|Strategy]], [[06_Design-Patterns/Behavioral/Observer\|Observer]]
+- Vending Machine, Strategy, Observer
 - Source: [awesome-low-level-design](https://github.com/ashishps1/awesome-low-level-design)
 
 # Coffee Vending Machine
 
-> Part of [[README|Java MOC]] -> [[10_LLD-Machine-Coding/README|LLD MOC]]
+> Part of [[README|Java MOC]] -> LLD MOC
 
 ## Requirements
 
@@ -145,10 +145,10 @@ Adding a drink , what changes?:: Only a new `Recipe` ([[06_Design-Patterns/Behav
 
 | Class | Role | Pattern |
 |---|---|---|
-| `CoffeeMachine` (singleton) | brew facade over inventory + recipes | [[06_Design-Patterns/Creational/Singleton\|Singleton]], [[06_Design-Patterns/Structural/Facade\|Facade]] |
-| `Recipe` (strategy) | per-drink ingredient map + brew steps | [[06_Design-Patterns/Behavioral/Strategy\|Strategy]] |
+| `CoffeeMachine` (singleton) | brew facade over inventory + recipes | Singleton, Facade |
+| `Recipe` (strategy) | per-drink ingredient map + brew steps | Strategy |
 | `IngredientsInventory` | stock counts, `hasEnough`/`consume`/`restock` | , |
-| `Payment` | cash/card charge + refund | [[06_Design-Patterns/Behavioral/Strategy\|Strategy]] (payment) |
+| `Payment` | cash/card charge + refund | Strategy (payment) |
 
 ## Concurrency
 

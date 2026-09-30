@@ -17,16 +17,16 @@ tags: [architecture, foundations, MOC]
 
 | Stage | Outcome |
 |---|---|
-| [[What-is-Architecture]] | Distinguish architecture, design and implementation |
-| [[What-is-Architecture]] | Establish scope, ownership and trust boundaries |
-| [[Stakeholders-Concerns]] | Convert concerns into architectural drivers |
-| [[Quality-Attributes-and-Scenarios]] | Turn vague NFRs into measurable scenarios |
-| [[Constraints-and-Trade-offs]] | Make compromises explicit |
-| [[Architecture-Principles]] | Create durable decision rules |
-| [[Views-and-Viewpoints-4-plus-1]] | Communicate architecture through purposeful views |
-| [[Architecture-Decisions-and-ADRs]] | Capture why decisions were made |
-| [[Fitness-Functions-and-Architecture-Runway]] | Detect drift with evidence |
-| [[Architecture-Evolution-and-Technical-Debt]] | Change architecture when evidence demands it |
+| What-is-Architecture | Distinguish architecture, design and implementation |
+| What-is-Architecture | Establish scope, ownership and trust boundaries |
+| Stakeholders-Concerns | Convert concerns into architectural drivers |
+| Quality-Attributes-and-Scenarios | Turn vague NFRs into measurable scenarios |
+| Constraints-and-Trade-offs | Make compromises explicit |
+| Architecture-Principles | Create durable decision rules |
+| Views-and-Viewpoints-4-plus-1 | Communicate architecture through purposeful views |
+| Architecture-Decisions-and-ADRs | Capture why decisions were made |
+| Fitness-Functions-and-Architecture-Runway | Detect drift with evidence |
+| Architecture-Evolution-and-Technical-Debt | Change architecture when evidence demands it |
 
 ## Foundation outcome
 
@@ -53,7 +53,7 @@ Teach **reasoning primitives**, not technology catalogs. Data, integration, oper
 
 ## Related
 
-- [[00 - Architecture Decision Framework]]
-- [[00 - System Design Decision Tree]]
-- [[00 - NFR Decision Matrix]]
-- [[00 - Architecture Practice Engine]]
+- 00 - Architecture Decision Framework
+- 00 - System Design Decision Tree
+- 00 - NFR Decision Matrix
+- 00 - Architecture Practice Engine

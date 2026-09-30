@@ -106,9 +106,9 @@ How does annotation processing work at compile time vs runtime?:: Compile-time: 
 
 ## Related
 
-- [[Classes]]
-- [[Interface]]
-- [[Enums]]
+- Classes
+- Interface
+- Enums
 - [[Java/01_Core-Java/Types/Abstract Class|Abstract Class]]
 
 ### Built-in vs Custom Annotations

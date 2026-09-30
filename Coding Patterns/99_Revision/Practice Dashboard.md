@@ -95,7 +95,7 @@ limit 30
 3. Attempt one blind problem.
 4. Record recognition and implementation separately.
 5. Log the first failure category.
-6. Choose the next interval using [[00 - Adaptive Review Engine]].
+6. Choose the next interval using 00 - Adaptive Review Engine.
 7. Re-test in a mixed set before promoting mastery.
 
 ## Mastery scale

@@ -109,7 +109,7 @@ Row-major vs column-major, why care?:: Iteration order matching layout maximises
 
 ## Related
 
-- [[Linked List]] • [[Java/07_DSA/Stack|Stack]] • [[Java/07_DSA/Queue|Queue]] • [[Java/07_DSA/HashMap|HashMap (DSA)]]
+- Linked List • [[Java/07_DSA/Stack|Stack]] • [[Java/07_DSA/Queue|Queue]] • [[Java/07_DSA/HashMap|HashMap (DSA)]]
 - [[README|Java MOC]]
 
 # Array

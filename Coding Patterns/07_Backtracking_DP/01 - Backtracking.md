@@ -204,7 +204,7 @@ Start with the core implementation. Introduce a variant only when the required s
 
 ## Related
 
-- [[07_Backtracking_DP/02 - Dynamic Programming|Dynamic Programming]] (backtracking + memo = DP)
-- [[07_Backtracking_DP/03 - Greedy|Greedy]] (local choice vs exhaustive)
-- [[05_Trees_Graphs/02 - DFS|DFS]] (backtracking is DFS with state restoration)
+- Dynamic Programming (backtracking + memo = DP)
+- Greedy (local choice vs exhaustive)
+- DFS (backtracking is DFS with state restoration)
 - [[Java/07_DSA/Array]]

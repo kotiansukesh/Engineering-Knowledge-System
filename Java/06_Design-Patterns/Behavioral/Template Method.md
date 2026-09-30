@@ -18,7 +18,7 @@ type: concept
 
 # Template Method
 
-> Category: Behavioral • Source: [Refactoring.Guru , Template Method](https://refactoring.guru/design-patterns/template-method) • Part of [[Java/README|Java MOC]] → [[06_Design-Patterns/README|Design Patterns MOC]]
+> Category: Behavioral • Source: [Refactoring.Guru , Template Method](https://refactoring.guru/design-patterns/template-method) • Part of [[Java/README|Java MOC]] → Design Patterns MOC
 
 ## Why it Matters
 
@@ -117,7 +117,7 @@ Final protects the skeleton invariant , the order and presence of steps , that a
 ## Flashcards (Spaced Repetition)
 
 #flashcard
-Behavioral • Source: [Refactoring.Guru , Template Method](https://refactoring.guru/design-patterns/template-method) • Part of [[Java/README|Java MOC]] → [[06_Design-Patterns/README|Design Patterns MOC]]
+Behavioral • Source: [Refactoring.Guru , Template Method](https://refactoring.guru/design-patterns/template-method) • Part of [[Java/README|Java MOC]] → Design Patterns MOC
 
 ## Why it Matters
 
@@ -220,7 +220,7 @@ limit 10
 
 ## Related
 
-[[06_Design-Patterns/Behavioral/Strategy|Strategy]] (swap whole algorithm) • [[06_Design-Patterns/Creational/Factory Method|Factory Method]] (creation step) • [[06_Design-Patterns/Behavioral/State|State]]
+Strategy (swap whole algorithm) • Factory Method (creation step) • State
 
 ---
 

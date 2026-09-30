@@ -99,16 +99,16 @@ When does `StructuredTaskScope` replace `ConcurrentHashMap` + `CountDownLatch`?:
 
 ## Related
 
-- [[Executor Framework]], work queues behind executors are `BlockingQueue`s
-- [[Locks and Synchronizers]], `Semaphore`/`CountDownLatch` with queues
-- [[Threads]], virtual threads parking on `BlockingQueue.take()`
-- [[Atomics and Volatile]], CAS primitives underlying CHM bins
+- Executor Framework, work queues behind executors are `BlockingQueue`s
+- Locks and Synchronizers, `Semaphore`/`CountDownLatch` with queues
+- Threads, virtual threads parking on `BlockingQueue.take()`
+- Atomics and Volatile, CAS primitives underlying CHM bins
 
 # Concurrent Collections
 
 > Part of [[README|Java MOC]] • `Concurrency` • Java 25 (LTS)
-- [[Architect/10_System-Design-Interviews/ASYNC-02-Message-Queues.md|ASYNC-02-Message-Queues]] — Message Queues - distributed concurrency
-- [[Architect/10_System-Design-Interviews/ASYNC-03-Event-Driven-Architecture.md|ASYNC-03-Event-Driven-Architecture]] — Event-driven patterns
+- ASYNC-02-Message-Queues — Message Queues - distributed concurrency
+- ASYNC-03-Event-Driven-Architecture — Event-driven patterns
 
 ## Core Collections
 

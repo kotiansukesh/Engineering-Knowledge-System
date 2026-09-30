@@ -100,7 +100,7 @@ SLO: need <10ms → ZGC; need max throughput → G1; >32GB + low pause → ZGC.
 
 ## Related
 
-- [[01 Virtual Threads]] • [[09 Foreign Function and Memory API]] • [[../01_Core-Java/JVM Memory Model|JVM Memory Model]]
+- 01 Virtual Threads • 09 Foreign Function and Memory API • [[Java/09_Java-21-LTS/../01_Core-Java/JVM Memory Model|JVM Memory Model]]
 
 ---
 *Category: java21*

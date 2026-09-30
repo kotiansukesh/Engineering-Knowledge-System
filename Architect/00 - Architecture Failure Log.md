@@ -52,7 +52,7 @@ tags:
 - Same failure twice → add a checklist item to the relevant guide.
 - Three times → add a concrete counterexample.
 - Repeated component overuse → add a "When NOT to Use" rule.
-- Repeated trade-off omission → add it to [[00 - Architecture Decision Framework]].
+- Repeated trade-off omission → add it to 00 - Architecture Decision Framework.
 
 ## Session fields
 

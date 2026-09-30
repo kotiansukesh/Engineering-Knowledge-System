@@ -110,11 +110,11 @@ public Fallback<PaymentResult> paymentFallback() {
 ## Trade-offs
 | Dimension | This Approach | Alternative | Trade-off Rationale | Decision Rule |
 |-----------|---------------|-------------|---------------------|---------------|
-| Complexity | [TBD] | [TBD] | [TBD] | [TBD] |
-| Operational Burden | [TBD] | [TBD] | [TBD] | [TBD] |
-| Latency | [TBD] | [TBD] | [TBD] | [TBD] |
-| Consistency | [TBD] | [TBD] | [TBD] | [TBD] |
-| Cost at Scale | [TBD] | [TBD] | [TBD] | [TBD] |
+| Complexity | Not specified | Not specified | Not specified | Not specified |
+| Operational Burden | Not specified | Not specified | Not specified | Not specified |
+| Latency | Not specified | Not specified | Not specified | Not specified |
+| Consistency | Not specified | Not specified | Not specified | Not specified |
+| Cost at Scale | Not specified | Not specified | Not specified | Not specified |
 
 ## Flashcards (Spaced Repetition)
 
@@ -188,7 +188,7 @@ limit 10
 | Alternative | When to Choose | Decision Rule |
 |---|---|---|
 | **Store Bias** | Stores bias toward C or A, but operations decide | You can do eventual on Postgres (read replicas) and strong-ish on NoSQL (conditional writes) |
-| **CQRS + Event Sourcing** | Mixed consistency implementation | CQRS = consistent writes + eventually-consistent reads. See [[03_Event-Sourcing-CQRS]] |
+| **CQRS + Event Sourcing** | Mixed consistency implementation | CQRS = consistent writes + eventually-consistent reads. See 03_Event-Sourcing-CQRS |
 
 ## ⚠️ Pitfalls
 1. **One global consistency setting** — overpays latency on reads, risks availability on writes
@@ -224,4 +224,4 @@ limit 10
 > **Answer**: Chaos Mesh / Litmus: inject partition between service and DB; assert CP operations fail fast, AP operations serve stale with documented TTL. Run in staging nightly. **Rejected**: "We don't test partitions" — hope is not a strategy.
 
 ## 🔗 Related
-- [[01_SQL-vs-NoSQL-Selection]] · [[03_Event-Sourcing-CQRS]] · [[../05_DDD-Modeling/05_Domain-Events|Domain Events]]
+- 01_SQL-vs-NoSQL-Selection · 03_Event-Sourcing-CQRS · [[Architect/06_Data-Architecture/../05_DDD-Modeling/05_Domain-Events|Domain Events]]

@@ -18,13 +18,13 @@ type: concept
 
 ## Why it Matters
 
-- The cleanest demonstration that behaviour *depends on history*: the same `select` call is legal after inserting money and illegal before it. Modelling that as an object instead of a flag is the whole point of the [[06_Design-Patterns/Behavioral/State|State]] pattern.
+- The cleanest demonstration that behaviour *depends on history*: the same `select` call is legal after inserting money and illegal before it. Modelling that as an object instead of a flag is the whole point of the State pattern.
 - Money and inventory are consumed together in one transaction, partially applying a purchase (take money, then find the item gone) is a real money-loss bug, so atomicity here is a business requirement, not a nicety.
 - It is small enough to implement fully in an interview yet contains every structural decision the larger problems reuse: a context delegating to a strategy-like object, inventory decrement, and a payment seam.
 
 ## Diagram
 
-![[_attachments/vendingmachine-class-diagram.png]]
+!_attachments/vendingmachine-class-diagram.png
 *Source: [awesome-low-level-design](https://github.com/ashishps1/awesome-low-level-design) , use alongside the class table above.*
 *Runtime flow: state machine per transaction.*
 ```mermaid
@@ -92,11 +92,11 @@ class VendingMachineDemo {
 
 ## Vs
 
-- **Vs [[01_Parking-Lot|Parking Lot]]:** vending *consumes* inventory permanently; parking *occupies* a spot and releases it, same "find free resource" shape, opposite lifecycle, and that one difference changes concurrency (decrement vs toggle).
-- **Vs [[17_Coffee-Vending-Machine|Coffee Vending Machine]]:** generic vending models discrete items with a count; the coffee machine models *recipes of ingredients* (water + milk + beans) where one brew decrements several stocks at once, multi-resource atomicity is the new problem.
-- **Vs [[05_ATM|ATM]]:** both idle → authenticated → dispensing, but the ATM *adds* money to the user while the vending machine *accepts* it, and the ATM's cash inventory is what it dispenses, its "product" and "payment" are the same physical thing.
-- **Vs [[16_Traffic-Signal-Control|Traffic Signal Control]]:** both are state machines, but traffic transitions are *timer-driven and perpetual* while vending transitions are *event-driven and terminating* — so traffic never resets to idle, it cycles.
-- **Vs `enum` + `if/else`:** the state classes localise each state's invalid transitions; adding `SoldOutState` cannot break `IdleState` ([[02_OOP/SOLID-Open-Closed|OCP]]), while a switch must be edited in one place per new state.
+- **Vs Parking Lot:** vending *consumes* inventory permanently; parking *occupies* a spot and releases it, same "find free resource" shape, opposite lifecycle, and that one difference changes concurrency (decrement vs toggle).
+- **Vs Coffee Vending Machine:** generic vending models discrete items with a count; the coffee machine models *recipes of ingredients* (water + milk + beans) where one brew decrements several stocks at once, multi-resource atomicity is the new problem.
+- **Vs ATM:** both idle → authenticated → dispensing, but the ATM *adds* money to the user while the vending machine *accepts* it, and the ATM's cash inventory is what it dispenses, its "product" and "payment" are the same physical thing.
+- **Vs Traffic Signal Control:** both are state machines, but traffic transitions are *timer-driven and perpetual* while vending transitions are *event-driven and terminating* — so traffic never resets to idle, it cycles.
+- **Vs `enum` + `if/else`:** the state classes localise each state's invalid transitions; adding `SoldOutState` cannot break `IdleState` (OCP), while a switch must be edited in one place per new state.
 
 ## Pitfalls
 
@@ -110,19 +110,19 @@ class VendingMachineDemo {
 ## Interview q&a
 
 - **Add card payment / promo codes?** New `State` branch stays untouched; add `PaymentStrategy` so cash/card differ only in `pay()`.
-- **Why State over if-else on an enum?** Each state's invalid transitions live in one class; adding a state (e.g. `SoldOutState`) can't break others , [[02_OOP/SOLID-Open-Closed\|OCP]].
+- **Why State over if-else on an enum?** Each state's invalid transitions live in one class; adding a state (e.g. `SoldOutState`) can't break others , OCP.
 
 Add card payment / promo codes?:: New `State` branch stays untouched; add `PaymentStrategy` so cash/card differ only in `pay()`. #flashcard
-Why State over if-else on an enum?:: Each state's invalid transitions live in one class; adding a state (e.g. `SoldOutState`) can't break others , [[02_OOP/SOLID-Open-Closed\|OCP]]. #flashcard
+Why State over if-else on an enum?:: Each state's invalid transitions live in one class; adding a state (e.g. `SoldOutState`) can't break others , OCP. #flashcard
 
 ## Related
 
-- [[06_Design-Patterns/Behavioral/State\|State]], [[06_Design-Patterns/Behavioral/Strategy\|Strategy]], [[02_OOP/SOLID-Open-Closed\|OCP]]
+- State, Strategy, OCP
 - Source: [awesome-low-level-design](https://github.com/ashishps1/awesome-low-level-design)
 
 # Vending Machine
 
-> Part of [[README|Java MOC]] -> [[10_LLD-Machine-Coding/README|LLD MOC]]
+> Part of [[README|Java MOC]] -> LLD MOC
 
 ## Requirements
 
@@ -134,10 +134,10 @@ Why State over if-else on an enum?:: Each state's invalid transitions live in on
 
 | Class | Role | Pattern |
 |---|---|---|
-| `VendingMachine` (context) | delegates to current `State` | [[06_Design-Patterns/Behavioral/State\|State]], [[06_Design-Patterns/Creational/Singleton\|Singleton]] |
-| `State` / `IdleState` / `HasMoneyState` / `DispensingState` | per-state rules for insert/select/dispense | [[06_Design-Patterns/Behavioral/State\|State]] |
+| `VendingMachine` (context) | delegates to current `State` | State, Singleton |
+| `State` / `IdleState` / `HasMoneyState` / `DispensingState` | per-state rules for insert/select/dispense | State |
 | `Item` + `Inventory` | code, price, count | , |
-| `PaymentStrategy` | cash vs card change logic | [[06_Design-Patterns/Behavioral/Strategy\|Strategy]] |
+| `PaymentStrategy` | cash vs card change logic | Strategy |
 
 ## Concurrency
 

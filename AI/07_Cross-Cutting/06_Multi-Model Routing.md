@@ -80,7 +80,7 @@ def route(task_complexity: float, budget_ok: bool) -> RouteDecision:
 
 ## Pitfalls
 
-- Routing without eval — hard queries on cheap model hallucinate; gate with [[02_AI Evaluation|Evaluation]].
+- Routing without eval — hard queries on cheap model hallucinate; gate with Evaluation.
 - No provider abstraction — `openai` vs `anthropic` message formats differ; wrap in unified `ask()` adapter.
 - No fallback — single vendor outage = outage; ship fallback Day 1.
 
@@ -101,16 +101,16 @@ Langfuse experiment: 10% traffic to candidate route, compare `faithfulness`, `co
 ## Flashcards (Spaced Repetition)
 
 #flashcard
-**Q:** What is the trigger keyword for Multi-Model Routing? :: **A:** [trigger keywords] #flashcard
+**Q:** What is the trigger keyword for Multi-Model Routing? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** Key hyperparameter for Multi-Model Routing? :: **A:** [hyperparameter + typical range] #flashcard
+**Q:** Key hyperparameter for Multi-Model Routing? :: **A:** Not specified #flashcard
 
 #flashcard
 **Q:** When do you NOT use Multi-Model Routing? :: **A:** [anti-pattern scenarios] #flashcard
 
 #flashcard
-**Q:** Cost order of magnitude for Multi-Model Routing? :: **A:** [GPU hours / $ per 1M tokens] #flashcard
+**Q:** Cost order of magnitude for Multi-Model Routing? :: **A:** Not specified #flashcard
 
 ## Practice Tasks (Tasks Plugin)
 - [ ] Restate the intent from memory 📅 2026-09-30
@@ -127,7 +127,7 @@ limit 10
 
 ## Related
 - [[README|AI MOC]]
-- [[07_Cross-Cutting/README|07_Cross-Cutting Folder]]
+- 07_Cross-Cutting Folder
 
 ---
 

@@ -114,4 +114,4 @@ Can an inner class access private members of outer?:: Yes, compiler generates sy
 - [[Java/01_Core-Java/Types/Nested/Static Nested Class|Static Nested Class]]
 - [[Java/01_Core-Java/Types/Nested/Method Local Inner Class|Method Local Inner Class]]
 - [[Java/01_Core-Java/Types/Nested/Anonymous Inner Class|Anonymous Inner Class]]
-- [[Classes]]
+- Classes

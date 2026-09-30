@@ -79,7 +79,7 @@ public class ClassesDemo {
 ## When to use / not
 
 - **Encapsulate**: fields `private final` where possible; expose behavior, not getters for everything.
-- **One class, one reason to change** ([[02_OOP/SOLID-Single-Responsibility\|Single Responsibility]]) , the moment a class has two jobs, split it.
+- **One class, one reason to change** (Single Responsibility) , the moment a class has two jobs, split it.
 - Prefer **records** for dumb data (`record Seat(String id, String tier) {}`); full **classes** for behavior + mutable lifecycle.
 - **Static factories** (`Spot.of(...)`) beat public constructors: named, cached, subtype-returning.
 
@@ -96,7 +96,7 @@ public class ClassesDemo {
 
 - Anemic classes: all getters, no behavior , logic leaks to callers.
 - Mutable **data carriers** passed across threads without copying.
-- One God class holding every noun , split by [[02_OOP/SOLID-Single-Responsibility\|SRP]] early.
+- One God class holding every noun , split by SRP early.
 
 ## Interview q&a
 
@@ -110,7 +110,7 @@ A: **Record** when identity is the data itself and instances are immutable snaps
 
 ## Related
 
-- [[02_OOP/Interfaces\|Interfaces]] • [[02_OOP/Encapsulation\|Encapsulation]] • [[02_OOP/SOLID-Single-Responsibility\|Single Responsibility]] • [[02_OOP/Class-Relationships\|Class Relationships]]
+- Interfaces • Encapsulation • Single Responsibility • Class Relationships
 
 ---
 *Category: Java/02_OOP*

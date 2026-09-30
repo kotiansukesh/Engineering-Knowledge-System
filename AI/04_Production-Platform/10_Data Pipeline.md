@@ -7,7 +7,7 @@ completed: false
 difficulty: "Advanced"
 reviewed: "2026-09-30"
 sr-due: "2026-10-12"
-type: "note"
+type: concept
 ---
 
 # ML Data Pipeline

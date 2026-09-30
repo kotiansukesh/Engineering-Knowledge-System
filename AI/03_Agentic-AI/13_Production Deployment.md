@@ -15,7 +15,7 @@ sr-due: "2026-09-30"
 source: ""
 excalidraw: ""
 weeks: "8"
-type: "note"
+type: concept
 ---
 
 # 13_Production Deployment
@@ -104,16 +104,16 @@ config = 13_ProductionDeploymentConfig()
 ## Flashcards (Spaced Repetition)
 
 #flashcard
-**Q:** What is the trigger keyword for 13_Production Deployment? :: **A:** [trigger keywords] #flashcard
+**Q:** What is the trigger keyword for 13_Production Deployment? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** Key hyperparameter for 13_Production Deployment? :: **A:** [hyperparameter + typical range] #flashcard
+**Q:** Key hyperparameter for 13_Production Deployment? :: **A:** Not specified #flashcard
 
 #flashcard
 **Q:** When do you NOT use 13_Production Deployment? :: **A:** [anti-pattern scenarios] #flashcard
 
 #flashcard
-**Q:** Cost order of magnitude for 13_Production Deployment? :: **A:** [GPU hours / $ per 1M tokens] #flashcard
+**Q:** Cost order of magnitude for 13_Production Deployment? :: **A:** Not specified #flashcard
 
 ## Practice Tasks (Tasks Plugin)
 - [ ] Restate the intent from memory 📅 2026-09-30
@@ -130,7 +130,7 @@ limit 10
 
 ## Related
 - [[README|AI MOC]]
-- [[03_Agentic-AI/README|03_Agentic-AI Folder]]
+- 03_Agentic-AI Folder
 
 ---
 

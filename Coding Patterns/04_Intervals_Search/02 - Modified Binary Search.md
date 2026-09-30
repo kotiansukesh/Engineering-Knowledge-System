@@ -203,6 +203,6 @@ Start with the core implementation. Introduce a variant only when the problem ch
 
 ## Related
 
-- [[04_Intervals_Search/01 - Overlapping Intervals|Overlapping Intervals]]
-- [[07_Backtracking_DP/02 - Dynamic Programming|Dynamic Programming]] (binary search on answer often pairs with DP feasibility check)
+- Overlapping Intervals
+- Dynamic Programming (binary search on answer often pairs with DP feasibility check)
 - [[Java/07_DSA/Array]]

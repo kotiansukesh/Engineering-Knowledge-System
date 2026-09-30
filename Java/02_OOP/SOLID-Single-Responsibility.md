@@ -24,7 +24,7 @@ type: concept
 - God-class smells: mixed imports (`java.sql` + formatting + network), method groups that never call each other, unrelated test failures.
 - Fix technique: extract class per responsibility (e.g. `Invoice` → `Invoice`, `InvoicePrinter`, `InvoiceRepository`).
 - SRP enables the other SOLID principles , small cohesive classes are easier to extend, substitute, and inject.
-- Don't over-split: one-method classes with a single caller are over-engineering (see [[Pragmatic-Principles-DRY-YAGNI-KISS]]).
+- Don't over-split: one-method classes with a single caller are over-engineering (see Pragmatic-Principles-DRY-YAGNI-KISS).
 - **Why it matters.** easier to read (one job per class), easier to test (test the password hasher without DB/email), safer to change (fewer ripple breaks).
 - **Common mistakes.** confusing responsibility with method count; over-splitting into one-method classes; splitting by layer instead of by change-axis.
 - **Self-check.** how many import-groups would change this class for unrelated reasons? (`java.security` vs `java.sql` vs mail/token libs = that many responsibilities.)
@@ -92,7 +92,7 @@ void main() {
 
 - Use when one class has **two or more reasons to change** that fire on different tickets (schema vs formatting vs provider swap).
 - Use early on **god classes** , the longer they grow, the more callers entangle with them.
-- NOT when splitting produces one-method classes with a single caller , that is SRP theater (see [[Pragmatic-Principles-DRY-YAGNI-KISS\|YAGNI/KISS]]).
+- NOT when splitting produces one-method classes with a single caller , that is SRP theater (see YAGNI/KISS).
 - NOT when two method groups change together on every ticket , merging them is simpler and still single-axis.
 
 ## Trade-offs
@@ -127,10 +127,10 @@ A: Extract one class per change-axis , `PasswordHasher`, `UserRepository`, `Toke
 
 ## Related
 
-- [[SOLID-Open-Closed]] • [[SOLID-Liskov-Substitution]] • [[SOLID-Interface-Segregation]] • [[SOLID-Dependency-Inversion]]
-- [[Class-Relationships]] • [[Pragmatic-Principles-DRY-YAGNI-KISS]]
-- [[02_OOP/00 - OOP Overview|OOP Overview]] • [[02_OOP/Encapsulation|Encapsulation]]
-- [[06_Design-Patterns/Behavioral/Command|Command]] • [[06_Design-Patterns/Extra/DAO Pattern|DAO Pattern]]
+- SOLID-Open-Closed • SOLID-Liskov-Substitution • SOLID-Interface-Segregation • SOLID-Dependency-Inversion
+- Class-Relationships • Pragmatic-Principles-DRY-YAGNI-KISS
+- OOP Overview • Encapsulation
+- Command • DAO Pattern
 
 ---
 *Category: Java/02_OOP*

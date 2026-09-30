@@ -101,16 +101,16 @@ Prefer `orders.placed` (past-tense fact) over `fulfilOrder` (command) for true d
 ## Trade-offs
 | Dimension | This Approach | Alternative | Trade-off Rationale | Decision Rule |
 |-----------|---------------|-------------|---------------------|---------------|
-| Complexity | [TBD] | [TBD] | [TBD] | [TBD] |
-| Operational Burden | [TBD] | [TBD] | [TBD] | [TBD] |
-| Latency | [TBD] | [TBD] | [TBD] | [TBD] |
-| Consistency | [TBD] | [TBD] | [TBD] | [TBD] |
-| Cost at Scale | [TBD] | [TBD] | [TBD] | [TBD] |
+| Complexity | Not specified | Not specified | Not specified | Not specified |
+| Operational Burden | Not specified | Not specified | Not specified | Not specified |
+| Latency | Not specified | Not specified | Not specified | Not specified |
+| Consistency | Not specified | Not specified | Not specified | Not specified |
+| Cost at Scale | Not specified | Not specified | Not specified | Not specified |
 
 ## Vs
 
 - **Vs REST/RPC:** sync = simple reasoning, temporal coupling; events = resilience + decoupling, harder to trace.
-- **Vs [[06_Data-Architecture/03_Event-Sourcing-CQRS|Event Sourcing]]:** EDA moves *notifications* between services; event sourcing persists *state changes* as the source of truth. Often combined.
+- **Vs Event Sourcing:** EDA moves *notifications* between services; event sourcing persists *state changes* as the source of truth. Often combined.
 
 ## Pitfalls
 
@@ -134,7 +134,7 @@ Prefer `orders.placed` (past-tense fact) over `fulfilOrder` (command) for true d
 A: Assume at-least-once from Kafka; get effectively-once via idempotent consumers (dedup keys) + transactional outbox on produce.
 
 **Q: Choreography vs orchestration?**
-A: Choreography (each service reacts) suits simple flows; orchestration (a saga orchestrator drives steps) suits complex, visible workflows, see [[03_Microservices]].
+A: Choreography (each service reacts) suits simple flows; orchestration (a saga orchestrator drives steps) suits complex, visible workflows, see 03_Microservices.
 
 
 ## Flashcards (Spaced Repetition)
@@ -200,7 +200,7 @@ limit 10
 
 ## Related
 
-- [[03_Microservices]] · [[05_DDD-Modeling/05_Domain-Events|Domain Events]] · [[06_Data-Architecture/03_Event-Sourcing-CQRS|Event Sourcing & CQRS]]
+- 03_Microservices · Domain Events · Event Sourcing & CQRS
 
 # Event-Driven Architecture (EDA)
 

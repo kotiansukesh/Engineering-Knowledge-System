@@ -58,7 +58,7 @@ void main() {
 - Use SOLID as a **diagnostic** , the smell table answers "which principle is hurting?" in a review.
 - Use it **early at boundaries** (persistence, external providers, payment, pricing) where change concentrates.
 - NOT as five laws to apply everywhere , forcing SRP produces one-method classes, forcing OCP/DIP produces speculative frameworks.
-- NOT when [[Pragmatic-Principles-DRY-YAGNI-KISS\|YAGNI/KISS]] has not yet been violated , principles are tools for *real* pain, not preemptive architecture.
+- NOT when YAGNI/KISS has not yet been violated , principles are tools for *real* pain, not preemptive architecture.
 
 ## Trade-offs
 
@@ -90,8 +90,8 @@ A: Take LLD Coffee Vending: SRP (inventory vs recipe vs payment), OCP (new drink
 
 ## Related
 
-- [[SOLID-Single-Responsibility]] • [[SOLID-Open-Closed]] • [[SOLID-Liskov-Substitution]] • [[SOLID-Interface-Segregation]] • [[SOLID-Dependency-Inversion]]
-- [[Law-of-Demeter]] • [[Pragmatic-Principles-DRY-YAGNI-KISS]] • [[Class-Relationships]]
+- SOLID-Single-Responsibility • SOLID-Open-Closed • SOLID-Liskov-Substitution • SOLID-Interface-Segregation • SOLID-Dependency-Inversion
+- Law-of-Demeter • Pragmatic-Principles-DRY-YAGNI-KISS • Class-Relationships
 
 ---
 *Category: Java/02_OOP*
@@ -104,15 +104,15 @@ A: Take LLD Coffee Vending: SRP (inventory vs recipe vs payment), OCP (new drink
 
 | # | Principle | One-liner | Violation smell | Note |
 |---|---|---|---|---|
-| S | [[SOLID-Single-Responsibility\|Single Responsibility]] | One class, one reason to change | God class; `java.sql` + formatting + network imports in one file | Split by change-axis, not method count |
-| O | [[SOLID-Open-Closed\|Open-Closed]] | Open for extension, closed for modification | `switch` on type in every new feature | New behavior = new class, e.g. `PaymentStrategy` |
-| L | [[SOLID-Liskov-Substitution\|Liskov Substitution]] | Subtypes must honor the base contract | Overridden method throws `UnsupportedOperationException`; strengthened preconditions | If it can't substitute, don't inherit , compose |
-| I | [[SOLID-Interface-Segregation\|Interface Segregation]] | Small role interfaces over fat ones | Forced empty `implement` stubs; one interface change breaks ten classes | Split `Worker` into `Eater`/`Sleeper` per client |
-| D | [[SOLID-Dependency-Inversion\|Dependency Inversion]] | Depend on abstractions, not concretions | `new PostgresDb()` inside business logic; untestable without a DB | Inject the interface; wire the concrete at the edge |
+| S | Single Responsibility | One class, one reason to change | God class; `java.sql` + formatting + network imports in one file | Split by change-axis, not method count |
+| O | Open-Closed | Open for extension, closed for modification | `switch` on type in every new feature | New behavior = new class, e.g. `PaymentStrategy` |
+| L | Liskov Substitution | Subtypes must honor the base contract | Overridden method throws `UnsupportedOperationException`; strengthened preconditions | If it can't substitute, don't inherit , compose |
+| I | Interface Segregation | Small role interfaces over fat ones | Forced empty `implement` stubs; one interface change breaks ten classes | Split `Worker` into `Eater`/`Sleeper` per client |
+| D | Dependency Inversion | Depend on abstractions, not concretions | `new PostgresDb()` inside business logic; untestable without a DB | Inject the interface; wire the concrete at the edge |
 
 ## When They Conflict
 
-- **OCP vs YAGNI/KISS.** OCP says "seam for extension", YAGNI says "don't build it yet". Rule: shape today's code so extension is *cheap* (small methods, depend on interfaces) but don't *build* the extension , reversible simplicity beats speculative frameworks. See [[Pragmatic-Principles-DRY-YAGNI-KISS]].
+- **OCP vs YAGNI/KISS.** OCP says "seam for extension", YAGNI says "don't build it yet". Rule: shape today's code so extension is *cheap* (small methods, depend on interfaces) but don't *build* the extension , reversible simplicity beats speculative frameworks. See Pragmatic-Principles-DRY-YAGNI-KISS.
 - **SRP vs KISS (over-splitting).** one-method classes with a single caller are SRP theater , merging two responsibilities that change together is simpler and still single-axis. Split on the *second* divergent change, not the first suspicion.
 - **ISP vs DIP (interface explosion).** too many micro-interfaces make injection sites unreadable. Group by genuine client role , one interface per *caller kind*, not per method.
 - **LSP vs OCP (the tempting subclass).** extending via inheritance to satisfy OCP often breaks LSP (Square-Rectangle, read-only file). Prefer composition + Strategy for OCP; reserve inheritance for true is-a with identical contracts.
@@ -122,11 +122,11 @@ A: Take LLD Coffee Vending: SRP (inventory vs recipe vs payment), OCP (new drink
 
 | Principle | Proving pattern | Where it's drilled |
 |---|---|---|
-| SRP | Observer (notification out of domain) | [[SOLID-Single-Responsibility]] · LLD Logging, Task Management |
-| OCP | Strategy (new behavior = new class) | [[SOLID-Open-Closed]] · LLD Vending, Coffee Vending |
-| LSP | Factory + substitutable hierarchies | [[SOLID-Liskov-Substitution]] · LLD Parking (Vehicle sizes), Chess (pieces) |
-| ISP | Role interfaces per client | [[SOLID-Interface-Segregation]] · LLD ATM, Splitwise |
-| DIP | Inject abstractions at the edge | [[SOLID-Dependency-Inversion]] · LLD Ride Sharing (pricing), Pub-Sub |
+| SRP | Observer (notification out of domain) | SOLID-Single-Responsibility · LLD Logging, Task Management |
+| OCP | Strategy (new behavior = new class) | SOLID-Open-Closed · LLD Vending, Coffee Vending |
+| LSP | Factory + substitutable hierarchies | SOLID-Liskov-Substitution · LLD Parking (Vehicle sizes), Chess (pieces) |
+| ISP | Role interfaces per client | SOLID-Interface-Segregation · LLD ATM, Splitwise |
+| DIP | Inject abstractions at the edge | SOLID-Dependency-Inversion · LLD Ride Sharing (pricing), Pub-Sub |
 
 ## Vs , SOLID vs Pragmatic Principles
 
