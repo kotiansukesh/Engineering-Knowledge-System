@@ -1,101 +1,49 @@
 ---
-title: Cyclic Sort
+title: "Cyclic Sort"
+type: pattern
 pattern: 22
-category: Coding Patterns/09_Advanced
+domain: "Advanced Array"
+category: "Coding Patterns/09_Advanced"
+advanced: true
+mastery: learn
+recognition_score: 0
+difficulty: "Easy"
+leetcode: [- 268]
+created: "2026-09-29"
+reviewed:
+next_review: "2026-10-07"
 tags:
-- pattern/array
-- pattern/array/cyclic-sort
-- pattern/array/swap
-leetcode:
-- 268
-- 442
-- 448
-- 645
-created: '2026-09-29'
-completed: false
-reviewed: ''
-sr-due: ''
-difficulty: Easy
-source: https://blog.algomaster.io/p/20-dsa-patterns
-excalidraw: ''
+  - pattern
+  - advanced-array
 ---
 
 # Cyclic Sort
 
-> Part of [[README|20 DSA Patterns]] • `Coding Patterns/09_Advanced` • Pattern #22 (Optional)
-> **Trigger:** Array with elements in range `[1..n]` or `[0..n-1]` — place each element at its correct index via swaps.
+> Advanced pattern · Advanced Array
 
-## Intent
+## Recognition
 
-When array elements are in a known range `[1..n]`, the correct position of value `x` is index `x-1` (or `x` for 0-indexed). Swap each element to its correct position in a single pass — O(n) time, O(1) space, no extra memory.
+- Values occupy a known contiguous range
+- Correct value has a predictable index
+- Need O(n) time and O(1) extra space
 
-## Why it Matters
+### Strong signals
+- Values occupy a known contiguous range
+- Correct value has a predictable index
 
-- **Range constraint is the trigger:** `1 ≤ nums[i] ≤ n` or `0 ≤ nums[i] < n`.
-- **Each element visits its correct position at most once** — total swaps ≤ n, so O(n) time despite nested `while`.
-- **Missing/duplicate detection:** After sorting, scan once — `nums[i] != i+1` reveals missing/duplicate.
-- Senior signal: recognizing cyclic sort applies to *any* permutation of range `[1..n]`, not just sorting — use for missing number, first missing positive, find all duplicates.
+### Do not infer it from
+- A keyword alone
+- A familiar example without checking constraints
 
-## Diagram
+## Invariant
 
-```mermaid
-flowchart LR
-  A["nums = [3,1,5,4,2]"] --> I["i=0: 3 at idx 0?"]
-  I -->|no| S["swap nums[0] <-> nums[2]"]
-  S --> A2["[5,1,3,4,2]"]
-  A2 --> I3{"nums[i] at correct idx?"}
-  I3 -->|no| S
-  I3 -->|yes| N["i++"]
-  N --> Done{"i < n?"}
-  Done -->|yes| I
-  Done -->|no| R["[1,2,3,4,5]"]
-```
+> After processing position i, the value placed there is correct whenever its value maps to a valid index.
 
-## Problems
+## Mental model
 
-### 268. Missing Number (Easy)
-> [LeetCode 268](https://leetcode.com/problems/missing-number/) • Tags: Array, Hash Table, Math, Binary Search, Bit Manipulation, Sorting
+Maintain the smallest state that completely describes the part of the search space still relevant to the answer.
 
-**Problem Statement:**
-Given an array nums containing n distinct numbers in the range [0, n], return the only number in the range that is missing from the array.
-
-**Examples:**
-- Input: nums = [3,0,1] → Output: 2
-- Input: nums = [0,1] → Output: 2
-- Input: nums = [9,6,4,2,3,5,7,0,1] → Output: 8
----
-
-### 442. Find All Duplicates in an Array (Medium)
-> [LeetCode 442](https://leetcode.com/problems/find-all-duplicates-in-an-array/) • Tags: Array, Hash Table
-
-**Problem Statement:**
-Given an integer array nums of length n where all the integers of nums are in the range [1, n] and each integer appears once or twice, return an array of all the integers that appears twice.
-
-**Examples:**
-- Input: nums = [4,3,2,7,8,2,3,1] → Output: [2,3]
----
-
-### 448. Find All Numbers Disappeared in an Array (Easy)
-> [LeetCode 448](https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array/) • Tags: Array, Hash Table
-
-**Problem Statement:**
-Given an array nums of n integers where nums[i] is in the range [1, n], return an array of all the integers in the range [1, n] that do not appear in nums.
-
-**Examples:**
-- Input: nums = [4,3,2,7,8,2,3,1] → Output: [5,6]
----
-
-### 645. Set Mismatch (Easy)
-> [LeetCode 645](https://leetcode.com/problems/set-mismatch/) • Tags: Array, Hash Table, Bit Manipulation, Sorting
-
-**Problem Statement:**
-You have a set of integers s, which originally contains all the numbers from 1 to n. Unfortunately, due to some error, one of the numbers in s got duplicated to another number in the set, which results in repetition of one number and loss of another number. You are given an integer array nums representing the data status of this set after the error. Find the number that occurs twice and the number that is missing and return them in the form of an array.
-
-**Examples:**
-- Input: nums = [1,2,2,4] → Output: [2,3]
----
-
-## Code / Example
+## Core implementation
 
 ```java
 // Cyclic Sort template — elements in [1..n]
@@ -188,20 +136,26 @@ int[] findErrorNums(int[] nums) {
 }
 ```
 
-## When to Use / When NOT
+## Variants
 
-- **Use:** array with elements in `[1..n]` or `[0..n-1]`; find missing, duplicate, first missing positive; any permutation of known range.
+Start with the core implementation. Introduce a variant only when the required state or proof changes.
+
+## When to use
+
+- array with elements in `[1..n]` or `[0..n-1]`; find missing, duplicate, first missing positive; any permutation of known range.
 - **NOT:** values outside the range; need stable sort; array is read-only (cyclic sort mutates).
 
-## Trade-offs
+## When NOT to use
+
+values outside the range; need stable sort; array is read-only (cyclic sort mutates).
+
+## Complexity & trade-offs
 
 | Approach | Time | Space | Mutates Input |
 |----------|------|-------|---------------|
 | Cyclic Sort | O(n) | O(1) | Yes |
 | HashSet | O(n) | O(n) | No |
 | Sort + Scan | O(n log n) | O(1) or O(n) | Depends |
-
-## Vs Table
 
 | Aspect | Cyclic Sort | HashSet | Sort |
 |--------|-------------|---------|------|
@@ -217,7 +171,18 @@ int[] findErrorNums(int[] nums) {
 - **Don't increment `i` after swap** — the new value at `i` needs to be checked again.
 - **First Missing Positive (LC 41)** extends this: first segregate positives, then cyclic sort the positive segment.
 
-## Interview Q&A (Senior Depth)
+## Canonical problems
+
+| LeetCode | Problem | Difficulty |
+|---:|---|---|
+| 268 | Easy |
+| 442 | Medium |
+| 448 | Easy |
+| 645 | Easy |
+
+## Interview Q&A
+
+(Senior Depth)
 
 **Q: Why is the inner `while` still O(n) total, not O(n²)?**
 A: Each swap puts at least one element in its final correct position. An element never leaves its correct position once placed. With n elements, at most n swaps total. The `while` loop condition is checked O(n) times for successful swaps + O(n) times for failed checks (when `i++`). Total = O(2n) = O(n).
@@ -234,8 +199,7 @@ A: Only if you transform the range. For `[-k..k]`, add `k` to make it `[0..2k]`,
 **Q: Set Mismatch (LC 645) — why does the duplicate value end up at the missing index?**
 A: After cyclic sort, every index `i` should have value `i+1`. The missing value `m` means index `m-1` is empty. The duplicate `d` gets placed at index `d-1` (its correct spot), but since `d` appears twice, the *second* `d` has nowhere to go — it stays at the index where `m` should be. So `nums[m-1] = d` and `m` is missing.
 
-
-## Flashcards (Spaced Repetition)
+## Flashcards
 
 #flashcard
 **Q:** What is the trigger keyword for Cyclic Sort? :: **A:** find missing/duplicate in 1..n, first missing positive, find corruption, sort array with elements in range #flashcard
@@ -249,24 +213,15 @@ A: After cyclic sort, every index `i` should have value `i+1`. The missing value
 #flashcard
 **Q:** Core Java 25 snippet for Cyclic Sort? :: **A:** `for(int i=0;i<n;){ if(nums[i]!=i+1 && nums[i]<=n && nums[i]!=nums[nums[i]-1]) swap(nums,i,nums[i]-1); else i++; }` #flashcard
 
+## Review tasks
 
-## Practice Tasks (Tasks Plugin)
-- [ ] Restate the intent from memory 📅 {date:YYYY-MM-DD, +1}
-- [ ] Code the snippet without looking 📅 {date:YYYY-MM-DD, +3}
-- [ ] Answer all Interview Q&A aloud 📅 {date:YYYY-MM-DD, +7}
-- [ ] Review flashcards (Spaced Repetition) 📅 {date:YYYY-MM-DD, +1}
-
-```tasks
-not done
-path includes {file.folder}
-sort by due
-limit 10
-```
+- [ ] Explain recognition signals from memory 📅 2026-10-01
+- [ ] Write the template from memory 📅 2026-10-03
+- [ ] Solve one unseen problem without hints 📅 2026-10-07
+- [ ] Explain the invariant aloud 📅 2026-10-14
 
 ## Related
+
 - [[01_Array/01 - Prefix Sum|Prefix Sum]] (XOR alternative for missing number)
 - [[01_Array/04 - Frequency Counting|Frequency Counting]] (HashMap alternative)
 - [[08_Bit_Manipulation/01 - Bit Manipulation|Bit Manipulation]] (XOR for single missing)
----
-
-*Category: Coding Patterns/09_Advanced • Optional Pattern #22*
