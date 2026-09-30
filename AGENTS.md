@@ -163,3 +163,18 @@ Important rules:
 - Use vault-relative wikilinks only; never use `[[../...]]`.
 - Avoid pipe aliases inside Markdown-table wikilinks.
 - Run `python3 scripts/validate-architect.py` before merging Architect changes.
+
+## Architect mastery and extension layers
+
+The Architect vault includes:
+
+- Practice Engine: Learn → Recognize → Guided → Constraint Injection → Blind → Failure Injection → Trade-off Defense → Review → Redesign → Interview → Mastered.
+- Problem Bank: system-design prompts are practiced independently from reference notes.
+- Failure Injection: designs explain blast radius, degraded behavior, detection and recovery.
+- Trade-off Simulator: mutate one constraint and redesign.
+- Architecture Evolution: require measured bottlenecks before structural change.
+- Enterprise Architecture: connect business capability to technology and governance.
+- AI Architecture: apply the constraints/evidence loop to models, RAG, agents, tools, evaluation, security, observability and cost.
+- Portfolio: original systems include requirements, NFRs, ADRs, failure analysis, cost, security, observability and migration evidence.
+
+Do not treat completion counts as mastery. Prefer independent evidence and redesign under changed constraints.
