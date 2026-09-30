@@ -1,137 +1,74 @@
 ---
-title: "03_Model Governance"
+title: "Model Governance"
 category: "AI/06_Architecture-Governance"
-tags:
-- governance
-- model-governance
-- lifecycle
-- audit
-- compliance
-created: "2026-09-29"
+tags: [governance, model-lifecycle, audit, risk]
+created: "2026-09-30"
 completed: false
 difficulty: "Advanced"
-reviewed: "2026-09-29"
-sr-due: "2026-09-30"
-source: ""
-excalidraw: ""
-weeks: "15"
+reviewed: "2026-09-30"
+sr-due: "2026-10-06"
 type: "note"
 ---
 
-# 03_Model Governance
-
-> Part of [[README|AI MOC]] • `AI/06_Architecture-Governance` • Weeks 15
-> 🎨 **Visual diagram:** Create Excalidraw drawing from template: `Cmd+P → Excalidraw: New from template → AI Diagram`
+# Model Governance
 
 ## Intent
-Understand **model governance** — model cards, data cards, audit trails, approval workflows, risk classification, and regulatory compliance (EU AI Act, NIST) — to manage AI responsibly.
+Create traceability and control across model selection, evaluation, approval, deployment, monitoring, incident response, and retirement.
 
-## Why It Matters
-- Where this appears in interviews (FAANG, senior vs. junior)
-- Production impact (cost, latency, quality, GPU utilization)
-- Senior signal: recognizing the *disguised* form of this pattern
+## Lifecycle
+~~~~mermaid
+flowchart LR
+I[Inventory] --> R[Risk classification] --> E[Evaluation] --> A[Approval] --> D[Deploy] --> M[Monitor] --> X[Incident / change] --> Q[Retire]
+~~~~
 
-## Diagram
-```mermaid
-graph TD
-    A[Input / Context] --> B[Core Mechanism]
-    B --> C[Output / Result]
-    style B fill:#e8f5e9
-```
+## Governance Record
+For every production model or provider configuration capture:
+- owner and business purpose
+- model/version/provider identifier
+- intended use and prohibited use
+- data sources and important restrictions
+- evaluation results and known limitations
+- security/privacy review
+- approval evidence
+- deployment configuration
+- monitoring metrics and thresholds
+- incident history and retirement trigger
 
-## Key Points
-- Key point 1
-- Key point 2
+## Decision Rule
+Governance depth should follow risk and impact. A low-impact internal summarizer does not need the same approval path as a system making consequential decisions or executing external actions.
 
-## Code / Config Example
-```python
-# Python 3.11+: Minimal example for 03_Model Governance
-# Core concept - implementation varies by framework
+## Real Trade-offs
+| Control | Lightweight | Strong control | Choose based on |
+|---|---|---|---|
+| Approval | Team owner | Independent review | impact and regulatory/security exposure |
+| Evaluation | Offline test set | Offline + adversarial + human review | risk of failure |
+| Change management | Version tag | Formal approval + rollback | reversibility and impact |
+| Audit | Operational logs | Evidence package | accountability requirements |
 
-from dataclasses import dataclass
-from typing import Optional
+## Failure Modes
+1. Unknown model version → immutable deployment metadata.
+2. Evaluation not reproducible → version data, prompts, tools, model configuration.
+3. Approval bypass → deployment policy gate.
+4. Vendor/model change breaks quality → continuous regression evaluation.
+5. No retirement criteria → define expiry/review date.
 
-@dataclass
-class 03_ModelGovernanceConfig:
-    component: str = "03_Model Governance"
-    capacity: int = 10000
-    strategy: str = "default"
+## Evidence
+Governance is useful only if an auditor or engineer can reconstruct **what ran, why it was approved, what evidence supported it, and what happened afterward**.
 
-# Example usage
-config = 03_ModelGovernanceConfig()
-```
+## Practice
+- [ ] Create a model inventory entry.
+- [ ] Define a risk class and required approvals.
+- [ ] Build a reproducible evaluation record.
+- [ ] Simulate a model-version change and regression gate.
+- [ ] Write a retirement trigger.
 
-## When to Use / NOT
-| Scenario | Use? | Reason |
-|----------|------|--------|
-|          | ✅   |        |
-|          | ❌   |        |
+## Senior Interview Prompts
+1. What belongs in a model inventory?
+2. How does governance differ for a third-party API versus a self-hosted model?
+3. How do you prevent undocumented model changes?
+4. What evidence should exist before production approval?
+5. How should governance respond to an incident?
 
-## Trade-offs / Decision Matrix
-| Dimension | This Approach | Alternative A | Alternative B | Pick When |
-|-----------|---------------|---------------|---------------|-----------|
-| Complexity | | | | |
-| Latency | | | | |
-| Cost (GPU/hr) | | | | |
-| Quality | | | | |
-
-## Vs. Alternatives
-| Alternative | When to Choose It | Decision Rule |
-|-------------|-------------------|---------------|
-| | | |
-
-## Pitfalls
-1. [Concrete mistake] → [Fix]
-2. [Concrete mistake] → [Fix]
-
-## Interview Q&A (Senior Depth)
-
-**Q1: Walk me through the core mechanism of 03_Model Governance. Why does it work?**
-**A:** In 2–3 sentences. Connect the *why* to the mathematical/architectural invariant.
-
-**Q2: When would you choose an alternative over this approach?**
-**A:** Cite concrete constraints (scale, latency, cost, quality) and name the alternative.
-
-**Q3: How does this change for production vs. prototype?**
-**A:** Explain the hardening needed: evaluation, monitoring, cost optimization, guardrails.
-
-**Q4: Walk me through a non-obvious problem that reduces to this pattern.**
-**A:** Describe the reduction step-by-step.
-
-**Q5: What is the GPU memory / latency implication at scale?**
-**A:** Discuss VRAM, batching, KV cache, quantization trade-offs.
-
-## Flashcards (Spaced Repetition)
-
+## Flashcards
 #flashcard
-**Q:** What is the trigger keyword for 03_Model Governance? :: **A:** [trigger keywords] #flashcard
-
-#flashcard
-**Q:** Key hyperparameter for 03_Model Governance? :: **A:** [hyperparameter + typical range] #flashcard
-
-#flashcard
-**Q:** When do you NOT use 03_Model Governance? :: **A:** [anti-pattern scenarios] #flashcard
-
-#flashcard
-**Q:** Cost order of magnitude for 03_Model Governance? :: **A:** [GPU hours / $ per 1M tokens] #flashcard
-
-## Practice Tasks (Tasks Plugin)
-- [ ] Restate the intent from memory 📅 2026-09-30
-- [ ] Code the config without looking 📅 2026-10-02
-- [ ] Answer all Interview Q&A aloud 📅 2026-10-06
-- [ ] Review flashcards (Spaced Repetition) 📅 2026-09-30
-
-```tasks
-not done
-path includes 06_Architecture-Governance
-sort by due
-limit 10
-```
-
-## Related
-- [[README|AI MOC]]
-- [[06_Architecture-Governance/README|06_Architecture-Governance Folder]]
-
----
-
-*Category: AI/06_Architecture-Governance • Part of [[README|AI MOC]]*
+**Q:** What is the core purpose of model governance? :: **A:** Traceable control over model lifecycle decisions, evidence, risk, deployment, monitoring, and retirement.

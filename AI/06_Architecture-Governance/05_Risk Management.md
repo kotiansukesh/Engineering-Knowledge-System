@@ -1,137 +1,60 @@
 ---
-title: "05_Risk Management"
+title: "AI Risk Management"
 category: "AI/06_Architecture-Governance"
-tags:
-- risk-management
-- ai-risk
-- red-teaming
-- threat-modeling
-- incident-response
-created: "2026-09-29"
+tags: [risk-management, threat-modeling, red-teaming, incident-response]
+created: "2026-09-30"
 completed: false
 difficulty: "Advanced"
-reviewed: "2026-09-29"
-sr-due: "2026-09-30"
-source: ""
-excalidraw: ""
-weeks: "15"
+reviewed: "2026-09-30"
+sr-due: "2026-10-07"
 type: "note"
 ---
 
-# 05_Risk Management
-
-> Part of [[README|AI MOC]] • `AI/06_Architecture-Governance` • Weeks 15
-> 🎨 **Visual diagram:** Create Excalidraw drawing from template: `Cmd+P → Excalidraw: New from template → AI Diagram`
+# AI Risk Management
 
 ## Intent
-Understand **AI risk management** — risk identification (bias, security, reliability), red-teaming, threat modeling, incident response, and continuous monitoring — to mitigate AI failures.
+Turn AI risks into explicit scenarios with owners, controls, residual risk, monitoring, and response plans.
 
-## Why It Matters
-- Where this appears in interviews (FAANG, senior vs. junior)
-- Production impact (cost, latency, quality, GPU utilization)
-- Senior signal: recognizing the *disguised* form of this pattern
+## Risk Loop
+**Identify → analyze → control → test → monitor → respond → learn**
 
-## Diagram
-```mermaid
-graph TD
-    A[Input / Context] --> B[Core Mechanism]
-    B --> C[Output / Result]
-    style B fill:#e8f5e9
-```
+## Threat Categories
+| Category | Example | Control examples |
+|---|---|---|
+| Security | prompt injection, tool abuse | isolation, authorization, red-team tests |
+| Privacy | sensitive-data leakage | minimization, access control, redaction |
+| Reliability | hallucination, tool failure | grounding, validation, fallback |
+| Safety | harmful output/action | policy controls, approval, escalation |
+| Operational | provider outage/cost spike | quotas, fallback, budgets |
+| Governance | undocumented change | inventory, approval, audit trail |
 
-## Key Points
-- Key point 1
-- Key point 2
+## Risk Register Entry
+Every material risk should record: **scenario, affected asset/user, likelihood, impact, existing controls, residual risk, owner, detection signal, response, review date**.
 
-## Code / Config Example
-```python
-# Python 3.11+: Minimal example for 05_Risk Management
-# Core concept - implementation varies by framework
+## Decision Rule
+Prioritize by impact and exploitability, but do not hide high-impact low-frequency risks. Irreversible actions deserve stronger preventive controls than reversible informational responses.
 
-from dataclasses import dataclass
-from typing import Optional
+## Failure Modes
+1. Risk list without owners → assign accountable owner.
+2. Red team disconnected from production threats → derive cases from architecture and incidents.
+3. Controls tested only once → continuously replay important attack cases.
+4. Residual risk undocumented → record accepted risk and expiry/review date.
+5. Incident response starts from scratch → maintain playbooks and evidence paths.
 
-@dataclass
-class 05_RiskManagementConfig:
-    component: str = "05_Risk Management"
-    capacity: int = 10000
-    strategy: str = "default"
+## Practice
+- [ ] Threat-model an agent with three tools.
+- [ ] Create five concrete abuse cases.
+- [ ] Map each to preventive and detective controls.
+- [ ] Run a red-team replay and record residual risk.
+- [ ] Write an incident playbook for one high-impact failure.
 
-# Example usage
-config = 05_RiskManagementConfig()
-```
+## Senior Interview Prompts
+1. How do you threat-model an agent differently from a normal API?
+2. What makes an AI risk scenario actionable?
+3. Which controls should be preventive versus detective?
+4. How do you handle accepted residual risk?
+5. How should incidents feed back into evaluation and architecture?
 
-## When to Use / NOT
-| Scenario | Use? | Reason |
-|----------|------|--------|
-|          | ✅   |        |
-|          | ❌   |        |
-
-## Trade-offs / Decision Matrix
-| Dimension | This Approach | Alternative A | Alternative B | Pick When |
-|-----------|---------------|---------------|---------------|-----------|
-| Complexity | | | | |
-| Latency | | | | |
-| Cost (GPU/hr) | | | | |
-| Quality | | | | |
-
-## Vs. Alternatives
-| Alternative | When to Choose It | Decision Rule |
-|-------------|-------------------|---------------|
-| | | |
-
-## Pitfalls
-1. [Concrete mistake] → [Fix]
-2. [Concrete mistake] → [Fix]
-
-## Interview Q&A (Senior Depth)
-
-**Q1: Walk me through the core mechanism of 05_Risk Management. Why does it work?**
-**A:** In 2–3 sentences. Connect the *why* to the mathematical/architectural invariant.
-
-**Q2: When would you choose an alternative over this approach?**
-**A:** Cite concrete constraints (scale, latency, cost, quality) and name the alternative.
-
-**Q3: How does this change for production vs. prototype?**
-**A:** Explain the hardening needed: evaluation, monitoring, cost optimization, guardrails.
-
-**Q4: Walk me through a non-obvious problem that reduces to this pattern.**
-**A:** Describe the reduction step-by-step.
-
-**Q5: What is the GPU memory / latency implication at scale?**
-**A:** Discuss VRAM, batching, KV cache, quantization trade-offs.
-
-## Flashcards (Spaced Repetition)
-
+## Flashcards
 #flashcard
-**Q:** What is the trigger keyword for 05_Risk Management? :: **A:** [trigger keywords] #flashcard
-
-#flashcard
-**Q:** Key hyperparameter for 05_Risk Management? :: **A:** [hyperparameter + typical range] #flashcard
-
-#flashcard
-**Q:** When do you NOT use 05_Risk Management? :: **A:** [anti-pattern scenarios] #flashcard
-
-#flashcard
-**Q:** Cost order of magnitude for 05_Risk Management? :: **A:** [GPU hours / $ per 1M tokens] #flashcard
-
-## Practice Tasks (Tasks Plugin)
-- [ ] Restate the intent from memory 📅 2026-09-30
-- [ ] Code the config without looking 📅 2026-10-02
-- [ ] Answer all Interview Q&A aloud 📅 2026-10-06
-- [ ] Review flashcards (Spaced Repetition) 📅 2026-09-30
-
-```tasks
-not done
-path includes 06_Architecture-Governance
-sort by due
-limit 10
-```
-
-## Related
-- [[README|AI MOC]]
-- [[06_Architecture-Governance/README|06_Architecture-Governance Folder]]
-
----
-
-*Category: AI/06_Architecture-Governance • Part of [[README|AI MOC]]*
+**Q:** What makes an AI risk entry actionable? :: **A:** A concrete scenario with impact, controls, owner, detection signal, response, residual risk, and review date.

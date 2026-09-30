@@ -1,137 +1,69 @@
 ---
-title: "05_Batching and Caching"
+title: "Batching and Caching"
 category: "AI/04_Production-Platform"
-tags:
-- serving
-- batching
-- caching
-- kv-cache
-- prefix-caching
-created: "2026-09-29"
+tags: [serving, batching, caching, kv-cache, prefix-caching]
+created: "2026-09-30"
 completed: false
 difficulty: "Advanced"
-reviewed: "2026-09-29"
-sr-due: "2026-09-30"
-source: ""
-excalidraw: ""
-weeks: "9"
+reviewed: "2026-09-30"
+sr-due: "2026-10-03"
 type: "note"
 ---
 
-# 05_Batching and Caching
-
-> Part of [[README|AI MOC]] • `AI/04_Production-Platform` • Weeks 9
-> 🎨 **Visual diagram:** Create Excalidraw drawing from template: `Cmd+P → Excalidraw: New from template → AI Diagram`
+# Batching and Caching
 
 ## Intent
-Understand **batching and caching** — static/dynamic/continuous batching, KV cache reuse, prefix caching, request scheduling — to maximize throughput and minimize latency.
+Choose batching and cache strategies that improve throughput or latency without violating correctness, freshness, isolation, or memory budgets.
 
-## Why It Matters
-- Where this appears in interviews (FAANG, senior vs. junior)
-- Production impact (cost, latency, quality, GPU utilization)
-- Senior signal: recognizing the *disguised* form of this pattern
+## Decision Model
+**Batching** combines work to improve hardware utilization. **Caching** avoids repeating work. They solve different problems and must be evaluated separately.
 
-## Diagram
-```mermaid
-graph TD
-    A[Input / Context] --> B[Core Mechanism]
-    B --> C[Output / Result]
-    style B fill:#e8f5e9
-```
+## Batching
+| Strategy | Benefit | Risk |
+|---|---|---|
+| Static batch | simple high utilization for fixed workloads | waits for batch boundary |
+| Dynamic batch | adapts to arrivals | scheduler complexity |
+| Continuous batching | strong utilization for autoregressive generation | more complex scheduling |
 
-## Key Points
-- Key point 1
-- Key point 2
+## Caching
+| Cache | Reuse target | Main correctness question |
+|---|---|---|
+| Exact response cache | identical requests | is response still valid? |
+| Semantic cache | similar requests | are requests safely equivalent? |
+| Prefix/KV cache | shared prompt prefixes | is prefix identical and reusable? |
+| Application/data cache | deterministic external data | freshness/authorization |
 
-## Code / Config Example
-```python
-# Python 3.11+: Minimal example for 05_Batching and Caching
-# Core concept - implementation varies by framework
+## Decision Rule
+Cache only when the reuse key captures the inputs that affect correctness. Do not use semantic similarity as proof that two requests have the same authorized or current answer.
 
-from dataclasses import dataclass
-from typing import Optional
+## Failure Modes
+1. Stale answer → TTL/version invalidation.
+2. Cross-user data leak → include tenant/authorization context in cache identity.
+3. Low hit rate → measure before adding cache complexity.
+4. Cache stampede → request coalescing or bounded refresh.
+5. Memory pressure → size limits and eviction policy.
+6. Batch starvation → maximum wait time and fair scheduling.
 
-@dataclass
-class 05_BatchingandCachingConfig:
-    component: str = "05_Batching and Caching"
-    capacity: int = 10000
-    strategy: str = "default"
+## Evaluation
+Measure cache hit rate, saved compute/tokens, stale-result rate, p50/p95 latency, batch size distribution, queue wait, GPU utilization, and cost per successful request.
 
-# Example usage
-config = 05_BatchingandCachingConfig()
-```
+## Practice
+- [ ] Add an exact response cache with a correctness-aware key.
+- [ ] Measure hit rate on a realistic workload.
+- [ ] Inject stale data and verify invalidation.
+- [ ] Compare dynamic vs continuous batching under mixed request lengths.
+- [ ] Simulate a cache stampede.
 
-## When to Use / NOT
-| Scenario | Use? | Reason |
-|----------|------|--------|
-|          | ✅   |        |
-|          | ❌   |        |
+## Senior Interview Prompts
+1. Why is semantic caching harder than exact caching?
+2. How can caching create a security problem?
+3. When does batching improve throughput but hurt latency?
+4. How do you choose a TTL?
+5. What evidence justifies prefix/KV caching?
 
-## Trade-offs / Decision Matrix
-| Dimension | This Approach | Alternative A | Alternative B | Pick When |
-|-----------|---------------|---------------|---------------|-----------|
-| Complexity | | | | |
-| Latency | | | | |
-| Cost (GPU/hr) | | | | |
-| Quality | | | | |
-
-## Vs. Alternatives
-| Alternative | When to Choose It | Decision Rule |
-|-------------|-------------------|---------------|
-| | | |
-
-## Pitfalls
-1. [Concrete mistake] → [Fix]
-2. [Concrete mistake] → [Fix]
-
-## Interview Q&A (Senior Depth)
-
-**Q1: Walk me through the core mechanism of 05_Batching and Caching. Why does it work?**
-**A:** In 2–3 sentences. Connect the *why* to the mathematical/architectural invariant.
-
-**Q2: When would you choose an alternative over this approach?**
-**A:** Cite concrete constraints (scale, latency, cost, quality) and name the alternative.
-
-**Q3: How does this change for production vs. prototype?**
-**A:** Explain the hardening needed: evaluation, monitoring, cost optimization, guardrails.
-
-**Q4: Walk me through a non-obvious problem that reduces to this pattern.**
-**A:** Describe the reduction step-by-step.
-
-**Q5: What is the GPU memory / latency implication at scale?**
-**A:** Discuss VRAM, batching, KV cache, quantization trade-offs.
-
-## Flashcards (Spaced Repetition)
+## Flashcards
+#flashcard
+**Q:** What must a cache key represent? :: **A:** Every input that can change correctness, freshness, or authorization of the result.
 
 #flashcard
-**Q:** What is the trigger keyword for 05_Batching and Caching? :: **A:** [trigger keywords] #flashcard
-
-#flashcard
-**Q:** Key hyperparameter for 05_Batching and Caching? :: **A:** [hyperparameter + typical range] #flashcard
-
-#flashcard
-**Q:** When do you NOT use 05_Batching and Caching? :: **A:** [anti-pattern scenarios] #flashcard
-
-#flashcard
-**Q:** Cost order of magnitude for 05_Batching and Caching? :: **A:** [GPU hours / $ per 1M tokens] #flashcard
-
-## Practice Tasks (Tasks Plugin)
-- [ ] Restate the intent from memory 📅 2026-09-30
-- [ ] Code the config without looking 📅 2026-10-02
-- [ ] Answer all Interview Q&A aloud 📅 2026-10-06
-- [ ] Review flashcards (Spaced Repetition) 📅 2026-09-30
-
-```tasks
-not done
-path includes 04_Production-Platform
-sort by due
-limit 10
-```
-
-## Related
-- [[README|AI MOC]]
-- [[04_Production-Platform/README|04_Production-Platform Folder]]
-
----
-
-*Category: AI/04_Production-Platform • Part of [[README|AI MOC]]*
+**Q:** Why can batching hurt tail latency? :: **A:** Requests may wait for batch formation or interact with heterogeneous request lengths, increasing queueing and scheduling delay.

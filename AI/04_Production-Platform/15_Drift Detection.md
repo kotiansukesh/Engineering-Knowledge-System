@@ -1,138 +1,63 @@
 ---
-title: "15_Drift Detection"
+title: "Drift Detection"
 category: "AI/04_Production-Platform"
-tags:
-- drift-detection
-- data-drift
-- concept-drift
-- psi
-- ks-test
-- monitoring
-created: "2026-09-29"
+tags: [drift, data-drift, concept-drift, monitoring]
+created: "2026-09-30"
 completed: false
 difficulty: "Advanced"
-reviewed: "2026-09-29"
-sr-due: "2026-09-30"
-source: ""
-excalidraw: ""
-weeks: "12"
+reviewed: "2026-09-30"
+sr-due: "2026-10-05"
 type: "note"
 ---
 
-# 15_Drift Detection
-
-> Part of [[README|AI MOC]] • `AI/04_Production-Platform` • Weeks 12
-> 🎨 **Visual diagram:** Create Excalidraw drawing from template: `Cmd+P → Excalidraw: New from template → AI Diagram`
+# Drift Detection
 
 ## Intent
-Understand **drift detection** — PSI, KS-test, Jensen-Shannon, ADWIN, retraining triggers, and automated remediation — to maintain model accuracy over time.
+Distinguish data-distribution change from changes in model performance or the relationship between inputs and outcomes, then connect detection to a safe operational response.
 
-## Why It Matters
-- Where this appears in interviews (FAANG, senior vs. junior)
-- Production impact (cost, latency, quality, GPU utilization)
-- Senior signal: recognizing the *disguised* form of this pattern
+## Drift Types
+- **Data drift:** input distribution changes.
+- **Prediction drift:** model output distribution changes.
+- **Concept drift:** relationship between inputs and target changes.
+- **Label drift:** target prevalence changes.
 
-## Diagram
-```mermaid
-graph TD
-    A[Input / Context] --> B[Core Mechanism]
-    B --> C[Output / Result]
-    style B fill:#e8f5e9
-```
+## Method Selection
+| Situation | Useful approach | Caveat |
+|---|---|---|
+| Numeric distribution comparison | KS or related distribution test | sensitive to sample size |
+| Categorical distribution comparison | PSI or frequency comparison | binning/reference choice matters |
+| Multivariate change | embedding/statistical monitoring | harder to interpret |
+| Streaming change | sequential/adaptive methods | tuning false alarms |
 
-## Key Points
-- Key point 1
-- Key point 2
+No single test is universally correct. Select the method from feature type, sample size, latency, and operational response.
 
-## Code / Config Example
-```python
-# Python 3.11+: Minimal example for 15_Drift Detection
-# Core concept - implementation varies by framework
+## Decision Rule
+A drift detector should have a defined baseline, sampling window, threshold, owner, and action. If nobody knows what happens after an alert, the detector is observability without operations.
 
-from dataclasses import dataclass
-from typing import Optional
+## Failure Modes
+1. Tiny statistical change becomes a major alert → combine statistical and practical significance.
+2. Reference data becomes stale → version and refresh baselines deliberately.
+3. Drift without quality impact triggers retraining → require outcome evidence where available.
+4. Multiple correlated features create alert storms → group alerts and prioritize impact.
+5. Detector itself changes without versioning → track detector configuration as an artifact.
 
-@dataclass
-class 15_DriftDetectionConfig:
-    component: str = "15_Drift Detection"
-    capacity: int = 10000
-    strategy: str = "default"
+## Evaluation
+Measure false-alert rate, detection delay, detection power on replayed incidents, downstream quality impact, and retraining/rollback outcomes.
 
-# Example usage
-config = 15_DriftDetectionConfig()
-```
+## Practice
+- [ ] Build a reference distribution from historical traffic.
+- [ ] Inject a known distribution shift.
+- [ ] Compare two detectors on the same data.
+- [ ] Define an operational threshold and response owner.
+- [ ] Replay a drift incident without automatically retraining.
 
-## When to Use / NOT
-| Scenario | Use? | Reason |
-|----------|------|--------|
-|          | ✅   |        |
-|          | ❌   |        |
+## Senior Interview Prompts
+1. Why does statistical significance not imply business significance?
+2. When can drift be harmless?
+3. What makes concept drift harder than data drift?
+4. Why should retraining not be the automatic response to every drift alert?
+5. How would you evaluate a drift detector before production?
 
-## Trade-offs / Decision Matrix
-| Dimension | This Approach | Alternative A | Alternative B | Pick When |
-|-----------|---------------|---------------|---------------|-----------|
-| Complexity | | | | |
-| Latency | | | | |
-| Cost (GPU/hr) | | | | |
-| Quality | | | | |
-
-## Vs. Alternatives
-| Alternative | When to Choose It | Decision Rule |
-|-------------|-------------------|---------------|
-| | | |
-
-## Pitfalls
-1. [Concrete mistake] → [Fix]
-2. [Concrete mistake] → [Fix]
-
-## Interview Q&A (Senior Depth)
-
-**Q1: Walk me through the core mechanism of 15_Drift Detection. Why does it work?**
-**A:** In 2–3 sentences. Connect the *why* to the mathematical/architectural invariant.
-
-**Q2: When would you choose an alternative over this approach?**
-**A:** Cite concrete constraints (scale, latency, cost, quality) and name the alternative.
-
-**Q3: How does this change for production vs. prototype?**
-**A:** Explain the hardening needed: evaluation, monitoring, cost optimization, guardrails.
-
-**Q4: Walk me through a non-obvious problem that reduces to this pattern.**
-**A:** Describe the reduction step-by-step.
-
-**Q5: What is the GPU memory / latency implication at scale?**
-**A:** Discuss VRAM, batching, KV cache, quantization trade-offs.
-
-## Flashcards (Spaced Repetition)
-
+## Flashcards
 #flashcard
-**Q:** What is the trigger keyword for 15_Drift Detection? :: **A:** [trigger keywords] #flashcard
-
-#flashcard
-**Q:** Key hyperparameter for 15_Drift Detection? :: **A:** [hyperparameter + typical range] #flashcard
-
-#flashcard
-**Q:** When do you NOT use 15_Drift Detection? :: **A:** [anti-pattern scenarios] #flashcard
-
-#flashcard
-**Q:** Cost order of magnitude for 15_Drift Detection? :: **A:** [GPU hours / $ per 1M tokens] #flashcard
-
-## Practice Tasks (Tasks Plugin)
-- [ ] Restate the intent from memory 📅 2026-09-30
-- [ ] Code the config without looking 📅 2026-10-02
-- [ ] Answer all Interview Q&A aloud 📅 2026-10-06
-- [ ] Review flashcards (Spaced Repetition) 📅 2026-09-30
-
-```tasks
-not done
-path includes 04_Production-Platform
-sort by due
-limit 10
-```
-
-## Related
-- [[README|AI MOC]]
-- [[04_Production-Platform/README|04_Production-Platform Folder]]
-
----
-
-*Category: AI/04_Production-Platform • Part of [[README|AI MOC]]*
+**Q:** What is the difference between data drift and concept drift? :: **A:** Data drift changes the input distribution; concept drift changes the relationship between inputs and the target.
