@@ -1,137 +1,49 @@
 ---
-title: "09_Model Registry"
+title: "Model Registry"
 category: "AI/04_Production-Platform"
-tags:
-- mlops
-- model-registry
-- versioning
-- mlflow
-- lineage
-created: "2026-09-29"
+tags: [mlops, model-registry, lineage, versioning, governance]
+created: "2026-09-30"
 completed: false
-difficulty: "Medium"
-reviewed: "2026-09-29"
-sr-due: "2026-09-30"
-source: ""
-excalidraw: ""
-weeks: "10"
+difficulty: "Advanced"
+reviewed: "2026-09-30"
+sr-due: "2026-10-11"
 type: "note"
 ---
 
-# 09_Model Registry
-
-> Part of [[README|AI MOC]] • `AI/04_Production-Platform` • Weeks 10
-> 🎨 **Visual diagram:** Create Excalidraw drawing from template: `Cmd+P → Excalidraw: New from template → AI Diagram`
+# Model Registry
 
 ## Intent
-Understand **model registry** — versioning, lineage, metadata, stage transitions (staging/prod), approval workflows, and integration with serving — to manage model lifecycle.
+Use a registry as the control point for model artifacts, lineage, evaluation evidence, ownership, and promotion state.
 
-## Why It Matters
-- Where this appears in interviews (FAANG, senior vs. junior)
-- Production impact (cost, latency, quality, GPU utilization)
-- Senior signal: recognizing the *disguised* form of this pattern
+## Model Record
+A useful model version links:
+**artifact → source commit → data version → configuration → evaluation results → environment → owner → approval → deployment history**
 
-## Diagram
-```mermaid
-graph TD
-    A[Input / Context] --> B[Core Mechanism]
-    B --> C[Output / Result]
-    style B fill:#e8f5e9
-```
+## Promotion
+Prefer evidence-based states such as:
+**candidate → validated → approved → deployed → retired**
 
-## Key Points
-- Key point 1
-- Key point 2
+Promotion should be a controlled decision, not merely a file copy.
 
-## Code / Config Example
-```python
-# Python 3.11+: Minimal example for 09_Model Registry
-# Core concept - implementation varies by framework
+## Registry vs Artifact Store
+An artifact store holds bytes. A registry adds metadata, lineage, lifecycle state, and governance around those artifacts.
 
-from dataclasses import dataclass
-from typing import Optional
+## Failure Modes
+- Mutable artifact is overwritten → deployed model cannot be reproduced.
+- Metadata is incomplete → lineage cannot be reconstructed.
+- Approval is detached from exact version → wrong model gets promoted.
+- Registry becomes the only source of truth while runtime configuration diverges.
 
-@dataclass
-class 09_ModelRegistryConfig:
-    component: str = "09_Model Registry"
-    capacity: int = 10000
-    strategy: str = "default"
+## Practice
+- [ ] Define a model-version schema.
+- [ ] Register two versions with different evaluation results.
+- [ ] Trace a production deployment back to source/data.
+- [ ] Define promotion and retirement criteria.
+- [ ] Simulate accidental promotion of an unapproved version and design the control.
 
-# Example usage
-config = 09_ModelRegistryConfig()
-```
-
-## When to Use / NOT
-| Scenario | Use? | Reason |
-|----------|------|--------|
-|          | ✅   |        |
-|          | ❌   |        |
-
-## Trade-offs / Decision Matrix
-| Dimension | This Approach | Alternative A | Alternative B | Pick When |
-|-----------|---------------|---------------|---------------|-----------|
-| Complexity | | | | |
-| Latency | | | | |
-| Cost (GPU/hr) | | | | |
-| Quality | | | | |
-
-## Vs. Alternatives
-| Alternative | When to Choose It | Decision Rule |
-|-------------|-------------------|---------------|
-| | | |
-
-## Pitfalls
-1. [Concrete mistake] → [Fix]
-2. [Concrete mistake] → [Fix]
-
-## Interview Q&A (Senior Depth)
-
-**Q1: Walk me through the core mechanism of 09_Model Registry. Why does it work?**
-**A:** In 2–3 sentences. Connect the *why* to the mathematical/architectural invariant.
-
-**Q2: When would you choose an alternative over this approach?**
-**A:** Cite concrete constraints (scale, latency, cost, quality) and name the alternative.
-
-**Q3: How does this change for production vs. prototype?**
-**A:** Explain the hardening needed: evaluation, monitoring, cost optimization, guardrails.
-
-**Q4: Walk me through a non-obvious problem that reduces to this pattern.**
-**A:** Describe the reduction step-by-step.
-
-**Q5: What is the GPU memory / latency implication at scale?**
-**A:** Discuss VRAM, batching, KV cache, quantization trade-offs.
-
-## Flashcards (Spaced Repetition)
-
-#flashcard
-**Q:** What is the trigger keyword for 09_Model Registry? :: **A:** [trigger keywords] #flashcard
-
-#flashcard
-**Q:** Key hyperparameter for 09_Model Registry? :: **A:** [hyperparameter + typical range] #flashcard
-
-#flashcard
-**Q:** When do you NOT use 09_Model Registry? :: **A:** [anti-pattern scenarios] #flashcard
-
-#flashcard
-**Q:** Cost order of magnitude for 09_Model Registry? :: **A:** [GPU hours / $ per 1M tokens] #flashcard
-
-## Practice Tasks (Tasks Plugin)
-- [ ] Restate the intent from memory 📅 2026-09-30
-- [ ] Code the config without looking 📅 2026-10-02
-- [ ] Answer all Interview Q&A aloud 📅 2026-10-06
-- [ ] Review flashcards (Spaced Repetition) 📅 2026-09-30
-
-```tasks
-not done
-path includes 04_Production-Platform
-sort by due
-limit 10
-```
-
-## Related
-- [[README|AI MOC]]
-- [[04_Production-Platform/README|04_Production-Platform Folder]]
-
----
-
-*Category: AI/04_Production-Platform • Part of [[README|AI MOC]]*
+## Senior Interview Prompts
+1. What belongs in a model registry?
+2. Why is an artifact store insufficient?
+3. How do you guarantee deployment references an immutable version?
+4. How should approval relate to model version?
+5. What should happen when a deployed model is retired?
