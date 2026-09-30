@@ -33,7 +33,7 @@ graph TD
     C --> D[Multi-Head Causal Self-Attention]
     D --> E[Residual Add]
     E --> F[LayerNorm]
-    F --> G[Feed-Forward Network (SwiGLU)]
+    F --> G["Feed-Forward Network (SwiGLU)"]
     G --> H[Residual Add]
     H --> I[Next Layer or Output Head]
     I --> J[Logits over Vocabulary]
