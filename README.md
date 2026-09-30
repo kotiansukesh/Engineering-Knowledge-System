@@ -1,42 +1,52 @@
 # Engineering Knowledge System
 
-This repository is a **single Obsidian vault** for building senior-level engineering capability through knowledge, implementation, measurement, failure analysis, and architectural defense.
+This repository is a **single Obsidian vault** for building senior-level engineering capability through knowledge, implementation, measurement, failure analysis, and architecture defense.
+
+## Start here
+
+**Do not browse this repository folder-by-folder.** It contains reference material, practice material, projects and evidence. The learning order is defined by [[00 - Start Here]].
+
+### The learning system
+
+**Orient → Diagnose → Learn → Build → Break → Explain → Review → Redesign**
+
+The important output is capability, not note count.
 
 ## Knowledge architecture
 
 ```
 Engineering Knowledge System
+├── 00 - Start Here       → the learning path and what to do next
 ├── 00 - Knowledge System → how the vault works
-├── Java                 → implementation, JVM, Spring and backend engineering
-├── Coding Patterns      → algorithmic reasoning and pattern recognition
-├── AI                   → LLM, RAG, agents and production AI engineering
-├── Architect            → constraints, system design and enterprise architecture
-├── Build Lab            → progressively harder systems and portfolio projects
-└── Evidence             → implementations, benchmarks, failures, evaluations and decisions
+├── Java                  → backend implementation and targeted foundations
+├── Coding Patterns       → algorithmic reasoning practice
+├── AI                    → LLM, RAG, agents and production AI engineering
+├── Architect             → system and enterprise architecture reasoning
+├── Build Lab             → progressively harder systems
+└── Evidence              → implementations, benchmarks, failures and decisions
 ```
 
-These are **domains inside one vault**, not separate vaults. Use normal Obsidian wikilinks to connect concepts across them.
+## Your primary path
 
-## Learning loop
+**Backend Engineer → AI Engineer → AI Platform Engineer → AI Architect**
 
-**Understand → Build → Measure → Break → Decide → Explain → Review → Redesign**
+1. Follow [[00 - Start Here]].
+2. Use [[Study Plan]] as the master calendar.
+3. Enter a domain only through its README/MOC.
+4. Build the corresponding project in [[Build Lab/README]].
+5. Record proof in [[Evidence/README]].
+6. Use domain study plans only for the material required by the current phase.
 
-A completed note is not mastery. Mastery requires independent evidence.
+## Domain roles
 
-## Start here
-
-1. [[Study Plan]]
-2. [[Master Dashboard]]
-3. [[00 - Knowledge System/README]]
-4. [[Build Lab/README]]
-5. [[Evidence/README]]
-
-Then explore the domain MOCs:
-
-- [[Java/README]]
-- [[Coding Patterns/README]]
-- [[AI/README]]
-- [[Architect/README]]
+| Domain | Purpose |
+|---|---|
+| [[Java/README]] | Strengthen implementation/runtime foundations when the current project needs them |
+| [[Coding Patterns/README]] | Maintain algorithmic fluency through short, recurring practice |
+| [[AI/README]] | Primary learning track for AI engineering |
+| [[Architect/README]] | Learn to make and defend system-level decisions |
+| [[Build Lab/README]] | Turn concepts into working systems |
+| [[Evidence/README]] | Prove that learning produced capability |
 
 ## Plugin responsibilities
 
@@ -46,29 +56,28 @@ Then explore the domain MOCs:
 - **Excalidraw** — spatial/state-heavy visual reasoning.
 - **Mermaid** — small maintainable flow, sequence, state and structure diagrams.
 
-Keep the source of truth in Markdown. Do not turn plugins into the knowledge model.
+Keep Markdown as the source of truth.
 
 ## Repository conventions
 
 - YAML frontmatter stores stable, queryable metadata.
-- Use normal local wikilinks such as `[[Java/04_Concurrency/Threads]]`.
-- Avoid filesystem-style relative wikilinks such as `[[../Note]]`.
-- Avoid pipe aliases inside Markdown table cells when a plain wikilink is sufficient.
-- Keep one canonical explanation for each concept; link to it from other domains.
+- Use normal vault wikilinks such as `[[Java/04_Concurrency/Threads]]`.
+- Never use filesystem-style relative wikilinks such as `[[../Note]]`.
+- Prefer path-only wikilinks in Markdown tables.
+- Keep one canonical explanation for each concept.
+- Use `prerequisites` and `related` metadata where relationships materially affect navigation.
 - A diagram should answer one question.
-- Prefer maintainable diagram sources over static screenshots.
+- Keep version-sensitive claims dated or verified.
 - Do not create a note merely because a topic appears in a course.
 
 ## Validation
 
-Run:
-
 ```bash
 python3 scripts/validate-vault.py
 python3 scripts/validate-vault-health.py
+python3 scripts/validate-coding-patterns.py
+python3 scripts/validate-architect.py
 ```
-
-GitHub Actions runs the same repository-level checks on pushes and pull requests.
 
 ## Design principle
 
