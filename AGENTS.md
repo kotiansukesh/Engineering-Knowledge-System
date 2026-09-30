@@ -144,3 +144,22 @@ A change is complete only when:
 - Existing knowledge is preserved.
 - New features are discoverable from the relevant MOC.
 - No filesystem-style relative wikilinks remain.
+
+
+## Architect vault
+
+The Architect vault trains:
+
+**Requirements → Estimates → NFRs → Architecture → Failure Analysis → Trade-offs → Decision → Evidence → Review**
+
+Important rules:
+
+- Do not choose technologies before constraints.
+- Every major architecture choice should have a simpler alternative considered.
+- NFRs must be measurable scenarios where practical.
+- Failure modes and degraded behavior belong in architecture notes.
+- ADRs should record alternatives, consequences, validation evidence and review triggers.
+- Interview practice should measure requirements, estimation, design, reliability, trade-offs and communication separately.
+- Use vault-relative wikilinks only; never use `[[../...]]`.
+- Avoid pipe aliases inside Markdown-table wikilinks.
+- Run `python3 scripts/validate-architect.py` before merging Architect changes.
