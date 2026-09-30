@@ -8,13 +8,25 @@ This is an **Obsidian knowledge vault**. Preserve Markdown readability and Obsid
 
 Use Obsidian wikilinks:
 
-- [[Note Name]]
-- [[Folder/Note Name]]
-- [[Folder/Note Name|Display Text]]
+~~~text
+[[Note Name]]
+[[Folder/Note Name]]
+[[Folder/Note Name|Display Text]]
+~~~
 
-Never use [[../Note]].
+Never use filesystem-style relative wikilinks such as:
 
-**Markdown-table rule:** do not use pipe aliases inside wikilinks in table rows. Use [[Folder/Note]] in tables; use aliases only in ordinary prose.
+~~~text
+[[../Note]]
+~~~
+
+**Markdown-table rule:** do not use pipe aliases inside wikilinks in table rows. Use:
+
+~~~text
+[[Folder/Note]]
+~~~
+
+in tables; aliases are fine in ordinary prose.
 
 ## Plugins
 
@@ -131,4 +143,4 @@ A change is complete only when:
 - Templates produce valid metadata.
 - Existing knowledge is preserved.
 - New features are discoverable from the relevant MOC.
-- No [[../...]] links remain.
+- No filesystem-style relative wikilinks remain.
