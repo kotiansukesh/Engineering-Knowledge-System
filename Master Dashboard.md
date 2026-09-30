@@ -8,7 +8,7 @@ completed: false
 
 # Master Dashboard
 
-> Live tracking across all 4 vaults: `Java/`, `Architect/`, `AI/`, `Coding Patterns/`. Tables update on reload. Pin this tab.
+> Live tracking across the four top-level learning domains: `Java/`, `Architect/`, `AI/`, and `Coding Patterns/`. These are folders inside this single vault, not separate vaults. Tables update on reload. Pin this tab.
 
 ## 🧭 Knowledge System Control Plane
 
@@ -32,7 +32,7 @@ completed: false
 
 A completion checkbox is not mastery. Prefer an implementation, measurement, failure experiment, decision record or independent defense.
 
-## Overall Progress
+## Overall Progress — One Vault
 
 ```dataviewjs
 const vaults = ["Java", "Architect", "AI", "Coding Patterns"];
@@ -100,7 +100,7 @@ const rows = Object.entries(phases).map(([vault, vaultPhases]) => {
 dv.table(["Vault", "Program Week", "Current Phase", "Phase Weeks", "Phase Progress"], rows);
 ```
 
-## Per-Folder Breakdown
+## Per-Domain Breakdown
 
 ```dataviewjs
 const folders = [
@@ -177,7 +177,7 @@ WHERE category AND file.name != "README" AND "sr-due" AND date("sr-due") <= date
 SORT "sr-due" ASC
 ```
 
-## Last Reviewed Dashboard (All Vaults)
+## Last Reviewed Dashboard (All Domains)
 
 ```dataviewjs
 const pages = dv.pages('"Java" OR "Architect" OR "AI" OR "Coding Patterns"').where(p=>p.category != null && p.file.name!="README" && p.reviewed);
@@ -196,7 +196,7 @@ const rows = Object.entries(buckets).map(([k,v]) => [k, v, "█".repeat(Math.rou
 dv.table(["Recency", "Count", "Distribution"], rows);
 ```
 
-## Review Timeline (All Vaults)
+## Review Timeline (All Domains)
 
 ```dataviewjs
 const pages = dv.pages('"Java" OR "Architect" OR "AI" OR "Coding Patterns"').where(p=>p.category != null && p.file.name!="README");
