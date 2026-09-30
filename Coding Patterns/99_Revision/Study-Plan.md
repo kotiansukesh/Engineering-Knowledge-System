@@ -1,89 +1,62 @@
 ---
-title: Study Plan - Coding Patterns
-type: plan
+title: Coding Patterns Domain Syllabus
+type: syllabus
 category: Coding Patterns/99_Revision
-tags:
-  - study-plan
-  - mastery
+tags: [syllabus, algorithms, mastery]
+created: 2026-09-30
 ---
 
-# Study Plan
+# Coding Patterns Domain Syllabus
 
-> Progression matters more than a fixed calendar.
+> **This is a practice syllabus, not a second calendar.**
+>
+> The repository-wide [[Study Plan]] decides how much time Coding Patterns receives. Use this page when a baseline check or current work exposes an algorithmic gap.
 
 ## Learning loop
 
 **Learn → Guided → Blind → Mixed → Mastered**
 
-### Learn
-Understand recognition signals, mental model, invariant and canonical implementation.
+### Pattern families
 
-### Guided
-Solve representative problems while the pattern is known.
+1. Prefix Sum and difference techniques
+2. Two Pointers
+3. Sliding Window and frequency state
+4. Fast/Slow pointers and in-place transformations
+5. Intervals and Binary Search
+6. Trees, BFS and DFS
+7. Shortest Path, Union Find and Trie
+8. Monotonic Stack and Top K
+9. Matrix traversal and Backtracking
+10. Dynamic Programming and Greedy
+11. Bit Manipulation and advanced patterns
 
-### Blind
-Solve without seeing the pattern name.
+## Mastery evidence
 
-### Mixed
-Solve where several patterns are plausible.
+A pattern is mastered only when you can:
 
-### Mastered
-Recognize, prove, implement and adapt without notes.
+- recognize it without the pattern name;
+- state the invariant;
+- implement the core approach from memory;
+- explain complexity;
+- identify a non-applicable case;
+- combine it with another pattern;
+- solve a mixed problem without hints;
+- record recurring mistakes.
 
-## 20-week progression
+## Adaptive allocation
 
-| Weeks | Focus | Required evidence |
-|---|---|---|
-| 1–2 | Prefix Sum, Two Pointers | recognition + invariant |
-| 3–4 | Sliding Window, Frequency Counting | distinguish range state vs counts |
-| 5–6 | Fast/Slow, In-place Reversal | pointer invariant from memory |
-| 7–8 | Intervals, Binary Search | prove safe elimination |
-| 9–10 | Tree Traversal, BFS, DFS | choose traversal from required output |
-| 11–12 | Shortest Path, Union Find, Trie | distinguish graph properties |
-| 13–14 | Monotonic Stack, Top K | ordering / priority invariant |
-| 15–16 | Matrix, Backtracking | state + traversal / pruning |
-| 17–18 | DP, Greedy | state definition or greedy proof |
-| 19 | Bit Manipulation + Advanced | specialized invariants |
-| 20 | Mixed + interview simulation | no pattern hints |
+Default allocation is **2–3 problems/week** as maintenance.
 
-## Weekly rhythm
+Increase allocation only when:
+- the baseline shows a gap;
+- current project work exposes a weakness;
+- interview preparation is an explicit goal.
 
-| Session | Work |
-|---|---|
-| Day 1 | Learn one pattern + recognition cues |
-| Day 2 | Two guided problems |
-| Day 3 | Variants + edge cases |
-| Day 4 | Two blind problems |
-| Day 5 | Invariant + complexity explanation |
-| Weekend | Mixed set + mistake review |
-
-## Promotion checklist
-
-- [ ] Two unseen problems recognized without hints
-- [ ] Invariant explained in ≤ 2 minutes
-- [ ] Core template written from memory
-- [ ] Complexity explained in ≤ 1 minute
-- [ ] One valid alternative explained
-- [ ] One non-applicable case explained
-- [ ] One pattern combination solved
-- [ ] At least one mixed-set success
-- [ ] No recurring unresolved mistake
-
-## Training targets
-
-| Skill | Target |
-|---|---:|
-| Recognition | ≤ 3 min |
-| Invariant | ≤ 2 min |
-| Medium implementation | 15–20 min |
-| Complexity | ≤ 1 min |
-
-These are training targets, not guarantees of interview performance.
-
-## Adaptive review
-
-Use [[00 - Adaptive Review Engine]] rather than a fixed seven-day review for every pattern.
+Decrease or pause it when it starts competing with the AI/backend/architecture project spine.
 
 ## Related
 
-[[Patterns Index]] · [[99_Revision/Practice Dashboard]] · [[00 - Pattern Recognition Lab]] · [[00 - Mixed Pattern Sets]] · [[00 - Interview Mode]]
+- [[Study Plan]]
+- [[Coding Patterns/README]]
+- [[Coding Patterns/99_Revision/Practice Dashboard]]
+- [[Coding Patterns/00 - Pattern Recognition Lab]]
