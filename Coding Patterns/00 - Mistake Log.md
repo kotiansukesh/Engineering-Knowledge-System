@@ -1,51 +1,64 @@
 ---
-title: "Mistake Log"
-category: "Coding Patterns"
-tags: [mistakes, review, interview-prep]
-created: "2026-09-30"
+title: Mistake Log
+type: log
+category: Coding Patterns
+tags:
+  - mistakes
+  - review
 ---
 
 # Mistake Log
 
-> Record **reasoning failures**, not just syntax bugs. Repeated mistakes are signals that the pattern has not been internalized.
+> Record reasoning failures. Do not turn every syntax error into documentation.
 
-## Mistake template
+## Failure categories
 
-```markdown
-## YYYY-MM-DD — Problem
+- Pattern miss
+- Wrong invariant
+- Wrong state definition
+- Boundary / off-by-one
+- Wrong data structure
+- Complexity miss
+- Premature optimization
+- Mutation / aliasing
+- Missing proof
+- Edge-case failure
 
-**Pattern I chose:**  
-**Correct pattern:**  
+## Entry template
 
-### What I did
+~~~markdown
+---
+type: mistake
+pattern: ""
+failure_category: ""
+review_date: ""
+---
 
-### Why it looked reasonable
+# YYYY-MM-DD — Problem
 
-### Where it broke
+**What I thought:**  
+**What was actually true:**  
+**Invariant I missed:**  
+**Fix:**  
+**Would this mistake recur?** Yes / No
+~~~
 
-### Correct invariant
+## Promotion rules
 
-### Rule to remember
+- Twice → add a flashcard to the pattern note.
+- Three times → add a When NOT to Use rule.
+- Repeated confusion between two patterns → add a comparison to both.
+- Pure syntax bug → fix it; do not expand the pattern note.
 
-### Similar problem to retry
-```
+## Review queue
 
-## Common failure categories
-
-| Category | Example |
-|---|---|
-| Pattern miss | Used DFS when BFS was required for shortest unweighted path |
-| Wrong invariant | Shrunk a window before restoring the required condition |
-| Boundary error | Mixed inclusive and exclusive prefix indices |
-| State definition | DP state does not contain enough information |
-| Premature optimization | Optimized before establishing a correct brute-force model |
-| Wrong data structure | Used HashSet where frequencies were required |
-| Complexity miss | O(n²) solution hidden inside nested library calls |
-| Mutation issue | Modified input when the algorithm assumed immutability |
-| Proof gap | Could not explain why pointer movement was safe |
-
-## Review rule
-
-If the same mistake occurs **twice**, add a dedicated flashcard to the relevant pattern note.
-
-If it occurs **three times**, add a “When NOT to use” rule to the pattern note.
+~~~dataview
+TABLE WITHOUT ID
+  file.link as "Entry",
+  pattern as "Pattern",
+  failure_category as "Category",
+  review_date as "Review"
+FROM "Coding Patterns"
+WHERE type = "mistake"
+SORT date(review_date) ASC
+~~~
