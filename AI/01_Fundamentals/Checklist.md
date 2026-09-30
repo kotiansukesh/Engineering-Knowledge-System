@@ -16,6 +16,10 @@ type: note
 weeks: ''
 ---
 
+## Phase Gate
+
+This checklist is the exit gate for the AI API foundation. It deliberately stops before retrieval; retrieval quality belongs to [[AI/02_RAG-Engineering/Checklist]].
+
 ## 🎯 Intent
 Phase 01 is the only phase where risk is entirely about fundamentals: does the AI layer actually work as a service, and can it be trusted to produce typed output and execute tools safely? Five gates that prove the platform's foundation is real before 30 more weeks are built on it.
 
