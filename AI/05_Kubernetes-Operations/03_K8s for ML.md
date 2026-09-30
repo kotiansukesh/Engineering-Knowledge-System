@@ -1,137 +1,75 @@
 ---
-title: "03_K8s for ML"
+title: "Kubernetes for ML"
 category: "AI/05_Kubernetes-Operations"
-tags:
-- kubernetes
-- ml
-- gpu
-- operator
-- kubeflow
-created: "2026-09-29"
+tags: [kubernetes, ml, gpu, operator, scheduling]
+created: "2026-09-30"
 completed: false
 difficulty: "Advanced"
-reviewed: "2026-09-29"
-sr-due: "2026-09-30"
-source: ""
-excalidraw: ""
-weeks: "13"
+reviewed: "2026-09-30"
+sr-due: "2026-10-03"
 type: "note"
 ---
 
-# 03_K8s for ML
-
-> Part of [[README|AI MOC]] • `AI/05_Kubernetes-Operations` • Weeks 13
-> 🎨 **Visual diagram:** Create Excalidraw drawing from template: `Cmd+P → Excalidraw: New from template → AI Diagram`
+# Kubernetes for ML
 
 ## Intent
-Understand **Kubernetes for ML** — GPU scheduling, device plugins, NVIDIA GPU operator, MIG, pod topology, and resource quotas — to run ML workloads on K8s.
+Understand the Kubernetes primitives and platform components needed to run GPU-backed training and inference workloads reliably.
 
-## Why It Matters
-- Where this appears in interviews (FAANG, senior vs. junior)
-- Production impact (cost, latency, quality, GPU utilization)
-- Senior signal: recognizing the *disguised* form of this pattern
+## Architecture
+~~~~mermaid
+flowchart LR
+P[Pod] --> N[Node]
+N --> G[GPU device plugin/operator]
+P --> R[Resource requests/limits]
+P --> Q[Quota]
+N --> T[Topology / placement]
+~~~~
 
-## Diagram
-```mermaid
-graph TD
-    A[Input / Context] --> B[Core Mechanism]
-    B --> C[Output / Result]
-    style B fill:#e8f5e9
-```
+## Decision Rule
+Use Kubernetes for ML when shared scheduling, isolation, deployment automation, or platform standardization outweighs its operational complexity. For a small team with one managed endpoint, a managed inference service may be simpler.
 
-## Key Points
-- Key point 1
-- Key point 2
+## Core Mechanisms
+- GPU device plugins expose allocatable GPU resources to Kubernetes.
+- Resource requests participate in scheduling; they are not a guarantee that a model fits in GPU memory.
+- Node labels, taints/tolerations, affinity, and topology rules constrain placement.
+- Operators can automate GPU/runtime lifecycle but add another control plane dependency.
+- Quotas prevent one workload/team from consuming the entire cluster.
 
-## Code / Config Example
-```python
-# Python 3.11+: Minimal example for 03_K8s for ML
-# Core concept - implementation varies by framework
+## Real Trade-offs
+| Decision | Option A | Option B | Choose based on |
+|---|---|---|---|
+| Platform | K8s GPU cluster | Managed ML service | operational ownership vs control |
+| Placement | General scheduling | Affinity/topology rules | locality, GPU type, network/storage needs |
+| Isolation | Namespace/quota | Dedicated cluster/node pool | blast radius and utilization |
+| GPU sharing | Exclusive GPU | MIG/time-slicing | workload isolation vs utilization |
 
-from dataclasses import dataclass
-from typing import Optional
+## Failure Modes
+1. Pod pending → inspect resource availability, taints, affinity, and quota before changing the image.
+2. GPU visible but OOM → scheduler allocation does not prove model memory fit.
+3. Node fragmentation → bin-packing/requests may leave unusable GPU capacity.
+4. Noisy neighbor → quotas, dedicated pools, or stronger isolation.
+5. Operator upgrade breaks workloads → version and test operator/runtime combinations.
 
-@dataclass
-class 03_K8sforMLConfig:
-    component: str = "03_K8s for ML"
-    capacity: int = 10000
-    strategy: str = "default"
+## Evaluation
+Measure GPU utilization, pending time, scheduling latency, utilization per allocated GPU, job completion rate, failure rate, and cost per successful training/inference workload.
 
-# Example usage
-config = 03_K8sforMLConfig()
-```
+## Practice
+- [ ] Deploy a GPU-requesting pod and inspect scheduler events.
+- [ ] Add node affinity for a GPU class.
+- [ ] Apply namespace resource quotas.
+- [ ] Simulate a pending pod caused by insufficient GPU capacity.
+- [ ] Compare exclusive GPU allocation with a sharing strategy for two representative workloads.
 
-## When to Use / NOT
-| Scenario | Use? | Reason |
-|----------|------|--------|
-|          | ✅   |        |
-|          | ❌   |        |
+## Senior Interview Prompts
+1. Why can a GPU pod remain Pending when GPUs exist in the cluster?
+2. What does a device plugin/operator actually provide?
+3. How do quotas and taints solve different problems?
+4. When is Kubernetes the wrong abstraction for ML serving?
+5. How do you diagnose poor GPU utilization?
 
-## Trade-offs / Decision Matrix
-| Dimension | This Approach | Alternative A | Alternative B | Pick When |
-|-----------|---------------|---------------|---------------|-----------|
-| Complexity | | | | |
-| Latency | | | | |
-| Cost (GPU/hr) | | | | |
-| Quality | | | | |
-
-## Vs. Alternatives
-| Alternative | When to Choose It | Decision Rule |
-|-------------|-------------------|---------------|
-| | | |
-
-## Pitfalls
-1. [Concrete mistake] → [Fix]
-2. [Concrete mistake] → [Fix]
-
-## Interview Q&A (Senior Depth)
-
-**Q1: Walk me through the core mechanism of 03_K8s for ML. Why does it work?**
-**A:** In 2–3 sentences. Connect the *why* to the mathematical/architectural invariant.
-
-**Q2: When would you choose an alternative over this approach?**
-**A:** Cite concrete constraints (scale, latency, cost, quality) and name the alternative.
-
-**Q3: How does this change for production vs. prototype?**
-**A:** Explain the hardening needed: evaluation, monitoring, cost optimization, guardrails.
-
-**Q4: Walk me through a non-obvious problem that reduces to this pattern.**
-**A:** Describe the reduction step-by-step.
-
-**Q5: What is the GPU memory / latency implication at scale?**
-**A:** Discuss VRAM, batching, KV cache, quantization trade-offs.
-
-## Flashcards (Spaced Repetition)
+## Flashcards
+#flashcard
+**Q:** Does requesting one GPU guarantee that the model fits in GPU memory? :: **A:** No. Scheduling allocates a resource; model memory requirements, KV cache, framework overhead, and concurrency still determine fit.
 
 #flashcard
-**Q:** What is the trigger keyword for 03_K8s for ML? :: **A:** [trigger keywords] #flashcard
-
-#flashcard
-**Q:** Key hyperparameter for 03_K8s for ML? :: **A:** [hyperparameter + typical range] #flashcard
-
-#flashcard
-**Q:** When do you NOT use 03_K8s for ML? :: **A:** [anti-pattern scenarios] #flashcard
-
-#flashcard
-**Q:** Cost order of magnitude for 03_K8s for ML? :: **A:** [GPU hours / $ per 1M tokens] #flashcard
-
-## Practice Tasks (Tasks Plugin)
-- [ ] Restate the intent from memory 📅 2026-09-30
-- [ ] Code the config without looking 📅 2026-10-02
-- [ ] Answer all Interview Q&A aloud 📅 2026-10-06
-- [ ] Review flashcards (Spaced Repetition) 📅 2026-09-30
-
-```tasks
-not done
-path includes 05_Kubernetes-Operations
-sort by due
-limit 10
-```
-
-## Related
-- [[README|AI MOC]]
-- [[05_Kubernetes-Operations/README|05_Kubernetes-Operations Folder]]
-
----
-
-*Category: AI/05_Kubernetes-Operations • Part of [[README|AI MOC]]*
+**Q:** What is the purpose of taints and tolerations? :: **A:** Taints repel workloads from selected nodes; tolerations allow specific workloads to be scheduled there.
