@@ -1,137 +1,68 @@
 ---
-title: "07_Cost Management"
+title: "Kubernetes Cost Management"
 category: "AI/05_Kubernetes-Operations"
-tags:
-- kubernetes
-- cost
-- finops
-- kubecost
-- spot-instances
-created: "2026-09-29"
+tags: [kubernetes, cost, finops, gpu, rightsizing]
+created: "2026-09-30"
 completed: false
-difficulty: "Medium"
-reviewed: "2026-09-29"
-sr-due: "2026-09-30"
-source: ""
-excalidraw: ""
-weeks: "14"
+difficulty: "Advanced"
+reviewed: "2026-09-30"
+sr-due: "2026-10-06"
 type: "note"
 ---
 
-# 07_Cost Management
-
-> Part of [[README|AI MOC]] • `AI/05_Kubernetes-Operations` • Weeks 14
-> 🎨 **Visual diagram:** Create Excalidraw drawing from template: `Cmd+P → Excalidraw: New from template → AI Diagram`
+# Kubernetes Cost Management
 
 ## Intent
-Understand **Kubernetes cost management** — Kubecost, spot instances, resource rightsizing, chargeback/showback, and GPU cost allocation — to control ML infrastructure spend.
+Turn cluster and GPU consumption into unit economics that can guide capacity, architecture, and workload decisions.
 
-## Why It Matters
-- Where this appears in interviews (FAANG, senior vs. junior)
-- Production impact (cost, latency, quality, GPU utilization)
-- Senior signal: recognizing the *disguised* form of this pattern
+## Cost Model
+**Infrastructure cost / useful workload output = unit cost**
 
-## Diagram
-```mermaid
-graph TD
-    A[Input / Context] --> B[Core Mechanism]
-    B --> C[Output / Result]
-    style B fill:#e8f5e9
-```
+Useful output might be successful inference requests, generated tokens, training runs, or completed jobs. Raw GPU-hour spend alone is not enough.
 
-## Key Points
-- Key point 1
-- Key point 2
+## Cost Levers
+| Lever | Benefit | Risk |
+|---|---|---|
+| Rightsizing | removes unused capacity | throttling/eviction if too aggressive |
+| Autoscaling | matches capacity to demand | cold starts and churn |
+| Spot/preemptible capacity | lower compute price | interruption/retry overhead |
+| GPU sharing | higher utilization | contention/isolation trade-offs |
+| Dedicated pools | predictable performance | lower aggregate utilization |
+| Showback/chargeback | exposes ownership | allocation complexity |
 
-## Code / Config Example
-```python
-# Python 3.11+: Minimal example for 07_Cost Management
-# Core concept - implementation varies by framework
+## Decision Rule
+Optimize for cost per successful unit of work while preserving the required reliability and latency SLOs. A cheaper GPU that increases retries or latency can increase total cost.
 
-from dataclasses import dataclass
-from typing import Optional
+## Cost Attribution
+Track by team/workload/model/environment:
+- GPU and CPU consumption
+- storage/network cost
+- idle allocation
+- successful workload volume
+- retry/failure overhead
+- estimated cost per successful request/job/token
 
-@dataclass
-class 07_CostManagementConfig:
-    component: str = "07_Cost Management"
-    capacity: int = 10000
-    strategy: str = "default"
+## Failure Modes
+1. Optimize utilization while violating latency SLO → include SLOs in cost decisions.
+2. Use spot for non-checkpointable jobs → interruption cost erases savings.
+3. Charge back raw infrastructure → teams optimize around allocation rather than outcomes.
+4. Ignore idle reservations → capacity appears justified while unused.
+5. Optimize GPU price but ignore model efficiency → lower $/GPU-hour can still mean higher $/task.
 
-# Example usage
-config = 07_CostManagementConfig()
-```
+## Practice
+- [ ] Calculate cost per successful inference request.
+- [ ] Identify idle GPU capacity from a sample workload.
+- [ ] Compare on-demand and interruptible capacity including retry cost.
+- [ ] Build a team/workload showback table.
+- [ ] Propose one cost reduction and state the SLO guardrail.
 
-## When to Use / NOT
-| Scenario | Use? | Reason |
-|----------|------|--------|
-|          | ✅   |        |
-|          | ❌   |        |
+## Senior Interview Prompts
+1. Why is cost per GPU-hour a weak AI cost metric?
+2. When do spot instances make sense for ML?
+3. How do you prevent cost optimization from degrading SLOs?
+4. What should be included in unit economics?
+5. How would you find the largest cost-reduction opportunity?
 
-## Trade-offs / Decision Matrix
-| Dimension | This Approach | Alternative A | Alternative B | Pick When |
-|-----------|---------------|---------------|---------------|-----------|
-| Complexity | | | | |
-| Latency | | | | |
-| Cost (GPU/hr) | | | | |
-| Quality | | | | |
-
-## Vs. Alternatives
-| Alternative | When to Choose It | Decision Rule |
-|-------------|-------------------|---------------|
-| | | |
-
-## Pitfalls
-1. [Concrete mistake] → [Fix]
-2. [Concrete mistake] → [Fix]
-
-## Interview Q&A (Senior Depth)
-
-**Q1: Walk me through the core mechanism of 07_Cost Management. Why does it work?**
-**A:** In 2–3 sentences. Connect the *why* to the mathematical/architectural invariant.
-
-**Q2: When would you choose an alternative over this approach?**
-**A:** Cite concrete constraints (scale, latency, cost, quality) and name the alternative.
-
-**Q3: How does this change for production vs. prototype?**
-**A:** Explain the hardening needed: evaluation, monitoring, cost optimization, guardrails.
-
-**Q4: Walk me through a non-obvious problem that reduces to this pattern.**
-**A:** Describe the reduction step-by-step.
-
-**Q5: What is the GPU memory / latency implication at scale?**
-**A:** Discuss VRAM, batching, KV cache, quantization trade-offs.
-
-## Flashcards (Spaced Repetition)
-
+## Flashcards
 #flashcard
-**Q:** What is the trigger keyword for 07_Cost Management? :: **A:** [trigger keywords] #flashcard
-
-#flashcard
-**Q:** Key hyperparameter for 07_Cost Management? :: **A:** [hyperparameter + typical range] #flashcard
-
-#flashcard
-**Q:** When do you NOT use 07_Cost Management? :: **A:** [anti-pattern scenarios] #flashcard
-
-#flashcard
-**Q:** Cost order of magnitude for 07_Cost Management? :: **A:** [GPU hours / $ per 1M tokens] #flashcard
-
-## Practice Tasks (Tasks Plugin)
-- [ ] Restate the intent from memory 📅 2026-09-30
-- [ ] Code the config without looking 📅 2026-10-02
-- [ ] Answer all Interview Q&A aloud 📅 2026-10-06
-- [ ] Review flashcards (Spaced Repetition) 📅 2026-09-30
-
-```tasks
-not done
-path includes 05_Kubernetes-Operations
-sort by due
-limit 10
-```
-
-## Related
-- [[README|AI MOC]]
-- [[05_Kubernetes-Operations/README|05_Kubernetes-Operations Folder]]
-
----
-
-*Category: AI/05_Kubernetes-Operations • Part of [[README|AI MOC]]*
+**Q:** What is a useful AI infrastructure cost metric? :: **A:** Cost per successful unit of work, such as successful request, token, or completed training job, with SLO constraints.

@@ -1,106 +1,83 @@
 ---
-title: Kubernetes Deployment
-category: AI/05_Kubernetes-Operations
-tags:
-- ai
-- kubernetes
-- helm
-- deployment
-weeks: 25-27
-created: 2026-09-02
+title: "Kubernetes Deployment"
+category: "AI/05_Kubernetes-Operations"
+tags: [ai, kubernetes, helm, deployment, probes]
+created: "2026-09-30"
 completed: false
-reviewed: "2026-09-29"
-sr-due: "2026-09-30"
-excalidraw: ''
-difficulty: Medium
-source: ''
-type: note
+difficulty: "Advanced"
+reviewed: "2026-09-30"
+sr-due: "2026-10-07"
+type: "note"
 ---
 
-## Why it Matters
+# Kubernetes Deployment
 
-Run the entire AI platform on K8s, the deployment that validates CKAD skills and proves operational readiness.
+## Intent
+Design a production deployment for AI services with safe rollout, health checks, resource controls, persistence boundaries, and observable scaling.
 
-## Diagram
-
-```mermaid
+## Architecture
+~~~~mermaid
 flowchart TB
- H["Helm chart<br/>(platform)"] --> K["K8s cluster"]
- K --> D1["ai-backend Deployment<br/>liveness+readiness probes"]
- K --> D2["java-services Deployment"]
- K --> STS["PostgreSQL/Redis<br/>StatefulSets + PVs"]
- K --> I["Ingress + TLS"]
- D1 --> HPA["HPA: cpu + custom<br/>(latency, queue depth)"]
- D1 -.-> PR["Prometheus + Grafana"]
-```
+I[Ingress / Gateway] --> D[Deployment]
+D --> P[Pods]
+P --> S[Service]
+D --> H[HPA / KEDA]
+P --> M[Metrics + traces]
+D --> R[Readiness]
+D --> L[Liveness]
+~~~~
 
-## Code
+## Deployment Boundary
+Use Kubernetes Deployments for stateless application services and inference workers whose lifecycle is managed by the platform. Treat PostgreSQL, Redis, and other stateful dependencies as separate operational concerns unless there is a deliberate reason to operate them inside the cluster.
 
-```yaml
+## Probe Semantics
+- **Readiness:** should the pod receive traffic? It may depend on model loading or dependency readiness.
+- **Liveness:** is the process stuck and should Kubernetes restart it? Do not use it as a generic dependency health check.
+- **Startup:** does the process need time to initialize before liveness/readiness become meaningful?
 
-## When to use / NOT
+For long-running model loading, startup/readiness configuration is often more important than aggressive liveness probes.
 
-- **Use:** for the platform's own services where you control rollout, probes and scaling — the Phase 05 deliverable.
-- **NOT:** for managed serverless endpoints when traffic is bursty and unpredictable; that trade-off is decided on cost, not capability.
+## Rollout Choices
+| Decision | Safer default | When to change |
+|---|---|---|
+| Rollout | Rolling update | Blue/green or canary when blast radius is high |
+| Scaling | HPA/custom metric | KEDA for queue/event-driven workloads |
+| Configuration | Immutable versioned config | Dynamic config when change frequency requires it |
+| Storage | External managed state | StatefulSet when operating state in-cluster is intentional |
 
-## Trade-offs
+## Failure Modes
+1. Bad readiness probe → healthy capacity removed from service.
+2. Liveness kills slow model initialization → restart loop.
+3. Missing resource limits → noisy-neighbor/node pressure.
+4. Rollout too fast → many replicas fail simultaneously.
+5. No rollback signal → bad model/config remains live.
+6. Unmanaged persistent data → restore/recovery becomes unclear.
 
-| Choice | Cost |
-|--------|------|
-| StatefulSets for PG/Redis | You operate the database's availability, not just the app |
-| HPA on CPU only | CPU is a lagging signal for LLM services; latency/queue depth is better |
-| Ingress + TLS | Certificate lifecycle to manage |
+## Evaluation
+Test rollout recovery time, readiness correctness, restart rate, p95 latency, pod scheduling time, resource utilization, and rollback success.
 
-## Vs
+## Practice
+- [ ] Deploy a service with startup, readiness, and liveness probes.
+- [ ] Inject a slow startup and verify no restart loop occurs.
+- [ ] Perform a rolling update with one intentionally bad version.
+- [ ] Verify rollback and observe traffic during the rollout.
+- [ ] Add resource requests/limits and inspect scheduling behavior.
 
-| Aspect | K8s + Helm | Docker Compose | Fully managed (Cloud Run) |
-|--------|------------|----------------|---------------------------|
-| Control | Full, including DB | Local dev parity only | None over the platform |
-| Ops cost | High — CKAD-level skill | Low | Lowest |
-| Fit here | Phase 05 target estate | Dev loop | Not chosen |
+## Senior Interview Prompts
+1. Why should readiness and liveness be separate?
+2. When should a StatefulSet be used instead of a Deployment?
+3. How do you prevent a rollout from taking down all capacity?
+4. What signal should trigger rollback?
+5. How does model-loading time affect probe design?
 
-## Pitfalls
-
-- A liveness probe that kills pods mid long LLM stream; readiness gates traffic, liveness kills processes — do not conflate them.
-- Deploying without resource limits; one bad pod takes the node down.
-- PVs without a backup and restore story — you are one disk failure from data loss.
-- HPA scaling on CPU while the real constraint is provider rate limits or queue depth.
-
-## Interview Q&A
-
-- **Q:** Why StatefulSet for PG? **A:** Stable identity + persistent storage; Deployments don't guarantee that.
-
-## Flashcards (Spaced Repetition)
+## Flashcards
+#flashcard
+**Q:** What is the difference between readiness and liveness? :: **A:** Readiness controls whether traffic should reach a pod; liveness determines whether the process should be restarted.
 
 #flashcard
-**Q:** What is the trigger keyword for Kubernetes Deployment? :: **A:** [trigger keywords] #flashcard
+**Q:** Why can aggressive liveness probes be dangerous for AI services? :: **A:** Model loading or initialization can legitimately take time, so an overly short liveness threshold can create restart loops.
 
-#flashcard
-**Q:** Key hyperparameter for Kubernetes Deployment? :: **A:** [hyperparameter + typical range] #flashcard
-
-#flashcard
-**Q:** When do you NOT use Kubernetes Deployment? :: **A:** [anti-pattern scenarios] #flashcard
-
-#flashcard
-**Q:** Cost order of magnitude for Kubernetes Deployment? :: **A:** [GPU hours / $ per 1M tokens] #flashcard
-
-## Practice Tasks (Tasks Plugin)
-- [ ] Restate the intent from memory 📅 2026-09-30
-- [ ] Code the config without looking 📅 2026-10-02
-- [ ] Answer all Interview Q&A aloud 📅 2026-10-06
-- [ ] Review flashcards (Spaced Repetition) 📅 2026-09-30
-
-```tasks
-not done
-path includes 05_Kubernetes-Operations
-sort by due
-limit 10
-```
-
-## Related
-- [[README|AI MOC]]
-- [[05_Kubernetes-Operations/README|05_Kubernetes-Operations Folder]]
-
----
-
-*Category: AI/05_Kubernetes-Operations • Part of [[README|AI MOC]]*
+## Practice Tasks
+- [ ] Rebuild the deployment from memory.
+- [ ] Inject a failed rollout and execute rollback.
+- [ ] Explain probe semantics aloud.

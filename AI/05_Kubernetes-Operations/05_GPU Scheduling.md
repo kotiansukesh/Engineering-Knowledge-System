@@ -1,137 +1,70 @@
 ---
-title: "05_GPU Scheduling"
+title: "GPU Scheduling"
 category: "AI/05_Kubernetes-Operations"
-tags:
-- kubernetes
-- gpu-scheduling
-- mig
-- time-slicing
-- topology
-created: "2026-09-29"
+tags: [kubernetes, gpu-scheduling, mig, topology, bin-packing]
+created: "2026-09-30"
 completed: false
 difficulty: "Advanced"
-reviewed: "2026-09-29"
-sr-due: "2026-09-30"
-source: ""
-excalidraw: ""
-weeks: "13"
+reviewed: "2026-09-30"
+sr-due: "2026-10-04"
 type: "note"
 ---
 
-# 05_GPU Scheduling
-
-> Part of [[README|AI MOC]] • `AI/05_Kubernetes-Operations` • Weeks 13
-> 🎨 **Visual diagram:** Create Excalidraw drawing from template: `Cmd+P → Excalidraw: New from template → AI Diagram`
+# GPU Scheduling
 
 ## Intent
-Understand **GPU scheduling** — MIG partitioning, time-slicing, topology-aware scheduling, GPU sharing, and bin-packing — to maximize GPU utilization and cost efficiency.
+Choose GPU allocation and placement strategies that balance isolation, utilization, latency, and cost.
 
-## Why It Matters
-- Where this appears in interviews (FAANG, senior vs. junior)
-- Production impact (cost, latency, quality, GPU utilization)
-- Senior signal: recognizing the *disguised* form of this pattern
+## Scheduling Choices
+| Strategy | Benefit | Cost/Risk |
+|---|---|---|
+| Exclusive GPU | strong isolation/predictability | lower utilization for small workloads |
+| MIG | hardware partitioning on supported GPUs | capacity fragmentation and configuration constraints |
+| Time-slicing | shares a GPU across workloads | contention and weaker isolation |
+| Topology-aware placement | better locality | fewer placement options |
 
-## Diagram
-```mermaid
-graph TD
-    A[Input / Context] --> B[Core Mechanism]
-    B --> C[Output / Result]
-    style B fill:#e8f5e9
-```
+## Decision Rule
+Prefer the simplest allocation model that meets workload isolation and performance requirements. Sharing is attractive for small/bursty workloads; exclusive allocation is easier to reason about for latency-sensitive or memory-heavy workloads.
 
-## Key Points
-- Key point 1
-- Key point 2
+## Capacity Model
+Track at least:
+- GPU count and type
+- allocatable partitions
+- requested vs actual memory
+- utilization over time
+- queue/pending duration
+- workload latency
+- failure/OOM rate
 
-## Code / Config Example
-```python
-# Python 3.11+: Minimal example for 05_GPU Scheduling
-# Core concept - implementation varies by framework
+A GPU can be highly allocated but poorly utilized. Measure useful work, not only allocation percentage.
 
-from dataclasses import dataclass
-from typing import Optional
+## Failure Modes
+1. Fragmentation → compatible workloads and placement policies; periodically review node pools.
+2. Contention → isolate latency-sensitive workloads.
+3. Wrong GPU class → explicit node selection and validation.
+4. Topology mismatch → inspect locality requirements before forcing affinity.
+5. Sharing hides memory pressure → monitor per-workload failure and latency, not only device utilization.
 
-@dataclass
-class 05_GPUSchedulingConfig:
-    component: str = "05_GPU Scheduling"
-    capacity: int = 10000
-    strategy: str = "default"
+## Evaluation
+Compare strategies using utilization, p95 latency, queue time, OOM rate, throughput, and cost per successful request/job.
 
-# Example usage
-config = 05_GPUSchedulingConfig()
-```
+## Practice
+- [ ] Run two workloads with different GPU memory profiles.
+- [ ] Compare exclusive and shared allocation.
+- [ ] Create a placement rule for a GPU class.
+- [ ] Inject contention and observe tail latency.
+- [ ] Document the allocation decision with measured evidence.
 
-## When to Use / NOT
-| Scenario | Use? | Reason |
-|----------|------|--------|
-|          | ✅   |        |
-|          | ❌   |        |
+## Senior Interview Prompts
+1. When does MIG help and when does it create fragmentation?
+2. Why can time-slicing hurt latency?
+3. What metrics reveal poor bin-packing?
+4. How do topology constraints affect scheduling?
+5. What is more useful than raw GPU utilization for cost analysis?
 
-## Trade-offs / Decision Matrix
-| Dimension | This Approach | Alternative A | Alternative B | Pick When |
-|-----------|---------------|---------------|---------------|-----------|
-| Complexity | | | | |
-| Latency | | | | |
-| Cost (GPU/hr) | | | | |
-| Quality | | | | |
-
-## Vs. Alternatives
-| Alternative | When to Choose It | Decision Rule |
-|-------------|-------------------|---------------|
-| | | |
-
-## Pitfalls
-1. [Concrete mistake] → [Fix]
-2. [Concrete mistake] → [Fix]
-
-## Interview Q&A (Senior Depth)
-
-**Q1: Walk me through the core mechanism of 05_GPU Scheduling. Why does it work?**
-**A:** In 2–3 sentences. Connect the *why* to the mathematical/architectural invariant.
-
-**Q2: When would you choose an alternative over this approach?**
-**A:** Cite concrete constraints (scale, latency, cost, quality) and name the alternative.
-
-**Q3: How does this change for production vs. prototype?**
-**A:** Explain the hardening needed: evaluation, monitoring, cost optimization, guardrails.
-
-**Q4: Walk me through a non-obvious problem that reduces to this pattern.**
-**A:** Describe the reduction step-by-step.
-
-**Q5: What is the GPU memory / latency implication at scale?**
-**A:** Discuss VRAM, batching, KV cache, quantization trade-offs.
-
-## Flashcards (Spaced Repetition)
+## Flashcards
+#flashcard
+**Q:** What is the core trade-off in GPU sharing? :: **A:** Higher utilization/capacity efficiency versus contention, predictability, and isolation.
 
 #flashcard
-**Q:** What is the trigger keyword for 05_GPU Scheduling? :: **A:** [trigger keywords] #flashcard
-
-#flashcard
-**Q:** Key hyperparameter for 05_GPU Scheduling? :: **A:** [hyperparameter + typical range] #flashcard
-
-#flashcard
-**Q:** When do you NOT use 05_GPU Scheduling? :: **A:** [anti-pattern scenarios] #flashcard
-
-#flashcard
-**Q:** Cost order of magnitude for 05_GPU Scheduling? :: **A:** [GPU hours / $ per 1M tokens] #flashcard
-
-## Practice Tasks (Tasks Plugin)
-- [ ] Restate the intent from memory 📅 2026-09-30
-- [ ] Code the config without looking 📅 2026-10-02
-- [ ] Answer all Interview Q&A aloud 📅 2026-10-06
-- [ ] Review flashcards (Spaced Repetition) 📅 2026-09-30
-
-```tasks
-not done
-path includes 05_Kubernetes-Operations
-sort by due
-limit 10
-```
-
-## Related
-- [[README|AI MOC]]
-- [[05_Kubernetes-Operations/README|05_Kubernetes-Operations Folder]]
-
----
-
-*Category: AI/05_Kubernetes-Operations • Part of [[README|AI MOC]]*
+**Q:** Why is allocated GPU percentage insufficient? :: **A:** A fully allocated GPU can still be idle or blocked by memory/queue constraints; useful throughput and latency must be measured.

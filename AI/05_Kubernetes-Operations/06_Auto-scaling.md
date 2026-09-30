@@ -1,138 +1,61 @@
 ---
-title: "06_Auto-scaling"
+title: "Kubernetes Auto-scaling for AI"
 category: "AI/05_Kubernetes-Operations"
-tags:
-- kubernetes
-- autoscaling
-- hpa
-- vpa
-- keda
-- gpu-autoscaling
-created: "2026-09-29"
+tags: [kubernetes, autoscaling, hpa, keda, gpu, scaling]
+created: "2026-09-30"
 completed: false
 difficulty: "Advanced"
-reviewed: "2026-09-29"
-sr-due: "2026-09-30"
-source: ""
-excalidraw: ""
-weeks: "14"
+reviewed: "2026-09-30"
+sr-due: "2026-10-05"
 type: "note"
 ---
 
-# 06_Auto-scaling
-
-> Part of [[README|AI MOC]] • `AI/05_Kubernetes-Operations` • Weeks 14
-> 🎨 **Visual diagram:** Create Excalidraw drawing from template: `Cmd+P → Excalidraw: New from template → AI Diagram`
+# Kubernetes Auto-scaling for AI
 
 ## Intent
-Understand **auto-scaling** — HPA/VPA, KEDA event-driven scaling, GPU-aware scaling, predictive scaling, and scale-to-zero — to handle variable ML workloads cost-effectively.
+Select scaling signals and mechanisms that keep AI services within latency and cost targets under changing demand.
 
-## Why It Matters
-- Where this appears in interviews (FAANG, senior vs. junior)
-- Production impact (cost, latency, quality, GPU utilization)
-- Senior signal: recognizing the *disguised* form of this pattern
+## Scaling Model
+**Demand → queue → replicas/capacity → warm-up → capacity → latency**
 
-## Diagram
-```mermaid
-graph TD
-    A[Input / Context] --> B[Core Mechanism]
-    B --> C[Output / Result]
-    style B fill:#e8f5e9
-```
+AI workloads often make CPU a weak scaling signal. Queue depth, request concurrency, tokens/sec, GPU utilization, or provider quota may better represent the real bottleneck.
 
-## Key Points
-- Key point 1
-- Key point 2
+## Choices
+| Mechanism | Best fit | Important limitation |
+|---|---|---|
+| HPA | request/CPU/custom metrics | reacts after demand changes |
+| KEDA | event/queue-driven workloads | depends on reliable event metrics |
+| VPA | resource recommendation/adjustment | can conflict with latency-sensitive serving patterns |
+| Scale-to-zero | sparse workloads | cold-start/model-load latency |
+| Predictive/pre-warming | predictable traffic | forecast error and idle cost |
 
-## Code / Config Example
-```python
-# Python 3.11+: Minimal example for 06_Auto-scaling
-# Core concept - implementation varies by framework
+## Decision Rule
+Scale on the metric closest to the resource constraint that can be measured reliably. For asynchronous inference, queue age/depth is often more actionable than CPU; for synchronous serving, concurrency and latency may be better.
 
-from dataclasses import dataclass
-from typing import Optional
+## Failure Modes
+1. Oscillation → stabilization windows and sensible scale-down delays.
+2. Cold-start spike → pre-warm capacity or minimum replicas.
+3. Scaling on CPU while GPU is saturated → use GPU/queue-aware signals.
+4. Metrics outage → define safe minimum capacity and alert.
+5. Provider rate limit → scaling replicas cannot create provider capacity; enforce quotas and backpressure.
 
-@dataclass
-class 06_AutoscalingConfig:
-    component: str = "06_Auto-scaling"
-    capacity: int = 10000
-    strategy: str = "default"
+## Evaluation
+Measure scale reaction time, p95/p99 latency, queue age, replica churn, GPU utilization, cold-start frequency, and cost per successful request.
 
-# Example usage
-config = 06_AutoscalingConfig()
-```
+## Practice
+- [ ] Define a scaling signal for synchronous inference.
+- [ ] Define one for asynchronous inference.
+- [ ] Inject a sudden traffic spike and measure reaction time.
+- [ ] Inject metrics loss and observe fallback behavior.
+- [ ] Compare minimum-replica cost with cold-start latency.
 
-## When to Use / NOT
-| Scenario | Use? | Reason |
-|----------|------|--------|
-|          | ✅   |        |
-|          | ❌   |        |
+## Senior Interview Prompts
+1. Why can CPU-based HPA fail for GPU inference?
+2. What causes autoscaling oscillation?
+3. Why does scale-to-zero change the latency SLO?
+4. How does provider rate limiting interact with replica scaling?
+5. What evidence would justify predictive scaling?
 
-## Trade-offs / Decision Matrix
-| Dimension | This Approach | Alternative A | Alternative B | Pick When |
-|-----------|---------------|---------------|---------------|-----------|
-| Complexity | | | | |
-| Latency | | | | |
-| Cost (GPU/hr) | | | | |
-| Quality | | | | |
-
-## Vs. Alternatives
-| Alternative | When to Choose It | Decision Rule |
-|-------------|-------------------|---------------|
-| | | |
-
-## Pitfalls
-1. [Concrete mistake] → [Fix]
-2. [Concrete mistake] → [Fix]
-
-## Interview Q&A (Senior Depth)
-
-**Q1: Walk me through the core mechanism of 06_Auto-scaling. Why does it work?**
-**A:** In 2–3 sentences. Connect the *why* to the mathematical/architectural invariant.
-
-**Q2: When would you choose an alternative over this approach?**
-**A:** Cite concrete constraints (scale, latency, cost, quality) and name the alternative.
-
-**Q3: How does this change for production vs. prototype?**
-**A:** Explain the hardening needed: evaluation, monitoring, cost optimization, guardrails.
-
-**Q4: Walk me through a non-obvious problem that reduces to this pattern.**
-**A:** Describe the reduction step-by-step.
-
-**Q5: What is the GPU memory / latency implication at scale?**
-**A:** Discuss VRAM, batching, KV cache, quantization trade-offs.
-
-## Flashcards (Spaced Repetition)
-
+## Flashcards
 #flashcard
-**Q:** What is the trigger keyword for 06_Auto-scaling? :: **A:** [trigger keywords] #flashcard
-
-#flashcard
-**Q:** Key hyperparameter for 06_Auto-scaling? :: **A:** [hyperparameter + typical range] #flashcard
-
-#flashcard
-**Q:** When do you NOT use 06_Auto-scaling? :: **A:** [anti-pattern scenarios] #flashcard
-
-#flashcard
-**Q:** Cost order of magnitude for 06_Auto-scaling? :: **A:** [GPU hours / $ per 1M tokens] #flashcard
-
-## Practice Tasks (Tasks Plugin)
-- [ ] Restate the intent from memory 📅 2026-09-30
-- [ ] Code the config without looking 📅 2026-10-02
-- [ ] Answer all Interview Q&A aloud 📅 2026-10-06
-- [ ] Review flashcards (Spaced Repetition) 📅 2026-09-30
-
-```tasks
-not done
-path includes 05_Kubernetes-Operations
-sort by due
-limit 10
-```
-
-## Related
-- [[README|AI MOC]]
-- [[05_Kubernetes-Operations/README|05_Kubernetes-Operations Folder]]
-
----
-
-*Category: AI/05_Kubernetes-Operations • Part of [[README|AI MOC]]*
+**Q:** What should an AI autoscaler measure? :: **A:** The metric closest to the actual bottleneck—often queue depth/age, concurrency, latency, tokens/sec, or GPU capacity rather than CPU alone.
