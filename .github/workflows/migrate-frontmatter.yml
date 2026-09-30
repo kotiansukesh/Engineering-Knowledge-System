@@ -15,6 +15,10 @@ jobs:
       - uses: actions/checkout@v4
       - name: Apply semantic frontmatter migration
         run: python3 scripts/migrate-frontmatter.py --write
+      - name: Audit semantic frontmatter
+        run: python3 scripts/migrate-frontmatter.py
+      - name: Validate vault schema
+        run: python3 scripts/validate-vault.py
       - name: Commit migration
         run: |
           if git diff --quiet; then
