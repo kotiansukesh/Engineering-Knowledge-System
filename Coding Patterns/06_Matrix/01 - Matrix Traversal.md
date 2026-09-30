@@ -129,13 +129,10 @@ void dfsMark(char[][] b, int r, int c) {
 Start with the core implementation. Introduce a variant only when the required state or proof changes.
 
 ## When to use
-
 - flood fill, islands, surrounded regions, maze, distance to nearest cell, rotting oranges (multi-source BFS).
-- **NOT:** weighted grids with varying costs (use Dijkstra / 0-1 BFS); need shortest path with weights.
 
 ## When NOT to use
-
-weighted grids with varying costs (use Dijkstra / 0-1 BFS); need shortest path with weights.
+- weighted grids with varying costs (use Dijkstra / 0-1 BFS); need shortest path with weights.
 
 ## Complexity & trade-offs
 
