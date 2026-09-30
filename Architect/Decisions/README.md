@@ -11,7 +11,7 @@ tags:
 
 Use ADRs for decisions that have meaningful consequences, alternatives, or review triggers.
 
-Create with [[../_templates/ADR-Template]].
+Create with [[Architect/_templates/ADR-Template]].
 
 ## Decision lifecycle
 
