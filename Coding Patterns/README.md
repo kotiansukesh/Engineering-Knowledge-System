@@ -114,3 +114,5 @@ python3 scripts/validate-coding-patterns.py
 ~~~
 
 The validator checks wikilinks, forbidden relative links, table aliases, pattern metadata, duplicate problem IDs, and referenced vault paths.
+
+13. [[00 - Difficulty Progression]] — increase uncertainty and variation, not just problem difficulty.

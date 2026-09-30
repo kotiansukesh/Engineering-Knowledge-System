@@ -76,3 +76,7 @@ SORT pattern ASC
 ## Mastery support
 
 [[00 - Invariant Library]] · [[00 - Pattern Combinations]] · [[00 - Adaptive Review Engine]] · [[00 - Weakness Heatmap]] · [[00 - Interview Mode]] · [[00 - Senior Trade-offs]] · [[00 - Java Quality Layer]]
+
+## Progression support
+
+[[00 - Difficulty Progression]] · [[_templates/Problem-Analysis-Template]]
