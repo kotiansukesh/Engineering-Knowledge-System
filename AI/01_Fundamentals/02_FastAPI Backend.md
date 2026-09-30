@@ -30,7 +30,7 @@ Build an AI-ready API layer: streaming, validation, dependency injection, middle
 ```mermaid
 flowchart LR
     C[Client] -->|POST /ask| FA[FastAPI]
-    FA --> Dep[Dependency Injection<br/>(client, pool, cache)]
+    FA --> Dep["Dependency Injection<br/>(client, pool, cache)"]
     Dep --> LLM[Async LLM Call<br/>retry + timeout]
     LLM -->|SSE Stream| C
     Dep --> PG[(PostgreSQL + pgvector)]
