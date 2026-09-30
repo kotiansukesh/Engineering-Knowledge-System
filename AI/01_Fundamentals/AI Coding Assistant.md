@@ -29,11 +29,11 @@ CLI/chat assistant that answers coding questions using LLM APIs + tool calling (
 ```mermaid
 flowchart LR
     U["User Query<br/>(IDE or chat)"] --> CTX["Context Builder:<br/>open files + git scope"]
-    CTX --> T[Tool: search_code(query)]
-    CTX --> R[Tool: read_file(path)]
+    CTX --> T["Tool: search_code(query)"]
+    CTX --> R["Tool: read_file(path)"]
     T --> L[LLM]
     R --> L
-    L --> SO[Structured Output:<br/>{answer, code_snippet, references}]
+    L --> SO["Structured Output:<br/>{answer, code_snippet, references}"]
     SO --> U
     style CTX fill:#e3f2fd
     style SO fill:#e8f5e9
