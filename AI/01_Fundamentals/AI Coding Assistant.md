@@ -28,7 +28,7 @@ CLI/chat assistant that answers coding questions using LLM APIs + tool calling (
 ## 🧩 Diagram: Scoped Coding Assistant Flow
 ```mermaid
 flowchart LR
-    U[User Query<br/>(IDE or chat)] --> CTX[Context Builder:<br/>open files + git scope]
+    U["User Query<br/>(IDE or chat)"] --> CTX["Context Builder:<br/>open files + git scope"]
     CTX --> T[Tool: search_code(query)]
     CTX --> R[Tool: read_file(path)]
     T --> L[LLM]
