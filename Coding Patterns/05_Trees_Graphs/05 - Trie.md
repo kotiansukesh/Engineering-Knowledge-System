@@ -1,4 +1,7 @@
 ---
+type: note
+mastery: learn
+recognition_score: 0
 title: Trie
 pattern: 15
 category: Coding Patterns/05_Trees_Graphs
@@ -22,7 +25,7 @@ excalidraw: ''
 
 # Trie
 
-> Part of [[README|20 DSA Patterns]] • `Coding Patterns/05_Trees_Graphs` • Pattern #15
+> Part of [[README|Coding Patterns]] • `Coding Patterns/05_Trees_Graphs` • Pattern #15
 
 ## Intent
 Prefix tree where each node represents a character and root-to-node path = prefix. Enables O(L) insert/search/prefix queries with shared prefixes — the standard for autocomplete, spell-check, and dictionary problems.
