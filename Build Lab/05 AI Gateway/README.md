@@ -13,3 +13,8 @@ Build a provider-neutral gateway for model routing, policy, observability and co
 - token/cost accounting
 - security and tenant isolation
 - latency/error dashboards
+
+## Evidence locations
+
+- [[Evidence/Benchmarks/README]]
+- [[Evidence/Architecture Decisions/README]]
