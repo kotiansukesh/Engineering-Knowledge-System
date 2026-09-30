@@ -18,7 +18,7 @@ tags: [architecture, foundations, MOC]
 | Stage | Outcome |
 |---|---|
 | [[What-is-Architecture]] | Distinguish architecture, design and implementation |
-| [[Systems-Boundaries-and-Context]] | Establish scope, ownership and trust boundaries |
+| [[What-is-Architecture]] | Establish scope, ownership and trust boundaries |
 | [[Stakeholders-Concerns]] | Convert concerns into architectural drivers |
 | [[Quality-Attributes-and-Scenarios]] | Turn vague NFRs into measurable scenarios |
 | [[Constraints-and-Trade-offs]] | Make compromises explicit |
