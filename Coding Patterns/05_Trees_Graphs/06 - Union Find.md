@@ -8,7 +8,7 @@ advanced: false
 mastery: learn
 recognition_score: 0
 difficulty: "Medium"
-leetcode: [- 200]
+leetcode: [200, 684, 959]
 created: "2026-09-04"
 reviewed:
 next_review: "2026-10-07"
