@@ -114,13 +114,10 @@ int findDuplicate(int[] nums) {
 Use the implementation above as the base case. Extend it only after the invariant remains explicit.
 
 ## When to use
-
 - linked list cycle detection; middle of list; happy number; find duplicate (array values as pointers); any sequence where next(x) is O(1).
-- **NOT:** need to visit every node (just traverse); need all nodes in cycle (need extra pass); array where values aren't valid indices.
 
 ## When NOT to use
-
-need to visit every node (just traverse); need all nodes in cycle (need extra pass); array where values aren't valid indices.
+- need to visit every node (just traverse); need all nodes in cycle (need extra pass); array where values aren't valid indices.
 
 ## Complexity & trade-offs
 
