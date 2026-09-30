@@ -77,3 +77,7 @@ If you cannot state the invariant, you have not selected the pattern yet.
 
 ### Advanced
 [[09_Advanced/01 - Cyclic Sort|Cyclic Sort]] · [[09_Advanced/02 - Kadane's Algorithm|Kadane]] · [[09_Advanced/03 - Segment Tree|Segment Tree]]
+
+## Recognition support
+
+[[00 - Pattern Decision Tree|Decision Tree]] · [[00 - Pattern Confusion Matrix|Confusion Matrix]] · [[00 - Blind Practice|Blind Practice]]
