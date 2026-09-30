@@ -99,13 +99,10 @@ int largestRectangleArea(int[] heights) {
 Start with the core implementation. Introduce a variant only when the problem changes the invariant or required state.
 
 ## When to use
-
 - next greater/smaller element; daily temperatures/span; histogram (largest rectangle); trapping rain water; stock span; sliding window maximum (monotonic deque variant).
-- **NOT:** arbitrary range queries (use segment tree / sparse table); need all historical values (stack discards dominated elements).
 
 ## When NOT to use
-
-arbitrary range queries (use segment tree / sparse table); need all historical values (stack discards dominated elements).
+- arbitrary range queries (use segment tree / sparse table); need all historical values (stack discards dominated elements).
 
 ## Complexity & trade-offs
 
