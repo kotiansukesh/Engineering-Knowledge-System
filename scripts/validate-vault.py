@@ -105,7 +105,7 @@ for rel, path in files.items():
             if "type" not in metadata or not metadata["type"]:
                 warnings.append(f"{rel}: missing type metadata")
             elif metadata["type"].lower() == "note":
-                warnings.append(
+                errors.append(
                     f"{rel}: legacy generic type: note; migrate to a semantic type "
                     "(concept, pattern, reference, exercise, project, ADR, failure, evaluation, MOC)"
                 )
