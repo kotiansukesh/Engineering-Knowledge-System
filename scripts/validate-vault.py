@@ -37,8 +37,17 @@ for rel, path in files.items():
         # Only Markdown table rows need the pipe-alias warning. A normal prose
         # line or fenced example may legitimately contain both pipes and links.
         stripped = line.strip()
-        if stripped.startswith("|") and "|" in line and "[[" in line and "]]" in line:
+        if stripped.startswith("|") and re.search(r"\[\[[^\]]+\|[^\]]+\]\]", line):
             warnings.append(f"{rel}:{n}: wikilink alias inside table; use path-only wikilink")
+
+    # Minimal metadata contract; warnings allow incremental migration.
+    if text.startswith("---\n") and text.count("---\n") >= 2:
+        frontmatter = text.split("---\n", 2)[1]
+        keys = {line.split(":", 1)[0].strip() for line in frontmatter.splitlines() if ":" in line}
+        if "title" not in keys or "type" not in keys:
+            warnings.append(f"{rel}: missing title/type metadata")
+    elif path.name != "README.md":
+        warnings.append(f"{rel}: missing YAML frontmatter")
 
     for marker in (
         "[TBD]",

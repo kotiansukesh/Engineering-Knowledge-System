@@ -116,3 +116,10 @@ python3 scripts/validate-vault.py
 The validator checks wikilinks, forbidden relative links, table aliases, pattern metadata, duplicate problem IDs, and referenced vault paths.
 
 13. [[00 - Difficulty Progression]] — increase uncertainty and variation, not just problem difficulty.
+
+
+## Knowledge System Integration
+
+- [[00 - Knowledge System/README|Knowledge System]] — shared learning model
+- [[00 - Knowledge System/Cross Domain Map|Cross-Domain Map]] — transfer algorithmic reasoning into engineering
+- [[Evidence/README|Evidence]] — implementation and interview-defense evidence

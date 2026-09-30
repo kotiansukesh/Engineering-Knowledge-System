@@ -11,5 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Validate vault
+      - name: Validate vault integrity
         run: python3 scripts/validate-vault.py
+      - name: Generate vault health report
+        run: python3 scripts/validate-vault-health.py

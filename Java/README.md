@@ -173,3 +173,10 @@ limit 30
 ---
 
 *Java Knowledge Vault · Java 25 LTS · maintained as an engineering reference and practice system*
+
+
+## Knowledge System Integration
+
+- [[00 - Knowledge System/README|Knowledge System]] — shared learning model
+- [[Evidence/README|Evidence]] — implementations, benchmarks and failures
+- [[Build Lab/README|Build Lab]] — portfolio systems
