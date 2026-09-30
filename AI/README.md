@@ -36,9 +36,18 @@ Use the least autonomous mechanism that satisfies the requirement. Introduce mor
 - [[07_Cross-Cutting/README|07 Cross-Cutting]]
 - [[99_Revision/Study-Plan.md|Study Plan]]
 - [[99_Revision/Certification Integration Roadmap|Certification Roadmap]]
+- [[99_Revision/Career and Portfolio Strategy|Career & Portfolio Strategy]]
 - [[Master Dashboard|Master Dashboard]]
 - [[00 - AI Engineering Decision Framework|AI Decision Framework]]
 - [[00 - AI Practice Engine|AI Practice Engine]]
+
+## Career Strategy
+
+The goal is not to become a generic AI developer. Build on backend and distributed-systems expertise and compound it with AI engineering, platform engineering and architecture.
+
+**Backend Expert → AI Engineer → AI Platform Engineer → AI Architect**
+
+See [[99_Revision/Career and Portfolio Strategy|Career & Portfolio Strategy]] for the capability model, progressive portfolio and technology map.
 
 ## Certification Strategy
 
