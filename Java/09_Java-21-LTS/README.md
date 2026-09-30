@@ -1,88 +1,43 @@
 ---
-title: "09 Java 21 Lts README"
+title: "09 Java 21 Deep Dive"
 category: "Java/09_Java-21-LTS"
 type: "folder-MOC"
-tags: [MOC, folder]
-created: "2026-09-27"
+tags: [MOC, java21, lts, migration]
+created: "2026-09-30"
 completed: false
-reviewed: "2026-09-29"
-sr-due: "2026-10-06"
+reviewed: "2026-09-30"
+sr-due: "2026-10-07"
 ---
 
-# 09 Java 21 Lts
+# 09 Java 21 Deep Dive
 
-> Part of [[README|Java MOC]] • `Java/09_Java-21-LTS`
+> **Reference folder, not a second roadmap.** The primary target is Java 25; these notes explain Java 21 features that remain central in enterprise systems.
 
-## Progress Overview
+## Read When
 
-```dataviewjs
-const category = dv.current().category;
-const pages = dv.pages(`"${category}"`).where(p => p.category != null && p.file.name != "README");
-const total = pages.length;
-const done = pages.where(p => p.completed === true).length;
-const pct = total ? Math.round(done/total*100) : 0;
-const bar = (p, w=20) => "█".repeat(Math.round(p/100*w)) + "░".repeat(w-Math.round(p/100*w));
-dv.paragraph(`**Total: ${total} notes | Completed: ${done} | Remaining: ${total-done}** — \`${pct}%\``);
-dv.paragraph(`\`${bar(pct)}\` **${pct}%**`);
-if (total === done && total > 0) dv.paragraph(`🎉 *All notes completed!*`);
-```
+- migrating from Java 17 to 21;
+- preparing for a codebase that uses Java 21;
+- studying virtual threads and modern pattern matching;
+- comparing Java 21 behavior with Java 25.
 
-> **Fallback (if DataviewJS disabled):**
-```dataview
-TABLE WITHOUT ID
- length(rows) as "Total",
- length(filter(rows, (r) => r.completed)) as "Completed",
- length(filter(rows, (r) => !r.completed)) as "Remaining"
-FROM "Java/09_Java-21-LTS"
-WHERE category AND file.name != "README"
-GROUP BY true
-```
+## Core Notes
 
-## Notes Index
+- [[00 Java 21 Overview]]
+- [[01 Virtual Threads]]
+- [[02 Sequenced Collections]]
+- [[03 Record Patterns]]
+- [[04 Pattern Matching for Switch]]
+- [[08 Generational ZGC]]
+- [[09 Foreign Function and Memory API]]
 
-```dataview
-TABLE WITHOUT ID
- file.link as "Note",
- category as "Category",
- choice(completed, "✅", "⬜") as "Done",
- difficulty as "Difficulty",
- reviewed as "Last Reviewed",
- "sr-due" as "SR Due"
-FROM "Java/09_Java-21-LTS"
-WHERE category AND file.name != "README"
-SORT file.name ASC
-```
+## Historical / Changed APIs
 
-## Spaced Repetition Status
+Some notes in this folder describe features that were previewed in Java 21 and changed later. Treat them as historical context and prefer the Java 25 notes for current preview APIs.
 
-```dataview
-TABLE WITHOUT ID
- file.link as "Note",
- reviewed as "Last Reviewed",
- "sr-due" as "Due",
- choice(!reviewed, "🔴 Never", choice(date(now)-reviewed > dur(7 days), "🟡 Stale", "🟢 Fresh")) as "Status"
-FROM "Java/09_Java-21-LTS"
-WHERE category AND file.name != "README" AND (reviewed OR "sr-due")
-SORT "sr-due" ASC
-```
+## Related
 
-## Practice Tasks (from Notes)
-
-```tasks
-not done
-path includes Java/09_Java-21-LTS
-sort by due
-group by filename
-limit 20
-```
-
-> ⚠️ **Template Note:** The `Java/09_Java-21-LTS` placeholder above is replaced by the generate script (`python3 generate_folder_readmes.py`). The template file itself will show a Tasks error — this is expected. Generated README files have the actual folder path and work correctly.
-
-## Quick Links
-
-- [[README|← Back to Java MOC]]
-- [[Master Dashboard|📊 Master Dashboard]]
-
----
-
-*Folder: Java/09_Java-21-LTS • Part of [[README|Java MOC]]*
+- [[../08_Modern-Java/README|Modern Java]]
+- [[../04_Concurrency/README|Concurrency]]
+- [[../00_Java-25-Overview/LTS Evolution 8 to 25|LTS Evolution]]
+- [[../00_Java-25-Overview/Java 25 Roadmap|Java 25 Roadmap]]
+- [[../README|Java MOC]]
