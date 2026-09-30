@@ -117,13 +117,10 @@ class Solution {
 Start with the core implementation. Introduce a variant only when the required state or proof changes.
 
 ## When to use
-
 - autocomplete, spell check, word games, `startsWith(prefix)` queries; dictionary with prefix search.
-- **NOT:** exact lookup only (HashMap is faster, simpler); static dictionary with no prefix queries (sorted array + binary search).
 
 ## When NOT to use
-
-exact lookup only (HashMap is faster, simpler); static dictionary with no prefix queries (sorted array + binary search).
+- exact lookup only (HashMap is faster, simpler); static dictionary with no prefix queries (sorted array + binary search).
 
 ## Complexity & trade-offs
 
