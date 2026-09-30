@@ -1,7 +1,7 @@
 ---
-title: Architect Vault
-type: moc
-domain: architect
+title: Architect
+type: MOC
+domain: Architect
 tags: [architecture, system-design, enterprise-architecture, ai-architecture]
 created: 2026-09-30
 ---
@@ -10,9 +10,9 @@ created: 2026-09-30
 
 > **Design systems under constraints.**
 
-This vault is for architecture reasoning: **Requirements → Constraints → Design → Failure → Trade-off → Defend**.
+This is a domain inside the **single repository-wide Obsidian vault**. The master learning order is [[00 - Start Here]]; this MOC tells you how to navigate architecture material once the master plan points here.
 
-## Start here
+## Start here when architecture becomes the current phase
 
 1. [[01_Architecture-Foundations/README|Foundations]]
 2. [[02_Requirements-Quality-Attributes/README|Requirements & Quality Attributes]]
@@ -24,53 +24,22 @@ This vault is for architecture reasoning: **Requirements → Constraints → Des
 8. [[13_AI-Architecture/README|AI Architecture]]
 9. [[99_Revision/Study Plan|Revision]]
 
-## The architecture loop
+## Architecture loop
 
-```text
-Requirements
-    ↓
-Constraints + Estimates
-    ↓
-Quality Attributes / SLOs
-    ↓
-Simplest viable design
-    ↓
-Failure analysis
-    ↓
-Alternatives + trade-offs
-    ↓
-Decision / ADR
-    ↓
-Evidence
-    ↓
-Review when constraints change
-```
+**Requirements → Constraints → Quality Attributes → Simplest Design → Failure → Trade-off → Decision → Evidence → Review**
 
-## Learn a concept
+## Practice
 
-Every architecture note should answer:
-
-1. **What problem does it solve?**
-2. **What constraints make it useful?**
-3. **How does it work?**
-4. **What is the simplest alternative?**
-5. **What fails?**
-6. **What would I measure?**
-7. **When would I redesign it?**
-
-## Practice loop
-
-**Learn → Understand → Build → Break → Explain → Review**
+**Learn → Guided → Blind → Failure Injection → Defend → Redesign**
 
 Reading a note is not evidence of mastery.
 
 ## Diagram rule
 
-Use **one diagram for one question**.
+Use one diagram for one question.
 
-- **Mermaid:** simple flow, sequence, state, component/class relationships.
-- **Excalidraw:** spatial reasoning, distributed topology, concurrency, memory/layout exploration.
-- Avoid static screenshots when the diagram can be regenerated from text.
+- **Mermaid:** simple flow, sequence, state and structure.
+- **Excalidraw:** spatial reasoning, distributed topology and exploratory diagrams.
 
 ## Active review
 
@@ -94,22 +63,6 @@ WHERE type IN ("note", "architecture", "practice")
 SORT date(next_review) ASC
 LIMIT 20
 ```
-
-## Vault boundaries
-
-This is a **separate Obsidian vault**. Do not use ordinary `[[...]]` links to files in another vault.
-
-For cross-vault references use the shared contract in `../_shared/`:
-
-```yaml
-related:
-  - vault: java
-    note: "Concurrency"
-  - vault: ai
-    note: "Agent Concurrency"
-```
-
-Use a GitHub/Markdown URL when a clickable cross-vault link is required.
 
 ## Plugin roles
 
