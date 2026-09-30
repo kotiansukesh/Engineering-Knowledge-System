@@ -37,7 +37,7 @@ for rel, path in files.items():
         # Only Markdown table rows need the pipe-alias warning. A normal prose
         # line or fenced example may legitimately contain both pipes and links.
         stripped = line.strip()
-        if stripped.startswith("|") and re.search(r"\\[\\[[^\\]]+\\|[^\\]]+\\]\\]", line):
+        if stripped.startswith("|") and re.search(r"\[\[[^\]]+\|[^\]]+\]\]", line):
             warnings.append(f"{rel}:{n}: wikilink alias inside table; use path-only wikilink")
 
     # Minimal metadata contract; warnings allow incremental migration.
