@@ -99,13 +99,10 @@ Node reverseKGroup(Node head, int k) {
 Use the implementation above as the base case. Extend it only after the invariant remains explicit.
 
 ## When to use
-
 - reverse whole list; reverse sublist [m,n]; reverse in k-groups; palindrome check (reverse second half); reorder list.
-- **NOT:** when O(n) space is acceptable and recursive clarity wins (small n); immutable list (must rebuild).
 
 ## When NOT to use
-
-when O(n) space is acceptable and recursive clarity wins (small n); immutable list (must rebuild).
+- when O(n) space is acceptable and recursive clarity wins (small n); immutable list (must rebuild).
 
 ## Complexity & trade-offs
 
