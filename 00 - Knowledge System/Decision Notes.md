@@ -22,4 +22,4 @@ Use decision notes for choices that recur across projects.
 
 Do not turn these into generic technology rankings. Record the constraints under which each option is appropriate and capture measured evidence when possible.
 
-Canonical format: [[../Evidence/Architecture Decisions/ADR Template]].
+Canonical format: [[Evidence/Architecture Decisions/ADR Template]].
