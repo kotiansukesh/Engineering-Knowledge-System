@@ -34,9 +34,9 @@ Use domain notes for detailed knowledge. Keep this plan focused on direction, pr
 | 3 | RAG | Chunking, indexing, retrieval, context injection | **Enterprise Q&A Bot** | Retrieval evaluation + failure cases |
 | 4 | AI application engineering | Structured output, tool calling, validation, retries | Add tools and structured responses | Tool-call tests + error handling |
 | 5 | Agents | Agent loop, planning, tools, state, memory | **Single-agent task system** | Trace of decisions + tool execution |
-| 6 | Multi-agent systems | Delegation, orchestration, handoffs, shared state | **Multi-agent workflow** | Architecture diagram + failure injection |
+| 6 | Agent architecture | Delegation, orchestration, handoffs, shared state; multi-agent only when justified | **Constrained agent workflow** + deterministic comparison | Architecture diagram + failure injection |
 | 7 | AI reliability | Evaluation, hallucination, grounding, guardrails, observability | **AI evaluation harness** | Quality/latency/cost measurements |
-| 8 | AI platform engineering | Model gateway, routing, caching, rate limits, secrets, tenancy | **Enterprise AI Gateway** | ADR + benchmark + operational design |
+| 8 | AI platform engineering | Model gateway, routing, caching, rate limits, secrets, tenancy; deployment/operations | **Enterprise AI Gateway** | ADR + benchmark + operational design |
 | 9 | Architecture foundations | Requirements, estimation, NFRs, constraints, architecture styles | Design production version of the AI platform | Requirements + NFR scenarios |
 | 10 | Distributed systems | Data ownership, consistency, messaging, idempotency, resilience | Failure-inject the AI platform | Failure matrix + degraded modes |
 | 11 | Enterprise AI architecture | Security, governance, cost, deployment, observability, migration | **Enterprise AI Platform architecture** | ADRs + threat model + cost model |
@@ -193,7 +193,7 @@ Require:
 
 ## Current focus
 
-**Week:** 1  
+**Starting point:** Set the current week when you begin; do not treat this field as a permanent calendar value.  
 **Primary outcome:** working AI Code Assistant API  
 **Secondary:** keep Java/Spring implementation quality high  
 **Architecture practice:** capture requirements, constraints and trade-offs for the project
@@ -211,5 +211,7 @@ limit 15
 - [[00 - Knowledge System/README]]
 - [[00 - Knowledge System/Knowledge Model]]
 - [[00 - Knowledge System/Learning Graph]]
+- [[AI/99_Revision/Study-Plan]]
+- [[Java/99_Revision/Study-Plan]]
 - [[Architect/99_Revision/Study Plan]]
 - [[Coding Patterns/99_Revision/Study-Plan]]
