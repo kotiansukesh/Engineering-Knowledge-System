@@ -13,3 +13,10 @@ Build a production-shaped Spring Boot service.
 - ADR
 - Java/JVM performance note
 - 10× scale exercise
+
+## Evidence locations
+
+- [[Evidence/Implementations/README]]
+- [[Evidence/Benchmarks/README]]
+- [[Evidence/Failure Experiments/README]]
+- [[Evidence/Architecture Decisions/README]]
