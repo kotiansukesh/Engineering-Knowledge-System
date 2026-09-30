@@ -20,10 +20,26 @@ def md_files():
 def targets():
     out = set()
     for p in md_files():
-        rel = p.relative_to(ROOT).as_posix()[:-3]
-        out.add(rel)
+        rel_root = p.relative_to(ROOT).as_posix()[:-3]
+        rel_vault = p.relative_to(VAULT).as_posix()[:-3] if VAULT in p.parents else rel_root
+        out.add(rel_root)
+        out.add(rel_vault)
         out.add(p.stem)
     return out
+
+def resolves(target: str, source: Path, known: set[str]) -> bool:
+    target = target.split("#", 1)[0].split("|", 1)[0].strip()
+    if not target or target.startswith(("http://", "https://")):
+        return True
+    if target.startswith("../"):
+        return False
+    candidates = {target, target.removesuffix(".md")}
+    if target.startswith("Architect/"):
+        candidates.add(target[len("Architect/"):].removesuffix(".md"))
+    else:
+        rel = (source.parent / target).as_posix()
+        candidates.add(rel.removesuffix(".md"))
+    return any(candidate in known for candidate in candidates)
 
 def frontmatter(path: Path):
     text = path.read_text(encoding="utf-8")
@@ -59,7 +75,7 @@ def main():
                 errors.append(f"{path}: forbidden relative wikilink [[{raw}]]")
                 continue
             target = raw.split("#", 1)[0].split("|", 1)[0].strip()
-            if target and target not in known:
+            if target and not resolves(target, path, known):
                 errors.append(f"{path}: missing wikilink target [[{raw}]]")
 
         for line_no, line in enumerate(text.splitlines(), 1):
@@ -69,14 +85,10 @@ def main():
                         errors.append(f"{path}:{line_no}: pipe alias inside table wikilink [[{raw}]]")
 
         if data.get("type") == "note":
-            for field in ("category", "completed", "difficulty"):
-                if field not in data:
-                    errors.append(f"{path}: note missing '{field}' frontmatter")
+            warnings.append(f"{path}: legacy generic type: note; migrate to a semantic type when the note is next edited")
 
-        if "[TBD]" in text:
-            warnings.append(f"{path}: contains [TBD] placeholder")
-        if "Key algorithm/architecture pattern" in text:
-            warnings.append(f"{path}: contains generic flashcard placeholder")
+        if "[TBD]" in text or "[Key algorithm/architecture pattern]" in text or "[Trigger scenarios]" in text or "[Main trade-off]" in text:
+            errors.append(f"{path}: contains unresolved template placeholder")
         if "repeated sections" in text.lower():
             warnings.append(f"{path}: possible duplicated section marker")
 
