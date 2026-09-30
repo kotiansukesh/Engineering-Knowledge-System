@@ -109,17 +109,10 @@ Use for spatial/state-heavy algorithms. Do not create diagrams merely for decora
 Run:
 
 ~~~bash
-python3 scripts/validate-coding-patterns.py
+python3 scripts/validate-vault.py
 ~~~
 
-The validator checks:
-
-- broken wikilinks;
-- forbidden relative links;
-- pipe aliases in Markdown-table wikilinks;
-- required pattern metadata;
-- duplicate Problem Bank IDs;
-- referenced Dataview/Tasks paths.
+The repository-wide validator checks structural vault integrity. Domain-specific checks should be added to it rather than referenced through missing per-vault scripts.
 
 ## Editing workflow
 
@@ -162,7 +155,7 @@ Important rules:
 - Interview practice should measure requirements, estimation, design, reliability, trade-offs and communication separately.
 - Use vault-relative wikilinks only; never use `[[../...]]`.
 - Avoid pipe aliases inside Markdown-table wikilinks.
-- Run `python3 scripts/validate-architect.py` before merging Architect changes.
+- Run `python3 scripts/validate-vault.py` before merging Architect changes.
 
 ## Architect mastery and extension layers
 
