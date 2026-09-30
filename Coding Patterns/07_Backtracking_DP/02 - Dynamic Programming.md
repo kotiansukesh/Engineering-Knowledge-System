@@ -1,183 +1,50 @@
 ---
-type: note
+title: "Dynamic Programming"
+type: pattern
+pattern: 19
+domain: "Optimization"
+category: "Coding Patterns/07_Backtracking_DP"
+advanced: false
 mastery: learn
 recognition_score: 0
-title: Dynamic Programming
-pattern: 19
-category: Coding Patterns/07_Backtracking_DP
+difficulty: "Hard"
+leetcode: [- 70]
+created: "2026-09-02"
+reviewed:
+next_review: "2026-10-07"
 tags:
-- pattern/dp
-leetcode:
-- 70
-- 322
-- 300
-- 1143
-created: '2026-09-02'
-completed: false
-reviewed: ''
-sr-due: ''
-difficulty: Hard
-source: https://blog.algomaster.io/p/20-dsa-patterns
-excalidraw: ''
+  - pattern
+  - optimization
 ---
-
 
 # Dynamic Programming
 
-> Part of [[README|Coding Patterns]] • `Coding Patterns/07_Backtracking_DP` • Pattern #19
+> Pattern #19 · Optimization
 
-## Intent
-When subproblems repeat and the optimum builds from smaller optima, store results instead of recomputing. Two approaches: top-down recursion + cache (memoization) or bottom-up loop over a table (tabulation).
+## Recognition
 
-## Why it Matters
-- **Core sub-patterns:** Fibonacci, 0/1 knapsack, unbounded knapsack (coin change), LCS, LIS, subset sum.
-- **Tabulation usually wins in interviews:** iterative, no stack overflow, easier to optimize to O(1) space with rolling arrays.
-- **Define `dp[i]` meaning before coding** — "dp[i] = max profit up to day i" or "dp[i][j] = LCS of a[0..i) and b[0..j)". Wrong definition sinks the solution.
-- **Loop order respects dependency direction:** 0/1 knapsack loops weight backward (w=W..wt[i]) to use previous row; unbounded loops forward (w=wt[i]..W) to reuse current row.
-- Senior signal: space optimization from 2D → 1D → O(1) by identifying which previous states are actually needed.
+- Same subproblem appears repeatedly
+- Need optimum/count over choices
+- A state can summarize all information needed for future decisions
 
-## Diagram
-```mermaid
-flowchart LR
-  Dp["dp[i] meaning<br/>defined precisely"] --> BC["base cases"]
-  BC --> Rr["recurrence over choices"]
-  Rr --> Ord["loop order respects<br/>dependency direction"]
-  Ord --> Fill["fill table"]
-  Fill --> O["answer at dp[n]"]
-  O --> SO{"space optimizable?"}
-  SO -->|yes| Roll["rolling array / O(1)"]
-```
+### Strong signals
+- Same subproblem appears repeatedly
+- Need optimum/count over choices
 
+### Do not infer it from
+- A keyword alone
+- A familiar example without checking constraints
 
-## Problems
+## Invariant
 
-### 70. Climbing Stairs (Easy)
-> [LeetCode 70](https://leetcode.com/problems/climbing-stairs/) • Tags: Math, Dynamic Programming, Memoization
+> Each DP state stores the correct answer for exactly one subproblem, and every transition uses already-correct smaller states.
 
-**Problem Statement:**
+## Mental model
 
-You are climbing a staircase. It takes n steps to reach the top. Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top? Example 1: Input: n = 2 Output: 2 Explanation: There are two ways to climb to the top. 1. 1 step + 1 step 2. 2 steps Example 2: Input: n = 3 Output: 3 Explanation: There are three ways to climb to the top. 1. 1 step + 1 step + 1 step 2. 1 step + 2 steps 3. 2 steps + 1 step Constraints: 1
+Maintain the smallest state that completely describes the part of the search space still relevant to the answer.
 
-**Examples:**
+## Core implementation
 
-Example 1:
-```
-2
-```
-
-Example 2:
-```
-3
-```
----
-
-### 322. Coin Change (Medium)
-> [LeetCode 322](https://leetcode.com/problems/coin-change/) • Tags: Array, Dynamic Programming, Breadth-First Search, Knapsack Problem, Complete Knapsack
-
-**Problem Statement:**
-
-You are given an integer array coins representing coins of different denominations and an integer amount representing a total amount of money. Return the fewest number of coins that you need to make up that amount. If that amount of money cannot be made up by any combination of the coins, return -1. You may assume that you have an infinite number of each kind of coin. Example 1: Input: coins = [1,2,5], amount = 11 Output: 3 Explanation: 11 = 5 + 5 + 1 Example 2: Input: coins = [2], amount = 3 Output: -1 Example 3: Input: coins = [1], amount = 0 Output: 0 Constraints: 1 1 31 - 1 0 4
-
-**Examples:**
-
-Example 1:
-```
-[1,2,5]
-```
-
-Example 2:
-```
-11
-```
-
-Example 3:
-```
-[2]
-```
-
-Example 4:
-```
-3
-```
-
-Example 5:
-```
-[1]
-```
-
-Example 6:
-```
-0
-```
----
-
-### 300. Longest Increasing Subsequence (Medium)
-> [LeetCode 300](https://leetcode.com/problems/longest-increasing-subsequence/) • Tags: Array, Binary Search, Dynamic Programming, Longest Increasing Subsequence
-
-**Problem Statement:**
-
-Given an integer array nums, return the length of the longest strictly increasing subsequence. Example 1: Input: nums = [10,9,2,5,3,7,101,18] Output: 4 Explanation: The longest increasing subsequence is [2,3,7,101], therefore the length is 4. Example 2: Input: nums = [0,1,0,3,2,3] Output: 4 Example 3: Input: nums = [7,7,7,7,7,7,7] Output: 1 Constraints: 1 -104 4 Follow up: Can you come up with an algorithm that runs in O(n log(n)) time complexity?
-
-**Examples:**
-
-Example 1:
-```
-[10,9,2,5,3,7,101,18]
-```
-
-Example 2:
-```
-[0,1,0,3,2,3]
-```
-
-Example 3:
-```
-[7,7,7,7,7,7,7]
-```
----
-
-### 1143. Longest Common Subsequence (Medium)
-> [LeetCode 1143](https://leetcode.com/problems/longest-common-subsequence/) • Tags: String, Dynamic Programming, Longest Common Subsequence
-
-**Problem Statement:**
-
-Given two strings text1 and text2, return the length of their longest common subsequence. If there is no common subsequence, return 0. A subsequence of a string is a new string generated from the original string with some characters (can be none) deleted without changing the relative order of the remaining characters. For example, "ace" is a subsequence of "abcde". A common subsequence of two strings is a subsequence that is common to both strings. Example 1: Input: text1 = "abcde", text2 = "ace" Output: 3 Explanation: The longest common subsequence is "ace" and its length is 3. Example 2: Input: text1 = "abc", text2 = "abc" Output: 3 Explanation: The longest common subsequence is "abc" and its length is 3. Example 3: Input: text1 = "abc", text2 = "def" Output: 0 Explanation: There is no such common subsequence, so the result is 0. Constraints: 1 text1 and text2 consist of only lowercase English characters.
-
-**Examples:**
-
-Example 1:
-```
-"abcde"
-```
-
-Example 2:
-```
-"ace"
-```
-
-Example 3:
-```
-"abc"
-```
-
-Example 4:
-```
-"abc"
-```
-
-Example 5:
-```
-"abc"
-```
-
-Example 6:
-```
-"def"
-```
----
-
-
-## Code / Example
 ```java
 // Climbing Stairs — LC 70 (tabulation)
 int climbStairs(int n) {
@@ -231,17 +98,26 @@ int rob(int[] nums) {
 }
 ```
 
-## When to Use / When NOT
-- **Use:** "maximum", "minimum", "ways to", "can you", "longest", "shortest" where choices at each step build the answer. Both overlapping subproblems and optimal substructure present.
+## Variants
+
+Start with the core implementation. Introduce a variant only when the required state or proof changes.
+
+## When to use
+
+- "maximum", "minimum", "ways to", "can you", "longest", "shortest" where choices at each step build the answer. Both overlapping subproblems and optimal substructure present.
 - **NOT:** generate all solutions (use backtracking); greedy choice provably optimal (use greedy); no overlapping subproblems.
 
-## Trade-offs
+## When NOT to use
+
+generate all solutions (use backtracking); greedy choice provably optimal (use greedy); no overlapping subproblems.
+
+## Complexity & trade-offs
+
 | Approach | Time | Space |
 |----------|------|-------|
 | Memoization (top-down) | O(n · choices) | O(n) cache + recursion stack |
 | Tabulation (bottom-up) | O(n · choices) | O(n), often O(1) with rolling array |
 
-## Vs Table
 | Aspect | Memoization (Top-down) | Tabulation (Bottom-up) | Greedy |
 |--------|------------------------|------------------------|--------|
 | Subproblems hit | only ones reached | all states filled | none |
@@ -251,12 +127,24 @@ int rob(int[] nums) {
 | Pick when | recursion is clearest, sparse states | dense states, want speed/space tuning | local optimum provably global |
 
 ## Pitfalls
+
 - **Define `dp` meaning before coding:** `dp[i]` is what exactly. Wrong definition sinks the solution.
 - **Base case off-by-one** is the most common bug.
 - **Coin change outer loop over `coins`** gives combinations; swapped loops give permutations — know which you need.
 - **0/1 knapsack weight loop must go backward** (W down to wt[i]) to use previous iteration's values. Forward uses current iteration's values → unbounded knapsack.
 
-## Interview Q&A (Senior Depth)
+## Canonical problems
+
+| LeetCode | Problem | Difficulty |
+|---:|---|---|
+| 70 | Easy |
+| 322 | Medium |
+| 300 | Medium |
+| 1143 | Medium |
+
+## Interview Q&A
+
+(Senior Depth)
 
 **Q: 0/1 Knapsack vs Unbounded Knapsack — why does loop direction matter?**
 **A:** 0/1: each item used at most once. Backward loop (W..wt[i]) ensures `dp[w - wt[i]]` comes from previous iteration (item not yet considered). Forward loop would use current iteration's updated `dp[w - wt[i]]`, allowing the same item multiple times → unbounded. The loop direction *is* the constraint enforcement.
@@ -273,8 +161,7 @@ int rob(int[] nums) {
 **Q: How do you know if a problem is DP vs Greedy?**
 **A:** Try greedy first. If you find a counterexample where local optimal fails (e.g., coin change with [1,3,4] for amount 6: greedy picks 4+1+1=3 coins, optimal is 3+3=2), then it's DP. DP = backtracking + memoization. If subproblems don't overlap, it's backtracking (enumerate all). If they overlap and you need count/optimum, it's DP.
 
-
-## Flashcards (Spaced Repetition)
+## Flashcards
 
 #flashcard
 **Q:** What is the trigger keyword for Dynamic Programming? :: **A:** optimal substructure, overlapping subproblems, min/max/count ways, knapsack, LIS, edit distance, house robber #flashcard
@@ -288,25 +175,16 @@ int rob(int[] nums) {
 #flashcard
 **Q:** Core Java 25 snippet for Dynamic Programming? :: **A:** `int[] dp=new int[n+1]; dp[0]=base; for(int i=1;i<=n;i++) for(opt: options) dp[i]=Math.max(dp[i], dp[i-opt]+val);` #flashcard
 
+## Review tasks
 
-## Practice Tasks (Tasks Plugin)
-- [ ] Restate the intent from memory 📅 {date:YYYY-MM-DD, +1}
-- [ ] Code the snippet without looking 📅 {date:YYYY-MM-DD, +3}
-- [ ] Answer all Interview Q&A aloud 📅 {date:YYYY-MM-DD, +7}
-- [ ] Review flashcards (Spaced Repetition) 📅 {date:YYYY-MM-DD, +1}
-
-```tasks
-not done
-path includes {file.folder}
-sort by due
-limit 10
-```
+- [ ] Explain recognition signals from memory 📅 2026-10-01
+- [ ] Write the template from memory 📅 2026-10-03
+- [ ] Solve one unseen problem without hints 📅 2026-10-07
+- [ ] Explain the invariant aloud 📅 2026-10-14
 
 ## Related
+
 - [[07_Backtracking_DP/01 - Backtracking|Backtracking]] (DP = backtracking + memo)
 - [[07_Backtracking_DP/03 - Greedy|Greedy]] (local vs global optimum)
 - [[01_Array/01 - Prefix Sum|Prefix Sum]] (DP often uses prefix sums)
 - [[Java/07_DSA/Array]]
----
-*Category: Coding Patterns/07_Backtracking_DP*
-- [[Architect/10_System-Design-Interviews/DB-01-Database-Internals.md|DB-01-Database-Internals]] — DP for query optimization
