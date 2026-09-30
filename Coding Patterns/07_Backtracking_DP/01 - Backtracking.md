@@ -1,4 +1,7 @@
 ---
+type: note
+mastery: learn
+recognition_score: 0
 title: Backtracking
 pattern: 18
 category: Coding Patterns/07_Backtracking_DP
@@ -21,7 +24,7 @@ excalidraw: ''
 
 # Backtracking
 
-> Part of [[README|20 DSA Patterns]] • `Coding Patterns/07_Backtracking_DP` • Pattern #18
+> Part of [[README|Coding Patterns]] • `Coding Patterns/07_Backtracking_DP` • Pattern #18
 
 ## Intent
 Generate all solutions by choosing, exploring, and unchoosing — the exhaustive enumeration pattern for permutations, combinations, subsets, N-Queens, and constraint satisfaction.
