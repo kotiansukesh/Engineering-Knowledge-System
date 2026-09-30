@@ -1,4 +1,7 @@
 ---
+type: note
+mastery: learn
+recognition_score: 0
 title: Overlapping Intervals
 pattern: 9
 category: Coding Patterns/04_Intervals_Search
@@ -20,7 +23,7 @@ excalidraw: ''
 
 # Overlapping Intervals
 
-> Part of [[README|20 DSA Patterns]] • `Coding Patterns/04_Intervals_Search` • Pattern #9
+> Part of [[README|Coding Patterns]] • `Coding Patterns/04_Intervals_Search` • Pattern #9
 
 ## Intent
 Merge, insert, or remove intervals by sorting on start time and scanning once — the sort-by-start greedy pattern that turns interval union into a linear scan.
