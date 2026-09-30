@@ -159,10 +159,12 @@ only order matters (use sort); range sum queries (use prefix sum); streaming wit
 
 ## Review tasks
 
-- [ ] Explain recognition signals from memory 📅 2026-10-01
-- [ ] Write the template from memory 📅 2026-10-03
-- [ ] Solve one unseen problem without hints 📅 2026-10-07
-- [ ] Explain the invariant aloud 📅 2026-10-14
+- [ ] Explain recognition signals from memory
+- [ ] Write the core template from memory
+- [ ] Solve one unseen problem without hints
+- [ ] Explain the invariant aloud
+- [ ] Update mastery and next_review after review
+
 
 ## Related
 
