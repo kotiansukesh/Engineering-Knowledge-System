@@ -1,4 +1,7 @@
 ---
+type: note
+mastery: learn
+recognition_score: 0
 title: Frequency Counting
 pattern: 4
 category: Coding Patterns/01_Array
@@ -20,7 +23,7 @@ excalidraw: ''
 
 # Frequency Counting
 
-> Part of [[README|20 DSA Patterns]] • `Coding Patterns/01_Array` • Pattern #4
+> Part of [[README|Coding Patterns]] • `Coding Patterns/01_Array` • Pattern #4
 
 ## Intent
 Count occurrences of each value in O(n) time using a HashMap (or array for bounded alphabet), then answer questions from the counts — the fundamental space-for-time tradeoff that turns O(n²) pairwise comparisons into O(n) table lookups.
