@@ -141,13 +141,10 @@ int[] findErrorNums(int[] nums) {
 Start with the core implementation. Introduce a variant only when the required state or proof changes.
 
 ## When to use
-
 - array with elements in `[1..n]` or `[0..n-1]`; find missing, duplicate, first missing positive; any permutation of known range.
-- **NOT:** values outside the range; need stable sort; array is read-only (cyclic sort mutates).
 
 ## When NOT to use
-
-values outside the range; need stable sort; array is read-only (cyclic sort mutates).
+- values outside the range; need stable sort; array is read-only (cyclic sort mutates).
 
 ## Complexity & trade-offs
 
