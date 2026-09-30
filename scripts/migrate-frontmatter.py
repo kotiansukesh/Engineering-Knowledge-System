@@ -36,6 +36,12 @@ CATEGORY_TYPES = [
     ("/99_Revision/", "reference"),
 ]
 
+DOMAIN_TYPES = [
+    ("AI/", "concept"),
+    ("Architect/", "concept"),
+    ("Java/", "concept"),
+]
+
 def infer(path: Path, text: str) -> str | None:
     rel = path.relative_to(ROOT).as_posix()
     if rel in EXCLUDED or any(x in path.parts for x in EXCLUDED_PARTS):
@@ -48,6 +54,9 @@ def infer(path: Path, text: str) -> str | None:
             return typ
     for fragment, typ in CATEGORY_TYPES:
         if fragment in rel:
+            return typ
+    for prefix, typ in DOMAIN_TYPES:
+        if rel.startswith(prefix):
             return typ
 
     # Strong semantic signals inside existing frontmatter.
