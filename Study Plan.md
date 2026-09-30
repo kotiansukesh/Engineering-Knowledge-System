@@ -17,13 +17,13 @@ tags:
 
 > **Target path:** Backend Expert → AI Engineer → AI Architect (Agentic + Enterprise AI Systems)
 
-This is the **master plan** across the four vaults. It is intentionally practical: every week produces evidence, not just notes.
+This is the master plan for the **single vault**. The four learning domains are connected directly with normal Obsidian links.
 
 ## The learning loop
 
 **Learn → Understand → Build → Break → Explain → Review**
 
-Use the domain vault for detailed notes and the master plan only for direction and evidence.
+Use domain notes for detailed knowledge. Keep this plan focused on direction, practice and evidence.
 
 ## 12-week roadmap
 
@@ -32,12 +32,12 @@ Use the domain vault for detailed notes and the master plan only for direction a
 | 1 | LLM + API foundations | Tokens, prompts, system instructions, temperature, model APIs | **AI Code Assistant API** with Spring Boot | Working REST API + prompt experiments |
 | 2 | Embeddings + vector search | Embeddings, similarity, indexing, vector DB / Azure AI Search | **Document semantic search** | Retrieval examples + relevance observations |
 | 3 | RAG | Chunking, indexing, retrieval, context injection | **Enterprise Q&A Bot** | Retrieval evaluation + failure cases |
-| 4 | AI application engineering | Structured output, tool calling, validation, retries | Add tools and structured responses to the Q&A system | Tool-call tests + error handling |
+| 4 | AI application engineering | Structured output, tool calling, validation, retries | Add tools and structured responses | Tool-call tests + error handling |
 | 5 | Agents | Agent loop, planning, tools, state, memory | **Single-agent task system** | Trace of decisions + tool execution |
 | 6 | Multi-agent systems | Delegation, orchestration, handoffs, shared state | **Multi-agent workflow** | Architecture diagram + failure injection |
-| 7 | AI reliability | Evaluation, hallucination, grounding, guardrails, observability | Build an **AI evaluation harness** | Quality/latency/cost measurements |
+| 7 | AI reliability | Evaluation, hallucination, grounding, guardrails, observability | **AI evaluation harness** | Quality/latency/cost measurements |
 | 8 | AI platform engineering | Model gateway, routing, caching, rate limits, secrets, tenancy | **Enterprise AI Gateway** | ADR + benchmark + operational design |
-| 9 | Architecture foundations | Requirements, estimation, NFRs, constraints, architecture styles | Design a production version of the AI platform | Requirements + NFR scenarios |
+| 9 | Architecture foundations | Requirements, estimation, NFRs, constraints, architecture styles | Design production version of the AI platform | Requirements + NFR scenarios |
 | 10 | Distributed systems | Data ownership, consistency, messaging, idempotency, resilience | Failure-inject the AI platform | Failure matrix + degraded modes |
 | 11 | Enterprise AI architecture | Security, governance, cost, deployment, observability, migration | **Enterprise AI Platform architecture** | ADRs + threat model + cost model |
 | 12 | Architecture defense | Trade-offs, redesign, review, communication | Blind design + changed-constraint redesign | Architecture review + portfolio case study |
@@ -47,7 +47,7 @@ Use the domain vault for detailed notes and the master plan only for direction a
 ### Monday — Learn
 
 - [ ] Study the core concepts.
-- [ ] Create/update only the essential notes.
+- [ ] Create/update only essential notes.
 - [ ] Write the mental model in your own words.
 
 ### Tuesday — Understand
@@ -65,7 +65,7 @@ Use the domain vault for detailed notes and the master plan only for direction a
 
 - [ ] Introduce one failure or changed constraint.
 - [ ] Measure what happens.
-- [ ] Record the result in Evidence.
+- [ ] Record the result in [[Evidence/README]].
 
 ### Friday — Explain
 
@@ -81,16 +81,18 @@ Use the domain vault for detailed notes and the master plan only for direction a
 - [ ] Update `reviewed` / `next_review`.
 - [ ] Write one ADR or architecture decision when applicable.
 
-## Cross-vault practice
+## How the domains connect
 
-| Capability | Vault | Question |
+| Capability | Domain | Question |
 |---|---|---|
-| Java | Java | How do I implement it? |
-| Coding Patterns | Coding Patterns | How do I solve the problem efficiently? |
-| AI | AI | How do I build and operate AI behavior? |
-| Architecture | Architect | How do I design the whole system under constraints? |
+| Java | [[Java/README]] | How do I implement it? |
+| Coding Patterns | [[Coding Patterns/README]] | How do I solve it efficiently? |
+| AI | [[AI/README]] | How do I build and operate AI behavior? |
+| Architecture | [[Architect/README]] | How do I design the whole system under constraints? |
+| Projects | [[Build Lab/README]] | Can I build it end-to-end? |
+| Evidence | [[Evidence/README]] | Can I prove it works? |
 
-Do not duplicate the same explanation in all four vaults. Link the concepts conceptually using the shared cross-vault contract.
+Do not duplicate the same explanation in multiple domains. Link to the canonical note instead.
 
 ## The three anchor projects
 
@@ -168,7 +170,7 @@ Minimum deliverables:
 
 ### Architecture mastery
 
-A topic is not marked mastered because the note is complete.
+A topic is not mastered because the note is complete.
 
 Require:
 
@@ -187,7 +189,7 @@ Require:
 - Do not choose infrastructure before defining constraints.
 - Do not treat completion counts as mastery.
 - Do not create a diagram merely because a note has a "Diagram" heading.
-- Do not duplicate concepts across vaults.
+- Do not duplicate concepts across domains.
 
 ## Current focus
 
@@ -206,7 +208,8 @@ limit 15
 
 ## Related
 
-- [[_shared/README]]
-- [[_shared/Diagram-Guide]]
+- [[00 - Knowledge System/README]]
+- [[00 - Knowledge System/Knowledge Model]]
+- [[00 - Knowledge System/Learning Graph]]
 - [[Architect/99_Revision/Study Plan]]
 - [[Coding Patterns/99_Revision/Study-Plan]]

@@ -1,24 +1,36 @@
 # AGENTS.md
 
-## Repository
+## Repository model
 
-This is an Obsidian knowledge repository containing **four independent vaults**. Preserve Markdown readability and Obsidian-native behavior.
+This repository is **one Obsidian vault**.
 
-### Vault roles
+The top-level domains are:
 
-- **Java** — how to build software.
-- **Coding Patterns** — how to solve problems.
-- **AI** — how to build AI systems.
-- **Architect** — how to design systems under constraints.
+- **Java** — how to implement and operate backend software.
+- **Coding Patterns** — how to recognize and solve constrained problems.
+- **AI** — how to build and operate AI systems.
+- **Architect** — how to design systems under constraints and reason about trade-offs.
+- **Build Lab** — where concepts become working systems.
+- **Evidence** — where measurements, failures, decisions and defenses are recorded.
+
+Do not reintroduce separate-vault assumptions.
 
 ## Internal links
 
-Use Obsidian wikilinks only for notes inside the current vault:
+Use normal Obsidian wikilinks for any note in this repository:
 
 ~~~text
 [[Note Name]]
 [[Folder/Note Name]]
 [[Folder/Note Name|Display Text]]
+~~~
+
+Prefer explicit paths when names could be ambiguous:
+
+~~~text
+[[Java/04_Concurrency/Threads]]
+[[AI/03_Agentic-AI/08_Multi-Agent Orchestration]]
+[[Architect/13_AI-Architecture/04 - Agent Architecture]]
 ~~~
 
 Never use filesystem-style relative wikilinks such as:
@@ -27,13 +39,25 @@ Never use filesystem-style relative wikilinks such as:
 [[../Note]]
 ~~~
 
-Do not use pipe aliases inside wikilinks in Markdown table cells. Prefer the plain target:
+Avoid pipe aliases inside Markdown table cells when a plain path is enough.
+
+## Canonical knowledge rule
+
+A concept should have **one canonical explanation**.
+
+If a concept matters to multiple domains:
+
+1. Keep the detailed explanation in the most natural domain.
+2. Reference it from other domains with a local wikilink.
+3. Put domain-specific implications in the consuming note rather than duplicating the concept.
+
+Example:
 
 ~~~text
-[[Folder/Note]]
+[[Java/04_Concurrency/CompletableFuture]]
+[[Architect/04_Design-Patterns-Building-Blocks/02_Resilience-Circuit-Breaker-Retry]]
+[[AI/03_Agentic-AI/10_Agent Evaluation]]
 ~~~
-
-If a reference belongs to another vault, do **not** fake it as a local wikilink. Use the cross-vault contract in `_shared/README.md` and, when needed, a GitHub/Markdown URL.
 
 ## Learning model
 
@@ -48,14 +72,14 @@ Domain adaptations:
 - AI: Concept → Build → Evaluate → Operate → Explain
 - Architect: Requirements → Constraints → Design → Failure → Trade-off → Defend
 
-Do not add a second mastery framework unless it solves a demonstrated problem.
+Do not add another mastery framework unless it solves a demonstrated problem.
 
 ## Plugins
 
-- Dataview — derived indexes, dashboards and analytics.
-- Tasks — actionable review work.
-- Templater — repeatable note creation.
-- Excalidraw — spatial/state-heavy visual reasoning.
+- **Dataview** — derived indexes, dashboards and analytics.
+- **Tasks** — actionable review work.
+- **Templater** — repeatable note creation.
+- **Excalidraw** — spatial reasoning, distributed topology and exploratory diagrams.
 
 Keep responsibilities separated:
 
@@ -68,7 +92,7 @@ Keep responsibilities separated:
 
 ## Frontmatter
 
-Keep metadata small and queryable. Use a common core where practical:
+Keep metadata small and queryable:
 
 ~~~yaml
 type: concept
@@ -91,11 +115,10 @@ A diagram should answer **one question**.
 - Excalidraw for spatial reasoning, distributed topology, concurrency and exploratory diagrams.
 - Do not mix runtime flow, class structure and deployment topology into one diagram.
 - Avoid static screenshots when a maintainable source can be kept.
-- See `_shared/Diagram-Guide.md`.
 
 ## Dataview
 
-Use stable frontmatter and real local vault paths. Prefer simple Dataview queries. Use DataviewJS only when normal Dataview cannot express the required view.
+Use stable frontmatter and real vault paths. Prefer simple Dataview queries. Use DataviewJS only when normal Dataview cannot express the required view.
 
 ## Tasks
 
@@ -113,28 +136,33 @@ Run:
 python3 scripts/validate-vault.py
 ~~~
 
-The repository-wide validator is the merge gate.
+Then, when useful:
+
+~~~bash
+python3 scripts/validate-vault-health.py
+~~~
 
 ## Editing workflow
 
 1. Inspect structure and metadata.
 2. Preserve useful knowledge.
 3. Simplify navigation before adding automation.
-4. Verify links and referenced files.
-5. Verify diagrams.
-6. Run the validator.
-7. Review the diff.
+4. Keep concepts canonical and link across domains.
+5. Verify links and referenced files.
+6. Verify diagrams.
+7. Run the validator.
+8. Review the diff.
 
 ## Quality bar
 
 A change is complete only when:
 
 - Markdown is readable outside Obsidian.
-- Wikilinks resolve inside their own vault.
-- Cross-vault references follow the shared contract.
+- Wikilinks resolve within this single vault.
 - Dataview fields and paths exist.
 - Tasks paths exist.
 - Templates produce valid metadata.
 - Existing useful knowledge is preserved.
 - New features are discoverable from the relevant MOC.
 - No filesystem-style relative wikilinks remain.
+- No new cross-vault contract is introduced.
