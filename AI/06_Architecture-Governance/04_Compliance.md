@@ -1,138 +1,86 @@
 ---
-title: "04_Compliance"
+title: "AI Compliance as Architecture Controls"
 category: "AI/06_Architecture-Governance"
-tags:
-- compliance
-- regulation
-- eu-ai-act
-- gdpr
-- hipaa
-- audit
-created: "2026-09-29"
+tags: [compliance, governance, privacy, security, audit, ai-act]
+created: "2026-09-30"
 completed: false
 difficulty: "Advanced"
-reviewed: "2026-09-29"
-sr-due: "2026-09-30"
-source: ""
-excalidraw: ""
-weeks: "15"
+reviewed: "2026-09-30"
+sr-due: "2026-10-16"
 type: "note"
 ---
 
-# 04_Compliance
-
-> Part of [[README|AI MOC]] • `AI/06_Architecture-Governance` • Weeks 15
-> 🎨 **Visual diagram:** Create Excalidraw drawing from template: `Cmd+P → Excalidraw: New from template → AI Diagram`
+# AI Compliance as Architecture Controls
 
 ## Intent
-Understand **AI compliance** — EU AI Act risk tiers, GDPR/CCPA data rights, HIPAA for healthcare, SOC2, ISO42001, and automated compliance checking — to deploy AI legally.
+Translate legal, regulatory, contractual, and organizational requirements into **system controls, evidence, owners, and review triggers**. This note is an engineering framework, not legal advice.
 
-## Why It Matters
-- Where this appears in interviews (FAANG, senior vs. junior)
-- Production impact (cost, latency, quality, GPU utilization)
-- Senior signal: recognizing the *disguised* form of this pattern
+## Core Model
+**Jurisdiction + use case + data + role + risk → applicable obligations → control → evidence → owner → review**
 
-## Diagram
-```mermaid
-graph TD
-    A[Input / Context] --> B[Core Mechanism]
-    B --> C[Output / Result]
-    style B fill:#e8f5e9
-```
+Compliance is not a single checklist. Applicability depends on the system, deployment context, actors, data, sector, contracts, and jurisdiction.
 
-## Key Points
-- Key point 1
-- Key point 2
+## Control Map
 
-## Code / Config Example
-```python
-# Python 3.11+: Minimal example for 04_Compliance
-# Core concept - implementation varies by framework
+| Concern | Architecture question | Example evidence |
+|---|---|---|
+| Data protection | What personal data enters, leaves, or is retained? | data map, retention policy, access logs, DPIA where applicable |
+| Security | Who can invoke the model/tools and with what privileges? | IAM policy, audit logs, threat model |
+| Transparency | What must users be told about AI involvement/output? | UI disclosure, model/system documentation |
+| Human oversight | Which decisions require human review or override? | approval workflow, escalation logs |
+| Traceability | Can a production outcome be reconstructed? | model/version/data/config lineage |
+| Retention | What must be retained and for how long? | retention configuration and deletion evidence |
+| Vendor risk | What happens to prompts/data at providers? | contract/DPA/security review |
+| Incident response | What happens when a control fails? | runbook, incident record, notification workflow |
 
-from dataclasses import dataclass
-from typing import Optional
+## EU AI Act — Versioned Knowledge
 
-@dataclass
-class 04_ComplianceConfig:
-    component: str = "04_Compliance"
-    capacity: int = 10000
-    strategy: str = "default"
+The EU AI Act is being applied progressively. As of **2 August 2026**, enforcement powers and several provisions apply; other obligations have later applicability dates. For example, the European Commission currently lists the Annex III high-risk rules as applying from **2 December 2027**, while some other provisions apply earlier. Do not encode a single "AI Act deadline" into architecture documentation. Re-check the official timeline before making a release decision. citeturn0search11
 
-# Example usage
-config = 04_ComplianceConfig()
-```
+Architecture implication: maintain a **regulatory applicability record** containing jurisdiction, system classification/role, applicable provision, effective date, required control, evidence, owner, and review date.
 
-## When to Use / NOT
-| Scenario | Use? | Reason |
-|----------|------|--------|
-|          | ✅   |        |
-|          | ❌   |        |
+## Privacy Engineering
 
-## Trade-offs / Decision Matrix
-| Dimension | This Approach | Alternative A | Alternative B | Pick When |
-|-----------|---------------|---------------|---------------|-----------|
-| Complexity | | | | |
-| Latency | | | | |
-| Cost (GPU/hr) | | | | |
-| Quality | | | | |
+For systems processing personal data, identify:
+- purpose and lawful processing basis with the appropriate legal/privacy team
+- data categories and sources
+- retention/deletion behavior
+- access and least privilege
+- data transfer/provider boundaries
+- training vs inference use
+- logging exposure
+- user rights and operational workflows where applicable
 
-## Vs. Alternatives
-| Alternative | When to Choose It | Decision Rule |
-|-------------|-------------------|---------------|
-| | | |
+The EDPB publishes AI-specific data-protection guidance and notes that its LLM privacy-risk guidance complements rather than replaces a GDPR DPIA. citeturn0search12turn0search38
 
-## Pitfalls
-1. [Concrete mistake] → [Fix]
-2. [Concrete mistake] → [Fix]
+## NIST AI RMF Mapping
 
-## Interview Q&A (Senior Depth)
+Use **Govern → Map → Measure → Manage** as an engineering lifecycle, not as a compliance checklist. NIST explicitly describes the framework as voluntary and context-dependent. citeturn0search0turn0search7
 
-**Q1: Walk me through the core mechanism of 04_Compliance. Why does it work?**
-**A:** In 2–3 sentences. Connect the *why* to the mathematical/architectural invariant.
+- **Govern:** policies, accountability, inventory, risk tolerance
+- **Map:** context, intended use, impacts, stakeholders, limitations
+- **Measure:** evaluations, metrics, uncertainty, testing evidence
+- **Manage:** prioritize risks, choose responses, monitor and improve
 
-**Q2: When would you choose an alternative over this approach?**
-**A:** Cite concrete constraints (scale, latency, cost, quality) and name the alternative.
+## Failure Modes
+1. Regulation copied into a checklist with no system control.
+2. Control exists but has no evidence or owner.
+3. Legal applicability is assumed from the model vendor rather than the actual deployment context.
+4. Logs intended for audit accidentally retain sensitive prompts indefinitely.
+5. A control is correct at launch but becomes stale after architecture/provider changes.
+6. "Compliant" is treated as a permanent property instead of a time- and context-dependent assessment.
 
-**Q3: How does this change for production vs. prototype?**
-**A:** Explain the hardening needed: evaluation, monitoring, cost optimization, guardrails.
+## Practice
+- [ ] Build a compliance-control matrix for an enterprise RAG assistant.
+- [ ] Identify personal-data flows and logging exposure.
+- [ ] Map five requirements to concrete technical controls and evidence.
+- [ ] Add effective/review dates to regulatory assumptions.
+- [ ] Design a control-change review triggered by a model/provider change.
+- [ ] Explain why a framework checklist cannot replace legal applicability analysis.
 
-**Q4: Walk me through a non-obvious problem that reduces to this pattern.**
-**A:** Describe the reduction step-by-step.
-
-**Q5: What is the GPU memory / latency implication at scale?**
-**A:** Discuss VRAM, batching, KV cache, quantization trade-offs.
-
-## Flashcards (Spaced Repetition)
-
-#flashcard
-**Q:** What is the trigger keyword for 04_Compliance? :: **A:** [trigger keywords] #flashcard
-
-#flashcard
-**Q:** Key hyperparameter for 04_Compliance? :: **A:** [hyperparameter + typical range] #flashcard
-
-#flashcard
-**Q:** When do you NOT use 04_Compliance? :: **A:** [anti-pattern scenarios] #flashcard
-
-#flashcard
-**Q:** Cost order of magnitude for 04_Compliance? :: **A:** [GPU hours / $ per 1M tokens] #flashcard
-
-## Practice Tasks (Tasks Plugin)
-- [ ] Restate the intent from memory 📅 2026-09-30
-- [ ] Code the config without looking 📅 2026-10-02
-- [ ] Answer all Interview Q&A aloud 📅 2026-10-06
-- [ ] Review flashcards (Spaced Repetition) 📅 2026-09-30
-
-```tasks
-not done
-path includes 06_Architecture-Governance
-sort by due
-limit 10
-```
-
-## Related
-- [[README|AI MOC]]
-- [[06_Architecture-Governance/README|06_Architecture-Governance Folder]]
-
----
-
-*Category: AI/06_Architecture-Governance • Part of [[README|AI MOC]]*
+## Senior Interview Prompts
+1. How do you turn a regulation into architecture controls?
+2. What makes compliance evidence auditable?
+3. Why should regulatory assumptions have effective dates?
+4. How can observability become a privacy risk?
+5. Where does legal interpretation end and engineering control design begin?

@@ -1,105 +1,126 @@
 ---
-title: Final Capstone, Governed Platform
-category: AI/06_Architecture-Governance
-tags:
-- ai
-- capstone
-- governance
-- mlops
-- drift
-weeks: 35-36
-created: 2026-09-02
+title: "Final Capstone — Governed Enterprise AI Platform"
+category: "AI/06_Architecture-Governance"
+tags: [ai, capstone, governance, architecture, risk, evaluation]
+created: "2026-09-30"
 completed: false
-type: project
-reviewed: "2026-09-29"
-sr-due: "2026-09-30"
-excalidraw: ''
-difficulty: Medium
-source: ''
+difficulty: "Advanced"
+reviewed: "2026-09-30"
+sr-due: "2026-10-18"
+type: "project"
 ---
 
-## Why it Matters
+# Final Capstone — Governed Enterprise AI Platform
 
-Incorporate iSAQB concerns into [[AI/03_Agentic-AI/Enterprise AI Operations Platform|AI Operations Platform]] rather than adding features, show architectural maturity.
+## Objective
+Take the production AI platform built in earlier phases and make its architecture **defensible**: every important risk has a control, every important decision has evidence, and operational behavior can be reviewed after deployment.
 
-## Diagram
+## System
 
-```mermaid
+~~~~mermaid
 flowchart TB
- PL["Platform<br/>(phases 01-05)"] --> GOV{"Governance review"}
- GOV --> Q["Quality attributes<br/>with measured targets"]
- GOV --> C["EU AI Act checklist"]
- GOV --> D["Drift + eval gates in CI"]
- GOV --> CO["Cost + energy dashboard"]
- Q & C & D & CO --> ADR["ADRs"]
- ADR --> INT["Interview:<br/>defend each decision"]
-```
+U[Users / Systems] --> G[AI Gateway]
+G --> R[RAG / Retrieval]
+G --> A[Agent / Workflow]
+A --> T[Authorized Tools]
+R --> D[Enterprise Data]
+G --> E[Evaluation]
+G --> O[Observability]
+G --> C[Governance Controls]
+C --> ADR[Architecture Decisions]
+C --> REG[Risk + Compliance Evidence]
+~~~~
 
-## Code
+## Required Deliverables
 
-```python
+### 1. Architecture
+- context and container diagrams
+- trust boundaries
+- data-flow diagram
+- deployment view
+- top 10 architecture decisions
 
-## When to use / NOT
+### 2. Quality Scenarios
+At least one measurable scenario for:
+- latency
+- availability
+- security
+- privacy
+- reliability
+- cost
+- evaluation quality
 
-- **Use:** as the Phase 06 deliverable — the platform is re-presented as a governed system with ADRs, controls and measurable quality attributes.
-- **NOT:** as a compliance document exercise; governance that produces no metrics and no ADRs is shelfware.
+### 3. Risk Register
+For each significant risk:
+**risk → likelihood/impact → control → detection → owner → response → residual risk → review date**
 
-## Trade-offs
+### 4. Evaluation
+Define offline and production evaluation for:
+- retrieval
+- answer quality
+- tool selection/arguments
+- safety/guardrails
+- latency/cost
+- regression
 
-- Reviewer can trace every AI decision to an ADR, a quality scenario, and a compliance control.
+### 5. Governance Evidence
+Produce:
+- model/provider inventory
+- data classification
+- access-control evidence
+- audit/logging policy
+- retention policy
+- incident response
+- approval/release record
+- compliance applicability matrix
 
-## Vs
+### 6. ADR Portfolio
+Write at least five ADRs, including one decision you expect to revisit.
 
-| Artifact | Capstone version | Weak version |
-|---------|------------------|--------------|
-| Quality attribute | Measured target in a dashboard | "It should be fast" |
-| ADR | Decision + rejected alternatives + date | None, decision lives in chat |
-| Compliance | Checklist mapped to controls | A slide |
+## Failure Injection
 
-## Pitfalls
+Break the platform deliberately:
+- provider timeout
+- stale retrieval
+- prompt injection through retrieved content
+- malformed tool arguments
+- duplicate action
+- dependency outage
+- evaluation regression
+- unexpected cost increase
+- sensitive data appearing in logs
 
-- Governance artifacts written at the end to look complete — they are recognisable and worthless.
-- Quality attributes without owners or measurement; unmeasured attributes are aspirations.
-- ADRs that record only the chosen option; the rejected alternatives are the interesting part.
-- No link from the governance view back to the code it governs.
+For each failure record:
+**trigger → detection → containment → recovery → evidence → architecture change**
 
-## Interview Q&A
+## Architecture Review Gate
 
-- **Q:** What does "governed AI platform" mean in practice for what you built? **A:** It means each governance concern resolves to an artifact and a metric: latency and cost targets measured in dashboards, an EU AI Act checklist mapped to actual controls, eval gates in CI, and ADRs that record why — including the options I rejected.
-- **Q:** Why write ADRs at all on a solo project? **A:** Because the future reader is an interviewer or a new teammate, and "we chose pgvector" is useless without the alternatives considered and the threshold at which the choice changes. An ADR is the artifact that survives the conversation.
-- **Q:** Which governance control is hardest to keep honest? **A:** Drift and eval gates — they are the controls whose failure is silent. Everything else fails loudly; a slowly degrading retrieval quality metric fails quietly until a user notices.
+A capstone is not complete because the diagrams exist. Defend:
 
-## Flashcards (Spaced Repetition)
+1. Why is each AI component necessary?
+2. What deterministic alternative was rejected?
+3. Which assumptions are hardest to verify?
+4. What is the highest-risk trust boundary?
+5. What evidence proves the system meets its key quality scenarios?
+6. What happens when the model/provider is unavailable?
+7. Which decision is reversible?
+8. What would trigger an architecture review?
 
-#flashcard
-**Q:** What is the trigger keyword for Final Capstone, Governed Platform? :: **A:** [trigger keywords] #flashcard
+## Promotion Evidence
 
-#flashcard
-**Q:** Key hyperparameter for Final Capstone, Governed Platform? :: **A:** [hyperparameter + typical range] #flashcard
+- [ ] Architecture diagrams reviewed
+- [ ] Quality scenarios measured
+- [ ] Risk register complete
+- [ ] Evaluation suite versioned
+- [ ] Failure injections recorded
+- [ ] ADRs written
+- [ ] Compliance applicability assessed
+- [ ] Operational dashboards defined
+- [ ] Incident playbook tested
+- [ ] Final architecture review completed
 
-#flashcard
-**Q:** When do you NOT use Final Capstone, Governed Platform? :: **A:** [anti-pattern scenarios] #flashcard
+## Mastery Standard
 
-#flashcard
-**Q:** Cost order of magnitude for Final Capstone, Governed Platform? :: **A:** [GPU hours / $ per 1M tokens] #flashcard
+**Explain → Design → Implement → Measure → Break → Defend → Redesign**
 
-## Practice Tasks (Tasks Plugin)
-- [ ] Restate the intent from memory 📅 2026-09-30
-- [ ] Code the config without looking 📅 2026-10-02
-- [ ] Answer all Interview Q&A aloud 📅 2026-10-06
-- [ ] Review flashcards (Spaced Repetition) 📅 2026-09-30
-
-```tasks
-not done
-path includes 06_Architecture-Governance
-sort by due
-limit 10
-```
-
-## Related
-- [[README|AI MOC]]
-- [[06_Architecture-Governance/README|06_Architecture-Governance Folder]]
-
----
-
-*Category: AI/06_Architecture-Governance • Part of [[README|AI MOC]]*
+The final review should demonstrate reasoning from business requirement and constraints through architecture, controls, evidence, and evolution—not memorization of framework terminology.
