@@ -14,6 +14,27 @@ sr-due: ""
 > 20-week roadmap: Recognize pattern → Code in 15 min → Explain trade-offs.
 ---
 
+
+## 🧭 How to Use This Vault
+
+**1. Start with [[00 - Pattern Decision Tree|Pattern Decision Tree]]**  
+Use problem characteristics to narrow down candidate patterns.
+
+**2. Learn from [[Patterns Index|Patterns Index]]**  
+Pattern notes are the primary knowledge units; problem notes are applications.
+
+**3. Practice with [[00 - Blind Practice|Blind Practice]]**  
+Hide the pattern name and force recognition from the problem statement.
+
+**4. Record failures in [[00 - Mistake Log|Mistake Log]]**  
+Track incorrect reasoning, not just syntax mistakes.
+
+**5. Measure mastery**  
+**Solved ≠ Learned ≠ Recognized ≠ Mastered.**
+
+The target is:
+**Learn → Guided → Blind → Mixed → Mastered**
+
 ## 📊 Master Dashboard
 
 ```dataviewjs
