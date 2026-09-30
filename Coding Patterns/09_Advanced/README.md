@@ -1,54 +1,47 @@
 ---
-title: "09 Advanced README"
-category: "Coding Patterns/09_Advanced"
-tags: [MOC, folder, advanced, optional]
-created: "2026-09-29"
-completed: false
-reviewed: ""
-sr-due: ""
+title: "Advanced Patterns"
+type: moc
+category: Coding Patterns/09_Advanced
+tags:
+  - moc
+  - dsa
 ---
 
-# 09 Advanced Patterns (Optional)
+# Advanced Patterns
 
-> Part of [[README|Coding Patterns MOC]] • `Coding Patterns/09_Advanced`
-> These patterns extend the core 20 and appear in harder problems / specific domains.
----
+> Folder MOC generated from the pattern notes in this area.
 
-## Progress Overview
-
-```dataviewjs
-const category = dv.current().category;
-const pages = dv.pages(`"${category}"`).where(p => p.category != null && p.file.name != "README");
-const total = pages.length;
-const done = pages.where(p => p.completed === true).length;
-const pct = total ? Math.round(done/total*100) : 0;
-const bar = (p, w=20) => "█".repeat(Math.round(p/100*w)) + "░".repeat(w-Math.round(p/100*w));
-dv.paragraph(`**Total: ${total} notes | Completed: ${done} | Remaining: ${total-done}** — \`${pct}%\``);
-dv.paragraph(`\`${bar(pct)}\` **${pct}%**`);
-if (total === done && total > 0) dv.paragraph(`🎉 *All notes completed!*`);
-```
----
-
-## Notes Index
-
-```dataview
+~~~dataview
 TABLE WITHOUT ID
- file.link as "Note",
- category as "Category",
- choice(completed, "✅", "⬜") as "Done",
- difficulty as "Difficulty",
- reviewed as "Last Reviewed",
- "sr-due" as "SR Due"
+  pattern as "#",
+  file.link as "Pattern",
+  mastery as "Mastery",
+  recognition_score as "Recognition",
+  difficulty as "Difficulty",
+  length(leetcode) as "Problems"
 FROM "Coding Patterns/09_Advanced"
-WHERE category AND file.name != "README"
-SORT file.name ASC
-```
----
+WHERE type = "pattern"
+SORT pattern ASC
+~~~
 
-## Quick Links
+## How to study this family
 
-- [[README|← Back to Coding Patterns MOC]]
-- [[Master Dashboard|📊 Master Dashboard]]
----
+1. Open a pattern from the table.
+2. Read **Recognition** and **Invariant** first.
+3. Write the core template from memory.
+4. Solve one guided problem.
+5. Solve one blind problem.
+6. Update the pattern frontmatter after review.
 
-*Folder: Coding Patterns/09_Advanced • Part of [[README|Coding Patterns MOC]]*
+## Review tasks
+
+~~~tasks
+not done
+path includes Coding Patterns/09_Advanced
+sort by due
+limit 10
+~~~
+
+## Related
+
+[[../Patterns Index|Patterns Index]] · [[../00 - Pattern Decision Tree|Pattern Decision Tree]] · [[../99_Revision/Practice Dashboard|Practice Dashboard]]
