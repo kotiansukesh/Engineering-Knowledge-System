@@ -103,13 +103,10 @@ int rob(int[] nums) {
 Start with the core implementation. Introduce a variant only when the required state or proof changes.
 
 ## When to use
-
 - "maximum", "minimum", "ways to", "can you", "longest", "shortest" where choices at each step build the answer. Both overlapping subproblems and optimal substructure present.
-- **NOT:** generate all solutions (use backtracking); greedy choice provably optimal (use greedy); no overlapping subproblems.
 
 ## When NOT to use
-
-generate all solutions (use backtracking); greedy choice provably optimal (use greedy); no overlapping subproblems.
+- generate all solutions (use backtracking); greedy choice provably optimal (use greedy); no overlapping subproblems.
 
 ## Complexity & trade-offs
 
