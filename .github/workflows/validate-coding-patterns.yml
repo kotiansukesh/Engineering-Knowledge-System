@@ -1,0 +1,21 @@
+name: Validate Coding Patterns
+
+on:
+  push:
+    paths:
+      - "Coding Patterns/**"
+      - "scripts/validate-coding-patterns.py"
+      - ".github/workflows/validate-coding-patterns.yml"
+  pull_request:
+    paths:
+      - "Coding Patterns/**"
+      - "scripts/validate-coding-patterns.py"
+      - ".github/workflows/validate-coding-patterns.yml"
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate Obsidian vault
+        run: python3 scripts/validate-coding-patterns.py
