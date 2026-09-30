@@ -57,7 +57,7 @@ Use the existing Enterprise AI Platform as the recurring project. Map external l
 The AI domain teaches AI mechanisms and production techniques. The Architect domain teaches system boundaries, quality attributes, trade-offs and decisions.
 
 - [[Architect/01_Architecture-Foundations/Quality-Attributes-and-Scenarios|Quality Attributes]]
-- [[Architect/01_Architecture-Foundations/Systems-Boundaries-and-Context|System Boundaries]]
+- [[Architect/01_Architecture-Foundations/What-is-Architecture|Architecture & Boundaries]]
 - [[Architect/01_Architecture-Foundations/Constraints-and-Trade-offs|Trade-offs]]
 - [[Architect/01_Architecture-Foundations/Architecture-Decisions-and-ADRs|ADRs]]
 - [[Architect/13_AI-Architecture/README|AI Architecture]]
