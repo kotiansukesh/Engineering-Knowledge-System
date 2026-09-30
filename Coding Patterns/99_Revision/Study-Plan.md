@@ -9,14 +9,14 @@ tags:
 
 # Study Plan
 
-> This is a progression, not a calendar. Advance when the mastery gate is met.
+> Progression matters more than a fixed calendar.
 
-## The learning loop
+## Learning loop
 
 **Learn → Guided → Blind → Mixed → Mastered**
 
 ### Learn
-Understand the mental model, recognition signals, invariant and one canonical implementation.
+Understand recognition signals, mental model, invariant and canonical implementation.
 
 ### Guided
 Solve representative problems while the pattern is known.
@@ -30,32 +30,32 @@ Solve where several patterns are plausible.
 ### Mastered
 Recognize, prove, implement and adapt without notes.
 
-## Weekly rhythm
-
-| Session | Work |
-|---|---|
-| Day 1 | Learn one pattern + write recognition cues |
-| Day 2 | Two guided problems |
-| Day 3 | Variants + edge cases |
-| Day 4 | Two blind problems |
-| Day 5 | Explain invariant + complexity aloud |
-| Weekend | Review weak patterns and mistakes |
-
 ## 20-week progression
 
-| Weeks | Focus | Mastery gate |
+| Weeks | Focus | Required evidence |
 |---|---|---|
-| 1–2 | Prefix Sum, Two Pointers | recognize from shape |
-| 3–4 | Sliding Window, Frequency Counting | distinguish window vs counting |
+| 1–2 | Prefix Sum, Two Pointers | recognition + invariant |
+| 3–4 | Sliding Window, Frequency Counting | distinguish range state vs counts |
 | 5–6 | Fast/Slow, In-place Reversal | pointer invariant from memory |
 | 7–8 | Intervals, Binary Search | prove safe elimination |
 | 9–10 | Tree Traversal, BFS, DFS | choose traversal from required output |
 | 11–12 | Shortest Path, Union Find, Trie | distinguish graph properties |
-| 13–14 | Monotonic Stack, Top K | identify ordering / priority invariant |
+| 13–14 | Monotonic Stack, Top K | ordering / priority invariant |
 | 15–16 | Matrix, Backtracking | state + traversal / pruning |
-| 17–18 | DP, Greedy | define state or prove local choice |
-| 19 | Bit Manipulation + Advanced | recognize specialized invariants |
-| 20 | Mixed simulation | no pattern hints |
+| 17–18 | DP, Greedy | state definition or greedy proof |
+| 19 | Bit Manipulation + Advanced | specialized invariants |
+| 20 | Mixed + interview simulation | no pattern hints |
+
+## Weekly rhythm
+
+| Session | Work |
+|---|---|
+| Day 1 | Learn one pattern + recognition cues |
+| Day 2 | Two guided problems |
+| Day 3 | Variants + edge cases |
+| Day 4 | Two blind problems |
+| Day 5 | Invariant + complexity explanation |
+| Weekend | Mixed set + mistake review |
 
 ## Promotion checklist
 
@@ -65,18 +65,9 @@ Recognize, prove, implement and adapt without notes.
 - [ ] Complexity explained in ≤ 1 minute
 - [ ] One valid alternative explained
 - [ ] One non-applicable case explained
-- [ ] One variation or combination solved
-
-## Review metadata
-
-Pattern notes own their review state:
-
-- mastery
-- recognition_score
-- reviewed
-- next_review
-
-The [[Practice Dashboard]] uses those fields to generate the queue.
+- [ ] One pattern combination solved
+- [ ] At least one mixed-set success
+- [ ] No recurring unresolved mistake
 
 ## Training targets
 
@@ -89,6 +80,10 @@ The [[Practice Dashboard]] uses those fields to generate the queue.
 
 These are training targets, not guarantees of interview performance.
 
+## Adaptive review
+
+Use [[00 - Adaptive Review Engine]] rather than a fixed seven-day review for every pattern.
+
 ## Related
 
-[[Patterns Index]] · [[99_Revision/Practice Dashboard|Practice Dashboard]] · [[00 - Blind Practice]] · [[00 - Mistake Log]]
+[[Patterns Index]] · [[99_Revision/Practice Dashboard]] · [[00 - Pattern Recognition Lab]] · [[00 - Mixed Pattern Sets]] · [[00 - Interview Mode]]
