@@ -1,4 +1,7 @@
 ---
+type: note
+mastery: learn
+recognition_score: 0
 title: BFS
 pattern: 13
 category: Coding Patterns/05_Trees_Graphs
@@ -22,7 +25,7 @@ excalidraw: ''
 
 # BFS
 
-> Part of [[README|20 DSA Patterns]] • `Coding Patterns/05_Trees_Graphs` • Pattern #13
+> Part of [[README|Coding Patterns]] • `Coding Patterns/05_Trees_Graphs` • Pattern #13
 
 ## Intent
 Explore level by level using a queue — the shortest-path-in-unweighted-graphs and level-order-traversal pattern. Capturing `queue.size()` at the start of each level is what makes a level a level.
