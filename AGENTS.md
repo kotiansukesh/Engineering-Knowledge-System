@@ -171,3 +171,19 @@ The Architect vault includes:
 - Portfolio: original systems include requirements, NFRs, ADRs, failure analysis, cost, security, observability and migration evidence.
 
 Do not treat completion counts as mastery. Prefer independent evidence and redesign under changed constraints.
+
+
+## Knowledge System
+
+The repository is one connected engineering knowledge system.
+
+- Start from [[Master Dashboard]] and [[00 - Knowledge System/README]].
+- Use [[00 - Knowledge System/Knowledge Model]] to choose the correct note type.
+- Use [[00 - Knowledge System/Learning Graph]] for meaningful relationships.
+- Store implementations, benchmarks, failures, ADRs, evaluations and defenses under [[Evidence/README]].
+- Use [[Build Lab/README]] for portfolio-grade systems.
+- Use [[00 - Knowledge System/10x Exercises]] for scale/redesign practice.
+- Prefer evidence over completion counts.
+- Never auto-delete an orphan or duplicate candidate; review it first.
+- For version-sensitive Java, Spring, AI and model claims, record the relevant verification date/source.
+- The health script is diagnostic and non-blocking; the integrity validator is the merge gate.
