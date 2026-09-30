@@ -1,4 +1,7 @@
 ---
+type: note
+mastery: learn
+recognition_score: 0
 title: Monotonic Stack
 pattern: 7
 category: Coding Patterns/03_Stack_Heap
@@ -21,7 +24,7 @@ excalidraw: ''
 
 # Monotonic Stack
 
-> Part of [[README|20 DSA Patterns]] • `Coding Patterns/03_Stack_Heap` • Pattern #7
+> Part of [[README|Coding Patterns]] • `Coding Patterns/03_Stack_Heap` • Pattern #7
 
 ## Intent
 Maintain a stack that stays sorted (increasing or decreasing) while scanning once — each element is pushed once and popped at most once, giving O(n) total time for "next greater/smaller", "daily temperatures", histogram, and trapping rain water.
