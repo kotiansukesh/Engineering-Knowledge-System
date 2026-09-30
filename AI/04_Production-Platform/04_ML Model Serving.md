@@ -1,137 +1,82 @@
 ---
-title: "04_ML Model Serving"
+title: "ML Model Serving"
 category: "AI/04_Production-Platform"
-tags:
-- serving
-- inference
-- triton
-- vllm
-- tgi
-created: "2026-09-29"
+tags: [serving, inference, vllm, triton, llm]
+created: "2026-09-30"
 completed: false
 difficulty: "Advanced"
-reviewed: "2026-09-29"
-sr-due: "2026-09-30"
-source: ""
-excalidraw: ""
-weeks: "9"
+reviewed: "2026-09-30"
+sr-due: "2026-10-02"
 type: "note"
 ---
 
-# 04_ML Model Serving
-
-> Part of [[README|AI MOC]] • `AI/04_Production-Platform` • Weeks 9
-> 🎨 **Visual diagram:** Create Excalidraw drawing from template: `Cmd+P → Excalidraw: New from template → AI Diagram`
+# ML Model Serving
 
 ## Intent
-Understand **ML model serving** — Triton, vLLM, TGI, batching strategies, continuous batching, KV cache management, and GPU utilization — to serve LLMs at scale with low latency.
+Understand the serving boundary for self-hosted models: request scheduling, batching, KV-cache pressure, GPU utilization, streaming, and operational failure handling.
 
-## Why It Matters
-- Where this appears in interviews (FAANG, senior vs. junior)
-- Production impact (cost, latency, quality, GPU utilization)
-- Senior signal: recognizing the *disguised* form of this pattern
+## Architecture
+~~~~mermaid
+flowchart LR
+C[Client] --> G[Gateway] --> S[Inference server]
+S --> Q[Scheduler / batcher] --> GPU[Model + KV cache]
+GPU --> S --> G --> C
+S --> M[Metrics + traces]
+~~~~
 
-## Diagram
-```mermaid
-graph TD
-    A[Input / Context] --> B[Core Mechanism]
-    B --> C[Output / Result]
-    style B fill:#e8f5e9
-```
+## Decision Rule
+Choose managed/provider inference when operational ownership is not a differentiator. Self-host when latency control, data residency, model customization, throughput economics, or deployment constraints justify the operational burden.
 
-## Key Points
-- Key point 1
-- Key point 2
+## Serving Choices
+| Requirement | Candidate | Key evidence |
+|---|---|---|
+| Standard hosted model | Provider API | latency, price, residency |
+| Self-hosted LLM inference | vLLM/TGI-class server | throughput, compatibility, GPU utilization |
+| Multi-model serving | Triton-style platform | model mix and scheduling requirements |
+| Custom inference graph | Specialized runtime | measurable kernel/latency need |
 
-## Code / Config Example
-```python
-# Python 3.11+: Minimal example for 04_ML Model Serving
-# Core concept - implementation varies by framework
+## Core Mechanisms
+- **Continuous batching:** admits requests as sequences finish instead of waiting for a fixed batch boundary.
+- **KV cache:** stores attention state for generated sequences; long contexts and concurrent requests increase memory pressure.
+- **Streaming:** improves time-to-first-token/user perception but does not reduce total compute by itself.
+- **Admission control:** protects the system when demand exceeds GPU capacity.
 
-from dataclasses import dataclass
-from typing import Optional
+## Trade-offs
+| Decision | Option A | Option B | Choose based on |
+|---|---|---|---|
+| Hosting | Managed | Self-hosted | operational burden vs control/economics |
+| Scheduling | Simple batching | Continuous batching | workload shape and utilization |
+| Model replicas | More replicas | Larger shared pool | isolation vs utilization |
+| Context length | Shorter limit | Longer limit | product need vs KV memory/latency |
 
-@dataclass
-class 04_MLModelServingConfig:
-    component: str = "04_ML Model Serving"
-    capacity: int = 10000
-    strategy: str = "default"
+## Failure Modes
+1. GPU OOM → cap context/concurrency and enforce admission control.
+2. Queue explosion → bounded queue, load shedding, backpressure.
+3. Slow model → inspect token generation latency separately from queue latency.
+4. Replica imbalance → measure per-replica queue depth and utilization.
+5. Warm-up spikes → readiness only after model initialization and health checks.
+6. Provider/runtime incompatibility → pin tested model/runtime combinations.
 
-# Example usage
-config = 04_MLModelServingConfig()
-```
+## Evaluation
+Benchmark with representative prompt lengths and output lengths. Record time-to-first-token, inter-token latency, p50/p95/p99 latency, tokens/sec, queue time, GPU utilization, memory headroom, error rate, and cost per successful request.
 
-## When to Use / NOT
-| Scenario | Use? | Reason |
-|----------|------|--------|
-|          | ✅   |        |
-|          | ❌   |        |
+## Practice
+- [ ] Load-test short and long contexts separately.
+- [ ] Increase concurrency until queueing becomes the dominant latency component.
+- [ ] Inject GPU saturation and verify load shedding.
+- [ ] Compare one large replica with multiple smaller replicas using the same workload.
+- [ ] Document the self-host vs provider decision using measured evidence.
 
-## Trade-offs / Decision Matrix
-| Dimension | This Approach | Alternative A | Alternative B | Pick When |
-|-----------|---------------|---------------|---------------|-----------|
-| Complexity | | | | |
-| Latency | | | | |
-| Cost (GPU/hr) | | | | |
-| Quality | | | | |
+## Senior Interview Prompts
+1. Why can higher GPU utilization increase latency?
+2. What is the relationship between context length, KV cache, and concurrency?
+3. How do you distinguish queue latency from model latency?
+4. When does self-hosting stop making economic sense?
+5. How would you design graceful degradation under GPU exhaustion?
 
-## Vs. Alternatives
-| Alternative | When to Choose It | Decision Rule |
-|-------------|-------------------|---------------|
-| | | |
-
-## Pitfalls
-1. [Concrete mistake] → [Fix]
-2. [Concrete mistake] → [Fix]
-
-## Interview Q&A (Senior Depth)
-
-**Q1: Walk me through the core mechanism of 04_ML Model Serving. Why does it work?**
-**A:** In 2–3 sentences. Connect the *why* to the mathematical/architectural invariant.
-
-**Q2: When would you choose an alternative over this approach?**
-**A:** Cite concrete constraints (scale, latency, cost, quality) and name the alternative.
-
-**Q3: How does this change for production vs. prototype?**
-**A:** Explain the hardening needed: evaluation, monitoring, cost optimization, guardrails.
-
-**Q4: Walk me through a non-obvious problem that reduces to this pattern.**
-**A:** Describe the reduction step-by-step.
-
-**Q5: What is the GPU memory / latency implication at scale?**
-**A:** Discuss VRAM, batching, KV cache, quantization trade-offs.
-
-## Flashcards (Spaced Repetition)
+## Flashcards
+#flashcard
+**Q:** What are the two major latency components before generation work? :: **A:** Queue/scheduling delay and model inference time; measure them separately.
 
 #flashcard
-**Q:** What is the trigger keyword for 04_ML Model Serving? :: **A:** [trigger keywords] #flashcard
-
-#flashcard
-**Q:** Key hyperparameter for 04_ML Model Serving? :: **A:** [hyperparameter + typical range] #flashcard
-
-#flashcard
-**Q:** When do you NOT use 04_ML Model Serving? :: **A:** [anti-pattern scenarios] #flashcard
-
-#flashcard
-**Q:** Cost order of magnitude for 04_ML Model Serving? :: **A:** [GPU hours / $ per 1M tokens] #flashcard
-
-## Practice Tasks (Tasks Plugin)
-- [ ] Restate the intent from memory 📅 2026-09-30
-- [ ] Code the config without looking 📅 2026-10-02
-- [ ] Answer all Interview Q&A aloud 📅 2026-10-06
-- [ ] Review flashcards (Spaced Repetition) 📅 2026-09-30
-
-```tasks
-not done
-path includes 04_Production-Platform
-sort by due
-limit 10
-```
-
-## Related
-- [[README|AI MOC]]
-- [[04_Production-Platform/README|04_Production-Platform Folder]]
-
----
-
-*Category: AI/04_Production-Platform • Part of [[README|AI MOC]]*
+**Q:** Why does KV-cache pressure matter for concurrent LLM serving? :: **A:** Each active sequence consumes memory for attention state, so concurrency and context length can become memory limits before raw compute does.
