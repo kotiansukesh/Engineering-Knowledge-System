@@ -134,49 +134,49 @@ A: Pod kill → node drain → AZ evacuation → dependency latency (toxiproxy +
 ## Flashcards (Spaced Repetition)
 
 #flashcard
-**Q:** What is the core concept of Resilience & Chaos, Bulkheads, Backpressure & GameDays? :: **A:** [Key algorithm/architecture pattern] #flashcard
+**Q:** What is the core concept of Resilience & Chaos, Bulkheads, Backpressure & GameDays? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** When do you apply Resilience & Chaos, Bulkheads, Backpressure & GameDays? :: **A:** [Trigger scenarios and context] #flashcard
+**Q:** When do you apply Resilience & Chaos, Bulkheads, Backpressure & GameDays? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the primary trade-off in Resilience & Chaos, Bulkheads, Backpressure & GameDays? :: **A:** [Main tension: e.g., consistency vs latency] #flashcard
+**Q:** What is the primary trade-off in Resilience & Chaos, Bulkheads, Backpressure & GameDays? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What breaks first at scale in Resilience & Chaos, Bulkheads, Backpressure & GameDays? :: **A:** [Primary bottleneck: e.g., coordination, hot keys, replication lag] #flashcard
+**Q:** What breaks first at scale in Resilience & Chaos, Bulkheads, Backpressure & GameDays? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How do you handle failures in Resilience & Chaos, Bulkheads, Backpressure & GameDays? :: **A:** [Retry, circuit breaker, fallback, graceful degradation] #flashcard
+**Q:** How do you handle failures in Resilience & Chaos, Bulkheads, Backpressure & GameDays? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What are the key metrics to monitor for Resilience & Chaos, Bulkheads, Backpressure & GameDays? :: **A:** [RED: rate, errors, duration; USE: utilization, saturation, errors] #flashcard
+**Q:** What are the key metrics to monitor for Resilience & Chaos, Bulkheads, Backpressure & GameDays? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How does Resilience & Chaos, Bulkheads, Backpressure & GameDays scale to 10x? :: **A:** [Sharding, read replicas, async processing, caching layers] #flashcard
+**Q:** How does Resilience & Chaos, Bulkheads, Backpressure & GameDays scale to 10x? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the consistency model for Resilience & Chaos, Bulkheads, Backpressure & GameDays? :: **A:** [Strong/eventual/causal - justify with use case] #flashcard
+**Q:** What is the consistency model for Resilience & Chaos, Bulkheads, Backpressure & GameDays? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How do you test Resilience & Chaos, Bulkheads, Backpressure & GameDays? :: **A:** [Contract tests, chaos engineering, load tests, fault injection] #flashcard
+**Q:** How do you test Resilience & Chaos, Bulkheads, Backpressure & GameDays? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the operational cost of Resilience & Chaos, Bulkheads, Backpressure & GameDays? :: **A:** [Team expertise, tooling, on-call burden, migration risk] #flashcard
+**Q:** What is the operational cost of Resilience & Chaos, Bulkheads, Backpressure & GameDays? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** When would you NOT use Resilience & Chaos, Bulkheads, Backpressure & GameDays? :: **A:** [Managed service covers need, simple CRUD, team lacks maturity] #flashcard
+**Q:** When would you NOT use Resilience & Chaos, Bulkheads, Backpressure & GameDays? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the key design decision in Resilience & Chaos, Bulkheads, Backpressure & GameDays? :: **A:** [The irreversible choice that defines the architecture] #flashcard
+**Q:** What is the key design decision in Resilience & Chaos, Bulkheads, Backpressure & GameDays? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How do you migrate to Resilience & Chaos, Bulkheads, Backpressure & GameDays? :: **A:** [Strangler fig, dual-write, canary, feature flags] #flashcard
+**Q:** How do you migrate to Resilience & Chaos, Bulkheads, Backpressure & GameDays? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What security considerations for Resilience & Chaos, Bulkheads, Backpressure & GameDays? :: **A:** [AuthZ, encryption, audit, secrets management] #flashcard
+**Q:** What security considerations for Resilience & Chaos, Bulkheads, Backpressure & GameDays? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How do you debug Resilience & Chaos, Bulkheads, Backpressure & GameDays in production? :: **A:** [Structured logging, correlation IDs, distributed tracing, SLO alerts] #flashcard
+**Q:** How do you debug Resilience & Chaos, Bulkheads, Backpressure & GameDays in production? :: **A:** Not specified #flashcard
 
 
 ## Practice Tasks (Tasks Plugin)

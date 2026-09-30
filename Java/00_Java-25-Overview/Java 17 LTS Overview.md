@@ -151,7 +151,7 @@ Why does a switch over a sealed type not need a default?:: The compiler proves e
 
 ## Related
 
-- Java 11 LTS Overview ← prev • [[Java/00_Java-25-Overview/../09_Java-21-LTS/00 Java 21 Overview|Java 21 Overview]] → next • LTS Evolution 8 to 25 • [[Java/00_Java-25-Overview/../08_Modern-Java/01 Records|08 , Records]] • [[Java/00_Java-25-Overview/../08_Modern-Java/02 Sealed Classes|Sealed]]
+- Java 11 LTS Overview ← prev • [[Java/09_Java-21-LTS/00 Java 21 Overview|Java 21 Overview]] → next • LTS Evolution 8 to 25 • [[Java/08_Modern-Java/01 Records|08 , Records]] • [[Java/08_Modern-Java/02 Sealed Classes|Sealed]]
 
 ---
 *Category: overview • java17*

@@ -175,7 +175,7 @@ record ContentDeliveryNetworkCDNConfig(
 **Q:** When do you use Content Delivery Network (CDN)? :: **A:** [Trigger scenarios from primer] #flashcard
 
 #flashcard
-**Q:** Key trade-off in Content Delivery Network (CDN)? :: **A:** [Main trade-off] #flashcard
+**Q:** Key trade-off in Content Delivery Network (CDN)? :: **A:** Not specified #flashcard
 
 #flashcard
 **Q:** Scale bottleneck for Content Delivery Network (CDN)? :: **A:** [Primary bottleneck] #flashcard
@@ -184,34 +184,34 @@ record ContentDeliveryNetworkCDNConfig(
 ## Flashcards (Spaced Repetition)
 
 #flashcard
-**Q:** What is the core concept of Content Delivery Network (CDN)? :: **A:** [Key algorithm/architecture pattern] #flashcard
+**Q:** What is the core concept of Content Delivery Network (CDN)? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** When do you apply Content Delivery Network (CDN)? :: **A:** [Trigger scenarios and context] #flashcard
+**Q:** When do you apply Content Delivery Network (CDN)? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the primary trade-off in Content Delivery Network (CDN)? :: **A:** [Main tension: e.g., consistency vs latency] #flashcard
+**Q:** What is the primary trade-off in Content Delivery Network (CDN)? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What breaks first at scale in Content Delivery Network (CDN)? :: **A:** [Primary bottleneck: e.g., coordination, hot keys, replication lag] #flashcard
+**Q:** What breaks first at scale in Content Delivery Network (CDN)? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How do you handle failures in Content Delivery Network (CDN)? :: **A:** [Retry, circuit breaker, fallback, graceful degradation] #flashcard
+**Q:** How do you handle failures in Content Delivery Network (CDN)? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What are the key metrics to monitor for Content Delivery Network (CDN)? :: **A:** [RED: rate, errors, duration; USE: utilization, saturation, errors] #flashcard
+**Q:** What are the key metrics to monitor for Content Delivery Network (CDN)? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How does Content Delivery Network (CDN) scale to 10x? :: **A:** [Sharding, read replicas, async processing, caching layers] #flashcard
+**Q:** How does Content Delivery Network (CDN) scale to 10x? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the consistency model for Content Delivery Network (CDN)? :: **A:** [Strong/eventual/causal - justify with use case] #flashcard
+**Q:** What is the consistency model for Content Delivery Network (CDN)? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How do you test Content Delivery Network (CDN)? :: **A:** [Contract tests, chaos engineering, load tests, fault injection] #flashcard
+**Q:** How do you test Content Delivery Network (CDN)? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the operational cost of Content Delivery Network (CDN)? :: **A:** [Team expertise, tooling, on-call burden, migration risk] #flashcard
+**Q:** What is the operational cost of Content Delivery Network (CDN)? :: **A:** Not specified #flashcard
 
 ## Practice Tasks (Tasks Plugin)
 

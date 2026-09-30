@@ -166,9 +166,9 @@ limit 30
 
 ## Related Vaults
 
-- [[Java/../Coding Patterns/README|Coding Patterns]] — problem-solving patterns
-- [[Java/../Architect/README|Architect]] — system design and architecture
-- [[Java/../AI/README|AI]] — AI engineering and enterprise AI
+- [[Coding Patterns/README|Coding Patterns]] — problem-solving patterns
+- [[Architect/README|Architect]] — system design and architecture
+- [[AI/README|AI]] — AI engineering and enterprise AI
 
 ---
 

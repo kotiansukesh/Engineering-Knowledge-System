@@ -169,7 +169,7 @@ record StudyGuideConfig(
 **Q:** When do you use Study Guide? :: **A:** [Trigger scenarios from primer] #flashcard
 
 #flashcard
-**Q:** Key trade-off in Study Guide? :: **A:** [Main trade-off] #flashcard
+**Q:** Key trade-off in Study Guide? :: **A:** Not specified #flashcard
 
 #flashcard
 **Q:** Scale bottleneck for Study Guide? :: **A:** [Primary bottleneck] #flashcard
@@ -178,34 +178,34 @@ record StudyGuideConfig(
 ## Flashcards (Spaced Repetition)
 
 #flashcard
-**Q:** What is the core concept of Study Guide? :: **A:** [Key algorithm/architecture pattern] #flashcard
+**Q:** What is the core concept of Study Guide? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** When do you apply Study Guide? :: **A:** [Trigger scenarios and context] #flashcard
+**Q:** When do you apply Study Guide? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the primary trade-off in Study Guide? :: **A:** [Main tension: e.g., consistency vs latency] #flashcard
+**Q:** What is the primary trade-off in Study Guide? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What breaks first at scale in Study Guide? :: **A:** [Primary bottleneck: e.g., coordination, hot keys, replication lag] #flashcard
+**Q:** What breaks first at scale in Study Guide? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How do you handle failures in Study Guide? :: **A:** [Retry, circuit breaker, fallback, graceful degradation] #flashcard
+**Q:** How do you handle failures in Study Guide? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What are the key metrics to monitor for Study Guide? :: **A:** [RED: rate, errors, duration; USE: utilization, saturation, errors] #flashcard
+**Q:** What are the key metrics to monitor for Study Guide? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How does Study Guide scale to 10x? :: **A:** [Sharding, read replicas, async processing, caching layers] #flashcard
+**Q:** How does Study Guide scale to 10x? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the consistency model for Study Guide? :: **A:** [Strong/eventual/causal - justify with use case] #flashcard
+**Q:** What is the consistency model for Study Guide? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How do you test Study Guide? :: **A:** [Contract tests, chaos engineering, load tests, fault injection] #flashcard
+**Q:** How do you test Study Guide? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the operational cost of Study Guide? :: **A:** [Team expertise, tooling, on-call burden, migration risk] #flashcard
+**Q:** What is the operational cost of Study Guide? :: **A:** Not specified #flashcard
 
 ## Practice Tasks (Tasks Plugin)
 

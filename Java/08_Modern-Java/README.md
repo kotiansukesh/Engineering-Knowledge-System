@@ -11,7 +11,7 @@ sr-due: "2026-10-07"
 
 # 08 Modern Java
 
-> Language and library evolution from Java 9 through Java 25. Use this folder for feature-focused learning; use [[Java/08_Modern-Java/../00_Java-25-Overview/Java 25 Roadmap|Java 25 Roadmap]] for sequencing.
+> Language and library evolution from Java 9 through Java 25. Use this folder for feature-focused learning; use [[Java/00_Java-25-Overview/Java 25 Roadmap|Java 25 Roadmap]] for sequencing.
 
 ## Notes
 
@@ -49,7 +49,7 @@ For Java 25, prioritize:
 
 ## Related
 
-- [[Java/08_Modern-Java/../00_Java-25-Overview/LTS Evolution 8 to 25|LTS Evolution]]
-- [[Java/08_Modern-Java/../09_Java-21-LTS/README|Java 21 Deep Dive]]
-- [[Java/08_Modern-Java/../04_Concurrency/README|Concurrency]]
-- [[Java/08_Modern-Java/../README|Java MOC]]
+- [[Java/00_Java-25-Overview/LTS Evolution 8 to 25|LTS Evolution]]
+- [[Java/09_Java-21-LTS/README|Java 21 Deep Dive]]
+- [[Java/04_Concurrency/README|Concurrency]]
+- [[Java/README|Java MOC]]

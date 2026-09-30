@@ -241,7 +241,7 @@ record RelationalDatabaseRDBMSConfig(
 **Q:** When do you use Relational Database (RDBMS)? :: **A:** [Trigger scenarios from primer] #flashcard
 
 #flashcard
-**Q:** Key trade-off in Relational Database (RDBMS)? :: **A:** [Main trade-off] #flashcard
+**Q:** Key trade-off in Relational Database (RDBMS)? :: **A:** Not specified #flashcard
 
 #flashcard
 **Q:** Scale bottleneck for Relational Database (RDBMS)? :: **A:** [Primary bottleneck] #flashcard
@@ -250,34 +250,34 @@ record RelationalDatabaseRDBMSConfig(
 ## Flashcards (Spaced Repetition)
 
 #flashcard
-**Q:** What is the core concept of Relational Database (RDBMS)? :: **A:** [Key algorithm/architecture pattern] #flashcard
+**Q:** What is the core concept of Relational Database (RDBMS)? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** When do you apply Relational Database (RDBMS)? :: **A:** [Trigger scenarios and context] #flashcard
+**Q:** When do you apply Relational Database (RDBMS)? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the primary trade-off in Relational Database (RDBMS)? :: **A:** [Main tension: e.g., consistency vs latency] #flashcard
+**Q:** What is the primary trade-off in Relational Database (RDBMS)? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What breaks first at scale in Relational Database (RDBMS)? :: **A:** [Primary bottleneck: e.g., coordination, hot keys, replication lag] #flashcard
+**Q:** What breaks first at scale in Relational Database (RDBMS)? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How do you handle failures in Relational Database (RDBMS)? :: **A:** [Retry, circuit breaker, fallback, graceful degradation] #flashcard
+**Q:** How do you handle failures in Relational Database (RDBMS)? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What are the key metrics to monitor for Relational Database (RDBMS)? :: **A:** [RED: rate, errors, duration; USE: utilization, saturation, errors] #flashcard
+**Q:** What are the key metrics to monitor for Relational Database (RDBMS)? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How does Relational Database (RDBMS) scale to 10x? :: **A:** [Sharding, read replicas, async processing, caching layers] #flashcard
+**Q:** How does Relational Database (RDBMS) scale to 10x? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the consistency model for Relational Database (RDBMS)? :: **A:** [Strong/eventual/causal - justify with use case] #flashcard
+**Q:** What is the consistency model for Relational Database (RDBMS)? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How do you test Relational Database (RDBMS)? :: **A:** [Contract tests, chaos engineering, load tests, fault injection] #flashcard
+**Q:** How do you test Relational Database (RDBMS)? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the operational cost of Relational Database (RDBMS)? :: **A:** [Team expertise, tooling, on-call burden, migration risk] #flashcard
+**Q:** What is the operational cost of Relational Database (RDBMS)? :: **A:** Not specified #flashcard
 
 ## Practice Tasks (Tasks Plugin)
 

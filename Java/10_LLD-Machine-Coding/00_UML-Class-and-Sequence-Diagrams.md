@@ -123,7 +123,7 @@ A: Classes with fields + key methods, no getters/setters noise. One sequence per
 
 ## Related
 
-- LLD Method · [[Java/10_LLD-Machine-Coding/../02_OOP/Class-Relationships|Class Relationships]] · [[Java/10_LLD-Machine-Coding/../02_OOP/Classes-and-Objects|Classes and Objects]]
+- LLD Method · [[Java/02_OOP/Class-Relationships|Class Relationships]] · [[Java/02_OOP/Classes-and-Objects|Classes and Objects]]
 ---
 *Category: LLD*
 

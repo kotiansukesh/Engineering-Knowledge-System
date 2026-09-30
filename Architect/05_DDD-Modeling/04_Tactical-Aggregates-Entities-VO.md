@@ -141,49 +141,49 @@ A: Domain events + IDs, never direct object references or shared transactions.
 ## Flashcards (Spaced Repetition)
 
 #flashcard
-**Q:** What is the core concept of Tactical DDD, Aggregates, Entities, Value Objects? :: **A:** [Key algorithm/architecture pattern] #flashcard
+**Q:** What is the core concept of Tactical DDD, Aggregates, Entities, Value Objects? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** When do you apply Tactical DDD, Aggregates, Entities, Value Objects? :: **A:** [Trigger scenarios and context] #flashcard
+**Q:** When do you apply Tactical DDD, Aggregates, Entities, Value Objects? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the primary trade-off in Tactical DDD, Aggregates, Entities, Value Objects? :: **A:** [Main tension: e.g., consistency vs latency] #flashcard
+**Q:** What is the primary trade-off in Tactical DDD, Aggregates, Entities, Value Objects? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What breaks first at scale in Tactical DDD, Aggregates, Entities, Value Objects? :: **A:** [Primary bottleneck: e.g., coordination, hot keys, replication lag] #flashcard
+**Q:** What breaks first at scale in Tactical DDD, Aggregates, Entities, Value Objects? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How do you handle failures in Tactical DDD, Aggregates, Entities, Value Objects? :: **A:** [Retry, circuit breaker, fallback, graceful degradation] #flashcard
+**Q:** How do you handle failures in Tactical DDD, Aggregates, Entities, Value Objects? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What are the key metrics to monitor for Tactical DDD, Aggregates, Entities, Value Objects? :: **A:** [RED: rate, errors, duration; USE: utilization, saturation, errors] #flashcard
+**Q:** What are the key metrics to monitor for Tactical DDD, Aggregates, Entities, Value Objects? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How does Tactical DDD, Aggregates, Entities, Value Objects scale to 10x? :: **A:** [Sharding, read replicas, async processing, caching layers] #flashcard
+**Q:** How does Tactical DDD, Aggregates, Entities, Value Objects scale to 10x? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the consistency model for Tactical DDD, Aggregates, Entities, Value Objects? :: **A:** [Strong/eventual/causal - justify with use case] #flashcard
+**Q:** What is the consistency model for Tactical DDD, Aggregates, Entities, Value Objects? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How do you test Tactical DDD, Aggregates, Entities, Value Objects? :: **A:** [Contract tests, chaos engineering, load tests, fault injection] #flashcard
+**Q:** How do you test Tactical DDD, Aggregates, Entities, Value Objects? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the operational cost of Tactical DDD, Aggregates, Entities, Value Objects? :: **A:** [Team expertise, tooling, on-call burden, migration risk] #flashcard
+**Q:** What is the operational cost of Tactical DDD, Aggregates, Entities, Value Objects? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** When would you NOT use Tactical DDD, Aggregates, Entities, Value Objects? :: **A:** [Managed service covers need, simple CRUD, team lacks maturity] #flashcard
+**Q:** When would you NOT use Tactical DDD, Aggregates, Entities, Value Objects? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the key design decision in Tactical DDD, Aggregates, Entities, Value Objects? :: **A:** [The irreversible choice that defines the architecture] #flashcard
+**Q:** What is the key design decision in Tactical DDD, Aggregates, Entities, Value Objects? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How do you migrate to Tactical DDD, Aggregates, Entities, Value Objects? :: **A:** [Strangler fig, dual-write, canary, feature flags] #flashcard
+**Q:** How do you migrate to Tactical DDD, Aggregates, Entities, Value Objects? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What security considerations for Tactical DDD, Aggregates, Entities, Value Objects? :: **A:** [AuthZ, encryption, audit, secrets management] #flashcard
+**Q:** What security considerations for Tactical DDD, Aggregates, Entities, Value Objects? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How do you debug Tactical DDD, Aggregates, Entities, Value Objects in production? :: **A:** [Structured logging, correlation IDs, distributed tracing, SLO alerts] #flashcard
+**Q:** How do you debug Tactical DDD, Aggregates, Entities, Value Objects in production? :: **A:** Not specified #flashcard
 
 
 ## Practice Tasks (Tasks Plugin)

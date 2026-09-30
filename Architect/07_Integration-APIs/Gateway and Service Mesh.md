@@ -138,49 +138,49 @@ OrderDto get(@PathVariable Long id, @AuthenticationPrincipal Jwt jwt) {
 ## Flashcards (Spaced Repetition)
 
 #flashcard
-**Q:** What is the core concept of Gateway and Service Mesh? :: **A:** [Key algorithm/architecture pattern] #flashcard
+**Q:** What is the core concept of Gateway and Service Mesh? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** When do you apply Gateway and Service Mesh? :: **A:** [Trigger scenarios and context] #flashcard
+**Q:** When do you apply Gateway and Service Mesh? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the primary trade-off in Gateway and Service Mesh? :: **A:** [Main tension: e.g., consistency vs latency] #flashcard
+**Q:** What is the primary trade-off in Gateway and Service Mesh? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What breaks first at scale in Gateway and Service Mesh? :: **A:** [Primary bottleneck: e.g., coordination, hot keys, replication lag] #flashcard
+**Q:** What breaks first at scale in Gateway and Service Mesh? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How do you handle failures in Gateway and Service Mesh? :: **A:** [Retry, circuit breaker, fallback, graceful degradation] #flashcard
+**Q:** How do you handle failures in Gateway and Service Mesh? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What are the key metrics to monitor for Gateway and Service Mesh? :: **A:** [RED: rate, errors, duration; USE: utilization, saturation, errors] #flashcard
+**Q:** What are the key metrics to monitor for Gateway and Service Mesh? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How does Gateway and Service Mesh scale to 10x? :: **A:** [Sharding, read replicas, async processing, caching layers] #flashcard
+**Q:** How does Gateway and Service Mesh scale to 10x? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the consistency model for Gateway and Service Mesh? :: **A:** [Strong/eventual/causal - justify with use case] #flashcard
+**Q:** What is the consistency model for Gateway and Service Mesh? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How do you test Gateway and Service Mesh? :: **A:** [Contract tests, chaos engineering, load tests, fault injection] #flashcard
+**Q:** How do you test Gateway and Service Mesh? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the operational cost of Gateway and Service Mesh? :: **A:** [Team expertise, tooling, on-call burden, migration risk] #flashcard
+**Q:** What is the operational cost of Gateway and Service Mesh? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** When would you NOT use Gateway and Service Mesh? :: **A:** [Managed service covers need, simple CRUD, team lacks maturity] #flashcard
+**Q:** When would you NOT use Gateway and Service Mesh? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the key design decision in Gateway and Service Mesh? :: **A:** [The irreversible choice that defines the architecture] #flashcard
+**Q:** What is the key design decision in Gateway and Service Mesh? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How do you migrate to Gateway and Service Mesh? :: **A:** [Strangler fig, dual-write, canary, feature flags] #flashcard
+**Q:** How do you migrate to Gateway and Service Mesh? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What security considerations for Gateway and Service Mesh? :: **A:** [AuthZ, encryption, audit, secrets management] #flashcard
+**Q:** What security considerations for Gateway and Service Mesh? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How do you debug Gateway and Service Mesh in production? :: **A:** [Structured logging, correlation IDs, distributed tracing, SLO alerts] #flashcard
+**Q:** How do you debug Gateway and Service Mesh in production? :: **A:** Not specified #flashcard
 
 
 ## Practice Tasks (Tasks Plugin)

@@ -89,7 +89,7 @@ Yes, JEP 458: Single-file source launcher , `java Hello.java` runs directly on 2
 
 ## Related
 
-- 00 Java 21 Overview • 05 String Templates • [[Java/09_Java-21-LTS/../01_Core-Java/Classes|Classes]]
+- 00 Java 21 Overview • 05 String Templates • [[Java/01_Core-Java/Classes|Classes]]
 
 ---
 *Category: java21*

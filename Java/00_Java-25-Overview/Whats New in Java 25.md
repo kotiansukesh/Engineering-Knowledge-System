@@ -115,6 +115,6 @@ StableValue is a Java 25 preview API for values that can be set at most once. It
 ## Related
 - Java 25 Roadmap
 - LTS Evolution 8 to 25
-- [[Java/00_Java-25-Overview/../08_Modern-Java/06 ScopedValue|Scoped Values]]
-- [[Java/00_Java-25-Overview/../04_Concurrency/Threads|Threads]]
-- [[Java/00_Java-25-Overview/../04_Concurrency/README|Concurrency]]
+- [[Java/08_Modern-Java/06 ScopedValue|Scoped Values]]
+- [[Java/04_Concurrency/Threads|Threads]]
+- [[Java/04_Concurrency/README|Concurrency]]

@@ -129,49 +129,49 @@ A: JFR (near-zero overhead, always-on) for flame/allocation/lock; async-profiler
 ## Flashcards (Spaced Repetition)
 
 #flashcard
-**Q:** What is the core concept of Performance, SLOs, Latency Budgets & Tuning? :: **A:** [Key algorithm/architecture pattern] #flashcard
+**Q:** What is the core concept of Performance, SLOs, Latency Budgets & Tuning? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** When do you apply Performance, SLOs, Latency Budgets & Tuning? :: **A:** [Trigger scenarios and context] #flashcard
+**Q:** When do you apply Performance, SLOs, Latency Budgets & Tuning? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the primary trade-off in Performance, SLOs, Latency Budgets & Tuning? :: **A:** [Main tension: e.g., consistency vs latency] #flashcard
+**Q:** What is the primary trade-off in Performance, SLOs, Latency Budgets & Tuning? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What breaks first at scale in Performance, SLOs, Latency Budgets & Tuning? :: **A:** [Primary bottleneck: e.g., coordination, hot keys, replication lag] #flashcard
+**Q:** What breaks first at scale in Performance, SLOs, Latency Budgets & Tuning? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How do you handle failures in Performance, SLOs, Latency Budgets & Tuning? :: **A:** [Retry, circuit breaker, fallback, graceful degradation] #flashcard
+**Q:** How do you handle failures in Performance, SLOs, Latency Budgets & Tuning? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What are the key metrics to monitor for Performance, SLOs, Latency Budgets & Tuning? :: **A:** [RED: rate, errors, duration; USE: utilization, saturation, errors] #flashcard
+**Q:** What are the key metrics to monitor for Performance, SLOs, Latency Budgets & Tuning? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How does Performance, SLOs, Latency Budgets & Tuning scale to 10x? :: **A:** [Sharding, read replicas, async processing, caching layers] #flashcard
+**Q:** How does Performance, SLOs, Latency Budgets & Tuning scale to 10x? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the consistency model for Performance, SLOs, Latency Budgets & Tuning? :: **A:** [Strong/eventual/causal - justify with use case] #flashcard
+**Q:** What is the consistency model for Performance, SLOs, Latency Budgets & Tuning? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How do you test Performance, SLOs, Latency Budgets & Tuning? :: **A:** [Contract tests, chaos engineering, load tests, fault injection] #flashcard
+**Q:** How do you test Performance, SLOs, Latency Budgets & Tuning? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the operational cost of Performance, SLOs, Latency Budgets & Tuning? :: **A:** [Team expertise, tooling, on-call burden, migration risk] #flashcard
+**Q:** What is the operational cost of Performance, SLOs, Latency Budgets & Tuning? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** When would you NOT use Performance, SLOs, Latency Budgets & Tuning? :: **A:** [Managed service covers need, simple CRUD, team lacks maturity] #flashcard
+**Q:** When would you NOT use Performance, SLOs, Latency Budgets & Tuning? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the key design decision in Performance, SLOs, Latency Budgets & Tuning? :: **A:** [The irreversible choice that defines the architecture] #flashcard
+**Q:** What is the key design decision in Performance, SLOs, Latency Budgets & Tuning? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How do you migrate to Performance, SLOs, Latency Budgets & Tuning? :: **A:** [Strangler fig, dual-write, canary, feature flags] #flashcard
+**Q:** How do you migrate to Performance, SLOs, Latency Budgets & Tuning? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What security considerations for Performance, SLOs, Latency Budgets & Tuning? :: **A:** [AuthZ, encryption, audit, secrets management] #flashcard
+**Q:** What security considerations for Performance, SLOs, Latency Budgets & Tuning? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How do you debug Performance, SLOs, Latency Budgets & Tuning in production? :: **A:** [Structured logging, correlation IDs, distributed tracing, SLO alerts] #flashcard
+**Q:** How do you debug Performance, SLOs, Latency Budgets & Tuning in production? :: **A:** Not specified #flashcard
 
 
 ## Practice Tasks (Tasks Plugin)

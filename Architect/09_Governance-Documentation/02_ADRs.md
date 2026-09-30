@@ -123,49 +123,49 @@ A: Owning team + affected teams' thumbs-up in RFC review; staff+ for cross-cutti
 ## Flashcards (Spaced Repetition)
 
 #flashcard
-**Q:** What is the core concept of ADRs, Architecture Decision Records? :: **A:** [Key algorithm/architecture pattern] #flashcard
+**Q:** What is the core concept of ADRs, Architecture Decision Records? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** When do you apply ADRs, Architecture Decision Records? :: **A:** [Trigger scenarios and context] #flashcard
+**Q:** When do you apply ADRs, Architecture Decision Records? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the primary trade-off in ADRs, Architecture Decision Records? :: **A:** [Main tension: e.g., consistency vs latency] #flashcard
+**Q:** What is the primary trade-off in ADRs, Architecture Decision Records? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What breaks first at scale in ADRs, Architecture Decision Records? :: **A:** [Primary bottleneck: e.g., coordination, hot keys, replication lag] #flashcard
+**Q:** What breaks first at scale in ADRs, Architecture Decision Records? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How do you handle failures in ADRs, Architecture Decision Records? :: **A:** [Retry, circuit breaker, fallback, graceful degradation] #flashcard
+**Q:** How do you handle failures in ADRs, Architecture Decision Records? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What are the key metrics to monitor for ADRs, Architecture Decision Records? :: **A:** [RED: rate, errors, duration; USE: utilization, saturation, errors] #flashcard
+**Q:** What are the key metrics to monitor for ADRs, Architecture Decision Records? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How does ADRs, Architecture Decision Records scale to 10x? :: **A:** [Sharding, read replicas, async processing, caching layers] #flashcard
+**Q:** How does ADRs, Architecture Decision Records scale to 10x? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the consistency model for ADRs, Architecture Decision Records? :: **A:** [Strong/eventual/causal - justify with use case] #flashcard
+**Q:** What is the consistency model for ADRs, Architecture Decision Records? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How do you test ADRs, Architecture Decision Records? :: **A:** [Contract tests, chaos engineering, load tests, fault injection] #flashcard
+**Q:** How do you test ADRs, Architecture Decision Records? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the operational cost of ADRs, Architecture Decision Records? :: **A:** [Team expertise, tooling, on-call burden, migration risk] #flashcard
+**Q:** What is the operational cost of ADRs, Architecture Decision Records? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** When would you NOT use ADRs, Architecture Decision Records? :: **A:** [Managed service covers need, simple CRUD, team lacks maturity] #flashcard
+**Q:** When would you NOT use ADRs, Architecture Decision Records? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the key design decision in ADRs, Architecture Decision Records? :: **A:** [The irreversible choice that defines the architecture] #flashcard
+**Q:** What is the key design decision in ADRs, Architecture Decision Records? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How do you migrate to ADRs, Architecture Decision Records? :: **A:** [Strangler fig, dual-write, canary, feature flags] #flashcard
+**Q:** How do you migrate to ADRs, Architecture Decision Records? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What security considerations for ADRs, Architecture Decision Records? :: **A:** [AuthZ, encryption, audit, secrets management] #flashcard
+**Q:** What security considerations for ADRs, Architecture Decision Records? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How do you debug ADRs, Architecture Decision Records in production? :: **A:** [Structured logging, correlation IDs, distributed tracing, SLO alerts] #flashcard
+**Q:** How do you debug ADRs, Architecture Decision Records in production? :: **A:** Not specified #flashcard
 
 
 ## Practice Tasks (Tasks Plugin)

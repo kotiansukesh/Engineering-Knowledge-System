@@ -119,49 +119,49 @@ public Fallback<PaymentResult> paymentFallback() {
 ## Flashcards (Spaced Repetition)
 
 #flashcard
-**Q:** What is the core concept of Consistency, CAP & PACELC? :: **A:** [Key algorithm/architecture pattern] #flashcard
+**Q:** What is the core concept of Consistency, CAP & PACELC? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** When do you apply Consistency, CAP & PACELC? :: **A:** [Trigger scenarios and context] #flashcard
+**Q:** When do you apply Consistency, CAP & PACELC? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the primary trade-off in Consistency, CAP & PACELC? :: **A:** [Main tension: e.g., consistency vs latency] #flashcard
+**Q:** What is the primary trade-off in Consistency, CAP & PACELC? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What breaks first at scale in Consistency, CAP & PACELC? :: **A:** [Primary bottleneck: e.g., coordination, hot keys, replication lag] #flashcard
+**Q:** What breaks first at scale in Consistency, CAP & PACELC? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How do you handle failures in Consistency, CAP & PACELC? :: **A:** [Retry, circuit breaker, fallback, graceful degradation] #flashcard
+**Q:** How do you handle failures in Consistency, CAP & PACELC? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What are the key metrics to monitor for Consistency, CAP & PACELC? :: **A:** [RED: rate, errors, duration; USE: utilization, saturation, errors] #flashcard
+**Q:** What are the key metrics to monitor for Consistency, CAP & PACELC? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How does Consistency, CAP & PACELC scale to 10x? :: **A:** [Sharding, read replicas, async processing, caching layers] #flashcard
+**Q:** How does Consistency, CAP & PACELC scale to 10x? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the consistency model for Consistency, CAP & PACELC? :: **A:** [Strong/eventual/causal - justify with use case] #flashcard
+**Q:** What is the consistency model for Consistency, CAP & PACELC? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How do you test Consistency, CAP & PACELC? :: **A:** [Contract tests, chaos engineering, load tests, fault injection] #flashcard
+**Q:** How do you test Consistency, CAP & PACELC? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the operational cost of Consistency, CAP & PACELC? :: **A:** [Team expertise, tooling, on-call burden, migration risk] #flashcard
+**Q:** What is the operational cost of Consistency, CAP & PACELC? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** When would you NOT use Consistency, CAP & PACELC? :: **A:** [Managed service covers need, simple CRUD, team lacks maturity] #flashcard
+**Q:** When would you NOT use Consistency, CAP & PACELC? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the key design decision in Consistency, CAP & PACELC? :: **A:** [The irreversible choice that defines the architecture] #flashcard
+**Q:** What is the key design decision in Consistency, CAP & PACELC? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How do you migrate to Consistency, CAP & PACELC? :: **A:** [Strangler fig, dual-write, canary, feature flags] #flashcard
+**Q:** How do you migrate to Consistency, CAP & PACELC? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What security considerations for Consistency, CAP & PACELC? :: **A:** [AuthZ, encryption, audit, secrets management] #flashcard
+**Q:** What security considerations for Consistency, CAP & PACELC? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How do you debug Consistency, CAP & PACELC in production? :: **A:** [Structured logging, correlation IDs, distributed tracing, SLO alerts] #flashcard
+**Q:** How do you debug Consistency, CAP & PACELC in production? :: **A:** Not specified #flashcard
 
 
 ## Practice Tasks (Tasks Plugin)
@@ -224,4 +224,4 @@ limit 10
 > **Answer**: Chaos Mesh / Litmus: inject partition between service and DB; assert CP operations fail fast, AP operations serve stale with documented TTL. Run in staging nightly. **Rejected**: "We don't test partitions" — hope is not a strategy.
 
 ## 🔗 Related
-- 01_SQL-vs-NoSQL-Selection · 03_Event-Sourcing-CQRS · [[Architect/06_Data-Architecture/../05_DDD-Modeling/05_Domain-Events|Domain Events]]
+- 01_SQL-vs-NoSQL-Selection · 03_Event-Sourcing-CQRS · [[Architect/05_DDD-Modeling/05_Domain-Events|Domain Events]]

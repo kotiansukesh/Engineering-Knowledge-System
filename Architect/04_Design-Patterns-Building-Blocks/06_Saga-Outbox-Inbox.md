@@ -147,49 +147,49 @@ A: Missing compensation paths and out-of-order events, version events, keep hand
 ## Flashcards (Spaced Repetition)
 
 #flashcard
-**Q:** What is the core concept of Saga, Outbox & Inbox? :: **A:** [Key algorithm/architecture pattern] #flashcard
+**Q:** What is the core concept of Saga, Outbox & Inbox? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** When do you apply Saga, Outbox & Inbox? :: **A:** [Trigger scenarios and context] #flashcard
+**Q:** When do you apply Saga, Outbox & Inbox? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the primary trade-off in Saga, Outbox & Inbox? :: **A:** [Main tension: e.g., consistency vs latency] #flashcard
+**Q:** What is the primary trade-off in Saga, Outbox & Inbox? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What breaks first at scale in Saga, Outbox & Inbox? :: **A:** [Primary bottleneck: e.g., coordination, hot keys, replication lag] #flashcard
+**Q:** What breaks first at scale in Saga, Outbox & Inbox? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How do you handle failures in Saga, Outbox & Inbox? :: **A:** [Retry, circuit breaker, fallback, graceful degradation] #flashcard
+**Q:** How do you handle failures in Saga, Outbox & Inbox? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What are the key metrics to monitor for Saga, Outbox & Inbox? :: **A:** [RED: rate, errors, duration; USE: utilization, saturation, errors] #flashcard
+**Q:** What are the key metrics to monitor for Saga, Outbox & Inbox? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How does Saga, Outbox & Inbox scale to 10x? :: **A:** [Sharding, read replicas, async processing, caching layers] #flashcard
+**Q:** How does Saga, Outbox & Inbox scale to 10x? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the consistency model for Saga, Outbox & Inbox? :: **A:** [Strong/eventual/causal - justify with use case] #flashcard
+**Q:** What is the consistency model for Saga, Outbox & Inbox? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How do you test Saga, Outbox & Inbox? :: **A:** [Contract tests, chaos engineering, load tests, fault injection] #flashcard
+**Q:** How do you test Saga, Outbox & Inbox? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the operational cost of Saga, Outbox & Inbox? :: **A:** [Team expertise, tooling, on-call burden, migration risk] #flashcard
+**Q:** What is the operational cost of Saga, Outbox & Inbox? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** When would you NOT use Saga, Outbox & Inbox? :: **A:** [Managed service covers need, simple CRUD, team lacks maturity] #flashcard
+**Q:** When would you NOT use Saga, Outbox & Inbox? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the key design decision in Saga, Outbox & Inbox? :: **A:** [The irreversible choice that defines the architecture] #flashcard
+**Q:** What is the key design decision in Saga, Outbox & Inbox? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How do you migrate to Saga, Outbox & Inbox? :: **A:** [Strangler fig, dual-write, canary, feature flags] #flashcard
+**Q:** How do you migrate to Saga, Outbox & Inbox? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What security considerations for Saga, Outbox & Inbox? :: **A:** [AuthZ, encryption, audit, secrets management] #flashcard
+**Q:** What security considerations for Saga, Outbox & Inbox? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How do you debug Saga, Outbox & Inbox in production? :: **A:** [Structured logging, correlation IDs, distributed tracing, SLO alerts] #flashcard
+**Q:** How do you debug Saga, Outbox & Inbox in production? :: **A:** Not specified #flashcard
 
 
 ## Practice Tasks (Tasks Plugin)

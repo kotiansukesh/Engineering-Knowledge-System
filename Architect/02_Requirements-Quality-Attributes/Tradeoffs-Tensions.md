@@ -117,7 +117,7 @@ A: The bet: availability and throughput win over exact stock counts. We gain, th
 A: Attach a scenario measure and a cost note to each side: latency in ms, throughput in rps, cost per request, and the business cost of the failure mode (downtime revenue per minute vs oversell rate). Then write both into the ADR consequences. "We lose consistency" is an assertion; "we accept up to N stale reads per hour, auto-corrected within 5 minutes, costing roughly X in reconciliation" is a trade-off someone can approve or reject.
 
 **Q: Who decides when two stakeholders' qualities conflict?**
-A: The stakeholder who owns the commercial or regulatory risk, not the loudest engineer, see [[Architect/02_Requirements-Quality-Attributes/../01_Architecture-Foundations/Stakeholders-Concerns|Stakeholders]]. The architect's job is to make the conflict visible and quantified, present the options with their costs, and record the resolution in an ADR with a named decider and a supersede condition.
+A: The stakeholder who owns the commercial or regulatory risk, not the loudest engineer, see [[Architect/01_Architecture-Foundations/Stakeholders-Concerns|Stakeholders]]. The architect's job is to make the conflict visible and quantified, present the options with their costs, and record the resolution in an ADR with a named decider and a supersede condition.
 
 **Q: How do you know when a trade-off you made is no longer right?**
 A: Watch the assumptions, not the metrics: the ADR's context section is the bet's expiry date. When an assumption breaks, a new compliance regime, a 10× traffic shift, an SLO breach that the chosen tactic can't fix, it's time to supersede, not patch. Chain the ADRs so the reasoning history survives.
@@ -126,49 +126,49 @@ A: Watch the assumptions, not the metrics: the ADR's context section is the bet'
 ## Flashcards (Spaced Repetition)
 
 #flashcard
-**Q:** What is the core concept of Tradeoffs and Tensions? :: **A:** [Key algorithm/architecture pattern] #flashcard
+**Q:** What is the core concept of Tradeoffs and Tensions? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** When do you apply Tradeoffs and Tensions? :: **A:** [Trigger scenarios and context] #flashcard
+**Q:** When do you apply Tradeoffs and Tensions? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the primary trade-off in Tradeoffs and Tensions? :: **A:** [Main tension: e.g., consistency vs latency] #flashcard
+**Q:** What is the primary trade-off in Tradeoffs and Tensions? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What breaks first at scale in Tradeoffs and Tensions? :: **A:** [Primary bottleneck: e.g., coordination, hot keys, replication lag] #flashcard
+**Q:** What breaks first at scale in Tradeoffs and Tensions? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How do you handle failures in Tradeoffs and Tensions? :: **A:** [Retry, circuit breaker, fallback, graceful degradation] #flashcard
+**Q:** How do you handle failures in Tradeoffs and Tensions? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What are the key metrics to monitor for Tradeoffs and Tensions? :: **A:** [RED: rate, errors, duration; USE: utilization, saturation, errors] #flashcard
+**Q:** What are the key metrics to monitor for Tradeoffs and Tensions? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How does Tradeoffs and Tensions scale to 10x? :: **A:** [Sharding, read replicas, async processing, caching layers] #flashcard
+**Q:** How does Tradeoffs and Tensions scale to 10x? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the consistency model for Tradeoffs and Tensions? :: **A:** [Strong/eventual/causal - justify with use case] #flashcard
+**Q:** What is the consistency model for Tradeoffs and Tensions? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How do you test Tradeoffs and Tensions? :: **A:** [Contract tests, chaos engineering, load tests, fault injection] #flashcard
+**Q:** How do you test Tradeoffs and Tensions? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the operational cost of Tradeoffs and Tensions? :: **A:** [Team expertise, tooling, on-call burden, migration risk] #flashcard
+**Q:** What is the operational cost of Tradeoffs and Tensions? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** When would you NOT use Tradeoffs and Tensions? :: **A:** [Managed service covers need, simple CRUD, team lacks maturity] #flashcard
+**Q:** When would you NOT use Tradeoffs and Tensions? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the key design decision in Tradeoffs and Tensions? :: **A:** [The irreversible choice that defines the architecture] #flashcard
+**Q:** What is the key design decision in Tradeoffs and Tensions? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How do you migrate to Tradeoffs and Tensions? :: **A:** [Strangler fig, dual-write, canary, feature flags] #flashcard
+**Q:** How do you migrate to Tradeoffs and Tensions? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What security considerations for Tradeoffs and Tensions? :: **A:** [AuthZ, encryption, audit, secrets management] #flashcard
+**Q:** What security considerations for Tradeoffs and Tensions? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How do you debug Tradeoffs and Tensions in production? :: **A:** [Structured logging, correlation IDs, distributed tracing, SLO alerts] #flashcard
+**Q:** How do you debug Tradeoffs and Tensions in production? :: **A:** Not specified #flashcard
 
 
 ## Practice Tasks (Tasks Plugin)
@@ -198,5 +198,5 @@ limit 10
 ## Q&A
 
 1. **How to quantify?** Scenario measures + cost/latency notes in ADR.
-2. **Who breaks ties?** Stakeholder with the top concern (see [[Architect/02_Requirements-Quality-Attributes/../01_Architecture-Foundations/Stakeholders-Concerns|Stakeholders]]).
+2. **Who breaks ties?** Stakeholder with the top concern (see [[Architect/01_Architecture-Foundations/Stakeholders-Concerns|Stakeholders]]).
 3. **Revisit when?** Assumption change or SLO breach, link ADR supersede chain.

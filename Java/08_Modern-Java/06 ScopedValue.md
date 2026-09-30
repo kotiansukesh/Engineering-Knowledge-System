@@ -110,7 +110,7 @@ Works with explicit executor but `StructuredTaskScope` is the intended pairing; 
 
 ## Related
 
-- Virtual Threads • [[Java/08_Modern-Java/../04_Concurrency/Atomics and Volatile|Atomics]] • 03 Pattern Matching
+- Virtual Threads • [[Java/04_Concurrency/Atomics and Volatile|Atomics]] • 03 Pattern Matching
 
 ---
 *Category: Modern-Java • java25*

@@ -157,49 +157,49 @@ A: ArchUnit: `noClasses().that().resideIn("..core..").should().dependOn("org.spr
 ## Flashcards (Spaced Repetition)
 
 #flashcard
-**Q:** What is the core concept of Hexagonal Architecture (Ports & Adapters)? :: **A:** [Key algorithm/architecture pattern] #flashcard
+**Q:** What is the core concept of Hexagonal Architecture (Ports & Adapters)? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** When do you apply Hexagonal Architecture (Ports & Adapters)? :: **A:** [Trigger scenarios and context] #flashcard
+**Q:** When do you apply Hexagonal Architecture (Ports & Adapters)? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the primary trade-off in Hexagonal Architecture (Ports & Adapters)? :: **A:** [Main tension: e.g., consistency vs latency] #flashcard
+**Q:** What is the primary trade-off in Hexagonal Architecture (Ports & Adapters)? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What breaks first at scale in Hexagonal Architecture (Ports & Adapters)? :: **A:** [Primary bottleneck: e.g., coordination, hot keys, replication lag] #flashcard
+**Q:** What breaks first at scale in Hexagonal Architecture (Ports & Adapters)? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How do you handle failures in Hexagonal Architecture (Ports & Adapters)? :: **A:** [Retry, circuit breaker, fallback, graceful degradation] #flashcard
+**Q:** How do you handle failures in Hexagonal Architecture (Ports & Adapters)? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What are the key metrics to monitor for Hexagonal Architecture (Ports & Adapters)? :: **A:** [RED: rate, errors, duration; USE: utilization, saturation, errors] #flashcard
+**Q:** What are the key metrics to monitor for Hexagonal Architecture (Ports & Adapters)? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How does Hexagonal Architecture (Ports & Adapters) scale to 10x? :: **A:** [Sharding, read replicas, async processing, caching layers] #flashcard
+**Q:** How does Hexagonal Architecture (Ports & Adapters) scale to 10x? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the consistency model for Hexagonal Architecture (Ports & Adapters)? :: **A:** [Strong/eventual/causal - justify with use case] #flashcard
+**Q:** What is the consistency model for Hexagonal Architecture (Ports & Adapters)? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How do you test Hexagonal Architecture (Ports & Adapters)? :: **A:** [Contract tests, chaos engineering, load tests, fault injection] #flashcard
+**Q:** How do you test Hexagonal Architecture (Ports & Adapters)? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the operational cost of Hexagonal Architecture (Ports & Adapters)? :: **A:** [Team expertise, tooling, on-call burden, migration risk] #flashcard
+**Q:** What is the operational cost of Hexagonal Architecture (Ports & Adapters)? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** When would you NOT use Hexagonal Architecture (Ports & Adapters)? :: **A:** [Managed service covers need, simple CRUD, team lacks maturity] #flashcard
+**Q:** When would you NOT use Hexagonal Architecture (Ports & Adapters)? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the key design decision in Hexagonal Architecture (Ports & Adapters)? :: **A:** [The irreversible choice that defines the architecture] #flashcard
+**Q:** What is the key design decision in Hexagonal Architecture (Ports & Adapters)? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How do you migrate to Hexagonal Architecture (Ports & Adapters)? :: **A:** [Strangler fig, dual-write, canary, feature flags] #flashcard
+**Q:** How do you migrate to Hexagonal Architecture (Ports & Adapters)? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What security considerations for Hexagonal Architecture (Ports & Adapters)? :: **A:** [AuthZ, encryption, audit, secrets management] #flashcard
+**Q:** What security considerations for Hexagonal Architecture (Ports & Adapters)? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How do you debug Hexagonal Architecture (Ports & Adapters) in production? :: **A:** [Structured logging, correlation IDs, distributed tracing, SLO alerts] #flashcard
+**Q:** How do you debug Hexagonal Architecture (Ports & Adapters) in production? :: **A:** Not specified #flashcard
 
 
 ## Practice Tasks (Tasks Plugin)

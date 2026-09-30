@@ -136,49 +136,49 @@ A: JWT for edge scale (verify locally via JWKS); opaque at gateway when instant 
 ## Flashcards (Spaced Repetition)
 
 #flashcard
-**Q:** What is the core concept of Security, OAuth2, OIDC & JWT? :: **A:** [Key algorithm/architecture pattern] #flashcard
+**Q:** What is the core concept of Security, OAuth2, OIDC & JWT? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** When do you apply Security, OAuth2, OIDC & JWT? :: **A:** [Trigger scenarios and context] #flashcard
+**Q:** When do you apply Security, OAuth2, OIDC & JWT? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the primary trade-off in Security, OAuth2, OIDC & JWT? :: **A:** [Main tension: e.g., consistency vs latency] #flashcard
+**Q:** What is the primary trade-off in Security, OAuth2, OIDC & JWT? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What breaks first at scale in Security, OAuth2, OIDC & JWT? :: **A:** [Primary bottleneck: e.g., coordination, hot keys, replication lag] #flashcard
+**Q:** What breaks first at scale in Security, OAuth2, OIDC & JWT? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How do you handle failures in Security, OAuth2, OIDC & JWT? :: **A:** [Retry, circuit breaker, fallback, graceful degradation] #flashcard
+**Q:** How do you handle failures in Security, OAuth2, OIDC & JWT? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What are the key metrics to monitor for Security, OAuth2, OIDC & JWT? :: **A:** [RED: rate, errors, duration; USE: utilization, saturation, errors] #flashcard
+**Q:** What are the key metrics to monitor for Security, OAuth2, OIDC & JWT? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How does Security, OAuth2, OIDC & JWT scale to 10x? :: **A:** [Sharding, read replicas, async processing, caching layers] #flashcard
+**Q:** How does Security, OAuth2, OIDC & JWT scale to 10x? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the consistency model for Security, OAuth2, OIDC & JWT? :: **A:** [Strong/eventual/causal - justify with use case] #flashcard
+**Q:** What is the consistency model for Security, OAuth2, OIDC & JWT? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How do you test Security, OAuth2, OIDC & JWT? :: **A:** [Contract tests, chaos engineering, load tests, fault injection] #flashcard
+**Q:** How do you test Security, OAuth2, OIDC & JWT? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the operational cost of Security, OAuth2, OIDC & JWT? :: **A:** [Team expertise, tooling, on-call burden, migration risk] #flashcard
+**Q:** What is the operational cost of Security, OAuth2, OIDC & JWT? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** When would you NOT use Security, OAuth2, OIDC & JWT? :: **A:** [Managed service covers need, simple CRUD, team lacks maturity] #flashcard
+**Q:** When would you NOT use Security, OAuth2, OIDC & JWT? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the key design decision in Security, OAuth2, OIDC & JWT? :: **A:** [The irreversible choice that defines the architecture] #flashcard
+**Q:** What is the key design decision in Security, OAuth2, OIDC & JWT? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How do you migrate to Security, OAuth2, OIDC & JWT? :: **A:** [Strangler fig, dual-write, canary, feature flags] #flashcard
+**Q:** How do you migrate to Security, OAuth2, OIDC & JWT? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What security considerations for Security, OAuth2, OIDC & JWT? :: **A:** [AuthZ, encryption, audit, secrets management] #flashcard
+**Q:** What security considerations for Security, OAuth2, OIDC & JWT? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How do you debug Security, OAuth2, OIDC & JWT in production? :: **A:** [Structured logging, correlation IDs, distributed tracing, SLO alerts] #flashcard
+**Q:** How do you debug Security, OAuth2, OIDC & JWT in production? :: **A:** Not specified #flashcard
 
 
 ## Practice Tasks (Tasks Plugin)

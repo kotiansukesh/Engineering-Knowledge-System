@@ -128,7 +128,7 @@ How do you prepare for a Java backend interview?:: Every answer follows Why then
 
 ## Related
 
-- Whats New in Java 25 • [[Java/00_Java-25-Overview/../08_Modern-Java/README|08 Modern Java]] • Study Plan • [[Java/00_Java-25-Overview/../99_Revision/README|99 Revision MOC]]
+- Whats New in Java 25 • [[Java/08_Modern-Java/README|08 Modern Java]] • Study Plan • [[Java/99_Revision/README|99 Revision MOC]]
 
 ---
 *Category: overview • java25*

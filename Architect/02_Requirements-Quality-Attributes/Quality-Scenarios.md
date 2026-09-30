@@ -126,49 +126,49 @@ A: They're the pivot point of traceability: the scenario selects the tactic (cac
 ## Flashcards (Spaced Repetition)
 
 #flashcard
-**Q:** What is the core concept of Quality Scenarios? :: **A:** [Key algorithm/architecture pattern] #flashcard
+**Q:** What is the core concept of Quality Scenarios? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** When do you apply Quality Scenarios? :: **A:** [Trigger scenarios and context] #flashcard
+**Q:** When do you apply Quality Scenarios? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the primary trade-off in Quality Scenarios? :: **A:** [Main tension: e.g., consistency vs latency] #flashcard
+**Q:** What is the primary trade-off in Quality Scenarios? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What breaks first at scale in Quality Scenarios? :: **A:** [Primary bottleneck: e.g., coordination, hot keys, replication lag] #flashcard
+**Q:** What breaks first at scale in Quality Scenarios? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How do you handle failures in Quality Scenarios? :: **A:** [Retry, circuit breaker, fallback, graceful degradation] #flashcard
+**Q:** How do you handle failures in Quality Scenarios? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What are the key metrics to monitor for Quality Scenarios? :: **A:** [RED: rate, errors, duration; USE: utilization, saturation, errors] #flashcard
+**Q:** What are the key metrics to monitor for Quality Scenarios? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How does Quality Scenarios scale to 10x? :: **A:** [Sharding, read replicas, async processing, caching layers] #flashcard
+**Q:** How does Quality Scenarios scale to 10x? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the consistency model for Quality Scenarios? :: **A:** [Strong/eventual/causal - justify with use case] #flashcard
+**Q:** What is the consistency model for Quality Scenarios? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How do you test Quality Scenarios? :: **A:** [Contract tests, chaos engineering, load tests, fault injection] #flashcard
+**Q:** How do you test Quality Scenarios? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the operational cost of Quality Scenarios? :: **A:** [Team expertise, tooling, on-call burden, migration risk] #flashcard
+**Q:** What is the operational cost of Quality Scenarios? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** When would you NOT use Quality Scenarios? :: **A:** [Managed service covers need, simple CRUD, team lacks maturity] #flashcard
+**Q:** When would you NOT use Quality Scenarios? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the key design decision in Quality Scenarios? :: **A:** [The irreversible choice that defines the architecture] #flashcard
+**Q:** What is the key design decision in Quality Scenarios? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How do you migrate to Quality Scenarios? :: **A:** [Strangler fig, dual-write, canary, feature flags] #flashcard
+**Q:** How do you migrate to Quality Scenarios? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What security considerations for Quality Scenarios? :: **A:** [AuthZ, encryption, audit, secrets management] #flashcard
+**Q:** What security considerations for Quality Scenarios? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How do you debug Quality Scenarios in production? :: **A:** [Structured logging, correlation IDs, distributed tracing, SLO alerts] #flashcard
+**Q:** How do you debug Quality Scenarios in production? :: **A:** Not specified #flashcard
 
 
 ## Practice Tasks (Tasks Plugin)

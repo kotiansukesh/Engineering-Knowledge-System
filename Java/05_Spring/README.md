@@ -48,8 +48,8 @@ As of September 2026, the current Spring generation is Spring Framework 7 and Sp
 
 ## Related
 
-- [[Java/05_Spring/../04_Concurrency/README|Concurrency]]
-- [[Java/05_Spring/../11_JVM-Performance/README|JVM & Performance]]
-- [[Java/05_Spring/../12_Testing-Tooling/README|Testing & Tooling]]
+- [[Java/04_Concurrency/README|Concurrency]]
+- [[Java/11_JVM-Performance/README|JVM & Performance]]
+- [[Java/12_Testing-Tooling/README|Testing & Tooling]]
 - AI Engineering
-- [[Java/05_Spring/../README|Java MOC]]
+- [[Java/README|Java MOC]]

@@ -117,8 +117,8 @@ Can a sealed class be extended by anyone?:: Only its permits list; a non-sealed 
 
 ## Related
 
-- 01 Records • 03 Pattern Matching (exhaustive switch over sealed) • [[Java/08_Modern-Java/../06_Design-Patterns/Behavioral/Visitor|GoF Visitor]]
-- [[Java/01_Core-Java/Types/Abstract Class.md|Abstract Class]] • [[Java/08_Modern-Java/../01_Core-Java/Enums|Enums]] • [[Java/01_Core-Java/Types/Final Class.md|Final Class]]
+- 01 Records • 03 Pattern Matching (exhaustive switch over sealed) • [[Java/06_Design-Patterns/Behavioral/Visitor|GoF Visitor]]
+- [[Java/01_Core-Java/Types/Abstract Class.md|Abstract Class]] • [[Java/01_Core-Java/Enums|Enums]] • [[Java/01_Core-Java/Types/Final Class.md|Final Class]]
 - [[README|Java MOC]]
 
 ---

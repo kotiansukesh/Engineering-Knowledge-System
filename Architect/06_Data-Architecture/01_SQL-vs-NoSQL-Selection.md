@@ -107,49 +107,49 @@ interface OrderViewRepository extends MongoRepository<OrderView, String> {
 ## Flashcards (Spaced Repetition)
 
 #flashcard
-**Q:** What is the core concept of SQL vs NoSQL Selection? :: **A:** [Key algorithm/architecture pattern] #flashcard
+**Q:** What is the core concept of SQL vs NoSQL Selection? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** When do you apply SQL vs NoSQL Selection? :: **A:** [Trigger scenarios and context] #flashcard
+**Q:** When do you apply SQL vs NoSQL Selection? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the primary trade-off in SQL vs NoSQL Selection? :: **A:** [Main tension: e.g., consistency vs latency] #flashcard
+**Q:** What is the primary trade-off in SQL vs NoSQL Selection? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What breaks first at scale in SQL vs NoSQL Selection? :: **A:** [Primary bottleneck: e.g., coordination, hot keys, replication lag] #flashcard
+**Q:** What breaks first at scale in SQL vs NoSQL Selection? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How do you handle failures in SQL vs NoSQL Selection? :: **A:** [Retry, circuit breaker, fallback, graceful degradation] #flashcard
+**Q:** How do you handle failures in SQL vs NoSQL Selection? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What are the key metrics to monitor for SQL vs NoSQL Selection? :: **A:** [RED: rate, errors, duration; USE: utilization, saturation, errors] #flashcard
+**Q:** What are the key metrics to monitor for SQL vs NoSQL Selection? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How does SQL vs NoSQL Selection scale to 10x? :: **A:** [Sharding, read replicas, async processing, caching layers] #flashcard
+**Q:** How does SQL vs NoSQL Selection scale to 10x? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the consistency model for SQL vs NoSQL Selection? :: **A:** [Strong/eventual/causal - justify with use case] #flashcard
+**Q:** What is the consistency model for SQL vs NoSQL Selection? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How do you test SQL vs NoSQL Selection? :: **A:** [Contract tests, chaos engineering, load tests, fault injection] #flashcard
+**Q:** How do you test SQL vs NoSQL Selection? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the operational cost of SQL vs NoSQL Selection? :: **A:** [Team expertise, tooling, on-call burden, migration risk] #flashcard
+**Q:** What is the operational cost of SQL vs NoSQL Selection? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** When would you NOT use SQL vs NoSQL Selection? :: **A:** [Managed service covers need, simple CRUD, team lacks maturity] #flashcard
+**Q:** When would you NOT use SQL vs NoSQL Selection? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the key design decision in SQL vs NoSQL Selection? :: **A:** [The irreversible choice that defines the architecture] #flashcard
+**Q:** What is the key design decision in SQL vs NoSQL Selection? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How do you migrate to SQL vs NoSQL Selection? :: **A:** [Strangler fig, dual-write, canary, feature flags] #flashcard
+**Q:** How do you migrate to SQL vs NoSQL Selection? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What security considerations for SQL vs NoSQL Selection? :: **A:** [AuthZ, encryption, audit, secrets management] #flashcard
+**Q:** What security considerations for SQL vs NoSQL Selection? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How do you debug SQL vs NoSQL Selection in production? :: **A:** [Structured logging, correlation IDs, distributed tracing, SLO alerts] #flashcard
+**Q:** How do you debug SQL vs NoSQL Selection in production? :: **A:** Not specified #flashcard
 
 
 ## Practice Tasks (Tasks Plugin)

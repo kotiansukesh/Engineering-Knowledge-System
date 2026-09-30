@@ -111,49 +111,49 @@ class OrderProjector {
 ## Flashcards (Spaced Repetition)
 
 #flashcard
-**Q:** What is the core concept of Event Sourcing & CQRS? :: **A:** [Key algorithm/architecture pattern] #flashcard
+**Q:** What is the core concept of Event Sourcing & CQRS? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** When do you apply Event Sourcing & CQRS? :: **A:** [Trigger scenarios and context] #flashcard
+**Q:** When do you apply Event Sourcing & CQRS? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the primary trade-off in Event Sourcing & CQRS? :: **A:** [Main tension: e.g., consistency vs latency] #flashcard
+**Q:** What is the primary trade-off in Event Sourcing & CQRS? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What breaks first at scale in Event Sourcing & CQRS? :: **A:** [Primary bottleneck: e.g., coordination, hot keys, replication lag] #flashcard
+**Q:** What breaks first at scale in Event Sourcing & CQRS? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How do you handle failures in Event Sourcing & CQRS? :: **A:** [Retry, circuit breaker, fallback, graceful degradation] #flashcard
+**Q:** How do you handle failures in Event Sourcing & CQRS? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What are the key metrics to monitor for Event Sourcing & CQRS? :: **A:** [RED: rate, errors, duration; USE: utilization, saturation, errors] #flashcard
+**Q:** What are the key metrics to monitor for Event Sourcing & CQRS? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How does Event Sourcing & CQRS scale to 10x? :: **A:** [Sharding, read replicas, async processing, caching layers] #flashcard
+**Q:** How does Event Sourcing & CQRS scale to 10x? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the consistency model for Event Sourcing & CQRS? :: **A:** [Strong/eventual/causal - justify with use case] #flashcard
+**Q:** What is the consistency model for Event Sourcing & CQRS? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How do you test Event Sourcing & CQRS? :: **A:** [Contract tests, chaos engineering, load tests, fault injection] #flashcard
+**Q:** How do you test Event Sourcing & CQRS? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the operational cost of Event Sourcing & CQRS? :: **A:** [Team expertise, tooling, on-call burden, migration risk] #flashcard
+**Q:** What is the operational cost of Event Sourcing & CQRS? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** When would you NOT use Event Sourcing & CQRS? :: **A:** [Managed service covers need, simple CRUD, team lacks maturity] #flashcard
+**Q:** When would you NOT use Event Sourcing & CQRS? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the key design decision in Event Sourcing & CQRS? :: **A:** [The irreversible choice that defines the architecture] #flashcard
+**Q:** What is the key design decision in Event Sourcing & CQRS? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How do you migrate to Event Sourcing & CQRS? :: **A:** [Strangler fig, dual-write, canary, feature flags] #flashcard
+**Q:** How do you migrate to Event Sourcing & CQRS? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What security considerations for Event Sourcing & CQRS? :: **A:** [AuthZ, encryption, audit, secrets management] #flashcard
+**Q:** What security considerations for Event Sourcing & CQRS? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How do you debug Event Sourcing & CQRS in production? :: **A:** [Structured logging, correlation IDs, distributed tracing, SLO alerts] #flashcard
+**Q:** How do you debug Event Sourcing & CQRS in production? :: **A:** Not specified #flashcard
 
 
 ## Practice Tasks (Tasks Plugin)
@@ -218,4 +218,4 @@ limit 10
 > **Answer**: CQRS = split write/read models. Sourcing = log is truth. CQRS without sourcing = write to DB, publish events via outbox, projectors build read models. 80% of cases need only this. **Rejected**: "They're the same" — sourcing adds immutable log + replay; CQRS doesn't require it.
 
 ## 🔗 Related
-- 02_Consistency-CAP-PACELC · [[Architect/06_Data-Architecture/../05_DDD-Modeling/05_Domain-Events|Domain Events]] · 01_SQL-vs-NoSQL-Selection
+- 02_Consistency-CAP-PACELC · [[Architect/05_DDD-Modeling/05_Domain-Events|Domain Events]] · 01_SQL-vs-NoSQL-Selection

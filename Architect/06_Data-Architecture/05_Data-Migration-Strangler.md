@@ -110,49 +110,49 @@ class OrderFacade {
 ## Flashcards (Spaced Repetition)
 
 #flashcard
-**Q:** What is the core concept of Data Migration & Strangler Fig? :: **A:** [Key algorithm/architecture pattern] #flashcard
+**Q:** What is the core concept of Data Migration & Strangler Fig? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** When do you apply Data Migration & Strangler Fig? :: **A:** [Trigger scenarios and context] #flashcard
+**Q:** When do you apply Data Migration & Strangler Fig? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the primary trade-off in Data Migration & Strangler Fig? :: **A:** [Main tension: e.g., consistency vs latency] #flashcard
+**Q:** What is the primary trade-off in Data Migration & Strangler Fig? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What breaks first at scale in Data Migration & Strangler Fig? :: **A:** [Primary bottleneck: e.g., coordination, hot keys, replication lag] #flashcard
+**Q:** What breaks first at scale in Data Migration & Strangler Fig? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How do you handle failures in Data Migration & Strangler Fig? :: **A:** [Retry, circuit breaker, fallback, graceful degradation] #flashcard
+**Q:** How do you handle failures in Data Migration & Strangler Fig? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What are the key metrics to monitor for Data Migration & Strangler Fig? :: **A:** [RED: rate, errors, duration; USE: utilization, saturation, errors] #flashcard
+**Q:** What are the key metrics to monitor for Data Migration & Strangler Fig? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How does Data Migration & Strangler Fig scale to 10x? :: **A:** [Sharding, read replicas, async processing, caching layers] #flashcard
+**Q:** How does Data Migration & Strangler Fig scale to 10x? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the consistency model for Data Migration & Strangler Fig? :: **A:** [Strong/eventual/causal - justify with use case] #flashcard
+**Q:** What is the consistency model for Data Migration & Strangler Fig? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How do you test Data Migration & Strangler Fig? :: **A:** [Contract tests, chaos engineering, load tests, fault injection] #flashcard
+**Q:** How do you test Data Migration & Strangler Fig? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the operational cost of Data Migration & Strangler Fig? :: **A:** [Team expertise, tooling, on-call burden, migration risk] #flashcard
+**Q:** What is the operational cost of Data Migration & Strangler Fig? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** When would you NOT use Data Migration & Strangler Fig? :: **A:** [Managed service covers need, simple CRUD, team lacks maturity] #flashcard
+**Q:** When would you NOT use Data Migration & Strangler Fig? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the key design decision in Data Migration & Strangler Fig? :: **A:** [The irreversible choice that defines the architecture] #flashcard
+**Q:** What is the key design decision in Data Migration & Strangler Fig? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How do you migrate to Data Migration & Strangler Fig? :: **A:** [Strangler fig, dual-write, canary, feature flags] #flashcard
+**Q:** How do you migrate to Data Migration & Strangler Fig? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What security considerations for Data Migration & Strangler Fig? :: **A:** [AuthZ, encryption, audit, secrets management] #flashcard
+**Q:** What security considerations for Data Migration & Strangler Fig? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How do you debug Data Migration & Strangler Fig in production? :: **A:** [Structured logging, correlation IDs, distributed tracing, SLO alerts] #flashcard
+**Q:** How do you debug Data Migration & Strangler Fig in production? :: **A:** Not specified #flashcard
 
 
 ## Practice Tasks (Tasks Plugin)
@@ -169,7 +169,7 @@ limit 10
 ```
 
 ---|---|---|
-| Legacy monolith/DB decomposed into bounded contexts/services | ✅ | See [[Architect/06_Data-Architecture/../05_DDD-Modeling/02_Bounded-Contexts]] |
+| Legacy monolith/DB decomposed into bounded contexts/services | ✅ | See [[Architect/05_DDD-Modeling/02_Bounded-Contexts]] |
 | DB engine move (Oracle → Postgres) or schema reshape too big for one deploy | ✅ | Incremental, reversible |
 | Any migration where rollback must stay possible until last mile | ✅ | Facade + flag = instant rollback |
 | Greenfield system | ❌ | No legacy to strangle |
@@ -217,4 +217,4 @@ limit 10
 > **Answer**: 1) Create new table + dual-write (CDC preferred). 2) Backfill in batches (10k rows, checkpoint every batch). 3) Dark read compare (1% → 10% → 100%). 4) Switch reads via flag. 5) Switch writes. 6) Drop old. **Rollback**: Flag off at any step before 5. **Rejected**: `ALTER TABLE` + hope — locks table, causes outage.
 
 ## 🔗 Related
-- 01_SQL-vs-NoSQL-Selection · [[Architect/06_Data-Architecture/../05_DDD-Modeling/03_Context-Mapping|Context Mapping (ACL)]] · [[Architect/06_Data-Architecture/../03_Architecture-Styles/06_Monolith-vs-Modular-Choice-Guide|Choice Guide]]
+- 01_SQL-vs-NoSQL-Selection · [[Architect/05_DDD-Modeling/03_Context-Mapping|Context Mapping (ACL)]] · [[Architect/03_Architecture-Styles/06_Monolith-vs-Modular-Choice-Guide|Choice Guide]]

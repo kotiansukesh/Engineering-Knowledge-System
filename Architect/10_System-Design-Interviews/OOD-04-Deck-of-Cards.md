@@ -142,7 +142,7 @@ record DesignDeckofCardsConfig(
 **Q:** When do you use Design Deck of Cards? :: **A:** [Trigger scenarios from primer] #flashcard
 
 #flashcard
-**Q:** Key trade-off in Design Deck of Cards? :: **A:** [Main trade-off] #flashcard
+**Q:** Key trade-off in Design Deck of Cards? :: **A:** Not specified #flashcard
 
 #flashcard
 **Q:** Scale bottleneck for Design Deck of Cards? :: **A:** [Primary bottleneck] #flashcard
@@ -151,34 +151,34 @@ record DesignDeckofCardsConfig(
 ## Flashcards (Spaced Repetition)
 
 #flashcard
-**Q:** What is the core concept of Design Deck of Cards? :: **A:** [Key algorithm/architecture pattern] #flashcard
+**Q:** What is the core concept of Design Deck of Cards? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** When do you apply Design Deck of Cards? :: **A:** [Trigger scenarios and context] #flashcard
+**Q:** When do you apply Design Deck of Cards? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the primary trade-off in Design Deck of Cards? :: **A:** [Main tension: e.g., consistency vs latency] #flashcard
+**Q:** What is the primary trade-off in Design Deck of Cards? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What breaks first at scale in Design Deck of Cards? :: **A:** [Primary bottleneck: e.g., coordination, hot keys, replication lag] #flashcard
+**Q:** What breaks first at scale in Design Deck of Cards? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How do you handle failures in Design Deck of Cards? :: **A:** [Retry, circuit breaker, fallback, graceful degradation] #flashcard
+**Q:** How do you handle failures in Design Deck of Cards? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What are the key metrics to monitor for Design Deck of Cards? :: **A:** [RED: rate, errors, duration; USE: utilization, saturation, errors] #flashcard
+**Q:** What are the key metrics to monitor for Design Deck of Cards? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How does Design Deck of Cards scale to 10x? :: **A:** [Sharding, read replicas, async processing, caching layers] #flashcard
+**Q:** How does Design Deck of Cards scale to 10x? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the consistency model for Design Deck of Cards? :: **A:** [Strong/eventual/causal - justify with use case] #flashcard
+**Q:** What is the consistency model for Design Deck of Cards? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How do you test Design Deck of Cards? :: **A:** [Contract tests, chaos engineering, load tests, fault injection] #flashcard
+**Q:** How do you test Design Deck of Cards? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the operational cost of Design Deck of Cards? :: **A:** [Team expertise, tooling, on-call burden, migration risk] #flashcard
+**Q:** What is the operational cost of Design Deck of Cards? :: **A:** Not specified #flashcard
 
 ## Practice Tasks (Tasks Plugin)
 

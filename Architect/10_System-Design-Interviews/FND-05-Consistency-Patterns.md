@@ -161,7 +161,7 @@ record ConsistencyPatternsConfig(
 **Q:** When do you use Consistency Patterns? :: **A:** [Trigger scenarios from primer] #flashcard
 
 #flashcard
-**Q:** Key trade-off in Consistency Patterns? :: **A:** [Main trade-off] #flashcard
+**Q:** Key trade-off in Consistency Patterns? :: **A:** Not specified #flashcard
 
 #flashcard
 **Q:** Scale bottleneck for Consistency Patterns? :: **A:** [Primary bottleneck] #flashcard
@@ -170,34 +170,34 @@ record ConsistencyPatternsConfig(
 ## Flashcards (Spaced Repetition)
 
 #flashcard
-**Q:** What is the core concept of Consistency Patterns? :: **A:** [Key algorithm/architecture pattern] #flashcard
+**Q:** What is the core concept of Consistency Patterns? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** When do you apply Consistency Patterns? :: **A:** [Trigger scenarios and context] #flashcard
+**Q:** When do you apply Consistency Patterns? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the primary trade-off in Consistency Patterns? :: **A:** [Main tension: e.g., consistency vs latency] #flashcard
+**Q:** What is the primary trade-off in Consistency Patterns? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What breaks first at scale in Consistency Patterns? :: **A:** [Primary bottleneck: e.g., coordination, hot keys, replication lag] #flashcard
+**Q:** What breaks first at scale in Consistency Patterns? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How do you handle failures in Consistency Patterns? :: **A:** [Retry, circuit breaker, fallback, graceful degradation] #flashcard
+**Q:** How do you handle failures in Consistency Patterns? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What are the key metrics to monitor for Consistency Patterns? :: **A:** [RED: rate, errors, duration; USE: utilization, saturation, errors] #flashcard
+**Q:** What are the key metrics to monitor for Consistency Patterns? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How does Consistency Patterns scale to 10x? :: **A:** [Sharding, read replicas, async processing, caching layers] #flashcard
+**Q:** How does Consistency Patterns scale to 10x? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the consistency model for Consistency Patterns? :: **A:** [Strong/eventual/causal - justify with use case] #flashcard
+**Q:** What is the consistency model for Consistency Patterns? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How do you test Consistency Patterns? :: **A:** [Contract tests, chaos engineering, load tests, fault injection] #flashcard
+**Q:** How do you test Consistency Patterns? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the operational cost of Consistency Patterns? :: **A:** [Team expertise, tooling, on-call burden, migration risk] #flashcard
+**Q:** What is the operational cost of Consistency Patterns? :: **A:** Not specified #flashcard
 
 ## Practice Tasks (Tasks Plugin)
 

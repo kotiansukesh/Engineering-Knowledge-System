@@ -109,7 +109,7 @@ View , mutations propagate both ways.
 
 ## Related
 
-- 01 Virtual Threads • 03 Record Patterns • [[Java/09_Java-21-LTS/../08_Modern-Java/04 Sequenced Collections|08 , 25 uses same API]] • [[Java/09_Java-21-LTS/../03_Collections/List/ArrayList|03_Collections]]
+- 01 Virtual Threads • 03 Record Patterns • [[Java/08_Modern-Java/04 Sequenced Collections|08 , 25 uses same API]] • [[Java/03_Collections/List/ArrayList|03_Collections]]
 
 ---
 *Category: java21*

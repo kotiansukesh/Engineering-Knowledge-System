@@ -117,8 +117,8 @@ Do not mark a phase complete until you can:
 - LTS Evolution 8 to 25
 - Whats New in Java 25
 - Realistic Roadmap
-- [[Java/00_Java-25-Overview/../01_Core-Java/README|Core Java]]
-- [[Java/00_Java-25-Overview/../04_Concurrency/README|Concurrency]]
-- [[Java/00_Java-25-Overview/../11_JVM-Performance/README|JVM & Performance]]
-- [[Java/00_Java-25-Overview/../12_Testing-Tooling/README|Testing & Tooling]]
-- [[Java/00_Java-25-Overview/../99_Revision/Study-Plan|Study Plan]]
+- [[Java/01_Core-Java/README|Core Java]]
+- [[Java/04_Concurrency/README|Concurrency]]
+- [[Java/11_JVM-Performance/README|JVM & Performance]]
+- [[Java/12_Testing-Tooling/README|Testing & Tooling]]
+- [[Java/99_Revision/Study-Plan|Study Plan]]

@@ -150,7 +150,7 @@ record DesignAmazonSalesRankConfig(
 **Q:** When do you use Design Amazon Sales Rank? :: **A:** [Trigger scenarios from primer] #flashcard
 
 #flashcard
-**Q:** Key trade-off in Design Amazon Sales Rank? :: **A:** [Main trade-off] #flashcard
+**Q:** Key trade-off in Design Amazon Sales Rank? :: **A:** Not specified #flashcard
 
 #flashcard
 **Q:** Scale bottleneck for Design Amazon Sales Rank? :: **A:** [Primary bottleneck] #flashcard
@@ -159,34 +159,34 @@ record DesignAmazonSalesRankConfig(
 ## Flashcards (Spaced Repetition)
 
 #flashcard
-**Q:** What is the core concept of Design Amazon Sales Rank? :: **A:** [Key algorithm/architecture pattern] #flashcard
+**Q:** What is the core concept of Design Amazon Sales Rank? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** When do you apply Design Amazon Sales Rank? :: **A:** [Trigger scenarios and context] #flashcard
+**Q:** When do you apply Design Amazon Sales Rank? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the primary trade-off in Design Amazon Sales Rank? :: **A:** [Main tension: e.g., consistency vs latency] #flashcard
+**Q:** What is the primary trade-off in Design Amazon Sales Rank? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What breaks first at scale in Design Amazon Sales Rank? :: **A:** [Primary bottleneck: e.g., coordination, hot keys, replication lag] #flashcard
+**Q:** What breaks first at scale in Design Amazon Sales Rank? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How do you handle failures in Design Amazon Sales Rank? :: **A:** [Retry, circuit breaker, fallback, graceful degradation] #flashcard
+**Q:** How do you handle failures in Design Amazon Sales Rank? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What are the key metrics to monitor for Design Amazon Sales Rank? :: **A:** [RED: rate, errors, duration; USE: utilization, saturation, errors] #flashcard
+**Q:** What are the key metrics to monitor for Design Amazon Sales Rank? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How does Design Amazon Sales Rank scale to 10x? :: **A:** [Sharding, read replicas, async processing, caching layers] #flashcard
+**Q:** How does Design Amazon Sales Rank scale to 10x? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the consistency model for Design Amazon Sales Rank? :: **A:** [Strong/eventual/causal - justify with use case] #flashcard
+**Q:** What is the consistency model for Design Amazon Sales Rank? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How do you test Design Amazon Sales Rank? :: **A:** [Contract tests, chaos engineering, load tests, fault injection] #flashcard
+**Q:** How do you test Design Amazon Sales Rank? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the operational cost of Design Amazon Sales Rank? :: **A:** [Team expertise, tooling, on-call burden, migration risk] #flashcard
+**Q:** What is the operational cost of Design Amazon Sales Rank? :: **A:** Not specified #flashcard
 
 ## Practice Tasks (Tasks Plugin)
 

@@ -107,7 +107,7 @@ Expensive (millions × ThreadLocalMap) and leaks without `remove()`. 21 preview 
 
 ## Related
 
-- 02 Sequenced Collections • 08 Generational ZGC • [[Java/09_Java-21-LTS/../08_Modern-Java/05 Virtual Threads - Loom|08 , 25 delta JEP 491]] • [[Java/09_Java-21-LTS/../04_Concurrency/Threads|04 Concurrency]]
+- 02 Sequenced Collections • 08 Generational ZGC • [[Java/08_Modern-Java/05 Virtual Threads - Loom|08 , 25 delta JEP 491]] • [[Java/04_Concurrency/Threads|04 Concurrency]]
 
 ---
 *Category: java21*

@@ -25,7 +25,7 @@ Do not treat JVM flags as configuration folklore.
 
 ## Related
 
-- [[Java/11_JVM-Performance/../01_Core-Java/JVM Memory Model|JVM Memory Model]]
-- [[Java/11_JVM-Performance/../04_Concurrency/README|Concurrency]]
-- [[Java/11_JVM-Performance/../12_Testing-Tooling/README|Testing & Tooling]]
-- [[Java/11_JVM-Performance/../README|Java MOC]]
+- [[Java/01_Core-Java/JVM Memory Model|JVM Memory Model]]
+- [[Java/04_Concurrency/README|Concurrency]]
+- [[Java/12_Testing-Tooling/README|Testing & Tooling]]
+- [[Java/README|Java MOC]]

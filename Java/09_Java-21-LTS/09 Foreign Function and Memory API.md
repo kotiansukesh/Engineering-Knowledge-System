@@ -100,7 +100,7 @@ Preview 19-21, **final in Java 22 (454)** , on 21 mention preview.
 
 ## Related
 
-- 08 Generational ZGC • 00 Java 21 Overview • [[Java/09_Java-21-LTS/../01_Core-Java/JVM Memory Model|JVM Memory Model]]
+- 08 Generational ZGC • 00 Java 21 Overview • [[Java/01_Core-Java/JVM Memory Model|JVM Memory Model]]
 
 ---
 *Category: java21*

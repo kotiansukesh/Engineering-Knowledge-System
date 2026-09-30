@@ -146,7 +146,7 @@ record DesignLRUCacheConfig(
 **Q:** When do you use Design LRU Cache? :: **A:** [Trigger scenarios from primer] #flashcard
 
 #flashcard
-**Q:** Key trade-off in Design LRU Cache? :: **A:** [Main trade-off] #flashcard
+**Q:** Key trade-off in Design LRU Cache? :: **A:** Not specified #flashcard
 
 #flashcard
 **Q:** Scale bottleneck for Design LRU Cache? :: **A:** [Primary bottleneck] #flashcard
@@ -155,34 +155,34 @@ record DesignLRUCacheConfig(
 ## Flashcards (Spaced Repetition)
 
 #flashcard
-**Q:** What is the core concept of Design LRU Cache? :: **A:** [Key algorithm/architecture pattern] #flashcard
+**Q:** What is the core concept of Design LRU Cache? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** When do you apply Design LRU Cache? :: **A:** [Trigger scenarios and context] #flashcard
+**Q:** When do you apply Design LRU Cache? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the primary trade-off in Design LRU Cache? :: **A:** [Main tension: e.g., consistency vs latency] #flashcard
+**Q:** What is the primary trade-off in Design LRU Cache? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What breaks first at scale in Design LRU Cache? :: **A:** [Primary bottleneck: e.g., coordination, hot keys, replication lag] #flashcard
+**Q:** What breaks first at scale in Design LRU Cache? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How do you handle failures in Design LRU Cache? :: **A:** [Retry, circuit breaker, fallback, graceful degradation] #flashcard
+**Q:** How do you handle failures in Design LRU Cache? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What are the key metrics to monitor for Design LRU Cache? :: **A:** [RED: rate, errors, duration; USE: utilization, saturation, errors] #flashcard
+**Q:** What are the key metrics to monitor for Design LRU Cache? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How does Design LRU Cache scale to 10x? :: **A:** [Sharding, read replicas, async processing, caching layers] #flashcard
+**Q:** How does Design LRU Cache scale to 10x? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the consistency model for Design LRU Cache? :: **A:** [Strong/eventual/causal - justify with use case] #flashcard
+**Q:** What is the consistency model for Design LRU Cache? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How do you test Design LRU Cache? :: **A:** [Contract tests, chaos engineering, load tests, fault injection] #flashcard
+**Q:** How do you test Design LRU Cache? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the operational cost of Design LRU Cache? :: **A:** [Team expertise, tooling, on-call burden, migration risk] #flashcard
+**Q:** What is the operational cost of Design LRU Cache? :: **A:** Not specified #flashcard
 
 ## Practice Tasks (Tasks Plugin)
 

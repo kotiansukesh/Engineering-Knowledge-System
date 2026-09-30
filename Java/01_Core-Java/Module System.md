@@ -62,5 +62,5 @@ For a small service, library, or application where classpath packaging already p
 ## Related
 
 - JPMS
-- [[Java/01_Core-Java/../12_Testing-Tooling/Maven and Gradle|Maven and Gradle]]
-- [[Java/01_Core-Java/../05_Spring/Spring Boot|Spring Boot]]
+- [[Java/12_Testing-Tooling/Maven and Gradle|Maven and Gradle]]
+- [[Java/05_Spring/Spring Boot|Spring Boot]]

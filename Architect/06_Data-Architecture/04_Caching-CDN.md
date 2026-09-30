@@ -120,49 +120,49 @@ public void onProductUpdated(ProductUpdatedEvent e) {
 ## Flashcards (Spaced Repetition)
 
 #flashcard
-**Q:** What is the core concept of Caching & CDN — Multi Layer Strategy? :: **A:** [Key algorithm/architecture pattern] #flashcard
+**Q:** What is the core concept of Caching & CDN — Multi Layer Strategy? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** When do you apply Caching & CDN — Multi Layer Strategy? :: **A:** [Trigger scenarios and context] #flashcard
+**Q:** When do you apply Caching & CDN — Multi Layer Strategy? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the primary trade-off in Caching & CDN — Multi Layer Strategy? :: **A:** [Main tension: e.g., consistency vs latency] #flashcard
+**Q:** What is the primary trade-off in Caching & CDN — Multi Layer Strategy? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What breaks first at scale in Caching & CDN — Multi Layer Strategy? :: **A:** [Primary bottleneck: e.g., coordination, hot keys, replication lag] #flashcard
+**Q:** What breaks first at scale in Caching & CDN — Multi Layer Strategy? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How do you handle failures in Caching & CDN — Multi Layer Strategy? :: **A:** [Retry, circuit breaker, fallback, graceful degradation] #flashcard
+**Q:** How do you handle failures in Caching & CDN — Multi Layer Strategy? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What are the key metrics to monitor for Caching & CDN — Multi Layer Strategy? :: **A:** [RED: rate, errors, duration; USE: utilization, saturation, errors] #flashcard
+**Q:** What are the key metrics to monitor for Caching & CDN — Multi Layer Strategy? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How does Caching & CDN — Multi Layer Strategy scale to 10x? :: **A:** [Sharding, read replicas, async processing, caching layers] #flashcard
+**Q:** How does Caching & CDN — Multi Layer Strategy scale to 10x? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the consistency model for Caching & CDN — Multi Layer Strategy? :: **A:** [Strong/eventual/causal - justify with use case] #flashcard
+**Q:** What is the consistency model for Caching & CDN — Multi Layer Strategy? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How do you test Caching & CDN — Multi Layer Strategy? :: **A:** [Contract tests, chaos engineering, load tests, fault injection] #flashcard
+**Q:** How do you test Caching & CDN — Multi Layer Strategy? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the operational cost of Caching & CDN — Multi Layer Strategy? :: **A:** [Team expertise, tooling, on-call burden, migration risk] #flashcard
+**Q:** What is the operational cost of Caching & CDN — Multi Layer Strategy? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** When would you NOT use Caching & CDN — Multi Layer Strategy? :: **A:** [Managed service covers need, simple CRUD, team lacks maturity] #flashcard
+**Q:** When would you NOT use Caching & CDN — Multi Layer Strategy? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the key design decision in Caching & CDN — Multi Layer Strategy? :: **A:** [The irreversible choice that defines the architecture] #flashcard
+**Q:** What is the key design decision in Caching & CDN — Multi Layer Strategy? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How do you migrate to Caching & CDN — Multi Layer Strategy? :: **A:** [Strangler fig, dual-write, canary, feature flags] #flashcard
+**Q:** How do you migrate to Caching & CDN — Multi Layer Strategy? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What security considerations for Caching & CDN — Multi Layer Strategy? :: **A:** [AuthZ, encryption, audit, secrets management] #flashcard
+**Q:** What security considerations for Caching & CDN — Multi Layer Strategy? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How do you debug Caching & CDN — Multi Layer Strategy in production? :: **A:** [Structured logging, correlation IDs, distributed tracing, SLO alerts] #flashcard
+**Q:** How do you debug Caching & CDN — Multi Layer Strategy in production? :: **A:** Not specified #flashcard
 
 
 ## Practice Tasks (Tasks Plugin)
@@ -226,4 +226,4 @@ limit 10
 > **Answer**: Blue/green: warm new version's cache before cutover (prefetch critical keys). Canary: route 5% to new, let it warm naturally. Never deploy cold cache to 100% traffic. **Metric**: Cache hit rate > 95% within 5min of cutover.
 
 ## 🔗 Related
-- [[Architect/06_Data-Architecture/../04_Design-Patterns-Building-Blocks/03_Caching-Strategies|Caching Strategies]] · [[Architect/06_Data-Architecture/../04_Design-Patterns-Building-Blocks/04_API-Gateway-BFF|Gateway/BFF]]
+- [[Architect/04_Design-Patterns-Building-Blocks/03_Caching-Strategies|Caching Strategies]] · [[Architect/04_Design-Patterns-Building-Blocks/04_API-Gateway-BFF|Gateway/BFF]]

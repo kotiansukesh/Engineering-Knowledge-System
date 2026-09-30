@@ -92,4 +92,4 @@ Boot 4 is a major generation based on Spring Framework 7, with Java 25 as a firs
 - Spring Security
 - Spring Transaction
 - Spring AI
-- [[Java/05_Spring/../12_Testing-Tooling/Maven and Gradle|Maven and Gradle]]
+- [[Java/12_Testing-Tooling/Maven and Gradle|Maven and Gradle]]

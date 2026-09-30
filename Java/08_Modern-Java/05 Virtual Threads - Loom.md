@@ -119,7 +119,7 @@ When you need timeouts/interrupts (`tryLock(Duration)`), or before 24. Otherwise
 
 ## Related
 
-- 06 ScopedValue • Compact Headers • [[Java/08_Modern-Java/../04_Concurrency/Threads|Threads]] • [[Java/08_Modern-Java/../04_Concurrency/Executor Framework|Executor Framework]]
+- 06 ScopedValue • Compact Headers • [[Java/04_Concurrency/Threads|Threads]] • [[Java/04_Concurrency/Executor Framework|Executor Framework]]
 
 ---
 *Category: Modern-Java • java25*

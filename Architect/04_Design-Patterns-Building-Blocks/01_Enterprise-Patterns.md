@@ -139,49 +139,49 @@ A: When API and domain evolve at different speeds, or entities carry lazy/cyclic
 ## Flashcards (Spaced Repetition)
 
 #flashcard
-**Q:** What is the core concept of Enterprise Patterns? :: **A:** [Key algorithm/architecture pattern] #flashcard
+**Q:** What is the core concept of Enterprise Patterns? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** When do you apply Enterprise Patterns? :: **A:** [Trigger scenarios and context] #flashcard
+**Q:** When do you apply Enterprise Patterns? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the primary trade-off in Enterprise Patterns? :: **A:** [Main tension: e.g., consistency vs latency] #flashcard
+**Q:** What is the primary trade-off in Enterprise Patterns? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What breaks first at scale in Enterprise Patterns? :: **A:** [Primary bottleneck: e.g., coordination, hot keys, replication lag] #flashcard
+**Q:** What breaks first at scale in Enterprise Patterns? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How do you handle failures in Enterprise Patterns? :: **A:** [Retry, circuit breaker, fallback, graceful degradation] #flashcard
+**Q:** How do you handle failures in Enterprise Patterns? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What are the key metrics to monitor for Enterprise Patterns? :: **A:** [RED: rate, errors, duration; USE: utilization, saturation, errors] #flashcard
+**Q:** What are the key metrics to monitor for Enterprise Patterns? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How does Enterprise Patterns scale to 10x? :: **A:** [Sharding, read replicas, async processing, caching layers] #flashcard
+**Q:** How does Enterprise Patterns scale to 10x? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the consistency model for Enterprise Patterns? :: **A:** [Strong/eventual/causal - justify with use case] #flashcard
+**Q:** What is the consistency model for Enterprise Patterns? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How do you test Enterprise Patterns? :: **A:** [Contract tests, chaos engineering, load tests, fault injection] #flashcard
+**Q:** How do you test Enterprise Patterns? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the operational cost of Enterprise Patterns? :: **A:** [Team expertise, tooling, on-call burden, migration risk] #flashcard
+**Q:** What is the operational cost of Enterprise Patterns? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** When would you NOT use Enterprise Patterns? :: **A:** [Managed service covers need, simple CRUD, team lacks maturity] #flashcard
+**Q:** When would you NOT use Enterprise Patterns? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the key design decision in Enterprise Patterns? :: **A:** [The irreversible choice that defines the architecture] #flashcard
+**Q:** What is the key design decision in Enterprise Patterns? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How do you migrate to Enterprise Patterns? :: **A:** [Strangler fig, dual-write, canary, feature flags] #flashcard
+**Q:** How do you migrate to Enterprise Patterns? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What security considerations for Enterprise Patterns? :: **A:** [AuthZ, encryption, audit, secrets management] #flashcard
+**Q:** What security considerations for Enterprise Patterns? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How do you debug Enterprise Patterns in production? :: **A:** [Structured logging, correlation IDs, distributed tracing, SLO alerts] #flashcard
+**Q:** How do you debug Enterprise Patterns in production? :: **A:** Not specified #flashcard
 
 
 ## Practice Tasks (Tasks Plugin)

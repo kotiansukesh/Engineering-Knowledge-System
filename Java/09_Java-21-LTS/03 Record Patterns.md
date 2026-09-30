@@ -94,7 +94,7 @@ void demo21() {
 
 ## Related
 
-- 04 Pattern Matching for Switch • 02 Sequenced Collections • [[Java/09_Java-21-LTS/../08_Modern-Java/01 Records|08 , Records]] • [[Java/09_Java-21-LTS/../08_Modern-Java/03 Pattern Matching|08 , Primitive Patterns]]
+- 04 Pattern Matching for Switch • 02 Sequenced Collections • [[Java/08_Modern-Java/01 Records|08 , Records]] • [[Java/08_Modern-Java/03 Pattern Matching|08 , Primitive Patterns]]
 
 ---
 *Category: java21*

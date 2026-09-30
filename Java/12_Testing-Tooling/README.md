@@ -25,6 +25,6 @@ The correct mix depends on architecture and failure modes.
 
 ## Related
 
-- [[Java/12_Testing-Tooling/../05_Spring/README|Spring]]
-- [[Java/12_Testing-Tooling/../11_JVM-Performance/README|JVM & Performance]]
-- [[Java/12_Testing-Tooling/../README|Java MOC]]
+- [[Java/05_Spring/README|Spring]]
+- [[Java/11_JVM-Performance/README|JVM & Performance]]
+- [[Java/README|Java MOC]]

@@ -71,6 +71,6 @@ No. Learn the LTS milestones and use non-LTS releases to understand where a feat
 - Java 8 LTS Overview
 - Java 11 LTS Overview
 - Java 17 LTS Overview
-- [[Java/00_Java-25-Overview/../09_Java-21-LTS/README|Java 21 Deep Dive]]
+- [[Java/09_Java-21-LTS/README|Java 21 Deep Dive]]
 - Whats New in Java 25
 - Java 25 Roadmap

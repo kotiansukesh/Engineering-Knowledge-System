@@ -135,49 +135,49 @@ public void onPayment(PaymentEvent e) {
 ## Flashcards (Spaced Repetition)
 
 #flashcard
-**Q:** What is the core concept of Kafka Messaging and Idempotency? :: **A:** [Key algorithm/architecture pattern] #flashcard
+**Q:** What is the core concept of Kafka Messaging and Idempotency? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** When do you apply Kafka Messaging and Idempotency? :: **A:** [Trigger scenarios and context] #flashcard
+**Q:** When do you apply Kafka Messaging and Idempotency? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the primary trade-off in Kafka Messaging and Idempotency? :: **A:** [Main tension: e.g., consistency vs latency] #flashcard
+**Q:** What is the primary trade-off in Kafka Messaging and Idempotency? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What breaks first at scale in Kafka Messaging and Idempotency? :: **A:** [Primary bottleneck: e.g., coordination, hot keys, replication lag] #flashcard
+**Q:** What breaks first at scale in Kafka Messaging and Idempotency? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How do you handle failures in Kafka Messaging and Idempotency? :: **A:** [Retry, circuit breaker, fallback, graceful degradation] #flashcard
+**Q:** How do you handle failures in Kafka Messaging and Idempotency? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What are the key metrics to monitor for Kafka Messaging and Idempotency? :: **A:** [RED: rate, errors, duration; USE: utilization, saturation, errors] #flashcard
+**Q:** What are the key metrics to monitor for Kafka Messaging and Idempotency? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How does Kafka Messaging and Idempotency scale to 10x? :: **A:** [Sharding, read replicas, async processing, caching layers] #flashcard
+**Q:** How does Kafka Messaging and Idempotency scale to 10x? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the consistency model for Kafka Messaging and Idempotency? :: **A:** [Strong/eventual/causal - justify with use case] #flashcard
+**Q:** What is the consistency model for Kafka Messaging and Idempotency? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How do you test Kafka Messaging and Idempotency? :: **A:** [Contract tests, chaos engineering, load tests, fault injection] #flashcard
+**Q:** How do you test Kafka Messaging and Idempotency? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the operational cost of Kafka Messaging and Idempotency? :: **A:** [Team expertise, tooling, on-call burden, migration risk] #flashcard
+**Q:** What is the operational cost of Kafka Messaging and Idempotency? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** When would you NOT use Kafka Messaging and Idempotency? :: **A:** [Managed service covers need, simple CRUD, team lacks maturity] #flashcard
+**Q:** When would you NOT use Kafka Messaging and Idempotency? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the key design decision in Kafka Messaging and Idempotency? :: **A:** [The irreversible choice that defines the architecture] #flashcard
+**Q:** What is the key design decision in Kafka Messaging and Idempotency? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How do you migrate to Kafka Messaging and Idempotency? :: **A:** [Strangler fig, dual-write, canary, feature flags] #flashcard
+**Q:** How do you migrate to Kafka Messaging and Idempotency? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What security considerations for Kafka Messaging and Idempotency? :: **A:** [AuthZ, encryption, audit, secrets management] #flashcard
+**Q:** What security considerations for Kafka Messaging and Idempotency? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How do you debug Kafka Messaging and Idempotency in production? :: **A:** [Structured logging, correlation IDs, distributed tracing, SLO alerts] #flashcard
+**Q:** How do you debug Kafka Messaging and Idempotency in production? :: **A:** Not specified #flashcard
 
 
 ## Practice Tasks (Tasks Plugin)

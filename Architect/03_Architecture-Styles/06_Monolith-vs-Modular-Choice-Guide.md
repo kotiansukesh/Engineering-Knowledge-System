@@ -130,49 +130,49 @@ A: `api` vs `internal` packages + ArchUnit/Spring Modulith verification in CI + 
 ## Flashcards (Spaced Repetition)
 
 #flashcard
-**Q:** What is the core concept of Monolith vs Modular Monolith, Choice Guide? :: **A:** [Key algorithm/architecture pattern] #flashcard
+**Q:** What is the core concept of Monolith vs Modular Monolith, Choice Guide? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** When do you apply Monolith vs Modular Monolith, Choice Guide? :: **A:** [Trigger scenarios and context] #flashcard
+**Q:** When do you apply Monolith vs Modular Monolith, Choice Guide? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the primary trade-off in Monolith vs Modular Monolith, Choice Guide? :: **A:** [Main tension: e.g., consistency vs latency] #flashcard
+**Q:** What is the primary trade-off in Monolith vs Modular Monolith, Choice Guide? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What breaks first at scale in Monolith vs Modular Monolith, Choice Guide? :: **A:** [Primary bottleneck: e.g., coordination, hot keys, replication lag] #flashcard
+**Q:** What breaks first at scale in Monolith vs Modular Monolith, Choice Guide? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How do you handle failures in Monolith vs Modular Monolith, Choice Guide? :: **A:** [Retry, circuit breaker, fallback, graceful degradation] #flashcard
+**Q:** How do you handle failures in Monolith vs Modular Monolith, Choice Guide? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What are the key metrics to monitor for Monolith vs Modular Monolith, Choice Guide? :: **A:** [RED: rate, errors, duration; USE: utilization, saturation, errors] #flashcard
+**Q:** What are the key metrics to monitor for Monolith vs Modular Monolith, Choice Guide? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How does Monolith vs Modular Monolith, Choice Guide scale to 10x? :: **A:** [Sharding, read replicas, async processing, caching layers] #flashcard
+**Q:** How does Monolith vs Modular Monolith, Choice Guide scale to 10x? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the consistency model for Monolith vs Modular Monolith, Choice Guide? :: **A:** [Strong/eventual/causal - justify with use case] #flashcard
+**Q:** What is the consistency model for Monolith vs Modular Monolith, Choice Guide? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How do you test Monolith vs Modular Monolith, Choice Guide? :: **A:** [Contract tests, chaos engineering, load tests, fault injection] #flashcard
+**Q:** How do you test Monolith vs Modular Monolith, Choice Guide? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the operational cost of Monolith vs Modular Monolith, Choice Guide? :: **A:** [Team expertise, tooling, on-call burden, migration risk] #flashcard
+**Q:** What is the operational cost of Monolith vs Modular Monolith, Choice Guide? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** When would you NOT use Monolith vs Modular Monolith, Choice Guide? :: **A:** [Managed service covers need, simple CRUD, team lacks maturity] #flashcard
+**Q:** When would you NOT use Monolith vs Modular Monolith, Choice Guide? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the key design decision in Monolith vs Modular Monolith, Choice Guide? :: **A:** [The irreversible choice that defines the architecture] #flashcard
+**Q:** What is the key design decision in Monolith vs Modular Monolith, Choice Guide? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How do you migrate to Monolith vs Modular Monolith, Choice Guide? :: **A:** [Strangler fig, dual-write, canary, feature flags] #flashcard
+**Q:** How do you migrate to Monolith vs Modular Monolith, Choice Guide? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What security considerations for Monolith vs Modular Monolith, Choice Guide? :: **A:** [AuthZ, encryption, audit, secrets management] #flashcard
+**Q:** What security considerations for Monolith vs Modular Monolith, Choice Guide? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How do you debug Monolith vs Modular Monolith, Choice Guide in production? :: **A:** [Structured logging, correlation IDs, distributed tracing, SLO alerts] #flashcard
+**Q:** How do you debug Monolith vs Modular Monolith, Choice Guide in production? :: **A:** Not specified #flashcard
 
 
 ## Practice Tasks (Tasks Plugin)

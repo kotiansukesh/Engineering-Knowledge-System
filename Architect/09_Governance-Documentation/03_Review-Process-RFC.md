@@ -122,49 +122,49 @@ A: Time-box 45m, pre-read required, decide by deadline (owner decides, dissent r
 ## Flashcards (Spaced Repetition)
 
 #flashcard
-**Q:** What is the core concept of Review Process, RFCs & Design Reviews? :: **A:** [Key algorithm/architecture pattern] #flashcard
+**Q:** What is the core concept of Review Process, RFCs & Design Reviews? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** When do you apply Review Process, RFCs & Design Reviews? :: **A:** [Trigger scenarios and context] #flashcard
+**Q:** When do you apply Review Process, RFCs & Design Reviews? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the primary trade-off in Review Process, RFCs & Design Reviews? :: **A:** [Main tension: e.g., consistency vs latency] #flashcard
+**Q:** What is the primary trade-off in Review Process, RFCs & Design Reviews? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What breaks first at scale in Review Process, RFCs & Design Reviews? :: **A:** [Primary bottleneck: e.g., coordination, hot keys, replication lag] #flashcard
+**Q:** What breaks first at scale in Review Process, RFCs & Design Reviews? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How do you handle failures in Review Process, RFCs & Design Reviews? :: **A:** [Retry, circuit breaker, fallback, graceful degradation] #flashcard
+**Q:** How do you handle failures in Review Process, RFCs & Design Reviews? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What are the key metrics to monitor for Review Process, RFCs & Design Reviews? :: **A:** [RED: rate, errors, duration; USE: utilization, saturation, errors] #flashcard
+**Q:** What are the key metrics to monitor for Review Process, RFCs & Design Reviews? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How does Review Process, RFCs & Design Reviews scale to 10x? :: **A:** [Sharding, read replicas, async processing, caching layers] #flashcard
+**Q:** How does Review Process, RFCs & Design Reviews scale to 10x? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the consistency model for Review Process, RFCs & Design Reviews? :: **A:** [Strong/eventual/causal - justify with use case] #flashcard
+**Q:** What is the consistency model for Review Process, RFCs & Design Reviews? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How do you test Review Process, RFCs & Design Reviews? :: **A:** [Contract tests, chaos engineering, load tests, fault injection] #flashcard
+**Q:** How do you test Review Process, RFCs & Design Reviews? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the operational cost of Review Process, RFCs & Design Reviews? :: **A:** [Team expertise, tooling, on-call burden, migration risk] #flashcard
+**Q:** What is the operational cost of Review Process, RFCs & Design Reviews? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** When would you NOT use Review Process, RFCs & Design Reviews? :: **A:** [Managed service covers need, simple CRUD, team lacks maturity] #flashcard
+**Q:** When would you NOT use Review Process, RFCs & Design Reviews? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the key design decision in Review Process, RFCs & Design Reviews? :: **A:** [The irreversible choice that defines the architecture] #flashcard
+**Q:** What is the key design decision in Review Process, RFCs & Design Reviews? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How do you migrate to Review Process, RFCs & Design Reviews? :: **A:** [Strangler fig, dual-write, canary, feature flags] #flashcard
+**Q:** How do you migrate to Review Process, RFCs & Design Reviews? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What security considerations for Review Process, RFCs & Design Reviews? :: **A:** [AuthZ, encryption, audit, secrets management] #flashcard
+**Q:** What security considerations for Review Process, RFCs & Design Reviews? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How do you debug Review Process, RFCs & Design Reviews in production? :: **A:** [Structured logging, correlation IDs, distributed tracing, SLO alerts] #flashcard
+**Q:** How do you debug Review Process, RFCs & Design Reviews in production? :: **A:** Not specified #flashcard
 
 
 ## Practice Tasks (Tasks Plugin)

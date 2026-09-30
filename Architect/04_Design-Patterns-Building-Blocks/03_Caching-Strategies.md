@@ -138,49 +138,49 @@ A: Penetration (missing keys hammer DB): cache nulls briefly + Bloom filter. Ava
 ## Flashcards (Spaced Repetition)
 
 #flashcard
-**Q:** What is the core concept of Caching Strategies? :: **A:** [Key algorithm/architecture pattern] #flashcard
+**Q:** What is the core concept of Caching Strategies? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** When do you apply Caching Strategies? :: **A:** [Trigger scenarios and context] #flashcard
+**Q:** When do you apply Caching Strategies? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the primary trade-off in Caching Strategies? :: **A:** [Main tension: e.g., consistency vs latency] #flashcard
+**Q:** What is the primary trade-off in Caching Strategies? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What breaks first at scale in Caching Strategies? :: **A:** [Primary bottleneck: e.g., coordination, hot keys, replication lag] #flashcard
+**Q:** What breaks first at scale in Caching Strategies? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How do you handle failures in Caching Strategies? :: **A:** [Retry, circuit breaker, fallback, graceful degradation] #flashcard
+**Q:** How do you handle failures in Caching Strategies? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What are the key metrics to monitor for Caching Strategies? :: **A:** [RED: rate, errors, duration; USE: utilization, saturation, errors] #flashcard
+**Q:** What are the key metrics to monitor for Caching Strategies? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How does Caching Strategies scale to 10x? :: **A:** [Sharding, read replicas, async processing, caching layers] #flashcard
+**Q:** How does Caching Strategies scale to 10x? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the consistency model for Caching Strategies? :: **A:** [Strong/eventual/causal - justify with use case] #flashcard
+**Q:** What is the consistency model for Caching Strategies? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How do you test Caching Strategies? :: **A:** [Contract tests, chaos engineering, load tests, fault injection] #flashcard
+**Q:** How do you test Caching Strategies? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the operational cost of Caching Strategies? :: **A:** [Team expertise, tooling, on-call burden, migration risk] #flashcard
+**Q:** What is the operational cost of Caching Strategies? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** When would you NOT use Caching Strategies? :: **A:** [Managed service covers need, simple CRUD, team lacks maturity] #flashcard
+**Q:** When would you NOT use Caching Strategies? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the key design decision in Caching Strategies? :: **A:** [The irreversible choice that defines the architecture] #flashcard
+**Q:** What is the key design decision in Caching Strategies? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How do you migrate to Caching Strategies? :: **A:** [Strangler fig, dual-write, canary, feature flags] #flashcard
+**Q:** How do you migrate to Caching Strategies? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What security considerations for Caching Strategies? :: **A:** [AuthZ, encryption, audit, secrets management] #flashcard
+**Q:** What security considerations for Caching Strategies? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How do you debug Caching Strategies in production? :: **A:** [Structured logging, correlation IDs, distributed tracing, SLO alerts] #flashcard
+**Q:** How do you debug Caching Strategies in production? :: **A:** Not specified #flashcard
 
 
 ## Practice Tasks (Tasks Plugin)

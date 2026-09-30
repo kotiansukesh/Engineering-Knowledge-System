@@ -235,7 +235,7 @@ record MasterSlaveReplicationConfig(
 **Q:** When do you use Master-Slave Replication? :: **A:** [Trigger scenarios from primer] #flashcard
 
 #flashcard
-**Q:** Key trade-off in Master-Slave Replication? :: **A:** [Main trade-off] #flashcard
+**Q:** Key trade-off in Master-Slave Replication? :: **A:** Not specified #flashcard
 
 #flashcard
 **Q:** Scale bottleneck for Master-Slave Replication? :: **A:** [Primary bottleneck] #flashcard
@@ -244,34 +244,34 @@ record MasterSlaveReplicationConfig(
 ## Flashcards (Spaced Repetition)
 
 #flashcard
-**Q:** What is the core concept of Master Slave Replication? :: **A:** [Key algorithm/architecture pattern] #flashcard
+**Q:** What is the core concept of Master Slave Replication? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** When do you apply Master Slave Replication? :: **A:** [Trigger scenarios and context] #flashcard
+**Q:** When do you apply Master Slave Replication? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the primary trade-off in Master Slave Replication? :: **A:** [Main tension: e.g., consistency vs latency] #flashcard
+**Q:** What is the primary trade-off in Master Slave Replication? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What breaks first at scale in Master Slave Replication? :: **A:** [Primary bottleneck: e.g., coordination, hot keys, replication lag] #flashcard
+**Q:** What breaks first at scale in Master Slave Replication? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How do you handle failures in Master Slave Replication? :: **A:** [Retry, circuit breaker, fallback, graceful degradation] #flashcard
+**Q:** How do you handle failures in Master Slave Replication? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What are the key metrics to monitor for Master Slave Replication? :: **A:** [RED: rate, errors, duration; USE: utilization, saturation, errors] #flashcard
+**Q:** What are the key metrics to monitor for Master Slave Replication? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How does Master Slave Replication scale to 10x? :: **A:** [Sharding, read replicas, async processing, caching layers] #flashcard
+**Q:** How does Master Slave Replication scale to 10x? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the consistency model for Master Slave Replication? :: **A:** [Strong/eventual/causal - justify with use case] #flashcard
+**Q:** What is the consistency model for Master Slave Replication? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How do you test Master Slave Replication? :: **A:** [Contract tests, chaos engineering, load tests, fault injection] #flashcard
+**Q:** How do you test Master Slave Replication? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the operational cost of Master Slave Replication? :: **A:** [Team expertise, tooling, on-call burden, migration risk] #flashcard
+**Q:** What is the operational cost of Master Slave Replication? :: **A:** Not specified #flashcard
 
 ## Practice Tasks (Tasks Plugin)
 

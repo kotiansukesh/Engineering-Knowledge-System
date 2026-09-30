@@ -199,7 +199,7 @@ record FederationFunctionalPartitioningConfig(
 **Q:** When do you use Federation (Functional Partitioning)? :: **A:** [Trigger scenarios from primer] #flashcard
 
 #flashcard
-**Q:** Key trade-off in Federation (Functional Partitioning)? :: **A:** [Main trade-off] #flashcard
+**Q:** Key trade-off in Federation (Functional Partitioning)? :: **A:** Not specified #flashcard
 
 #flashcard
 **Q:** Scale bottleneck for Federation (Functional Partitioning)? :: **A:** [Primary bottleneck] #flashcard
@@ -208,34 +208,34 @@ record FederationFunctionalPartitioningConfig(
 ## Flashcards (Spaced Repetition)
 
 #flashcard
-**Q:** What is the core concept of Federation (Functional Partitioning)? :: **A:** [Key algorithm/architecture pattern] #flashcard
+**Q:** What is the core concept of Federation (Functional Partitioning)? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** When do you apply Federation (Functional Partitioning)? :: **A:** [Trigger scenarios and context] #flashcard
+**Q:** When do you apply Federation (Functional Partitioning)? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the primary trade-off in Federation (Functional Partitioning)? :: **A:** [Main tension: e.g., consistency vs latency] #flashcard
+**Q:** What is the primary trade-off in Federation (Functional Partitioning)? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What breaks first at scale in Federation (Functional Partitioning)? :: **A:** [Primary bottleneck: e.g., coordination, hot keys, replication lag] #flashcard
+**Q:** What breaks first at scale in Federation (Functional Partitioning)? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How do you handle failures in Federation (Functional Partitioning)? :: **A:** [Retry, circuit breaker, fallback, graceful degradation] #flashcard
+**Q:** How do you handle failures in Federation (Functional Partitioning)? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What are the key metrics to monitor for Federation (Functional Partitioning)? :: **A:** [RED: rate, errors, duration; USE: utilization, saturation, errors] #flashcard
+**Q:** What are the key metrics to monitor for Federation (Functional Partitioning)? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How does Federation (Functional Partitioning) scale to 10x? :: **A:** [Sharding, read replicas, async processing, caching layers] #flashcard
+**Q:** How does Federation (Functional Partitioning) scale to 10x? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the consistency model for Federation (Functional Partitioning)? :: **A:** [Strong/eventual/causal - justify with use case] #flashcard
+**Q:** What is the consistency model for Federation (Functional Partitioning)? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** How do you test Federation (Functional Partitioning)? :: **A:** [Contract tests, chaos engineering, load tests, fault injection] #flashcard
+**Q:** How do you test Federation (Functional Partitioning)? :: **A:** Not specified #flashcard
 
 #flashcard
-**Q:** What is the operational cost of Federation (Functional Partitioning)? :: **A:** [Team expertise, tooling, on-call burden, migration risk] #flashcard
+**Q:** What is the operational cost of Federation (Functional Partitioning)? :: **A:** Not specified #flashcard
 
 ## Practice Tasks (Tasks Plugin)
 

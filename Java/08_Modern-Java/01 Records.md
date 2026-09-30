@@ -115,7 +115,7 @@ How do equals/hashCode behave for records?:: Derived from all components, matchi
 ## Related
 
 - 02 Sealed Classes • 03 Pattern Matching (record patterns) • 04 Sequenced Collections
-- [[Java/08_Modern-Java/../01_Core-Java/Classes|Classes]] • [[Java/01_Core-Java/Types/Immutable Class.md|Immutable Class]]
+- [[Java/01_Core-Java/Classes|Classes]] • [[Java/01_Core-Java/Types/Immutable Class.md|Immutable Class]]
 - [[README|Java MOC]]
 
 ---
