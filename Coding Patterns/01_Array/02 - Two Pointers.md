@@ -96,13 +96,10 @@ java.util.List<java.util.List<Integer>> threeSum(int[] nums) {
 Use the implementation above as the base case. Extend it only after the invariant remains explicit.
 
 ## When to use
-
 - sorted array + pair/triple target; palindrome check; remove duplicates in-place; merge two sorted arrays; partition (Dutch national flag).
-- **NOT:** unsorted array without sorting (use HashMap for two sum); need original indices after sort (must pair value with index before sorting); non-contiguous subsequence (not a two-pointer problem).
 
 ## When NOT to use
-
-unsorted array without sorting (use HashMap for two sum); need original indices after sort (must pair value with index before sorting); non-contiguous subsequence (not a two-pointer problem).
+- unsorted array without sorting (use HashMap for two sum); need original indices after sort (must pair value with index before sorting); non-contiguous subsequence (not a two-pointer problem).
 
 ## Complexity & trade-offs
 
