@@ -1,196 +1,50 @@
 ---
-type: note
+title: "Sliding Window"
+type: pattern
+pattern: 3
+domain: "Array / String"
+category: "Coding Patterns/01_Array"
+advanced: false
 mastery: learn
 recognition_score: 0
-title: Sliding Window
-pattern: 3
-category: Coding Patterns/01_Array
+difficulty: "Medium"
+leetcode: [- 3]
+created: "2026-09-02"
+reviewed:
+next_review: "2026-10-07"
 tags:
-- pattern/array
-- pattern/array/sliding-window
-leetcode:
-- 3
-- 438
-- 76
-- 209
-created: '2026-09-02'
-completed: false
-reviewed: ''
-sr-due: ''
-difficulty: Medium
-source: https://blog.algomaster.io/p/20-dsa-patterns
-excalidraw: ''
+  - pattern
+  - pattern/array-string
 ---
-
 
 # Sliding Window
 
-> Part of [[README|Coding Patterns]] • `Coding Patterns/01_Array` • Pattern #3
+> Pattern #3 · Array / String
 
-## Intent
-Maintain a mutable window `[l, r]` over a sequence where both ends advance forward — O(n) for contiguous subarray/substring problems with max/min/longest/shortest constraints by expanding `r` and shrinking `l` only when the window violates the condition.
+## Recognition
 
-## Why it Matters
-- Two flavors: **fixed-k** (window size constant, e.g., max sum of k elements) and **variable** (window grows/shrinks based on condition, e.g., longest substring without repeats, minimum window substring).
-- The "contiguous" + "subarray/substring" + "max/min/longest/shortest" keyword cluster is the trigger.
-- Senior signal: knowing the invariant — after the inner `while` shrinks, the window is *valid* and *minimal* for the current `r`. Update answer *after* shrinking, not before.
+- Contiguous substring or subarray
+- Longest, shortest, or fixed-size window
+- Window validity can be updated incrementally
 
-## Diagram
-```mermaid
-flowchart LR
-  Init["l=0, r=0"] --> Loop["for r in 0..n"]
-  Loop --> Add["add nums[r] to window"]
-  Add --> Bad{"window invalid?"}
-  Bad -->|yes| Shrink["shrink l while invalid"]
-  Shrink --> Ans
-  Bad -->|no| Ans["update best with r-l+1"]
-  Ans --> Loop
-```
+### Strong signals
+- Contiguous substring or subarray
+- Longest, shortest, or fixed-size window
 
+### Do not infer it from
+- A keyword alone
+- A familiar LeetCode example without checking the constraints
 
-## Problems
+## Invariant
 
-### 3. Longest Substring Without Repeating Characters (Medium)
-> [LeetCode 3](https://leetcode.com/problems/longest-substring-without-repeating-characters/) • Tags: Hash Table, String, Sliding Window
+> The active window always represents exactly the range currently being evaluated, and its tracked state is consistent with the elements inside it.
 
-**Problem Statement:**
+## Mental model
 
-Given a string s, find the length of the longest substring without duplicate characters. 
-Example 1: 
-```
-Input: s = "abcabcbb" 
-Output: 3 Explanation: The answer is "abc", with the length of 3. 
-Note that "bca" and "cab" are also correct answers. 
-```
+Maintain a contiguous range and update its state as the right edge advances. Move the left edge only when the window violates the required condition or when a fixed size must be maintained.
 
-Example 2: 
-```
-Input: s = "bbbbb" 
-Output: 1 Explanation: The answer is "b", with the length of 1. 
-```
+## Core implementation
 
-Example 3: 
-```
-Input: s = "pwwkew" 
-Output: 3 Explanation: The answer is "wke", with the length of 3. 
-Notice that the answer must be a substring, "pwke" is a subsequence and not a substring. 
-Constraints: 0 5 s consists of English letters, digits, symbols and spaces.
-```
-
----
-
-### 438. Find All Anagrams in a String (Medium)
-> [LeetCode 438](https://leetcode.com/problems/find-all-anagrams-in-a-string/) • Tags: Hash Table, String, Sliding Window
-
-**Problem Statement:**
-
-Given two strings s and p, return an array of all the start indices of p's anagrams in s. You may return the answer in any order. Example 1: Input: s = "cbaebabacd", p = "abc" Output: [0,6] Explanation: The substring with start index = 0 is "cba", which is an anagram of "abc". The substring with start index = 6 is "bac", which is an anagram of "abc". Example 2: Input: s = "abab", p = "ab" Output: [0,1,2] Explanation: The substring with start index = 0 is "ab", which is an anagram of "ab". The substring with start index = 1 is "ba", which is an anagram of "ab". The substring with start index = 2 is "ab", which is an anagram of "ab". Constraints: 1 4 s and p consist of lowercase English letters.
-
-**Examples:**
-
-Example 1:
-```
-"cbaebabacd"
-```
-
-Example 2:
-```
-"abc"
-```
-
-Example 3:
-```
-"abab"
-```
-
-Example 4:
-```
-"ab"
-```
----
-
-### 76. Minimum Window Substring (Hard)
-> [LeetCode 76](https://leetcode.com/problems/minimum-window-substring/) • Tags: Hash Table, String, Sliding Window
-
-**Problem Statement:**
-
-Given two strings s and t of lengths m and n respectively, return the minimum window substring of s such that every character in t (including duplicates) is included in the window. If there is no such substring, return the empty string "". The testcases will be generated such that the answer is unique. Example 1: Input: s = "ADOBECODEBANC", t = "ABC" Output: "BANC" Explanation: The minimum window substring "BANC" includes 'A', 'B', and 'C' from string t. Example 2: Input: s = "a", t = "a" Output: "a" Explanation: The entire string s is the minimum window. Example 3: Input: s = "a", t = "aa" Output: "" Explanation: Both 'a's from t must be included in the window. Since the largest window of s only has one 'a', return empty string. Constraints: m == s.length n == t.length 1 5 s and t consist of uppercase and lowercase English letters. Follow up: Could you find an algorithm that runs in O(m + n) time?
-
-**Examples:**
-
-Example 1:
-```
-"ADOBECODEBANC"
-```
-
-Example 2:
-```
-"ABC"
-```
-
-Example 3:
-```
-"a"
-```
-
-Example 4:
-```
-"a"
-```
-
-Example 5:
-```
-"a"
-```
-
-Example 6:
-```
-"aa"
-```
----
-
-### 209. Minimum Size Subarray Sum (Medium)
-> [LeetCode 209](https://leetcode.com/problems/minimum-size-subarray-sum/) • Tags: Array, Binary Search, Sliding Window, Prefix Sum
-
-**Problem Statement:**
-
-Given an array of positive integers nums and a positive integer target, return the minimal length of a subarray whose sum is greater than or equal to target. If there is no such subarray, return 0 instead. Example 1: Input: target = 7, nums = [2,3,1,2,4,3] Output: 2 Explanation: The subarray [4,3] has the minimal length under the problem constraint. Example 2: Input: target = 4, nums = [1,4,4] Output: 1 Example 3: Input: target = 11, nums = [1,1,1,1,1,1,1,1] Output: 0 Constraints: 1 9 1 5 1 4 Follow up: If you have figured out the O(n) solution, try coding another solution of which the time complexity is O(n log(n)).
-
-**Examples:**
-
-Example 1:
-```
-7
-```
-
-Example 2:
-```
-[2,3,1,2,4,3]
-```
-
-Example 3:
-```
-4
-```
-
-Example 4:
-```
-[1,4,4]
-```
-
-Example 5:
-```
-11
-```
-
-Example 6:
-```
-[1,1,1,1,1,1,1,1]
-```
----
-
-
-## Code / Example
 ```java
 // Fixed-k: max sum of k consecutive — LC 643
 int maxSumK(int[] nums, int k) {
@@ -244,18 +98,27 @@ String minWindow(String s, String t) {
 }
 ```
 
-## When to Use / When NOT
-- **Use:** contiguous subarray/substring with max/min/longest/shortest condition; fixed-k sums/averages; "window" / "substring" / "subarray" keywords.
+## Variants
+
+Use the implementation above as the base case. Extend it only after the invariant remains explicit.
+
+## When to use
+
+- contiguous subarray/substring with max/min/longest/shortest condition; fixed-k sums/averages; "window" / "substring" / "subarray" keywords.
 - **NOT:** non-contiguous subsequence (use DP/backtracking); need original order but not contiguous; sorted pair search (use two pointers).
 
-## Trade-offs
+## When NOT to use
+
+non-contiguous subsequence (use DP/backtracking); need original order but not contiguous; sorted pair search (use two pointers).
+
+## Complexity & trade-offs
+
 | Type | Time | Space |
 |------|------|-------|
 | Fixed-k | O(n) | O(1) |
 | Variable + HashMap | O(n) | O(k) for frequency map (k = distinct chars in window) |
 | Variable + HashSet | O(n) | O(min(n, alphabet)) |
 
-## Vs Table
 | Aspect      | Sliding Window                           | Two Pointers                    | Prefix Sum                    |
 | ----------- | ---------------------------------------- | ------------------------------- | ----------------------------- |
 | Window      | contiguous, both ends advance forward    | two ends walking inward         | no window, precomputed        |
@@ -265,12 +128,24 @@ String minWindow(String s, String t) {
 | Pick when   | contiguous + condition                   | sorted + pair                   | repeated static range queries |
 
 ## Pitfalls
+
 - Fixed-k: initialize with first `k` elements *before* sliding loop.
 - Variable: update answer **after** shrinking (`while`), not before — the window is only guaranteed valid after the shrink loop.
 - Use `HashSet` when only existence matters; `HashMap` when counts matter (e.g., min window substring).
 - For min window substring, track `formed` (distinct chars meeting required count) vs `required` — don't recompute.
 
-## Interview Q&A (Senior Depth)
+## Canonical problems
+
+| LeetCode | Problem | Difficulty |
+|---:|---|---|
+| 3 | Longest Substring Without Repeating Characters | Medium |
+| 438 | Find All Anagrams in a String | Medium |
+| 76 | Minimum Window Substring | Hard |
+| 209 | Minimum Size Subarray Sum | Medium |
+
+## Interview Q&A
+
+(Senior Depth)
 
 **Q: Longest substring without repeating — why update answer *after* the `while` shrink loop?**
 **A:** The `while` loop guarantees the window `[l, r]` has all unique characters. Before the `while`, the window is invalid (has a duplicate). Updating before shrink would record an invalid window. The invariant: at the top of the `for` loop, `[l, r-1]` is valid; we add `r`, possibly invalid; `while` restores validity; *then* `[l, r]` is the maximal valid window ending at `r`.
@@ -284,8 +159,7 @@ String minWindow(String s, String t) {
 **Q: Can sliding window handle negative numbers for "longest subarray with sum <= k"?**
 **A:** No — with negatives, shrinking `l` can *increase* the sum (removing a negative), breaking the monotonicity that makes the `while` shrink correct. For negatives + sum constraint, use prefix sum + ordered map (TreeMap) or monotonic deque (LC 862).
 
-
-## Flashcards (Spaced Repetition)
+## Flashcards
 
 #flashcard
 **Q:** What is the trigger keyword for Sliding Window? :: **A:** subarray/substring with condition, max/min length, fixed/variable window, at most K distinct #flashcard
@@ -299,26 +173,16 @@ String minWindow(String s, String t) {
 #flashcard
 **Q:** Core Java 25 snippet for Sliding Window? :: **A:** `int l=0; for(int r=0;r<n;r++){ add(a[r]); while(invalid()) remove(a[l++]); updateAns(); }` #flashcard
 
+## Review tasks
 
-## Practice Tasks (Tasks Plugin)
-- [ ] Restate the intent from memory 📅 {date:YYYY-MM-DD, +1}
-- [ ] Code the snippet without looking 📅 {date:YYYY-MM-DD, +3}
-- [ ] Answer all Interview Q&A aloud 📅 {date:YYYY-MM-DD, +7}
-- [ ] Review flashcards (Spaced Repetition) 📅 {date:YYYY-MM-DD, +1}
-
-```tasks
-not done
-path includes {file.folder}
-sort by due
-limit 10
-```
+- [ ] Explain recognition signals from memory 📅 2026-10-01
+- [ ] Write the template from memory 📅 2026-10-03
+- [ ] Solve one unseen problem without hints 📅 2026-10-07
+- [ ] Explain the invariant aloud 📅 2026-10-14
 
 ## Related
+
 - [[01_Array/01 - Prefix Sum|Prefix Sum]] (fixed-k sums, alternative for static arrays)
 - [[01_Array/04 - Frequency Counting|Frequency Counting]] (hashmap on window for variable windows)
 - [[01_Array/02 - Two Pointers|Two Pointers]] (two pointers move inward; window moves forward)
 - [[Java/07_DSA/Array]] · [[Java/07_DSA/HashMap]]
----
-*Category: Coding Patterns/01_Array*
-- [[Architect/10_System-Design-Interviews/BB-04-Rate-Limiter.md|BB-04-Rate-Limiter]] — Sliding window rate limiting
-- [[Architect/10_System-Design-Interviews/CACHE-02-Cache-Strategies.md|CACHE-02-Cache-Strategies]] — Sliding window cache eviction
