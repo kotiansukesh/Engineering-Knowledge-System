@@ -127,7 +127,7 @@ def main() -> int:
     # The most important table-link failure mode in this vault.
     for path in files:
         for line_no, line in enumerate(path.read_text(encoding="utf-8").splitlines(), 1):
-            if "|" in line and "[[" in line and "]]" in line:
+            if line.lstrip().startswith("|") and "[[" in line and "]]" in line:
                 for link in LINK_RE.findall(line):
                     if "|" in link:
                         errors.append(f"{path}:{line_no}: pipe alias inside table-capable wikilink [[{link}]]")
