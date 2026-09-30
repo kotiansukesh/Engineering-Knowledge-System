@@ -13,6 +13,8 @@ jobs:
       - uses: actions/checkout@v4
       - name: Validate repository vault
         run: python3 scripts/validate-vault.py
+      - name: Validate Mermaid diagrams
+        run: python3 scripts/validate-mermaid.py
       - name: Validate Coding Patterns
         run: python3 scripts/validate-coding-patterns.py
       - name: Validate Architect
