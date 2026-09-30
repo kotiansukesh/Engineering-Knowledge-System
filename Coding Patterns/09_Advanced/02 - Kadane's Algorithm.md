@@ -112,13 +112,10 @@ int maximumSum(int[] arr) {
 Start with the core implementation. Introduce a variant only when the required state or proof changes.
 
 ## When to use
-
 - maximum subarray sum/product; maximum circular subarray; max subarray with deletion/k-length constraint; "best contiguous segment".
-- **NOT:** non-contiguous subsequence (use DP on subsequence); 2D max submatrix (use 2D Kadane / prefix sum); need the actual subarray indices (track start/end).
 
 ## When NOT to use
-
-non-contiguous subsequence (use DP on subsequence); 2D max submatrix (use 2D Kadane / prefix sum); need the actual subarray indices (track start/end).
+- non-contiguous subsequence (use DP on subsequence); 2D max submatrix (use 2D Kadane / prefix sum); need the actual subarray indices (track start/end).
 
 ## Complexity & trade-offs
 
