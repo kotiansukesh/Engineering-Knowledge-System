@@ -103,3 +103,10 @@ For each major topic, produce:
 ---
 
 *AI Engineering & Architecture — implementation track for the Architect vault.*
+
+
+## Knowledge System Integration
+
+- [[00 - Knowledge System/README|Knowledge System]] — shared learning model
+- [[Evidence/README|Evidence]] — evaluations, failures, ADRs and defenses
+- [[Build Lab/README|Build Lab]] — production AI systems and capstone
