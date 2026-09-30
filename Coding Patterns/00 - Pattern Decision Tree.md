@@ -1,128 +1,89 @@
 ---
-title: "Pattern Decision Tree"
-category: "Coding Patterns"
-tags: [MOC, dsa, pattern-recognition, interview-prep]
-created: "2026-09-30"
+title: Pattern Decision Tree
+type: guide
+category: Coding Patterns
+tags:
+  - pattern-recognition
+  - decision-tree
 ---
 
 # Pattern Decision Tree
 
-> Use this **before coding**. The goal is not to guess the exact algorithm immediately; narrow the search space from problem shape → invariant → pattern.
+> Start from problem shape. Use constraints to eliminate candidates. State the invariant before coding.
 
-## 1. Start with the problem shape
+## Object → candidate patterns
 
-### Array / String
-
-| Signal | First candidates |
+| Shape | Start with |
 |---|---|
-| Contiguous subarray / substring | [[01_Array/03 - Sliding Window|Sliding Window]], [[01_Array/01 - Prefix Sum|Prefix Sum]] |
-| Sorted input / pair or triplet | [[01_Array/02 - Two Pointers|Two Pointers]] |
-| Repeated range-sum queries | [[01_Array/01 - Prefix Sum|Prefix Sum]] |
-| Frequency / anagram / counting | [[01_Array/04 - Frequency Counting|Frequency Counting]] |
-| Search in ordered space | [[04_Intervals_Search/02 - Modified Binary Search|Modified Binary Search]] |
-| Values are 1..n or nearly positional | [[09_Advanced/01 - Cyclic Sort|Cyclic Sort]] |
-| Maximum subarray sum | [[09_Advanced/02 - Kadane's Algorithm|Kadane's Algorithm]] |
+| Array / string | Prefix Sum, Two Pointers, Sliding Window, Frequency Counting, Binary Search |
+| Linked list | Fast/Slow, In-place Reversal |
+| Intervals | Overlapping Intervals |
+| Tree | Traversal, DFS, BFS |
+| Graph | BFS, DFS, Shortest Path, Union Find |
+| Matrix / grid | Matrix Traversal + BFS/DFS/DP |
+| Generate configurations | Backtracking |
+| Repeated subproblems | Dynamic Programming |
+| Provably safe local choice | Greedy |
+| Top/bottom K | Heap / Top K |
+| Prefix lookup | Trie |
+| XOR / masks / bit state | Bit Manipulation |
 
-### Linked List
+## Disambiguation questions
 
-| Signal | First candidate |
+### Arrays / strings
+
+- **Contiguous range?** Sliding Window or Prefix Sum.
+- **Sorted / sortable pair reasoning?** Two Pointers.
+- **Counts, anagrams, equivalence?** Frequency Counting.
+- **Repeated range aggregation?** Prefix Sum.
+- **Monotonic search space?** Binary Search.
+
+### Trees / graphs / grids
+
+- **Fewest unweighted steps?** BFS.
+- **Exhaustive traversal or path state?** DFS.
+- **Weighted shortest path?** Shortest Path algorithms.
+- **Dynamic connectivity?** Union Find.
+- **Prefix dictionary?** Trie.
+- **Grid connectivity?** Matrix + DFS/BFS.
+
+### Optimization / search
+
+- **Enumerate valid choices?** Backtracking.
+- **Repeated state?** DP.
+- **Local choice has a proof?** Greedy.
+- **K best?** Heap / Top K.
+- **Feasibility is monotonic?** Binary Search on Answer.
+
+## Complexity filter
+
+Use constraints to reject approaches before coding.
+
+- n around 10^5 usually rules out O(n²).
+- n around 10^3 can make O(n²) reasonable.
+- Exponential solutions need small inputs and/or strong pruning.
+
+## Pattern combinations
+
+| Combination | Typical use |
 |---|---|
-| Cycle / middle / relative speed | [[02_LinkedList/01 - Fast and Slow Pointers|Fast & Slow Pointers]] |
-| Reverse links in-place | [[02_LinkedList/02 - LinkedList In-place Reversal|In-place Reversal]] |
+| Sliding Window + HashMap | constrained substring |
+| Prefix Sum + HashMap | target-sum subarrays |
+| Binary Search + Greedy | feasible answer optimization |
+| BFS + HashSet | shortest unweighted path |
+| DFS + Memoization | repeated state |
+| Heap + HashMap | frequency + Top K |
+| Matrix + BFS | shortest grid path |
+| Backtracking + pruning | constrained enumeration |
 
-### Stack / Heap
+## Pre-code checklist
 
-| Signal | First candidate |
-|---|---|
-| Next greater/smaller element | [[03_Stack_Heap/01 - Monotonic Stack|Monotonic Stack]] |
-| Top K / kth largest / closest K | [[03_Stack_Heap/02 - Top K Elements|Top K Elements]] |
-| Nested delimiters / expression parsing | Stack |
-| Need minimum/maximum repeatedly | Heap or monotonic structure |
+- [ ] State the brute force.
+- [ ] State the constraint that breaks it.
+- [ ] Name the state you maintain.
+- [ ] State the invariant.
+- [ ] Explain why discarded candidates cannot matter.
+- [ ] List edge cases.
+- [ ] State time and space complexity.
 
-### Intervals / Search
-
-| Signal | First candidate |
-|---|---|
-| Ranges overlap / merge | [[04_Intervals_Search/01 - Overlapping Intervals|Overlapping Intervals]] |
-| Sorted/monotonic search space | [[04_Intervals_Search/02 - Modified Binary Search|Modified Binary Search]] |
-
-### Trees / Graphs
-
-| Signal | First candidate |
-|---|---|
-| Visit every node / structural property | [[05_Trees_Graphs/01 - Binary Tree Traversal|Tree Traversal]], [[05_Trees_Graphs/02 - DFS|DFS]] |
-| Minimum levels / unweighted shortest path | [[05_Trees_Graphs/03 - BFS|BFS]] |
-| Weighted shortest path | [[05_Trees_Graphs/04 - Shortest Path|Shortest Path]] |
-| Prefix/string dictionary | [[05_Trees_Graphs/05 - Trie|Trie]] |
-| Connectivity / components / redundant edge | [[05_Trees_Graphs/06 - Union Find|Union Find]] |
-
-### Matrix
-
-| Signal | First candidate |
-|---|---|
-| Grid movement / islands / connected regions | [[06_Matrix/01 - Matrix Traversal|Matrix Traversal]] |
-| Grid shortest path | Matrix + BFS |
-| Grid state optimization | Matrix + DP |
-
-### Backtracking / DP / Greedy
-
-| Signal | First candidate |
-|---|---|
-| Generate all valid combinations/permutations | [[07_Backtracking_DP/01 - Backtracking|Backtracking]] |
-| Same subproblem appears repeatedly | [[07_Backtracking_DP/02 - Dynamic Programming|Dynamic Programming]] |
-| Local choice may lead to global optimum | [[07_Backtracking_DP/03 - Greedy|Greedy]] |
-| XOR / masks / bit counts | [[08_Bit_Manipulation/01 - Bit Manipulation|Bit Manipulation]] |
-
-## 2. The critical questions
-
-Before selecting a pattern, ask:
-
-1. **What is the input structure?** Array, string, linked list, tree, graph, grid?
-2. **Is the data ordered or monotonic?**
-3. **Is the requested region contiguous?**
-4. **Do I need all solutions, one solution, an optimum, or a count?**
-5. **Is the input mutable?**
-6. **Can I maintain an invariant while scanning?**
-7. **Does the same state/subproblem repeat?**
-8. **Is the answer determined by local choices or global state?**
-9. **What constraint rules out the obvious brute force?**
-10. **What must remain true after every iteration?**
-
-## 3. Pattern vs data structure
-
-Do not confuse these.
-
-- **Pattern** = the reasoning strategy.
-- **Data structure** = the mechanism used to implement it.
-
-Examples:
-
-- Sliding Window + HashMap
-- BFS + Queue
-- Top K + PriorityQueue
-- Prefix Sum + HashMap
-- DFS + recursion/explicit stack
-- Shortest Path + PriorityQueue
-
-## 4. Pattern composition
-
-Harder problems frequently combine patterns.
-
-| Primary | Secondary | Typical use |
-|---|---|---|
-| Sliding Window | HashMap | constrained substring |
-| Prefix Sum | HashMap | subarray count |
-| Binary Search | Greedy | search the answer |
-| BFS | HashSet | shortest unweighted path |
-| DFS | Memoization | graph/tree DP |
-| Backtracking | Pruning | constrained enumeration |
-| Heap | HashMap | frequency + Top K |
-| Matrix Traversal | BFS | grid shortest path |
-
-## 5. Recognition rule
-
-> **Do not ask “Which LeetCode problem is this?”**
->
-> Ask **“What invariant would let me avoid recomputing work?”**
-
-That question is the core of pattern recognition.
+> **Recognition rule:** ask “What information can I maintain so I never recompute the same work?”

@@ -1,109 +1,50 @@
 ---
-type: note
+title: "Frequency Counting"
+type: pattern
+pattern: 4
+domain: "Array / String"
+category: "Coding Patterns/01_Array"
+advanced: false
 mastery: learn
 recognition_score: 0
-title: Frequency Counting
-pattern: 4
-category: Coding Patterns/01_Array
+difficulty: "Easy"
+leetcode: [242, 49, 347]
+created: "2026-09-02"
+reviewed:
+next_review: "2026-10-07"
 tags:
-- pattern/array
-- pattern/hashmap
-- pattern/array/frequency-counting
-leetcode:
-- 242
-- 49
-created: '2026-09-02'
-completed: false
-reviewed: ''
-sr-due: ''
-difficulty: Easy
-source: https://blog.algomaster.io/p/20-dsa-patterns
-excalidraw: ''
+  - pattern
+  - pattern/array-string
 ---
 
 # Frequency Counting
 
-> Part of [[README|Coding Patterns]] • `Coding Patterns/01_Array` • Pattern #4
+> Pattern #4 · Array / String
 
-## Intent
-Count occurrences of each value in O(n) time using a HashMap (or array for bounded alphabet), then answer questions from the counts — the fundamental space-for-time tradeoff that turns O(n²) pairwise comparisons into O(n) table lookups.
+## Recognition
 
-## Why it Matters
-- Core pattern for anagram, duplicate, grouping, and top-k frequency problems.
-- Bounded alphabet (a-z, ASCII) → `int[26]` or `int[128]` is faster than HashMap (no hashing, cache-friendly).
-- Senior signal: recognizing when a problem *reduces to counting* — "are these anagrams?" → count both, compare; "group anagrams" → count per word, use sorted string or frequency array as map key.
+- Counts, duplicates, anagrams, grouping, equivalence
+- Need O(1)-average membership or frequency lookup
+- A canonical key can represent a group
 
-## Diagram
-```mermaid
-flowchart LR
-  A["input s='anagram'"] --> B["freq[a3 n1 g1 r1 m1]"]
-  B --> C["decrement with t='nagaram'"]
-  C --> D{"all freq == 0?"}
-  D -->|yes| E["anagram"]
-  D -->|any < 0| F["not anagram"]
-```
+### Strong signals
+- Counts, duplicates, anagrams, grouping, equivalence
+- Need O(1)-average membership or frequency lookup
 
+### Do not infer it from
+- A keyword alone
+- A familiar LeetCode example without checking the constraints
 
-## Problems
+## Invariant
 
-### 242. Valid Anagram (Easy)
-> [LeetCode 242](https://leetcode.com/problems/valid-anagram/) • Tags: Hash Table, String, Sorting
+> The frequency structure exactly represents the relevant prefix or current window of input.
 
-**Problem Statement:**
+## Mental model
 
-Given two strings s and t, return true if t is an anagram of s, and false otherwise. Example 1: Input: s = "anagram", t = "nagaram" Output: true Example 2: Input: s = "rat", t = "car" Output: false Constraints: 1 4 s and t consist of lowercase English letters. Follow up: What if the inputs contain Unicode characters? How would you adapt your solution to such a case?
+Convert repeated comparison into constant-time average lookup by maintaining counts or a canonical representation. The important decision is what the key must encode.
 
-**Examples:**
+## Core implementation
 
-Example 1:
-```
-"anagram"
-```
-
-Example 2:
-```
-"nagaram"
-```
-
-Example 3:
-```
-"rat"
-```
-
-Example 4:
-```
-"car"
-```
----
-
-### 49. Group Anagrams (Medium)
-> [LeetCode 49](https://leetcode.com/problems/group-anagrams/) • Tags: Array, Hash Table, String, Sorting
-
-**Problem Statement:**
-
-Given an array of strings strs, group the anagrams together. You can return the answer in any order. Example 1: Input: strs = ["eat","tea","tan","ate","nat","bat"] Output: [["bat"],["nat","tan"],["ate","eat","tea"]] Explanation: There is no string in strs that can be rearranged to form "bat". The strings "nat" and "tan" are anagrams as they can be rearranged to form each other. The strings "ate", "eat", and "tea" are anagrams as they can be rearranged to form each other. Example 2: Input: strs = [""] Output: [[""]] Example 3: Input: strs = ["a"] Output: [["a"]] Constraints: 1 4 0 strs[i] consists of lowercase English letters.
-
-**Examples:**
-
-Example 1:
-```
-["eat","tea","tan","ate","nat","bat"]
-```
-
-Example 2:
-```
-[""]
-```
-
-Example 3:
-```
-["a"]
-```
----
-
-
-
-## Code / Example
 ```java
 // General case with HashMap
 var freq = new java.util.HashMap<Integer, Integer>();
@@ -145,17 +86,23 @@ int[] topKFrequent(int[] nums, int k) {
 }
 ```
 
-## When to Use / When NOT
-- **Use:** anagram, duplicate detection, grouping by frequency, "how many appear k times", top-k frequent.
-- **NOT:** only order matters (use sort); range sum queries (use prefix sum); streaming with bounded memory (use Count-Min Sketch / reservoir sampling).
+## Variants
 
-## Trade-offs
+Use the implementation above as the base case. Extend it only after the invariant remains explicit.
+
+## When to use
+- anagram, duplicate detection, grouping by frequency, "how many appear k times", top-k frequent.
+
+## When NOT to use
+- only order matters (use sort); range sum queries (use prefix sum); streaming with bounded memory (use Count-Min Sketch / reservoir sampling).
+
+## Complexity & trade-offs
+
 | Case | Time | Space |
 |------|------|-------|
 | HashMap (general) | O(n) | O(n) distinct values |
 | Fixed alphabet (26/128) | O(n) | O(1) — array is constant size |
 
-## Vs Table
 | Aspect | Frequency Map | Sorting | Prefix Sum |
 |--------|---------------|---------|------------|
 | Anagram / duplicate | O(n) | O(n log n) | N/A |
@@ -164,12 +111,23 @@ int[] topKFrequent(int[] nums, int k) {
 | Pick when | counts matter, values are the question | only order matters | range sums |
 
 ## Pitfalls
+
 - Use `getOrDefault(key, 0)` to avoid NPE on missing keys.
 - For anagram, decrement and check `< 0` immediately — early exit, no second pass needed.
 - Group anagrams: key can be sorted string (`Arrays.sort(chars)`) or frequency array (`Arrays.toString(freq)`). Frequency array is O(L) vs O(L log L) for sort.
 - For top-k frequent, bucket sort O(n) is possible when max frequency ≤ n (array of lists indexed by frequency).
 
-## Interview Q&A (Senior Depth)
+## Canonical problems
+
+| LeetCode | Problem | Difficulty |
+|---:|---|---|
+| 242 | Valid Anagram | Easy |
+| 49 | Group Anagrams | Medium |
+| 347 | Top K Frequent Elements | Medium |
+
+## Interview Q&A
+
+(Senior Depth)
 
 **Q: Valid Anagram — why `int[26]` over HashMap? What's the actual performance difference?**
 **A:** `int[26]` avoids hashing overhead, has better cache locality, no object allocation per entry. For short strings the difference is negligible; for millions of short strings (e.g., dictionary processing), array is measurably faster. HashMap is the general case — use it when alphabet is large or unknown (Unicode). Both O(n) time, but constant factors differ.
@@ -183,8 +141,7 @@ int[] topKFrequent(int[] nums, int k) {
 **Q: Frequency counting with negative numbers or large range — what changes?**
 **A:** `int[]` array no longer works (negative index, huge range). Must use HashMap. Time stays O(n), space becomes O(distinct values). No asymptotic change, just constant factors.
 
-
-## Flashcards (Spaced Repetition)
+## Flashcards
 
 #flashcard
 **Q:** What is the trigger keyword for Frequency Counting? :: **A:** anagrams, character counts, frequency of elements, top K frequent, find duplicate #flashcard
@@ -198,24 +155,18 @@ int[] topKFrequent(int[] nums, int k) {
 #flashcard
 **Q:** Core Java 25 snippet for Frequency Counting? :: **A:** `int[] cnt = new int[26]; for(char c:s.toCharArray()) cnt[c-'a']++; // or Map<Integer,Integer> for general` #flashcard
 
+## Review tasks
 
-## Practice Tasks (Tasks Plugin)
-- [ ] Restate the intent from memory 📅 {date:YYYY-MM-DD, +1}
-- [ ] Code the snippet without looking 📅 {date:YYYY-MM-DD, +3}
-- [ ] Answer all Interview Q&A aloud 📅 {date:YYYY-MM-DD, +7}
-- [ ] Review flashcards (Spaced Repetition) 📅 {date:YYYY-MM-DD, +1}
+- [ ] Explain recognition signals from memory
+- [ ] Write the core template from memory
+- [ ] Solve one unseen problem without hints
+- [ ] Explain the invariant aloud
+- [ ] Update mastery and next_review after review
 
-```tasks
-not done
-path includes {file.folder}
-sort by due
-limit 10
-```
 
 ## Related
+
 - [[01_Array/01 - Prefix Sum|Prefix Sum]] (hashmap on prefix sums for subarray sum = k)
 - [[01_Array/03 - Sliding Window|Sliding Window]] (frequency map inside variable window)
 - [[03_Stack_Heap/02 - Top K Elements|Top K Elements]] (frequency + heap)
 - [[Java/07_DSA/Array]] · [[Java/07_DSA/HashMap]]
----
-*Category: Coding Patterns/01_Array*

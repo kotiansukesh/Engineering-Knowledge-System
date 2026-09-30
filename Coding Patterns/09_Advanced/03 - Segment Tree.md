@@ -1,106 +1,49 @@
 ---
-title: Segment Tree
+title: "Segment Tree"
+type: pattern
 pattern: 24
-category: Coding Patterns/09_Advanced
+domain: "Advanced Data Structure"
+category: "Coding Patterns/09_Advanced"
+advanced: true
+mastery: learn
+recognition_score: 0
+difficulty: "Hard"
+leetcode: [307, 308, 218, 303]
+created: "2026-09-29"
+reviewed:
+next_review: "2026-10-07"
 tags:
-- pattern/tree
-- pattern/tree/segment-tree
-- pattern/array/range-query
-leetcode:
-- 307
-- 308
-- 218
-- 303
-created: '2026-09-29'
-completed: false
-reviewed: ''
-sr-due: ''
-difficulty: Hard
-source: https://blog.algomaster.io/p/20-dsa-patterns
-excalidraw: ''
+  - pattern
+  - advanced-data-structure
 ---
 
 # Segment Tree
 
-> Part of [[README|20 DSA Patterns]] • `Coding Patterns/09_Advanced` • Pattern #24 (Optional)
-> **Trigger:** "Range query + point update" / "Mutable array range sum/min/max" — O(log n) per operation.
+> Advanced pattern · Advanced Data Structure
 
-## Intent
+## Recognition
 
-A binary tree over an array where each node stores the aggregate (sum, min, max, gcd, etc.) of a segment. Supports range queries and point updates in O(log n). The array-based representation uses `tree[4*n]` with 1-indexed nodes: left child `2*i`, right child `2*i+1`.
+- Range queries plus updates
+- Need logarithmic query and update time
+- Operation can be combined from child segments
 
-## Why it Matters
+### Strong signals
+- Range queries plus updates
+- Need logarithmic query and update time
 
-- **Range query + point update** is the classic use case. Prefix sum = O(1) query but O(n) update. Segment tree = O(log n) both.
-- **Associative operation required:** sum, min, max, gcd, product, bitwise OR/AND — any operation where `(a op b) op c = a op (b op c)`.
-- **Lazy propagation** extends to range updates (add/set on range) + range queries.
-- **Fenwick Tree (BIT)** is simpler for prefix sums; segment tree is more general (min/max, non-invertible ops).
-- Senior signal: knowing the array layout (`tree[4*n]`), recursive build/query/update, and when to choose segment tree vs BIT vs Sparse Table.
+### Do not infer it from
+- A keyword alone
+- A familiar example without checking constraints
 
-## Diagram
+## Invariant
 
-```mermaid
-flowchart TD
-  A["tree[1]: sum[0..7]"] --> B["tree[2]: sum[0..3]"]
-  A --> C["tree[3]: sum[4..7]"]
-  B --> D["tree[4]: sum[0..1]"]
-  B --> E["tree[5]: sum[2..3]"]
-  C --> F["tree[6]: sum[4..5]"]
-  C --> G["tree[7]: sum[6..7]"]
-  D --> H["tree[8]: a[0]"]
-  D --> I["tree[9]: a[1]"]
-  E --> J["tree[10]: a[2]"]
-  E --> K["tree[11]: a[3]"]
-  F --> L["tree[12]: a[4]"]
-  F --> M["tree[13]: a[5]"]
-  G --> N["tree[14]: a[6]"]
-  G --> O["tree[15]: a[7]"]
-```
+> Every tree node stores the aggregate for exactly its represented range; parent state is the combination of its children.
 
-## Problems
+## Mental model
 
-### 307. Range Sum Query - Mutable (Medium)
-> [LeetCode 307](https://leetcode.com/problems/range-sum-query-mutable/) • Tags: Array, Design, Segment Tree
+Maintain the smallest state that completely describes the part of the search space still relevant to the answer.
 
-**Problem Statement:**
-Given an integer array nums, handle multiple queries of the following types:
-1. Update the value of an element in nums.
-2. Calculate the sum of the elements of nums between indices left and right inclusive.
-
-Implement the NumArray class:
-- `NumArray(int[] nums)` Initializes the object with the integer array nums.
-- `void update(int index, int val)` Updates the value of nums[index] to be val.
-- `int sumRange(int left, int right)` Returns the sum of the elements of nums between indices left and right inclusive.
-
-**Examples:**
-- Input: ["NumArray","sumRange","update","sumRange"], [[[1,3,5]],[0,2],[1,2],[0,2]]
-- Output: [null,9,null,8]
----
-
-### 308. Range Sum Query 2D - Mutable (Hard)
-> [LeetCode 308](https://leetcode.com/problems/range-sum-query-2d-mutable/) • Tags: Array, Design, Matrix, Binary Indexed Tree, Segment Tree
-
-**Problem Statement:**
-Given a 2D matrix matrix, handle multiple queries of the following types:
-1. Update the value of a cell in matrix.
-2. Calculate the sum of the elements of matrix inside the rectangle defined by its upper left corner (row1, col1) and lower right corner (row2, col2).
----
-
-### 218. The Skyline Problem (Hard)
-> [LeetCode 218](https://leetcode.com/problems/the-skyline-problem/) • Tags: Array, Divide and Conquer, Binary Indexed Tree, Segment Tree, Line Sweep, Heap (Priority Queue), Ordered Set
-
-**Problem Statement:**
-A city's skyline is the outer contour of the silhouette formed by all the buildings in that city when viewed from a distance. Given the locations and heights of all the buildings, return the skyline formed by these buildings collectively.
----
-
-### 303. Range Sum Query - Immutable (Easy)
-> [LeetCode 303](https://leetcode.com/problems/range-sum-query-immutable/) • Tags: Array, Design, Prefix Sum
-
-**Problem Statement:**
-Given an integer array nums, handle multiple queries of the following type: Calculate the sum of the elements of nums between indices left and right inclusive where left <= right. (Immutable → use Prefix Sum instead)
----
-
-## Code / Example
+## Core implementation
 
 ```java
 // Segment Tree for Range Sum + Point Update — LC 307
@@ -206,12 +149,17 @@ var gcdTree = new SegTree(nums, (a, b) -> {
 }, 0);
 ```
 
-## When to Use / When NOT
+## Variants
 
-- **Use:** range query + point update interleaved; range min/max/gcd; non-invertible operations; 2D segment tree (matrix).
-- **NOT:** static array (use Prefix Sum / Sparse Table); prefix sum only (use Fenwick/BIT — simpler); only count queries (use BIT).
+Start with the core implementation. Introduce a variant only when the required state or proof changes.
 
-## Trade-offs
+## When to use
+- range query + point update interleaved; range min/max/gcd; non-invertible operations; 2D segment tree (matrix).
+
+## When NOT to use
+- static array (use Prefix Sum / Sparse Table); prefix sum only (use Fenwick/BIT — simpler); only count queries (use BIT).
+
+## Complexity & trade-offs
 
 | Structure | Query | Update | Operations | Space |
 |-----------|-------|--------|------------|-------|
@@ -219,8 +167,6 @@ var gcdTree = new SegTree(nums, (a, b) -> {
 | Fenwick (BIT) | O(log n) | O(log n) | Invertible only (sum, xor) | O(n) |
 | Prefix Sum | O(1) | O(n) | Sum only | O(n) |
 | Sparse Table | O(1) | N/A (static) | Idempotent (min/max/gcd) | O(n log n) |
-
-## Vs Table
 
 | Aspect | Segment Tree | Fenwick Tree | Sparse Table | Prefix Sum |
 |--------|--------------|--------------|--------------|------------|
@@ -239,7 +185,18 @@ var gcdTree = new SegTree(nums, (a, b) -> {
 - **Overlap logic:** three cases — no overlap (return identity), full overlap (return node), partial overlap (recurse both).
 - **Lazy propagation** for range updates: store pending update in `lazy[node]`, push down before recursing. Required for "add v to range [l,r]" + range query.
 
-## Interview Q&A (Senior Depth)
+## Canonical problems
+
+| LeetCode | Problem | Difficulty |
+|---:|---|---|
+| 307 | Medium |
+| 308 | Hard |
+| 218 | Hard |
+| 303 | Easy |
+
+## Interview Q&A
+
+(Senior Depth)
 
 **Q: Why `4*n` size for the tree array?**
 A: A segment tree is a full binary tree. For n leaves, the next power of 2 is `2^ceil(log2(n))`. Total nodes = `2 * 2^ceil(log2(n)) - 1`. Worst case when n = 2^k + 1, `ceil(log2(n)) = k+1`, so `2 * 2^(k+1) - 1 = 4 * 2^k - 1 < 4 * n`. `4*n` is a safe, simple upper bound.
@@ -256,8 +213,7 @@ A: Sparse Table: O(1) query, O(n log n) build, **static only** (no updates). Seg
 **Q: 2D Segment Tree vs 2D BIT?**
 A: 2D BIT: `O(log^2 n)` for prefix sum + point update. Simpler. 2D Segment Tree: `O(log^2 n)` for range query + point update. Can handle range min/max. 2D Segment Tree with lazy is complex — often 1D segment tree of 1D segment trees (tree of trees). For LeetCode 308, 2D BIT is preferred for simplicity.
 
-
-## Flashcards (Spaced Repetition)
+## Flashcards
 
 #flashcard
 **Q:** What is the trigger keyword for Segment Tree? :: **A:** range query + point update, range min/max/sum, range assignment, lazy propagation #flashcard
@@ -271,24 +227,17 @@ A: 2D BIT: `O(log^2 n)` for prefix sum + point update. Simpler. 2D Segment Tree:
 #flashcard
 **Q:** Core Java 25 snippet for Segment Tree? :: **A:** `class SegTree{ int n; long[] t; SegTree(int[] a){ n=a.length; t=new long[4*n]; build(1,0,n-1,a); } void build(int v,int tl,int tr,int[] a){ if(tl==tr) t[v]=a[tl]; else{ int tm=(tl+tr)/2; build(v*2,tl,tm,a); build(v*2+1,tm+1,tr,a); t[v]=t[v*2]+t[v*2+1]; } } }` #flashcard
 
+## Review tasks
 
-## Practice Tasks (Tasks Plugin)
-- [ ] Restate the intent from memory 📅 {date:YYYY-MM-DD, +1}
-- [ ] Code the snippet without looking 📅 {date:YYYY-MM-DD, +3}
-- [ ] Answer all Interview Q&A aloud 📅 {date:YYYY-MM-DD, +7}
-- [ ] Review flashcards (Spaced Repetition) 📅 {date:YYYY-MM-DD, +1}
+- [ ] Explain recognition signals from memory
+- [ ] Write the core template from memory
+- [ ] Solve one unseen problem without hints
+- [ ] Explain the invariant aloud
+- [ ] Update mastery and next_review after review
 
-```tasks
-not done
-path includes {file.folder}
-sort by due
-limit 10
-```
 
 ## Related
+
 - [[01_Array/01 - Prefix Sum|Prefix Sum]] (static range sum)
 - [[09_Advanced/02 - Kadane's Algorithm|Kadane's Algorithm]] (max subarray = segment tree with custom node)
 - [[Java/07_DSA/Tree]] (tree structure)
----
-
-*Category: Coding Patterns/09_Advanced • Optional Pattern #24*

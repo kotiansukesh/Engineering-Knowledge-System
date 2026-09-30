@@ -1,86 +1,44 @@
 ---
-title: "99 Revision README"
-category: "Coding Patterns/99_Revision"
-tags: [MOC, folder]
-created: "2026-09-27"
-completed: false
-reviewed: ""
-sr-due: ""
+title: Coding Patterns Revision
+type: moc
+category: Coding Patterns/99_Revision
+tags:
+  - moc
+  - revision
 ---
 
-# 99 Revision
+# Revision
 
-> Part of [[README|Coding Patterns MOC]] • `Coding Patterns/99_Revision`
+This folder contains the **operational layer** for coding-pattern mastery.
 
-## Progress Overview
+## Dashboards
 
-```dataviewjs
-const category = dv.current().category;
-const pages = dv.pages(`"${category}"`).where(p => p.category != null && p.file.name != "README");
-const total = pages.length;
-const done = pages.where(p => p.completed === true).length;
-const pct = total ? Math.round(done/total*100) : 0;
-const bar = (p, w=20) => "█".repeat(Math.round(p/100*w)) + "░".repeat(w-Math.round(p/100*w));
-dv.paragraph(`**Total: ${total} notes | Completed: ${done} | Remaining: ${total-done}** — \`${pct}%\``);
-dv.paragraph(`\`${bar(pct)}\` **${pct}%**`);
-if (total === done && total > 0) dv.paragraph(`🎉 *All notes completed!*`);
-```
+- [[Practice Dashboard]]
+- [[Study-Plan]]
 
-> **Fallback (if DataviewJS disabled):**
-```dataview
+## Workflow
+
+**Due pattern → Recognition drill → Blind problem → Mistake log → Update mastery → Schedule review**
+
+## Live pattern queue
+
+~~~dataview
 TABLE WITHOUT ID
- length(rows) as "Total",
- length(filter(rows, (r) => r.completed)) as "Completed",
- length(filter(rows, (r) => !r.completed)) as "Remaining"
-FROM "Coding Patterns/99_Revision"
-WHERE category AND file.name != "README"
-GROUP BY true
-```
+  file.link as "Pattern",
+  mastery as "Mastery",
+  recognition_score as "Recognition",
+  next_review as "Next review"
+FROM "Coding Patterns"
+WHERE type = "pattern"
+SORT date(next_review) ASC
+~~~
 
-## Notes Index
+## Review tasks
 
-```dataview
-TABLE WITHOUT ID
- file.link as "Note",
- category as "Category",
- choice(completed, "✅", "⬜") as "Done",
- difficulty as "Difficulty",
- reviewed as "Last Reviewed",
- "sr-due" as "SR Due"
-FROM "Coding Patterns/99_Revision"
-WHERE category AND file.name != "README"
-SORT file.name ASC
-```
-
-## Spaced Repetition Status
-
-```dataview
-TABLE WITHOUT ID
- file.link as "Note",
- reviewed as "Last Reviewed",
- "sr-due" as "Due",
- choice(!reviewed, "🔴 Never", choice(date(now)-reviewed > dur(7 days), "🟡 Stale", "🟢 Fresh")) as "Status"
-FROM "Coding Patterns/99_Revision"
-WHERE category AND file.name != "README" AND (reviewed OR "sr-due")
-SORT "sr-due" ASC
-```
-
-## Practice Tasks (from Notes)
-
-```tasks
+~~~tasks
 not done
-path includes Coding Patterns/99_Revision
+path includes Coding Patterns
 sort by due
 group by filename
-limit 20
-```
-
-> ⚠️ **Template Note:** The `Coding Patterns/99_Revision` placeholder above is replaced by the generate script (`python3 generate_folder_readmes.py`). The template file itself will show a Tasks error — this is expected. Generated README files have the actual folder path and work correctly.
-
-## Quick Links
-
-- [[README|← Back to Coding Patterns MOC]]
-- [[Master Dashboard|📊 Master Dashboard]]
----
-
-*Folder: Coding Patterns/99_Revision • Part of [[README|Coding Patterns MOC]]*
+limit 30
+~~~

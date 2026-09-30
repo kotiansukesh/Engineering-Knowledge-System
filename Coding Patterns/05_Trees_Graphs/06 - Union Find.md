@@ -1,125 +1,50 @@
 ---
-type: note
+title: "Union Find"
+type: pattern
+pattern: 16
+domain: "Graph"
+category: "Coding Patterns/05_Trees_Graphs"
+advanced: false
 mastery: learn
 recognition_score: 0
-title: Union Find
-pattern: 16
-category: Coding Patterns/05_Trees_Graphs
+difficulty: "Medium"
+leetcode: [200, 684, 959]
+created: "2026-09-04"
+reviewed:
+next_review: "2026-10-07"
 tags:
-- pattern/graph
-- pattern/tree/union-find
-- pattern/tree/disjoint-set
-leetcode:
-- 200
-- 684
-- 959
-created: '2026-09-04'
-completed: false
-reviewed: ''
-sr-due: ''
-difficulty: Medium
-source: https://algomaster.io/learn/dsa/
-excalidraw: ''
+  - pattern
+  - graph
 ---
 
 # Union Find
 
-> Part of [[README|Coding Patterns]] • `Coding Patterns/05_Trees_Graphs` • Pattern #16 (beyond original 20)
+> Pattern #16 · Graph
 
-## Intent
-Dynamic connectivity for undirected graphs — are `a` and `b` in the same component? Two optimizations (path compression + union by rank/size) make operations ~O(α(n)) ≈ O(1). The course-named pattern the 20-pattern list omits.
+## Recognition
 
-## Why it Matters
-- **Path compression:** `find(x)` flattens the tree by pointing each visited node directly at the root.
-- **Union by rank/size:** attaches smaller tree under larger root, keeping depth logarithmic.
-- **Both together** are required — either alone leaves a path that can degrade toward O(n) per find.
-- **Components counter:** maintain `components` variable, decrement on successful union. O(1) component count.
-- Senior signal: implementing the *pair* together, and knowing that without both, worst case is a linked-list tree with O(n) find.
+- Connectivity or components
+- Repeated union/connectivity queries
+- Redundant edge or dynamic grouping
 
-## Diagram
-```mermaid
-flowchart LR
-  U["union(a,b)"] --> FA["find(a)"]
-  U --> FB["find(b)"]
-  FA --> S{"same root?"}
-  FB --> S
-  S -->|yes| C["cycle, do nothing"]
-  S -->|no| M["attach smaller rank<br/>under larger"]
-  M --> Dec["components--"]
-  Dec --> F["find now flattens<br/>via path compression"]
-  F --> U
-```
+### Strong signals
+- Connectivity or components
+- Repeated union/connectivity queries
 
+### Do not infer it from
+- A keyword alone
+- A familiar example without checking constraints
 
-## Problems
+## Invariant
 
-### 200. Number of Islands (Medium)
-> [LeetCode 200](https://leetcode.com/problems/number-of-islands/) • Tags: Array, Depth-First Search, Breadth-First Search, Union-Find, Matrix
+> Each set is represented by a root; path compression and union by rank/size preserve representative correctness while reducing future lookup cost.
 
-**Problem Statement:**
+## Mental model
 
-Given an m x n 2D binary grid grid which represents a map of '1's (land) and '0's (water), return the number of islands. An island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically. You may assume all four edges of the grid are all surrounded by water. Example 1: Input: grid = [ ["1","1","1","1","0"], ["1","1","0","1","0"], ["1","1","0","0","0"], ["0","0","0","0","0"] ] Output: 1 Example 2: Input: grid = [ ["1","1","0","0","0"], ["1","1","0","0","0"], ["0","0","1","0","0"], ["0","0","0","1","1"] ] Output: 3 Constraints: m == grid.length n == grid[i].length 1 grid[i][j] is '0' or '1'.
+Maintain the smallest state that completely describes the part of the search space still relevant to the answer.
 
-**Examples:**
+## Core implementation
 
-Example 1:
-```
-[["1","1","1","1","0"],["1","1","0","1","0"],["1","1","0","0","0"],["0","0","0","0","0"]]
-```
-
-Example 2:
-```
-[["1","1","0","0","0"],["1","1","0","0","0"],["0","0","1","0","0"],["0","0","0","1","1"]]
-```
----
-
-### 684. Redundant Connection (Medium)
-> [LeetCode 684](https://leetcode.com/problems/redundant-connection/) • Tags: Depth-First Search, Breadth-First Search, Union-Find, Graph Theory
-
-**Problem Statement:**
-
-In this problem, a tree is an undirected graph that is connected and has no cycles. You are given a graph that started as a tree with n nodes labeled from 1 to n, with one additional edge added. The added edge has two different vertices chosen from 1 to n, and was not an edge that already existed. The graph is represented as an array edges of length n where edges[i] = [ai, bi] indicates that there is an edge between nodes ai and bi in the graph. Return an edge that can be removed so that the resulting graph is a tree of n nodes. If there are multiple answers, return the answer that occurs last in the input. Example 1: Input: edges = [[1,2],[1,3],[2,3]] Output: [2,3] Example 2: Input: edges = [[1,2],[2,3],[3,4],[1,4],[1,5]] Output: [1,4] Constraints: n == edges.length 3 edges[i].length == 2 1 i i ai != bi There are no repeated edges. The given graph is connected.
-
-**Examples:**
-
-Example 1:
-```
-[[1,2],[1,3],[2,3]]
-```
-
-Example 2:
-```
-[[1,2],[2,3],[3,4],[1,4],[1,5]]
-```
----
-
-### 959. Regions Cut By Slashes (Medium)
-> [LeetCode 959](https://leetcode.com/problems/regions-cut-by-slashes/) • Tags: Array, Hash Table, Depth-First Search, Breadth-First Search, Union-Find, Matrix, Planar Graph
-
-**Problem Statement:**
-
-An n x n grid is composed of 1 x 1 squares where each 1 x 1 square consists of a '/', '\', or blank space ' '. These characters divide the square into contiguous regions. Given the grid grid represented as a string array, return the number of regions. Note that backslash characters are escaped, so a '\' is represented as '\\'. Example 1: Input: grid = [" /","/ "] Output: 2 Example 2: Input: grid = [" /"," "] Output: 1 Example 3: Input: grid = ["/\\","\\/"] Output: 5 Explanation: Recall that because \ characters are escaped, "\\/" refers to \/, and "/\\" refers to /\. Constraints: n == grid.length == grid[i].length 1 grid[i][j] is either '/', '\', or ' '.
-
-**Examples:**
-
-Example 1:
-```
-[" /","/ "]
-```
-
-Example 2:
-```
-[" /","  "]
-```
-
-Example 3:
-```
-["/\\","\\/"]
-```
----
-
-
-## Code / Example
 ```java
 class DSU {
     int[] parent, rank;
@@ -201,17 +126,23 @@ java.util.List<java.util.List<String>> accountsMerge(java.util.List<java.util.Li
 }
 ```
 
-## When to Use / When NOT
-- **Use:** cycle detection in undirected graphs; connected components; redundant edge; account merging; "provinces", "groups", "merge" keywords.
-- **NOT:** directed graphs (use DFS coloring for cycle detection / topo sort); online queries on static graph (DFS/BFS once is simpler).
+## Variants
 
-## Trade-offs
+Start with the core implementation. Introduce a variant only when the required state or proof changes.
+
+## When to use
+- cycle detection in undirected graphs; connected components; redundant edge; account merging; "provinces", "groups", "merge" keywords.
+
+## When NOT to use
+- directed graphs (use DFS coloring for cycle detection / topo sort); online queries on static graph (DFS/BFS once is simpler).
+
+## Complexity & trade-offs
+
 | Operation | Time | Note |
 |-----------|------|------|
 | find / union | O(α(n)) ≈ O(1) | inverse Ackermann with both optimizations |
 | count components | O(1) | maintain counter, decrement on real union |
 
-## Vs Table
 | Aspect | Union Find | DFS/BFS for Components | DFS Coloring |
 |--------|------------|------------------------|--------------|
 | Graph type | undirected | undirected or directed | directed |
@@ -220,12 +151,23 @@ java.util.List<java.util.List<String>> accountsMerge(java.util.List<java.util.Li
 | Pick when | edges arrive over time, connectivity asked repeatedly | one-shot component count | directed cycle / topo sort |
 
 ## Pitfalls
+
 - **Forgetting path compression** turns it into a slow tree walk on long chains — always implement the pair together.
 - **1-indexed LeetCode inputs** vs 0-indexed arrays — size `n+1` and ignore index 0.
 - **Union Find is undirected-only**; directed cycle detection needs DFS coloring (white/gray/black) instead.
 - For "size" instead of "rank", track `size[root]` and attach smaller size under larger — same O(α(n)) guarantee.
 
-## Interview Q&A (Senior Depth)
+## Canonical problems
+
+| LeetCode | Problem | Difficulty |
+|---:|---|---|
+| 200 | Medium |
+| 684 | Medium |
+| 959 | Medium |
+
+## Interview Q&A
+
+(Senior Depth)
 
 **Q: Why are path compression AND union by rank both necessary? What happens with only one?**
 **A:** Path compression alone: find flattens paths, but union can create deep trees if you always attach larger to smaller. Union by rank alone: tree depth is O(log n), but find doesn't flatten, so repeated finds on deep nodes cost O(log n). Together: find flattens on the way up, union keeps depth minimal → O(α(n)) amortized.
@@ -242,8 +184,7 @@ java.util.List<java.util.List<String>> accountsMerge(java.util.List<java.util.Li
 **Q: Why can't Union Find detect cycles in directed graphs?**
 **A:** Union Find merges sets based on undirected connectivity. In a directed graph A→B→C→A, all three are in the same undirected component, but the *directed* cycle isn't detected by union operations. Directed cycle detection needs DFS with three colors (white/unvisited, gray/in-stack, black/done) — a back edge to a gray node = directed cycle.
 
-
-## Flashcards (Spaced Repetition)
+## Flashcards
 
 #flashcard
 **Q:** What is the trigger keyword for Union Find? :: **A:** connected components, dynamic connectivity, Kruskal MST, bipartite check, cycle detection in undirected graph #flashcard
@@ -257,23 +198,17 @@ java.util.List<java.util.List<String>> accountsMerge(java.util.List<java.util.Li
 #flashcard
 **Q:** Core Java 25 snippet for Union Find? :: **A:** `int[] p, r; int find(int x){ return p[x]==x?x:(p[x]=find(p[x])); } void union(int a,int b){ a=find(a); b=find(b); if(a!=b){ if(r[a]<r[b]) p[a]=b; else{ p[b]=a; if(r[a]==r[b]) r[a]++; } } }` #flashcard
 
+## Review tasks
 
-## Practice Tasks (Tasks Plugin)
-- [ ] Restate the intent from memory 📅 {date:YYYY-MM-DD, +1}
-- [ ] Code the snippet without looking 📅 {date:YYYY-MM-DD, +3}
-- [ ] Answer all Interview Q&A aloud 📅 {date:YYYY-MM-DD, +7}
-- [ ] Review flashcards (Spaced Repetition) 📅 {date:YYYY-MM-DD, +1}
+- [ ] Explain recognition signals from memory
+- [ ] Write the core template from memory
+- [ ] Solve one unseen problem without hints
+- [ ] Explain the invariant aloud
+- [ ] Update mastery and next_review after review
 
-```tasks
-not done
-path includes {file.folder}
-sort by due
-limit 10
-```
 
 ## Related
+
 - [[05_Trees_Graphs/02 - DFS|DFS]] (directed cycles)
 - [[05_Trees_Graphs/04 - Shortest Path|Shortest Path]] (weighted)
 - [[Java/07_DSA/Graph]]
----
-*Category: Coding Patterns/05_Trees_Graphs*

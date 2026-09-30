@@ -1,135 +1,130 @@
 ---
-title: "{{title}}"
-pattern: 1
-type: note
-category: "Coding Patterns/{{category}}"
-tags:
-  - "pattern/{{domain}}"
+title: "<% tp.file.title %>"
+type: pattern
+pattern: <% await tp.system.prompt('Pattern number') %>
+domain: "<% await tp.system.prompt('Domain') %>"
+category: "Coding Patterns/<% await tp.system.prompt('Folder') %>"
+advanced: false
+mastery: learn
+recognition_score: 0
+difficulty: Medium
 leetcode: []
-created: "{{date:YYYY-MM-DD}}"
-completed: false
-reviewed: ""
-sr-due: ""
-difficulty: "Medium"
-source: ""
+created: "<% tp.date.now('YYYY-MM-DD') %>"
+reviewed:
+next_review: "<% tp.date.now('YYYY-MM-DD', 7) %>"
+tags:
+  - pattern/<% await tp.system.prompt('Tag') %>
 ---
 
-# {{title}}
+# <% tp.file.title %>
 
-> Pattern #{{pattern}} • `{{category}}`
+> **Purpose:** one reusable reasoning technique, not a collection of copied solutions.
 
-## 1. Mental Model
-
-**One sentence:** What is this pattern fundamentally doing?
-
-## 2. Recognition Signals
+## Recognition
 
 ### Think of this pattern when
 - 
-- 
-- 
 
-### Typical wording
-- 
+### Strong signals
 - 
 
-### Structural clues
-- Input:
-- Output:
-- Constraint:
+### Do not infer it from
+- 
 
-## 3. Core Invariant
+## Invariant
 
-> What must remain true after every iteration / recursive call / state transition?
+> State exactly what remains true after each iteration, recursive call, or state transition.
 
-## 4. Generic Java Template
+## Mental model
 
-```java
-// Keep this minimal.
-// The template should expose the invariant, not hide it behind utilities.
-```
+Explain the pattern in 2–4 sentences without implementation details.
 
-## 5. Canonical Variants
+## Core template
 
-| Variant | When to use | Core change |
+~~~java
+// Minimal Java template.
+// Keep the invariant visible.
+~~~
+
+## Variants
+
+| Variant | Use when | What changes |
 |---|---|---|
 | | | |
-| | | |
 
-## 6. When NOT to Use
+## When to use
 
 - 
 - 
 - 
 
-## 7. Complexity
+## When NOT to use
 
-| | Typical |
+- 
+- 
+- 
+
+## Complexity
+
+| Metric | Cost |
 |---|---|
 | Time | |
 | Space | |
 
-**Why:** Explain the complexity in one or two sentences.
+## Canonical problems
 
-## 8. Canonical Problems
-
-| Problem | Difficulty | Variant | Recognition cue |
-|---|---|---|---|
-| | | | |
-| | | | |
+| LeetCode | Problem | Difficulty | Recognition cue |
+|---:|---|---|---|
 | | | | |
 
-## 9. Pattern Combinations
+## Pattern combinations
 
-- Primary + Secondary:
-- Why the combination works:
-- Example problem:
+| Primary | Secondary | Why they combine |
+|---|---|---|
+| | | |
 
-## 10. Common Mistakes
+## Edge cases
 
 - 
 - 
 - 
 
-## 11. Interview Q&A
+## Common mistakes
 
-**Q1. What is the core insight?**  
-**A:**
+- 
+- 
+- 
 
-**Q2. What invariant makes the solution correct?**  
-**A:**
+## Interview proof
 
-**Q3. What constraint would make this pattern inappropriate?**  
-**A:**
+**Why is the main state transition safe?**
 
-**Q4. What alternative would you use, and why?**  
-**A:**
+**What work does the invariant eliminate?**
 
-## 12. Flashcards
+**What alternative would you use if a constraint changed?**
 
-#flashcard
-**Q:** Recognition signal for {{title}}? :: **A:** [answer] #flashcard
+## Flashcards
 
 #flashcard
-**Q:** Core invariant for {{title}}? :: **A:** [answer] #flashcard
+**Q:** What is the strongest recognition signal? :: **A:** 
 
 #flashcard
-**Q:** When should {{title}} NOT be used? :: **A:** [answer] #flashcard
+**Q:** What is the invariant? :: **A:** 
 
-## 13. Practice
+#flashcard
+**Q:** When should this pattern NOT be used? :: **A:** 
 
-- [ ] Explain the pattern from memory 📅 {{date:YYYY-MM-DD, +1}}
-- [ ] Write the template from memory 📅 {{date:YYYY-MM-DD, +3}}
-- [ ] Solve one unseen problem without hints 📅 {{date:YYYY-MM-DD, +7}}
-- [ ] Explain the trade-off aloud 📅 {{date:YYYY-MM-DD, +14}}
+## Review tasks
+
+- [ ] Explain the recognition signals from memory 📅 <% tp.date.now('YYYY-MM-DD', 1) %>
+- [ ] Write the core template from memory 📅 <% tp.date.now('YYYY-MM-DD', 3) %>
+- [ ] Solve one unseen problem without hints 📅 <% tp.date.now('YYYY-MM-DD', 7) %>
+- [ ] Explain the invariant aloud 📅 <% tp.date.now('YYYY-MM-DD', 14) %>
+
+## Visual
+
+Use an Excalidraw diagram only when the algorithm is spatial or state-transition heavy. Prefer Mermaid for simple flow.
 
 ## Related
 
-- [[Patterns Index|Patterns Index]]
-- [[00 - Pattern Decision Tree|Pattern Decision Tree]]
-- [[00 - Blind Practice|Blind Practice]]
-- [[00 - Mistake Log|Mistake Log]]
-
----
-
-*Category: {{category}} • Java reference implementation*
+[[Patterns Index]] · [[00 - Pattern Decision Tree]] · [[00 - Blind Practice]] · [[00 - Mistake Log]]
