@@ -44,15 +44,17 @@ def resolves(source_rel: str, target: str) -> tuple[bool, list[str]]:
 
     source_dir = Path(source_rel).parent
 
-    # Prefer an explicit vault-relative path.
-    if "/" in target:
-        candidate = target if target.endswith(".md") else target + ".md"
-        return candidate in files, [candidate]
-
-    # Bare links commonly refer to a sibling note such as [[README]].
-    sibling = (source_dir / f"{target}.md").as_posix()
-    if sibling in files:
-        return True, [sibling]
+    # Prefer an explicit vault-relative path, but also support links that
+    # are naturally relative to the note's folder. Obsidian resolves both.
+    candidate = target if target.endswith(".md") else target + ".md"
+    relative_candidate = (source_dir / candidate).as_posix()
+    candidates = []
+    if candidate in files:
+        candidates.append(candidate)
+    if relative_candidate in files and relative_candidate not in candidates:
+        candidates.append(relative_candidate)
+    if candidates:
+        return True, candidates
 
     # A unique basename is safe; duplicates are ambiguous and should be reviewed.
     candidates = [p for p in files if Path(p).stem == Path(target).stem]
