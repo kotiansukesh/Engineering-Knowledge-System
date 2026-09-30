@@ -41,15 +41,6 @@ Use the least autonomous mechanism that satisfies the requirement. Introduce mor
 
 ## Architecture Bridge
 
-- [[Architect/01_Architecture-Foundations/Quality-Attributes-and-Scenarios|Quality Attributes]]
-- [[Architect/01_Architecture-Foundations/Systems-Boundaries-and-Context|System Boundaries]]
-- [[Architect/01_Architecture-Foundations/Constraints-and-Trade-offs|Trade-offs]]
-- [[Architect/01_Architecture-Foundations/Architecture-Decisions-and-ADRs|ADRs]]
-- [[Architect/01_Architecture-Foundations/Fitness-Functions-and-Architecture-Runway|Fitness Functions]]
-- [[Architect/13_AI-Architecture/01 - AI System Architecture|AI System Architecture]]
-
-## Architecture Bridge
-
 The AI vault is the engineering implementation track; the Architect vault is the constraint-and-decision track.
 
 - [[Architect/01_Architecture-Foundations/Quality-Attributes-and-Scenarios|Quality Attributes]]

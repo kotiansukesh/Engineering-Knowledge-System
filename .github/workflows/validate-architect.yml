@@ -1,4 +1,4 @@
-name: Validate Architect Vault
+name: Validate repository vault Vault
 
 on:
   push:
@@ -9,7 +9,7 @@ on:
   pull_request:
     paths:
       - "Architect/**"
-      - "scripts/validate-architect.py"
+      - "scripts/validate-vault.py"
       - ".github/workflows/validate-architect.yml"
 
 jobs:
