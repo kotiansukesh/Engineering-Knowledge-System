@@ -68,7 +68,8 @@ def resolves(source_rel: str, target: str) -> tuple[bool, list[str]]:
 for rel, path in files.items():
     text = path.read_text(encoding="utf-8")
 
-    if path.name not in {"README.md", "AGENTS.md"} and "[[../" in text:\n        errors.append(f"{rel}: parent-relative wikilink")
+    if path.name not in {"README.md", "AGENTS.md"} and "[[../" in text:
+        errors.append(f"{rel}: parent-relative wikilink")
 
     in_fence = False
     for n, line in enumerate(text.splitlines(), 1):
