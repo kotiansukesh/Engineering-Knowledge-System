@@ -9,7 +9,15 @@ reviewed: ""
 sr-due: ""
 ---
 
-# 03 Agentic Ai
+# 03 Agentic AI
+
+> **Enter this domain after basic LLM API, structured-output and retrieval foundations.**
+>
+> The default progression is **workflow → single agent → bounded delegation → multi-agent only when a measured decomposition justifies it**.
+
+## Decision rule
+
+Prefer the least autonomous mechanism that satisfies the requirement. Before adding an agent, compare it with a deterministic workflow. Before adding multiple agents, identify the concrete coordination benefit and the extra failure, latency, cost and observability burden.
 
 > Part of [[README|AI MOC]] • `AI/03_Agentic-AI`
 
