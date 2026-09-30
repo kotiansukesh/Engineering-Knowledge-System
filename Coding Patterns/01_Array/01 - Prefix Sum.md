@@ -7,6 +7,16 @@ category: "Coding Patterns/01_Array"
 advanced: false
 mastery: learn
 recognition_score: 0
+implementation_score: 0
+attempts: 0
+successful_attempts: 0
+recognition_attempts: 0
+recognition_successes: 0
+avg_time_minutes:
+hint_count: 0
+last_attempt:
+last_success:
+failure_category:
 difficulty: "Easy"
 leetcode: [560, 930, 525]
 created: "2026-09-02"
