@@ -28,17 +28,18 @@ Transcribe/summarize meetings into structured notes — validates prompt enginee
 ## 🧩 Diagram: Meeting Notes Pipeline
 ```mermaid
 flowchart LR
-    IN[Audio/Transcript In] --> TS[Transcript<br/>(Whisper-style)]
+    IN[Audio/Transcript In] --> TS["Transcript<br/>(Whisper-style)"]
     TS --> P["Versioned Prompt<br/>(role + schema)"]
     P --> L[LLM]
     L --> SO[Structured Output:<br/>MeetingNotes Schema]
-    SO --> EV[Eval on Golden Set<br/>(5 sample transcripts)]
+    SO --> EV["Eval on Golden Set<br/>(5 sample transcripts)"]
     EV -->|regression| CI[CI Gate]
     SO --> OUT[{summary, decisions,<br/>action_items}]
     style SO fill:#e8f5e9
     style EV fill:#fff3e0
 ```
 
+## 💻 Code: Meeting Notes with Structured Output + Eval (Python)
 ## 💻 Code: Meeting Notes with Structured Output + Eval (Python)
 ```python
 from pydantic import BaseModel, Field
