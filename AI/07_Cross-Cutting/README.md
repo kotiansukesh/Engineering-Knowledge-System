@@ -76,7 +76,6 @@ group by filename
 limit 20
 ```
 
-> ⚠️ **Template Note:** The `AI/07_Cross-Cutting` placeholder above is replaced by the generate script (`python3 generate_folder_readmes.py`). The template file itself will show a Tasks error — this is expected. Generated README files have the actual folder path and work correctly.
 
 ## Quick Links
 
