@@ -29,7 +29,7 @@ Transcribe/summarize meetings into structured notes — validates prompt enginee
 ```mermaid
 flowchart LR
     IN[Audio/Transcript In] --> TS[Transcript<br/>(Whisper-style)]
-    TS --> P[Versioned Prompt<br/>(role + schema)]
+    TS --> P["Versioned Prompt<br/>(role + schema)"]
     P --> L[LLM]
     L --> SO[Structured Output:<br/>MeetingNotes Schema]
     SO --> EV[Eval on Golden Set<br/>(5 sample transcripts)]
