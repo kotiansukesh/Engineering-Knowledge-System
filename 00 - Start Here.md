@@ -83,15 +83,15 @@ Primary material:
 - [[AI/01_Fundamentals/README]]
 - [[AI/02_RAG-Engineering/README]]
 
-Project:
+Project spine:
 
 - [[Build Lab/03 RAG System/README]]
 
-### Phase 2 — Agentic AI
+## Phase 2 — Agentic AI
 
 **Weeks 4–6**
 
-Tool contracts → agent loop → state → single agent → multi-agent.
+Tool contracts → agent loop → state → bounded single-agent workflows → constrained multi-agent comparison.
 
 Primary material:
 
@@ -101,11 +101,11 @@ Project:
 
 - [[Build Lab/04 Agent System/README]]
 
-### Phase 3 — Production AI
+## Phase 3 — Production AI Platform
 
-**Weeks 7–10**
+**Weeks 7–9**
 
-Evaluation → AI gateway → routing → reliability → observability → Kubernetes.
+Evaluation → gateway/routing → reliability → observability → platform operations.
 
 Primary material:
 
@@ -117,9 +117,11 @@ Projects:
 - [[Build Lab/05 AI Gateway/README]]
 - [[Build Lab/06 AI Platform/README]]
 
-### Phase 4 — Architecture
+Kubernetes is an operations capability, not a prerequisite for understanding AI application engineering.
 
-**Weeks 11–14**
+## Phase 4 — Architecture
+
+**Weeks 10–11**
 
 Requirements → NFRs → architecture styles → data → integration → reliability.
 
@@ -134,9 +136,9 @@ Primary material:
 
 Apply every concept to the AI platform you already built.
 
-### Phase 5 — Enterprise AI Architecture
+## Phase 5 — Enterprise AI Architecture
 
-**Weeks 15–18**
+**Week 12**
 
 Governance → security → tenancy → AI architecture → migration → architecture defense.
 
@@ -186,6 +188,15 @@ For an important topic, produce:
 - a short explanation from memory.
 
 Record the artifact in [[Evidence/README]].
+
+## Keep the 12-week plan coherent
+
+The repository contains deeper reference material than the 12-week spine requires. Do not expand the schedule merely because more notes exist.
+
+- Use domain syllabi for capability coverage.
+- Use the master [[Study Plan]] for timing.
+- Use [[Build Lab/README]] for the project sequence.
+- Use [[Evidence/README]] to prove capability.
 
 ## Your navigation rule
 
