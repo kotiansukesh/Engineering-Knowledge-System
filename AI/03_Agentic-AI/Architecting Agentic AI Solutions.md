@@ -44,10 +44,6 @@ flowchart TB
 
 ## Code
 
-```python
-from typing import Literal
-from pydantic import BaseModel
-
 ## When to use / NOT
 
 - **Use:** for multi-step work with real consequences — operations platforms, document processing, anything that writes to a system of record.
@@ -85,16 +81,16 @@ from pydantic import BaseModel
 ## Flashcards (Spaced Repetition)
 
 #flashcard
-**Q:** What is the trigger keyword for Architecting Agentic AI Solutions (NUS-ISS)? :: **A:** [trigger keywords] #flashcard
+**Q:** What architectural signal justifies adding another agent? :: **A:** A separable concern that benefits from an independent context, budget, retry boundary, or ownership.
 
 #flashcard
-**Q:** Key hyperparameter for Architecting Agentic AI Solutions (NUS-ISS)? :: **A:** [hyperparameter + typical range] #flashcard
+**Q:** What prevents a multi-agent loop from running forever? :: **A:** Explicit terminal states, step/time/token budgets, and an escalation path.
 
 #flashcard
-**Q:** When do you NOT use Architecting Agentic AI Solutions (NUS-ISS)? :: **A:** [anti-pattern scenarios] #flashcard
+**Q:** Where should human approval normally sit? :: **A:** At irreversible, high-impact, or externally visible actions rather than routine reads or drafts.
 
 #flashcard
-**Q:** Cost order of magnitude for Architecting Agentic AI Solutions (NUS-ISS)? :: **A:** [GPU hours / $ per 1M tokens] #flashcard
+**Q:** What is the main architectural cost of multi-agent systems? :: **A:** Coordination complexity: more contexts, contracts, failure modes, observability, and token/latency overhead.
 
 ## Practice Tasks (Tasks Plugin)
 - [ ] Restate the intent from memory 📅 2026-09-30
@@ -112,6 +108,8 @@ limit 10
 ## Related
 - [[README|AI MOC]]
 - [[03_Agentic-AI/README|03_Agentic-AI Folder]]
+- [[Architect/13_AI-Architecture/04 - Agent Architecture|Architect: Agent Architecture]]
+- [[Architect/13_AI-Architecture/07 - Evaluation Architecture|Architect: Evaluation Architecture]]
 
 ---
 
