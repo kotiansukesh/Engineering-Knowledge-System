@@ -22,6 +22,8 @@ TABLE WITHOUT ID
   difficulty as "Difficulty",
   mastery as "Mastery",
   recognition_score as "Recognition",
+  implementation_score as "Implementation",
+  attempts as "Attempts",
   length(leetcode) as "Problems"
 FROM "Coding Patterns"
 WHERE type = "pattern" AND advanced != true
@@ -37,23 +39,12 @@ TABLE WITHOUT ID
   domain as "Domain",
   difficulty as "Difficulty",
   mastery as "Mastery",
-  recognition_score as "Recognition"
+  recognition_score as "Recognition",
+  implementation_score as "Implementation"
 FROM "Coding Patterns"
 WHERE type = "pattern" AND advanced = true
 SORT pattern ASC
 ~~~
-
-## Recognition rule
-
-When two patterns look plausible, state:
-
-1. Required output.
-2. Input structure.
-3. Constraint that breaks brute force.
-4. State you can maintain.
-5. Invariant that makes discarded work safe.
-
-If you cannot state the invariant, you have not selected the pattern yet.
 
 ## Pattern families
 
@@ -80,4 +71,8 @@ If you cannot state the invariant, you have not selected the pattern yet.
 
 ## Recognition support
 
-[[00 - Pattern Decision Tree|Decision Tree]] · [[00 - Pattern Confusion Matrix|Confusion Matrix]] · [[00 - Blind Practice|Blind Practice]]
+[[00 - Pattern Decision Tree]] · [[00 - Pattern Confusion Matrix]] · [[00 - Pattern Recognition Lab]] · [[00 - Mixed Pattern Sets]]
+
+## Mastery support
+
+[[00 - Invariant Library]] · [[00 - Pattern Combinations]] · [[00 - Adaptive Review Engine]] · [[00 - Weakness Heatmap]] · [[00 - Interview Mode]] · [[00 - Senior Trade-offs]] · [[00 - Java Quality Layer]]

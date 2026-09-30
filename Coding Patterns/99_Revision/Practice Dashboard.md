@@ -10,7 +10,7 @@ tags:
 
 # Practice Dashboard
 
-> This is the operational home for the vault.
+> Operational home for the adaptive training loop.
 
 ## Mastery overview
 
@@ -32,6 +32,7 @@ TABLE WITHOUT ID
   domain as "Domain",
   mastery as "Mastery",
   recognition_score as "Recognition",
+  implementation_score as "Implementation",
   next_review as "Next review"
 FROM "Coding Patterns"
 WHERE type = "pattern" AND (next_review = null OR date(next_review) <= date(today))
@@ -43,11 +44,38 @@ SORT date(next_review) ASC
 ~~~dataview
 TABLE WITHOUT ID
   file.link as "Pattern",
-  recognition_score as "Score",
-  mastery as "Mastery"
+  recognition_score as "Recognition",
+  implementation_score as "Implementation",
+  attempts as "Attempts",
+  hint_count as "Hints"
 FROM "Coding Patterns"
 WHERE type = "pattern" AND recognition_score < 4
 SORT recognition_score ASC, pattern ASC
+~~~
+
+## Weak implementation
+
+~~~dataview
+TABLE WITHOUT ID
+  file.link as "Pattern",
+  recognition_score as "Recognition",
+  implementation_score as "Implementation",
+  avg_time_minutes as "Avg min"
+FROM "Coding Patterns"
+WHERE type = "pattern" AND implementation_score < 4
+SORT implementation_score ASC, pattern ASC
+~~~
+
+## Recurring failures
+
+~~~dataview
+TABLE WITHOUT ID
+  failure_category as "Failure",
+  count(rows) as "Occurrences"
+FROM "Coding Patterns"
+WHERE type = "mistake"
+GROUP BY failure_category
+SORT count(rows) DESC
 ~~~
 
 ## Open tasks
@@ -62,12 +90,13 @@ limit 30
 
 ## Review protocol
 
-1. Pick one due pattern.
+1. Pick one due or weak pattern.
 2. Read only its Recognition section.
 3. Attempt one blind problem.
-4. Update recognition_score.
-5. Complete the review task.
-6. If the same mistake recurs, update the pattern note and Mistake Log.
+4. Record recognition and implementation separately.
+5. Log the first failure category.
+6. Choose the next interval using [[00 - Adaptive Review Engine]].
+7. Re-test in a mixed set before promoting mastery.
 
 ## Mastery scale
 
