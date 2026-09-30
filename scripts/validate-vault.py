@@ -11,6 +11,32 @@ files = {p.relative_to(ROOT).as_posix(): p for p in ROOT.rglob("*.md")}
 errors = []
 warnings = []
 
+# Durable knowledge notes have a semantic role. Navigation, tooling, and
+# workflow-support Markdown files do not need to pretend they are knowledge
+# artifacts merely to satisfy frontmatter validation.
+def is_knowledge_artifact(rel: str, path: Path) -> bool:
+    parts = Path(rel).parts
+    name = path.name
+
+    if name in {"README.md", "AGENTS.md"}:
+        return False
+
+    if "scripts" in parts or ".obsidian" in parts:
+        return False
+
+    # Templates are source material for creating notes, not notes themselves.
+    if any(part.lower() in {"_templates", "templates"} for part in parts):
+        return False
+
+    # Dashboards/control-plane pages are workflow support artifacts. They may
+    # still carry a specialized type such as dashboard, but are not required
+    # to participate in the durable-note contract.
+    if "dashboard" in name.lower():
+        return False
+
+    return True
+
+
 def resolves(target: str) -> bool:
     target = target.split("|", 1)[0].split("#", 1)[0].strip()
     if not target or target.startswith(("http://", "https://")):
@@ -22,6 +48,7 @@ def resolves(target: str) -> bool:
         return True
     name = Path(target).name
     return any(Path(p).stem == name for p in files)
+
 
 for rel, path in files.items():
     text = path.read_text(encoding="utf-8")
@@ -40,14 +67,29 @@ for rel, path in files.items():
         if stripped.startswith("|") and re.search(r"\[\[[^\]]+\|[^\]]+\]\]", line):
             warnings.append(f"{rel}:{n}: wikilink alias inside table; use path-only wikilink")
 
-    # Minimal metadata contract; warnings allow incremental migration.
-    if text.startswith("---\n") and text.count("---\n") >= 2:
-        frontmatter = text.split("---\n", 2)[1]
-        keys = {line.split(":", 1)[0].strip() for line in frontmatter.splitlines() if ":" in line}
-        if "title" not in keys or "type" not in keys:
-            warnings.append(f"{rel}: missing title/type metadata")
-    elif path.name != "README.md":
-        warnings.append(f"{rel}: missing YAML frontmatter")
+    # Metadata contract applies only to durable knowledge artifacts. This keeps
+    # README/navigation/support files lightweight while making note roles
+    # machine-checkable.
+    if is_knowledge_artifact(rel, path):
+        if text.startswith("---\n") and text.count("---\n") >= 2:
+            frontmatter = text.split("---\n", 2)[1]
+            metadata = {}
+            for line in frontmatter.splitlines():
+                if ":" in line:
+                    key, value = line.split(":", 1)
+                    metadata[key.strip()] = value.strip().strip('"').strip("'")
+
+            if "title" not in metadata or not metadata["title"]:
+                warnings.append(f"{rel}: missing title metadata")
+            if "type" not in metadata or not metadata["type"]:
+                warnings.append(f"{rel}: missing type metadata")
+            elif metadata["type"].lower() == "note":
+                errors.append(
+                    f"{rel}: generic type: note is not allowed; use a semantic type "
+                    "(concept, pattern, reference, exercise, project, ADR, failure, evaluation, MOC)"
+                )
+        else:
+            warnings.append(f"{rel}: missing YAML frontmatter")
 
     for marker in (
         "[TBD]",
@@ -58,6 +100,7 @@ for rel, path in files.items():
     ):
         if marker in text:
             errors.append(f"{rel}: legacy placeholder {marker}")
+
 
 required_roots = {
     "AI/README.md",
@@ -76,7 +119,7 @@ if warnings:
 
 if errors:
     print(f"Errors: {len(errors)}")
-    print("\n".join(errors))
+    print("\n".join(errors)) 
     sys.exit(1)
 
 print("Repository-wide vault validation passed.")
