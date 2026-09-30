@@ -1,120 +1,79 @@
 ---
-title: "AI Vault MOC"
+title: "AI Engineering & Architecture MOC"
 category: "AI"
 type: "root-MOC"
-tags: [MOC, ai, llm, rag, agentic, production, kubernetes, governance]
-created: "2026-09-29"
+tags: [MOC, ai, llm, rag, agents, evaluation, platform, architecture]
+created: "2026-09-30"
 completed: false
 reviewed: ""
 sr-due: ""
 ---
 
-# AI Vault — Map of Content
+# AI Engineering & Architecture
 
-> **20-Week Roadmap** for LLM Engineering, RAG, Agentic AI, and Production ML interviews.
-> Focus: Depth over breadth — build real systems, not just theory.
+> **20-week practical path:** AI Engineering → RAG → Agentic AI → Production AI Platform → Governance → AI Architecture.
 
----
+## Learning Spine
 
-## 📊 Vault-Wide Progress
+**Understand → Build → Evaluate → Operate → Architect**
 
-```dataviewjs
-const all = dv.pages('"AI"').where(p => p.category && p.category.startsWith("AI/") && p.file.name != "README" && p.type !== "folder-MOC" && p.type !== "root-MOC");
-const total = all.length;
-const done = all.where(p => p.completed === true).length;
-const pct = total ? Math.round(done/total*100) : 0;
-const bar = (p, w=30) => "█".repeat(Math.round(p/100*w)) + "░".repeat(w-Math.round(p/100*w));
-dv.paragraph(`**Total: ${total} notes | Completed: ${done} | Remaining: ${total-done}** — \`${pct}%\``);
-dv.paragraph(`\`${bar(pct)}\` **${pct}%**`);
-if (total === done && total > 0) dv.paragraph(`🎉 *All notes completed!*`);
-```
+A note is study material. An implementation, measurement, failure analysis, ADR, or design defense is evidence.
 
-> **Fallback (if DataviewJS disabled):**
-```dataview
-TABLE WITHOUT ID
- length(rows) as "Total",
- length(filter(rows, (r) => r.completed)) as "Completed",
- length(filter(rows, (r) => !r.completed)) as "Remaining"
-FROM "AI"
-WHERE category AND category.startsWith("AI/") AND file.name != "README" AND type != "folder-MOC" AND type != "root-MOC"
-GROUP BY true
-```
+## Decision Ladder
 
----
+**Deterministic logic → Workflow → RAG → Single agent → Multi-agent**
 
-## 📁 Folder Index & Progress
+Use the least autonomous mechanism that satisfies the requirement. Introduce more autonomy only when the simpler mechanism cannot satisfy the required variability or recovery behavior.
 
-```dataview
-TABLE WITHOUT ID
- file.link as "Folder",
- choice(category, category, "—") as "Category",
- length(rows.where(p => p.type != "folder-MOC" && p.type != "root-MOC")) as "Notes",
- length(rows.where(p => p.completed === true && p.type != "folder-MOC" && p.type != "root-MOC")) as "Done",
- round(length(rows.where(p => p.completed === true && p.type != "folder-MOC" && p.type != "root-MOC")) / length(rows.where(p => p.type != "folder-MOC" && p.type != "root-MOC")) * 100) + "%" as "Progress"
-FROM "AI"
-WHERE category AND category.startsWith("AI/") AND file.name = "README"
-GROUP BY category
-SORT category ASC
-```
+## Vault Map
 
----
+- [[01_Fundamentals/README|01 Fundamentals]]
+- [[02_RAG-Engineering/README|02 RAG Engineering]]
+- [[03_Agentic-AI/README|03 Agentic AI]]
+- [[04_Production-Platform/README|04 Production Platform]]
+- [[05_Kubernetes-Operations/README|05 Kubernetes Operations]]
+- [[06_Architecture-Governance/README|06 Architecture Governance]]
+- [[07_Cross-Cutting/README|07 Cross-Cutting]]
+- [[99_Revision/Study-Plan.md|20-Week Study Plan]]
+- [[Master Dashboard|Master Dashboard]]
+- [[00 - AI Engineering Decision Framework|AI Decision Framework]]
+- [[00 - AI Practice Engine|AI Practice Engine]]
 
-## 🎯 Spaced Repetition Status (All Notes)
+## Architecture Bridge
 
-```dataviewjs
-const all = dv.pages('"AI"').where(p => p.category && p.category.startsWith("AI/") && p.file.name != "README" && p.type !== "folder-MOC" && p.type !== "root-MOC");
-const stale = all.where(p => !p.reviewed || (dv.date("now") - dv.date(p.reviewed) > dv.duration({days: 7})));
-const fresh = all.where(p => p.reviewed && (dv.date("now") - dv.date(p.reviewed) <= dv.duration({days: 7})));
-const never = all.where(p => !p.reviewed);
-dv.paragraph(`🟢 Fresh: **${fresh.length}** | 🟡 Stale: **${stale.length}** | 🔴 Never: **${never.length}**`);
-dv.paragraph(`Next SR due: **${all.where(p => p["sr-due"]).sort(p => p["sr-due"])[0]?.["sr-due"] || "—"}**`);
-```
+- [[Architect/01_Architecture-Foundations/Quality-Attributes-and-Scenarios|Quality Attributes]]
+- [[Architect/01_Architecture-Foundations/Systems-Boundaries-and-Context|System Boundaries]]
+- [[Architect/01_Architecture-Foundations/Constraints-and-Trade-offs|Trade-offs]]
+- [[Architect/01_Architecture-Foundations/Architecture-Decisions-and-ADRs|ADRs]]
+- [[Architect/01_Architecture-Foundations/Fitness-Functions-and-Architecture-Runway|Fitness Functions]]
+- [[Architect/13_AI-Architecture/01 - AI System Architecture|AI System Architecture]]
 
----
+## Mastery Evidence
 
-## 📋 Study Plan & Dashboards
+For each major topic, produce:
+- a working implementation or configuration
+- a diagram when architecture is involved
+- an evaluation or test
+- at least one measured result
+- a failure mode and mitigation
+- an explanation from memory
 
-- [[Study-Plan.md|📅 20-Week Study Plan]] (in `99_Revision/`)
-- [[Master Dashboard.md|📊 Master Dashboard]] (this vault)
-- [[99_Revision/Interview Bank.md|🎤 Interview Bank]]
-- [[99_Revision/Capstone Checklist.md|✅ Capstone Checklist]]
-- [[99_Revision/Metrics Dashboard.md|📈 Metrics Dashboard]]
+## Plugin Responsibilities
+
+- **Dataview:** progress and review queues.
+- **Tasks:** concrete practice work.
+- **Templater:** note scaffolding.
+- **Excalidraw:** diagrams.
+
+## Quality Rules
+
+- Never use `[[../...]]`.
+- Avoid pipe aliases inside Markdown tables.
+- Do not leave generic flashcards or placeholder answers in learning notes.
+- Trade-off tables must represent a real decision with realistic alternatives.
+- Use topic-relevant metrics; GPU cost is not a universal AI metric.
+- Qualify fast-changing technology claims with a version/date.
 
 ---
 
-## 🗂️ Quick Navigation
-
-### Phase 1: Foundations (Weeks 1-4)
-- [[01_Fundamentals/README|01 Fundamentals]] — LLM internals, embeddings, tokenization, APIs, prompting, tool calling
-- [[02_RAG-Engineering/README|02 RAG Engineering]] — RAG variants, enterprise search, agentic RAG, evaluation
-
-### Phase 2: Agentic AI (Weeks 5-8)
-- [[03_Agentic-AI/README|03 Agentic AI]] — Architectures, multi-agent, evaluation, production deployment
-
-### Phase 3: Production Platform (Weeks 9-14)
-- [[04_Production-Platform/README|04 Production Platform]] — Model serving, MLOps, data pipelines, monitoring, K8s
-- [[05_Kubernetes-Operations/README|05 Kubernetes Operations]] — K8s for ML, Kubeflow, GPU scheduling, autoscaling
-
-### Phase 4: Architecture, Governance & Interview (Weeks 15-20)
-- [[06_Architecture-Governance/README|06 Architecture Governance]] — Model governance, compliance, risk management
-- [[07_Cross-Cutting/README|07 Cross-Cutting]] — Security, privacy, ethics, observability, cost, routing, MCP
-
----
-
-## 🔗 Cross-Vault Links
-
-- **Vector DB** → [[Architect/10_System-Design-Interviews/DB-04-Vector-Databases]]
-- **Model Serving** → [[Architect/10_System-Design-Interviews/BB-14-YouTube-Video-Streaming]]
-- **Async Patterns** → [[Architect/10_System-Design-Interviews/ASYNC-01-Async-Patterns]]
-- **Caching** → [[Architect/10_System-Design-Interviews/CACHE-02-Cache-Strategies]]
-- **Rate Limiting** → [[Architect/10_System-Design-Interviews/BB-04-Rate-Limiter]]
-
----
-
-## 📝 Note Template
-
-- [[_templates/Unified-Note-Template.md|Unified Note Template]] — Standard structure for all notes
-
----
-
-*Part of [[Architect/README|Architect MOC]] • Category: AI Root MOC*
+*AI Engineering & Architecture — implementation track for the Architect vault.*
