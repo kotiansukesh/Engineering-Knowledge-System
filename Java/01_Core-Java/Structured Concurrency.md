@@ -1,251 +1,136 @@
 ---
 title: "Structured Concurrency"
 category: "Java/01_Core-Java"
-tags: [java, core-java, structured-concurrency, virtual-threads, loom, jep453]
-created: "2026-09-29"
+tags: [java, concurrency, structured-concurrency, virtual-threads, java25, preview]
+created: "2026-09-30"
 completed: false
 difficulty: "Advanced"
-pattern: 0
-reviewed: "2026-09-29"
-sr-due: "2026-10-06"
-source: ""
-excalidraw: ""
+reviewed: "2026-09-30"
+sr-due: "2026-10-07"
 type: "note"
 ---
 
 # Structured Concurrency
 
-> Part of [[README|Java MOC]] • `Java/01_Core-Java`
-> 🎨 **Visual diagram:** Create Excalidraw drawing from template: `Cmd+P → Excalidraw: New from template → Java Diagram`
+> Java 25: preview API (JEP 505, fifth preview). The API changed across previews, so examples must be pinned to the JDK version being studied.
 
 ## Intent
 
-**Structured Concurrency** (JEP 453, preview in Java 21, finalized in Java 23) treats concurrent subtasks as **children of a scope** with **automatic lifecycle management**: if one fails, others are cancelled; scope waits for all; exceptions are aggregated.
+Structured concurrency makes related concurrent work follow the lifetime of the operation that created it. A parent scope owns child subtasks, waits for them, and prevents work from silently escaping its lifetime.
 
 ## Why it Matters
 
-- **No more orphaned threads**: `ExecutorService` leaks on exceptions; scopes guarantee cleanup
-- **Error handling**: fail-fast or fail-slow policies; all exceptions visible
-- **Observability**: thread dumps show hierarchy; `StructuredTaskScope` in debugger
-- **Virtual threads ready**: millions of children with minimal overhead
-- **Replaces**: `CompletableFuture.allOf`, `ExecutorService.invokeAll`, manual `try-finally` shutdown
+- Makes task lifetime explicit.
+- Gives cancellation and failure a defined boundary.
+- Composes naturally with virtual threads.
+- Improves reasoning about fan-out/fan-in operations.
+- Works naturally with ScopedValue context propagation.
 
-## Diagram
+## Java 25 API
+
+In Java 25, StructuredTaskScope is preview and is opened with StructuredTaskScope.open(...). Do not copy older examples that use new StructuredTaskScope.ShutdownOnFailure() or ShutdownOnSuccess; those belong to earlier previews.
+
+The default open() scope creates virtual threads. fork() creates subtasks and join() waits for them.
+
+```java
+// Compile and run with Java 25 preview enabled.
+import java.util.concurrent.StructuredTaskScope;
+
+record Dashboard(String user, String orders) {}
+
+class DashboardService {
+    Dashboard load(long userId) throws InterruptedException {
+        try (var scope = StructuredTaskScope.open()) {
+            var user = scope.fork(() -> fetchUser(userId));
+            var orders = scope.fork(() -> fetchOrders(userId));
+
+            scope.join();
+            return new Dashboard(user.get(), orders.get());
+        }
+    }
+
+    String fetchUser(long id) { return "user-" + id; }
+    String fetchOrders(long id) { return "orders-" + id; }
+}
+```
+
+For custom aggregation or cancellation policies, use the Java 25 Joiner API documented for the preview release. Always read the JDK 25 API rather than relying on examples written for older previews.
+
+## Mental Model
 
 ```mermaid
 flowchart TD
-    S[StructuredTaskScope.ShutdownOnFailure] --> T1[Subtask 1: fetch user]
-    S --> T2[Subtask 2: fetch orders]
-    S --> T3[Subtask 3: fetch recommendations]
-    T1 -. succeeds .-> S
-    T2 -. fails .-> S
-    S -. cancels .-> T3
-    S --> R[Exception aggregated]
+    P[Parent operation] --> S[StructuredTaskScope]
+    S --> A[Child task A]
+    S --> B[Child task B]
+    S --> C[Child task C]
+    A --> R[Join / aggregate]
+    B --> R
+    C --> R
+    R --> P
 ```
 
-## Code / Example
-
-```java
-// Java 25: Structured Concurrency (JEP 453), Virtual Threads, Pattern Matching
-// Requires: --enable-preview (Java 21-22), standard in Java 23+
-
-import java.util.concurrent.*;
-import java.util.concurrent.StructuredTaskScope.*;
-
-record User(String name) {}
-record Order(String id) {}
-record Recommendation(String item) {}
-
-void structuredConcurrencyBasics() throws InterruptedException {
-    try (var scope = new StructuredTaskScope.ShutdownOnFailure()) {
-        Subtask<User> user = scope.fork(() -> fetchUser(123));
-        Subtask<Order> order = scope.fork(() -> fetchOrder(123));
-        Subtask<Recommendation> rec = scope.fork(() -> fetchRec(123));
-        
-        scope.join();           // wait for all
-        scope.throwIfFailed();  // rethrow first exception if any
-        
-        System.out.println(user.get() + ", " + order.get() + ", " + rec.get());
-    } // scope closes, cancels any remaining
-}
-
-// ShutdownOnSuccess: race - first success wins, others cancelled
-void raceExample() throws InterruptedException {
-    try (var scope = new StructuredTaskScope.ShutdownOnSuccess<String>()) {
-        scope.fork(() -> fetchPrimary());
-        scope.fork(() -> fetchBackup());
-        scope.fork(() -> fetchCache());
-        
-        String result = scope.join().result(); // first successful result
-    }
-}
-
-// Custom policy: collect all results, fail only if all fail
-void customPolicy() throws InterruptedException {
-    try (var scope = new StructuredTaskScope<Object>() {
-        @Override protected void handleComplete(Subtask<?> subtask) {
-            // custom: log each completion
-        }
-    }) {
-        scope.fork(() -> fetchA());
-        scope.fork(() -> fetchB());
-        scope.joinUntil(Instant.now().plusSeconds(5)); // deadline
-        // handle partial results
-    }
-}
-
-// Virtual threads + StructuredTaskScope = massive concurrency
-void virtualThreadScope() throws InterruptedException {
-    try (var scope = new StructuredTaskScope.ShutdownOnFailure()) {
-        for (int i = 0; i < 10_000; i++) {
-            final int id = i;
-            scope.fork(() -> processItem(id)); // each runs on virtual thread
-        }
-        scope.join();
-        scope.throwIfFailed();
-    }
-}
-
-// Exception aggregation
-void exceptionHandling() {
-    try (var scope = new StructuredTaskScope.ShutdownOnFailure()) {
-        scope.fork(() -> { throw new IOException("network"); });
-        scope.fork(() -> { throw new SQLException("db"); });
-        scope.join(); // both run to completion
-    } catch (Exception e) {
-        // e is MultiException with both causes
-        if (e instanceof MultiException me) {
-            me.exceptions().forEach(System.out::println);
-        }
-    }
-}
-
-// Helper methods
-User fetchUser(int id) { return new User("User-" + id); }
-Order fetchOrder(int id) { return new Order("ORD-" + id); }
-Recommendation fetchRec(int id) { return new Recommendation("Rec-" + id); }
-String fetchPrimary() { throw new RuntimeException("primary down"); }
-String fetchBackup() { return "backup-data"; }
-String fetchCache() { throw new RuntimeException("cache miss"); }
-Object fetchA() { return "A"; }
-Object fetchB() { return "B"; }
-void processItem(int id) { /* ... */ }
-```
-
-### Concrete Example
-
-- **Input:** Fetch user profile, orders, and recommendations concurrently for a dashboard
-- **Output:** All three results or aggregated exception if any fails; no leaked threads
-- **Explanation:** `ShutdownOnFailure` cancels siblings on first failure; `join()` waits; `throwIfFailed()` rethrows
+The key invariant is **no child outlives the structured scope that owns it**.
 
 ## When to Use / When NOT
 
-| **Use When** | **Avoid When** |
-|--------------|----------------|
-| - Multiple related subtasks with shared lifetime | - Fire-and-forget tasks (use `ExecutorService`) |
-| - Need automatic cancellation on failure | - Long-running independent services |
-| - Deadline/timeout for a group of tasks | - Simple parallel streams (use `.parallel()`) |
-| - Virtual thread workloads (10k+ concurrent) | - Blocking I/O without virtual threads |
+| Use when | Prefer something else when |
+|---|---|
+| Related subtasks form one operation | Work is intentionally independent and long-lived |
+| You need fan-out/fan-in | A sequential call is enough |
+| Child lifetime should end with the parent | A message queue is the ownership boundary |
+| Cancellation/deadline applies to a group | A single async callback is sufficient |
 
-## Trade-offs
+## Structured Concurrency vs Alternatives
 
-| Dimension | StructuredTaskScope | ExecutorService | CompletableFuture |
-|-----------|---------------------|-----------------|-------------------|
-| Lifecycle | Automatic (scope) | Manual (shutdown) | Manual (allOf) |
-| Cancellation | Automatic on failure | Manual | Manual (cancel) |
-| Exceptions | Aggregated (MultiException) | First only | First only |
-| Virtual threads | Native support | Via factory | Via executor |
-| Deadlines | `joinUntil(Instant)` | `awaitTermination` | `get(timeout)` |
+| Concern | Structured concurrency | ExecutorService | CompletableFuture |
+|---|---|---|---|
+| Lifetime | Lexical/structured | Manually managed | Graph of stages |
+| Cancellation | Scope policy | Manual | Explicit |
+| Composition | Parent/child | Tasks/futures | Stages |
+| Best fit | Related concurrent subtasks | Explicit execution policies | Async pipelines |
 
-## Vs Table
+## ScopedValue Relationship
 
-| Aspect | StructuredTaskScope | ExecutorService | Parallel Stream |
-|--------|---------------------|-----------------|-----------------|
-| Failure policy | ShutdownOnFailure/Success | Manual | Fail-fast |
-| Result aggregation | Subtask.get() | Future.get() | Stream collect |
-| Thread dump | Hierarchy visible | Flat | ForkJoinPool |
-| Virtual threads | Yes (default) | Via factory | Yes (21+) |
+ScopedValue is final in Java 25 and can be inherited by threads created through a StructuredTaskScope. This is useful for immutable request metadata such as correlation IDs when the value is bounded by the operation.
 
 ## Pitfalls
 
-- **Preview API**: Java 21-22 need `--enable-preview --source 21`; Java 23+ standard
-- **Blocking in subtasks**: use virtual threads or `ExecutorService` for blocking I/O
-- **Scope leakage**: don't pass `Subtask` outside scope; use `join()` then `get()`
-- **InterruptedException**: `join()` throws if current thread interrupted
-- **MultiException handling**: catch `Exception`, check `instanceof MultiException`
+- Using an old preview API. JDK 25 uses open(...) and Joiner; older sources may show different types.
+- Treating preview code as stable API.
+- Using structured concurrency for independent background jobs.
+- Assuming virtual threads make CPU-bound work faster.
+- Ignoring deadlines and cancellation policy.
 
-## Interview Q&A (Senior Depth)
+## Senior Interview Q&A
 
-**Q1. What is the core insight of Structured Concurrency, and why does it work?**
-**A:** Concurrency should follow lexical scope: children live within parent's scope. When scope exits, all children are guaranteed done or cancelled. This eliminates the "thread leak" problem where exceptions orphan sibling tasks. The scope becomes the synchronization point.
+**Q1. What problem does structured concurrency solve?**
 
-**Q2. When would you choose `ShutdownOnFailure` vs `ShutdownOnSuccess`?**
-**A:** `ShutdownOnFailure` (default): all must succeed (e.g., dashboard loading user+orders+recs). `ShutdownOnSuccess`: racing redundant sources (e.g., primary/backup/cache). Custom policies for complex logic.
+It gives related concurrent tasks a shared lifetime and ownership boundary, reducing orphaned work and making cancellation and failure part of the operation model.
 
-**Q3. How does StructuredTaskScope work with Virtual Threads?**
-**A:** Each `fork()` starts a virtual thread by default (since Java 21). Millions of subtasks are feasible. The scope manages their lifecycle without thread pool sizing concerns.
+**Q2. Why is the Java 25 example different from Java 21 examples?**
 
-**Q4. Walk me through a non-obvious problem that reduces to Structured Concurrency.**
-**A:** **Fan-out with deadline**: query 10 microservices, need 5 responses within 200ms. Custom scope policy: count successes, cancel rest when 5 reached or deadline hit. **Pipeline stages**: each stage is a scope; stage N+1 forks only after stage N completes.
+StructuredTaskScope evolved through several previews. Java 25 uses the open/Joiner API, so examples must be version-specific.
 
-**Q5. What is the memory/performance implication at scale?**
-**A:** Virtual threads: ~1KB stack vs 1MB platform thread. 10k subtasks = ~10MB vs 10GB. `StructuredTaskScope` overhead: one `CompletableFuture`-like object per subtask. JIT optimizes scope state machine.
+**Q3. Does structured concurrency replace ExecutorService?**
 
-## Flashcards (Spaced Repetition)
+No. It addresses structured groups of related subtasks. Executors remain useful for explicit execution policies, long-lived workers, and unstructured background processing.
 
-#flashcard
-**Q:** What is StructuredTaskScope? :: **A:** A scope that manages child subtasks: auto-cancels on failure, waits for all, aggregates exceptions. #flashcard
+**Q4. Why pair it with virtual threads?**
 
-#flashcard
-**Q:** ShutdownOnFailure vs ShutdownOnSuccess? :: **A:** Failure: cancels siblings on first failure. Success: cancels siblings on first success (race). #flashcard
+The scope provides lifecycle structure while virtual threads make large numbers of blocking subtasks cheap to schedule. They solve complementary problems.
 
-#flashcard
-**Q:** How to set a deadline for a scope? :: **A:** `scope.joinUntil(Instant.now().plusSeconds(5))` instead of `scope.join()`. #flashcard
+## Practice Tasks
 
-#flashcard
-**Q:** What exception is thrown when multiple subtasks fail? :: **A:** `MultiException` containing all causes; access via `me.exceptions()`. #flashcard
-
-#flashcard
-**Q:** StructuredTaskScope with virtual threads? :: **A:** Each fork() runs on virtual thread by default; millions of children feasible. #flashcard
-
-## Practice Tasks (Tasks Plugin)
-
-- [ ] Restate the intent from memory 📅 {{date:YYYY-MM-DD, +1}}
-- [ ] Code the snippet without looking 📅 {{date:YYYY-MM-DD, +3}}
-- [ ] Answer all Interview Q&A aloud 📅 {{date:YYYY-MM-DD, +7}}
-- [ ] Review flashcards (Spaced Repetition) 📅 {{date:YYYY-MM-DD, +1}}
-
-```tasks
-not done
-path includes Java/01_Core-Java
-sort by due
-limit 10
-```
+- [ ] Write a Java 25 preview example from memory.
+- [ ] Compare it with ExecutorService for the same fan-out problem.
+- [ ] Add a deadline/failure policy using the JDK 25 API.
+- [ ] Explain why a ShutdownOnFailure example from an older preview is not a Java 25 example.
 
 ## Related
 
-- [[README|Java MOC]]
-- [[01_Core-Java/README|Core Java MOC]]
-- [[Java/09_Java-21-LTS/01 Virtual Threads|Virtual Threads]]
-- [[Java/04_Concurrency/CompletableFuture|CompletableFuture]]
-
----
-
-*Category: Java/01_Core-Java • Part of [[README|Java MOC]] • Java 25*
-
-## Problem
-
-Managing multiple concurrent subtasks with `ExecutorService` or `CompletableFuture` leads to leaked threads, manual cancellation, and poor error aggregation.
-
-## Solution
-
-`StructuredTaskScope`: lexical scope for concurrency. `fork()` starts children, `join()` waits, `throwIfFailed()` rethrows. Policies: `ShutdownOnFailure` (all must succeed), `ShutdownOnSuccess` (race), custom.
-
-## When not to use
-
-| Instead | Use |
-|---------|-----|
-| Fire-and-forget background tasks | `ExecutorService` / `CompletableFuture.runAsync` |
-| Simple parallel collection ops | `.parallelStream()` |
-| Long-lived independent services | Dedicated thread pools |
-| Blocking I/O without virtual threads | Platform thread pool + manual management |
+- [[README|Core Java]]
+- [[../04_Concurrency/README|Concurrency]]
+- [[../04_Concurrency/Threads|Threads]]
+- [[../08_Modern-Java/06 ScopedValue|Scoped Values]]
+- [[../00_Java-25-Overview/Whats New in Java 25|What is New in Java 25]]

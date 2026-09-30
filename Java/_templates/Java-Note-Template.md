@@ -1,150 +1,101 @@
 ---
-title: "{{title}}"
-category: "{{category}}"
+title: "<% tp.file.title %>"
+category: "<% tp.file.folder(true) %>"
 tags: [java]
-created: "{{date:YYYY-MM-DD}}"
+created: "<% tp.date.now("YYYY-MM-DD") %>"
 completed: false
-difficulty: "Easy"
-pattern: 0
-reviewed: "2026-09-29"
-sr-due: "2026-10-06"
+difficulty: "Medium"
+reviewed: ""
+sr-due: ""
 source: ""
 excalidraw: ""
 type: "note"
 ---
 
-# {{title}}
+# <% tp.file.title %>
 
-> Part of [[README|Java MOC]] • `{{category}}`
-> 🎨 **Visual diagram:** Create Excalidraw drawing from template: `Cmd+P → Excalidraw: New from template → Java Diagram`
+> Part of [[Java/README|Java MOC]] • `<% tp.file.folder(true) %>`
 
 ## Intent
 
-One sentence: what problem does this solve? Define the **key term** in **bold**.
+State the problem this concept solves in one or two sentences.
 
 ## Why it Matters
 
-- Where this appears in interviews (FAANG, senior vs. junior)
-- Production impact (performance, correctness, maintainability)
-- Senior signal: recognizing the *disguised* form of this concept
+Explain the engineering consequence: correctness, maintainability, performance, concurrency, operability, or interoperability.
+
+## Mental Model
+
+Describe the invariant or runtime mechanism that makes the concept work.
 
 ## Diagram
 
-```mermaid
-flowchart TD
-    A["Input / Context"] --> B["Core Idea / Mechanism"]
-    B --> C["Output / Result"]
-    style B fill:#e8f5e9
-```
+Use Mermaid for a small static diagram. Create an Excalidraw drawing only when the diagram benefits from exploration or manual editing.
 
-## Code / Example
+## Code
 
-```java
-// Java 25: var, record, sealed, pattern matching, SequencedCollection, virtual threads, Compact Object Headers
-// Core template for {{title}}
+Show the smallest useful Java example.
 
-record {{title.replace(/\s+/g, '')}}(/* params */) {
-    static {{title.replace(/\s+/g, '')}} of(/* params */) {
-        // build logic
-        return new {{title.replace(/\s+/g, '')}}(/* args */);
-    }
+State the required Java release and whether preview features are involved.
 
-    /* returnType */ keyMethod(/* params */) {
-        // O(1) or O(n) logic
-    }
-}
+## Concrete Example
 
-// Example usage
-void example() {
-    var instance = {{title.replace(/\s+/g, '')}}.of(/* args */);
-    var result = instance.keyMethod(/* args */);
-}
-```
-
-### Concrete Example
-
-- **Input:**
-- **Output:**
-- **Explanation:**
+- **Problem:**
+- **Input / Context:**
+- **Expected behavior:**
+- **Failure mode:**
 
 ## When to Use / When NOT
 
-| **Use When** | **Avoid When** |
-|--------------|----------------|
-| - Trigger keywords: | - Over-engineering simple cases |
-| - Constraints: | - Premature optimization |
-| - Pattern signature: | - When standard library suffices |
+| Use when | Prefer something else when |
+|---|---|
+| | |
 
 ## Trade-offs
 
-| Dimension | This Approach | Alternative |
-|-----------|---------------|-------------|
+| Dimension | Choice | Alternative |
+|---|---|---|
 | Complexity | | |
 | Performance | | |
-| Readability | | |
 | Testability | | |
-
-## Vs Table
-
-| Aspect | This | Alternative | Decision Rule |
-|--------|------|-------------|---------------|
-| | | | |
+| Operability | | |
 
 ## Pitfalls
 
-- Common mistake 1 → Fix
-- Common mistake 2 → Fix
+- 
+- 
+- 
 
-## Interview Q&A (Senior Depth)
+## Interview Q&A
 
-**Q1. What is the core insight of this concept, and why does it work?**
-**A:** In 2–3 sentences. Connect the *why* to the language/runtime invariant.
+**Q1. What is the core invariant?**
 
-**Q2. When would you choose an alternative over this concept?**
-**A:** Cite concrete constraints and name the alternative.
+**A:**
 
-**Q3. How does this change with virtual threads / Project Loom?**
-**A:** Explain the impact on concurrency model.
+**Q2. When would you choose an alternative?**
 
-**Q4. Walk me through a non-obvious problem that reduces to this concept.**
-**A:** Describe the reduction step-by-step.
+**A:**
 
-**Q5. What is the memory/performance implication at scale?**
-**A:** Discuss heap, GC, JIT interaction.
+**Q3. What changes under concurrency or at scale?**
 
-## Flashcards (Spaced Repetition)
+**A:**
 
-#flashcard
-**Q:** What is the trigger keyword for {{title}}? :: **A:** [trigger keywords] #flashcard
+**Q4. What failure mode would you diagnose first?**
 
-#flashcard
-**Q:** Time/space complexity of {{title}}? :: **A:** Time: O(), Space: O() #flashcard
+**A:**
 
-#flashcard
-**Q:** When do you NOT use {{title}}? :: **A:** [anti-pattern scenarios] #flashcard
+## Practice Tasks
 
-#flashcard
-**Q:** Core Java 25 snippet for {{title}}? :: **A:** `record ... { static of(...) {} keyMethod() {} }` #flashcard
-
-## Practice Tasks (Tasks Plugin)
-
-- [ ] Restate the intent from memory 📅 {{date:YYYY-MM-DD, +1}}
-- [ ] Code the snippet without looking 📅 {{date:YYYY-MM-DD, +3}}
-- [ ] Answer all Interview Q&A aloud 📅 {{date:YYYY-MM-DD, +7}}
-- [ ] Review flashcards (Spaced Repetition) 📅 {{date:YYYY-MM-DD, +1}}
-
-```tasks
-not done
-path includes {{file.folder}}
-sort by due
-limit 10
-```
+- [ ] Explain the concept from memory.
+- [ ] Write the smallest example without looking.
+- [ ] Test one boundary or failure case.
+- [ ] Record one trade-off.
 
 ## Related
 
-- [[README|Java MOC]]
-- [[Java/_templates/README|{{file.folder.split('/').pop()}} Folder]]
+- [[Java/README|Java MOC]]
+- Add only links that materially deepen the concept.
 
 ---
 
-*Category: {{category}} • Part of [[README|Java MOC]] • Java 25*
+*Category: <% tp.file.folder(true) %> • Java 25 target*

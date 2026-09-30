@@ -1,88 +1,55 @@
 ---
-title: "05 Spring README"
+title: "05 Spring"
 category: "Java/05_Spring"
 type: "folder-MOC"
-tags: [MOC, folder]
-created: "2026-09-27"
+tags: [MOC, spring, java]
+created: "2026-09-30"
 completed: false
-reviewed: "2026-09-29"
-sr-due: "2026-10-06"
+reviewed: "2026-09-30"
+sr-due: "2026-10-07"
 ---
 
 # 05 Spring
 
-> Part of [[README|Java MOC]] • `Java/05_Spring`
+> Learn Spring as a runtime and architecture model, not as a list of annotations.
 
-## Progress Overview
+## Canonical Reading Order
 
-```dataviewjs
-const category = dv.current().category;
-const pages = dv.pages(`"${category}"`).where(p => p.category != null && p.file.name != "README");
-const total = pages.length;
-const done = pages.where(p => p.completed === true).length;
-const pct = total ? Math.round(done/total*100) : 0;
-const bar = (p, w=20) => "█".repeat(Math.round(p/100*w)) + "░".repeat(w-Math.round(p/100*w));
-dv.paragraph(`**Total: ${total} notes | Completed: ${done} | Remaining: ${total-done}** — \`${pct}%\``);
-dv.paragraph(`\`${bar(pct)}\` **${pct}%**`);
-if (total === done && total > 0) dv.paragraph(`🎉 *All notes completed!*`);
-```
+1. [[Spring Framework]] — IoC, bean lifecycle, AOP and proxy model.
+2. [[Dependency Injection]] — composition and dependency boundaries.
+3. [[Spring Boot]] — auto-configuration, configuration and production defaults.
+4. [[Spring MVC]] — HTTP request processing and web boundaries.
+5. [[Spring Data JPA]] — repositories, persistence context and query behavior.
+6. [[Spring Transaction]] — transaction boundaries, propagation and isolation.
+7. [[Spring Security]] — filter chain, authentication, authorization and method security.
+8. [[Spring AI]] — Java/Spring integration with models, RAG and tool calling.
 
-> **Fallback (if DataviewJS disabled):**
-```dataview
-TABLE WITHOUT ID
- length(rows) as "Total",
- length(filter(rows, (r) => r.completed)) as "Completed",
- length(filter(rows, (r) => !r.completed)) as "Remaining"
-FROM "Java/05_Spring"
-WHERE category AND file.name != "README"
-GROUP BY true
-```
+## Version Strategy
 
-## Notes Index
+As of September 2026, the current Spring generation is Spring Framework 7 and Spring Boot 4.x, with Java 25 as a first-class baseline for the new generation. Keep older Spring 6 / Boot 3 notes as migration knowledge when you work on existing systems; do not mix APIs from different generations without checking the project's dependency management.
 
-```dataview
-TABLE WITHOUT ID
- file.link as "Note",
- category as "Category",
- choice(completed, "✅", "⬜") as "Done",
- difficulty as "Difficulty",
- reviewed as "Last Reviewed",
- "sr-due" as "SR Due"
-FROM "Java/05_Spring"
-WHERE category AND file.name != "README"
-SORT file.name ASC
-```
+## What Senior Engineers Must Explain
 
-## Spaced Repetition Status
+- What the container actually does during startup.
+- How dependency injection differs from service location.
+- Where proxies intercept calls and where self-invocation bypasses advice.
+- How transaction boundaries interact with persistence context and thread ownership.
+- How the security filter chain establishes request security.
+- What Boot auto-configuration adds and how to override it deliberately.
+- How to test framework behavior without turning every test into a full application-context test.
 
-```dataview
-TABLE WITHOUT ID
- file.link as "Note",
- reviewed as "Last Reviewed",
- "sr-due" as "Due",
- choice(!reviewed, "🔴 Never", choice(date(now)-reviewed > dur(7 days), "🟡 Stale", "🟢 Fresh")) as "Status"
-FROM "Java/05_Spring"
-WHERE category AND file.name != "README" AND (reviewed OR "sr-due")
-SORT "sr-due" ASC
-```
+## Practice
 
-## Practice Tasks (from Notes)
+- [ ] Build one controller → service → repository slice.
+- [ ] Add validation and consistent error responses.
+- [ ] Add one transaction boundary and explain its propagation/isolation choice.
+- [ ] Add authentication and authorization and explain the filter chain.
+- [ ] Add an integration test against a real database container.
 
-```tasks
-not done
-path includes Java/05_Spring
-sort by due
-group by filename
-limit 20
-```
+## Related
 
-> ⚠️ **Template Note:** The `Java/05_Spring` placeholder above is replaced by the generate script (`python3 generate_folder_readmes.py`). The template file itself will show a Tasks error — this is expected. Generated README files have the actual folder path and work correctly.
-
-## Quick Links
-
-- [[README|← Back to Java MOC]]
-- [[Master Dashboard|📊 Master Dashboard]]
-
----
-
-*Folder: Java/05_Spring • Part of [[README|Java MOC]]*
+- [[../04_Concurrency/README|Concurrency]]
+- [[../11_JVM-Performance/README|JVM & Performance]]
+- [[../12_Testing-Tooling/README|Testing & Tooling]]
+- [[../AI/README|AI Engineering]]
+- [[../README|Java MOC]]

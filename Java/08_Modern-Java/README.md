@@ -1,88 +1,55 @@
 ---
-title: "08 Modern Java README"
+title: "08 Modern Java"
 category: "Java/08_Modern-Java"
 type: "folder-MOC"
-tags: [MOC, folder]
-created: "2026-09-27"
+tags: [MOC, java, modern-java]
+created: "2026-09-30"
 completed: false
-reviewed: "2026-09-29"
-sr-due: "2026-10-06"
+reviewed: "2026-09-30"
+sr-due: "2026-10-07"
 ---
 
 # 08 Modern Java
 
-> Part of [[README|Java MOC]] • `Java/08_Modern-Java`
+> Language and library evolution from Java 9 through Java 25. Use this folder for feature-focused learning; use [[../00_Java-25-Overview/Java 25 Roadmap|Java 25 Roadmap]] for sequencing.
 
-## Progress Overview
+## Notes
 
-```dataviewjs
-const category = dv.current().category;
-const pages = dv.pages(`"${category}"`).where(p => p.category != null && p.file.name != "README");
-const total = pages.length;
-const done = pages.where(p => p.completed === true).length;
-const pct = total ? Math.round(done/total*100) : 0;
-const bar = (p, w=20) => "█".repeat(Math.round(p/100*w)) + "░".repeat(w-Math.round(p/100*w));
-dv.paragraph(`**Total: ${total} notes | Completed: ${done} | Remaining: ${total-done}** — \`${pct}%\``);
-dv.paragraph(`\`${bar(pct)}\` **${pct}%**`);
-if (total === done && total > 0) dv.paragraph(`🎉 *All notes completed!*`);
-```
+- [[01 Records]]
+- [[02 Sealed Classes]]
+- [[03 Pattern Matching]]
+- [[04 Sequenced Collections]]
+- [[05 Virtual Threads - Loom]]
+- [[06 ScopedValue]]
+- [[07 Flexible Constructors and Module Imports]]
+- [[08 Compact Object Headers and Performance]]
 
-> **Fallback (if DataviewJS disabled):**
-```dataview
-TABLE WITHOUT ID
- length(rows) as "Total",
- length(filter(rows, (r) => r.completed)) as "Completed",
- length(filter(rows, (r) => !r.completed)) as "Remaining"
-FROM "Java/08_Modern-Java"
-WHERE category AND file.name != "README"
-GROUP BY true
-```
+## How to Use This Folder
 
-## Notes Index
+Do not memorize every feature.
 
-```dataview
-TABLE WITHOUT ID
- file.link as "Note",
- category as "Category",
- choice(completed, "✅", "⬜") as "Done",
- difficulty as "Difficulty",
- reviewed as "Last Reviewed",
- "sr-due" as "SR Due"
-FROM "Java/08_Modern-Java"
-WHERE category AND file.name != "README"
-SORT file.name ASC
-```
+For each feature ask:
 
-## Spaced Repetition Status
+1. What problem did it solve?
+2. What was the old idiom?
+3. What is the new semantic rule?
+4. Does the current LTS make it final, preview, or obsolete?
+5. What does it change in production code?
 
-```dataview
-TABLE WITHOUT ID
- file.link as "Note",
- reviewed as "Last Reviewed",
- "sr-due" as "Due",
- choice(!reviewed, "🔴 Never", choice(date(now)-reviewed > dur(7 days), "🟡 Stale", "🟢 Fresh")) as "Status"
-FROM "Java/08_Modern-Java"
-WHERE category AND file.name != "README" AND (reviewed OR "sr-due")
-SORT "sr-due" ASC
-```
+## Current LTS Focus
 
-## Practice Tasks (from Notes)
+For Java 25, prioritize:
 
-```tasks
-not done
-path includes Java/08_Modern-Java
-sort by due
-group by filename
-limit 20
-```
+- ScopedValue;
+- flexible constructor bodies;
+- module import declarations;
+- compact source files and instance main methods;
+- compact object headers;
+- preview status of primitive patterns and structured concurrency.
 
-> ⚠️ **Template Note:** The `Java/08_Modern-Java` placeholder above is replaced by the generate script (`python3 generate_folder_readmes.py`). The template file itself will show a Tasks error — this is expected. Generated README files have the actual folder path and work correctly.
+## Related
 
-## Quick Links
-
-- [[README|← Back to Java MOC]]
-- [[Master Dashboard|📊 Master Dashboard]]
-
----
-
-*Folder: Java/08_Modern-Java • Part of [[README|Java MOC]]*
+- [[../00_Java-25-Overview/LTS Evolution 8 to 25|LTS Evolution]]
+- [[../09_Java-21-LTS/README|Java 21 Deep Dive]]
+- [[../04_Concurrency/README|Concurrency]]
+- [[../README|Java MOC]]
