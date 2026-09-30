@@ -110,7 +110,7 @@ LIMIT 20
 Run:
 
 ~~~bash
-python3 scripts/validate-coding-patterns.py
+python3 scripts/validate-vault.py
 ~~~
 
 The validator checks wikilinks, forbidden relative links, table aliases, pattern metadata, duplicate problem IDs, and referenced vault paths.
