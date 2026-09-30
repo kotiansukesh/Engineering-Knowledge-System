@@ -1,136 +1,79 @@
 ---
-title: "08_Multi-Agent Orchestration"
+title: "Multi-Agent Orchestration"
 category: "AI/03_Agentic-AI"
-tags:
-- multi-agent
-- orchestration
-- swarm
-- langgraph
-created: "2026-09-29"
+tags: [ai, agents, orchestration, multi-agent]
+created: "2026-09-30"
 completed: false
 difficulty: "Advanced"
-reviewed: "2026-09-29"
-sr-due: "2026-09-30"
-source: ""
-excalidraw: ""
-weeks: "6"
+reviewed: "2026-09-30"
+sr-due: "2026-10-04"
 type: "note"
 ---
 
-# 08_Multi-Agent Orchestration
-
-> Part of [[README|AI MOC]] • `AI/03_Agentic-AI` • Weeks 6
-> 🎨 **Visual diagram:** Create Excalidraw drawing from template: `Cmd+P → Excalidraw: New from template → AI Diagram`
+# Multi-Agent Orchestration
 
 ## Intent
-Understand **multi-agent orchestration** — centralized vs decentralized, supervisor patterns, message passing, state management, and LangGraph/Autogen frameworks — to coordinate complex workflows.
+Understand when multiple specialized agents are justified and how to make state, authority, termination, retries, and failures explicit.
 
-## Why It Matters
-- Where this appears in interviews (FAANG, senior vs. junior)
-- Production impact (cost, latency, quality, GPU utilization)
-- Senior signal: recognizing the *disguised* form of this pattern
+## Core Model
+Supervisor, pipeline, parallel specialists, and decentralized collaboration are different control-flow choices. Treat the system as distributed software with probabilistic components.
 
-## Diagram
-```mermaid
-graph TD
-    A[Input / Context] --> B[Core Mechanism]
-    B --> C[Output / Result]
-    style B fill:#e8f5e9
-```
+## Decision Rule
+Start with **deterministic code → workflow → single agent → multi-agent**. Split into agents only when specialization, isolation, parallelism, or independent context materially improves measured outcomes.
 
-## Key Points
-- Key point 1
-- Key point 2
+## Architecture
+~~~~mermaid
+flowchart LR
+U[Goal] --> S[Supervisor / Workflow]
+S --> A[Research]
+S --> B[Analysis]
+S --> C[Action]
+A --> R[(Evidence)]
+B --> R
+C --> P[External system]
+P --> S
+~~~~
 
-## Code / Config Example
-```python
-# Python 3.11+: Minimal example for 08_Multi-Agent Orchestration
-# Core concept - implementation varies by framework
+## Real Trade-offs
+| Decision | Simpler option | Multi-agent option | Evidence needed |
+|---|---|---|---|
+| Specialization | One agent + tools | Specialist agents | Different context/tools measurably improve success |
+| Parallelism | Sequential workflow | Parallel agents | Independent work dominates latency |
+| Context | Shared context | Per-agent context | Size or security boundaries justify isolation |
+| Coordination | Function calls | State graph/messages | Dynamic delegation is actually required |
 
-from dataclasses import dataclass
-from typing import Optional
+## State Contract
+Every agent should have an input schema, output schema, allowed tools, authority, timeout, retry policy, termination condition, and observable events. Prefer structured state over large natural-language transcripts.
 
-@dataclass
-class 08_MultiAgentOrchestrationConfig:
-    component: str = "08_Multi-Agent Orchestration"
-    capacity: int = 10000
-    strategy: str = "default"
+## Failure Modes
+1. Coordination loop → step/iteration budget.
+2. Conflicting side effects → one owner per mutation.
+3. State corruption → versioned state + validation.
+4. Cascading retries → retry budgets and failure propagation.
+5. Agent disagreement → explicit escalation/tie-breaker.
+6. Cost explosion → per-task token/call budgets.
+7. Poor reproducibility → trace every transition and tool call.
 
-# Example usage
-config = 08_MultiAgentOrchestrationConfig()
-```
+## Evaluation
+Compare against a single-agent/workflow baseline using task success, unnecessary calls, latency, cost, recovery rate, and unsafe actions. The baseline is essential because complexity has to earn its place.
 
-## When to Use / NOT
-| Scenario | Use? | Reason |
-|----------|------|--------|
-|          | ✅   |        |
-|          | ❌   |        |
+## Practice
+- [ ] Implement the single-agent baseline.
+- [ ] Split only one justified responsibility into a second agent.
+- [ ] Add typed shared state and termination limits.
+- [ ] Inject timeout and contradictory-result failures.
+- [ ] Compare success, latency, cost, and recovery against baseline.
 
-## Trade-offs / Decision Matrix
-| Dimension | This Approach | Alternative A | Alternative B | Pick When |
-|-----------|---------------|---------------|---------------|-----------|
-| Complexity | | | | |
-| Latency | | | | |
-| Cost (GPU/hr) | | | | |
-| Quality | | | | |
+## Senior Interview Prompts
+1. What does a second agent solve that a tool or workflow cannot?
+2. Who owns shared-state mutations?
+3. How do you prevent duplicate side effects?
+4. How do you cap runaway coordination?
+5. What evidence would make you collapse the design back into a workflow?
 
-## Vs. Alternatives
-| Alternative | When to Choose It | Decision Rule |
-|-------------|-------------------|---------------|
-| | | |
-
-## Pitfalls
-1. [Concrete mistake] → [Fix]
-2. [Concrete mistake] → [Fix]
-
-## Interview Q&A (Senior Depth)
-
-**Q1: Walk me through the core mechanism of 08_Multi-Agent Orchestration. Why does it work?**
-**A:** In 2–3 sentences. Connect the *why* to the mathematical/architectural invariant.
-
-**Q2: When would you choose an alternative over this approach?**
-**A:** Cite concrete constraints (scale, latency, cost, quality) and name the alternative.
-
-**Q3: How does this change for production vs. prototype?**
-**A:** Explain the hardening needed: evaluation, monitoring, cost optimization, guardrails.
-
-**Q4: Walk me through a non-obvious problem that reduces to this pattern.**
-**A:** Describe the reduction step-by-step.
-
-**Q5: What is the GPU memory / latency implication at scale?**
-**A:** Discuss VRAM, batching, KV cache, quantization trade-offs.
-
-## Flashcards (Spaced Repetition)
+## Flashcards
+#flashcard
+**Q:** What is the default before introducing multiple agents? :: **A:** Deterministic logic or a workflow; add autonomy only when requirements and evaluation justify it.
 
 #flashcard
-**Q:** What is the trigger keyword for 08_Multi-Agent Orchestration? :: **A:** [trigger keywords] #flashcard
-
-#flashcard
-**Q:** Key hyperparameter for 08_Multi-Agent Orchestration? :: **A:** [hyperparameter + typical range] #flashcard
-
-#flashcard
-**Q:** When do you NOT use 08_Multi-Agent Orchestration? :: **A:** [anti-pattern scenarios] #flashcard
-
-#flashcard
-**Q:** Cost order of magnitude for 08_Multi-Agent Orchestration? :: **A:** [GPU hours / $ per 1M tokens] #flashcard
-
-## Practice Tasks (Tasks Plugin)
-- [ ] Restate the intent from memory 📅 2026-09-30
-- [ ] Code the config without looking 📅 2026-10-02
-- [ ] Answer all Interview Q&A aloud 📅 2026-10-06
-- [ ] Review flashcards (Spaced Repetition) 📅 2026-09-30
-
-```tasks
-not done
-path includes 03_Agentic-AI
-sort by due
-limit 10
-```
-
-## Related
-- [[README|AI MOC]]
-- [[03_Agentic-AI/README|03_Agentic-AI Folder]]
-
----
-
-*Category: AI/03_Agentic-AI • Part of [[README|AI MOC]]*
+**Q:** What must every agent contract specify? :: **A:** Input/output schema, tools, authority, timeout, retry policy, termination condition, and observable events.

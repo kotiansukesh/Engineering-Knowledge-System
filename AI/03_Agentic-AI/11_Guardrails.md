@@ -1,137 +1,71 @@
 ---
-title: "11_Guardrails"
+title: "Guardrails"
 category: "AI/03_Agentic-AI"
-tags:
-- agent
-- guardrails
-- safety
-- content-filter
-- pii
-created: "2026-09-29"
+tags: [ai, agents, security, guardrails, safety]
+created: "2026-09-30"
 completed: false
-difficulty: "Medium"
-reviewed: "2026-09-29"
-sr-due: "2026-09-30"
-source: ""
-excalidraw: ""
-weeks: "7"
+difficulty: "Advanced"
+reviewed: "2026-09-30"
+sr-due: "2026-10-06"
 type: "note"
 ---
 
-# 11_Guardrails
-
-> Part of [[README|AI MOC]] • `AI/03_Agentic-AI` • Weeks 7
-> 🎨 **Visual diagram:** Create Excalidraw drawing from template: `Cmd+P → Excalidraw: New from template → AI Diagram`
+# Guardrails
 
 ## Intent
-Understand **guardrails and safety** — input/output filters, PII detection, jailbreak prevention, constitutional AI, and runtime enforcement — to deploy agents responsibly.
+Design layered controls for what an AI system may receive, produce, and execute. Guardrails reduce risk; they do not make an untrusted model inherently safe.
 
-## Why It Matters
-- Where this appears in interviews (FAANG, senior vs. junior)
-- Production impact (cost, latency, quality, GPU utilization)
-- Senior signal: recognizing the *disguised* form of this pattern
+## Control Model
+~~~~mermaid
+flowchart LR
+I[Input] --> P[Identity + policy] --> C[Context] --> M[Model] --> V[Output validation] --> A[Tool authorization] --> E[Execution] --> O[Audit]
+~~~~
 
-## Diagram
-```mermaid
-graph TD
-    A[Input / Context] --> B[Core Mechanism]
-    B --> C[Output / Result]
-    style B fill:#e8f5e9
-```
+| Threat | Primary control |
+|---|---|
+| Prompt injection | isolate untrusted content; explicit tool policy; validation |
+| Unauthorized action | identity + server-side authorization |
+| PII leakage | classification/redaction + access control |
+| Unsafe output | policy validation + escalation |
+| Excessive autonomy | scoped tools + budgets + approval |
+| Tool compromise | least privilege + schema validation + isolation |
 
-## Key Points
-- Key point 1
-- Key point 2
+## Decision Rule
+Hard security and authorization requirements should be enforced deterministically. A prompt saying 'never transfer money without approval' is not an enforcement mechanism; the payment service must verify approval independently.
 
-## Code / Config Example
-```python
-# Python 3.11+: Minimal example for 11_Guardrails
-# Core concept - implementation varies by framework
+## Trade-offs
+| Control | Stronger option | Cost/impact | Use when |
+|---|---|---|---|
+| Tool permissions | Per-action authorization | More implementation | Sensitive/side-effecting tools |
+| Human approval | Mandatory selected actions | Added latency | Irreversible/high-impact actions |
+| Output classifier | Separate policy model | Latency + false positives | Content risk justifies it |
+| Sandboxing | Isolated execution | Infrastructure complexity | Untrusted code/tools |
 
-from dataclasses import dataclass
-from typing import Optional
+## Failure Modes
+1. Model bypasses a prompt rule → enforce outside the model.
+2. Retrieved content contains instructions → treat it as untrusted data.
+3. False-positive blocking → measure legitimate-task rejection and add escalation.
+4. Guardrail outage → define fail-open/closed per risk class.
+5. Excessive tool privilege → minimum-scope credentials.
+6. Missing audit trail → record policy decisions, approvals, tool calls, and outcomes.
 
-@dataclass
-class 11_GuardrailsConfig:
-    component: str = "11_Guardrails"
-    capacity: int = 10000
-    strategy: str = "default"
+## Evaluation
+Track attack success, unauthorized actions, sensitive-data leakage, legitimate-task rejection, escalation rate, false positives/negatives, policy latency, and availability.
 
-# Example usage
-config = 11_GuardrailsConfig()
-```
+## Practice
+- [ ] Separate read-only and write permissions.
+- [ ] Inject instructions into retrieved content and verify policy cannot change.
+- [ ] Add approval for an irreversible action.
+- [ ] Simulate guardrail outage and choose safe behavior.
+- [ ] Review audit traces for blocked and allowed actions.
 
-## When to Use / NOT
-| Scenario | Use? | Reason |
-|----------|------|--------|
-|          | ✅   |        |
-|          | ❌   |        |
+## Senior Interview Prompts
+1. Which controls must be deterministic?
+2. Where should authorization happen?
+3. How do you defend against prompt injection in retrieved content?
+4. When should the system fail closed?
+5. How do you detect overly restrictive guardrails?
 
-## Trade-offs / Decision Matrix
-| Dimension | This Approach | Alternative A | Alternative B | Pick When |
-|-----------|---------------|---------------|---------------|-----------|
-| Complexity | | | | |
-| Latency | | | | |
-| Cost (GPU/hr) | | | | |
-| Quality | | | | |
-
-## Vs. Alternatives
-| Alternative | When to Choose It | Decision Rule |
-|-------------|-------------------|---------------|
-| | | |
-
-## Pitfalls
-1. [Concrete mistake] → [Fix]
-2. [Concrete mistake] → [Fix]
-
-## Interview Q&A (Senior Depth)
-
-**Q1: Walk me through the core mechanism of 11_Guardrails. Why does it work?**
-**A:** In 2–3 sentences. Connect the *why* to the mathematical/architectural invariant.
-
-**Q2: When would you choose an alternative over this approach?**
-**A:** Cite concrete constraints (scale, latency, cost, quality) and name the alternative.
-
-**Q3: How does this change for production vs. prototype?**
-**A:** Explain the hardening needed: evaluation, monitoring, cost optimization, guardrails.
-
-**Q4: Walk me through a non-obvious problem that reduces to this pattern.**
-**A:** Describe the reduction step-by-step.
-
-**Q5: What is the GPU memory / latency implication at scale?**
-**A:** Discuss VRAM, batching, KV cache, quantization trade-offs.
-
-## Flashcards (Spaced Repetition)
-
+## Flashcards
 #flashcard
-**Q:** What is the trigger keyword for 11_Guardrails? :: **A:** [trigger keywords] #flashcard
-
-#flashcard
-**Q:** Key hyperparameter for 11_Guardrails? :: **A:** [hyperparameter + typical range] #flashcard
-
-#flashcard
-**Q:** When do you NOT use 11_Guardrails? :: **A:** [anti-pattern scenarios] #flashcard
-
-#flashcard
-**Q:** Cost order of magnitude for 11_Guardrails? :: **A:** [GPU hours / $ per 1M tokens] #flashcard
-
-## Practice Tasks (Tasks Plugin)
-- [ ] Restate the intent from memory 📅 2026-09-30
-- [ ] Code the config without looking 📅 2026-10-02
-- [ ] Answer all Interview Q&A aloud 📅 2026-10-06
-- [ ] Review flashcards (Spaced Repetition) 📅 2026-09-30
-
-```tasks
-not done
-path includes 03_Agentic-AI
-sort by due
-limit 10
-```
-
-## Related
-- [[README|AI MOC]]
-- [[03_Agentic-AI/README|03_Agentic-AI Folder]]
-
----
-
-*Category: AI/03_Agentic-AI • Part of [[README|AI MOC]]*
+**Q:** What is the key guardrail principle? :: **A:** Use the model for reasoning, but enforce security, authorization, and irreversible-action policy outside the model.

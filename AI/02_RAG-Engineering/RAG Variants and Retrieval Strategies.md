@@ -1,114 +1,82 @@
 ---
-title: RAG Variants and Retrieval Strategies
-category: AI/02_RAG-Engineering
-tags:
-- ai
-- rag
-- retrieval
-- reranking
-weeks: 8-9
-created: 2026-09-02
+title: "RAG Variants and Retrieval Strategies"
+category: "AI/02_RAG-Engineering"
+tags: [ai, rag, retrieval, reranking]
+created: "2026-09-30"
 completed: false
-reviewed: "2026-09-29"
-sr-due: "2026-09-30"
-excalidraw: ''
-difficulty: Medium
-source: ''
-type: note
+difficulty: "Advanced"
+reviewed: "2026-09-30"
+sr-due: "2026-10-03"
+type: "note"
 ---
 
+# RAG Variants and Retrieval Strategies
 
-## Why it Matters
+## Intent
+Choose retrieval strategies from measured failure modes rather than stacking techniques because they are available.
 
-The variants are not a menu of features, they are a ladder of cost, and the interview question is always "why did you stop where you stopped". This note gives the reasoning for each rung plus the evaluation harness that decides which rung a query actually needs, so the choice is data rather than fashion.
+## Retrieval Ladder
+**Naive vector → hybrid retrieval → query transformation → reranking → compression**.
 
-## Diagram
+Each step adds latency, infrastructure, or another model decision. The goal is not maximum sophistication; it is sufficient retrieval quality within the application's latency and cost budget.
 
-```mermaid
+## Decision Rules
+| Symptom | Candidate change | Verify with |
+|---|---|---|
+| Exact identifiers or rare terms missed | Hybrid lexical + vector | recall@k on keyword-heavy set |
+| Relevant docs appear but poor ordering | Reranker | precision@k / nDCG |
+| Query is ambiguous | Query expansion / multi-query | recall and duplicate rate |
+| Short query lacks semantic signal | Query transformation such as HyDE | recall on short-query set |
+| Too much context | Compression / tighter retrieval | answer quality + token cost |
+| Simple queries already pass | Keep baseline | latency/cost regression test |
+
+## Architecture
+~~~~mermaid
 flowchart LR
- Q["Query"] --> N["Naive<br/>embed + top-k"]
- N -->|"keyword + semantic"| H["Hybrid<br/>BM25 + vector + RRF"]
- H -->|"ambiguous"| MQ["Multi-query<br/>LLM expands"]
- H -->|"short query"| HY["HyDE<br/>hypothetical doc"]
- H -->|"precision need"| RR["Reranker<br/>cross-encoder"]
- MQ --> CTX["Context"]
- HY --> CTX
- RR --> CTX
- CTX --> L["LLM + citations"]
- L -.-> EV["precision@k / MRR / faithfulness"]
-```
+Q[Query] --> V[Vector]
+Q --> K[Lexical]
+V --> H[Hybrid merge]
+K --> H
+H --> R[Reranker]
+R --> C[Context] --> L[LLM] --> E[Evaluation]
+~~~~
 
-## Code
+## Real Trade-offs
+| Variant | Main benefit | Main cost/risk |
+|---|---|---|
+| Hybrid | lexical + semantic recall | two retrieval paths to operate |
+| Multi-query | higher recall for ambiguous queries | extra generation calls and duplicates |
+| HyDE | can improve low-signal queries | generated hypothesis can bias retrieval |
+| Reranking | better ordering | additional inference latency |
+| Compression | lower context cost | may remove evidence needed for answer |
 
-```python
+## Evaluation
+Use a versioned golden set. Measure retrieval recall@k, precision@k or nDCG where relevant, answer groundedness, latency, token cost, and failure rate. Evaluate each change against the same baseline.
 
-## When to use / NOT
+## Failure Modes
+1. Stacking variants without evaluation → latency grows without proven quality gain.
+2. Tuning k by intuition → select k from retrieval experiments.
+3. HyDE on exact factual lookup → generated text may dilute exact-match evidence.
+4. Reranking too many candidates → latency budget is consumed before generation.
+5. Metadata filters applied too late → irrelevant documents consume retrieval budget.
 
-- **Use:** multi-query when the query is ambiguous; HyDE for short low-signal queries; reranking when precision@k must be high; compression when context cost dominates.
-- **NOT:** all of them at once — every variant adds latency and eval surface; adopt the rung your golden set says you need.
+## Practice
+- [ ] Build a baseline vector retriever.
+- [ ] Add lexical retrieval and compare recall.
+- [ ] Add reranking and measure precision/latency.
+- [ ] Create 10 ambiguous queries and test query expansion.
+- [ ] Remove one optimization and document whether quality actually regresses.
 
-## Trade-offs
+## Senior Interview Prompts
+1. When does hybrid retrieval beat pure vector search?
+2. What evidence justifies adding a reranker?
+3. Why can HyDE hurt factual retrieval?
+4. How do you choose candidate k and final k?
+5. How do you prove a retrieval optimization is worth its latency?
 
-| Variant | What it costs |
-|---------|----------------|
-| Hybrid (RRF) | Two indexes to keep in sync |
-| Multi-query | N extra LLM calls per query |
-| HyDE | A generated doc can mislead retrieval |
-| Reranking | Cross-encoder latency on every query |
-| Compression | An extra model decision, possible information loss |
-
-## Vs
-
-| Axis | Naive top-k | Hybrid (BM25 + vector) | Reranking on top | Long-context / "stuff everything" |
-|------|-------------|------------------------|------------------|----------------------------------|
-| Precision@k on keyword-heavy queries | Low — exact terms missed | High — lexical match retained | Highest — cross-encoder reorders | Depends on where the answer sits in the window |
-| Query-time cost | 1 embed + 1 LLM | 2 indexes, 1 LLM | Adds a cross-encoder pass per query | Many embeds, one very large LLM call |
-| Latency p95 | Lowest | Low | Highest of the retrieval-only rungs | Context length sets the floor |
-| Failure mode | Semantic drift on rare terms | Indexes drift apart | Precision gain too small to justify the ms | Lost in the middle; stale context after every doc edit |
-| Why you stop here | Baseline to beat | When keyword + semantic both matter | Only when the measured precision gap clears the latency budget | Only while context fits one window |
-
-## Pitfalls
-
-- Stacking variants without re-running the eval — cost grows, accuracy may not.
-- Tuning `k` in RRF by feel; it is a hyperparameter, measure it.
-- HyDE on factual lookups — a hypothetical document is noise when an exact match exists.
-- Reranking 100 candidates and blaming the model for latency; cap the candidate window.
-
-## Interview Q&A
-
-- **Q:** Why rerank? **A:** Bi-encoder (fast, recall) retrieves; cross-encoder (slow, precise) prefers — best of both.
-
-## Flashcards (Spaced Repetition)
+## Flashcards
+#flashcard
+**Q:** What is the governing principle for RAG variants? :: **A:** Add a retrieval technique only when an observed failure mode and evaluation show that its benefit justifies its cost.
 
 #flashcard
-**Q:** What is the trigger keyword for RAG Variants and Retrieval Strategies? :: **A:** [trigger keywords] #flashcard
-
-#flashcard
-**Q:** Key hyperparameter for RAG Variants and Retrieval Strategies? :: **A:** [hyperparameter + typical range] #flashcard
-
-#flashcard
-**Q:** When do you NOT use RAG Variants and Retrieval Strategies? :: **A:** [anti-pattern scenarios] #flashcard
-
-#flashcard
-**Q:** Cost order of magnitude for RAG Variants and Retrieval Strategies? :: **A:** [GPU hours / $ per 1M tokens] #flashcard
-
-## Practice Tasks (Tasks Plugin)
-- [ ] Restate the intent from memory 📅 2026-09-30
-- [ ] Code the config without looking 📅 2026-10-02
-- [ ] Answer all Interview Q&A aloud 📅 2026-10-06
-- [ ] Review flashcards (Spaced Repetition) 📅 2026-09-30
-
-```tasks
-not done
-path includes 02_RAG-Engineering
-sort by due
-limit 10
-```
-
-## Related
-- [[README|AI MOC]]
-- [[02_RAG-Engineering/README|02_RAG-Engineering Folder]]
-
----
-
-*Category: AI/02_RAG-Engineering • Part of [[README|AI MOC]]*
+**Q:** What does a reranker optimize compared with a bi-encoder retriever? :: **A:** Retrieval produces a candidate set efficiently; reranking spends more computation to improve ordering/precision within that set.
