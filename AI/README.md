@@ -67,7 +67,7 @@ For each major topic, produce:
 
 ## Quality Rules
 
-- Never use `[[../...]]`.
+- Never use parent-relative Obsidian links.
 - Avoid pipe aliases inside Markdown tables.
 - Do not leave generic flashcards or placeholder answers in learning notes.
 - Trade-off tables must represent a real decision with realistic alternatives.
