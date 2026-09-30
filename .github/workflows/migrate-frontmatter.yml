@@ -1,0 +1,28 @@
+name: Migrate Semantic Frontmatter
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  migrate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Apply semantic frontmatter migration
+        run: python3 scripts/migrate-frontmatter.py --write
+      - name: Commit migration
+        run: |
+          if git diff --quiet; then
+            echo "No frontmatter migration changes."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- '*.md'
+          git commit -m "chore: migrate durable note frontmatter to semantic types"
+          git push
