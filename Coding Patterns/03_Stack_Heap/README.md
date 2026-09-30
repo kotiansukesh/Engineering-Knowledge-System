@@ -44,4 +44,4 @@ limit 10
 
 ## Related
 
-[[../Patterns Index|Patterns Index]] · [[../00 - Pattern Decision Tree|Pattern Decision Tree]] · [[../99_Revision/Practice Dashboard|Practice Dashboard]]
+[[Patterns Index|Patterns Index]] · [[00 - Pattern Decision Tree|Pattern Decision Tree]] · [[99_Revision/Practice Dashboard|Practice Dashboard]]
