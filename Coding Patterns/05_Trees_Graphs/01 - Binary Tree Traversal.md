@@ -115,13 +115,10 @@ java.util.List<Integer> morrisInorder(TreeNode root) {
 Start with the core implementation. Introduce a variant only when the problem changes the invariant or required state.
 
 ## When to use
-
 - visit every node in fixed order; serialize tree; operate on BST (inorder = sorted); delete tree (postorder).
-- **NOT:** level-order (use BFS); path existence / shortest path (use BFS/DFS); Morris only for inorder.
 
 ## When NOT to use
-
-level-order (use BFS); path existence / shortest path (use BFS/DFS); Morris only for inorder.
+- level-order (use BFS); path existence / shortest path (use BFS/DFS); Morris only for inorder.
 
 ## Complexity & trade-offs
 
