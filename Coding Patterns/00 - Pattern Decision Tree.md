@@ -11,6 +11,56 @@ tags:
 
 > Start from problem shape. Use constraints to eliminate candidates. State the invariant before coding.
 
+## Reasoning sequence
+
+### 1. What is the required output?
+
+- A count/sum/range result
+- A pair/triple
+- A path or minimum distance
+- A traversal/order
+- An optimal value
+- All valid configurations
+- Connectivity
+- Prefix/string lookup
+
+### 2. What is the input structure?
+
+Array/string, linked list, interval set, tree, graph, grid, or implicit state space.
+
+### 3. What breaks brute force?
+
+Estimate the naive complexity against the actual constraint before choosing an algorithm.
+
+### 4. What work repeats?
+
+Ask what the brute-force solution recomputes. The answer often points to the state/data structure.
+
+### 5. What can be maintained?
+
+| Maintainable state | Candidate direction |
+|---|---|
+| Prefix aggregate | Prefix Sum |
+| Active contiguous range | Sliding Window |
+| Ordered endpoints | Two Pointers |
+| Frequency state | Frequency Counting / Sliding Window |
+| Monotonic frontier | Monotonic Stack |
+| K best candidates | Heap / Top K |
+| Search interval | Binary Search |
+| Graph frontier | BFS / DFS |
+| Recursive choice state | Backtracking |
+| Repeated subproblem state | DP / Memoization |
+| Component representative | Union Find |
+| Prefix path | Trie |
+
+### 6. State the invariant
+
+Use [[00 - Invariant Library]] before writing code.
+
+### 7. Disambiguate
+
+Use [[00 - Pattern Confusion Matrix]] when two candidates remain plausible.
+
 ## Object → candidate patterns
 
 | Shape | Start with |
@@ -28,62 +78,22 @@ tags:
 | Prefix lookup | Trie |
 | XOR / masks / bit state | Bit Manipulation |
 
-## Disambiguation questions
-
-### Arrays / strings
-
-- **Contiguous range?** Sliding Window or Prefix Sum.
-- **Sorted / sortable pair reasoning?** Two Pointers.
-- **Counts, anagrams, equivalence?** Frequency Counting.
-- **Repeated range aggregation?** Prefix Sum.
-- **Monotonic search space?** Binary Search.
-
-### Trees / graphs / grids
-
-- **Fewest unweighted steps?** BFS.
-- **Exhaustive traversal or path state?** DFS.
-- **Weighted shortest path?** Shortest Path algorithms.
-- **Dynamic connectivity?** Union Find.
-- **Prefix dictionary?** Trie.
-- **Grid connectivity?** Matrix + DFS/BFS.
-
-### Optimization / search
-
-- **Enumerate valid choices?** Backtracking.
-- **Repeated state?** DP.
-- **Local choice has a proof?** Greedy.
-- **K best?** Heap / Top K.
-- **Feasibility is monotonic?** Binary Search on Answer.
-
 ## Complexity filter
 
-Use constraints to reject approaches before coding.
-
-- n around 10^5 usually rules out O(n²).
-- n around 10^3 can make O(n²) reasonable.
-- Exponential solutions need small inputs and/or strong pruning.
+Use [[00 - Complexity Decision Matrix]] before coding.
 
 ## Pattern combinations
 
-| Combination | Typical use |
-|---|---|
-| Sliding Window + HashMap | constrained substring |
-| Prefix Sum + HashMap | target-sum subarrays |
-| Binary Search + Greedy | feasible answer optimization |
-| BFS + HashSet | shortest unweighted path |
-| DFS + Memoization | repeated state |
-| Heap + HashMap | frequency + Top K |
-| Matrix + BFS | shortest grid path |
-| Backtracking + pruning | constrained enumeration |
+Use [[00 - Pattern Combinations]] for problems where one technique does not remove all repeated work.
 
 ## Pre-code checklist
 
 - [ ] State the brute force.
 - [ ] State the constraint that breaks it.
-- [ ] Name the state you maintain.
+- [ ] Name the maintainable state.
 - [ ] State the invariant.
 - [ ] Explain why discarded candidates cannot matter.
 - [ ] List edge cases.
 - [ ] State time and space complexity.
 
-> **Recognition rule:** ask “What information can I maintain so I never recompute the same work?”
+> **Recognition rule:** do not choose a pattern because of one keyword. Constraints + required output + maintainable state + invariant are stronger evidence.
