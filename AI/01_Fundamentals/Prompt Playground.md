@@ -32,7 +32,7 @@ flowchart LR
     V --> L[LLM Call]
     L --> OUT[Rendered Output]
     OUT --> CMP[Side-by-Side Diff<br/>A vs B]
-    CMP --> GS[Golden-Set Eval<br/>(Phase 02+)]
+    CMP --> GS["Golden-Set Eval<br/>(Phase 02+)"]
     GS -->|better + cheaper| SHIP[Ship Winner]
     GS -->|looks better| REJ[Reject: No Evidence]
     style CMP fill:#fff3e0
