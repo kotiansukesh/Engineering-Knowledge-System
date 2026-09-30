@@ -96,13 +96,10 @@ int eraseOverlapIntervals(int[][] intervals) {
 Start with the core implementation. Introduce a variant only when the problem changes the invariant or required state.
 
 ## When to use
-
 - merge intervals; insert interval; min removals for non-overlapping; meeting scheduling; "overlap" / "interval" keywords.
-- **NOT:** point stabbing queries (which intervals contain a point — use interval tree); dynamic insert/delete with queries (use balanced BST or segment tree).
 
 ## When NOT to use
-
-point stabbing queries (which intervals contain a point — use interval tree); dynamic insert/delete with queries (use balanced BST or segment tree).
+- point stabbing queries (which intervals contain a point — use interval tree); dynamic insert/delete with queries (use balanced BST or segment tree).
 
 ## Complexity & trade-offs
 
