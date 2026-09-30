@@ -1,92 +1,75 @@
 ---
 title: "<% tp.file.title %>"
-type: note
-category: Architect
-completed: false
+type: architecture
+domain: architect
+status: active
+difficulty: intermediate
+created: "<% tp.date.now('YYYY-MM-DD') %>"
 reviewed:
-sr-due:
-difficulty: Medium
-decision:
-primary_constraint:
-quality_attributes: []
-failure_modes: []
-alternatives: []
+next_review:
 tags:
   - architecture
 ---
 
 # <% tp.file.title %>
 
-## Intent
+## 1. Problem
 
-What problem does this architecture mechanism solve?
+What problem are we solving?
 
-## Recognition
+## 2. Constraints
 
-Use this when:
+- Scale:
+- Latency:
+- Availability:
+- Consistency:
+- Security:
+- Cost:
 
-- 
-- 
+## 3. Design
 
-Avoid it when:
+Describe the smallest design that satisfies the constraints.
 
-- 
-- 
+## 4. Diagram
 
-## Constraints
+Use Mermaid for simple relationships/flows. Use Excalidraw only when spatial reasoning adds value.
 
-**Scale:**  
-**Latency:**  
-**Availability:**  
-**Consistency:**  
-**Security:**  
-**Cost:**  
+## 5. Why this design?
 
-## Core model
+- Constraint that drives it:
+- Simplest alternative:
+- Important trade-off:
 
-Describe the minimum mechanism needed.
+## 6. Failure
 
-## Invariants / guarantees
-
-- 
-
-## Failure modes
-
-| Failure | Detection | Degraded mode | Recovery |
+| Failure | Symptom | Detection | Recovery |
 |---|---|---|---|
 | | | | |
 
-## Trade-offs
+## 7. Evidence
 
-| Option | Benefit | Cost | Choose when |
-|---|---|---|---|
-| | | | |
+- Metric / experiment:
+- Assumption:
+- Result:
 
-## Operational evidence
+## 8. Explain
 
-**Metrics:**  
-**Alerts:**  
-**Load test:**  
-**Fitness function:**  
+**In one minute:**  
+ 
 
-## Senior interview Q&A
+**What changes at 10× scale?**  
+ 
 
-**Q:** What constraint makes this necessary?  
-**A:** 
+**What would make me redesign it?**  
+ 
 
-**Q:** What simpler option would you choose first?  
-**A:** 
-
-**Q:** What breaks at 10× scale?  
-**A:** 
-
-**Q:** What happens when the main dependency fails?  
-**A:** 
-
-## Practice
+## 9. Practice
 
 - [ ] Explain without notes
 - [ ] Draw from memory
-- [ ] Compare with a simpler alternative
-- [ ] Explain one failure mode
-- [ ] Explain one redesign trigger
+- [ ] Explain one failure
+- [ ] Compare with the simpler alternative
+
+## Related
+
+Add only links that exist in this vault.
