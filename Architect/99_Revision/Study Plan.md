@@ -1,56 +1,59 @@
 ---
-title: Architect Study Plan
-type: plan
+title: Architect Domain Syllabus
+type: syllabus
 category: Architect/99_Revision
-tags: [study-plan, architecture, system-design, enterprise, ai]
+tags: [syllabus, architecture, system-design, enterprise, ai]
 created: 2026-09-30
 ---
 
-# Architect Study Plan
+# Architect Domain Syllabus
+
+> **This is a domain syllabus, not a second calendar.**
+>
+> Use the repository-wide [[Study Plan]] as the only schedule. Enter this domain when the current phase requires architecture capability.
 
 ## Progression
 
-**Learn → Recognize → Guided → Constraint Injection → Blind → Failure Injection → Trade-off Defense → Review → Redesign → Interview → Mastered**
+**Learn → Recognize → Guided → Constraint Injection → Blind → Failure Injection → Trade-off Defense → Review → Redesign**
 
-## 18-week core
+## Capability sequence
 
-| Phase | Weeks | Focus | Evidence |
-|---|---:|---|---|
-| Foundations | 1–2 | architecture principles, quality attributes | explain decisions from constraints |
-| Requirements | 3 | NFRs and estimation | measurable scenarios |
-| Styles | 4–5 | monolith, services, event-driven | justify shape |
-| Building blocks | 6–7 | resilience, caching, integration | failure-first design |
-| DDD | 8–9 | boundaries, aggregates, events | ownership + consistency |
-| Data | 10–11 | SQL/NoSQL, CQRS, event sourcing | access-pattern decisions |
-| Integration | 12–13 | APIs, messaging, idempotency | delivery semantics |
-| Operations | 14–15 | observability, security, deployment | production readiness |
-| System design | 16–18 | blind, failure, redesign, interview | independent end-to-end design |
+### 1. Architecture foundations
+- architecture principles
+- quality attributes
+- requirements and constraints
+- estimation and capacity
 
-## Extension tracks
+### 2. Architecture design
+- monoliths and modular systems
+- service-oriented and event-driven systems
+- resilience, caching and integration
+- DDD and bounded contexts
+- data ownership and consistency
+- APIs, messaging and idempotency
 
-### Enterprise Architecture
+### 3. Production architecture
+- observability
+- security
+- deployment
+- failure modes
+- operational readiness
+- cost drivers
 
-After the core, study:
-
+### 4. Enterprise architecture
 - capability mapping
 - application portfolio
-- architecture principles
 - reference architecture
-- technology radar
+- technology choices
 - build vs buy
-- governance
 - target-state and transition architecture
+- governance
 
-See [[12_Enterprise-Architecture/README]].
-
-### AI Architecture
-
-Then apply the same decision framework to:
-
+### 5. AI architecture
+Apply the same decision framework to:
 - model gateways
 - RAG
-- agents
-- tools
+- agents and tools
 - memory
 - evaluation
 - observability
@@ -58,52 +61,49 @@ Then apply the same decision framework to:
 - AI cost
 - enterprise AI platforms
 
-See [[13_AI-Architecture/README]].
+## Practice protocol
 
-## Weekly practice rhythm
+For each significant topic:
 
-| Session | Activity |
-|---|---|
-| Day 1 | Concept + recognition |
-| Day 2 | Guided design |
-| Day 3 | Trade-off simulator |
-| Day 4 | Blind design |
-| Day 5 | Failure injection |
-| Weekend | Architecture review + redesign + interview |
+1. clarify requirements;
+2. define measurable quality attributes;
+3. choose the simplest viable design;
+4. identify failure modes;
+5. compare alternatives;
+6. defend the trade-off;
+7. redesign after a changed constraint;
+8. record the decision as evidence.
 
 ## Promotion gate
 
-Do not advance a topic until you can:
+Advance only when you can independently:
 
-- [ ] clarify requirements;
-- [ ] estimate scale;
-- [ ] define measurable NFRs;
-- [ ] choose the simplest viable architecture;
-- [ ] explain data ownership and consistency;
-- [ ] identify the first bottleneck;
-- [ ] explain one degraded mode;
-- [ ] defend two alternatives;
-- [ ] estimate major cost drivers;
-- [ ] state operational and security concerns;
-- [ ] define evidence and a redesign trigger.
+- clarify requirements;
+- estimate scale;
+- define measurable NFRs;
+- choose a viable architecture;
+- explain data ownership and consistency;
+- identify likely bottlenecks;
+- describe degraded modes;
+- defend alternatives;
+- estimate major cost drivers;
+- identify operational and security concerns.
 
-## Mastery evidence
+## Evidence
 
-A topic becomes **Mastered** only after:
-
+Mastery requires at least:
 - one blind design;
 - one failure injection;
 - one trade-off defense;
 - one architecture review;
-- one redesign after a changed constraint;
-- one timed interview or production-style design.
+- one redesign after a changed constraint.
 
-## Weekly task
+Use [[Architect/README]] for navigation and [[Evidence/README]] for proof.
 
-- [ ] One blind system design
-- [ ] One failure injection
-- [ ] One redesign exercise
-- [ ] One architecture review
-- [ ] One ADR
-- [ ] Update the failure log
-- [ ] Update mastery evidence
+## Related
+
+- [[Study Plan]]
+- [[Architect/README]]
+- [[Architect/13_AI-Architecture/README]]
+- [[Build Lab/README]]
+- [[Evidence/README]]
