@@ -10,7 +10,7 @@ sr-due: ""
 
 # Coding Patterns Vault
 
-> **20 DSA Patterns** → **78 LeetCode Problems** → **Pattern Recognition Mastery**
+> **21 Core Patterns + 3 Advanced Patterns** → **78 LeetCode Problems** → **Pattern Recognition Mastery**
 > 20-week roadmap: Recognize pattern → Code in 15 min → Explain trade-offs.
 ---
 
@@ -54,7 +54,7 @@ if (total === done && total > 0) dv.paragraph(`🎉 **All patterns completed!**`
 | 20 | [[07_Backtracking_DP/03 - Greedy\|Greedy]] | 07_Backtracking_DP | 4 | 455, 135, 435 | |
 | 21 | [[08_Bit_Manipulation/01 - Bit Manipulation\|Bit Manipulation]] | 08_Bit_Manipulation | 4 | 191, 136, 260 | |
 
-> **Optional Patterns (beyond 20):** [[09_Advanced/01 - Cyclic Sort\|Cyclic Sort]], [[09_Advanced/02 - Kadane's Algorithm\|Kadane's Algorithm]], [[09_Advanced/03 - Segment Tree\|Segment Tree]]
+> **Advanced Patterns (3):** [[09_Advanced/01 - Cyclic Sort\|Cyclic Sort]], [[09_Advanced/02 - Kadane's Algorithm\|Kadane's Algorithm]], [[09_Advanced/03 - Segment Tree\|Segment Tree]]
 ---
 
 ## 📅 20-Week Roadmap (from Study Plan)
@@ -132,6 +132,10 @@ limit 30
 ```
 Coding Patterns/
 ├── README.md                    ← This file (Vault MOC)
+├── Patterns Index.md            ← Canonical pattern catalog
+├── 00 - Pattern Decision Tree.md ← Recognition guide
+├── 00 - Blind Practice.md       ← Unhinted practice
+├── 00 - Mistake Log.md          ← Reasoning failure log
 ├── 01_Array/
 │   ├── README.md               ← Folder MOC
 │   ├── 01 - Prefix Sum.md
@@ -182,4 +186,4 @@ Coding Patterns/
 ```
 ---
 
-*Vault: [[Coding Patterns/99_Revision/Study-Plan\|20-Week Study Plan]] • [[Coding Patterns/01_Array/README\|01 Array]] • [[Coding Patterns/02_LinkedList/README\|02 LinkedList]] • [[Coding Patterns/03_Stack_Heap/README\|03 Stack/Heap]] • [[Coding Patterns/04_Intervals_Search/README\|04 Intervals/Search]] • [[Coding Patterns/05_Trees_Graphs/README\|05 Trees/Graphs]] • [[Coding Patterns/06_Matrix/README\|06 Matrix]] • [[Coding Patterns/07_Backtracking_DP/README\|07 Backtracking/DP]] • [[Coding Patterns/08_Bit_Manipulation/README\|08 Bit Manipulation]] • [[Coding Patterns/09_Advanced/README\|09 Advanced (Optional)]]*
+*Start here: [[Patterns Index|Patterns Index]] • [[00 - Pattern Decision Tree|Decision Tree]] • [[00 - Blind Practice|Blind Practice]] • [[00 - Mistake Log|Mistake Log]] • [[Coding Patterns/99_Revision/Study-Plan|20-Week Study Plan]] • [[Coding Patterns/01_Array/README\|01 Array]] • [[Coding Patterns/02_LinkedList/README\|02 LinkedList]] • [[Coding Patterns/03_Stack_Heap/README\|03 Stack/Heap]] • [[Coding Patterns/04_Intervals_Search/README\|04 Intervals/Search]] • [[Coding Patterns/05_Trees_Graphs/README\|05 Trees/Graphs]] • [[Coding Patterns/06_Matrix/README\|06 Matrix]] • [[Coding Patterns/07_Backtracking_DP/README\|07 Backtracking/DP]] • [[Coding Patterns/08_Bit_Manipulation/README\|08 Bit Manipulation]] • [[Coding Patterns/09_Advanced/README\|09 Advanced (Optional)]]*
