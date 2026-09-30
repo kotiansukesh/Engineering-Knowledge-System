@@ -1,283 +1,50 @@
 ---
-type: note
+title: "Shortest Path"
+type: pattern
+pattern: 14
+domain: "Graph"
+category: "Coding Patterns/05_Trees_Graphs"
+advanced: false
 mastery: learn
 recognition_score: 0
-title: Shortest Path
-pattern: 14
-category: Coding Patterns/05_Trees_Graphs
+difficulty: "Hard"
+leetcode: [- 743]
+created: "2026-09-02"
+reviewed:
+next_review: "2026-10-07"
 tags:
-- pattern/graph
-- pattern/tree/shortest-path
-- pattern/tree/dijkstra
-leetcode:
-- 743
-- 787
-- 1514
-created: '2026-09-02'
-completed: false
-reviewed: ''
-sr-due: ''
-difficulty: Hard
-source: https://blog.algomaster.io/p/20-dsa-patterns
-excalidraw: ''
+  - pattern
+  - graph
 ---
 
 # Shortest Path
 
-> Part of [[README|Coding Patterns]] • `Coding Patterns/05_Trees_Graphs` • Pattern #14
+> Pattern #14 · Graph
 
-## Intent
-Find minimum cost/distance in a weighted graph — Dijkstra for non-negative weights (greedy + min-heap), Bellman-Ford for negative weights (detects negative cycles), BFS for unit weights only.
+## Recognition
 
-## Why it Matters
-- **Dijkstra:** greedy + min-heap. Stale-entry skip (`if (cur.dist > dist[node]) continue`) is not optional — without it, each node is reprocessed once per heap entry instead of once.
-- **Bellman-Ford:** V-1 relaxation passes over all edges. Detects negative cycles (if pass V still relaxes). Used for "k stops" problems (constrained hops).
-- **BFS:** only when every edge weight = 1 (or uniform).
-- Senior signal: knowing the stale-entry skip in Dijkstra, and that Bellman-Ford's V-1 passes correspond to path length (at most V-1 edges in a simple path).
+- Weighted graph shortest path
+- Different edge costs
+- Need minimum total cost rather than minimum number of hops
 
-## Diagram
-```mermaid
-flowchart LR
-  Src["dist[src]=0<br/>heap (0,src)"] --> Poll["poll min"]
-  Poll --> St{"stale?<br/>dist > known"}
-  St -->|yes| Poll
-  St -->|no| Rel["relax each edge"]
-  Rel --> B{"improved?"}
-  B -->|yes| Push["push new dist"]
-  Push --> Poll
-  B -->|no| Poll
-```
+### Strong signals
+- Weighted graph shortest path
+- Different edge costs
 
+### Do not infer it from
+- A keyword alone
+- A familiar example without checking constraints
 
-## Problems
+## Invariant
 
-### 743. Network Delay Time (Medium)
-> [LeetCode 743](https://leetcode.com/problems/network-delay-time/) • Tags: Depth-First Search, Breadth-First Search, Graph Theory, Heap (Priority Queue), Shortest Path, Dijkstra's Algorithm
+> For Dijkstra, when a node is removed with the smallest tentative distance, that distance is final when all edge weights are non-negative.
 
-**Problem Statement:**
+## Mental model
 
-You are given a network of n nodes, labeled from 1 to n. You are also given times, a list of travel times as directed edges times[i] = (ui, vi, wi), where ui is the source node, vi is the target node, and wi is the time it takes for a signal to travel from source to target. We will send a signal from a given node k. Return the minimum time it takes for all the n nodes to receive the signal. If it is impossible for all the n nodes to receive the signal, return -1. Example 1: Input: times = [[2,1,1],[2,3,1],[3,4,1]], n = 4, k = 2 Output: 2 Example 2: Input: times = [[1,2,1]], n = 2, k = 1 Output: 1 Example 3: Input: times = [[1,2,1]], n = 2, k = 2 Output: -1 Constraints: 1 1 times[i].length == 3 1 i, vi ui != vi 0 i All the pairs (ui, vi) are unique. (i.e., no multiple edges.)
+Maintain the smallest state that completely describes the part of the search space still relevant to the answer.
 
-**Examples:**
+## Core implementation
 
-Example 1:
-```
-[[2,1,1],[2,3,1],[3,4,1]]
-```
-
-Example 2:
-```
-4
-```
-
-Example 3:
-```
-2
-```
-
-Example 4:
-```
-[[1,2,1]]
-```
-
-Example 5:
-```
-2
-```
-
-Example 6:
-```
-1
-```
-
-Example 7:
-```
-[[1,2,1]]
-```
-
-Example 8:
-```
-2
-```
-
-Example 9:
-```
-2
-```
----
-
-### 787. Cheapest Flights Within K Stops (Medium)
-> [LeetCode 787](https://leetcode.com/problems/cheapest-flights-within-k-stops/) • Tags: Dynamic Programming, Depth-First Search, Breadth-First Search, Graph Theory, Heap (Priority Queue), Shortest Path
-
-**Problem Statement:**
-
-There are n cities connected by some number of flights. You are given an array flights where flights[i] = [fromi, toi, pricei] indicates that there is a flight from city fromi to city toi with cost pricei. You are also given three integers src, dst, and k, return the cheapest price from src to dst with at most k stops. If there is no such route, return -1. Example 1: Input: n = 4, flights = [[0,1,100],[1,2,100],[2,0,100],[1,3,600],[2,3,200]], src = 0, dst = 3, k = 1 Output: 700 Explanation: The graph is shown above. The optimal path with at most 1 stop from city 0 to 3 is marked in red and has cost 100 + 600 = 700. Note that the path through cities [0,1,2,3] is cheaper but is invalid because it uses 2 stops. Example 2: Input: n = 3, flights = [[0,1,100],[1,2,100],[0,2,500]], src = 0, dst = 2, k = 1 Output: 200 Explanation: The graph is shown above. The optimal path with at most 1 stop from city 0 to 2 is marked in red and has cost 100 + 100 = 200. Example 3: Input: n = 3, flights = [[0,1,100],[1,2,100],[0,2,500]], src = 0, dst = 2, k = 0 Output: 500 Explanation: The graph is shown above. The optimal path with no stops from city 0 to 2 is marked in red and has cost 500. Constraints: 2 0 flights[i].length == 3 0 i, toi fromi != toi 1 i 4 There will not be any multiple flights between two cities. 0 src != dst
-
-**Examples:**
-
-Example 1:
-```
-4
-```
-
-Example 2:
-```
-[[0,1,100],[1,2,100],[2,0,100],[1,3,600],[2,3,200]]
-```
-
-Example 3:
-```
-0
-```
-
-Example 4:
-```
-3
-```
-
-Example 5:
-```
-1
-```
-
-Example 6:
-```
-3
-```
-
-Example 7:
-```
-[[0,1,100],[1,2,100],[0,2,500]]
-```
-
-Example 8:
-```
-0
-```
-
-Example 9:
-```
-2
-```
-
-Example 10:
-```
-1
-```
-
-Example 11:
-```
-3
-```
-
-Example 12:
-```
-[[0,1,100],[1,2,100],[0,2,500]]
-```
-
-Example 13:
-```
-0
-```
-
-Example 14:
-```
-2
-```
-
-Example 15:
-```
-0
-```
----
-
-### 1514. Path with Maximum Probability (Medium)
-> [LeetCode 1514](https://leetcode.com/problems/path-with-maximum-probability/) • Tags: Array, Graph Theory, Heap (Priority Queue), Shortest Path, Dijkstra's Algorithm
-
-**Problem Statement:**
-
-You are given an undirected weighted graph of n nodes (0-indexed), represented by an edge list where edges[i] = [a, b] is an undirected edge connecting the nodes a and b with a probability of success of traversing that edge succProb[i]. Given two nodes start and end, find the path with the maximum probability of success to go from start to end and return its success probability. If there is no path from start to end, return 0. Your answer will be accepted if it differs from the correct answer by at most 1e-5. Example 1: Input: n = 3, edges = [[0,1],[1,2],[0,2]], succProb = [0.5,0.5,0.2], start = 0, end = 2 Output: 0.25000 Explanation: There are two paths from start to end, one having a probability of success = 0.2 and the other has 0.5 * 0.5 = 0.25. Example 2: Input: n = 3, edges = [[0,1],[1,2],[0,2]], succProb = [0.5,0.5,0.3], start = 0, end = 2 Output: 0.30000 Example 3: Input: n = 3, edges = [[0,1]], succProb = [0.5], start = 0, end = 2 Output: 0.00000 Explanation: There is no path between 0 and 2. Constraints: 2 0 start != end 0 a != b 0 0 There is at most one edge between every two nodes.
-
-**Examples:**
-
-Example 1:
-```
-3
-```
-
-Example 2:
-```
-[[0,1],[1,2],[0,2]]
-```
-
-Example 3:
-```
-[0.5,0.5,0.2]
-```
-
-Example 4:
-```
-0
-```
-
-Example 5:
-```
-2
-```
-
-Example 6:
-```
-3
-```
-
-Example 7:
-```
-[[0,1],[1,2],[0,2]]
-```
-
-Example 8:
-```
-[0.5,0.5,0.3]
-```
-
-Example 9:
-```
-0
-```
-
-Example 10:
-```
-2
-```
-
-Example 11:
-```
-3
-```
-
-Example 12:
-```
-[[0,1]]
-```
-
-Example 13:
-```
-[0.5]
-```
-
-Example 14:
-```
-0
-```
-
-Example 15:
-```
-2
-```
----
-
-
-## Code / Example
 ```java
 record Edge(int to, int w) {}
 record State(int dist, int node) {}
@@ -349,11 +116,21 @@ int findTheCity(int n, int[][] edges, int distanceThreshold) {
 }
 ```
 
-## When to Use / When NOT
-- **Use:** minimum cost, network delay, cheapest flight with k stops, any "weighted shortest" phrasing; "minimum distance", "shortest path" with weights.
+## Variants
+
+Start with the core implementation. Introduce a variant only when the required state or proof changes.
+
+## When to use
+
+- minimum cost, network delay, cheapest flight with k stops, any "weighted shortest" phrasing; "minimum distance", "shortest path" with weights.
 - **NOT:** unweighted graph (use BFS); negative weights with Dijkstra (use Bellman-Ford); all-pairs on dense small graph (use Floyd-Warshall).
 
-## Trade-offs
+## When NOT to use
+
+unweighted graph (use BFS); negative weights with Dijkstra (use Bellman-Ford); all-pairs on dense small graph (use Floyd-Warshall).
+
+## Complexity & trade-offs
+
 | Algorithm | Time | When |
 |-----------|------|------|
 | Dijkstra + heap | O((V+E) log V) | weights ≥ 0 |
@@ -361,7 +138,6 @@ int findTheCity(int n, int[][] edges, int distanceThreshold) {
 | BFS | O(V+E) | unweighted only |
 | Floyd-Warshall | O(V³) | all-pairs, dense small V (V ≤ 400) |
 
-## Vs Table
 | Aspect | Dijkstra | Bellman-Ford | Floyd-Warshall | BFS |
 |--------|----------|--------------|----------------|-----|
 | Weights | non-negative | any, detects negative cycles | any | unit only |
@@ -370,13 +146,24 @@ int findTheCity(int n, int[][] edges, int distanceThreshold) {
 | Pick when | standard weighted shortest | negative weights or k-hop limit | dense graph, every pair | no weights at all |
 
 ## Pitfalls
+
 - **Dijkstra breaks with negative weights.** Switch to Bellman-Ford.
 - **0-index vs 1-index** graph building is a common off-by-one.
 - **Stale-entry skip** in Dijkstra is mandatory — without it, time degrades to O(E log E) with many duplicate heap entries.
 - For "k stops", the edge count matters, not just cost — Bellman-Ford style relaxation per stop (k+1 rounds) is used, not Dijkstra.
 - Use `long` for distances if weights are large (sum can overflow `int`).
 
-## Interview Q&A (Senior Depth)
+## Canonical problems
+
+| LeetCode | Problem | Difficulty |
+|---:|---|---|
+| 743 | Medium |
+| 787 | Medium |
+| 1514 | Medium |
+
+## Interview Q&A
+
+(Senior Depth)
 
 **Q: Why is the stale-entry skip in Dijkstra not just an optimization but a correctness requirement for time complexity?**
 **A:** Without the skip, every time we find a shorter path to a node, we push a new entry to the heap. The old entry remains and will be popped later. A node can be pushed O(E) times (once per incoming edge), leading to O(E log E) heap operations instead of O((V+E) log V). The skip ensures each node is *processed* (relaxes edges) at most once.
@@ -393,8 +180,7 @@ int findTheCity(int n, int[][] edges, int distanceThreshold) {
 **Q: How does A* differ from Dijkstra?**
 **A:** A* = Dijkstra + heuristic `h(n)` estimating distance to target. Priority = `g(n) + h(n)` (cost so far + estimated remaining). If `h` is admissible (never overestimates), A* finds optimal path faster by directing search toward target. Dijkstra is A* with `h(n) = 0`.
 
-
-## Flashcards (Spaced Repetition)
+## Flashcards
 
 #flashcard
 **Q:** What is the trigger keyword for Shortest Path? :: **A:** weighted graph, Dijkstra, Bellman-Ford, Floyd-Warshall, A*, negative weights #flashcard
@@ -408,23 +194,15 @@ int findTheCity(int n, int[][] edges, int distanceThreshold) {
 #flashcard
 **Q:** Core Java 25 snippet for Shortest Path? :: **A:** `PriorityQueue<int[]> pq=new PriorityQueue<>(Comparator.comparingInt(a->a[1])); pq.offer(new int[]{src,0}); while(!pq.isEmpty())...` #flashcard
 
+## Review tasks
 
-## Practice Tasks (Tasks Plugin)
-- [ ] Restate the intent from memory 📅 {date:YYYY-MM-DD, +1}
-- [ ] Code the snippet without looking 📅 {date:YYYY-MM-DD, +3}
-- [ ] Answer all Interview Q&A aloud 📅 {date:YYYY-MM-DD, +7}
-- [ ] Review flashcards (Spaced Repetition) 📅 {date:YYYY-MM-DD, +1}
-
-```tasks
-not done
-path includes {file.folder}
-sort by due
-limit 10
-```
+- [ ] Explain recognition signals from memory 📅 2026-10-01
+- [ ] Write the template from memory 📅 2026-10-03
+- [ ] Solve one unseen problem without hints 📅 2026-10-07
+- [ ] Explain the invariant aloud 📅 2026-10-14
 
 ## Related
+
 - [[05_Trees_Graphs/03 - BFS|BFS]] (unweighted shortest)
 - [[05_Trees_Graphs/06 - Union Find|Union Find]] (connectivity, not distances)
 - [[Java/07_DSA/Graph]] · [[Java/07_DSA/Heap]]
----
-*Category: Coding Patterns/05_Trees_Graphs*
