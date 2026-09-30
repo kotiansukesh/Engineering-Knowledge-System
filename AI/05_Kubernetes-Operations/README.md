@@ -11,6 +11,23 @@ sr-due: ""
 
 # 05 Kubernetes Operations
 
+> **Supporting operations track — not a prerequisite for learning LLMs, RAG or agent fundamentals.**
+>
+> Enter this domain when the AI platform needs repeatable deployment, scaling, workload isolation, GPU scheduling, or Kubernetes-specific operational evidence.
+
+## Scope
+
+Prioritize the smallest operational slice required by the current project:
+
+1. containers and deployment basics;
+2. health, rollout and configuration management;
+3. resource requests/limits and autoscaling;
+4. observability and failure recovery;
+5. workload isolation and policy;
+6. GPU scheduling/Kubeflow only when the workload actually requires them.
+
+Do not study Kubernetes features for their own sake. A working AI platform with measured operational requirements comes before platform-specific breadth.
+
 > Part of [[README|AI MOC]] • `AI/05_Kubernetes-Operations`
 
 ## Progress Overview
