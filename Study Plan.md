@@ -15,7 +15,7 @@ tags:
 
 # Engineering → AI → Architecture
 
-> **Target path:** Backend Expert → AI Engineer → AI Architect (Agentic + Enterprise AI Systems)
+> **Target path:** Backend Expert → AI Engineer → AI Platform Engineer → AI Architect (Agentic + Enterprise AI Systems)
 
 This is the master plan for the **single vault**. The four learning domains are connected directly with normal Obsidian links.
 
