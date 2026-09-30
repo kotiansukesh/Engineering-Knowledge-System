@@ -1,4 +1,7 @@
 ---
+type: note
+mastery: learn
+recognition_score: 0
 title: Top K Elements
 pattern: 8
 category: Coding Patterns/03_Stack_Heap
@@ -22,7 +25,7 @@ excalidraw: ''
 
 # Top K Elements
 
-> Part of [[README|20 DSA Patterns]] • `Coding Patterns/03_Stack_Heap` • Pattern #8
+> Part of [[README|Coding Patterns]] • `Coding Patterns/03_Stack_Heap` • Pattern #8
 
 ## Intent
 Find k largest/smallest/most frequent elements in O(n log k) time and O(k) space using a heap of size k — the streaming-friendly alternative to full sort when k << n.
