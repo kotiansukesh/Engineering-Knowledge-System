@@ -121,13 +121,10 @@ int findTheCity(int n, int[][] edges, int distanceThreshold) {
 Start with the core implementation. Introduce a variant only when the required state or proof changes.
 
 ## When to use
-
 - minimum cost, network delay, cheapest flight with k stops, any "weighted shortest" phrasing; "minimum distance", "shortest path" with weights.
-- **NOT:** unweighted graph (use BFS); negative weights with Dijkstra (use Bellman-Ford); all-pairs on dense small graph (use Floyd-Warshall).
 
 ## When NOT to use
-
-unweighted graph (use BFS); negative weights with Dijkstra (use Bellman-Ford); all-pairs on dense small graph (use Floyd-Warshall).
+- unweighted graph (use BFS); negative weights with Dijkstra (use Bellman-Ford); all-pairs on dense small graph (use Floyd-Warshall).
 
 ## Complexity & trade-offs
 
