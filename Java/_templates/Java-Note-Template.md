@@ -1,57 +1,48 @@
 ---
 title: "<% tp.file.title %>"
+type: concept
+domain: java
+status: active
 category: "<% tp.file.folder(true) %>"
-tags: [java]
-created: "<% tp.date.now("YYYY-MM-DD") %>"
-completed: false
-difficulty: "Medium"
-reviewed: ""
-sr-due: ""
-source: ""
-excalidraw: ""
-type: "note"
+difficulty: intermediate
+created: "<% tp.date.now('YYYY-MM-DD') %>"
+reviewed:
+next_review:
+source:
+excalidraw:
+tags:
+  - java
 ---
 
 # <% tp.file.title %>
 
-> Part of [[Java/README|Java MOC]] • `<% tp.file.folder(true) %>`
+## 1. Problem
 
-## Intent
+What problem does this Java feature, API or pattern solve?
 
-State the problem this concept solves in one or two sentences.
+## 2. Mental model
 
-## Why it Matters
+Explain the runtime mechanism or invariant.
 
-Explain the engineering consequence: correctness, maintainability, performance, concurrency, operability, or interoperability.
+## 3. Minimal code
 
-## Mental Model
+State the Java version and show the smallest useful example.
 
-Describe the invariant or runtime mechanism that makes the concept work.
+```java
+// Example
+```
 
-## Diagram
+## 4. When to use
 
-Use Mermaid for a small static diagram. Create an Excalidraw drawing only when the diagram benefits from exploration or manual editing.
+- 
+- 
 
-## Code
+## 5. When NOT to use
 
-Show the smallest useful Java example.
+- 
+- 
 
-State the required Java release and whether preview features are involved.
-
-## Concrete Example
-
-- **Problem:**
-- **Input / Context:**
-- **Expected behavior:**
-- **Failure mode:**
-
-## When to Use / When NOT
-
-| Use when | Prefer something else when |
-|---|---|
-| | |
-
-## Trade-offs
+## 6. Trade-offs
 
 | Dimension | Choice | Alternative |
 |---|---|---|
@@ -60,42 +51,27 @@ State the required Java release and whether preview features are involved.
 | Testability | | |
 | Operability | | |
 
-## Pitfalls
+## 7. Pitfalls / failure
 
 - 
 - 
 - 
 
-## Interview Q&A
+## 8. Explain
 
-**Q1. What is the core invariant?**
+**Core invariant:**  
 
-**A:**
+**What changes under concurrency or scale?**  
 
-**Q2. When would you choose an alternative?**
+**What alternative would you choose under a different constraint?**  
 
-**A:**
+## 9. Practice
 
-**Q3. What changes under concurrency or at scale?**
-
-**A:**
-
-**Q4. What failure mode would you diagnose first?**
-
-**A:**
-
-## Practice Tasks
-
-- [ ] Explain the concept from memory.
-- [ ] Write the smallest example without looking.
-- [ ] Test one boundary or failure case.
-- [ ] Record one trade-off.
+- [ ] Explain from memory
+- [ ] Write the smallest example
+- [ ] Test one boundary/failure case
+- [ ] Record one trade-off
 
 ## Related
 
-- [[Java/README|Java MOC]]
-- Add only links that materially deepen the concept.
-
----
-
-*Category: <% tp.file.folder(true) %> • Java 25 target*
+Add only links that materially deepen the concept.
