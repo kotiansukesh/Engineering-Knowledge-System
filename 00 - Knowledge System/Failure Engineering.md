@@ -29,4 +29,4 @@ Failure analysis is a cross-domain engineering primitive.
 - AI: retrieval miss, hallucination, tool failure, prompt injection, runaway cost.
 - Architecture: wrong boundary, bottleneck, cascading failure, operational blind spot.
 
-See [[../Evidence/Failure Experiments/README]] for the evidence store.
+See [[Evidence/Failure Experiments/README]] for the evidence store.
