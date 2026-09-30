@@ -1,4 +1,7 @@
 ---
+type: note
+mastery: learn
+recognition_score: 0
 title: Union Find
 pattern: 16
 category: Coding Patterns/05_Trees_Graphs
@@ -21,7 +24,7 @@ excalidraw: ''
 
 # Union Find
 
-> Part of [[README|20 DSA Patterns]] • `Coding Patterns/05_Trees_Graphs` • Pattern #16 (beyond original 20)
+> Part of [[README|Coding Patterns]] • `Coding Patterns/05_Trees_Graphs` • Pattern #16 (beyond original 20)
 
 ## Intent
 Dynamic connectivity for undirected graphs — are `a` and `b` in the same component? Two optimizations (path compression + union by rank/size) make operations ~O(α(n)) ≈ O(1). The course-named pattern the 20-pattern list omits.
