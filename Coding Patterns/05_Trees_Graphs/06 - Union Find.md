@@ -131,13 +131,10 @@ java.util.List<java.util.List<String>> accountsMerge(java.util.List<java.util.Li
 Start with the core implementation. Introduce a variant only when the required state or proof changes.
 
 ## When to use
-
 - cycle detection in undirected graphs; connected components; redundant edge; account merging; "provinces", "groups", "merge" keywords.
-- **NOT:** directed graphs (use DFS coloring for cycle detection / topo sort); online queries on static graph (DFS/BFS once is simpler).
 
 ## When NOT to use
-
-directed graphs (use DFS coloring for cycle detection / topo sort); online queries on static graph (DFS/BFS once is simpler).
+- directed graphs (use DFS coloring for cycle detection / topo sort); online queries on static graph (DFS/BFS once is simpler).
 
 ## Complexity & trade-offs
 
