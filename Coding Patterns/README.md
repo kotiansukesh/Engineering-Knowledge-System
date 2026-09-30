@@ -1,7 +1,7 @@
 ---
 title: Coding Patterns
-type: moc
-domain: coding-patterns
+type: MOC
+domain: Coding Patterns
 tags: [dsa, interview-prep, pattern-recognition]
 ---
 
@@ -9,9 +9,13 @@ tags: [dsa, interview-prep, pattern-recognition]
 
 > **Recognize the problem shape → state the invariant → implement → prove → review.**
 
-This vault is a **pattern-training system**, not a LeetCode archive.
+This is a practice domain inside the single vault, not a separate curriculum.
 
-## Start here
+## When to use it
+
+Use [[00 - Start Here]] to decide how much coding-pattern practice belongs in the current week. For the current career path, this is a **maintenance track** unless a specific gap blocks progress.
+
+## Start here inside this domain
 
 1. [[Patterns Index|Patterns]]
 2. [[00 - Pattern Decision Tree|Decision Tree]]
@@ -31,43 +35,12 @@ A pattern is useful when you can:
 - state the invariant before coding;
 - implement from memory;
 - explain time and space complexity;
-- explain when it does **not** apply;
+- explain when it does not apply;
 - handle a meaningful variation.
 
 ## Training loop
 
 **Problem → Recognize → Solve → Prove → Review**
-
-Do not maintain separate mastery frameworks for every tool. Keep the learning loop simple; let Dataview derive status.
-
-## Patterns needing attention
-
-```dataview
-TABLE WITHOUT ID
-  file.link as "Pattern",
-  mastery as "Mastery",
-  recognition_score as "Recognition",
-  implementation_score as "Implementation",
-  next_review as "Next review"
-FROM "Coding Patterns"
-WHERE type = "pattern"
-  AND (next_review = null OR date(next_review) <= date(today) OR recognition_score < 4 OR implementation_score < 4)
-SORT recognition_score ASC, implementation_score ASC, date(next_review) ASC
-LIMIT 20
-```
-
-## Diagram rule
-
-- **Mermaid:** simple flow/state.
-- **Excalidraw:** spatial/state-heavy reasoning.
-- Prefer diagrams that explain **one invariant or transition**, not the entire solution.
-
-## Plugin roles
-
-- **Dataview:** derived status.
-- **Tasks:** review actions.
-- **Templater:** repeatable note creation.
-- **Excalidraw:** visual reasoning.
 
 ## Quality gate
 
@@ -75,24 +48,16 @@ Run:
 
 ```bash
 python3 scripts/validate-vault.py
+python3 scripts/validate-coding-patterns.py
 ```
 
-Keep validation focused on broken internal links, metadata consistency, duplicate problem IDs and invalid references.
+Keep the problem archive as reference material. Do not confuse archive size with learning progress.
 
-## Vault boundary
+## Plugin roles
 
-This is a separate Obsidian vault. Do not use ordinary `[[...]]` links to another vault.
-
-Use the shared cross-vault contract:
-
-```yaml
-related:
-  - vault: java
-    note: "Collections"
-  - vault: architect
-    note: "Rate Limiting"
-```
-
-## Rule
+- **Dataview:** derived status.
+- **Tasks:** review actions.
+- **Templater:** repeatable note creation.
+- **Excalidraw:** visual reasoning.
 
 > **Knowledge in notes. State in frontmatter. Views in Dataview. Actions in Tasks.**
