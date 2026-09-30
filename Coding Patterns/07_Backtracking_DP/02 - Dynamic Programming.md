@@ -1,4 +1,7 @@
 ---
+type: note
+mastery: learn
+recognition_score: 0
 title: Dynamic Programming
 pattern: 19
 category: Coding Patterns/07_Backtracking_DP
@@ -21,7 +24,7 @@ excalidraw: ''
 
 # Dynamic Programming
 
-> Part of [[README|20 DSA Patterns]] • `Coding Patterns/07_Backtracking_DP` • Pattern #19
+> Part of [[README|Coding Patterns]] • `Coding Patterns/07_Backtracking_DP` • Pattern #19
 
 ## Intent
 When subproblems repeat and the optimum builds from smaller optima, store results instead of recomputing. Two approaches: top-down recursion + cache (memoization) or bottom-up loop over a table (tabulation).
