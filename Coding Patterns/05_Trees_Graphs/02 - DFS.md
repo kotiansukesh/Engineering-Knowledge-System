@@ -96,13 +96,10 @@ void dfsGrid(char[][] g, int r, int c) {
 Start with the core implementation. Introduce a variant only when the problem changes the invariant or required state.
 
 ## When to use
-
 - explore all paths; count connected components; topological sort; clone graph; path existence; "all solutions" problems.
-- **NOT:** shortest path in unweighted graph (use BFS); level-order traversal (use BFS); very deep graphs (stack overflow — use iterative stack).
 
 ## When NOT to use
-
-shortest path in unweighted graph (use BFS); level-order traversal (use BFS); very deep graphs (stack overflow — use iterative stack).
+- shortest path in unweighted graph (use BFS); level-order traversal (use BFS); very deep graphs (stack overflow — use iterative stack).
 
 ## Complexity & trade-offs
 
