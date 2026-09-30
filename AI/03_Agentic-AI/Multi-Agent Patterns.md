@@ -9,8 +9,8 @@ tags:
 weeks: 12-15
 created: 2026-09-02
 completed: false
-reviewed: ''
-sr-due: ''
+reviewed: "2026-09-29"
+sr-due: "2026-09-30"
 excalidraw: ''
 difficulty: Medium
 source: ''
@@ -95,46 +95,37 @@ for w in ("worker_a", "worker_b"):
 - **Q:** How to prevent agent loops? **A:** Max iterations, explicit termination tool, HITL gate.
 - **Q:** LangGraph vs AutoGen? **A:** LangGraph for deterministic workflows + checkpointing; AutoGen for exploratory multi-agent chat.
 
-## Related
+## Flashcards (Spaced Repetition)
 
-- [[Architecting Agentic AI Solutions]] • [[Enterprise AI Operations Platform]] • [[AI/07_Cross-Cutting/01_MCP|MCP]]
+#flashcard
+**Q:** What is the trigger keyword for Multi-Agent Patterns? :: **A:** [trigger keywords] #flashcard
+
+#flashcard
+**Q:** Key hyperparameter for Multi-Agent Patterns? :: **A:** [hyperparameter + typical range] #flashcard
+
+#flashcard
+**Q:** When do you NOT use Multi-Agent Patterns? :: **A:** [anti-pattern scenarios] #flashcard
+
+#flashcard
+**Q:** Cost order of magnitude for Multi-Agent Patterns? :: **A:** [GPU hours / $ per 1M tokens] #flashcard
+
+## Practice Tasks (Tasks Plugin)
+- [ ] Restate the intent from memory 📅 2026-09-30
+- [ ] Code the config without looking 📅 2026-10-02
+- [ ] Answer all Interview Q&A aloud 📅 2026-10-06
+- [ ] Review flashcards (Spaced Repetition) 📅 2026-09-30
+
+```tasks
+not done
+path includes 03_Agentic-AI
+sort by due
+limit 10
+```
+
+## Related
+- [[README|AI MOC]]
+- [[03_Agentic-AI/README|03_Agentic-AI Folder]]
 
 ---
-*Category: agentic*
 
-# Multi-Agent Patterns
-
-> Part of [[README|03_Agentic-AI]] • `agentic` • Weeks 12–15
-> Watch: [IBM Technology — Multi Agent Systems Explained](https://www.youtube.com/watch?v=sWH0T4Zez6I)
-
-## Patterns
-
-| Pattern | Flow | Use When |
-|---------|------|----------|
-| **Sequential** | Planner → Researcher → Coder → Reviewer | Linear pipelines |
-| **Parallel fan-out** | Planner fans to 3 workers → aggregator | Independent subtasks |
-| **Hierarchical** | Manager agent delegates to specialists | Complex goals with sub-ownership |
-| **Debate / Review** | Coder ↔ Reviewer loop until pass | Quality-critical output |
-| **Human-in-the-loop** | Gate before side effects | DB writes, deploys, external sends |
-
-## Framework Trade-offs
-
-| Framework | Strength | Trade-off |
-|-----------|----------|-----------|
-| **LangGraph** | Explicit state machines, checkpointing | More boilerplate |
-| **AutoGen** | Conversational group chat, flexible | Harder to enforce determinism |
-| **Assistants API** | Managed threads/tools | Less control, vendor lock |
-
-## Code Sketch (LangGraph)
-
-```
-pythonfrom langgraph.graph import StateGraphgraph = StateGraph(state_schema=AgentState)
-graph.add_node("planner", planner_node)
-graph.add_node("researcher", researcher_node)
-graph.add_edge("planner", "researcher")
-graph.add_conditional_edges("researcher", should_review, {"yes": "reviewer", "no": "__end__"})
-app = graph.compile(checkpointer=postgres_checkpointer) # memory + audit
-```
-
-# App = G.compile(checkpointer=postgres_checkpointer)
-```
+*Category: AI/03_Agentic-AI • Part of [[README|AI MOC]]*

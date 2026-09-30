@@ -1,15 +1,15 @@
 ---
 title: Union Find
-pattern: 21
+pattern: 16
 category: Coding Patterns/05_Trees_Graphs
 tags:
 - pattern/graph
 - pattern/tree/union-find
 - pattern/tree/disjoint-set
 leetcode:
+- 200
 - 684
-- 721
-- 547
+- 959
 created: '2026-09-04'
 completed: false
 reviewed: ''
@@ -17,14 +17,11 @@ sr-due: ''
 difficulty: Medium
 source: https://algomaster.io/learn/dsa/
 excalidraw: ''
-type: note
-problems-solved: []
-problems-solved-dates: {}
 ---
 
 # Union Find
 
-> Part of [[README|20 DSA Patterns]] • `Coding Patterns/05_Trees_Graphs` • Pattern #21 (beyond original 20)
+> Part of [[README|20 DSA Patterns]] • `Coding Patterns/05_Trees_Graphs` • Pattern #16 (beyond original 20)
 
 ## Intent
 Dynamic connectivity for undirected graphs — are `a` and `b` in the same component? Two optimizations (path compression + union by rank/size) make operations ~O(α(n)) ≈ O(1). The course-named pattern the 20-pattern list omits.
@@ -53,86 +50,69 @@ flowchart LR
 
 ## Problems
 
+### 200. Number of Islands (Medium)
+> [LeetCode 200](https://leetcode.com/problems/number-of-islands/) • Tags: Array, Depth-First Search, Breadth-First Search, Union-Find, Matrix
+
+**Problem Statement:**
+
+Given an m x n 2D binary grid grid which represents a map of '1's (land) and '0's (water), return the number of islands. An island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically. You may assume all four edges of the grid are all surrounded by water. Example 1: Input: grid = [ ["1","1","1","1","0"], ["1","1","0","1","0"], ["1","1","0","0","0"], ["0","0","0","0","0"] ] Output: 1 Example 2: Input: grid = [ ["1","1","0","0","0"], ["1","1","0","0","0"], ["0","0","1","0","0"], ["0","0","0","1","1"] ] Output: 3 Constraints: m == grid.length n == grid[i].length 1 grid[i][j] is '0' or '1'.
+
+**Examples:**
+
+Example 1:
+```
+[["1","1","1","1","0"],["1","1","0","1","0"],["1","1","0","0","0"],["0","0","0","0","0"]]
+```
+
+Example 2:
+```
+[["1","1","0","0","0"],["1","1","0","0","0"],["0","0","1","0","0"],["0","0","0","1","1"]]
+```
+---
+
 ### 684. Redundant Connection (Medium)
 > [LeetCode 684](https://leetcode.com/problems/redundant-connection/) • Tags: Depth-First Search, Breadth-First Search, Union-Find, Graph Theory
 
 **Problem Statement:**
 
-In this problem, a tree is an undirected graph that is connected and has no cycles.
-
-You are given a graph that started as a tree with n nodes labeled from 1 to n, with one additional edge added. The added edge has two different vertices chosen from 1 to n, and was not an edge that already existed. The graph is represented as an array edges of length n where edges[i] = [a_i_, b_i_] indicates that there is an edge between nodes a_i_ and b_i_ in the graph.
-
-Return an edge that can be removed so that the resulting graph is a tree of n nodes. If there are multiple answers, return the answer that occurs last in the input.
+In this problem, a tree is an undirected graph that is connected and has no cycles. You are given a graph that started as a tree with n nodes labeled from 1 to n, with one additional edge added. The added edge has two different vertices chosen from 1 to n, and was not an edge that already existed. The graph is represented as an array edges of length n where edges[i] = [ai, bi] indicates that there is an edge between nodes ai and bi in the graph. Return an edge that can be removed so that the resulting graph is a tree of n nodes. If there are multiple answers, return the answer that occurs last in the input. Example 1: Input: edges = [[1,2],[1,3],[2,3]] Output: [2,3] Example 2: Input: edges = [[1,2],[2,3],[3,4],[1,4],[1,5]] Output: [1,4] Constraints: n == edges.length 3 edges[i].length == 2 1 i i ai != bi There are no repeated edges. The given graph is connected.
 
 **Examples:**
 
 Example 1:
-
-Input: edges = [[1,2],[1,3],[2,3]]
-Output: [2,3]
+```
+[[1,2],[1,3],[2,3]]
+```
 
 Example 2:
-
-Input: edges = [[1,2],[2,3],[3,4],[1,4],[1,5]]
-Output: [1,4]
-
+```
+[[1,2],[2,3],[3,4],[1,4],[1,5]]
+```
 ---
 
-### 721. Accounts Merge (Medium)
-> [LeetCode 721](https://leetcode.com/problems/accounts-merge/) • Tags: Array, Hash Table, String, Depth-First Search, Breadth-First Search, Union-Find, Sorting
+### 959. Regions Cut By Slashes (Medium)
+> [LeetCode 959](https://leetcode.com/problems/regions-cut-by-slashes/) • Tags: Array, Hash Table, Depth-First Search, Breadth-First Search, Union-Find, Matrix, Planar Graph
 
 **Problem Statement:**
 
-Given a list of accounts where each element accounts[i] is a list of strings, where the first element accounts[i][0] is a name, and the rest of the elements are emails representing emails of the account.
-
-Now, we would like to merge these accounts. Two accounts definitely belong to the same person if there is some common email to both accounts. Note that even if two accounts have the same name, they may belong to different people as people could have the same name. A person can have any number of accounts initially, but all of their accounts definitely have the same name.
-
-After merging the accounts, return the accounts in the following format: the first element of each account is the name, and the rest of the elements are emails in sorted order. The accounts themselves can be returned in any order.
+An n x n grid is composed of 1 x 1 squares where each 1 x 1 square consists of a '/', '\', or blank space ' '. These characters divide the square into contiguous regions. Given the grid grid represented as a string array, return the number of regions. Note that backslash characters are escaped, so a '\' is represented as '\\'. Example 1: Input: grid = [" /","/ "] Output: 2 Example 2: Input: grid = [" /"," "] Output: 1 Example 3: Input: grid = ["/\\","\\/"] Output: 5 Explanation: Recall that because \ characters are escaped, "\\/" refers to \/, and "/\\" refers to /\. Constraints: n == grid.length == grid[i].length 1 grid[i][j] is either '/', '\', or ' '.
 
 **Examples:**
 
 Example 1:
-
-Input: accounts = [["John","johnsmith@mail.com","john_newyork@mail.com"],["John","johnsmith@mail.com","john00@mail.com"],["Mary","mary@mail.com"],["John","johnnybravo@mail.com"]]
-Output: [["John","john00@mail.com","john_newyork@mail.com","johnsmith@mail.com"],["Mary","mary@mail.com"],["John","johnnybravo@mail.com"]]
-Explanation:
-The first and second John's are the same person as they have the common email "johnsmith@mail.com".
-The third John and Mary are different people as none of their email addresses are used by other accounts.
-We could return these lists in any order, for example the answer [['Mary', 'mary@mail.com'], ['John', 'johnnybravo@mail.com'], 
-['John', 'john00@mail.com', 'john_newyork@mail.com', 'johnsmith@mail.com']] would still be accepted.
+```
+[" /","/ "]
+```
 
 Example 2:
+```
+[" /","  "]
+```
 
-Input: accounts = [["Gabe","Gabe0@m.co","Gabe3@m.co","Gabe1@m.co"],["Kevin","Kevin3@m.co","Kevin5@m.co","Kevin0@m.co"],["Ethan","Ethan5@m.co","Ethan4@m.co","Ethan0@m.co"],["Hanzo","Hanzo3@m.co","Hanzo1@m.co","Hanzo0@m.co"],["Fern","Fern5@m.co","Fern1@m.co","Fern0@m.co"]]
-Output: [["Ethan","Ethan0@m.co","Ethan4@m.co","Ethan5@m.co"],["Gabe","Gabe0@m.co","Gabe1@m.co","Gabe3@m.co"],["Hanzo","Hanzo0@m.co","Hanzo1@m.co","Hanzo3@m.co"],["Kevin","Kevin0@m.co","Kevin3@m.co","Kevin5@m.co"],["Fern","Fern0@m.co","Fern1@m.co","Fern5@m.co"]]
-
----
-
-### 547. Number of Provinces (Medium)
-> [LeetCode 547](https://leetcode.com/problems/number-of-provinces/) • Tags: Depth-First Search, Breadth-First Search, Union-Find, Graph Theory
-
-**Problem Statement:**
-
-There are n cities. Some of them are connected, while some are not. If city a is connected directly with city b, and city b is connected directly with city c, then city a is connected indirectly with city c.
-
-A province is a group of directly or indirectly connected cities and no other cities outside of the group.
-
-You are given an n x n matrix isConnected where isConnected[i][j] = 1 if the i^th^ city and the j^th^ city are directly connected, and isConnected[i][j] = 0 otherwise.
-
-Return the total number of provinces.
-
-**Examples:**
-
-Example 1:
-
-Input: isConnected = [[1,1,0],[1,1,0],[0,0,1]]
-Output: 2
-
-Example 2:
-
-Input: isConnected = [[1,0,0],[0,1,0],[0,0,1]]
-Output: 3
-
+Example 3:
+```
+["/\\","\\/"]
+```
 ---
 
 
@@ -259,10 +239,38 @@ java.util.List<java.util.List<String>> accountsMerge(java.util.List<java.util.Li
 **Q: Why can't Union Find detect cycles in directed graphs?**
 **A:** Union Find merges sets based on undirected connectivity. In a directed graph A→B→C→A, all three are in the same undirected component, but the *directed* cycle isn't detected by union operations. Directed cycle detection needs DFS with three colors (white/unvisited, gray/in-stack, black/done) — a back edge to a gray node = directed cycle.
 
+
+## Flashcards (Spaced Repetition)
+
+#flashcard
+**Q:** What is the trigger keyword for Union Find? :: **A:** connected components, dynamic connectivity, Kruskal MST, bipartite check, cycle detection in undirected graph #flashcard
+
+#flashcard
+**Q:** Time/space complexity of Union Find? :: **A:** Time: O(α(N)) amortized per op, Space: O(N) #flashcard
+
+#flashcard
+**Q:** When do you NOT use Union Find? :: **A:** directed graph connectivity (not transitive), need path itself (not just connectivity) #flashcard
+
+#flashcard
+**Q:** Core Java 25 snippet for Union Find? :: **A:** `int[] p, r; int find(int x){ return p[x]==x?x:(p[x]=find(p[x])); } void union(int a,int b){ a=find(a); b=find(b); if(a!=b){ if(r[a]<r[b]) p[a]=b; else{ p[b]=a; if(r[a]==r[b]) r[a]++; } } }` #flashcard
+
+
+## Practice Tasks (Tasks Plugin)
+- [ ] Restate the intent from memory 📅 {date:YYYY-MM-DD, +1}
+- [ ] Code the snippet without looking 📅 {date:YYYY-MM-DD, +3}
+- [ ] Answer all Interview Q&A aloud 📅 {date:YYYY-MM-DD, +7}
+- [ ] Review flashcards (Spaced Repetition) 📅 {date:YYYY-MM-DD, +1}
+
+```tasks
+not done
+path includes {file.folder}
+sort by due
+limit 10
+```
+
 ## Related
 - [[05_Trees_Graphs/02 - DFS|DFS]] (directed cycles)
 - [[05_Trees_Graphs/04 - Shortest Path|Shortest Path]] (weighted)
 - [[Java/07_DSA/Graph]]
-
 ---
 *Category: Coding Patterns/05_Trees_Graphs*

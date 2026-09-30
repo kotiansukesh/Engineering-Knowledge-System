@@ -9,8 +9,8 @@ tags:
 weeks: 8-9
 created: 2026-09-02
 completed: false
-reviewed: ''
-sr-due: ''
+reviewed: "2026-09-29"
+sr-due: "2026-09-30"
 excalidraw: ''
 difficulty: Medium
 source: ''
@@ -78,52 +78,37 @@ flowchart LR
 
 - **Q:** Why rerank? **A:** Bi-encoder (fast, recall) retrieves; cross-encoder (slow, precise) prefers — best of both.
 
-## Related
+## Flashcards (Spaced Repetition)
 
-- [[02_Design LLM Architectures]] • [[AI/07_Cross-Cutting/02_AI Evaluation|Evaluation]]
+#flashcard
+**Q:** What is the trigger keyword for RAG Variants and Retrieval Strategies? :: **A:** [trigger keywords] #flashcard
+
+#flashcard
+**Q:** Key hyperparameter for RAG Variants and Retrieval Strategies? :: **A:** [hyperparameter + typical range] #flashcard
+
+#flashcard
+**Q:** When do you NOT use RAG Variants and Retrieval Strategies? :: **A:** [anti-pattern scenarios] #flashcard
+
+#flashcard
+**Q:** Cost order of magnitude for RAG Variants and Retrieval Strategies? :: **A:** [GPU hours / $ per 1M tokens] #flashcard
+
+## Practice Tasks (Tasks Plugin)
+- [ ] Restate the intent from memory 📅 2026-09-30
+- [ ] Code the config without looking 📅 2026-10-02
+- [ ] Answer all Interview Q&A aloud 📅 2026-10-06
+- [ ] Review flashcards (Spaced Repetition) 📅 2026-09-30
+
+```tasks
+not done
+path includes 02_RAG-Engineering
+sort by due
+limit 10
+```
+
+## Related
+- [[README|AI MOC]]
+- [[02_RAG-Engineering/README|02_RAG-Engineering Folder]]
 
 ---
-*Category: rag*
 
-# RAG Variants and Retrieval Strategies
-
-> Part of [[README|02_RAG-Engineering]] • `rag` • Weeks 8–9
-> Watch: [Dave Ebbelaar — Complete Guide to Hybrid Search (BM25 + Embeddings + Reranker)](https://www.youtube.com/watch?v=XvKiTfd6Xvo)
-- [[Architect/10_System-Design-Interviews/DB-04-Vector-Databases.md|DB-04-Vector-Databases]] — Vector search in RAG
-
-## Variants
-
-| Variant | Idea | When |
-|---------|------|------|
-| Naive | Embed query → top-k | Baseline |
-| Hybrid | BM25 + vector (RRF) | Keyword + semantic queries |
-| Multi-query | LLM expands query → 3 variants | Ambiguous queries |
-| HyDE | Generate hypothetical doc → embed | Short queries |
-| Reranking | Cross-encoder rescores top-20→5 | High precision need |
-| Context compression | Compress retrieved context | Cost/token limits |
-
-## Evaluation
-
-- **Retrieval:** precision@k, recall@k, MRR.
-- **Answer:** faithfulness (LLM-as-judge), citation accuracy, hallucination rate.
-- Keep a comparison table in [[Enterprise Document Search]] — that's your C2 deliverable.
-
-# Reciprocal Rank Fusion — how hybrid search is actually merged
-
-def rrf(rankings: list[list[str]], k: int = 60) -> list[str]:
- """Merge multiple ranked lists; k is the rank-dampening constant."""
- scores: dict[str, float] = {}
- for ranked in rankings:
- for rank, doc_id in enumerate(ranked):
- scores[doc_id] = scores.get(doc_id, 0.0) + 1.0 / (k + rank)
- return sorted(scores, key=scores.get, reverse=True)
-
-# Reranker is a different animal: a cross-encoder scores (query, doc) pairs
-
-# directly — slower and more accurate than the bi-encoder that retrieved them.
-
-# ranked = rff([bm25_ranked, vector_ranked])
-
-# final = cross_encoder.rerank(query, ranked[:20])[:5]
-
-```
+*Category: AI/02_RAG-Engineering • Part of [[README|AI MOC]]*

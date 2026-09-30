@@ -10,8 +10,8 @@ tags:
 weeks: 31-36
 created: 2026-09-02
 completed: false
-reviewed: ''
-sr-due: ''
+reviewed: "2026-09-29"
+sr-due: "2026-09-30"
 excalidraw: ''
 difficulty: Medium
 source: ''
@@ -70,52 +70,37 @@ flowchart LR
 - **Q:** Why iSAQB after CKAD? **A:** CKAD proves you can *deploy*; iSAQB proves you can *govern* — you need both for Staff/Principal.
 - **Q:** EU AI Act relevance? **A:** Risk-tiered obligations (high-risk AI needs conformity, logging, human oversight) — your audit logs + HITL gates satisfy them.
 
-## Related
+## Flashcards (Spaced Repetition)
 
-- [[02_Final Capstone Governance]] • [[AI/07_Cross-Cutting/README|Cross-Cutting]] • [[AI/00_Overview/Certification Guide|Certification Guide]]
+#flashcard
+**Q:** What is the trigger keyword for SWARC4AI Syllabus (iSAQB)? :: **A:** [trigger keywords] #flashcard
+
+#flashcard
+**Q:** Key hyperparameter for SWARC4AI Syllabus (iSAQB)? :: **A:** [hyperparameter + typical range] #flashcard
+
+#flashcard
+**Q:** When do you NOT use SWARC4AI Syllabus (iSAQB)? :: **A:** [anti-pattern scenarios] #flashcard
+
+#flashcard
+**Q:** Cost order of magnitude for SWARC4AI Syllabus (iSAQB)? :: **A:** [GPU hours / $ per 1M tokens] #flashcard
+
+## Practice Tasks (Tasks Plugin)
+- [ ] Restate the intent from memory 📅 2026-09-30
+- [ ] Code the config without looking 📅 2026-10-02
+- [ ] Answer all Interview Q&A aloud 📅 2026-10-06
+- [ ] Review flashcards (Spaced Repetition) 📅 2026-09-30
+
+```tasks
+not done
+path includes 06_Architecture-Governance
+sort by due
+limit 10
+```
+
+## Related
+- [[README|AI MOC]]
+- [[06_Architecture-Governance/README|06_Architecture-Governance Folder]]
 
 ---
-*Category: governance*
 
-# SWARC4AI Syllabus — iSAQB CPSA-A
-
-> Part of [[README|06_Architecture-Governance]] • `governance` • Weeks 31–36
-
-## Syllabus (Official iSAQB)
-
-| Block | Topics |
-|-------|--------|
-| **Intro & Fundamentals** | Classify AI/ML/GenAI; risks vs traditional software |
-| **Compliance, Security & Alignment** | GDPR, **EU AI Act**, copyright, security pitfalls, AI ethics |
-| **Design & Development** | ML/data-science lifecycle, process models, data requirements, non-determinism, **model drift**, AI design patterns |
-| **Data Management** | Acquisition, labeling, efficient **data pipelines & architectures** |
-| **Quality & Operation** | Hardware, **cost & sustainability (Green IT)**, drift types, **MLOps** pipelines, CI/CD, deployment strategies |
-| **GenAI & Architectures** | LLMs, **GenAI patterns** (RAG, prompt eng., agentic workflows), **GenAI cost management** |
-
-## How to Use It Here
-
-Don't just pass the exam — **embed each concern in your platform**:
-
-- EU AI Act risk classification → threat model for [[AI/03_Agentic-AI/Enterprise AI Operations Platform|AI Operations Platform]]
-- Quality attributes (security, explainability, sustainability) → architecture decision records (ADRs)
-- MLOps + drift handling → pipeline for embeddings/model routing (see [[AI/07_Cross-Cutting/02_AI Evaluation|Evaluation]])
-- Green IT → cost/energy dashboard
-
-# SWARC4AI made concrete: each concern maps to something measurable
-
-CONCERNS = {
- "scalability": ("hpa_max_replicas", "6 replicas, scale on latency"),
- "latency": ("grpc_p95_ms", "target < 200 ms"),
- "cost": ("cost_per_request_usd", "tracked per route"),
- "drift": ("drift_detection_lead", ">= 2 weeks warning"),
- "compliance": ("eu_ai_act_checklist", "100% complete"),
- "green_it": ("tokens_per_answer", "lower = cheaper and less energy"),
-}
-
-# Governance that cannot be queried is a document, not a control.
-
-# for concern, (metric, target) in CONCERNS.items():
-
-# assert dashboard_has_panel(concern), f"no metric for {concern}"
-
-```
+*Category: AI/06_Architecture-Governance • Part of [[README|AI MOC]]*

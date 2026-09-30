@@ -1,19 +1,26 @@
 ---
-title: Collection
-category: Java/03_Collections
-tags:
-- java
-- collections
-created: 2026-01-18
-pattern: 1
-difficulty: Easy
+title: "Collection"
+category: "Java/03_Collections"
+tags: [java, collections]
+created: "2026-09-29"
 completed: false
-reviewed: ''
-sr-due: ''
-excalidraw: ''
-source: ''
-type: note
+difficulty: "Easy"
+pattern: 0
+reviewed: "2026-09-29"
+sr-due: "2026-10-06"
+source: ""
+excalidraw: ""
+type: "note"
 ---
+
+# Collection
+
+> Part of [[README|Java MOC]] • `Java/03_Collections`
+> 🎨 **Visual diagram:** Create Excalidraw drawing from template: `Cmd+P → Excalidraw: New from template → Java Diagram`
+
+## Intent
+
+One sentence: what problem does this solve? Define the **key term** in **bold**.
 
 ## Why it Matters
 
@@ -33,9 +40,10 @@ for processing"]
 key to value"] -.-> C
 ```
 
-## Code
+## Code / Example
 
 ```java
+// Java 25: var, record, sealed, pattern matching, SequencedCollection, virtual threads, Compact Object Headers
 // Collection — root interface for List/Set/Queue (Map separate)
 Collection<String> c = new ArrayList<>();
 c.add("a"); c.add("b");
@@ -47,24 +55,31 @@ for (var s : c) System.out.println(s);
 Collection<String> c2 = new LinkedHashSet<>(List.of("b","a","a"));
 System.out.println(c2);
 ```
-For large collections, size the initial capacity to avoid rehash or resizing. For thread safety, use concurrent collections or wrap with Collections.synchronizedX.
 
-## When to use / not
+### Concrete Example
 
-| Use | NOT |
-|-----|-----|
-| Need index/order/duplicates → `List` | Need key→value → `Map` (not a `Collection`) |
-| Need uniqueness/membership → `Set` | Need heap priority → `PriorityQueue` semantics, not FIFO |
-| Need FIFO/priority processing → `Queue` | Modifying during iteration → fail-fast throws; use `Iterator.remove` |
+- **Input:**
+- **Output:**
+- **Explanation:**
+
+## When to Use / When NOT
+
+| **Use When** | **Avoid When** |
+|--------------|----------------|
+|  |  |
+|  |  |
+|  |  |
 
 ## Trade-offs
 
-- One interface for `List`/`Set`/`Queue` , algorithms written to `Collection` accept all.
-- `stream()`, `forEach`, bulk ops (`addAll`, `retainAll`) compose across impls.
-- Fail-fast iterators punish structural mutation during traversal.
-- `Map` sits outside , no unified interface for all containers.
+| Dimension | This Approach | Alternative |
+|-----------|---------------|-------------|
+| Complexity | | |
+| Performance | | |
+| Readability | | |
+| Testability | | |
 
-## Vs
+## Vs Table
 
 | | `Collection` | `Collections` |
 |--|---------------|-----------------|
@@ -78,13 +93,41 @@ For large collections, size the initial capacity to avoid rehash or resizing. Fo
 - `Collection` has no `get(i)` , cast to `List` or stream with index.
 - `Map` is not a `Collection` , no `add`/`iterator`; use `entrySet()`.
 
-## Interview q&a
+## Interview Q&A (Senior Depth)
 
 **Q: Is Map a Collection?**
 No, Map is key to value and has its own hierarchy.
 
 **Q: What is the difference between Collection and Collections?**
 Collection is an interface, Collections is a utility class with static methods like sort and synchronizedList.
+
+## Flashcards (Spaced Repetition)
+
+#flashcard
+**Q:** What is the trigger keyword for Collection? :: **A:** [trigger keywords] #flashcard
+
+#flashcard
+**Q:** Time/space complexity of Collection? :: **A:** Time: O(), Space: O() #flashcard
+
+#flashcard
+**Q:** When do you NOT use Collection? :: **A:** [anti-pattern scenarios] #flashcard
+
+#flashcard
+**Q:** Core Java 25 snippet for Collection? :: **A:** `var list = new ArrayList<>(List.of(...));` #flashcard
+
+## Practice Tasks (Tasks Plugin)
+
+- [ ] Restate the intent from memory 📅 {date:YYYY-MM-DD, +1}
+- [ ] Code the snippet without looking 📅 {date:YYYY-MM-DD, +3}
+- [ ] Answer all Interview Q&A aloud 📅 {date:YYYY-MM-DD, +7}
+- [ ] Review flashcards (Spaced Repetition) 📅 {date:YYYY-MM-DD, +1}
+
+```tasks
+not done
+path includes {file.folder}
+sort by due
+limit 10
+```
 
 ## Related
 
@@ -112,13 +155,7 @@ Map (key to value, not a Collection)
 ```
 Since Java 21, SequencedCollection adds getFirst, getLast and reversed for ordered collections.
 
-## What it Provides
 
-- add and addAll
-- remove, removeAll, retainAll, clear
-- contains and containsAll
-- size, isEmpty
-- iterator, spliterator, stream
-- toArray
+---
 
-All collections are fail fast for iterators: structural change during iteration throws ConcurrentModificationException.
+*Category: Java/03_Collections • Part of [[README|Java MOC]] • Java 25*

@@ -1,6 +1,6 @@
 ---
 title: Frequency Counting
-pattern: 6
+pattern: 4
 category: Coding Patterns/01_Array
 tags:
 - pattern/array
@@ -9,22 +9,18 @@ tags:
 leetcode:
 - 242
 - 49
-- 347
 created: '2026-09-02'
 completed: false
 reviewed: ''
 sr-due: ''
 difficulty: Easy
 source: https://blog.algomaster.io/p/20-dsa-patterns
-problems-solved: []
-problems-solved-dates: {}
 excalidraw: ''
-type: note
 ---
 
 # Frequency Counting
 
-> Part of [[README|20 DSA Patterns]] • `Coding Patterns/01_Array` • Pattern #6
+> Part of [[README|20 DSA Patterns]] • `Coding Patterns/01_Array` • Pattern #4
 
 ## Intent
 Count occurrences of each value in O(n) time using a HashMap (or array for bounded alphabet), then answer questions from the counts — the fundamental space-for-time tradeoff that turns O(n²) pairwise comparisons into O(n) table lookups.
@@ -52,22 +48,29 @@ flowchart LR
 
 **Problem Statement:**
 
-Given two strings s and t, return true if t is an anagram of s, and false otherwise.
+Given two strings s and t, return true if t is an anagram of s, and false otherwise. Example 1: Input: s = "anagram", t = "nagaram" Output: true Example 2: Input: s = "rat", t = "car" Output: false Constraints: 1 4 s and t consist of lowercase English letters. Follow up: What if the inputs contain Unicode characters? How would you adapt your solution to such a case?
 
 **Examples:**
 
 Example 1:
-
-Input: s = "anagram", t = "nagaram"
-
-Output: true
+```
+"anagram"
+```
 
 Example 2:
+```
+"nagaram"
+```
 
-Input: s = "rat", t = "car"
+Example 3:
+```
+"rat"
+```
 
-Output: false
-
+Example 4:
+```
+"car"
+```
 ---
 
 ### 49. Group Anagrams (Medium)
@@ -75,64 +78,26 @@ Output: false
 
 **Problem Statement:**
 
-Given an array of strings strs, group the anagrams together. You can return the answer in any order.
+Given an array of strings strs, group the anagrams together. You can return the answer in any order. Example 1: Input: strs = ["eat","tea","tan","ate","nat","bat"] Output: [["bat"],["nat","tan"],["ate","eat","tea"]] Explanation: There is no string in strs that can be rearranged to form "bat". The strings "nat" and "tan" are anagrams as they can be rearranged to form each other. The strings "ate", "eat", and "tea" are anagrams as they can be rearranged to form each other. Example 2: Input: strs = [""] Output: [[""]] Example 3: Input: strs = ["a"] Output: [["a"]] Constraints: 1 4 0 strs[i] consists of lowercase English letters.
 
 **Examples:**
 
 Example 1:
-
-Input: strs = ["eat","tea","tan","ate","nat","bat"]
-
-Output: [["bat"],["nat","tan"],["ate","eat","tea"]]
-
-Explanation:
-
-	There is no string in strs that can be rearranged to form "bat".
-	The strings "nat" and "tan" are anagrams as they can be rearranged to form each other.
-	The strings "ate", "eat", and "tea" are anagrams as they can be rearranged to form each other.
+```
+["eat","tea","tan","ate","nat","bat"]
+```
 
 Example 2:
-
-Input: strs = [""]
-
-Output: [[""]]
-
-Example 3:
-
-Input: strs = ["a"]
-
-Output: [["a"]]
-
----
-
-### 347. Top K Frequent Elements (Medium)
-> [LeetCode 347](https://leetcode.com/problems/top-k-frequent-elements/) • Tags: Array, Hash Table, Divide and Conquer, Sorting, Heap (Priority Queue), Bucket Sort, Counting, Quickselect
-
-**Problem Statement:**
-
-Given an integer array nums and an integer k, return the k most frequent elements. You may return the answer in any order.
-
-**Examples:**
-
-Example 1:
-
-Input: nums = [1,1,1,2,2,3], k = 2
-
-Output: [1,2]
-
-Example 2:
-
-Input: nums = [1], k = 1
-
-Output: [1]
+```
+[""]
+```
 
 Example 3:
-
-Input: nums = [1,2,1,2,1,2,3,1,3,2], k = 2
-
-Output: [1,2]
-
+```
+["a"]
+```
 ---
+
 
 
 ## Code / Example
@@ -215,11 +180,39 @@ int[] topKFrequent(int[] nums, int k) {
 **Q: Frequency counting with negative numbers or large range — what changes?**
 **A:** `int[]` array no longer works (negative index, huge range). Must use HashMap. Time stays O(n), space becomes O(distinct values). No asymptotic change, just constant factors.
 
+
+## Flashcards (Spaced Repetition)
+
+#flashcard
+**Q:** What is the trigger keyword for Frequency Counting? :: **A:** anagrams, character counts, frequency of elements, top K frequent, find duplicate #flashcard
+
+#flashcard
+**Q:** Time/space complexity of Frequency Counting? :: **A:** Time: O(n) build + O(1) lookup, Space: O(Σ) alphabet or O(n) distinct #flashcard
+
+#flashcard
+**Q:** When do you NOT use Frequency Counting? :: **A:** need order information (use array/list), range frequency queries (use Mo's algorithm) #flashcard
+
+#flashcard
+**Q:** Core Java 25 snippet for Frequency Counting? :: **A:** `int[] cnt = new int[26]; for(char c:s.toCharArray()) cnt[c-'a']++; // or Map<Integer,Integer> for general` #flashcard
+
+
+## Practice Tasks (Tasks Plugin)
+- [ ] Restate the intent from memory 📅 {date:YYYY-MM-DD, +1}
+- [ ] Code the snippet without looking 📅 {date:YYYY-MM-DD, +3}
+- [ ] Answer all Interview Q&A aloud 📅 {date:YYYY-MM-DD, +7}
+- [ ] Review flashcards (Spaced Repetition) 📅 {date:YYYY-MM-DD, +1}
+
+```tasks
+not done
+path includes {file.folder}
+sort by due
+limit 10
+```
+
 ## Related
 - [[01_Array/01 - Prefix Sum|Prefix Sum]] (hashmap on prefix sums for subarray sum = k)
 - [[01_Array/03 - Sliding Window|Sliding Window]] (frequency map inside variable window)
 - [[03_Stack_Heap/02 - Top K Elements|Top K Elements]] (frequency + heap)
 - [[Java/07_DSA/Array]] · [[Java/07_DSA/HashMap]]
-
 ---
 *Category: Coding Patterns/01_Array*

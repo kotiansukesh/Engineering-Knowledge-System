@@ -23,13 +23,34 @@ excalidraw: ''
 source: ''
 type: note
 weeks: ''
+
 ---
+
+
+
 
 
 
 ## Why it Matters
 
 Aggregates are where correctness becomes a design property instead of a hope: the boundary defines what a transaction must cover, the root is the only door in, and value objects make invalid states unrepresentable. Size them by invariant, not by object graph, small aggregates keep locks, deadlocks and latency manageable and let contexts split later.
+
+## Problems
+### System Design Problem: Tactical DDD, Aggregates, Entities, Value Objects
+
+**Requirements:**
+- Functional: Core capabilities for tactical ddd, aggregates, entities, value objects
+- Non-functional (SLOs): Latency < 100ms p99, Availability 99.9%, Horizontal scalability
+
+**Constraints:**
+- Scale: Handle 10x growth without redesign
+- Consistency: Appropriate model for domain (strong/eventual)
+- Latency budget: p99 < 100ms for read paths
+
+**API / Interfaces:**
+- Primary: REST/gRPC endpoints for core operations
+- Internal: Service-to-service contracts
+- Events: Domain events for async integration
 
 ## Diagram
 
@@ -71,13 +92,18 @@ JPA mapping: root = `@Entity`, internal entities = `@ElementCollection`/`@OneToM
 - Rule 2: reference other aggregates **by ID only** (keeps transactions small, enables distribution).
 - Rule 3: all external access goes through the **aggregate root**.
 
-## Trade-offs
 
-| Pros | Cons |
-|---|---|
-| Invariants compile into the model (can't represent invalid states) | JPA fights DDD (lazy loading, identity map), map deliberately |
-| Small transactions → fewer deadlocks, easier distribution | Large-cluster aggregates (Order+everything) kill performance |
-| Clear repository-per-root rule | Behaviour-rich modelling is slower than getters/setters habits |
+
+
+
+## Trade-offs
+| Dimension | This Approach | Alternative | Trade-off Rationale | Decision Rule |
+|-----------|---------------|-------------|---------------------|---------------|
+| Complexity | [TBD] | [TBD] | [TBD] | [TBD] |
+| Operational Burden | [TBD] | [TBD] | [TBD] | [TBD] |
+| Latency | [TBD] | [TBD] | [TBD] | [TBD] |
+| Consistency | [TBD] | [TBD] | [TBD] | [TBD] |
+| Cost at Scale | [TBD] | [TBD] | [TBD] | [TBD] |
 
 ## Vs
 
@@ -90,6 +116,16 @@ JPA mapping: root = `@Entity`, internal entities = `@ElementCollection`/`@OneToM
 - Setters on the root ("for JPA/Hibernate"), use field access + protected no-arg constructor.
 - Business logic in `@Entity` lifecycle callbacks, keep JPA annotations dumb, logic explicit.
 
+
+## Pitfalls
+1. Underestimating operational complexity (backups, monitoring, upgrades)
+2. Ignoring failure modes (network partitions, disk failures, clock drift)
+3. Not planning for 10x scale from day one
+4. Skipping monitoring/alerting in MVP
+5. Premature optimization before measuring
+6. Dual-write without transactional outbox
+7. Assuming global order in partitioned systems
+
 ## Interview q&a
 
 **Q: How big should an aggregate be?**
@@ -100,6 +136,68 @@ A: Does it need a stable identity across changes (Order, Customer → entity) or
 
 **Q: How do aggregates communicate?**
 A: Domain events + IDs, never direct object references or shared transactions.
+
+
+## Flashcards (Spaced Repetition)
+
+#flashcard
+**Q:** What is the core concept of Tactical DDD, Aggregates, Entities, Value Objects? :: **A:** [Key algorithm/architecture pattern] #flashcard
+
+#flashcard
+**Q:** When do you apply Tactical DDD, Aggregates, Entities, Value Objects? :: **A:** [Trigger scenarios and context] #flashcard
+
+#flashcard
+**Q:** What is the primary trade-off in Tactical DDD, Aggregates, Entities, Value Objects? :: **A:** [Main tension: e.g., consistency vs latency] #flashcard
+
+#flashcard
+**Q:** What breaks first at scale in Tactical DDD, Aggregates, Entities, Value Objects? :: **A:** [Primary bottleneck: e.g., coordination, hot keys, replication lag] #flashcard
+
+#flashcard
+**Q:** How do you handle failures in Tactical DDD, Aggregates, Entities, Value Objects? :: **A:** [Retry, circuit breaker, fallback, graceful degradation] #flashcard
+
+#flashcard
+**Q:** What are the key metrics to monitor for Tactical DDD, Aggregates, Entities, Value Objects? :: **A:** [RED: rate, errors, duration; USE: utilization, saturation, errors] #flashcard
+
+#flashcard
+**Q:** How does Tactical DDD, Aggregates, Entities, Value Objects scale to 10x? :: **A:** [Sharding, read replicas, async processing, caching layers] #flashcard
+
+#flashcard
+**Q:** What is the consistency model for Tactical DDD, Aggregates, Entities, Value Objects? :: **A:** [Strong/eventual/causal - justify with use case] #flashcard
+
+#flashcard
+**Q:** How do you test Tactical DDD, Aggregates, Entities, Value Objects? :: **A:** [Contract tests, chaos engineering, load tests, fault injection] #flashcard
+
+#flashcard
+**Q:** What is the operational cost of Tactical DDD, Aggregates, Entities, Value Objects? :: **A:** [Team expertise, tooling, on-call burden, migration risk] #flashcard
+
+#flashcard
+**Q:** When would you NOT use Tactical DDD, Aggregates, Entities, Value Objects? :: **A:** [Managed service covers need, simple CRUD, team lacks maturity] #flashcard
+
+#flashcard
+**Q:** What is the key design decision in Tactical DDD, Aggregates, Entities, Value Objects? :: **A:** [The irreversible choice that defines the architecture] #flashcard
+
+#flashcard
+**Q:** How do you migrate to Tactical DDD, Aggregates, Entities, Value Objects? :: **A:** [Strangler fig, dual-write, canary, feature flags] #flashcard
+
+#flashcard
+**Q:** What security considerations for Tactical DDD, Aggregates, Entities, Value Objects? :: **A:** [AuthZ, encryption, audit, secrets management] #flashcard
+
+#flashcard
+**Q:** How do you debug Tactical DDD, Aggregates, Entities, Value Objects in production? :: **A:** [Structured logging, correlation IDs, distributed tracing, SLO alerts] #flashcard
+
+
+## Practice Tasks (Tasks Plugin)
+- [ ] Explain the architecture from memory 📅 {{date:YYYY-MM-DD, +1}}
+- [ ] Draw the system diagram without looking 📅 {{date:YYYY-MM-DD, +3}}
+- [ ] Answer all Interview Q&A aloud 📅 {{date:YYYY-MM-DD, +7}}
+- [ ] Review flashcards (Spaced Repetition) 📅 {{date:YYYY-MM-DD, +1}}
+
+```tasks
+not done
+path includes Architect/05_DDD-Modeling
+sort by due
+limit 10
+```
 
 ## Related
 

@@ -9,8 +9,8 @@ created: 2026-09-03
 completed: false
 pattern: 0
 difficulty: Easy
-reviewed: ''
-sr-due: ''
+reviewed: "2026-09-29"
+sr-due: "2026-10-06"
 excalidraw: ''
 source: ''
 type: note

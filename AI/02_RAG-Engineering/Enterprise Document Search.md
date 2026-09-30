@@ -10,8 +10,8 @@ weeks: 5-10
 created: 2026-09-02
 completed: false
 type: project
-reviewed: ''
-sr-due: ''
+reviewed: "2026-09-29"
+sr-due: "2026-09-30"
 excalidraw: ''
 difficulty: Medium
 source: ''
@@ -99,40 +99,37 @@ async def health() -> dict[str, str]:
 - **Q:** Why hybrid BM25 plus vector instead of vector alone? **A:** Because enterprise queries are mixed, identifiers, codes and exact names are keyword-shaped, intent questions are semantic. Hybrid with RRF handles both; either alone loses one class of query.
 - **Q:** What happens when the search is wrong? **A:** It tells you, citations are returned with every answer, so a wrong answer traces to a retrieval failure you can inspect, rather than a model confidence you cannot.
 
-## Related
+## Flashcards (Spaced Repetition)
 
-- [[01_LLM Engineering with RAG]] • [[02_Design LLM Architectures]] • [[AI/03_Agentic-AI/Enterprise AI Operations Platform|Next: AI Operations Platform]]
+#flashcard
+**Q:** What is the trigger keyword for Enterprise Document Search? :: **A:** [trigger keywords] #flashcard
+
+#flashcard
+**Q:** Key hyperparameter for Enterprise Document Search? :: **A:** [hyperparameter + typical range] #flashcard
+
+#flashcard
+**Q:** When do you NOT use Enterprise Document Search? :: **A:** [anti-pattern scenarios] #flashcard
+
+#flashcard
+**Q:** Cost order of magnitude for Enterprise Document Search? :: **A:** [GPU hours / $ per 1M tokens] #flashcard
+
+## Practice Tasks (Tasks Plugin)
+- [ ] Restate the intent from memory 📅 2026-09-30
+- [ ] Code the config without looking 📅 2026-10-02
+- [ ] Answer all Interview Q&A aloud 📅 2026-10-06
+- [ ] Review flashcards (Spaced Repetition) 📅 2026-09-30
+
+```tasks
+not done
+path includes 02_RAG-Engineering
+sort by due
+limit 10
+```
+
+## Related
+- [[README|AI MOC]]
+- [[02_RAG-Engineering/README|02_RAG-Engineering Folder]]
 
 ---
-*Category: rag*
 
-# Enterprise Document Search, Project (Weeks 5–10)
-
-> Part of [[README|02_RAG-Engineering]] • `project` • The RAG evolution of [[AI/01_Fundamentals/AI Backend Template|AI Backend Template]]
-> Watch: [RAG at 10 Million Documents, System Design](https://www.youtube.com/watch?v=NQZqET-jjws)
-- [[Architect/10_System-Design-Interviews/DB-04-Vector-Databases.md|DB-04-Vector-Databases]] — Vector DB internals
-- [[Architect/10_System-Design-Interviews/INT-08-Design-Autocomplete.md|INT-08-Design-Autocomplete]] — Prefix search with vectors
-
-## Features
-
-- [ ] Ingest pipeline: PDF/MD → chunk (512/50 overlap) → embed → pgvector (HNSW)
-- [ ] **Hybrid search:** BM25 + vector via RRF
-- [ ] **Metadata filtering:** department, date, confidentiality
-- [ ] **Citations:** answer → `[1][2]` grounded in retrieved chunks
-- [ ] **Streaming responses** (SSE) with partial citations
-- [ ] Evaluation harness: precision@k, faithfulness, latency
-
-## Week 7+ Enhancements (from c2)
-
-- RAG variants A/B (naive → hybrid → reranker)
-- Context compression (target 30–50% token saving)
-- Retrieval strategy comparison table
-- **Cost comparison:** managed embeddings vs self-hosted, with/without reranker
-
-## API Sketch
-
-```
-POST /search {query, filters, top_k} → {results: [{content, score, metadata, citation_id}]}
-POST /ask {query, filters} → stream {token, citations[]}
-POST /ingest {documents[]} → {ingested, chunks}
-```
+*Category: AI/02_RAG-Engineering • Part of [[README|AI MOC]]*

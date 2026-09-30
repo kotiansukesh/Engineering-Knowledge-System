@@ -11,8 +11,8 @@ weeks: 35-36
 created: 2026-09-02
 completed: false
 type: project
-reviewed: ''
-sr-due: ''
+reviewed: "2026-09-29"
+sr-due: "2026-09-30"
 excalidraw: ''
 difficulty: Medium
 source: ''
@@ -69,37 +69,37 @@ flowchart TB
 - **Q:** Why write ADRs at all on a solo project? **A:** Because the future reader is an interviewer or a new teammate, and "we chose pgvector" is useless without the alternatives considered and the threshold at which the choice changes. An ADR is the artifact that survives the conversation.
 - **Q:** Which governance control is hardest to keep honest? **A:** Drift and eval gates — they are the controls whose failure is silent. Everything else fails loudly; a slowly degrading retrieval quality metric fails quietly until a user notices.
 
-## Related
+## Flashcards (Spaced Repetition)
 
-- [[01_SWARC4AI Syllabus]] • [[AI/99_Revision/README|99_Revision]] • [[AI/07_Cross-Cutting/README|Cross-Cutting]]
+#flashcard
+**Q:** What is the trigger keyword for Final Capstone, Governed Platform? :: **A:** [trigger keywords] #flashcard
+
+#flashcard
+**Q:** Key hyperparameter for Final Capstone, Governed Platform? :: **A:** [hyperparameter + typical range] #flashcard
+
+#flashcard
+**Q:** When do you NOT use Final Capstone, Governed Platform? :: **A:** [anti-pattern scenarios] #flashcard
+
+#flashcard
+**Q:** Cost order of magnitude for Final Capstone, Governed Platform? :: **A:** [GPU hours / $ per 1M tokens] #flashcard
+
+## Practice Tasks (Tasks Plugin)
+- [ ] Restate the intent from memory 📅 2026-09-30
+- [ ] Code the config without looking 📅 2026-10-02
+- [ ] Answer all Interview Q&A aloud 📅 2026-10-06
+- [ ] Review flashcards (Spaced Repetition) 📅 2026-09-30
+
+```tasks
+not done
+path includes 06_Architecture-Governance
+sort by due
+limit 10
+```
+
+## Related
+- [[README|AI MOC]]
+- [[06_Architecture-Governance/README|06_Architecture-Governance Folder]]
 
 ---
-*Category: governance*
 
-# Final Capstone — Governed Platform (Weeks 35–36)
-
-> Part of [[README|06_Architecture-Governance]] • `project` • The same platform, now **governed**.
-
-## Required Additions
-
-- [ ] **ADRs** for key decisions (vector DB choice, agent framework, model routing, MCP adoption)
-- [ ] **Quality attribute scenarios** (security, scalability, explainability, sustainability) with measurable responses
-- [ ] **Compliance matrix:** GDPR + EU AI Act obligations → platform controls (audit logs, HITL, data lineage)
-- [ ] **MLOps pipeline:** embedding versioning, drift detection (data/concept), rollback plan
-- [ ] **Threat model:** prompt injection, secret leakage, supply-chain, sandboxing (link [[AI/07_Cross-Cutting/04_AI Security|Security]])
-- [ ] **Cost & Green IT** report: tokens, GPU, energy — with optimization levers
-- [ ] **Enterprise integration** diagram: how this platform plugs into existing Java/Spring estate
-
-# Capstone rule: a governance control is a file + a metric, not a statement
-
-CONTROLS = [
- ("quality_attributes", "06_Governance/adr-001-latency-vs-cost.md", "grpc_p95_ms"),
- ("ai_act", "06_Governance/eu-ai-act-checklist.md", "checklist_complete"),
- ("drift", "04_Production/eval-harness", "eval_gate_in_ci"),
- ("cost", "07_Cross-Cutting/cost-dashboard", "cost_per_request_usd"),
-]
-
-def control_is_real(name: str, artifact_exists: bool, metric_reported: bool) -> bool:
- """A control with no artifact is an intention; with no metric it is unverified."""
- return artifact_exists and metric_reported
-```
+*Category: AI/06_Architecture-Governance • Part of [[README|AI MOC]]*

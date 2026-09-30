@@ -1,6 +1,6 @@
 ---
 title: Shortest Path
-pattern: 15
+pattern: 14
 category: Coding Patterns/05_Trees_Graphs
 tags:
 - pattern/graph
@@ -9,22 +9,19 @@ tags:
 leetcode:
 - 743
 - 787
-- 1334
+- 1514
 created: '2026-09-02'
 completed: false
 reviewed: ''
 sr-due: ''
 difficulty: Hard
 source: https://blog.algomaster.io/p/20-dsa-patterns
-problems-solved: []
-problems-solved-dates: {}
 excalidraw: ''
-type: note
 ---
 
 # Shortest Path
 
-> Part of [[README|20 DSA Patterns]] • `Coding Patterns/05_Trees_Graphs` • Pattern #15
+> Part of [[README|20 DSA Patterns]] • `Coding Patterns/05_Trees_Graphs` • Pattern #14
 
 ## Intent
 Find minimum cost/distance in a weighted graph — Dijkstra for non-negative weights (greedy + min-heap), Bellman-Ford for negative weights (detects negative cycles), BFS for unit weights only.
@@ -56,27 +53,54 @@ flowchart LR
 
 **Problem Statement:**
 
-You are given a network of n nodes, labeled from 1 to n. You are also given times, a list of travel times as directed edges times[i] = (u_i_, v_i_, w_i_), where u_i_ is the source node, v_i_ is the target node, and w_i_ is the time it takes for a signal to travel from source to target.
-
-We will send a signal from a given node k. Return the minimum time it takes for all the n nodes to receive the signal. If it is impossible for all the n nodes to receive the signal, return -1.
+You are given a network of n nodes, labeled from 1 to n. You are also given times, a list of travel times as directed edges times[i] = (ui, vi, wi), where ui is the source node, vi is the target node, and wi is the time it takes for a signal to travel from source to target. We will send a signal from a given node k. Return the minimum time it takes for all the n nodes to receive the signal. If it is impossible for all the n nodes to receive the signal, return -1. Example 1: Input: times = [[2,1,1],[2,3,1],[3,4,1]], n = 4, k = 2 Output: 2 Example 2: Input: times = [[1,2,1]], n = 2, k = 1 Output: 1 Example 3: Input: times = [[1,2,1]], n = 2, k = 2 Output: -1 Constraints: 1 1 times[i].length == 3 1 i, vi ui != vi 0 i All the pairs (ui, vi) are unique. (i.e., no multiple edges.)
 
 **Examples:**
 
 Example 1:
-
-Input: times = [[2,1,1],[2,3,1],[3,4,1]], n = 4, k = 2
-Output: 2
+```
+[[2,1,1],[2,3,1],[3,4,1]]
+```
 
 Example 2:
-
-Input: times = [[1,2,1]], n = 2, k = 1
-Output: 1
+```
+4
+```
 
 Example 3:
+```
+2
+```
 
-Input: times = [[1,2,1]], n = 2, k = 2
-Output: -1
+Example 4:
+```
+[[1,2,1]]
+```
 
+Example 5:
+```
+2
+```
+
+Example 6:
+```
+1
+```
+
+Example 7:
+```
+[[1,2,1]]
+```
+
+Example 8:
+```
+2
+```
+
+Example 9:
+```
+2
+```
 ---
 
 ### 787. Cheapest Flights Within K Stops (Medium)
@@ -84,77 +108,169 @@ Output: -1
 
 **Problem Statement:**
 
-There are n cities connected by some number of flights. You are given an array flights where flights[i] = [from_i_, to_i_, price_i_] indicates that there is a flight from city from_i_ to city to_i_ with cost price_i_.
-
-You are also given three integers src, dst, and k, return the cheapest price from src to dst with at most k stops. If there is no such route, return -1.
+There are n cities connected by some number of flights. You are given an array flights where flights[i] = [fromi, toi, pricei] indicates that there is a flight from city fromi to city toi with cost pricei. You are also given three integers src, dst, and k, return the cheapest price from src to dst with at most k stops. If there is no such route, return -1. Example 1: Input: n = 4, flights = [[0,1,100],[1,2,100],[2,0,100],[1,3,600],[2,3,200]], src = 0, dst = 3, k = 1 Output: 700 Explanation: The graph is shown above. The optimal path with at most 1 stop from city 0 to 3 is marked in red and has cost 100 + 600 = 700. Note that the path through cities [0,1,2,3] is cheaper but is invalid because it uses 2 stops. Example 2: Input: n = 3, flights = [[0,1,100],[1,2,100],[0,2,500]], src = 0, dst = 2, k = 1 Output: 200 Explanation: The graph is shown above. The optimal path with at most 1 stop from city 0 to 2 is marked in red and has cost 100 + 100 = 200. Example 3: Input: n = 3, flights = [[0,1,100],[1,2,100],[0,2,500]], src = 0, dst = 2, k = 0 Output: 500 Explanation: The graph is shown above. The optimal path with no stops from city 0 to 2 is marked in red and has cost 500. Constraints: 2 0 flights[i].length == 3 0 i, toi fromi != toi 1 i 4 There will not be any multiple flights between two cities. 0 src != dst
 
 **Examples:**
 
 Example 1:
-
-Input: n = 4, flights = [[0,1,100],[1,2,100],[2,0,100],[1,3,600],[2,3,200]], src = 0, dst = 3, k = 1
-Output: 700
-Explanation:
-The graph is shown above.
-The optimal path with at most 1 stop from city 0 to 3 is marked in red and has cost 100 + 600 = 700.
-Note that the path through cities [0,1,2,3] is cheaper but is invalid because it uses 2 stops.
+```
+4
+```
 
 Example 2:
-
-Input: n = 3, flights = [[0,1,100],[1,2,100],[0,2,500]], src = 0, dst = 2, k = 1
-Output: 200
-Explanation:
-The graph is shown above.
-The optimal path with at most 1 stop from city 0 to 2 is marked in red and has cost 100 + 100 = 200.
+```
+[[0,1,100],[1,2,100],[2,0,100],[1,3,600],[2,3,200]]
+```
 
 Example 3:
+```
+0
+```
 
-Input: n = 3, flights = [[0,1,100],[1,2,100],[0,2,500]], src = 0, dst = 2, k = 0
-Output: 500
-Explanation:
-The graph is shown above.
-The optimal path with no stops from city 0 to 2 is marked in red and has cost 500.
+Example 4:
+```
+3
+```
 
+Example 5:
+```
+1
+```
+
+Example 6:
+```
+3
+```
+
+Example 7:
+```
+[[0,1,100],[1,2,100],[0,2,500]]
+```
+
+Example 8:
+```
+0
+```
+
+Example 9:
+```
+2
+```
+
+Example 10:
+```
+1
+```
+
+Example 11:
+```
+3
+```
+
+Example 12:
+```
+[[0,1,100],[1,2,100],[0,2,500]]
+```
+
+Example 13:
+```
+0
+```
+
+Example 14:
+```
+2
+```
+
+Example 15:
+```
+0
+```
 ---
 
-### 1334. Find the City With the Smallest Number of Neighbors at a Threshold Distance (Medium)
-> [LeetCode 1334](https://leetcode.com/problems/find-the-city-with-the-smallest-number-of-neighbors-at-a-threshold-distance/) • Tags: Dynamic Programming, Graph Theory, Shortest Path, Dijkstra's Algorithm, Bellman–Ford Algorithm, Floyd–Warshall Algorithm
+### 1514. Path with Maximum Probability (Medium)
+> [LeetCode 1514](https://leetcode.com/problems/path-with-maximum-probability/) • Tags: Array, Graph Theory, Heap (Priority Queue), Shortest Path, Dijkstra's Algorithm
 
 **Problem Statement:**
 
-There are n cities numbered from 0 to n-1. Given the array edges where edges[i] = [from_i_, to_i_, weight_i_] represents a bidirectional and weighted edge between cities from_i_ and to_i_, and given the integer distanceThreshold.
-
-Return the city with the smallest number of cities that are reachable through some path and whose distance is at most distanceThreshold, If there are multiple such cities, return the city with the greatest number.
-
-Notice that the distance of a path connecting cities i and j is equal to the sum of the edges' weights along that path.
+You are given an undirected weighted graph of n nodes (0-indexed), represented by an edge list where edges[i] = [a, b] is an undirected edge connecting the nodes a and b with a probability of success of traversing that edge succProb[i]. Given two nodes start and end, find the path with the maximum probability of success to go from start to end and return its success probability. If there is no path from start to end, return 0. Your answer will be accepted if it differs from the correct answer by at most 1e-5. Example 1: Input: n = 3, edges = [[0,1],[1,2],[0,2]], succProb = [0.5,0.5,0.2], start = 0, end = 2 Output: 0.25000 Explanation: There are two paths from start to end, one having a probability of success = 0.2 and the other has 0.5 * 0.5 = 0.25. Example 2: Input: n = 3, edges = [[0,1],[1,2],[0,2]], succProb = [0.5,0.5,0.3], start = 0, end = 2 Output: 0.30000 Example 3: Input: n = 3, edges = [[0,1]], succProb = [0.5], start = 0, end = 2 Output: 0.00000 Explanation: There is no path between 0 and 2. Constraints: 2 0 start != end 0 a != b 0 0 There is at most one edge between every two nodes.
 
 **Examples:**
 
 Example 1:
-
-Input: n = 4, edges = [[0,1,3],[1,2,1],[1,3,4],[2,3,1]], distanceThreshold = 4
-Output: 3
-Explanation: The figure above describes the graph. 
-The neighboring cities at a distanceThreshold = 4 for each city are:
-City 0 -> [City 1, City 2] 
-City 1 -> [City 0, City 2, City 3] 
-City 2 -> [City 0, City 1, City 3] 
-City 3 -> [City 1, City 2] 
-Cities 0 and 3 have 2 neighboring cities at a distanceThreshold = 4, but we have to return city 3 since it has the greatest number.
+```
+3
+```
 
 Example 2:
+```
+[[0,1],[1,2],[0,2]]
+```
 
-Input: n = 5, edges = [[0,1,2],[0,4,8],[1,2,3],[1,4,2],[2,3,1],[3,4,1]], distanceThreshold = 2
-Output: 0
-Explanation: The figure above describes the graph. 
-The neighboring cities at a distanceThreshold = 2 for each city are:
-City 0 -> [City 1] 
-City 1 -> [City 0, City 4] 
-City 2 -> [City 3, City 4] 
-City 3 -> [City 2, City 4]
-City 4 -> [City 1, City 2, City 3] 
-The city 0 has 1 neighboring city at a distanceThreshold = 2.
+Example 3:
+```
+[0.5,0.5,0.2]
+```
 
+Example 4:
+```
+0
+```
+
+Example 5:
+```
+2
+```
+
+Example 6:
+```
+3
+```
+
+Example 7:
+```
+[[0,1],[1,2],[0,2]]
+```
+
+Example 8:
+```
+[0.5,0.5,0.3]
+```
+
+Example 9:
+```
+0
+```
+
+Example 10:
+```
+2
+```
+
+Example 11:
+```
+3
+```
+
+Example 12:
+```
+[[0,1]]
+```
+
+Example 13:
+```
+[0.5]
+```
+
+Example 14:
+```
+0
+```
+
+Example 15:
+```
+2
+```
 ---
 
 
@@ -274,10 +390,38 @@ int findTheCity(int n, int[][] edges, int distanceThreshold) {
 **Q: How does A* differ from Dijkstra?**
 **A:** A* = Dijkstra + heuristic `h(n)` estimating distance to target. Priority = `g(n) + h(n)` (cost so far + estimated remaining). If `h` is admissible (never overestimates), A* finds optimal path faster by directing search toward target. Dijkstra is A* with `h(n) = 0`.
 
+
+## Flashcards (Spaced Repetition)
+
+#flashcard
+**Q:** What is the trigger keyword for Shortest Path? :: **A:** weighted graph, Dijkstra, Bellman-Ford, Floyd-Warshall, A*, negative weights #flashcard
+
+#flashcard
+**Q:** Time/space complexity of Shortest Path? :: **A:** Dijkstra: O((V+E)log V), Bellman-Ford: O(VE), Floyd: O(V³) #flashcard
+
+#flashcard
+**Q:** When do you NOT use Shortest Path? :: **A:** unweighted (use BFS O(V+E)), all-pairs small V (Floyd), negative cycles (Bellman-Ford detect) #flashcard
+
+#flashcard
+**Q:** Core Java 25 snippet for Shortest Path? :: **A:** `PriorityQueue<int[]> pq=new PriorityQueue<>(Comparator.comparingInt(a->a[1])); pq.offer(new int[]{src,0}); while(!pq.isEmpty())...` #flashcard
+
+
+## Practice Tasks (Tasks Plugin)
+- [ ] Restate the intent from memory 📅 {date:YYYY-MM-DD, +1}
+- [ ] Code the snippet without looking 📅 {date:YYYY-MM-DD, +3}
+- [ ] Answer all Interview Q&A aloud 📅 {date:YYYY-MM-DD, +7}
+- [ ] Review flashcards (Spaced Repetition) 📅 {date:YYYY-MM-DD, +1}
+
+```tasks
+not done
+path includes {file.folder}
+sort by due
+limit 10
+```
+
 ## Related
 - [[05_Trees_Graphs/03 - BFS|BFS]] (unweighted shortest)
 - [[05_Trees_Graphs/06 - Union Find|Union Find]] (connectivity, not distances)
 - [[Java/07_DSA/Graph]] · [[Java/07_DSA/Heap]]
-
 ---
 *Category: Coding Patterns/05_Trees_Graphs*

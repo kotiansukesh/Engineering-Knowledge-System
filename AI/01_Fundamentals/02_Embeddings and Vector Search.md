@@ -8,8 +8,8 @@ tags:
 - rag
 created: 2026-09-02
 completed: false
-reviewed: ''
-sr-due: ''
+reviewed: "2026-09-29"
+sr-due: "2026-09-30"
 difficulty: Medium
 excalidraw: ''
 source: ''
@@ -139,8 +139,37 @@ var results = index.search(embed(query), 10);
 **Q5: "Design a hybrid retrieval system for enterprise RAG (10M docs, p99 < 100ms)."**
 > **Answer**: **Architecture**: BM25 (Tantivy) + HNSW (text-embedding-3-small, 1536-d, M=32, efS=128) + Cross-encoder re-ranker (bge-reranker-v2-m3). **Fusion**: RRF(k=60) on top-50 from each. **Optimization**: 1) Pre-filter by metadata (tenant, date) before ANN. 2) Quantize HNSW to SQ8 (1 byte/dim) → 4× memory reduction. 3) Async re-ranking for non-critical paths. **Cost**: ~$200/month for 10M on 1×r6g.4xlarge (128GB RAM). **Rejected**: Pure vector — fails on exact IDs, codes, acronyms.
 
-## 🔗 Related
-- [[02_RAG Systems|RAG Systems]] — end-to-end retrieval pipeline
-- [[03_Vector Databases|Vector Databases]] — managed vs self-hosted index comparison
-- [[LLM Observability|LLM Observability]] — monitoring recall drift
-- [[Cost Optimization|Cost Optimization]] — embedding cost modeling
+## Flashcards (Spaced Repetition)
+
+#flashcard
+**Q:** What is the trigger keyword for Embeddings and Vector Search? :: **A:** [trigger keywords] #flashcard
+
+#flashcard
+**Q:** Key hyperparameter for Embeddings and Vector Search? :: **A:** [hyperparameter + typical range] #flashcard
+
+#flashcard
+**Q:** When do you NOT use Embeddings and Vector Search? :: **A:** [anti-pattern scenarios] #flashcard
+
+#flashcard
+**Q:** Cost order of magnitude for Embeddings and Vector Search? :: **A:** [GPU hours / $ per 1M tokens] #flashcard
+
+## Practice Tasks (Tasks Plugin)
+- [ ] Restate the intent from memory 📅 2026-09-30
+- [ ] Code the config without looking 📅 2026-10-02
+- [ ] Answer all Interview Q&A aloud 📅 2026-10-06
+- [ ] Review flashcards (Spaced Repetition) 📅 2026-09-30
+
+```tasks
+not done
+path includes 01_Fundamentals
+sort by due
+limit 10
+```
+
+## Related
+- [[README|AI MOC]]
+- [[01_Fundamentals/README|01_Fundamentals Folder]]
+
+---
+
+*Category: AI/01_Fundamentals • Part of [[README|AI MOC]]*

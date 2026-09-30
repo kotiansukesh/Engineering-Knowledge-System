@@ -1,29 +1,26 @@
 ---
 title: Greedy
-pattern: 19
+pattern: 20
 category: Coding Patterns/07_Backtracking_DP
 tags:
 - pattern/greedy
 - pattern/dp/optimization
 leetcode:
-- 55
-- 45
-- 121
+- 455
+- 135
+- 435
 created: '2026-09-02'
 completed: false
 reviewed: ''
 sr-due: ''
 difficulty: Medium
 source: https://blog.algomaster.io/p/20-dsa-patterns
-problems-solved: []
-problems-solved-dates: {}
 excalidraw: ''
-type: note
 ---
 
 # Greedy
 
-> Part of [[README|20 DSA Patterns]] • `Coding Patterns/07_Backtracking_DP` • Pattern #19
+> Part of [[README|20 DSA Patterns]] • `Coding Patterns/07_Backtracking_DP` • Pattern #20
 
 ## Intent
 Pick the locally best move at each step and never look back — works only when a local optimum leads to a global optimum, provable by exchange argument. The algorithm is just "sort by criterion, iterate, commit."
@@ -52,86 +49,79 @@ flowchart LR
 
 ## Problems
 
-### 55. Jump Game (Medium)
-> [LeetCode 55](https://leetcode.com/problems/jump-game/) • Tags: Array, Dynamic Programming, Greedy
+### 455. Assign Cookies (Easy)
+> [LeetCode 455](https://leetcode.com/problems/assign-cookies/) • Tags: Array, Two Pointers, Greedy, Sorting, Quicksort
 
 **Problem Statement:**
 
-You are given an integer array nums. You are initially positioned at the array's first index, and each element in the array represents your maximum jump length at that position.
-
-Return true if you can reach the last index, or false otherwise.
+Assume you are an awesome parent and want to give your children some cookies. But, you should give each child at most one cookie. Each child i has a greed factor g[i], which is the minimum size of a cookie that the child will be content with; and each cookie j has a size s[j]. If s[j] >= g[i], we can assign the cookie j to the child i, and the child i will be content. Your goal is to maximize the number of your content children and output the maximum number. Example 1: Input: g = [1,2,3], s = [1,1] Output: 1 Explanation: You have 3 children and 2 cookies. The greed factors of 3 children are 1, 2, 3. And even though you have 2 cookies, since their size is both 1, you could only make the child whose greed factor is 1 content. You need to output 1. Example 2: Input: g = [1,2], s = [1,2,3] Output: 2 Explanation: You have 2 children and 3 cookies. The greed factors of 2 children are 1, 2. You have 3 cookies and their sizes are big enough to gratify all of the children, You need to output 2. Constraints: 1 4 0 4 1 31 - 1 Note: This question is the same as 2410: Maximum Matching of Players With Trainers.
 
 **Examples:**
 
 Example 1:
-
-Input: nums = [2,3,1,1,4]
-Output: true
-Explanation: Jump 1 step from index 0 to 1, then 3 steps to the last index.
+```
+[1,2,3]
+```
 
 Example 2:
+```
+[1,1]
+```
 
-Input: nums = [3,2,1,0,4]
-Output: false
-Explanation: You will always arrive at index 3 no matter what. Its maximum jump length is 0, which makes it impossible to reach the last index.
+Example 3:
+```
+[1,2]
+```
 
+Example 4:
+```
+[1,2,3]
+```
 ---
 
-### 45. Jump Game II (Medium)
-> [LeetCode 45](https://leetcode.com/problems/jump-game-ii/) • Tags: Array, Dynamic Programming, Greedy
+### 135. Candy (Hard)
+> [LeetCode 135](https://leetcode.com/problems/candy/) • Tags: Array, Greedy
 
 **Problem Statement:**
 
-You are given a 0-indexed array of integers nums of length n. You are initially positioned at index 0.
-
-Each element nums[i] represents the maximum length of a forward jump from index i. In other words, if you are at index i, you can jump to any index (i + j) where:
-
-	0 <= j <= nums[i] and
-	i + j < n
-
-Return the minimum number of jumps to reach index n - 1. The test cases are generated such that you can reach index n - 1.
+There are n children standing in a line. Each child is assigned a rating value given in the integer array ratings. You are giving candies to these children subjected to the following requirements: Each child must have at least one candy. Children with a higher rating get more candies than their neighbors. Return the minimum number of candies you need to have to distribute the candies to the children. Example 1: Input: ratings = [1,0,2] Output: 5 Explanation: You can allocate to the first, second and third child with 2, 1, 2 candies respectively. Example 2: Input: ratings = [1,2,2] Output: 4 Explanation: You can allocate to the first, second and third child with 1, 2, 1 candies respectively. The third child gets 1 candy because it satisfies the above two conditions. Constraints: 1 4 0 4
 
 **Examples:**
 
 Example 1:
-
-Input: nums = [2,3,1,1,4]
-Output: 2
-Explanation: The minimum number of jumps to reach the last index is 2. Jump 1 step from index 0 to 1, then 3 steps to the last index.
+```
+[1,0,2]
+```
 
 Example 2:
-
-Input: nums = [2,3,0,1,4]
-Output: 2
-
+```
+[1,2,2]
+```
 ---
 
-### 121. Best Time to Buy and Sell Stock (Easy)
-> [LeetCode 121](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/) • Tags: Array, Dynamic Programming
+### 435. Non-overlapping Intervals (Medium)
+> [LeetCode 435](https://leetcode.com/problems/non-overlapping-intervals/) • Tags: Array, Dynamic Programming, Greedy, Sorting
 
 **Problem Statement:**
 
-You are given an array prices where prices[i] is the price of a given stock on the i^th^ day.
-
-You want to maximize your profit by choosing a single day to buy one stock and choosing a different day in the future to sell that stock.
-
-Return the maximum profit you can achieve from this transaction. If you cannot achieve any profit, return 0.
+Given an array of intervals intervals where intervals[i] = [starti, endi], return the minimum number of intervals you need to remove to make the rest of the intervals non-overlapping. Note that intervals which only touch at a point are non-overlapping. For example, [1, 2] and [2, 3] are non-overlapping. Example 1: Input: intervals = [[1,2],[2,3],[3,4],[1,3]] Output: 1 Explanation: [1,3] can be removed and the rest of the intervals are non-overlapping. Example 2: Input: intervals = [[1,2],[1,2],[1,2]] Output: 2 Explanation: You need to remove two [1,2] to make the rest of the intervals non-overlapping. Example 3: Input: intervals = [[1,2],[2,3]] Output: 0 Explanation: You don't need to remove any of the intervals since they're already non-overlapping. Constraints: 1 5 intervals[i].length == 2 -5 * 104 i i 4
 
 **Examples:**
 
 Example 1:
-
-Input: prices = [7,1,5,3,6,4]
-Output: 5
-Explanation: Buy on day 2 (price = 1) and sell on day 5 (price = 6), profit = 6-1 = 5.
-Note that buying on day 2 and selling on day 1 is not allowed because you must buy before you sell.
+```
+[[1,2],[2,3],[3,4],[1,3]]
+```
 
 Example 2:
+```
+[[1,2],[1,2],[1,2]]
+```
 
-Input: prices = [7,6,4,3,1]
-Output: 0
-Explanation: In this case, no transactions are done and the max profit = 0.
-
+Example 3:
+```
+[[1,2],[2,3]]
+```
 ---
 
 
@@ -220,11 +210,39 @@ int eraseOverlapIntervals(int[][] intervals) {
 **Q: How do you respond when asked "prove your greedy choice is correct"?**
 **A:** State the exchange argument: "Assume optimal solution O differs from greedy G at first decision. G picks X, O picks Y. Show that swapping Y for X in O yields a solution at least as good. Therefore an optimal solution exists that matches G's first choice. By induction, G is optimal." For intervals: "O picks A ending later, G picks B ending earlier. Replace A with B — B frees up space, so any intervals after A still fit after B. The rest of O's choices remain valid."
 
+
+## Flashcards (Spaced Repetition)
+
+#flashcard
+**Q:** What is the trigger keyword for Greedy? :: **A:** interval scheduling, Huffman, minimum spanning tree, jump game, gas station, assign cookies #flashcard
+
+#flashcard
+**Q:** Time/space complexity of Greedy? :: **A:** Time: O(n log n) sort + O(n) scan, Space: O(1) or O(n) #flashcard
+
+#flashcard
+**Q:** When do you NOT use Greedy? :: **A:** local optimum ≠ global (need DP/backtrack), need all solutions #flashcard
+
+#flashcard
+**Q:** Core Java 25 snippet for Greedy? :: **A:** `Arrays.sort(intervals, (a,b)->a[1]-b[1]); int end=-1, ans=0; for(int[] iv:intervals) if(iv[0]>=end){ end=iv[1]; ans++; }` #flashcard
+
+
+## Practice Tasks (Tasks Plugin)
+- [ ] Restate the intent from memory 📅 {date:YYYY-MM-DD, +1}
+- [ ] Code the snippet without looking 📅 {date:YYYY-MM-DD, +3}
+- [ ] Answer all Interview Q&A aloud 📅 {date:YYYY-MM-DD, +7}
+- [ ] Review flashcards (Spaced Repetition) 📅 {date:YYYY-MM-DD, +1}
+
+```tasks
+not done
+path includes {file.folder}
+sort by due
+limit 10
+```
+
 ## Related
 - [[07_Backtracking_DP/02 - Dynamic Programming|Dynamic Programming]] (greedy = DP with memo deleted + choice made permanent)
 - [[04_Intervals_Search/01 - Overlapping Intervals|Overlapping Intervals]] (activity selection is greedy)
 - [[05_Trees_Graphs/03 - BFS|BFS]] (level-order is greedy by distance)
 - [[Java/07_DSA/Array]]
-
 ---
 *Category: Coding Patterns/07_Backtracking_DP*

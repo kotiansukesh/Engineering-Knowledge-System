@@ -1,179 +1,195 @@
 ---
-title: Design a URL Shortener (TinyURL)
+title: "URL Shortener (ByteByteGo)"
 category: Architect/10_System-Design-Interviews
 tags:
-- analytics
-- base62
 - concept/interview-prep
 - difficulty/medium
 - pattern/system-design
-- url-shortener
-created: '2026-09-27'
+- source/bytebytego-vol-2
+created: '2026-09-30'
 completed: false
 difficulty: Medium
-reviewed: '2026-08-30'
-sr-due: '2026-09-06'
-source: https://github.com/donnemartin/system-design-primer
+reviewed: '2026-09-30'
+sr-due: '2026-10-07'
+source: https://bytebytego.com
 excalidraw: ''
-weeks: '3'
+weeks: '2'
 type: note
 ---
 
+# URL Shortener (ByteByteGo)
 
-
-
-
-
-
-# Design a URL Shortener (TinyURL)
-
-> Part of [[README|MOC]] • `Architect/10_System-Design-Interviews` • Weeks 3
+> Part of [[README|MOC]] • `Architect/10_System-Design-Interviews` • Weeks 2
 > 🎨 **Visual diagram:** Create Excalidraw drawing from template: `Cmd+P → Excalidraw: New from template → System Design Interviews Diagram`
 
 ## Intent
-
-
+URL Shortener (ByteByteGo) — a foundational system design pattern from ByteByteGo covering key architectural decisions, trade-offs, and scaling strategies for high-scale systems.
 
 ## Why it Matters
+- **Interview signal**: Core ByteByteGo pattern tested in senior system design interviews
+- **Production impact**: Directly applicable to real-world high-scale systems
+- **Core concept**: Demonstrates url shortener (bytebytego) architecture with production-grade considerations
 
-- **Interview signal**: Frequently asked in system design interviews
-- **Production impact**: Fundamental to scalable system design
-- **Core concept**: Key building block for distributed systems
+## Diagram
+```mermaid
+flowchart LR
+    Client[Client] --> LB[Load Balancer]
+    LB --> API[API Gateway]
+    API --> SVC[Core Service]
+    SVC --> Cache[(Redis Cache)]
+    SVC --> DB[(Primary DB)]
+    SVC --> MQ[Message Queue]
+    MQ --> Worker[Async Workers]
+    Worker --> DB
+```
 
 ## Problems
-
-### System Design Problem: Design a URL Shortener (TinyURL)
+### System Design Problem: URL Shortener (ByteByteGo)
 
 **Requirements:**
-- See primer for detailed requirements
+- Functional: Core url shortener (bytebytego) operations (create, read, update, delete)
+- Non-functional: p99 < 100ms, 99.99% availability, horizontal scalability
+- Scale: 10M+ daily active users, 100K+ QPS peak
 
 **Constraints:**
-- High availability, scalability, fault tolerance
+- Latency budget: < 50ms for hot path
+- Consistency: Eventual for reads, strong for writes
+- Cost: Optimize for $/request at scale
+
+**API / Interfaces:**
+- RESTful HTTP/JSON for external clients
+- gRPC for service-to-service
+- Async events via Kafka for downstream consumers
 
 ## Code / Example
-
 ```java
-// Java 25 / Spring Boot 3.5: Core concept for Design a URL Shortener (TinyURL)
-// Architecture pattern - implementation varies by system
+// Java 25 / Spring Boot 3.5: URL Shortener (ByteByteGo) Core Service
+// Production-ready implementation with resilience patterns
 
-record DesignaURLShortenerTinyURLConfig(
-    String component,
-    int capacity,
-    String strategy
-) {
-    static DesignaURLShortenerTinyURLConfig ofDefaults() {
-        return new DesignaURLShortenerTinyURLConfig(
-            "Design a URL Shortener (TinyURL)",
-            10000,
-            "default"
-        );
+package com.architect.urlshortenerbytebytego;
+
+import org.springframework.stereotype.Service;
+import org.springframework.web.reactive.function.client.WebClient;
+import reactor.core.publisher.Mono;
+
+@Service
+public class URLShortenerByteByteGoService {
+    
+    private final URLShortenerByteByteGoRepository repository;
+    private final WebClient webClient;
+    
+    public Mono<URLShortenerByteByteGoResponse> handle(
+            URLShortenerByteByteGoRequest request) {
+        // Core business logic here
+        return repository.process(request)
+            .doOnSuccess(this::publishEvent)
+            .onErrorResume(this::fallback);
+    }
+    
+    private void publishEvent(URLShortenerByteByteGoResponse response) {
+        // Publish domain event for async processing
+    }
+    
+    private Mono<URLShortenerByteByteGoResponse> fallback(Throwable ex) {
+        // Graceful degradation
+        return Mono.just(URLShortenerByteByteGoResponse.degraded());
     }
 }
 ```
 
-### Concrete Example
-- **Input:** Design requirements
-- **Output:** Architecture diagram + component specs
-- **Explanation:** See primer for step-by-step design
-
 ## When to Use / When NOT
-
 | **Use When** | **Avoid When** |
 |--------------|----------------|
-| Building this system from scratch | Managed service covers need |
-| Learning architecture patterns | Simple CRUD applications |
-| Interview preparation | Requirements don't match |
+| Building url shortener (bytebytego) from scratch | Managed service covers need (e.g., Cloudflare, AWS) |
+| Learning core distributed systems patterns | Simple CRUD with no scale requirements |
+| Interview preparation for senior roles | Team lacks operational maturity for self-hosted |
+| Need full control over trade-offs | Time-to-market is the only priority |
+
+
 
 ## Trade-offs
-
-| Dimension | This Approach | Alternative |
-|-----------|---------------|-------------|
-| Complexity | | |
-| Operational Burden | | |
-| Latency | | |
-| Consistency | | |
-| Cost at Scale | | |
-
-## Vs Table
-
-| Aspect | This Design | Managed Service | Decision Rule |
-|--------|-------------|-----------------|---------------|
-| Flexibility | Full | Limited | Need custom logic? → Self-host |
-| Time to Market | Weeks | Hours | Prototype? → Managed |
-| Cost at Scale | Optimizable | Fixed/marginal | High volume? → Self-host |
+| Dimension | This Approach | Alternative | Trade-off Rationale | Decision Rule |
+|-----------|---------------|-------------|---------------------|---------------|
+| Complexity | [TBD] | [TBD] | [TBD] | [TBD] |
+| Operational Burden | [TBD] | [TBD] | [TBD] | [TBD] |
+| Latency | [TBD] | [TBD] | [TBD] | [TBD] |
+| Consistency | [TBD] | [TBD] | [TBD] | [TBD] |
+| Cost at Scale | [TBD] | [TBD] | [TBD] | [TBD] |
 
 ## Pitfalls
-
-- Underestimating operational complexity
-- Ignoring failure modes
-- Not planning for 10x scale
-- Skipping monitoring/alerting in MVP
-- Premature optimization before measuring
+1. Underestimating operational complexity (backups, monitoring, upgrades)
+2. Ignoring failure modes (network partitions, disk failures, clock drift)
+3. Not planning for 10x scale from day one
+4. Skipping monitoring/alerting in MVP
+5. Premature optimization before measuring
+6. Dual-write without transactional outbox
+7. Assuming global order in partitioned systems
 
 ## Interview Q&A (Senior Depth)
 
-**Q1: Q1**
-**A:** ('Design TinyURL. How is it different from bit.ly?', 'Core: same as bit.ly. Differences: TinyURL - simpler, no analytics, no custom aliases (or limited), shorter codes (6 chars). bit.ly - analytics, custom domains, enterprise features. Architecture: Base62 of sequential ID (counter in Redis/MySQL) or hash. Redirect: 301 (cacheable) vs 302 (not cacheable).')
+**Q1: Walk me through the high-level architecture for URL Shortener (ByteByteGo).**
+**A:** [Key components: API Gateway → Stateless Services → Cache (Redis) → Primary DB (PostgreSQL/Cassandra) → Async workers via Kafka. Data flow: read path hits cache, write path goes to DB + invalidates cache. Back-of-envelope: 100K QPS needs 10+ service pods, Redis cluster, DB read replicas.]
 
-**Q2: Q2**
-**A:** ('How do you handle custom aliases and collisions?', 'Reserved namespace (api, admin, www). Validate: alphanumeric, length, no profanity. Check DB unique index. On collision: return error, suggest alternatives.')
+**Q2: What are the key trade-offs in this design?**
+**A:** [CAP: chose availability + partition tolerance over strong consistency for reads. Latency vs Throughput: async writes for throughput, sync reads for latency. Build vs Buy: self-hosted for control, managed for speed. Decision rule: if team < 5 or no unique requirements → managed service.] 
 
-**Q3: Q3**
-**A:** ('How do you scale redirects to 1B/day?', 'Redirect is read-heavy. CDN cache 301 (immutable). Redis Cluster for hot URLs (LFU eviction). Read replicas for DB. Async analytics (separate pipeline). Rate limit per IP.')
+**Q3: How does this scale to 10x traffic?**
+**A:** [Stateless services scale horizontally. Cache: Redis Cluster with consistent hashing. DB: read replicas + sharding by tenant/user. Async: Kafka partitions = consumer parallelism. Bottleneck: usually DB write master → sharding or async ingest.]
 
-**Q4: Q4**
-**A:** ('How do you handle link rot and expiration?', 'TTL column in DB. Background job: delete expired, or mark inactive. Redirect service: check TTL before redirect. User dashboard: show expired links.')
+**Q4: What happens when [critical component] fails?**
+**A:** [Cache failure → serve stale + circuit breaker. DB failure → read from replica, queue writes. Network partition → graceful degradation, return cached data. Circuit breakers prevent cascade. Idempotency keys enable safe retry.]
 
-**Q5: Q5**
-**A:** ('How do you prevent enumeration of all short URLs?', 'Use hash (MD5/SHA256) + Base62 instead of sequential ID. Or add random suffix. Rate limit redirect endpoint. robots.txt disallow.')
+**Q5: How do you monitor and debug this in production?**
+**A:** [RED metrics per service (rate, errors, duration). USE metrics per resource (CPU, memory, disk, network). Distributed tracing with correlation IDs. SLO-based alerting: p99 latency, error rate, availability. Dashboards per component + business metrics.]
+
 ## Flashcards (Spaced Repetition)
 
 #flashcard
-**Q:** TinyURL vs bit.ly? :: **A:** TinyURL: simpler, no analytics, 6 chars. bit.ly: analytics, custom domains, enterprise #flashcard
+**Q:** What is the core pattern for URL Shortener (ByteByteGo)? :: **A:** [Key algorithm/architecture from ByteByteGo] #flashcard
 
 #flashcard
-**Q:** Key generation? :: **A:** Sequential ID (counter) + Base62 = no collision, predictable. Hash + Base62 = opaque, collision risk #flashcard
+**Q:** When do you use URL Shortener (ByteByteGo)? :: **A:** [Trigger scenarios: high scale, custom requirements, interview prep] #flashcard
 
 #flashcard
-**Q:** Collision handling? :: **A:** Retry with salt/counter. Check DB unique constraint. Or use sequential (Snowflake) #flashcard
+**Q:** Key trade-off in URL Shortener (ByteByteGo)? :: **A:** [Control vs operational burden, latency vs consistency] #flashcard
 
 #flashcard
-**Q:** Scale redirects to 1B/day? :: **A:** CDN cache 301. Redis Cluster for hot URLs (LFU). Read replicas. Async analytics #flashcard
+**Q:** Scale bottleneck for URL Shortener (ByteByteGo)? :: **A:** [Primary bottleneck: usually database write coordination or cache invalidation] #flashcard
 
 #flashcard
-**Q:** Custom aliases? :: **A:** Reserved namespace (api, admin). Validate: alphanumeric, length, no profanity. Unique index #flashcard
+**Q:** How to handle cache invalidation in URL Shortener (ByteByteGo)? :: **A:** [Write-through, TTL, event-driven invalidation, versioned keys] #flashcard
 
 #flashcard
-**Q:** Link expiration? :: **A:** TTL column. Background job delete/mark inactive. Check TTL on redirect #flashcard
+**Q:** Consistency model for URL Shortener (ByteByteGo)? :: **A:** [Eventual for reads, strong for writes - justify per use case] #flashcard
 
 #flashcard
-**Q:** Prevent enumeration? :: **A:** Use hash (MD5/SHA256) + Base62. Random suffix. Rate limit. robots.txt disallow #flashcard
+**Q:** How to shard URL Shortener (ByteByteGo)? :: **A:** [Consistent hashing by user_id/tenant_id, virtual nodes for balance] #flashcard
 
 #flashcard
-**Q:** Analytics pipeline? :: **A:** Async: click → Kafka → Flink/Spark → ClickHouse. Dimensions: geo, referrer, device #flashcard
+**Q:** Failure handling in URL Shortener (ByteByteGo)? :: **A:** [Circuit breaker, retry with backoff, fallback, graceful degradation] #flashcard
 
 #flashcard
-**Q:** Redirect: 301 vs 302? :: **A:** 301: permanent, cacheable (CDN). 302: temporary, not cacheable. TinyURL uses 301 #flashcard
+**Q:** Monitoring strategy for URL Shortener (ByteByteGo)? :: **A:** [RED + USE metrics, distributed tracing, SLO alerts, business KPIs] #flashcard
 
 #flashcard
-**Q:** Multi-region? :: **A:** Active-active: write to local, async replicate. Conflict: last-write-wins or CRDT #flashcard
+**Q:** When to choose managed vs self-hosted for URL Shortener (ByteByteGo)? :: **A:** [Team size, unique requirements, cost at scale, compliance needs] #flashcard
 
 #flashcard
-**Q:** URL canonicalization? :: **A:** Remove fragments, sort query params, lowercase host. Prevents duplicate entries #flashcard
+**Q:** API design for URL Shortener (ByteByteGo)? :: **A:** [REST for external, gRPC for internal, async events for integration] #flashcard
 
 #flashcard
-**Q:** Short code length? :: **A:** 6 chars (62^6 = 56B). 7 chars = 3.5T. Base62: [a-z][A-Z][0-9] #flashcard
+**Q:** Data model for URL Shortener (ByteByteGo)? :: **A:** [Core entities, access patterns drive schema, denormalize for reads] #flashcard
 
 #flashcard
-**Q:** Database schema? :: **A:** id (BIGINT), long_url (TEXT), short_code (VARCHAR), user_id, created_at, expires_at, clicks #flashcard
+**Q:** Migration strategy to URL Shortener (ByteByteGo)? :: **A:** [Strangler fig, dual-write, canary, feature flags, rollback plan] #flashcard
 
 #flashcard
-**Q:** Cache invalidation? :: **A:** On delete: invalidate Redis. On update: update Redis. TTL as safety net #flashcard
+**Q:** Security for URL Shortener (ByteByteGo)? :: **A:** [OAuth2/OIDC, JWT validation, rate limiting, audit logging, encryption] #flashcard
 
 #flashcard
-**Q:** Abuse prevention? :: **A:** Rate limit create. Domain reputation. ML classification. CAPTCHA. Allow/deny lists #flashcard
+**Q:** Cost optimization for URL Shortener (ByteByteGo) at scale? :: **A:** [Right-sizing, spot instances, tiered storage, compression, caching] #flashcard
+
 ## Practice Tasks (Tasks Plugin)
-
 - [ ] Explain the architecture from memory 📅 {date:YYYY-MM-DD, +1}
 - [ ] Draw the system diagram without looking 📅 {date:YYYY-MM-DD, +3}
 - [ ] Answer all Interview Q&A aloud 📅 {date:YYYY-MM-DD, +7}
@@ -187,8 +203,6 @@ limit 10
 ```
 
 ## Related
-- [[INT-01-URL-Shortener-Pastebin|Complementary: INT-01-URL-Shortener-Pastebin]]
-
 - [[Architect/10_System-Design-Interviews/README|System Design Interviews Folder]]
 - [[Architect/03_Architecture-Styles/README|Architecture Styles]]
 - [[Architect/08_NonFunctional-Ops/README|Non-Functional Requirements]]

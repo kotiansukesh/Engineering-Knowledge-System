@@ -11,10 +11,7 @@ reviewed: ""
 sr-due: ""
 difficulty: "Easy"
 source: "https://blog.algomaster.io/p/20-dsa-patterns"
-problems-solved: []
-problems-solved-dates: {}
 excalidraw: ""
-type: "note"
 ---
 
 # {{title}}
@@ -50,7 +47,6 @@ flowchart TD
 
 **Examples:**
 [Fetched from LeetCode]
-
 ---
 {{/each}}
 > 📊 **Track progress:** Add solved problem numbers to `problems-solved` array in frontmatter with date in `problems-solved-dates`. Set `sr-due` for spaced repetition.
@@ -136,16 +132,16 @@ void example() {
 ## Flashcards (Spaced Repetition)
 
 #flashcard
-**Q:** What is the trigger keyword for {{title}}? :: **A:** [trigger keywords] #flashcard
+**Q:** What is the trigger keyword for {{title}}? :: **A:** [trigger keywords for this pattern] #flashcard
 
 #flashcard
 **Q:** Time/space complexity of {{title}}? :: **A:** Time: O(), Space: O() #flashcard
 
 #flashcard
-**Q:** When do you NOT use {{title}}? :: **A:** [mutating data / single query / need min-max] #flashcard
+**Q:** When do you NOT use {{title}}? :: **A:** [conditions to avoid this pattern] #flashcard
 
 #flashcard
-**Q:** Core Java 25 snippet for {{title}}? :: **A:** `record ... { static of(...) {} keyMethod() {} }` #flashcard
+**Q:** Core Java 25 snippet for {{title}}? :: **A:** `// Java 25 snippet here` #flashcard
 
 ## Practice Tasks (Tasks Plugin)
 - [ ] Restate the intent from memory 📅 {{date:YYYY-MM-DD, +1}}
@@ -155,15 +151,14 @@ void example() {
 
 ```tasks
 not done
-path includes {{file.folder}}
+path includes {{file.folder}} Patterns/_templates
 sort by due
 limit 10
 ```
 
 ## Related
 - [[README|20 DSA Patterns]]
-- [[{{file.folder}}/README|{{file.folder.split('/').pop()}} Folder]]
-
+- [[Coding Patterns/_templates/README|{{file.folder.split('/').pop()}} Folder]]
 ---
 
 *Category: {{category}} • Part of [[README|20 DSA Patterns]] • Java 25*

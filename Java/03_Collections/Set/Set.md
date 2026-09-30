@@ -1,20 +1,26 @@
 ---
-title: Set
-category: Java/03_Collections/Set
-tags:
-- java
-- collections
-- set
-created: 2026-01-18
-pattern: 2
-difficulty: Easy
+title: "Set"
+category: "Java/03_Collections/Set"
+tags: [java, collections]
+created: "2026-09-29"
 completed: false
-reviewed: ''
-sr-due: ''
-excalidraw: ''
-source: ''
-type: note
+difficulty: "Easy"
+pattern: 0
+reviewed: "2026-09-29"
+sr-due: "2026-10-06"
+source: ""
+excalidraw: ""
+type: "note"
 ---
+
+# Set
+
+> Part of [[README|Java MOC]] • `Java/03_Collections/Set`
+> 🎨 **Visual diagram:** Create Excalidraw drawing from template: `Cmd+P → Excalidraw: New from template → Java Diagram`
+
+## Intent
+
+One sentence: what problem does this solve? Define the **key term** in **bold**.
 
 ## Why it Matters
 
@@ -32,9 +38,10 @@ insertion order"]
 via TreeMap, sorted"]
 ```
 
-## Code
+## Code / Example
 
 ```java
+// Java 25: var, record, sealed, pattern matching, SequencedCollection, virtual threads, Compact Object Headers
 // Set — unique elements; HashSet/LinkedHashSet/TreeSet trades
 var set = new HashSet<>(List.of("B","A","C","A"));
 System.out.println(set);
@@ -55,21 +62,30 @@ Set<Integer> b = Set.of(2,3,4);
 a.retainAll(b);
 ```
 
-## When to use / not
+### Concrete Example
 
-| Use | NOT |
-|-----|-----|
-| Dedup, membership tests, set algebra | Indexed access or duplicates → `List` |
-| `HashSet` default; `LinkedHashSet` for insertion order | Sorted/range queries → `TreeSet` |
-| `EnumSet` for enums (bit vector) | Mutating elements so `hashCode` changes while stored |
+- **Input:**
+- **Output:**
+- **Explanation:**
+
+## When to Use / When NOT
+
+| **Use When** | **Avoid When** |
+|--------------|----------------|
+|  |  |
+|  |  |
+|  |  |
 
 ## Trade-offs
 
-- O(1) membership (hash impls); set algebra via `retainAll`/`removeAll`.
-- No index; iteration order undefined unless ordered impl.
-- Mutating a stored element's hash breaks the set silently.
+| Dimension | This Approach | Alternative |
+|-----------|---------------|-------------|
+| Complexity | | |
+| Performance | | |
+| Readability | | |
+| Testability | | |
 
-## Vs
+## Vs Table
 
 | | `HashSet` | `LinkedHashSet` | `TreeSet` |
 |--|-----------|-----------------|-----------|
@@ -83,13 +99,41 @@ a.retainAll(b);
 - TreeSet needs Comparable or a Comparator at construction, otherwise ClassCastException
 - HashSet iteration order is not stable across runs
 
-## Interview q&a
+## Interview Q&A (Senior Depth)
 
 **Q: How does `HashSet` avoid duplicates?** Backed by `HashMap` , the element is the key, `add` delegates to map `put`.
 
 **Q: What breaks if you mutate an element in a `HashSet`?** The hash changes, the bucket mismatches, so lookups fail.
 
 **Q: When to use `Set` vs `List`?** `Set` for uniqueness and fast membership, `List` for order and index.
+
+## Flashcards (Spaced Repetition)
+
+#flashcard
+**Q:** What is the trigger keyword for Set? :: **A:** [trigger keywords] #flashcard
+
+#flashcard
+**Q:** Time/space complexity of Set? :: **A:** Time: O(), Space: O() #flashcard
+
+#flashcard
+**Q:** When do you NOT use Set? :: **A:** [anti-pattern scenarios] #flashcard
+
+#flashcard
+**Q:** Core Java 25 snippet for Set? :: **A:** `var list = new ArrayList<>(List.of(...));` #flashcard
+
+## Practice Tasks (Tasks Plugin)
+
+- [ ] Restate the intent from memory 📅 {date:YYYY-MM-DD, +1}
+- [ ] Code the snippet without looking 📅 {date:YYYY-MM-DD, +3}
+- [ ] Answer all Interview Q&A aloud 📅 {date:YYYY-MM-DD, +7}
+- [ ] Review flashcards (Spaced Repetition) 📅 {date:YYYY-MM-DD, +1}
+
+```tasks
+not done
+path includes {file.folder}
+sort by due
+limit 10
+```
 
 ## Related
 
@@ -116,15 +160,20 @@ Since Java 21, SequencedSet adds getFirst, getLast and reversed for LinkedHashSe
 - one null allowed in HashSet and LinkedHashSet, not in TreeSet
 - equals means same size and every element contained in the other
 
-## Methods
-
-- add, contains, remove, size, isEmpty
-- addAll, retainAll for intersection, removeAll for difference
-- iterator
-
 ## Implementations
 
 - HashSet backed by HashMap, no order, fastest, default choice. See [[Java/03_Collections/Set/HashSet|HashSet]]
 - LinkedHashSet backed by LinkedHashMap, insertion order, slightly heavier
 - TreeSet backed by TreeMap, sorted, range ops, O(log n). See [[Java/03_Collections/Set/TreeSet|TreeSet]] and [[Java/03_Collections/Set/Sorted Set|Sorted Set]]
 - EnumSet bit vector for enums, fast
+
+## Methods
+
+- add, contains, remove, size, isEmpty
+- addAll, retainAll for intersection, removeAll for difference
+- iterator
+
+
+---
+
+*Category: Java/03_Collections/Set • Part of [[README|Java MOC]] • Java 25*

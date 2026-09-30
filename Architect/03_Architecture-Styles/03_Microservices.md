@@ -24,13 +24,34 @@ excalidraw: ''
 source: ''
 type: note
 weeks: ''
+
 ---
+
+
+
 
 
 
 ## Why it Matters
 
 Microservices buy deployment and scaling independence at the cost of a network between everything you used to call for free. That trade is worth it only when organisational pain, many teams, conflicting release cadences, divergent scaling needs, is real; otherwise the same boundaries as modules cost an order of magnitude less.
+
+## Problems
+### System Design Problem: Microservices
+
+**Requirements:**
+- Functional: Core capabilities for microservices
+- Non-functional (SLOs): Latency < 100ms p99, Availability 99.9%, Horizontal scalability
+
+**Constraints:**
+- Scale: Handle 10x growth without redesign
+- Consistency: Appropriate model for domain (strong/eventual)
+- Latency budget: p99 < 100ms for read paths
+
+**API / Interfaces:**
+- Primary: REST/gRPC endpoints for core operations
+- Internal: Service-to-service contracts
+- Events: Domain events for async integration
 
 ## Diagram
 
@@ -71,14 +92,18 @@ Infra checklist: service discovery / gateway, distributed tracing (Micrometer + 
 
 **When NOT:** < ~3 teams, unclear domain boundaries, no DevOps/observability maturity. Start modular, extract later (→ [[06_Monolith-vs-Modular-Choice-Guide]]).
 
-## Trade-offs
 
-| Pros | Cons |
-|---|---|
-| Independent deploy + scale per capability | Network is the new bottleneck (latency, failure modes) |
-| Team autonomy, polyglot-persistence possible | Distributed transactions → saga complexity |
-| Fault isolation (bulkheads) | 10× observability burden (trace, correlate, alert) |
-| Fits cloud autoscaling | Data consistency becomes eventual (see [[06_Data-Architecture/02_Consistency-CAP-PACELC\|CAP/PACELC]]) |
+
+
+
+## Trade-offs
+| Dimension | This Approach | Alternative | Trade-off Rationale | Decision Rule |
+|-----------|---------------|-------------|---------------------|---------------|
+| Complexity | [TBD] | [TBD] | [TBD] | [TBD] |
+| Operational Burden | [TBD] | [TBD] | [TBD] | [TBD] |
+| Latency | [TBD] | [TBD] | [TBD] | [TBD] |
+| Consistency | [TBD] | [TBD] | [TBD] | [TBD] |
+| Cost at Scale | [TBD] | [TBD] | [TBD] | [TBD] |
 
 ## Vs
 
@@ -91,6 +116,16 @@ Infra checklist: service discovery / gateway, distributed tracing (Micrometer + 
 - Sync chains (`A→B→C` blocking) multiplying tail latency, prefer async events.
 - No idempotency on consumers → duplicate side-effects on redelivery.
 
+
+## Pitfalls
+1. Underestimating operational complexity (backups, monitoring, upgrades)
+2. Ignoring failure modes (network partitions, disk failures, clock drift)
+3. Not planning for 10x scale from day one
+4. Skipping monitoring/alerting in MVP
+5. Premature optimization before measuring
+6. Dual-write without transactional outbox
+7. Assuming global order in partitioned systems
+
 ## Interview q&a
 
 **Q: How do services share data?**
@@ -101,6 +136,68 @@ A: Saga (choreography via events, or orchestration) with compensating actions, n
 
 **Q: How do you size a microservice?**
 A: By bounded context, not LOC, "independently replaceable by one team" is the test.
+
+
+## Flashcards (Spaced Repetition)
+
+#flashcard
+**Q:** What is the core concept of Microservices? :: **A:** [Key algorithm/architecture pattern] #flashcard
+
+#flashcard
+**Q:** When do you apply Microservices? :: **A:** [Trigger scenarios and context] #flashcard
+
+#flashcard
+**Q:** What is the primary trade-off in Microservices? :: **A:** [Main tension: e.g., consistency vs latency] #flashcard
+
+#flashcard
+**Q:** What breaks first at scale in Microservices? :: **A:** [Primary bottleneck: e.g., coordination, hot keys, replication lag] #flashcard
+
+#flashcard
+**Q:** How do you handle failures in Microservices? :: **A:** [Retry, circuit breaker, fallback, graceful degradation] #flashcard
+
+#flashcard
+**Q:** What are the key metrics to monitor for Microservices? :: **A:** [RED: rate, errors, duration; USE: utilization, saturation, errors] #flashcard
+
+#flashcard
+**Q:** How does Microservices scale to 10x? :: **A:** [Sharding, read replicas, async processing, caching layers] #flashcard
+
+#flashcard
+**Q:** What is the consistency model for Microservices? :: **A:** [Strong/eventual/causal - justify with use case] #flashcard
+
+#flashcard
+**Q:** How do you test Microservices? :: **A:** [Contract tests, chaos engineering, load tests, fault injection] #flashcard
+
+#flashcard
+**Q:** What is the operational cost of Microservices? :: **A:** [Team expertise, tooling, on-call burden, migration risk] #flashcard
+
+#flashcard
+**Q:** When would you NOT use Microservices? :: **A:** [Managed service covers need, simple CRUD, team lacks maturity] #flashcard
+
+#flashcard
+**Q:** What is the key design decision in Microservices? :: **A:** [The irreversible choice that defines the architecture] #flashcard
+
+#flashcard
+**Q:** How do you migrate to Microservices? :: **A:** [Strangler fig, dual-write, canary, feature flags] #flashcard
+
+#flashcard
+**Q:** What security considerations for Microservices? :: **A:** [AuthZ, encryption, audit, secrets management] #flashcard
+
+#flashcard
+**Q:** How do you debug Microservices in production? :: **A:** [Structured logging, correlation IDs, distributed tracing, SLO alerts] #flashcard
+
+
+## Practice Tasks (Tasks Plugin)
+- [ ] Explain the architecture from memory 📅 {{date:YYYY-MM-DD, +1}}
+- [ ] Draw the system diagram without looking 📅 {{date:YYYY-MM-DD, +3}}
+- [ ] Answer all Interview Q&A aloud 📅 {{date:YYYY-MM-DD, +7}}
+- [ ] Review flashcards (Spaced Repetition) 📅 {{date:YYYY-MM-DD, +1}}
+
+```tasks
+not done
+path includes Architect/03_Architecture-Styles
+sort by due
+limit 10
+```
 
 ## Related
 

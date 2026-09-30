@@ -11,8 +11,8 @@ created: 2026-09-03
 completed: false
 pattern: 1
 difficulty: Medium
-reviewed: ''
-sr-due: ''
+reviewed: "2026-09-29"
+sr-due: "2026-10-06"
 excalidraw: ''
 source: ''
 type: note
@@ -119,11 +119,13 @@ String Templates , interviewers ask `STR."..."` ; answer: preview in 21, **withd
 ## JEP Timeline , 17 → 21 → 25
 
 ```mermaid
-timeline
- title Java LTS JEP map
- 17 : sealed 409, records, text blocks
- 21 : virtual threads 444, Sequenced 431, record patterns 440, switch patterns 441, gen ZGC 439
- 25 : ScopedValue 506, compact headers 450, no pinning 491, Structured Concurrency 505 preview
+flowchart LR
+    %% Java LTS JEP map
+    N0[\"17: sealed 409, records, text blocks\"]
+    N1[\"21: virtual threads 444, Sequenced 431, record patterns 440, switch patterns 441, gen ZGC 439\"]
+    N0 --> N1
+    N2[\"25: ScopedValue 506, compact headers 450, no pinning 491, Structured Concurrency 505 preview\"]
+    N1 --> N2
 ```
 
 ## JEP map , What Ships by lts

@@ -9,8 +9,8 @@ tags:
 weeks: 11-16
 created: 2026-09-02
 completed: false
-reviewed: ''
-sr-due: ''
+reviewed: "2026-09-29"
+sr-due: "2026-09-30"
 excalidraw: ''
 difficulty: Medium
 source: ''
@@ -82,59 +82,37 @@ from pydantic import BaseModel
 - **Q:** How do you keep multi-agent systems from looping forever? **A:** Every cycle needs an explicit terminal and an escalation branch — a rejection routes back to the planner with a reason, and a hard step budget converts a stuck loop into a monitored failure.
 - **Q:** Where does human approval actually belong? **A:** Only on irreversible or externally-visible actions. Gating reads and drafts trains people to click approve, which weakens the gate for the action that actually needed it.
 
-## Related
+## Flashcards (Spaced Repetition)
 
-- [[Enterprise AI Operations Platform]] • [[Multi-Agent Patterns]] • [[AI/00_Overview/Certification Guide|Certification Guide]]
+#flashcard
+**Q:** What is the trigger keyword for Architecting Agentic AI Solutions (NUS-ISS)? :: **A:** [trigger keywords] #flashcard
+
+#flashcard
+**Q:** Key hyperparameter for Architecting Agentic AI Solutions (NUS-ISS)? :: **A:** [hyperparameter + typical range] #flashcard
+
+#flashcard
+**Q:** When do you NOT use Architecting Agentic AI Solutions (NUS-ISS)? :: **A:** [anti-pattern scenarios] #flashcard
+
+#flashcard
+**Q:** Cost order of magnitude for Architecting Agentic AI Solutions (NUS-ISS)? :: **A:** [GPU hours / $ per 1M tokens] #flashcard
+
+## Practice Tasks (Tasks Plugin)
+- [ ] Restate the intent from memory 📅 2026-09-30
+- [ ] Code the config without looking 📅 2026-10-02
+- [ ] Answer all Interview Q&A aloud 📅 2026-10-06
+- [ ] Review flashcards (Spaced Repetition) 📅 2026-09-30
+
+```tasks
+not done
+path includes 03_Agentic-AI
+sort by due
+limit 10
+```
+
+## Related
+- [[README|AI MOC]]
+- [[03_Agentic-AI/README|03_Agentic-AI Folder]]
 
 ---
-*Category: agentic*
 
-# Architecting Agentic AI Solutions — NUS-ISS
-
-> Part of [[README|03_Agentic-AI]] • `agentic` • Weeks 11–16
-
-## Ideal For
-
-AI Solution Architects, Senior SWEs / Tech Leads, Enterprise Architects with solid backend + AI fundamentals.
-
-## Structure
-
-- **Duration:** 4 days (~32h), part of Graduate Certificate in Architecting AI Systems.
-- **Process:** Select & optimize foundation models → implement RAG pipelines → design agent collaboration → deploy via microservices/containers/serverless.
-
-## Key Topics
-
-1. **Core Architecture:** Logical/physical design for full-stack agent systems; qualities: autonomy, scalability, security, fault tolerance, explainability.
-2. **Multi-Agent Collaboration:** Strategies for agents to communicate, delegate, and achieve complex goals.
-3. **Agent Frameworks:** Hands-on with **LangChain / LangGraph**, **AutoGen**, OpenAI/Claude Assistants APIs — trade-offs.
-4. **Integration & Deployment:** Microservices, containers, serverless + API gateways, service meshes, monitoring.
-5. **Development Process:** Structured workflow from model selection to RAG to agent orchestration.
-
-## Target Audience Prereqs
-
-Solid software development + foundational AI (you have it by W11 per roadmap).
-
-## Vs Coursera Specialization
-
-| Aspect | NUS-ISS | Coursera C1–C7 |
-|--------|---------|----------------|
-| Focus | *What* to build — ecosystem design, autonomy | *How* to build — resilient production systems |
-| Credential | Grad Cert module | 7-course specialization |
-| Best for | Leading architecture | Engineering excellence |
-
-# Architecting agents: the contract between roles is typed, not implied
-
-class Plan(BaseModel):
- steps: list[str]
- requires_approval: bool
-
-class ReviewVerdict(BaseModel):
- verdict: Literal["approve", "reject", "escalate"]
- reason: str
-
-def next_action(v: ReviewVerdict, has_human_gate: bool) -> str:
- """Every agent graph needs an explicit terminal + escalation branch."""
- if v.verdict == "approve": return "execute"
- if v.verdict == "escalate" and has_human_gate: return "await_human"
- return "replan" # reject → back to planner, not an infinite loop
-```
+*Category: AI/03_Agentic-AI • Part of [[README|AI MOC]]*

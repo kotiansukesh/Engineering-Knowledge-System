@@ -22,13 +22,34 @@ excalidraw: ''
 source: ''
 type: note
 weeks: ''
+
 ---
+
+
+
 
 
 
 ## Why it Matters
 
 Without events, every cross-aggregate side effect becomes a cross-service call or a shared transaction, and the model bloats with other people's concerns. Raising a fact after commit keeps the aggregate focused and turns integration into a subscribable seam, but only if the event is versioned from day one and dispatch survives a broker outage, which is what the outbox is for.
+
+## Problems
+### System Design Problem: Domain Events
+
+**Requirements:**
+- Functional: Core capabilities for domain events
+- Non-functional (SLOs): Latency < 100ms p99, Availability 99.9%, Horizontal scalability
+
+**Constraints:**
+- Scale: Handle 10x growth without redesign
+- Consistency: Appropriate model for domain (strong/eventual)
+- Latency budget: p99 < 100ms for read paths
+
+**API / Interfaces:**
+- Primary: REST/gRPC endpoints for core operations
+- Internal: Service-to-service contracts
+- Events: Domain events for async integration
 
 ## Diagram
 
@@ -69,13 +90,18 @@ class Order {
 
 Design: past-tense name, immutable, carries IDs + snapshot of decision-relevant data, versioned (`v1`) from day one.
 
-## Trade-offs
 
-| Pros | Cons |
-|---|---|
-| Aggregates stay focused; reactions pluggable | Eventual consistency reasoning everywhere |
-| Perfect seam for [[03_Architecture-Styles/04_Event-Driven-Architecture\|EDA]] + sagas | Schema/version discipline required |
-| Business-readable audit trail | Ordering/duplicates: design idempotent handlers |
+
+
+
+## Trade-offs
+| Dimension | This Approach | Alternative | Trade-off Rationale | Decision Rule |
+|-----------|---------------|-------------|---------------------|---------------|
+| Complexity | [TBD] | [TBD] | [TBD] | [TBD] |
+| Operational Burden | [TBD] | [TBD] | [TBD] | [TBD] |
+| Latency | [TBD] | [TBD] | [TBD] | [TBD] |
+| Consistency | [TBD] | [TBD] | [TBD] | [TBD] |
+| Cost at Scale | [TBD] | [TBD] | [TBD] | [TBD] |
 
 ## Vs
 
@@ -88,6 +114,16 @@ Design: past-tense name, immutable, carries IDs + snapshot of decision-relevant 
 - Events as commands (`DoFulfilment`), past-tense facts keep producers decoupled from consumer intent.
 - Unversioned events, first breaking change without `v1` teaches this painfully.
 
+
+## Pitfalls
+1. Underestimating operational complexity (backups, monitoring, upgrades)
+2. Ignoring failure modes (network partitions, disk failures, clock drift)
+3. Not planning for 10x scale from day one
+4. Skipping monitoring/alerting in MVP
+5. Premature optimization before measuring
+6. Dual-write without transactional outbox
+7. Assuming global order in partitioned systems
+
 ## Interview q&a
 
 **Q: Raise before or after commit?**
@@ -98,6 +134,68 @@ A: Carry what consumers need for decisions (IDs + key snapshot); link, don't emb
 
 **Q: How do handlers stay safe?**
 A: Idempotent (dedup on event ID), retryable with DLQ, ordered only within a partition key (aggregate ID).
+
+
+## Flashcards (Spaced Repetition)
+
+#flashcard
+**Q:** What is the core concept of Domain Events? :: **A:** [Key algorithm/architecture pattern] #flashcard
+
+#flashcard
+**Q:** When do you apply Domain Events? :: **A:** [Trigger scenarios and context] #flashcard
+
+#flashcard
+**Q:** What is the primary trade-off in Domain Events? :: **A:** [Main tension: e.g., consistency vs latency] #flashcard
+
+#flashcard
+**Q:** What breaks first at scale in Domain Events? :: **A:** [Primary bottleneck: e.g., coordination, hot keys, replication lag] #flashcard
+
+#flashcard
+**Q:** How do you handle failures in Domain Events? :: **A:** [Retry, circuit breaker, fallback, graceful degradation] #flashcard
+
+#flashcard
+**Q:** What are the key metrics to monitor for Domain Events? :: **A:** [RED: rate, errors, duration; USE: utilization, saturation, errors] #flashcard
+
+#flashcard
+**Q:** How does Domain Events scale to 10x? :: **A:** [Sharding, read replicas, async processing, caching layers] #flashcard
+
+#flashcard
+**Q:** What is the consistency model for Domain Events? :: **A:** [Strong/eventual/causal - justify with use case] #flashcard
+
+#flashcard
+**Q:** How do you test Domain Events? :: **A:** [Contract tests, chaos engineering, load tests, fault injection] #flashcard
+
+#flashcard
+**Q:** What is the operational cost of Domain Events? :: **A:** [Team expertise, tooling, on-call burden, migration risk] #flashcard
+
+#flashcard
+**Q:** When would you NOT use Domain Events? :: **A:** [Managed service covers need, simple CRUD, team lacks maturity] #flashcard
+
+#flashcard
+**Q:** What is the key design decision in Domain Events? :: **A:** [The irreversible choice that defines the architecture] #flashcard
+
+#flashcard
+**Q:** How do you migrate to Domain Events? :: **A:** [Strangler fig, dual-write, canary, feature flags] #flashcard
+
+#flashcard
+**Q:** What security considerations for Domain Events? :: **A:** [AuthZ, encryption, audit, secrets management] #flashcard
+
+#flashcard
+**Q:** How do you debug Domain Events in production? :: **A:** [Structured logging, correlation IDs, distributed tracing, SLO alerts] #flashcard
+
+
+## Practice Tasks (Tasks Plugin)
+- [ ] Explain the architecture from memory 📅 {{date:YYYY-MM-DD, +1}}
+- [ ] Draw the system diagram without looking 📅 {{date:YYYY-MM-DD, +3}}
+- [ ] Answer all Interview Q&A aloud 📅 {{date:YYYY-MM-DD, +7}}
+- [ ] Review flashcards (Spaced Repetition) 📅 {{date:YYYY-MM-DD, +1}}
+
+```tasks
+not done
+path includes Architect/05_DDD-Modeling
+sort by due
+limit 10
+```
 
 ## Related
 

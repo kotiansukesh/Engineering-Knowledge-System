@@ -19,7 +19,10 @@ excalidraw: ''
 source: ''
 type: note
 weeks: ''
+
 ---
+
+
 
 
 
@@ -30,6 +33,23 @@ Map who cares about what so views, priorities, and trade-off ADRs target real co
 - **Interview signal**: "Who are the stakeholders for X and what does each care about?" — missing business/compliance stakeholders is a senior red flag
 - **Review efficiency**: When a review circles, an unnamed stakeholder (finance, compliance, support) is usually objecting through proxies
 - **Traceability chain**: Stakeholder → concern → quality attribute → scenario → fitness function → ADR = auditable architecture
+
+## Problems
+### System Design Problem: Stakeholders and Concerns
+
+**Requirements:**
+- Functional: Core capabilities for stakeholders and concerns
+- Non-functional (SLOs): Latency < 100ms p99, Availability 99.9%, Horizontal scalability
+
+**Constraints:**
+- Scale: Handle 10x growth without redesign
+- Consistency: Appropriate model for domain (strong/eventual)
+- Latency budget: p99 < 100ms for read paths
+
+**API / Interfaces:**
+- Primary: REST/gRPC endpoints for core operations
+- Internal: Service-to-service contracts
+- Events: Domain events for async integration
 
 ## 🧩 Diagram: Stakeholder → View Mapping
 ```mermaid
@@ -65,21 +85,85 @@ var matrix = List.of(
 
 ## ✅ When to Use / ❌ When NOT to Use
 | Scenario | Use? | Reason |
-|---|---|---|
+|
+
+## Trade-offs
+| Dimension | This Approach | Alternative | Trade-off Rationale | Decision Rule |
+|-----------|---------------|-------------|---------------------|---------------|
+| Complexity | [TBD] | [TBD] | [TBD] | [TBD] |
+| Operational Burden | [TBD] | [TBD] | [TBD] | [TBD] |
+| Latency | [TBD] | [TBD] | [TBD] | [TBD] |
+| Consistency | [TBD] | [TBD] | [TBD] | [TBD] |
+| Cost at Scale | [TBD] | [TBD] | [TBD] | [TBD] |
+
+## Flashcards (Spaced Repetition)
+
+#flashcard
+**Q:** What is the core concept of Stakeholders and Concerns? :: **A:** [Key algorithm/architecture pattern] #flashcard
+
+#flashcard
+**Q:** When do you apply Stakeholders and Concerns? :: **A:** [Trigger scenarios and context] #flashcard
+
+#flashcard
+**Q:** What is the primary trade-off in Stakeholders and Concerns? :: **A:** [Main tension: e.g., consistency vs latency] #flashcard
+
+#flashcard
+**Q:** What breaks first at scale in Stakeholders and Concerns? :: **A:** [Primary bottleneck: e.g., coordination, hot keys, replication lag] #flashcard
+
+#flashcard
+**Q:** How do you handle failures in Stakeholders and Concerns? :: **A:** [Retry, circuit breaker, fallback, graceful degradation] #flashcard
+
+#flashcard
+**Q:** What are the key metrics to monitor for Stakeholders and Concerns? :: **A:** [RED: rate, errors, duration; USE: utilization, saturation, errors] #flashcard
+
+#flashcard
+**Q:** How does Stakeholders and Concerns scale to 10x? :: **A:** [Sharding, read replicas, async processing, caching layers] #flashcard
+
+#flashcard
+**Q:** What is the consistency model for Stakeholders and Concerns? :: **A:** [Strong/eventual/causal - justify with use case] #flashcard
+
+#flashcard
+**Q:** How do you test Stakeholders and Concerns? :: **A:** [Contract tests, chaos engineering, load tests, fault injection] #flashcard
+
+#flashcard
+**Q:** What is the operational cost of Stakeholders and Concerns? :: **A:** [Team expertise, tooling, on-call burden, migration risk] #flashcard
+
+#flashcard
+**Q:** When would you NOT use Stakeholders and Concerns? :: **A:** [Managed service covers need, simple CRUD, team lacks maturity] #flashcard
+
+#flashcard
+**Q:** What is the key design decision in Stakeholders and Concerns? :: **A:** [The irreversible choice that defines the architecture] #flashcard
+
+#flashcard
+**Q:** How do you migrate to Stakeholders and Concerns? :: **A:** [Strangler fig, dual-write, canary, feature flags] #flashcard
+
+#flashcard
+**Q:** What security considerations for Stakeholders and Concerns? :: **A:** [AuthZ, encryption, audit, secrets management] #flashcard
+
+#flashcard
+**Q:** How do you debug Stakeholders and Concerns in production? :: **A:** [Structured logging, correlation IDs, distributed tracing, SLO alerts] #flashcard
+
+
+## Practice Tasks (Tasks Plugin)
+- [ ] Explain the architecture from memory 📅 {{date:YYYY-MM-DD, +1}}
+- [ ] Draw the system diagram without looking 📅 {{date:YYYY-MM-DD, +3}}
+- [ ] Answer all Interview Q&A aloud 📅 {{date:YYYY-MM-DD, +7}}
+- [ ] Review flashcards (Spaced Repetition) 📅 {{date:YYYY-MM-DD, +1}}
+
+```tasks
+not done
+path includes Architect/01_Architecture-Foundations
+sort by due
+limit 10
+```
+
+---|---|---|
 | Start of every phase, design review, ADR | ✅ | Before picking view/tactic, know whose concern you serve |
 | Review keeps circling | ✅ | Unnamed stakeholder usually objecting via proxies |
 | Building traceability chain for auditors/interviews | ✅ | Stakeholder → concern → quality → scenario → fitness function |
 | Chasing completeness (40-row matrix) | ❌ | Analysis paralysis; start with 5, grow when someone proves missing |
 | Treating as one-time artifact | ❌ | Scope, compliance, org shift — stale map misdirects design |
 
-## ⚖️ Trade-offs
-| Dimension | Pros | Cons |
-|---|---|---|
-| **Right view per audience** | Fewer re-reviews; targeted communication | **Analysis paralysis** if chasing every stakeholder |
-| **Explicit conflict resolution** | Trade-offs documented in ADRs | **Maintenance burden** if matrix not linked to views |
-| **Onboarding** | New engineer sees whose needs drive design | **Stale data** if not revisited on scope/compliance change |
-
-**Decision rule**: Start with 5 stakeholders (Product, SRE, Security, Finance, Support). Add only when a review proves one was missing.
 
 ## 🆚 Vs. Alternatives
 | Stakeholder | Top Concern | View That Satisfies | Decision Rule |
@@ -94,6 +178,16 @@ var matrix = List.of(
 2. **One diagram for everyone** — different concerns need different lenses (C4 Context for Product, Sequence for SRE, Threat Model for Security)
 3. **Matrix as ceremony** — if a row can't reach a scenario, either concern is stale or design hasn't addressed it
 4. **Not revisiting** — org structure, compliance regime, scope shift; stale map silently misdirects design
+
+
+## Pitfalls
+1. Underestimating operational complexity (backups, monitoring, upgrades)
+2. Ignoring failure modes (network partitions, disk failures, clock drift)
+3. Not planning for 10x scale from day one
+4. Skipping monitoring/alerting in MVP
+5. Premature optimization before measuring
+6. Dual-write without transactional outbox
+7. Assuming global order in partitioned systems
 
 ## 🎤 Interview Q&A (Senior Depth)
 

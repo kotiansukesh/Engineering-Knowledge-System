@@ -9,8 +9,8 @@ tags:
 - integration
 created: 2026-09-02
 completed: false
-reviewed: ''
-sr-due: ''
+reviewed: "2026-09-29"
+sr-due: "2026-09-30"
 difficulty: Easy
 excalidraw: ''
 source: ''
@@ -157,8 +157,37 @@ class ResilientLlmClient {
 **Q5: "What's your strategy for provider deprecation / model sunset?"**
 > **Answer**: 1) **Abstraction layer** — model name in config, not code. 2) **Canary routing** — 5% traffic to new model, compare eval metrics. 3) **Regression suite** — golden prompts with expected outputs, run on every model change. 4) **Fallback chain** — config-driven priority list. **Timeline**: 90-day notice typical; migrate in 30. **Rejected**: "Wait for email" — proactive eval catches regressions before users do.
 
-## 🔗 Related
-- [[Cost Optimization|Cost Optimization]] — token budgeting, caching, model cascade
-- [[LLM Observability|LLM Observability]] — latency, token, error dashboards
-- [[06_Tool Calling|Tool Calling]] — structured output via functions
-- [[05_Structured Outputs|Structured Outputs]] — JSON Schema validation
+## Flashcards (Spaced Repetition)
+
+#flashcard
+**Q:** What is the trigger keyword for LLM APIs? :: **A:** [trigger keywords] #flashcard
+
+#flashcard
+**Q:** Key hyperparameter for LLM APIs? :: **A:** [hyperparameter + typical range] #flashcard
+
+#flashcard
+**Q:** When do you NOT use LLM APIs? :: **A:** [anti-pattern scenarios] #flashcard
+
+#flashcard
+**Q:** Cost order of magnitude for LLM APIs? :: **A:** [GPU hours / $ per 1M tokens] #flashcard
+
+## Practice Tasks (Tasks Plugin)
+- [ ] Restate the intent from memory 📅 2026-09-30
+- [ ] Code the config without looking 📅 2026-10-02
+- [ ] Answer all Interview Q&A aloud 📅 2026-10-06
+- [ ] Review flashcards (Spaced Repetition) 📅 2026-09-30
+
+```tasks
+not done
+path includes 01_Fundamentals
+sort by due
+limit 10
+```
+
+## Related
+- [[README|AI MOC]]
+- [[01_Fundamentals/README|01_Fundamentals Folder]]
+
+---
+
+*Category: AI/01_Fundamentals • Part of [[README|AI MOC]]*

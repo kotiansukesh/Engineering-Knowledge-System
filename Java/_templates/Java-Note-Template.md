@@ -1,13 +1,13 @@
 ---
 title: "{{title}}"
-category: "Core-Java"
+category: "{{category}}"
 tags: [java]
 created: "{{date:YYYY-MM-DD}}"
 completed: false
 difficulty: "Easy"
 pattern: 0
-reviewed: ""
-sr-due: ""
+reviewed: "2026-09-29"
+sr-due: "2026-10-06"
 source: ""
 excalidraw: ""
 type: "note"
@@ -19,14 +19,17 @@ type: "note"
 > 🎨 **Visual diagram:** Create Excalidraw drawing from template: `Cmd+P → Excalidraw: New from template → Java Diagram`
 
 ## Intent
+
 One sentence: what problem does this solve? Define the **key term** in **bold**.
 
 ## Why it Matters
+
 - Where this appears in interviews (FAANG, senior vs. junior)
 - Production impact (performance, correctness, maintainability)
 - Senior signal: recognizing the *disguised* form of this concept
 
 ## Diagram
+
 ```mermaid
 flowchart TD
     A["Input / Context"] --> B["Core Idea / Mechanism"]
@@ -35,8 +38,9 @@ flowchart TD
 ```
 
 ## Code / Example
+
 ```java
-// Java 25: var, record, pattern matching for instanceof, SequencedCollection, virtual threads, Compact Object Headers
+// Java 25: var, record, sealed, pattern matching, SequencedCollection, virtual threads, Compact Object Headers
 // Core template for {{title}}
 
 record {{title.replace(/\s+/g, '')}}(/* params */) {
@@ -44,7 +48,7 @@ record {{title.replace(/\s+/g, '')}}(/* params */) {
         // build logic
         return new {{title.replace(/\s+/g, '')}}(/* args */);
     }
-    
+
     /* returnType */ keyMethod(/* params */) {
         // O(1) or O(n) logic
     }
@@ -58,11 +62,13 @@ void example() {
 ```
 
 ### Concrete Example
-- **Input:** 
-- **Output:** 
-- **Explanation:** 
+
+- **Input:**
+- **Output:**
+- **Explanation:**
 
 ## When to Use / When NOT
+
 | **Use When** | **Avoid When** |
 |--------------|----------------|
 | - Trigger keywords: | - Over-engineering simple cases |
@@ -70,6 +76,7 @@ void example() {
 | - Pattern signature: | - When standard library suffices |
 
 ## Trade-offs
+
 | Dimension | This Approach | Alternative |
 |-----------|---------------|-------------|
 | Complexity | | |
@@ -78,11 +85,13 @@ void example() {
 | Testability | | |
 
 ## Vs Table
+
 | Aspect | This | Alternative | Decision Rule |
 |--------|------|-------------|---------------|
 | | | | |
 
 ## Pitfalls
+
 - Common mistake 1 → Fix
 - Common mistake 2 → Fix
 
@@ -118,6 +127,7 @@ void example() {
 **Q:** Core Java 25 snippet for {{title}}? :: **A:** `record ... { static of(...) {} keyMethod() {} }` #flashcard
 
 ## Practice Tasks (Tasks Plugin)
+
 - [ ] Restate the intent from memory 📅 {{date:YYYY-MM-DD, +1}}
 - [ ] Code the snippet without looking 📅 {{date:YYYY-MM-DD, +3}}
 - [ ] Answer all Interview Q&A aloud 📅 {{date:YYYY-MM-DD, +7}}
@@ -131,8 +141,9 @@ limit 10
 ```
 
 ## Related
+
 - [[README|Java MOC]]
-- [[{{file.folder}}/README|{{file.folder.split('/').pop()}} Folder]]
+- [[Java/_templates/README|{{file.folder.split('/').pop()}} Folder]]
 
 ---
 

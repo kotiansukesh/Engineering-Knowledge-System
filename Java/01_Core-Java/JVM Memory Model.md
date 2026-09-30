@@ -11,8 +11,8 @@ created: 2026-09-02
 pattern: 9
 difficulty: Easy
 completed: false
-reviewed: ''
-sr-due: ''
+reviewed: "2026-09-29"
+sr-due: "2026-10-06"
 excalidraw: ''
 source: ''
 type: note

@@ -11,8 +11,8 @@ created: 2026-09-03
 completed: false
 pattern: 5
 difficulty: Easy
-reviewed: ''
-sr-due: ''
+reviewed: "2026-09-29"
+sr-due: "2026-10-06"
 excalidraw: ''
 source: ''
 type: note
@@ -147,13 +147,17 @@ Why is Java 21 the biggest LTS change since 8?:: It changed the concurrency mode
 ## Visual , Interview Story
 
 ```mermaid
-timeline
- title Java LTS Evolution
- 2014 : Java 8, lambdas, Streams, java.time, Optional
- 2018 : Java 11, var, HttpClient, String sugar, module cleanup
- 2021 : Java 17, sealed, records, pattern instanceof, text blocks, switch expr
- 2023 : Java 21, virtual threads, Sequenced, record patterns, switch patterns, ZGC gen, FFM
- 2025 : Java 25, ScopedValue final, Structured Concurrency preview, compact headers, JEP 491
+flowchart LR
+    %% Java LTS Evolution
+    N0[\"2014: Java 8, lambdas, Streams, java.time, Optional\"]
+    N1[\"2018: Java 11, var, HttpClient, String sugar, module cleanup\"]
+    N0 --> N1
+    N2[\"2021: Java 17, sealed, records, pattern instanceof, text blocks, switch expr\"]
+    N1 --> N2
+    N3[\"2023: Java 21, virtual threads, Sequenced, record patterns, switch patterns, ZGC gen, FFM\"]
+    N2 --> N3
+    N4[\"2025: Java 25, ScopedValue final, Structured Concurrency preview, compact headers, JEP 491\"]
+    N3 --> N4
 ```
 
 ## Table , What to say per lts Jump

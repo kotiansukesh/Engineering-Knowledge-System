@@ -24,13 +24,34 @@ excalidraw: ''
 source: ''
 type: note
 weeks: ''
+
 ---
+
+
+
 
 
 
 ## Why it Matters
 
 In a distributed system a dependency failing is not an incident, but *failing badly* is: unbounded threads blocked, retries piled on retries, one slow service taking down everything that calls it. Bounding every wait and failing fast converts cascading failure into graceful degradation, which is the difference between an outage and a degraded SLO.
+
+## Problems
+### System Design Problem: Resilience, Circuit Breaker & Retry
+
+**Requirements:**
+- Functional: Core capabilities for resilience, circuit breaker & retry
+- Non-functional (SLOs): Latency < 100ms p99, Availability 99.9%, Horizontal scalability
+
+**Constraints:**
+- Scale: Handle 10x growth without redesign
+- Consistency: Appropriate model for domain (strong/eventual)
+- Latency budget: p99 < 100ms for read paths
+
+**API / Interfaces:**
+- Primary: REST/gRPC endpoints for core operations
+- Internal: Service-to-service contracts
+- Events: Domain events for async integration
 
 ## Diagram
 
@@ -69,24 +90,41 @@ graph TD
 
 **When NOT:** non-idempotent writes retried blindly (double-charge), or masking a root cause that needs fixing, not absorbing.
 
-## Trade-offs
-
-| Pros | Cons |
-|---|---|
-| Cascades contained; degrades gracefully | Tuning thresholds per dependency is real work |
-| Declarative, metrics-exported (Micrometer) | Retries amplify load on a struggling downstream |
-| Fallbacks keep UX alive | Fallback staleness can mislead (label it: "last known") |
 
 ## Vs
 
 - **Vs naive `@Retryable`:** Spring Retry alone retries forever into an outage; the breaker *stops calling* and lets the downstream recover.
 - **Vs [[04_Event-Driven-Architecture|going async]]:** async + queue is the deeper fix for overload; resilience patterns are the sync-call seatbelt.
 
+
+
+
+
+
+## Trade-offs
+| Dimension | This Approach | Alternative | Trade-off Rationale | Decision Rule |
+|-----------|---------------|-------------|---------------------|---------------|
+| Complexity | [TBD] | [TBD] | [TBD] | [TBD] |
+| Operational Burden | [TBD] | [TBD] | [TBD] | [TBD] |
+| Latency | [TBD] | [TBD] | [TBD] | [TBD] |
+| Consistency | [TBD] | [TBD] | [TBD] | [TBD] |
+| Cost at Scale | [TBD] | [TBD] | [TBD] | [TBD] |
+
 ## Pitfalls
 
 - Retry storms: no jitter/exponential backoff → thundering herd.
 - Fallback that calls another failing service — fallbacks must be local/static.
 - One shared breaker config for all deps — per-dependency tuning required.
+
+
+## Pitfalls
+1. Underestimating operational complexity (backups, monitoring, upgrades)
+2. Ignoring failure modes (network partitions, disk failures, clock drift)
+3. Not planning for 10x scale from day one
+4. Skipping monitoring/alerting in MVP
+5. Premature optimization before measuring
+6. Dual-write without transactional outbox
+7. Assuming global order in partitioned systems
 
 ## Interview Q&A
 
@@ -98,6 +136,68 @@ A: From downstream p99 × expected concurrency; isolate critical pools (checkout
 
 **Q: How do you test breakers?**
 A: Chaos/fault-injection tests (WireMock delays, Toxiproxy) asserting open-state behaviour + fallback correctness.
+
+
+## Flashcards (Spaced Repetition)
+
+#flashcard
+**Q:** What is the core concept of Resilience, Circuit Breaker & Retry? :: **A:** [Key algorithm/architecture pattern] #flashcard
+
+#flashcard
+**Q:** When do you apply Resilience, Circuit Breaker & Retry? :: **A:** [Trigger scenarios and context] #flashcard
+
+#flashcard
+**Q:** What is the primary trade-off in Resilience, Circuit Breaker & Retry? :: **A:** [Main tension: e.g., consistency vs latency] #flashcard
+
+#flashcard
+**Q:** What breaks first at scale in Resilience, Circuit Breaker & Retry? :: **A:** [Primary bottleneck: e.g., coordination, hot keys, replication lag] #flashcard
+
+#flashcard
+**Q:** How do you handle failures in Resilience, Circuit Breaker & Retry? :: **A:** [Retry, circuit breaker, fallback, graceful degradation] #flashcard
+
+#flashcard
+**Q:** What are the key metrics to monitor for Resilience, Circuit Breaker & Retry? :: **A:** [RED: rate, errors, duration; USE: utilization, saturation, errors] #flashcard
+
+#flashcard
+**Q:** How does Resilience, Circuit Breaker & Retry scale to 10x? :: **A:** [Sharding, read replicas, async processing, caching layers] #flashcard
+
+#flashcard
+**Q:** What is the consistency model for Resilience, Circuit Breaker & Retry? :: **A:** [Strong/eventual/causal - justify with use case] #flashcard
+
+#flashcard
+**Q:** How do you test Resilience, Circuit Breaker & Retry? :: **A:** [Contract tests, chaos engineering, load tests, fault injection] #flashcard
+
+#flashcard
+**Q:** What is the operational cost of Resilience, Circuit Breaker & Retry? :: **A:** [Team expertise, tooling, on-call burden, migration risk] #flashcard
+
+#flashcard
+**Q:** When would you NOT use Resilience, Circuit Breaker & Retry? :: **A:** [Managed service covers need, simple CRUD, team lacks maturity] #flashcard
+
+#flashcard
+**Q:** What is the key design decision in Resilience, Circuit Breaker & Retry? :: **A:** [The irreversible choice that defines the architecture] #flashcard
+
+#flashcard
+**Q:** How do you migrate to Resilience, Circuit Breaker & Retry? :: **A:** [Strangler fig, dual-write, canary, feature flags] #flashcard
+
+#flashcard
+**Q:** What security considerations for Resilience, Circuit Breaker & Retry? :: **A:** [AuthZ, encryption, audit, secrets management] #flashcard
+
+#flashcard
+**Q:** How do you debug Resilience, Circuit Breaker & Retry in production? :: **A:** [Structured logging, correlation IDs, distributed tracing, SLO alerts] #flashcard
+
+
+## Practice Tasks (Tasks Plugin)
+- [ ] Explain the architecture from memory 📅 {{date:YYYY-MM-DD, +1}}
+- [ ] Draw the system diagram without looking 📅 {{date:YYYY-MM-DD, +3}}
+- [ ] Answer all Interview Q&A aloud 📅 {{date:YYYY-MM-DD, +7}}
+- [ ] Review flashcards (Spaced Repetition) 📅 {{date:YYYY-MM-DD, +1}}
+
+```tasks
+not done
+path includes Architect/04_Design-Patterns-Building-Blocks
+sort by due
+limit 10
+```
 
 ## Related
 

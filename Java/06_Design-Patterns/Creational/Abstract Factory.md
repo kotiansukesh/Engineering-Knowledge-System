@@ -1,24 +1,132 @@
 ---
-title: Abstract Factory
-category: Java/06_Design-Patterns/Creational
+title: "Abstract Factory"
+category: "Java/06_Design-Patterns/Creational"
 tags:
 - design-patterns
 - creational
 - abstract-factory
 pattern: abstract-factory
 source: https://refactoring.guru/design-patterns/abstract-factory
-created: 2026-09-02
+created: "2026-09-29"
 difficulty: Medium
 completed: false
-reviewed: ''
-sr-due: ''
-excalidraw: ''
+reviewed: "2026-09-29"
+sr-due: "2026-10-06"
+excalidraw: ""
 type: note
 ---
 
 # Abstract Factory
 
 > Category: Creational • Source: [Refactoring.Guru , Abstract Factory](https://refactoring.guru/design-patterns/abstract-factory) • Part of [[Java/README|Java MOC]] → [[06_Design-Patterns/README|Design Patterns MOC]]
+
+## Why it Matters
+
+Produces **families of related objects** without naming **concrete classes**.
+
+## Diagram
+
+```mermaid
+classDiagram
+ class FurnitureFactory {
+ <<interface>>
+ +chair() Chair
+ +sofa() Sofa
+ }
+ class ModernFactory
+ class VictorianFactory
+ class Chair {
+ <<interface>>
+ }
+ class Sofa {
+ <<interface>>
+ }
+ class ModernChair
+ class ModernSofa
+ FurnitureFactory <|.. ModernFactory
+ FurnitureFactory <|.. VictorianFactory
+ Chair <|.. ModernChair
+ Sofa <|.. ModernSofa
+ ModernFactory --> ModernChair
+ ModernFactory --> ModernSofa
+```
+
+## Code
+
+```java
+// Java 25: records, sealed interfaces, pattern matching, virtual threads, Compact Object Headers
+public class AbstractFactoryDemo {
+ interface Chair { String name(); }
+ interface Sofa { String name(); }
+ record ModernChair() implements Chair { public String name() { return "modern chair"; } }
+ record ModernSofa() implements Sofa { public String name() { return "modern sofa"; } }
+ record VictorianChair() implements Chair { public String name() { return "victorian chair"; } }
+ record VictorianSofa() implements Sofa { public String name() { return "victorian sofa"; } }
+ // One factory per family keeps each chair+sofa pair stylistically consistent.
+ interface FurnitureFactory { Chair chair(); Sofa sofa(); }
+ record ModernFactory() implements FurnitureFactory { public Chair chair() { return new ModernChair(); } public Sofa sofa() { return new ModernSofa(); } }
+ record VictorianFactory() implements FurnitureFactory { public Chair chair() { return new VictorianChair(); } public Sofa sofa() { return new VictorianSofa(); } }
+ static void furnish(FurnitureFactory f) { System.out.println(f.chair().name() + " + " + f.sofa().name()); } // => modern chair + modern sofa, victorian chair + victorian sofa
+ public static void main(String[] args) {
+ furnish(new ModernFactory());
+ furnish(new VictorianFactory());
+ }
+}
+```
+
+The demo proves the pattern contract is fulfilled with immutable, sealed implementations.
+
+## When to Use / When NOT
+
+| **Use When** | **Avoid When** |
+|--------------|----------------|
+| Products come in consistent families (modern vs victorian) that must not mix. |  |
+| The client must stay ignorant of concrete classes. |  |
+| Swapping a whole family at runtime or per environment is required. |  |
+
+## Trade-offs
+
+| Dimension | This Approach | Alternative |
+|-----------|---------------|-------------|
+| Complexity | [complexity] | [alt complexity] |
+| Performance | [performance] | [alt performance] |
+| Readability | [readability] | [alt readability] |
+| Testability | [testability] | [alt testability] |
+
+## Vs Table
+
+| Pattern | Use when |
+|---------|----------|
+| Abstract factory | Family of products |
+| Factory method | Single product |
+| Builder | Step-by-step assembly |
+
+## Pitfalls
+
+- Mixing families (modern chair + victorian sofa) when the factory isn't the single source.
+- Interface bloat: every new product kind breaks all families.
+- Overkill for one product , that is Factory Method's job.
+
+## Interview Q&A (Senior Depth)
+
+**Q: When do you need abstract factory at all?**
+
+When you must create matching families. If you only make one product, factory method is enough.
+
+**Q: What is easy vs hard to add to an Abstract Factory?**
+
+Adding a new family is easy: write one new factory class and every product kind comes along consistently. Adding a new product kind is hard: it changes the factory interface, so every existing factory must be updated. That asymmetry is the pattern's signature trade-off , pick it when families vary more often than product kinds.
+
+**Q: What is easy vs hard to add with Abstract Factory?**
+
+Adding a new family (e.g. `FuturisticFactory`) is easy , one class implementing the interface. Adding a new product kind (e.g. `Lamp`) is hard , it touches the factory interface and every family. Pick it when families grow, not product kinds.
+
+: When do you need abstract factory at all?:: When you must create matching families. If you only make one product, factory method is enough. **Q: What is easy vs hard to add to an Abstract Factory?** Adding a new family is easy: write one new factory class and every product kind comes along consistently. Adding a new product kind is hard: it changes the factory interface, so every existing factory must be updated. That asymmetry is the pattern's signature trade-off , pick it when familie... #flashcard
+
+## Flashcards (Spaced Repetition)
+
+#flashcard
+Creational • Source: [Refactoring.Guru , Abstract Factory](https://refactoring.guru/design-patterns/abstract-factory) • Part of [[Java/README|Java MOC]] → [[06_Design-Patterns/README|Design Patterns MOC]]
 
 ## Why it Matters
 
@@ -114,11 +222,26 @@ Adding a new family (e.g. `FuturisticFactory`) is easy , one class implementing 
 
 : When do you need abstract factory at all?:: When you must create matching families. If you only make one product, factory method is enough. **Q: What is easy vs hard to add to an Abstract Factory?** Adding a new family is easy: write one new factory class and every product kind comes along consistently. Adding a new product kind is hard: it changes the factory interface, so every existing factory must be updated. That asymmetry is the pattern's signature trade-off , pick it when familie... #flashcard
 
+## Practice Tasks (Tasks Plugin)
+
+- [ ] Restate the intent from memory 📅 {date:YYYY-MM-DD, +1}
+- [ ] Code the snippet without looking 📅 {date:YYYY-MM-DD, +3}
+- [ ] Answer all Interview Q&A aloud 📅 {date:YYYY-MM-DD, +7}
+- [ ] Review flashcards (Spaced Repetition) 📅 {date:YYYY-MM-DD, +1}
+
+```tasks
+not done
+path includes {file.folder}
+sort by due
+limit 10
+```
+
 ## Related
 
 [[06_Design-Patterns/Creational/Factory Method|Factory Method]] (single product) • [[06_Design-Patterns/Creational/Builder|Builder]] (assembly) • [[06_Design-Patterns/Creational/Prototype|Prototype]] (copy vs create)
 
 ---
+
 *Category: Creational • Tags: design-patterns • Source: refactoring.guru*
 
 ## Problem

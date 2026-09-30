@@ -19,7 +19,10 @@ source: https://github.com/donnemartin/system-design-primer
 excalidraw: ''
 weeks: '1'
 type: note
+
 ---
+
+
 
 
 
@@ -149,15 +152,16 @@ record HowtoApproachSystemDesignInterviewConfig(
 | Learning architecture patterns | Simple CRUD applications |
 | Interview preparation | Requirements don't match |
 
-## Trade-offs
 
-| Dimension | This Approach | Alternative |
-|-----------|---------------|-------------|
-| Complexity | | |
-| Operational Burden | | |
-| Latency | | |
-| Consistency | | |
-| Cost at Scale | | |
+
+## Trade-offs
+| Dimension | This Approach | Alternative | Trade-off Rationale | Decision Rule |
+|-----------|---------------|-------------|---------------------|---------------|
+| Complexity | [TBD] | [TBD] | [TBD] | [TBD] |
+| Operational Burden | [TBD] | [TBD] | [TBD] | [TBD] |
+| Latency | [TBD] | [TBD] | [TBD] | [TBD] |
+| Consistency | [TBD] | [TBD] | [TBD] | [TBD] |
+| Cost at Scale | [TBD] | [TBD] | [TBD] | [TBD] |
 
 ## Vs Table
 
@@ -205,6 +209,39 @@ record HowtoApproachSystemDesignInterviewConfig(
 
 #flashcard
 **Q:** Scale bottleneck for How to Approach System Design Interview? :: **A:** [Primary bottleneck] #flashcard
+
+
+## Flashcards (Spaced Repetition)
+
+#flashcard
+**Q:** What is the core concept of How to Approach System Design Interview? :: **A:** [Key algorithm/architecture pattern] #flashcard
+
+#flashcard
+**Q:** When do you apply How to Approach System Design Interview? :: **A:** [Trigger scenarios and context] #flashcard
+
+#flashcard
+**Q:** What is the primary trade-off in How to Approach System Design Interview? :: **A:** [Main tension: e.g., consistency vs latency] #flashcard
+
+#flashcard
+**Q:** What breaks first at scale in How to Approach System Design Interview? :: **A:** [Primary bottleneck: e.g., coordination, hot keys, replication lag] #flashcard
+
+#flashcard
+**Q:** How do you handle failures in How to Approach System Design Interview? :: **A:** [Retry, circuit breaker, fallback, graceful degradation] #flashcard
+
+#flashcard
+**Q:** What are the key metrics to monitor for How to Approach System Design Interview? :: **A:** [RED: rate, errors, duration; USE: utilization, saturation, errors] #flashcard
+
+#flashcard
+**Q:** How does How to Approach System Design Interview scale to 10x? :: **A:** [Sharding, read replicas, async processing, caching layers] #flashcard
+
+#flashcard
+**Q:** What is the consistency model for How to Approach System Design Interview? :: **A:** [Strong/eventual/causal - justify with use case] #flashcard
+
+#flashcard
+**Q:** How do you test How to Approach System Design Interview? :: **A:** [Contract tests, chaos engineering, load tests, fault injection] #flashcard
+
+#flashcard
+**Q:** What is the operational cost of How to Approach System Design Interview? :: **A:** [Team expertise, tooling, on-call burden, migration risk] #flashcard
 
 ## Practice Tasks (Tasks Plugin)
 

@@ -9,8 +9,8 @@ created: 2026-01-18
 pattern: 1
 difficulty: Medium
 completed: false
-reviewed: ''
-sr-due: ''
+reviewed: "2026-09-29"
+sr-due: "2026-10-06"
 excalidraw: ''
 source: ''
 type: note

@@ -17,7 +17,28 @@ excalidraw: ''
 source: ''
 type: note
 weeks: ''
+
 ---
+
+
+## Problems
+### System Design Problem: Tradeoffs and Tensions
+
+**Requirements:**
+- Functional: Core capabilities for tradeoffs and tensions
+- Non-functional (SLOs): Latency < 100ms p99, Availability 99.9%, Horizontal scalability
+
+**Constraints:**
+- Scale: Handle 10x growth without redesign
+- Consistency: Appropriate model for domain (strong/eventual)
+- Latency budget: p99 < 100ms for read paths
+
+**API / Interfaces:**
+- Primary: REST/gRPC endpoints for core operations
+- Internal: Service-to-service contracts
+- Events: Domain events for async integration
+
+
 
 
 
@@ -51,10 +72,18 @@ graph TD
 
 **When NOT:** do not let trade-off talk substitute for deciding, listing tensions without quantifying them and picking a side is trade-off theatre, and it still leaves you without an architecture. Timebox the analysis, record the bet, and move; the ADR can be superseded when the assumption breaks.
 
-## Trade-offs
 
-- Pros: honest scope; fewer revisits.
-- Cons: tradeoff theater (listing without quantification).
+
+
+
+## Trade-offs
+| Dimension | This Approach | Alternative | Trade-off Rationale | Decision Rule |
+|-----------|---------------|-------------|---------------------|---------------|
+| Complexity | [TBD] | [TBD] | [TBD] | [TBD] |
+| Operational Burden | [TBD] | [TBD] | [TBD] | [TBD] |
+| Latency | [TBD] | [TBD] | [TBD] | [TBD] |
+| Consistency | [TBD] | [TBD] | [TBD] | [TBD] |
+| Cost at Scale | [TBD] | [TBD] | [TBD] | [TBD] |
 
 ## Vs
 
@@ -69,6 +98,16 @@ graph TD
 - Silent tradeoffs discovered in prod.
 - Optimizing the easy quality, ignoring the driver.
 
+
+## Pitfalls
+1. Underestimating operational complexity (backups, monitoring, upgrades)
+2. Ignoring failure modes (network partitions, disk failures, clock drift)
+3. Not planning for 10x scale from day one
+4. Skipping monitoring/alerting in MVP
+5. Premature optimization before measuring
+6. Dual-write without transactional outbox
+7. Assuming global order in partitioned systems
+
 ## Interview q&a
 
 **Q: Walk me through the trade-offs of choosing eventual consistency for inventory during a flash sale.**
@@ -82,6 +121,68 @@ A: The stakeholder who owns the commercial or regulatory risk, not the loudest e
 
 **Q: How do you know when a trade-off you made is no longer right?**
 A: Watch the assumptions, not the metrics: the ADR's context section is the bet's expiry date. When an assumption breaks, a new compliance regime, a 10× traffic shift, an SLO breach that the chosen tactic can't fix, it's time to supersede, not patch. Chain the ADRs so the reasoning history survives.
+
+
+## Flashcards (Spaced Repetition)
+
+#flashcard
+**Q:** What is the core concept of Tradeoffs and Tensions? :: **A:** [Key algorithm/architecture pattern] #flashcard
+
+#flashcard
+**Q:** When do you apply Tradeoffs and Tensions? :: **A:** [Trigger scenarios and context] #flashcard
+
+#flashcard
+**Q:** What is the primary trade-off in Tradeoffs and Tensions? :: **A:** [Main tension: e.g., consistency vs latency] #flashcard
+
+#flashcard
+**Q:** What breaks first at scale in Tradeoffs and Tensions? :: **A:** [Primary bottleneck: e.g., coordination, hot keys, replication lag] #flashcard
+
+#flashcard
+**Q:** How do you handle failures in Tradeoffs and Tensions? :: **A:** [Retry, circuit breaker, fallback, graceful degradation] #flashcard
+
+#flashcard
+**Q:** What are the key metrics to monitor for Tradeoffs and Tensions? :: **A:** [RED: rate, errors, duration; USE: utilization, saturation, errors] #flashcard
+
+#flashcard
+**Q:** How does Tradeoffs and Tensions scale to 10x? :: **A:** [Sharding, read replicas, async processing, caching layers] #flashcard
+
+#flashcard
+**Q:** What is the consistency model for Tradeoffs and Tensions? :: **A:** [Strong/eventual/causal - justify with use case] #flashcard
+
+#flashcard
+**Q:** How do you test Tradeoffs and Tensions? :: **A:** [Contract tests, chaos engineering, load tests, fault injection] #flashcard
+
+#flashcard
+**Q:** What is the operational cost of Tradeoffs and Tensions? :: **A:** [Team expertise, tooling, on-call burden, migration risk] #flashcard
+
+#flashcard
+**Q:** When would you NOT use Tradeoffs and Tensions? :: **A:** [Managed service covers need, simple CRUD, team lacks maturity] #flashcard
+
+#flashcard
+**Q:** What is the key design decision in Tradeoffs and Tensions? :: **A:** [The irreversible choice that defines the architecture] #flashcard
+
+#flashcard
+**Q:** How do you migrate to Tradeoffs and Tensions? :: **A:** [Strangler fig, dual-write, canary, feature flags] #flashcard
+
+#flashcard
+**Q:** What security considerations for Tradeoffs and Tensions? :: **A:** [AuthZ, encryption, audit, secrets management] #flashcard
+
+#flashcard
+**Q:** How do you debug Tradeoffs and Tensions in production? :: **A:** [Structured logging, correlation IDs, distributed tracing, SLO alerts] #flashcard
+
+
+## Practice Tasks (Tasks Plugin)
+- [ ] Explain the architecture from memory 📅 {{date:YYYY-MM-DD, +1}}
+- [ ] Draw the system diagram without looking 📅 {{date:YYYY-MM-DD, +3}}
+- [ ] Answer all Interview Q&A aloud 📅 {{date:YYYY-MM-DD, +7}}
+- [ ] Review flashcards (Spaced Repetition) 📅 {{date:YYYY-MM-DD, +1}}
+
+```tasks
+not done
+path includes Architect/02_Requirements-Quality-Attributes
+sort by due
+limit 10
+```
 
 ## Related
 

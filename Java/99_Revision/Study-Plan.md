@@ -5,8 +5,8 @@ tags: [study-plan, roadmap, interview-prep]
 created: "2026-09-27"
 completed: false
 difficulty: "Medium"
-reviewed: ""
-sr-due: ""
+reviewed: "2026-09-29"
+sr-due: "2026-10-06"
 source: "Java Vault 24-Week Roadmap"
 weeks: "1-24"
 type: "study-plan"

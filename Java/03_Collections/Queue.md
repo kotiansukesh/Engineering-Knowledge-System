@@ -1,20 +1,26 @@
 ---
-title: Queue
-category: Java/03_Collections
-tags:
-- java
-- collections
-- queue
-created: 2026-01-18
-pattern: 3
-difficulty: Easy
+title: "Queue"
+category: "Java/03_Collections"
+tags: [java, collections]
+created: "2026-09-29"
 completed: false
-reviewed: ''
-sr-due: ''
-excalidraw: ''
-source: ''
-type: note
+difficulty: "Easy"
+pattern: 0
+reviewed: "2026-09-29"
+sr-due: "2026-10-06"
+source: ""
+excalidraw: ""
+type: "note"
 ---
+
+# Queue
+
+> Part of [[README|Java MOC]] • `Java/03_Collections`
+> 🎨 **Visual diagram:** Create Excalidraw drawing from template: `Cmd+P → Excalidraw: New from template → Java Diagram`
+
+## Intent
+
+One sentence: what problem does this solve? Define the **key term** in **bold**.
 
 ## Why it Matters
 
@@ -32,9 +38,10 @@ heap order"]
 circular array"]
 ```
 
-## Code
+## Code / Example
 
 ```java
+// Java 25: var, record, sealed, pattern matching, SequencedCollection, virtual threads, Compact Object Headers
 // Queue/Deque — FIFO vs priority vs stack (ArrayDeque preferred)
 Queue<String> q = new ArrayDeque<>();
 q.offer("a"); q.offer("b"); q.offer("c");
@@ -56,23 +63,30 @@ pq2.addAll(List.of("aaa","b","cc"));
 System.out.println(pq2.poll()); // => b
 ```
 
-## When to use / not
+### Concrete Example
 
-| Impl | Pick when |
-|------|-------------|
-| `ArrayDeque` | Plain FIFO queue or stack (default) |
-| `PriorityQueue` | Priority order, top-k, scheduling |
-| `ArrayBlockingQueue` | Bounded producer-consumer |
-| `LinkedList` | Rarely , only when `List` + `Deque` in one object |
+- **Input:**
+- **Output:**
+- **Explanation:**
+
+## When to Use / When NOT
+
+| **Use When** | **Avoid When** |
+|--------------|----------------|
+|  |  |
+|  |  |
+|  |  |
 
 ## Trade-offs
 
-- Clear FIFO/priority/deque contracts with dual (throwing vs special-value) APIs.
-- `ArrayDeque` is fast, compact, allocation-free per op.
-- `PriorityQueue` iteration is heap-order, not sorted , only `poll()` is ordered.
-- Most impls forbid `null` (`null` is the `poll()` sentinel).
+| Dimension | This Approach | Alternative |
+|-----------|---------------|-------------|
+| Complexity | | |
+| Performance | | |
+| Readability | | |
+| Testability | | |
 
-## Vs
+## Vs Table
 
 | | `ArrayDeque` | `PriorityQueue` | `LinkedList` |
 |--|--------------|-----------------|--------------|
@@ -86,7 +100,7 @@ System.out.println(pq2.poll()); // => b
 - `PriorityQueue` iteration is not sorted; only repeated `poll()` yields order.
 - `null` elements forbidden in `ArrayDeque`/`PriorityQueue` (`null` == empty signal).
 
-## Interview q&a
+## Interview Q&A (Senior Depth)
 
 **Q: Queue vs Deque?**
 Queue is FIFO from one end, Deque allows insertion and removal from both ends and can act as queue or stack.
@@ -96,6 +110,34 @@ Binary heap by natural order or comparator, head is smallest. Poll is O(log n).
 
 **Q: Why prefer ArrayDeque over LinkedList for a queue?**
 ArrayDeque is backed by an array, less memory, better locality, O(1) ops, no node allocations.
+
+## Flashcards (Spaced Repetition)
+
+#flashcard
+**Q:** What is the trigger keyword for Queue? :: **A:** [trigger keywords] #flashcard
+
+#flashcard
+**Q:** Time/space complexity of Queue? :: **A:** Time: O(), Space: O() #flashcard
+
+#flashcard
+**Q:** When do you NOT use Queue? :: **A:** [anti-pattern scenarios] #flashcard
+
+#flashcard
+**Q:** Core Java 25 snippet for Queue? :: **A:** `var list = new ArrayList<>(List.of(...));` #flashcard
+
+## Practice Tasks (Tasks Plugin)
+
+- [ ] Restate the intent from memory 📅 {date:YYYY-MM-DD, +1}
+- [ ] Code the snippet without looking 📅 {date:YYYY-MM-DD, +3}
+- [ ] Answer all Interview Q&A aloud 📅 {date:YYYY-MM-DD, +7}
+- [ ] Review flashcards (Spaced Repetition) 📅 {date:YYYY-MM-DD, +1}
+
+```tasks
+not done
+path includes {file.folder}
+sort by due
+limit 10
+```
 
 ## Related
 
@@ -136,3 +178,8 @@ Deque adds addFirst, addLast, pollFirst, pollLast, peekFirst, peekLast, and stac
 - LinkedList: doubly linked list, allows nulls, implements both List and Deque, but slower and heavier
 - PriorityQueue: binary heap, not FIFO, sorted by priority, O(log n) offer and poll, iteration not sorted
 - ArrayBlockingQueue, LinkedBlockingQueue, etc: blocking queues for producer consumer
+
+
+---
+
+*Category: Java/03_Collections • Part of [[README|Java MOC]] • Java 25*

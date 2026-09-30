@@ -1,20 +1,26 @@
 ---
-title: HashSet
-category: Java/03_Collections/Set
-tags:
-- java
-- collections
-- set
-created: 2026-01-18
-pattern: 1
-difficulty: Easy
+title: "HashSet"
+category: "Java/03_Collections/Set"
+tags: [java, collections]
+created: "2026-09-29"
 completed: false
-reviewed: ''
-sr-due: ''
-excalidraw: ''
-source: ''
-type: note
+difficulty: "Easy"
+pattern: 0
+reviewed: "2026-09-29"
+sr-due: "2026-10-06"
+source: ""
+excalidraw: ""
+type: "note"
 ---
+
+# HashSet
+
+> Part of [[README|Java MOC]] • `Java/03_Collections/Set`
+> 🎨 **Visual diagram:** Create Excalidraw drawing from template: `Cmd+P → Excalidraw: New from template → Java Diagram`
+
+## Intent
+
+One sentence: what problem does this solve? Define the **key term** in **bold**.
 
 ## Why it Matters
 
@@ -29,9 +35,10 @@ flowchart LR
 value=PRESENT"]
 ```
 
-## Code
+## Code / Example
 
 ```java
+// Java 25: var, record, sealed, pattern matching, SequencedCollection, virtual threads, Compact Object Headers
 // HashSet — hash table, unique, one null, O(1) avg
 var set = new HashSet<String>();
 set.add("A"); set.add("B"); set.add("A"); set.add(null);
@@ -49,23 +56,31 @@ System.out.println(users.size()); // => 1
 
 Set<Integer> big = new HashSet<>(10_000, 0.75f);
 ```
-Fail fast iterator: structural change after creating an iterator causes ConcurrentModificationException on next use.
 
-## When to use / not
+### Concrete Example
 
-| Use | NOT |
-|-----|-----|
-| Fast membership, dedup, visited-sets | Insertion order → `LinkedHashSet` |
-| Record elements (correct `equals`/`hashCode` free) | Sorted iteration or ranges → `TreeSet` |
-| Presized via `new HashSet<>(n, 0.75f)` for bulk loads | Mutable elements whose hash changes |
+- **Input:**
+- **Output:**
+- **Explanation:**
+
+## When to Use / When NOT
+
+| **Use When** | **Avoid When** |
+|--------------|----------------|
+|  |  |
+|  |  |
+|  |  |
 
 ## Trade-offs
 
-- Fastest membership; minimal API surface over `HashMap`.
-- No order guarantees; iteration cost is O(capacity + size).
-- Needs disciplined `equals`/`hashCode` (records solve this).
+| Dimension | This Approach | Alternative |
+|-----------|---------------|-------------|
+| Complexity | | |
+| Performance | | |
+| Readability | | |
+| Testability | | |
 
-## Vs
+## Vs Table
 
 - HashSet: HashMap, no order, O(1), one null, lowest memory, fastest for membership
 - LinkedHashSet: LinkedHashMap, insertion order, O(1), one null, higher memory
@@ -79,13 +94,41 @@ Pick HashSet unless you need order or sorting.
 - Forgetting `hashCode` when overriding `equals` creates duplicates (use records).
 - Iteration order unstable across runs , never snapshot-compare `toString`.
 
-## Interview q&a
+## Interview Q&A (Senior Depth)
 
 **Q: How is `HashSet` implemented?** Wrapper over `HashMap`: element as key, dummy `PRESENT` as value; rehash at load factor 0.75.
 
 **Q: Why override `hashCode` with `equals`?** Hash picks the bucket, `equals` confirms , mismatched hashes cause duplicates and missed lookups.
 
 **Q: `HashSet` vs `TreeSet`?** Hash: O(1), unordered, one `null`. Tree: O(log n), sorted, no `null`.
+
+## Flashcards (Spaced Repetition)
+
+#flashcard
+**Q:** What is the trigger keyword for HashSet? :: **A:** [trigger keywords] #flashcard
+
+#flashcard
+**Q:** Time/space complexity of HashSet? :: **A:** Time: O(), Space: O() #flashcard
+
+#flashcard
+**Q:** When do you NOT use HashSet? :: **A:** [anti-pattern scenarios] #flashcard
+
+#flashcard
+**Q:** Core Java 25 snippet for HashSet? :: **A:** `var list = new ArrayList<>(List.of(...));` #flashcard
+
+## Practice Tasks (Tasks Plugin)
+
+- [ ] Restate the intent from memory 📅 {date:YYYY-MM-DD, +1}
+- [ ] Code the snippet without looking 📅 {date:YYYY-MM-DD, +3}
+- [ ] Answer all Interview Q&A aloud 📅 {date:YYYY-MM-DD, +7}
+- [ ] Review flashcards (Spaced Repetition) 📅 {date:YYYY-MM-DD, +1}
+
+```tasks
+not done
+path includes {file.folder}
+sort by due
+limit 10
+```
 
 ## Related
 
@@ -116,3 +159,8 @@ Is HashSet iteration order insertion order?:: No, it is undefined and can change
 - add, contains, remove: O(1) average, O(log n) worst after treeify
 - iteration: O(capacity plus size)
 - addAll: O(n)
+
+
+---
+
+*Category: Java/03_Collections/Set • Part of [[README|Java MOC]] • Java 25*

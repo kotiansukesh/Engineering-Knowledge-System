@@ -22,7 +22,10 @@ excalidraw: ''
 source: ''
 type: note
 weeks: ''
+
 ---
+
+
 
 
 
@@ -33,6 +36,23 @@ Make consistency-vs-availability trade-offs explicit per operation — not per d
 - **Interview signal**: "Is CAP 'pick two of three'?" and "How do you handle conflicts in AP mode?" — outdated framing vs per-operation design
 - **Real cost**: One global consistency setting overpays latency on reads, risks availability on writes
 - **Operation-level design**: Checkout fails rather than oversell; stale catalogue page costs nothing — choose per operation
+
+## Problems
+### System Design Problem: Consistency, CAP & PACELC
+
+**Requirements:**
+- Functional: Core capabilities for consistency, cap & pacelc
+- Non-functional (SLOs): Latency < 100ms p99, Availability 99.9%, Horizontal scalability
+
+**Constraints:**
+- Scale: Handle 10x growth without redesign
+- Consistency: Appropriate model for domain (strong/eventual)
+- Latency budget: p99 < 100ms for read paths
+
+**API / Interfaces:**
+- Primary: REST/gRPC endpoints for core operations
+- Internal: Service-to-service contracts
+- Events: Domain events for async integration
 
 ## 🧩 Diagram: CAP + PACELC Decision Tree
 ```mermaid
@@ -85,22 +105,84 @@ public Fallback<PaymentResult> paymentFallback() {
 
 ## ✅ When to Use / ❌ When NOT to Use
 | Scenario | Use? | Reason |
-|---|---|---|
+|
+
+## Trade-offs
+| Dimension | This Approach | Alternative | Trade-off Rationale | Decision Rule |
+|-----------|---------------|-------------|---------------------|---------------|
+| Complexity | [TBD] | [TBD] | [TBD] | [TBD] |
+| Operational Burden | [TBD] | [TBD] | [TBD] | [TBD] |
+| Latency | [TBD] | [TBD] | [TBD] | [TBD] |
+| Consistency | [TBD] | [TBD] | [TBD] | [TBD] |
+| Cost at Scale | [TBD] | [TBD] | [TBD] | [TBD] |
+
+## Flashcards (Spaced Repetition)
+
+#flashcard
+**Q:** What is the core concept of Consistency, CAP & PACELC? :: **A:** [Key algorithm/architecture pattern] #flashcard
+
+#flashcard
+**Q:** When do you apply Consistency, CAP & PACELC? :: **A:** [Trigger scenarios and context] #flashcard
+
+#flashcard
+**Q:** What is the primary trade-off in Consistency, CAP & PACELC? :: **A:** [Main tension: e.g., consistency vs latency] #flashcard
+
+#flashcard
+**Q:** What breaks first at scale in Consistency, CAP & PACELC? :: **A:** [Primary bottleneck: e.g., coordination, hot keys, replication lag] #flashcard
+
+#flashcard
+**Q:** How do you handle failures in Consistency, CAP & PACELC? :: **A:** [Retry, circuit breaker, fallback, graceful degradation] #flashcard
+
+#flashcard
+**Q:** What are the key metrics to monitor for Consistency, CAP & PACELC? :: **A:** [RED: rate, errors, duration; USE: utilization, saturation, errors] #flashcard
+
+#flashcard
+**Q:** How does Consistency, CAP & PACELC scale to 10x? :: **A:** [Sharding, read replicas, async processing, caching layers] #flashcard
+
+#flashcard
+**Q:** What is the consistency model for Consistency, CAP & PACELC? :: **A:** [Strong/eventual/causal - justify with use case] #flashcard
+
+#flashcard
+**Q:** How do you test Consistency, CAP & PACELC? :: **A:** [Contract tests, chaos engineering, load tests, fault injection] #flashcard
+
+#flashcard
+**Q:** What is the operational cost of Consistency, CAP & PACELC? :: **A:** [Team expertise, tooling, on-call burden, migration risk] #flashcard
+
+#flashcard
+**Q:** When would you NOT use Consistency, CAP & PACELC? :: **A:** [Managed service covers need, simple CRUD, team lacks maturity] #flashcard
+
+#flashcard
+**Q:** What is the key design decision in Consistency, CAP & PACELC? :: **A:** [The irreversible choice that defines the architecture] #flashcard
+
+#flashcard
+**Q:** How do you migrate to Consistency, CAP & PACELC? :: **A:** [Strangler fig, dual-write, canary, feature flags] #flashcard
+
+#flashcard
+**Q:** What security considerations for Consistency, CAP & PACELC? :: **A:** [AuthZ, encryption, audit, secrets management] #flashcard
+
+#flashcard
+**Q:** How do you debug Consistency, CAP & PACELC in production? :: **A:** [Structured logging, correlation IDs, distributed tracing, SLO alerts] #flashcard
+
+
+## Practice Tasks (Tasks Plugin)
+- [ ] Explain the architecture from memory 📅 {{date:YYYY-MM-DD, +1}}
+- [ ] Draw the system diagram without looking 📅 {{date:YYYY-MM-DD, +3}}
+- [ ] Answer all Interview Q&A aloud 📅 {{date:YYYY-MM-DD, +7}}
+- [ ] Review flashcards (Spaced Repetition) 📅 {{date:YYYY-MM-DD, +1}}
+
+```tasks
+not done
+path includes Architect/06_Data-Architecture
+sort by due
+limit 10
+```
+
+---|---|---|
 | Every distributed decision | ✅ | Checkout (C) vs catalogue (A) vs cart (between) |
 | PACELC in normal operation | ✅ | Sync cross-region write (C, slow) vs local + async replicate (L, stale) |
 | Interview framing | ✅ | "Depends on operation" beats "our DB is CP/AP" |
 | One global setting for all ops | ❌ | Overpays latency on reads, risks availability on writes |
 
-## ⚖️ Trade-offs
-| Dimension | Strong Consistency (CP) | Eventual Consistency (AP) |
-|---|---|---|
-| **Reasoning** | Simple, no reconciliation | Requires conflict resolution |
-| **Availability** | Lower (fails on partition) | Higher (serves stale) |
-| **Latency** | Higher (sync quorum) | Lower (local/edge) |
-| **Conflict Resolution** | None needed | Idempotency keys, versioning, CRDTs, business queues |
-| **UX Copy** | "Failed — try again" | "Usually up to date" (honest) |
-
-**Decision rule**: Checkout = CP (fail rather than oversell). Catalogue = AP (serve stale). Cart = AP (merge later via CRDT/last-write).
 
 ## 🆚 Vs. Alternatives
 | Alternative | When to Choose | Decision Rule |
@@ -113,6 +195,16 @@ public Fallback<PaymentResult> paymentFallback() {
 2. **"Eventual" without a bound** — define staleness SLAs (p99 lag < 5s) and alert on them
 3. **Assuming network won't partition** — VPC AZ failure says hi
 4. **CAP as "pick two of three"** — outdated framing; partitions happen, real choice is C-vs-A *during* partition, L-vs-C *otherwise*
+
+
+## Pitfalls
+1. Underestimating operational complexity (backups, monitoring, upgrades)
+2. Ignoring failure modes (network partitions, disk failures, clock drift)
+3. Not planning for 10x scale from day one
+4. Skipping monitoring/alerting in MVP
+5. Premature optimization before measuring
+6. Dual-write without transactional outbox
+7. Assuming global order in partitioned systems
 
 ## 🎤 Interview Q&A (Senior Depth)
 

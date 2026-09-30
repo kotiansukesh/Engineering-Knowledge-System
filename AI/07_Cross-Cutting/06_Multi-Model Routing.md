@@ -10,8 +10,8 @@ tags:
 - 2026-trend
 created: 2026-09-02
 completed: false
-reviewed: ''
-sr-due: ''
+reviewed: "2026-09-29"
+sr-due: "2026-09-30"
 excalidraw: ''
 difficulty: Medium
 source: ''
@@ -98,67 +98,37 @@ Routing = choose **before** call; fallback = retry **after** failure. Use both �
 **Q: How to A/B test?**
 Langfuse experiment: 10% traffic to candidate route, compare `faithfulness`, `cost_per_1k`, `p95` — promote if cost ↓ and faithfulness ≥ baseline.
 
-## Related
+## Flashcards (Spaced Repetition)
 
-- [[05_Cost Optimization|Cost Optimization]] • [[03_LLM Observability|Observability]] • [[02_AI Evaluation|Evaluation]] • [[AI/04_Production-Platform/01_AI Gateway|AI Gateway]] • [[AI/06_Architecture-Governance/01_SWARC4AI Syllabus|SWARC4AI]]
+#flashcard
+**Q:** What is the trigger keyword for Multi-Model Routing? :: **A:** [trigger keywords] #flashcard
+
+#flashcard
+**Q:** Key hyperparameter for Multi-Model Routing? :: **A:** [hyperparameter + typical range] #flashcard
+
+#flashcard
+**Q:** When do you NOT use Multi-Model Routing? :: **A:** [anti-pattern scenarios] #flashcard
+
+#flashcard
+**Q:** Cost order of magnitude for Multi-Model Routing? :: **A:** [GPU hours / $ per 1M tokens] #flashcard
+
+## Practice Tasks (Tasks Plugin)
+- [ ] Restate the intent from memory 📅 2026-09-30
+- [ ] Code the config without looking 📅 2026-10-02
+- [ ] Answer all Interview Q&A aloud 📅 2026-10-06
+- [ ] Review flashcards (Spaced Repetition) 📅 2026-09-30
+
+```tasks
+not done
+path includes 07_Cross-Cutting
+sort by due
+limit 10
+```
+
+## Related
+- [[README|AI MOC]]
+- [[07_Cross-Cutting/README|07_Cross-Cutting Folder]]
 
 ---
-*Category: cross-cutting • Interview-ready*
 
-# Multi-Model Routing — GPT/Claude/Gemini/Open-Weights
-
-> Part of [[README|07_Cross-Cutting]] • `cross-cutting` • From **Phase 04 (Week 17+)** — the AI Gateway's brain: route by **latency / capability / cost** with fallback.
-
-## Runnable Code — Router + Fallback (Python)
-
-```
-python
-
-# Config: Cost/latency/capability Table, 2026 Snapshot
-
-MODELS = {
- "haiku": {"cost":0.25, "latency":400, "cap":"fast-fact", "provider":"anthropic"},
- "sonnet": {"cost":3.0, "latency":900, "cap":"code/reasoning", "provider":"anthropic"},
- "gpt-4o-mini":{"cost":0.15,"latency":500,"cap":"fast-fact","provider":"openai"},
- "gpt-4o": {"cost":2.5, "latency":1100,"cap":"reasoning","provider":"openai"},
- "gemini-2.5-flash":{"cost":0.3,"latency":600,"cap":"long-context","provider":"google"},
- "llama-3.3-70b":{"cost":0.1, "latency":800,"cap":"bulk","provider":"self-host"},
-}
-
-# 1) Classifier, Rule + Tiny Model
-
-def route(query: str, domain: str) -> str:
- if len(query) > 8000: return "gemini-2.5-flash" # long context
- if domain == "code": return "sonnet"
- if is_simple_fact(query): return "haiku" # or gpt-4o-mini, A/B via eval
- return "gpt-4o-mini"
-
-# 2) Fallback Chain, Retry Cheaper on Failure
-
-FALLBACK = {"sonnet":["haiku","gpt-4o-mini"], "gpt-4o":["gpt-4o-mini","haiku"]}
-
-async def ask_resilient(query: str):
- model = route(query, domain="search")
- for m in [model] + FALLBACK.get(model, []):
- try:
- with tracer.start_as_current_span("llm", attributes={"llm.model": m}):
- return await llm.chat.completions.create(model=m, messages=build(query))
- except (RateLimitError, TimeoutError):
- continue
- raise RuntimeError("all fallbacks exhausted")
-```
-
-**Gateway wiring (Phase 04):** Router lives in `api/gateway/router.py`; reads per-tenant policy from config; emits `llm.model` span + cost metric to Langfuse/Prometheus.
-
-## How it Compares
-
-| | Single Model (gpt-4o) | Router (this note) | Cascading (small→large on fail) |
-|--|---|---|---|
-| Cost | High, flat | 30–50% lower (eval-gated) | Medium (extra call on fail) |
-| Latency | p95 fixed | p50 lower (cheap hits) | p95 higher |
-| Use | MVP | Platform (Weeks 17+) | Simple fallback-only |
-
-# Circuit Breaker on the Fallback Chain: a Failed Provider Routes to the
-
-# Fallback Model, not to a User-facing Error (see ai Gateway).
-```
+*Category: AI/07_Cross-Cutting • Part of [[README|AI MOC]]*

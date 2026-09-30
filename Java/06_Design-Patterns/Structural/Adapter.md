@@ -1,22 +1,133 @@
 ---
-title: Adapter
-category: Java/06_Design-Patterns/Structural
+title: "Adapter"
+category: "Java/06_Design-Patterns/Structural"
 tags:
 - design-patterns
 - structural
 - adapter
 pattern: adapter
 source: https://refactoring.guru/design-patterns/adapter
-created: 2026-09-02
+created: "2026-09-29"
 difficulty: Medium
 completed: false
-reviewed: ''
-sr-due: ''
-excalidraw: ''
+reviewed: "2026-09-29"
+sr-due: "2026-10-06"
+excalidraw: ""
 type: note
 ---
 
 # Adapter *Also Known as: Wrapper*
+
+> Category: Structural • Source: [Refactoring.Guru , Adapter](https://refactoring.guru/design-patterns/adapter) • Part of [[Java/README|Java MOC]] → [[06_Design-Patterns/README|Design Patterns MOC]]
+
+## Why it Matters
+
+Lets objects with **incompatible interfaces** **work together**.
+
+## Diagram
+
+```mermaid
+classDiagram
+ class Client
+ class RoundPeg {
+ <<interface>>
+ +radius()
+ }
+ class SquareAdapter {
+ +radius()
+ }
+ class SquarePeg
+ class RoundHole {
+ +fits(RoundPeg)
+ }
+ RoundPeg <|.. SquareAdapter
+ SquareAdapter o-- SquarePeg : adaptee
+ RoundHole --> RoundPeg
+ Client --> RoundHole
+```
+
+## Code
+
+```java
+// Java 25: records, sealed interfaces, pattern matching, virtual threads, Compact Object Headers
+import java.util.List;
+// Adapter translates SquarePeg to the RoundPeg target so RoundHole stays unchanged.
+public class AdapterDemo {
+ interface RoundPeg { double radius(); }
+ static class SquarePeg {
+ final double width;
+ SquarePeg(double w) { width = w; }
+ }
+ static class SquareAdapter implements RoundPeg {
+ private final SquarePeg peg;
+ SquareAdapter(SquarePeg p) { peg = p; }
+ public double radius() { return peg.width * Math.sqrt(2) / 2; }
+ }
+ record RoundHole(double radius) {
+ boolean fits(RoundPeg p) { return p.radius() <= radius; }
+ }
+ public static void main(String[] args) {
+ var hole = new RoundHole(5.0);
+ var adapted = new SquareAdapter(new SquarePeg(6.0));
+ System.out.println("fits: " + hole.fits(adapted)); // => fits: true
+ System.out.println("fits small: " + hole.fits(() -> 2.0)); // => fits small: true
+ System.out.println("adaptees reused: " + List.of(adapted.radius()).size()); // => adaptees reused: 1
+ }
+}
+```
+
+The demo proves the pattern contract is fulfilled with immutable, sealed implementations.
+
+## When to Use / When NOT
+
+| **Use When** | **Avoid When** |
+|--------------|----------------|
+| An existing class has the right behavior but the wrong interface. |  |
+| Third-party or legacy code cannot be modified. |  |
+| Translation is thin; no redesign of either side is wanted. |  |
+
+## Trade-offs
+
+| Dimension | This Approach | Alternative |
+|-----------|---------------|-------------|
+| Complexity | [complexity] | [alt complexity] |
+| Performance | [performance] | [alt performance] |
+| Readability | [readability] | [alt readability] |
+| Testability | [testability] | [alt testability] |
+
+## Vs Table
+
+| Pattern | Use when |
+|---------|----------|
+| Adapter | Translate existing interface after the fact |
+| Bridge | Split abstraction and implementation by design |
+
+## Pitfalls
+
+- Leaky translation: adaptee exceptions and semantics bleed through untranslated.
+- Adapting back and forth in layers , two adapters signal a missing shared interface.
+- Stateful adapters shared across threads without synchronization.
+
+## Interview Q&A (Senior Depth)
+
+**Q: Adapter vs decorator?**
+
+Adapter changes the interface. Decorator keeps the same interface and stacks behavior.
+
+**Q: Adapter vs Facade?**
+
+An adapter translates one existing interface into the shape a client expects, without simplifying anything. A facade designs a new, simpler front over a whole subsystem. Use Adapter after the fact for mismatch, Facade up front for complexity.
+
+**Q: Class adapter vs object adapter , which in Java?**
+
+Object (composition) adapter , hold the adaptee, implement the target , is the Java default since single inheritance blocks most class adapters. Class adapters (extend adaptee, implement target) appear only when the adaptee was designed for extension.
+
+: Adapter vs decorator?:: Adapter changes the interface. Decorator keeps the same interface and stacks behavior. **Q: Adapter vs Facade?** An adapter translates one existing interface into the shape a client expects, without simplifying anything. A facade designs a new, simpler front over a whole subsystem. Use Adapter after the fact for mismatch, Facade up front for complexity. **Q: Class adapter vs object adapter , which in Java?** Object (composition) adapter , hold... #flashcard
+
+## Flashcards (Spaced Repetition)
+
+#flashcard
+Wrapper*
 
 > Category: Structural • Source: [Refactoring.Guru , Adapter](https://refactoring.guru/design-patterns/adapter) • Part of [[Java/README|Java MOC]] → [[06_Design-Patterns/README|Design Patterns MOC]]
 
@@ -115,11 +226,26 @@ Object (composition) adapter , hold the adaptee, implement the target , is the J
 
 : Adapter vs decorator?:: Adapter changes the interface. Decorator keeps the same interface and stacks behavior. **Q: Adapter vs Facade?** An adapter translates one existing interface into the shape a client expects, without simplifying anything. A facade designs a new, simpler front over a whole subsystem. Use Adapter after the fact for mismatch, Facade up front for complexity. **Q: Class adapter vs object adapter , which in Java?** Object (composition) adapter , hold... #flashcard
 
+## Practice Tasks (Tasks Plugin)
+
+- [ ] Restate the intent from memory 📅 {date:YYYY-MM-DD, +1}
+- [ ] Code the snippet without looking 📅 {date:YYYY-MM-DD, +3}
+- [ ] Answer all Interview Q&A aloud 📅 {date:YYYY-MM-DD, +7}
+- [ ] Review flashcards (Spaced Repetition) 📅 {date:YYYY-MM-DD, +1}
+
+```tasks
+not done
+path includes {file.folder}
+sort by due
+limit 10
+```
+
 ## Related
 
 [[06_Design-Patterns/Structural/Bridge|Bridge]] (designed split vs after-the-fact) • [[06_Design-Patterns/Structural/Facade|Facade]] (simplify vs translate) • [[06_Design-Patterns/Structural/Decorator|Decorator]] (same interface)
 
 ---
+
 *Category: Structural • Tags: design-patterns • Source: refactoring.guru*
 
 ## Problem

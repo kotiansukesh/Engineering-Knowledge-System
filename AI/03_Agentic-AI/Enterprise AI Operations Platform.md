@@ -10,8 +10,8 @@ weeks: 11-16
 created: 2026-09-02
 completed: false
 type: project
-reviewed: ''
-sr-due: ''
+reviewed: "2026-09-29"
+sr-due: "2026-09-30"
 excalidraw: ''
 difficulty: Medium
 source: ''
@@ -85,49 +85,37 @@ def gate_for(action: Action) -> str:
 - **Q:** How is risk actually enforced? **A:** As a policy mapping applied before execution — high risk requires a human, medium requires review, low is automatic. The enforcement is in code, not in a prompt hoping the model asks permission.
 - **Q:** What is the failure mode you worry about most? **A:** A silently growing budget. A stuck retry loop in an agent with tool access is both an incident and a large invoice, which is why per-run step and token budgets are enforced, not monitored.
 
-## Related
+## Flashcards (Spaced Repetition)
 
-- [[Architecting Agentic AI Solutions]] • [[Multi-Agent Patterns]] • [[AI/04_Production-Platform/README|04_Production (harden)]]
+#flashcard
+**Q:** What is the trigger keyword for Enterprise AI Operations Platform? :: **A:** [trigger keywords] #flashcard
+
+#flashcard
+**Q:** Key hyperparameter for Enterprise AI Operations Platform? :: **A:** [hyperparameter + typical range] #flashcard
+
+#flashcard
+**Q:** When do you NOT use Enterprise AI Operations Platform? :: **A:** [anti-pattern scenarios] #flashcard
+
+#flashcard
+**Q:** Cost order of magnitude for Enterprise AI Operations Platform? :: **A:** [GPU hours / $ per 1M tokens] #flashcard
+
+## Practice Tasks (Tasks Plugin)
+- [ ] Restate the intent from memory 📅 2026-09-30
+- [ ] Code the config without looking 📅 2026-10-02
+- [ ] Answer all Interview Q&A aloud 📅 2026-10-06
+- [ ] Review flashcards (Spaced Repetition) 📅 2026-09-30
+
+```tasks
+not done
+path includes 03_Agentic-AI
+sort by due
+limit 10
+```
+
+## Related
+- [[README|AI MOC]]
+- [[03_Agentic-AI/README|03_Agentic-AI Folder]]
 
 ---
-*Category: agentic*
 
-# Enterprise AI Operations Platform — Capstone (Weeks 11–16)
-
-> Part of [[README|03_Agentic-AI]] • `project` • The phase where a chatbot becomes an **enterprise system**.
-
-## Agents
-
-| Agent | Role |
-|-------|------|
-| **Planner** | Breaks goal into tasks, DAGs workflows |
-| **Researcher** | RAG + web/tool search, synthesizes context |
-| **Database Agent** | PG/pgvector/Redis queries, data access |
-| **Coding Agent** | Generates/refactors code, runs tests |
-| **QA Agent** | Evaluation harness, regression checks |
-| **Reviewer** | Code/policy review, compliance gate |
-| **Security Agent** | Prompt injection, secret handling, sandboxing |
-
-## Capabilities
-
-- [ ] **Orchestration:** LangGraph state machine or AutoGen group chat; Planner → workers → Reviewer flow.
-- [ ] **Memory:** Short-term (conversation) + long-term (PG + vector store per user/project).
-- [ ] **Human approval:** HITL gates before DB writes / code merges / external calls.
-- [ ] **Monitoring:** Per-agent latency, success rate, token cost → Prometheus (Phase 04).
-- [ ] **Audit logs:** Who/what/when for every agent action — required for [[AI/06_Architecture-Governance/README|governance]].
-
-## Architecture Sketch
-
-```
-User goal → Planner (DAG) → [Researcher ∥ Database Agent ∥ Coding Agent] ↓
- QA Agent → Reviewer (HITL gate) → Security Agent
- ↓
- Audit log + Memory write + Response
-```
-
-# Every Agent Action is Written to the Audit log before it Executes, so a
-
-# Decision can be Reconstructed Even if the run is Interrupted.
-
-# Audit.append({"agent": "Executor", "Action": Action, "Ts": Now()})
-```
+*Category: AI/03_Agentic-AI • Part of [[README|AI MOC]]*

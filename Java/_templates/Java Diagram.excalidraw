@@ -1,0 +1,93 @@
+{
+  "type": "excalidraw",
+  "version": 2,
+  "source": "https://excalidraw.com",
+  "elements": [
+    {
+      "id": "template_class",
+      "type": "rectangle",
+      "x": 100,
+      "y": 100,
+      "width": 200,
+      "height": 120,
+      "strokeColor": "#1971c2",
+      "backgroundColor": "#e7f5ff",
+      "strokeWidth": 2,
+      "roughness": 1,
+      "seed": 1
+    },
+    {
+      "id": "template_class_label",
+      "type": "text",
+      "x": 150,
+      "y": 115,
+      "width": 100,
+      "height": 25,
+      "text": "ClassName",
+      "fontSize": 20,
+      "fontFamily": 1,
+      "textAlign": "center",
+      "strokeColor": "#1971c2"
+    },
+    {
+      "id": "template_interface",
+      "type": "rectangle",
+      "x": 100,
+      "y": 280,
+      "width": 200,
+      "height": 100,
+      "strokeColor": "#40c057",
+      "backgroundColor": "#e9fceb",
+      "strokeWidth": 2,
+      "strokeStyle": "dashed",
+      "roughness": 1,
+      "seed": 2
+    },
+    {
+      "id": "template_interface_label",
+      "type": "text",
+      "x": 150,
+      "y": 295,
+      "width": 100,
+      "height": 25,
+      "text": "\u00abinterface\u00bb\nInterfaceName",
+      "fontSize": 16,
+      "fontFamily": 1,
+      "textAlign": "center",
+      "strokeColor": "#40c057"
+    },
+    {
+      "id": "template_arrow",
+      "type": "arrow",
+      "x": 350,
+      "y": 140,
+      "width": 150,
+      "height": 0,
+      "strokeColor": "#868e96",
+      "strokeWidth": 2,
+      "roughness": 1,
+      "startArrowhead": null,
+      "endArrowhead": "arrow",
+      "seed": 3
+    },
+    {
+      "id": "template_arrow_label",
+      "type": "text",
+      "x": 380,
+      "y": 120,
+      "width": 100,
+      "height": 25,
+      "text": "uses / implements",
+      "fontSize": 14,
+      "fontFamily": 1,
+      "strokeColor": "#868e96"
+    }
+  ],
+  "appState": {
+    "theme": "dark",
+    "viewBackgroundColor": "#1e1e1e",
+    "gridSize": 20,
+    "gridColor": "#333"
+  },
+  "files": {}
+}

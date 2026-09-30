@@ -1,29 +1,26 @@
 ---
 title: Matrix Traversal
-pattern: 16
+pattern: 17
 category: Coding Patterns/06_Matrix
 tags:
 - pattern/matrix
 - pattern/matrix/traversal
 leetcode:
+- 54
 - 733
 - 200
-- 130
 created: '2026-09-02'
 completed: false
 reviewed: ''
 sr-due: ''
 difficulty: Medium
 source: https://blog.algomaster.io/p/20-dsa-patterns
-problems-solved: []
-problems-solved-dates: {}
 excalidraw: ''
-type: note
 ---
 
 # Matrix Traversal
 
-> Part of [[README|20 DSA Patterns]] • `Coding Patterns/06_Matrix` • Pattern #16
+> Part of [[README|20 DSA Patterns]] • `Coding Patterns/06_Matrix` • Pattern #17
 
 ## Intent
 Run DFS or BFS on a 2D grid with 4-directional (or 8-directional) moves — the standard pattern for flood fill, islands, surrounded regions, maze, and nearest cell distance.
@@ -50,46 +47,74 @@ flowchart LR
 
 ## Problems
 
+### 54. Spiral Matrix (Medium)
+> [LeetCode 54](https://leetcode.com/problems/spiral-matrix/) • Tags: Array, Matrix, Simulation
+
+**Problem Statement:**
+
+Given an m x n matrix, return all elements of the matrix in spiral order. Example 1: Input: matrix = [[1,2,3],[4,5,6],[7,8,9]] Output: [1,2,3,6,9,8,7,4,5] Example 2: Input: matrix = [[1,2,3,4],[5,6,7,8],[9,10,11,12]] Output: [1,2,3,4,8,12,11,10,9,5,6,7] Constraints: m == matrix.length n == matrix[i].length 1 -100
+
+**Examples:**
+
+Example 1:
+```
+[[1,2,3],[4,5,6],[7,8,9]]
+```
+
+Example 2:
+```
+[[1,2,3,4],[5,6,7,8],[9,10,11,12]]
+```
+---
+
 ### 733. Flood Fill (Easy)
 > [LeetCode 733](https://leetcode.com/problems/flood-fill/) • Tags: Array, Depth-First Search, Breadth-First Search, Matrix
 
 **Problem Statement:**
 
-You are given an image represented by an m x n grid of integers image, where image[i][j] represents the pixel value of the image. You are also given three integers sr, sc, and color. Your task is to perform a flood fill on the image starting from the pixel image[sr][sc].
-
-To perform a flood fill:
-
-	Begin with the starting pixel and change its color to color.
-	Perform the same process for each pixel that is directly adjacent (pixels that share a side with the original pixel, either horizontally or vertically) and shares the same color as the starting pixel.
-	Keep repeating this process by checking neighboring pixels of the updated pixels and modifying their color if it matches the original color of the starting pixel.
-	The process stops when there are no more adjacent pixels of the original color to update.
-
-Return the modified image after performing the flood fill.
+You are given an image represented by an m x n grid of integers image, where image[i][j] represents the pixel value of the image. You are also given three integers sr, sc, and color. Your task is to perform a flood fill on the image starting from the pixel image[sr][sc]. To perform a flood fill: Begin with the starting pixel and change its color to color. Perform the same process for each pixel that is directly adjacent (pixels that share a side with the original pixel, either horizontally or vertically) and shares the same color as the starting pixel. Keep repeating this process by checking neighboring pixels of the updated pixels and modifying their color if it matches the original color of the starting pixel. The process stops when there are no more adjacent pixels of the original color to update. Return the modified image after performing the flood fill. Example 1: Input: image = [[1,1,1],[1,1,0],[1,0,1]], sr = 1, sc = 1, color = 2 Output: [[2,2,2],[2,2,0],[2,0,1]] Explanation: From the center of the image with position (sr, sc) = (1, 1) (i.e., the red pixel), all pixels connected by a path of the same color as the starting pixel (i.e., the blue pixels) are colored with the new color. Note the bottom corner is not colored 2, because it is not horizontally or vertically connected to the starting pixel. Example 2: Input: image = [[0,0,0],[0,0,0]], sr = 0, sc = 0, color = 0 Output: [[0,0,0],[0,0,0]] Explanation: The starting pixel is already colored with 0, which is the same as the target color. Therefore, no changes are made to the image. Constraints: m == image.length n == image[i].length 1 0 16 0 0
 
 **Examples:**
 
 Example 1:
-
-Input: image = [[1,1,1],[1,1,0],[1,0,1]], sr = 1, sc = 1, color = 2
-
-Output: [[2,2,2],[2,2,0],[2,0,1]]
-
-Explanation:
-
-From the center of the image with position (sr, sc) = (1, 1) (i.e., the red pixel), all pixels connected by a path of the same color as the starting pixel (i.e., the blue pixels) are colored with the new color.
-
-Note the bottom corner is not colored 2, because it is not horizontally or vertically connected to the starting pixel.
+```
+[[1,1,1],[1,1,0],[1,0,1]]
+```
 
 Example 2:
+```
+1
+```
 
-Input: image = [[0,0,0],[0,0,0]], sr = 0, sc = 0, color = 0
+Example 3:
+```
+1
+```
 
-Output: [[0,0,0],[0,0,0]]
+Example 4:
+```
+2
+```
 
-Explanation:
+Example 5:
+```
+[[0,0,0],[0,0,0]]
+```
 
-The starting pixel is already colored with 0, which is the same as the target color. Therefore, no changes are made to the image.
+Example 6:
+```
+0
+```
 
+Example 7:
+```
+0
+```
+
+Example 8:
+```
+0
+```
 ---
 
 ### 200. Number of Islands (Medium)
@@ -97,65 +122,19 @@ The starting pixel is already colored with 0, which is the same as the target co
 
 **Problem Statement:**
 
-Given an m x n 2D binary grid grid which represents a map of '1's (land) and '0's (water), return the number of islands.
-
-An island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically. You may assume all four edges of the grid are all surrounded by water.
+Given an m x n 2D binary grid grid which represents a map of '1's (land) and '0's (water), return the number of islands. An island is surrounded by water and is formed by connecting adjacent lands horizontally or vertically. You may assume all four edges of the grid are all surrounded by water. Example 1: Input: grid = [ ["1","1","1","1","0"], ["1","1","0","1","0"], ["1","1","0","0","0"], ["0","0","0","0","0"] ] Output: 1 Example 2: Input: grid = [ ["1","1","0","0","0"], ["1","1","0","0","0"], ["0","0","1","0","0"], ["0","0","0","1","1"] ] Output: 3 Constraints: m == grid.length n == grid[i].length 1 grid[i][j] is '0' or '1'.
 
 **Examples:**
 
 Example 1:
-
-Input: grid = [
-  ["1","1","1","1","0"],
-  ["1","1","0","1","0"],
-  ["1","1","0","0","0"],
-  ["0","0","0","0","0"]
-]
-Output: 1
+```
+[["1","1","1","1","0"],["1","1","0","1","0"],["1","1","0","0","0"],["0","0","0","0","0"]]
+```
 
 Example 2:
-
-Input: grid = [
-  ["1","1","0","0","0"],
-  ["1","1","0","0","0"],
-  ["0","0","1","0","0"],
-  ["0","0","0","1","1"]
-]
-Output: 3
-
----
-
-### 130. Surrounded Regions (Medium)
-> [LeetCode 130](https://leetcode.com/problems/surrounded-regions/) • Tags: Array, Depth-First Search, Breadth-First Search, Union-Find, Matrix
-
-**Problem Statement:**
-
-You are given an m x n matrix board containing letters 'X' and 'O', capture regions that are surrounded:
-
-	Connect: A cell is connected to adjacent cells horizontally or vertically.
-	Region: To form a region connect every 'O' cell.
-	Surround: A region is surrounded if none of the 'O' cells in that region are on the edge of the board. Such regions are completely enclosed by 'X' cells.
-
-To capture a surrounded region, replace all 'O's with 'X's in-place within the original board. You do not need to return anything.
-
-**Examples:**
-
-Example 1:
-
-Input: board = [["X","X","X","X"],["X","O","O","X"],["X","X","O","X"],["X","O","X","X"]]
-
-Output: [["X","X","X","X"],["X","X","X","X"],["X","X","X","X"],["X","O","X","X"]]
-
-Explanation:
-
-In the above diagram, the bottom region is not captured because it is on the edge of the board and cannot be surrounded.
-
-Example 2:
-
-Input: board = [["X"]]
-
-Output: [["X"]]
-
+```
+[["1","1","0","0","0"],["1","1","0","0","0"],["0","0","1","0","0"],["0","0","0","1","1"]]
+```
 ---
 
 
@@ -280,11 +259,39 @@ void dfsMark(char[][] b, int r, int c) {
 **Q: 0-1 BFS — when do you use it on a grid?**
 **A:** When edge weights are 0 or 1 (e.g., moving on free cell = 0, moving through obstacle = 1). Use deque: push 0-weight edges to front, 1-weight to back. Processes in increasing distance order. Faster than Dijkstra (O(V+E) vs O(E log V)). For general weights, use Dijkstra.
 
+
+## Flashcards (Spaced Repetition)
+
+#flashcard
+**Q:** What is the trigger keyword for Matrix Traversal? :: **A:** spiral order, diagonal traversal, BFS/DFS on grid, flood fill, shortest path in grid, rotation #flashcard
+
+#flashcard
+**Q:** Time/space complexity of Matrix Traversal? :: **A:** Time: O(mn) visit each cell, Space: O(mn) visited or O(1) in-place marking #flashcard
+
+#flashcard
+**Q:** When do you NOT use Matrix Traversal? :: **A:** only need perimeter (O(m+n)), sparse grid (use coordinate compression) #flashcard
+
+#flashcard
+**Q:** Core Java 25 snippet for Matrix Traversal? :: **A:** `int[][] dirs={{0,1},{1,0},{0,-1},{-1,0}}; for(int[] d:dirs){ int nr=r+d[0], nc=c+d[1]; if(inBounds(nr,nc)) process(nr,nc); }` #flashcard
+
+
+## Practice Tasks (Tasks Plugin)
+- [ ] Restate the intent from memory 📅 {date:YYYY-MM-DD, +1}
+- [ ] Code the snippet without looking 📅 {date:YYYY-MM-DD, +3}
+- [ ] Answer all Interview Q&A aloud 📅 {date:YYYY-MM-DD, +7}
+- [ ] Review flashcards (Spaced Repetition) 📅 {date:YYYY-MM-DD, +1}
+
+```tasks
+not done
+path includes {file.folder}
+sort by due
+limit 10
+```
+
 ## Related
 - [[05_Trees_Graphs/02 - DFS|DFS]] (recursive grid traversal)
 - [[05_Trees_Graphs/03 - BFS|BFS]] (level-order, shortest unweighted)
 - [[05_Trees_Graphs/06 - Union Find|Union Find]] (offline connectivity)
 - [[Java/07_DSA/Graph]]
-
 ---
 *Category: Coding Patterns/06_Matrix*

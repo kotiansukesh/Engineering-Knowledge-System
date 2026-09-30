@@ -10,8 +10,8 @@ created: 2026-09-03
 completed: false
 pattern: 6
 difficulty: Easy
-reviewed: ''
-sr-due: ''
+reviewed: "2026-09-29"
+sr-due: "2026-10-06"
 excalidraw: ''
 source: ''
 type: note
@@ -173,13 +173,17 @@ Why does `synchronized` no longer pin a virtual thread in Java 24/25?:: JEP 491 
 ## Must-Know Timeline (8 → 25)
 
 ```mermaid
-timeline
- title Java 8 → 25 in one line each
- 8 : lambdas, Streams, Optional, java.time
- 17 : sealed, records, pattern instanceof
- 21 : virtual threads 444, Sequenced 431, record + switch patterns
- 24 : JEP 491, synchronized no longer pins
- 25 : ScopedValue 506, Structured Concurrency 505, compact headers 450
+flowchart LR
+    %% Java 8 → 25 in one line each
+    N0[\"8: lambdas, Streams, Optional, java.time\"]
+    N1[\"17: sealed, records, pattern instanceof\"]
+    N0 --> N1
+    N2[\"21: virtual threads 444, Sequenced 431, record + switch patterns\"]
+    N1 --> N2
+    N3[\"24: JEP 491, synchronized no longer pins\"]
+    N2 --> N3
+    N4[\"25: ScopedValue 506, Structured Concurrency 505, compact headers 450\"]
+    N3 --> N4
 ```
 | Version | Feature | JEP | Interview Q |
 |---------|---------|-----|-------------|

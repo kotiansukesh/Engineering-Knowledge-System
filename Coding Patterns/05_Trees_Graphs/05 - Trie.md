@@ -1,6 +1,6 @@
 ---
 title: Trie
-pattern: 18
+pattern: 15
 category: Coding Patterns/05_Trees_Graphs
 tags:
 - pattern/trie
@@ -16,16 +16,13 @@ reviewed: ''
 sr-due: ''
 difficulty: Medium
 source: https://blog.algomaster.io/p/20-dsa-patterns
-problems-solved: []
-problems-solved-dates: {}
 excalidraw: ''
-type: note
 ---
 
 
 # Trie
 
-> Part of [[README|20 DSA Patterns]] • `Coding Patterns/05_Trees_Graphs` • Pattern #18
+> Part of [[README|20 DSA Patterns]] • `Coding Patterns/05_Trees_Graphs` • Pattern #15
 
 ## Intent
 Prefix tree where each node represents a character and root-to-node path = prefix. Enables O(L) insert/search/prefix queries with shared prefixes — the standard for autocomplete, spell-check, and dictionary problems.
@@ -52,34 +49,19 @@ flowchart LR
 
 **Problem Statement:**
 
-A trie (pronounced as "try") or prefix tree is a tree data structure used to efficiently store and retrieve keys in a dataset of strings. There are various applications of this data structure, such as autocomplete and spellchecker.
-
-Implement the Trie class:
-
-	Trie() Initializes the trie object.
-	void insert(String word) Inserts the string word into the trie.
-	boolean search(String word) Returns true if the string word is in the trie (i.e., was inserted before), and false otherwise.
-	boolean startsWith(String prefix) Returns true if there is a previously inserted string word that has the prefix prefix, and false otherwise.
+A trie (pronounced as "try") or prefix tree is a tree data structure used to efficiently store and retrieve keys in a dataset of strings. There are various applications of this data structure, such as autocomplete and spellchecker. Implement the Trie class: Trie() Initializes the trie object. void insert(String word) Inserts the string word into the trie. boolean search(String word) Returns true if the string word is in the trie (i.e., was inserted before), and false otherwise. boolean startsWith(String prefix) Returns true if there is a previously inserted string word that has the prefix prefix, and false otherwise. Example 1: Input ["Trie", "insert", "search", "search", "startsWith", "insert", "search"] [[], ["apple"], ["apple"], ["app"], ["app"], ["app"], ["app"]] Output [null, null, true, false, true, null, true] Explanation Trie trie = new Trie(); trie.insert("apple"); trie.search("apple"); // return True trie.search("app"); // return False trie.startsWith("app"); // return True trie.insert("app"); trie.search("app"); // return True Constraints: 1 word and prefix consist only of lowercase English letters. At most 3 * 104 calls in total will be made to insert, search, and startsWith.
 
 **Examples:**
 
 Example 1:
+```
+["Trie","insert","search","search","startsWith","insert","search"]
+```
 
-Input
-["Trie", "insert", "search", "search", "startsWith", "insert", "search"]
-[[], ["apple"], ["apple"], ["app"], ["app"], ["app"], ["app"]]
-Output
-[null, null, true, false, true, null, true]
-
-Explanation
-Trie trie = new Trie();
-trie.insert("apple");
-trie.search("apple");   // return True
-trie.search("app");     // return False
-trie.startsWith("app"); // return True
-trie.insert("app");
-trie.search("app");     // return True
-
+Example 2:
+```
+[[],["apple"],["apple"],["app"],["app"],["app"],["app"]]
+```
 ---
 
 ### 211. Design Add and Search Words Data Structure (Medium)
@@ -87,33 +69,19 @@ trie.search("app");     // return True
 
 **Problem Statement:**
 
-Design a data structure that supports adding new words and finding if a string matches any previously added string.
+Design a data structure that supports adding new words and finding if a string matches any previously added string. Implement the WordDictionary class: WordDictionary() Initializes the object. void addWord(word) Adds word to the data structure, it can be matched later. bool search(word) Returns true if there is any string in the data structure that matches word or false otherwise. word may contain dots '.' where dots can be matched with any letter. Example: Input ["WordDictionary","addWord","addWord","addWord","search","search","search","search"] [[],["bad"],["dad"],["mad"],["pad"],["bad"],[".ad"],["b.."]] Output [null,null,null,null,false,true,true,true] Explanation WordDictionary wordDictionary = new WordDictionary(); wordDictionary.addWord("bad"); wordDictionary.addWord("dad"); wordDictionary.addWord("mad"); wordDictionary.search("pad"); // return False wordDictionary.search("bad"); // return True wordDictionary.search(".ad"); // return True wordDictionary.search("b.."); // return True Constraints: 1 word in addWord consists of lowercase English letters. word in search consist of '.' or lowercase English letters. There will be at most 2 dots in word for search queries. At most 104 calls will be made to addWord and search.
 
-Implement the WordDictionary class:
+**Examples:**
 
-	WordDictionary() Initializes the object.
-	void addWord(word) Adds word to the data structure, it can be matched later.
-	bool search(word) Returns true if there is any string in the data structure that matches word or false otherwise. word may contain dots '.' where dots can be matched with any letter.
-
- 
-Example:
-
-Input
+Example 1:
+```
 ["WordDictionary","addWord","addWord","addWord","search","search","search","search"]
+```
+
+Example 2:
+```
 [[],["bad"],["dad"],["mad"],["pad"],["bad"],[".ad"],["b.."]]
-Output
-[null,null,null,null,false,true,true,true]
-
-Explanation
-WordDictionary wordDictionary = new WordDictionary();
-wordDictionary.addWord("bad");
-wordDictionary.addWord("dad");
-wordDictionary.addWord("mad");
-wordDictionary.search("pad"); // return False
-wordDictionary.search("bad"); // return True
-wordDictionary.search(".ad"); // return True
-wordDictionary.search("b.."); // return True
-
+```
 ---
 
 ### 212. Word Search II (Hard)
@@ -121,22 +89,29 @@ wordDictionary.search("b.."); // return True
 
 **Problem Statement:**
 
-Given an m x n board of characters and a list of strings words, return all words on the board.
-
-Each word must be constructed from letters of sequentially adjacent cells, where adjacent cells are horizontally or vertically neighboring. The same letter cell may not be used more than once in a word.
+Given an m x n board of characters and a list of strings words, return all words on the board. Each word must be constructed from letters of sequentially adjacent cells, where adjacent cells are horizontally or vertically neighboring. The same letter cell may not be used more than once in a word. Example 1: Input: board = [["o","a","a","n"],["e","t","a","e"],["i","h","k","r"],["i","f","l","v"]], words = ["oath","pea","eat","rain"] Output: ["eat","oath"] Example 2: Input: board = [["a","b"],["c","d"]], words = ["abcb"] Output: [] Constraints: m == board.length n == board[i].length 1 board[i][j] is a lowercase English letter. 1 4 1 words[i] consists of lowercase English letters. All the strings of words are unique.
 
 **Examples:**
 
 Example 1:
-
-Input: board = [["o","a","a","n"],["e","t","a","e"],["i","h","k","r"],["i","f","l","v"]], words = ["oath","pea","eat","rain"]
-Output: ["eat","oath"]
+```
+[["o","a","a","n"],["e","t","a","e"],["i","h","k","r"],["i","f","l","v"]]
+```
 
 Example 2:
+```
+["oath","pea","eat","rain"]
+```
 
-Input: board = [["a","b"],["c","d"]], words = ["abcb"]
-Output: []
+Example 3:
+```
+[["a","b"],["c","d"]]
+```
 
+Example 4:
+```
+["abcb"]
+```
 ---
 
 
@@ -250,11 +225,39 @@ class Solution {
 **Q: Add and Search Words (LC 211) — how to handle `.` wildcard?**
 **A:** `search(word)` with `.` matching any char. Recursive: at `.`, try all 26 children; at letter, follow that child. Time: O(26^d * L) where d = number of dots. For many dots, this is expensive — but dictionary size is typically small enough.
 
+
+## Flashcards (Spaced Repetition)
+
+#flashcard
+**Q:** What is the trigger keyword for Trie? :: **A:** prefix search, autocomplete, word dictionary, XOR max/min, IP routing #flashcard
+
+#flashcard
+**Q:** Time/space complexity of Trie? :: **A:** Time: O(L) per operation (L=word length), Space: O(N×Σ) N words, Σ alphabet #flashcard
+
+#flashcard
+**Q:** When do you NOT use Trie? :: **A:** small dataset (hashset O(1) simpler), no prefix queries needed #flashcard
+
+#flashcard
+**Q:** Core Java 25 snippet for Trie? :: **A:** `class TrieNode{ TrieNode[] ch=new TrieNode[26]; boolean end; } void insert(String w){ TrieNode n=root; for(char c:w){ if(n.ch[c-'a']==null) n.ch[c-'a']=new TrieNode(); n=n.ch[c-'a']; } n.end=true; }` #flashcard
+
+
+## Practice Tasks (Tasks Plugin)
+- [ ] Restate the intent from memory 📅 {date:YYYY-MM-DD, +1}
+- [ ] Code the snippet without looking 📅 {date:YYYY-MM-DD, +3}
+- [ ] Answer all Interview Q&A aloud 📅 {date:YYYY-MM-DD, +7}
+- [ ] Review flashcards (Spaced Repetition) 📅 {date:YYYY-MM-DD, +1}
+
+```tasks
+not done
+path includes {file.folder}
+sort by due
+limit 10
+```
+
 ## Related
 - [[05_Trees_Graphs/01 - Binary Tree Traversal|Binary Tree Traversal]] (Trie is a tree)
 - [[01_Array/03 - Sliding Window|Sliding Window]] (string problems)
 - [[Java/07_DSA/Trees]]
-
 ---
 *Category: Coding Patterns/05_Trees_Graphs*
 - [[Architect/10_System-Design-Interviews/NET-05-API-Gateway.md|NET-05-API-Gateway]] — Trie for URL routing

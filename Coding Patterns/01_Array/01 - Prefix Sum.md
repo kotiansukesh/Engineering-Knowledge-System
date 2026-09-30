@@ -6,19 +6,16 @@ tags:
 - pattern/array
 - pattern/array/prefix-sum
 leetcode:
-- 303
-- 525
 - 560
+- 930
+- 525
 created: '2026-09-02'
 completed: false
 reviewed: ''
 sr-due: ''
 difficulty: Easy
 source: https://blog.algomaster.io/p/20-dsa-patterns
-problems-solved: []
-problems-solved-dates: {}
 excalidraw: ''
-type: note
 ---
 
 # Prefix Sum
@@ -46,36 +43,64 @@ flowchart LR
 
 ## Problems
 
-### 303. Range Sum Query - Immutable (Easy)
-> [LeetCode 303](https://leetcode.com/problems/range-sum-query-immutable/) • Tags: Array, Design, Prefix Sum
+### 560. Subarray Sum Equals K (Medium)
+> [LeetCode 560](https://leetcode.com/problems/subarray-sum-equals-k/) • Tags: Array, Hash Table, Prefix Sum
 
 **Problem Statement:**
 
-Given an integer array nums, handle multiple queries of the following type:
-
-	Calculate the sum of the elements of nums between indices left and right inclusive where left <= right.
-
-Implement the NumArray class:
-
-	NumArray(int[] nums) Initializes the object with the integer array nums.
-	int sumRange(int left, int right) Returns the sum of the elements of nums between indices left and right inclusive (i.e. nums[left] + nums[left + 1] + ... + nums[right]).
+Given an array of integers nums and an integer k, return the total number of subarrays whose sum equals to k. A subarray is a contiguous non-empty sequence of elements within an array. Example 1: Input: nums = [1,1,1], k = 2 Output: 2 Example 2: Input: nums = [1,2,3], k = 3 Output: 2 Constraints: 1 4 -1000 -107 7
 
 **Examples:**
 
 Example 1:
+```
+[1,1,1]
+```
 
-Input
-["NumArray", "sumRange", "sumRange", "sumRange"]
-[[[-2, 0, 3, -5, 2, -1]], [0, 2], [2, 5], [0, 5]]
-Output
-[null, 1, -1, -3]
+Example 2:
+```
+2
+```
 
-Explanation
-NumArray numArray = new NumArray([-2, 0, 3, -5, 2, -1]);
-numArray.sumRange(0, 2); // return (-2) + 0 + 3 = 1
-numArray.sumRange(2, 5); // return 3 + (-5) + 2 + (-1) = -1
-numArray.sumRange(0, 5); // return (-2) + 0 + 3 + (-5) + 2 + (-1) = -3
+Example 3:
+```
+[1,2,3]
+```
 
+Example 4:
+```
+3
+```
+---
+
+### 930. Binary Subarrays With Sum (Medium)
+> [LeetCode 930](https://leetcode.com/problems/binary-subarrays-with-sum/) • Tags: Array, Hash Table, Sliding Window, Prefix Sum
+
+**Problem Statement:**
+
+Given a binary array nums and an integer goal, return the number of non-empty subarrays with a sum goal. A subarray is a contiguous part of the array. Example 1: Input: nums = [1,0,1,0,1], goal = 2 Output: 4 Explanation: The 4 subarrays are bolded and underlined below: [1,0,1,0,1] [1,0,1,0,1] [1,0,1,0,1] [1,0,1,0,1] Example 2: Input: nums = [0,0,0,0,0], goal = 0 Output: 15 Constraints: 1 4 nums[i] is either 0 or 1. 0
+
+**Examples:**
+
+Example 1:
+```
+[1,0,1,0,1]
+```
+
+Example 2:
+```
+2
+```
+
+Example 3:
+```
+[0,0,0,0,0]
+```
+
+Example 4:
+```
+0
+```
 ---
 
 ### 525. Contiguous Array (Medium)
@@ -83,49 +108,24 @@ numArray.sumRange(0, 5); // return (-2) + 0 + 3 + (-5) + 2 + (-1) = -3
 
 **Problem Statement:**
 
-Given a binary array nums, return the maximum length of a contiguous subarray with an equal number of 0 and 1.
+Given a binary array nums, return the maximum length of a contiguous subarray with an equal number of 0 and 1. Example 1: Input: nums = [0,1] Output: 2 Explanation: [0, 1] is the longest contiguous subarray with an equal number of 0 and 1. Example 2: Input: nums = [0,1,0] Output: 2 Explanation: [0, 1] (or [1, 0]) is a longest contiguous subarray with equal number of 0 and 1. Example 3: Input: nums = [0,1,1,1,1,1,0,0,0] Output: 6 Explanation: [1,1,1,0,0,0] is the longest contiguous subarray with equal number of 0 and 1. Constraints: 1 5 nums[i] is either 0 or 1.
 
 **Examples:**
 
 Example 1:
-
-Input: nums = [0,1]
-Output: 2
-Explanation: [0, 1] is the longest contiguous subarray with an equal number of 0 and 1.
+```
+[0,1]
+```
 
 Example 2:
-
-Input: nums = [0,1,0]
-Output: 2
-Explanation: [0, 1] (or [1, 0]) is a longest contiguous subarray with equal number of 0 and 1.
+```
+[0,1,0]
+```
 
 Example 3:
-
-Input: nums = [0,1,1,1,1,1,0,0,0]
-Output: 6
-Explanation: [1,1,1,0,0,0] is the longest contiguous subarray with equal number of 0 and 1.
-
----
-
-### 560. Subarray Sum Equals K (Medium)
-> [LeetCode 560](https://leetcode.com/problems/subarray-sum-equals-k/) • Tags: Array, Hash Table, Prefix Sum
-
-**Problem Statement:**
-
-Given an array of integers nums and an integer k, return the total number of subarrays whose sum equals to k.
-
-A subarray is a contiguous non-empty sequence of elements within an array.
-
-**Examples:**
-
-Example 1:
-Input: nums = [1,1,1], k = 2
-Output: 2
-
-Example 2:
-Input: nums = [1,2,3], k = 3
-Output: 2
-
+```
+[0,1,1,1,1,1,0,0,0]
+```
 ---
 
 
@@ -198,10 +198,38 @@ int subarraySum(int[] nums, int k) {
 **Q: Given streaming data, can you maintain prefix sums?**
 **A:** No — prefix sum assumes static array. For streaming, you need a Fenwick Tree or Segment Tree that supports point updates. Or if it's append-only, you *can* append to `pref` in O(1) per element.
 
+
+## Flashcards (Spaced Repetition)
+
+#flashcard
+**Q:** What is the trigger keyword for Prefix Sum? :: **A:** range sum queries, subarray sum equals k, immutable array repeated queries #flashcard
+
+#flashcard
+**Q:** Time/space complexity of Prefix Sum? :: **A:** Time: O(n) build + O(1) query, Space: O(n) #flashcard
+
+#flashcard
+**Q:** When do you NOT use Prefix Sum? :: **A:** array mutates (use Fenwick/Segment Tree), single query (just loop), need min/max on range (use Sparse Table) #flashcard
+
+#flashcard
+**Q:** Core Java 25 snippet for Prefix Sum? :: **A:** `int[] pref = new int[n+1]; for (int i=0;i<n;i++) pref[i+1]=pref[i]+a[i]; int sum(int l,int r){return pref[r+1]-pref[l];}` #flashcard
+
+
+## Practice Tasks (Tasks Plugin)
+- [ ] Restate the intent from memory 📅 {date:YYYY-MM-DD, +1}
+- [ ] Code the snippet without looking 📅 {date:YYYY-MM-DD, +3}
+- [ ] Answer all Interview Q&A aloud 📅 {date:YYYY-MM-DD, +7}
+- [ ] Review flashcards (Spaced Repetition) 📅 {date:YYYY-MM-DD, +1}
+
+```tasks
+not done
+path includes {file.folder}
+sort by due
+limit 10
+```
+
 ## Related
 - [[01_Array/03 - Sliding Window|Sliding Window]] (fixed-k sums use prefix internally)
 - [[01_Array/04 - Frequency Counting|Frequency Counting]] (hashmap on prefix for subarray count)
 - [[Java/07_DSA/Array]] · [[Java/07_DSA/HashMap]]
-
 ---
 *Category: Coding Patterns/01_Array*

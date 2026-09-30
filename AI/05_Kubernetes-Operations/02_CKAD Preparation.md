@@ -10,8 +10,8 @@ tags:
 weeks: 28-30
 created: 2026-09-02
 completed: false
-reviewed: ''
-sr-due: ''
+reviewed: "2026-09-29"
+sr-due: "2026-09-30"
 excalidraw: ''
 difficulty: Medium
 source: ''
@@ -65,62 +65,37 @@ flowchart LR
 - **Q:** What actually makes the difference in a 2-hour practical exam? **A:** Imperal-first habits and a timed mock. Writing YAML by hand for tasks that an imperative command solves is how time runs out — and the mock is the only way to find that out before exam day.
 - **Q:** How did preparing change how you deploy? **A:** It made probes and resource limits a reflex rather than an afterthought — which is exactly what makes a deployment safe to autoscale, and what I now write first in any chart.
 
-## Related
+## Flashcards (Spaced Repetition)
 
-- [[01_Kubernetes Deployment]] • [[AI/00_Overview/Certification Guide|Certification Guide]]
+#flashcard
+**Q:** What is the trigger keyword for CKAD Preparation? :: **A:** [trigger keywords] #flashcard
+
+#flashcard
+**Q:** Key hyperparameter for CKAD Preparation? :: **A:** [hyperparameter + typical range] #flashcard
+
+#flashcard
+**Q:** When do you NOT use CKAD Preparation? :: **A:** [anti-pattern scenarios] #flashcard
+
+#flashcard
+**Q:** Cost order of magnitude for CKAD Preparation? :: **A:** [GPU hours / $ per 1M tokens] #flashcard
+
+## Practice Tasks (Tasks Plugin)
+- [ ] Restate the intent from memory 📅 2026-09-30
+- [ ] Code the config without looking 📅 2026-10-02
+- [ ] Answer all Interview Q&A aloud 📅 2026-10-06
+- [ ] Review flashcards (Spaced Repetition) 📅 2026-09-30
+
+```tasks
+not done
+path includes 05_Kubernetes-Operations
+sort by due
+limit 10
+```
+
+## Related
+- [[README|AI MOC]]
+- [[05_Kubernetes-Operations/README|05_Kubernetes-Operations Folder]]
 
 ---
-*Category: kubernetes*
 
-# CKAD Preparation — Weeks 28–30
-
-> Part of [[README|05_Kubernetes-Operations]] • `kubernetes`
-
-## CKAD vs CKA
-
-| Cert | Focus | Pick When |
-|------|-------|-----------|
-| **CKAD** | App-centric: manifests, config, services, troubleshooting | You deploy AI services (recommended) |
-| **CKA** | Cluster admin: networking, storage, security, internals | Leaning platform/infra |
-
-## Study Plan (W28–30)
-
-| Week | Focus |
-|------|-------|
-| 28 | Prometheus + Grafana dashboards, mock exams |
-| 29 | Troubleshooting (killer.sh / killerkoda), timed drills |
-| 30 | **Exam** + post-exam hardening |
-
-## CKAD Exam Tips
-
-- Imperative `kubectl` (`--dry-run=client -o yaml`) — speed matters.
-- Know: pods, deployments, services, ingress, config/secrets, probes, resources, jobs/cronjobs, HPA.
-- Practice in `killer.sh` — 2-hour timed environment.
-
-# The CKAD muscle memory to drill, not the topics list
-
-# 1) Imperative commands first — the exam is a clock, not a philosophy lesson:
-
-# kubectl create deploy api --image=repo/ai-backend:1.0 --port=8000 -n apps
-
-# kubectl expose deploy api --port=80 --target-port=8000 --name=api-svc
-
-# kubectl create configmap cfg --from-literal=mode=prod -n apps
-
-# kubectl create secret generic llm-key --from-literal=apikey=$KEY -n apps
-
-# kubectl autoscale deploy api --min=2 --max=6 --cpu-percent=70 -n apps
-
-# 2) Dry-run to YAML, then patch — fastest path when the task is precise:
-
-# kubectl create job migrate --image=repo/migrate --dry-run=client -o yaml > j.yaml
-
-# 3) Time savers:
-
-# export ns=$(kubectl config view --minify -o jsonpath='{..namespace}')
-
-# alias k=kubectl ; source <(kubectl completion bash)
-
-# kubectl get all,cm,secret,sa -n apps # one look at the whole namespace
-
-```
+*Category: AI/05_Kubernetes-Operations • Part of [[README|AI MOC]]*

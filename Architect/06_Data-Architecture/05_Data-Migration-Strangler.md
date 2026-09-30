@@ -23,7 +23,10 @@ excalidraw: ''
 source: ''
 type: note
 weeks: ''
+
 ---
+
+
 
 
 
@@ -34,6 +37,23 @@ Modernise without big-bang rewrites: Strangler Fig incrementally routes traffic/
 - **Interview signal**: "How do you prove the new store is correct before cutover?" and "Dual-write or CDC?" — big-bang bets the company on one release; strangler bets small amounts repeatedly
 - **Transition design**: Migrations fail in the transition, not the destination — the design is about the transition
 - **Reversibility**: Facade with a flag enables instant rollback (flag off) until retirement date
+
+## Problems
+### System Design Problem: Data Migration & Strangler Fig
+
+**Requirements:**
+- Functional: Core capabilities for data migration & strangler fig
+- Non-functional (SLOs): Latency < 100ms p99, Availability 99.9%, Horizontal scalability
+
+**Constraints:**
+- Scale: Handle 10x growth without redesign
+- Consistency: Appropriate model for domain (strong/eventual)
+- Latency budget: p99 < 100ms for read paths
+
+**API / Interfaces:**
+- Primary: REST/gRPC endpoints for core operations
+- Internal: Service-to-service contracts
+- Events: Domain events for async integration
 
 ## 🧩 Diagram: Strangler Fig Migration Flow
 ```mermaid
@@ -76,7 +96,79 @@ class OrderFacade {
 
 ## ✅ When to Use / ❌ When NOT to Use
 | Scenario | Use? | Reason |
-|---|---|---|
+|
+
+## Trade-offs
+| Dimension | This Approach | Alternative | Trade-off Rationale | Decision Rule |
+|-----------|---------------|-------------|---------------------|---------------|
+| Complexity | [TBD] | [TBD] | [TBD] | [TBD] |
+| Operational Burden | [TBD] | [TBD] | [TBD] | [TBD] |
+| Latency | [TBD] | [TBD] | [TBD] | [TBD] |
+| Consistency | [TBD] | [TBD] | [TBD] | [TBD] |
+| Cost at Scale | [TBD] | [TBD] | [TBD] | [TBD] |
+
+## Flashcards (Spaced Repetition)
+
+#flashcard
+**Q:** What is the core concept of Data Migration & Strangler Fig? :: **A:** [Key algorithm/architecture pattern] #flashcard
+
+#flashcard
+**Q:** When do you apply Data Migration & Strangler Fig? :: **A:** [Trigger scenarios and context] #flashcard
+
+#flashcard
+**Q:** What is the primary trade-off in Data Migration & Strangler Fig? :: **A:** [Main tension: e.g., consistency vs latency] #flashcard
+
+#flashcard
+**Q:** What breaks first at scale in Data Migration & Strangler Fig? :: **A:** [Primary bottleneck: e.g., coordination, hot keys, replication lag] #flashcard
+
+#flashcard
+**Q:** How do you handle failures in Data Migration & Strangler Fig? :: **A:** [Retry, circuit breaker, fallback, graceful degradation] #flashcard
+
+#flashcard
+**Q:** What are the key metrics to monitor for Data Migration & Strangler Fig? :: **A:** [RED: rate, errors, duration; USE: utilization, saturation, errors] #flashcard
+
+#flashcard
+**Q:** How does Data Migration & Strangler Fig scale to 10x? :: **A:** [Sharding, read replicas, async processing, caching layers] #flashcard
+
+#flashcard
+**Q:** What is the consistency model for Data Migration & Strangler Fig? :: **A:** [Strong/eventual/causal - justify with use case] #flashcard
+
+#flashcard
+**Q:** How do you test Data Migration & Strangler Fig? :: **A:** [Contract tests, chaos engineering, load tests, fault injection] #flashcard
+
+#flashcard
+**Q:** What is the operational cost of Data Migration & Strangler Fig? :: **A:** [Team expertise, tooling, on-call burden, migration risk] #flashcard
+
+#flashcard
+**Q:** When would you NOT use Data Migration & Strangler Fig? :: **A:** [Managed service covers need, simple CRUD, team lacks maturity] #flashcard
+
+#flashcard
+**Q:** What is the key design decision in Data Migration & Strangler Fig? :: **A:** [The irreversible choice that defines the architecture] #flashcard
+
+#flashcard
+**Q:** How do you migrate to Data Migration & Strangler Fig? :: **A:** [Strangler fig, dual-write, canary, feature flags] #flashcard
+
+#flashcard
+**Q:** What security considerations for Data Migration & Strangler Fig? :: **A:** [AuthZ, encryption, audit, secrets management] #flashcard
+
+#flashcard
+**Q:** How do you debug Data Migration & Strangler Fig in production? :: **A:** [Structured logging, correlation IDs, distributed tracing, SLO alerts] #flashcard
+
+
+## Practice Tasks (Tasks Plugin)
+- [ ] Explain the architecture from memory 📅 {{date:YYYY-MM-DD, +1}}
+- [ ] Draw the system diagram without looking 📅 {{date:YYYY-MM-DD, +3}}
+- [ ] Answer all Interview Q&A aloud 📅 {{date:YYYY-MM-DD, +7}}
+- [ ] Review flashcards (Spaced Repetition) 📅 {{date:YYYY-MM-DD, +1}}
+
+```tasks
+not done
+path includes Architect/06_Data-Architecture
+sort by due
+limit 10
+```
+
+---|---|---|
 | Legacy monolith/DB decomposed into bounded contexts/services | ✅ | See [[../05_DDD-Modeling/02_Bounded-Contexts]] |
 | DB engine move (Oracle → Postgres) or schema reshape too big for one deploy | ✅ | Incremental, reversible |
 | Any migration where rollback must stay possible until last mile | ✅ | Facade + flag = instant rollback |
@@ -84,12 +176,6 @@ class OrderFacade {
 
 **Playbook**: 1) Facade (ACL) 2) Carve one seam 3) Dual-write + verify 4) Shift reads 5) Shift writes 6) Retire + delete.
 
-## ⚖️ Trade-offs
-| Dimension | Pros | Cons |
-|---|---|---|
-| **Zero-downtime** | Reversible per seam | **Dual-write period** doubles complexity + monitoring |
-| **Incremental value** | One context at a time | **Reconciliation tooling** is throwaway code (budget it) |
-| **Risk concentration** | Small, reviewable steps | **Lingering "temporary" facades** if retirement not scheduled |
 
 ## 🆚 Vs. Alternatives
 | Alternative | When to Choose | Decision Rule |
@@ -102,6 +188,16 @@ class OrderFacade {
 2. **Migrating data without migrating ownership** — still one shared DB at the end
 3. **Backfill without idempotency** → duplicates on retry; backfill in batches with checkpoints
 4. **Dual-write in request path** — prefer CDC (Debezium): no app-code bugs, ordered, replayable
+
+
+## Pitfalls
+1. Underestimating operational complexity (backups, monitoring, upgrades)
+2. Ignoring failure modes (network partitions, disk failures, clock drift)
+3. Not planning for 10x scale from day one
+4. Skipping monitoring/alerting in MVP
+5. Premature optimization before measuring
+6. Dual-write without transactional outbox
+7. Assuming global order in partitioned systems
 
 ## 🎤 Interview Q&A (Senior Depth)
 

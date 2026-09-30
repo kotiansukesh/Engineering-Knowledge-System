@@ -12,8 +12,8 @@ tags:
 - 2026-trend
 created: 2026-09-02
 completed: false
-reviewed: ''
-sr-due: ''
+reviewed: "2026-09-29"
+sr-due: "2026-09-30"
 excalidraw: ''
 difficulty: Medium
 source: ''
@@ -102,74 +102,37 @@ PR switches embed model → eval delta: faithfulness -1.2% (pass), p95 +25% (fai
 **Q: Phoenix vs Langfuse here?**
 Phoenix for **eval traces** (retrieval vs answer view); Langfuse for **LLM observability** (cost/latency stream). Use both.
 
-## Related
+## Flashcards (Spaced Repetition)
 
-- [[AI/02_RAG-Engineering/RAG Variants and Retrieval Strategies|RAG Variants]] • [[AI/04_Production-Platform/02_AI TDD and Evaluation|AI TDD]] • [[03_LLM Observability|LLM Observability]] • [[AI/02_RAG-Engineering/Enterprise Document Search|Enterprise Document Search]]
+#flashcard
+**Q:** What is the trigger keyword for AI Evaluation Frameworks? :: **A:** [trigger keywords] #flashcard
+
+#flashcard
+**Q:** Key hyperparameter for AI Evaluation Frameworks? :: **A:** [hyperparameter + typical range] #flashcard
+
+#flashcard
+**Q:** When do you NOT use AI Evaluation Frameworks? :: **A:** [anti-pattern scenarios] #flashcard
+
+#flashcard
+**Q:** Cost order of magnitude for AI Evaluation Frameworks? :: **A:** [GPU hours / $ per 1M tokens] #flashcard
+
+## Practice Tasks (Tasks Plugin)
+- [ ] Restate the intent from memory 📅 2026-09-30
+- [ ] Code the config without looking 📅 2026-10-02
+- [ ] Answer all Interview Q&A aloud 📅 2026-10-06
+- [ ] Review flashcards (Spaced Repetition) 📅 2026-09-30
+
+```tasks
+not done
+path includes 07_Cross-Cutting
+sort by due
+limit 10
+```
+
+## Related
+- [[README|AI MOC]]
+- [[07_Cross-Cutting/README|07_Cross-Cutting Folder]]
 
 ---
-*Category: cross-cutting • Interview-ready*
 
-# AI Evaluation Frameworks
-
-> Part of [[README|07_Cross-Cutting]] • `cross-cutting` • From **Phase 02 (Week 6)** — shift from "it works" to **measured** retrieval/answer quality, regression-gated releases.
-> Watch: [RAG Evaluation: Precision, Recall, Faithfulness, RAGAS](https://www.youtube.com/watch?v=7_LTU0LA374)
-
-## Framework — 4 Layers
-
-| Layer | Metric | How to Measure (runner in `eval/`) |
-|-------|--------|-------------------------------------|
-| **Retrieval** | precision@k, recall@k, MRR, nDCG | Golden `Q → doc_ids` set; scored per query |
-| **Answer** | Faithfulness (grounded?), Relevance, Citation accuracy | **RAGAS/DeepEval** LLM-as-judge on `(Q, context, answer)` |
-| **Regression** | Δ vs `main` on 100+ queries | Snapshot + CI gate: fail if faithfulness ↓2% or p95 ↑20% |
-| **Hallucination** | Unsupported claim rate, refusal accuracy | Judge + human spot-check (10%) |
-| **Latency/Cost** | p50/p95, tokens/query, $/1k queries | Prometheus histogram + Langfuse cost |
-
-## Runnable Code — Eval Harness (Python)
-
-```
-python
-
-# Eval/run.py, Runs on Every pr (Phase 04: ai TDD)
-
-from ragas.metrics import faithfulness, answer_relevancy
-from datasets import Dataset
-
-golden = Dataset.from_json("eval/golden.jsonl") # {query, expected_doc_ids, context, reference_answer}
-
-def score_retrieval(gold, retrieved_ids):
- prec = len(set(gold) & set(retrieved_ids)) / len(retrieved_ids)
- return prec
-
-# Answer Eval, LLM-as-judge
-
-results = []
-for row in golden:
- retrieved = await rag.retrieve(row["query"])
- answer = await llm.ask(row["query"], context=retrieved, citations=True)
- f = faithfulness.score({"question": row["query"], "contexts": retrieved, "answer": answer.text})
- rel = answer_relevancy.score({"question": row["query"], "answer": answer.text})
- results.append({"q": row["query"], "faithfulness": f, "relevancy": rel, "citations_ok": answer.citations_valid})
-
-# Gate, Phase 04 Maps to "Refactor & Test"
-
-assert avg(r["faithfulness"] for r in results) >= 0.85, "Regression: faithfulness below floor"
-assert unsupported_rate(results) < 0.05
-```
-
-**Repo layout:**```eval/golden.jsonl # versioned with code
-eval/expected/ # frozen answers for regression diff
-eval/run.py # CI entry```
-
-## How It Compares
-
-| | Manual Spot-Check | LLM-as-Judge (RAGAS) | Behavior Tests (TDD) |
-|--|---|---|---|
-| Scale | 10s queries | 100s–1k | Fixed snapshots |
-| Signal | Anecdotal | Faithfulness/citation metric | Exact answer match (brittle for GenAI) |
-| Use | Week 5 demo | Week 6+ harness | Regression gate |
-
-# Answer-level faithfulness uses an LLM-as-judge with its own spot checks;
-
-# exact-match is brittle for generative output and is used for retrieval only.
-
-```
+*Category: AI/07_Cross-Cutting • Part of [[README|AI MOC]]*

@@ -11,8 +11,8 @@ tags:
 - 2026-trend
 created: 2026-09-02
 completed: false
-reviewed: ''
-sr-due: ''
+reviewed: "2026-09-29"
+sr-due: "2026-09-30"
 excalidraw: ''
 difficulty: Medium
 source: ''
@@ -96,65 +96,37 @@ On ingest that updates chunk embedding; bump `doc_version` → cache entry requi
 **Q: Routing vs fallback?**
 Routing = choose cheap model **before** call (classifier). Fallback = retry cheap after failure (429/timeout). Use both — see [[AI/04_Production-Platform/01_AI Gateway|AI Gateway]].
 
-## Related
+## Flashcards (Spaced Repetition)
 
-- [[06_Multi-Model Routing|Multi-Model Routing]] • [[02_AI Evaluation|Evaluation]] • [[03_LLM Observability|Observability]] • [[AI/02_RAG-Engineering/RAG Variants and Retrieval Strategies|RAG Variants]] • [[AI/04_Production-Platform/01_AI Gateway|AI Gateway]]
+#flashcard
+**Q:** What is the trigger keyword for Cost Optimization? :: **A:** [trigger keywords] #flashcard
+
+#flashcard
+**Q:** Key hyperparameter for Cost Optimization? :: **A:** [hyperparameter + typical range] #flashcard
+
+#flashcard
+**Q:** When do you NOT use Cost Optimization? :: **A:** [anti-pattern scenarios] #flashcard
+
+#flashcard
+**Q:** Cost order of magnitude for Cost Optimization? :: **A:** [GPU hours / $ per 1M tokens] #flashcard
+
+## Practice Tasks (Tasks Plugin)
+- [ ] Restate the intent from memory 📅 2026-09-30
+- [ ] Code the config without looking 📅 2026-10-02
+- [ ] Answer all Interview Q&A aloud 📅 2026-10-06
+- [ ] Review flashcards (Spaced Repetition) 📅 2026-09-30
+
+```tasks
+not done
+path includes 07_Cross-Cutting
+sort by due
+limit 10
+```
+
+## Related
+- [[README|AI MOC]]
+- [[07_Cross-Cutting/README|07_Cross-Cutting Folder]]
 
 ---
-*Category: cross-cutting • Interview-ready*
 
-# Cost Optimization — Semantic Cache, Batching, Routing, Fallback
-
-> Part of [[README|07_Cross-Cutting]] • `cross-cutting` • From **Phase 02 Week 10 + Phase 06 Week 34** — Week 10 cost table becomes Week 34 finance review.
-
-## Stack — 4 Layers
-
-| Layer | How | Saving (typical) | When |
-|-------|-----|------------------|-----|
-| **Semantic cache** (Redis + vector) | Embed query; hit if cosine >0.96 → return cached answer+citations | 20–40% for top 1k queries | Before LLM call |
-| **Batching** | Batch 8–16 embed calls → one `embed()`; batch judge scoring | 15% embed cost | Ingest + eval |
-| **Routing** | Route to `gpt-4o-mini`/Haiku for simple Q; `gpt-4o`/Sonnet for hard Q | 30–50% | Via [[06_Multi-Model Routing\|Router]] |
-| **Fallback** | On 429/timeout, retry cheaper model | Availability vs cost | Gateway retry policy |
-| **Context compression** | RAG variants: naive 4k → compressed 1.2k tokens | 30–50% token saving | Week 9 |
-
-## Runnable Code — Semantic Cache (Redis + pgvector)
-
-```
-python
-
-# Pip Install Redis Openai
-
-import redis, hashlib
-r = redis.Redis(host="redis")
-
-async def ask_cached(query: str, filters: dict):
- key = f"q:{hashlib.sha256((query+str(filters)).encode()).hexdigest()}"
- # 1) exact cache
- if (hit := r.get(key)): return json.loads(hit)
- # 2) semantic cache, nearest cached query
- qvec = await embed(query)
- near = await pg.query("SELECT answer FROM semantic_cache ORDER BY embedding <=> %s LIMIT 1", (qvec,))
- if near and cosine(near.embedding, qvec) > 0.96:
- return near.answer # hit, skip LLM
- # 3) miss, full RAG
- docs = await mcp.call_tool("search_docs", {"query": query, "filters": filters})
- answer = await llm.chat.completions.create(model=route(query), messages=build_messages(query, docs))
- r.setex(key, 3600, answer.model_dump_json())
- await pg.execute("INSERT INTO semantic_cache (query, embedding, answer) VALUES (%s,%s,%s)", (query, qvec, answer.text))
- return answer
-```
-
-**Weekly Tracker metric:** `cost_per_query = (input_tokens*price_in + output_tokens*price_out)/1000` → record per phase.
-
-## How it Compares
-
-| | No Cache (LLM every time) | Exact Cache (key=query) | Semantic Cache (vector) |
-|--|---|---|---|
-| Hit rate | 0% | 5–10% (typos miss) | 20–40% |
-| Complexity | None | Redis `GET` | Embed + vector search |
-| Staleness | None | TTL | TTL + doc-version invalidation |
-
-# Cache Freshness: ttl + a Document-version Stamp in the Key, so an Updated
-
-# Source Document Invalidates the Answers that Quoted it, not Just after TTL.
-```
+*Category: AI/07_Cross-Cutting • Part of [[README|AI MOC]]*

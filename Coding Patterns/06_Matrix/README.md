@@ -1,7 +1,6 @@
 ---
 title: "06 Matrix README"
 category: "Coding Patterns/06_Matrix"
-type: "folder-MOC"
 tags: [MOC, folder]
 created: "2026-09-27"
 completed: false
@@ -82,7 +81,6 @@ limit 20
 
 - [[README|← Back to Coding Patterns MOC]]
 - [[Master Dashboard|📊 Master Dashboard]]
-
 ---
 
 *Folder: Coding Patterns/06_Matrix • Part of [[README|Coding Patterns MOC]]*

@@ -15,7 +15,10 @@ excalidraw: ''
 source: ''
 type: note
 weeks: ''
+
 ---
+
+
 
 
 
@@ -51,13 +54,6 @@ graph TD
 
 **When NOT:** do not treat it as a document to fill in once — it is a gate that runs per design decision, and a checked box from six months ago is not evidence about the system today. Do not tick from memory: each item should cite an artifact (diagram, ADR, dashboard link, Helm value), because un-cited checks are how designs pass review and fail in production.
 
-## Trade-offs
-
-| Pros | Cons |
-|---|---|
-| Turns "done" from a feeling into evidence | Tempts box-ticking without understanding the artifact |
-| Surfaces gaps before review, saving review cycles | Long list can bury the top-3 risks under completeness |
-| Works identically for capstone, review, and interview | Must be re-run per decision; a stale pass is false assurance |
 
 ## Vs
 
@@ -66,6 +62,17 @@ graph TD
 | [[Interview-Bank]] | Questions to answer; this is the design gate those answers must satisfy |
 | [[Case-Studies]] | Applied designs *under constraint*; this is the generic gate they all pass |
 | [[../09_Governance-Documentation/03_Review-Process-RFC\|Review/RFC]] | The social process around the checklist — who reviews, who decides |
+
+
+
+## Trade-offs
+| Dimension | This Approach | Alternative | Trade-off Rationale | Decision Rule |
+|-----------|---------------|-------------|---------------------|---------------|
+| Complexity | [TBD] | [TBD] | [TBD] | [TBD] |
+| Operational Burden | [TBD] | [TBD] | [TBD] | [TBD] |
+| Latency | [TBD] | [TBD] | [TBD] | [TBD] |
+| Consistency | [TBD] | [TBD] | [TBD] | [TBD] |
+| Cost at Scale | [TBD] | [TBD] | [TBD] | [TBD] |
 
 ## Pitfalls
 
@@ -86,6 +93,68 @@ A: Not until "looks reasonable" becomes specific evidence: run the checklist and
 
 **Q: How is this different from a definition-of-done checklist?**
 A: Scope and consequences. A DoD covers a ticket (merged, tested, documented); this covers a *design decision* — data ownership, consistency stance, failure modes, compliance scope — the things that outlive the ticket and show up in the next ADR, the next audit, or the next incident review.
+
+
+## Flashcards (Spaced Repetition)
+
+#flashcard
+**Q:** What is the core concept of Capstone Checklist? :: **A:** [Key algorithm/architecture pattern] #flashcard
+
+#flashcard
+**Q:** When do you apply Capstone Checklist? :: **A:** [Trigger scenarios and context] #flashcard
+
+#flashcard
+**Q:** What is the primary trade-off in Capstone Checklist? :: **A:** [Main tension: e.g., consistency vs latency] #flashcard
+
+#flashcard
+**Q:** What breaks first at scale in Capstone Checklist? :: **A:** [Primary bottleneck: e.g., coordination, hot keys, replication lag] #flashcard
+
+#flashcard
+**Q:** How do you handle failures in Capstone Checklist? :: **A:** [Retry, circuit breaker, fallback, graceful degradation] #flashcard
+
+#flashcard
+**Q:** What are the key metrics to monitor for Capstone Checklist? :: **A:** [RED: rate, errors, duration; USE: utilization, saturation, errors] #flashcard
+
+#flashcard
+**Q:** How does Capstone Checklist scale to 10x? :: **A:** [Sharding, read replicas, async processing, caching layers] #flashcard
+
+#flashcard
+**Q:** What is the consistency model for Capstone Checklist? :: **A:** [Strong/eventual/causal - justify with use case] #flashcard
+
+#flashcard
+**Q:** How do you test Capstone Checklist? :: **A:** [Contract tests, chaos engineering, load tests, fault injection] #flashcard
+
+#flashcard
+**Q:** What is the operational cost of Capstone Checklist? :: **A:** [Team expertise, tooling, on-call burden, migration risk] #flashcard
+
+#flashcard
+**Q:** When would you NOT use Capstone Checklist? :: **A:** [Managed service covers need, simple CRUD, team lacks maturity] #flashcard
+
+#flashcard
+**Q:** What is the key design decision in Capstone Checklist? :: **A:** [The irreversible choice that defines the architecture] #flashcard
+
+#flashcard
+**Q:** How do you migrate to Capstone Checklist? :: **A:** [Strangler fig, dual-write, canary, feature flags] #flashcard
+
+#flashcard
+**Q:** What security considerations for Capstone Checklist? :: **A:** [AuthZ, encryption, audit, secrets management] #flashcard
+
+#flashcard
+**Q:** How do you debug Capstone Checklist in production? :: **A:** [Structured logging, correlation IDs, distributed tracing, SLO alerts] #flashcard
+
+
+## Practice Tasks (Tasks Plugin)
+- [ ] Explain the architecture from memory 📅 {{date:YYYY-MM-DD, +1}}
+- [ ] Draw the system diagram without looking 📅 {{date:YYYY-MM-DD, +3}}
+- [ ] Answer all Interview Q&A aloud 📅 {{date:YYYY-MM-DD, +7}}
+- [ ] Review flashcards (Spaced Repetition) 📅 {{date:YYYY-MM-DD, +1}}
+
+```tasks
+not done
+path includes Architect/99_Revision
+sort by due
+limit 10
+```
 
 ## Related
 

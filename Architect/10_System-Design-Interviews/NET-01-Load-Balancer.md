@@ -21,7 +21,10 @@ source: https://github.com/donnemartin/system-design-primer
 excalidraw: Load-Balancer-Architecture.excalidraw.json
 weeks: '2'
 type: note
+
 ---
+
+
 
 
 
@@ -231,15 +234,16 @@ class LeastConnectionsRule implements ReactorServiceInstanceLoadBalancer {
 | Learning architecture patterns | Simple CRUD applications |
 | Interview preparation | Requirements don't match |
 
-## Trade-offs
 
-| Dimension | This Approach | Alternative |
-|-----------|---------------|-------------|
-| Complexity | | |
-| Operational Burden | | |
-| Latency | | |
-| Consistency | | |
-| Cost at Scale | | |
+
+## Trade-offs
+| Dimension | This Approach | Alternative | Trade-off Rationale | Decision Rule |
+|-----------|---------------|-------------|---------------------|---------------|
+| Complexity | [TBD] | [TBD] | [TBD] | [TBD] |
+| Operational Burden | [TBD] | [TBD] | [TBD] | [TBD] |
+| Latency | [TBD] | [TBD] | [TBD] | [TBD] |
+| Consistency | [TBD] | [TBD] | [TBD] | [TBD] |
+| Cost at Scale | [TBD] | [TBD] | [TBD] | [TBD] |
 
 ## Vs Table
 

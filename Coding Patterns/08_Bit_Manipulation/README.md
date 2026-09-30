@@ -1,7 +1,6 @@
 ---
 title: "08 Bit Manipulation README"
 category: "Coding Patterns/08_Bit_Manipulation"
-type: "folder-MOC"
 tags: [MOC, folder]
 created: "2026-09-27"
 completed: false
@@ -82,7 +81,6 @@ limit 20
 
 - [[README|← Back to Coding Patterns MOC]]
 - [[Master Dashboard|📊 Master Dashboard]]
-
 ---
 
 *Folder: Coding Patterns/08_Bit_Manipulation • Part of [[README|Coding Patterns MOC]]*

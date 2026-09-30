@@ -7,18 +7,16 @@ tags:
 - pattern/array/two-pointers
 leetcode:
 - 167
-- 15
 - 11
+- 42
+- 75
 created: '2026-09-02'
 completed: false
 reviewed: ''
 sr-due: ''
 difficulty: Easy
 source: https://blog.algomaster.io/p/20-dsa-patterns
-problems-solved: []
-problems-solved-dates: {}
 excalidraw: ''
-type: note
 ---
 
 
@@ -56,72 +54,39 @@ flowchart LR
 
 **Problem Statement:**
 
-You are given a 1-indexed array of integers numbers that is already sorted in non-decreasing order.
-
-Find two numbers such that they add up to a specific target number. Let these two numbers be numbers[index_1_] and numbers[index_2_] where 1 <= index_1_ < index_2_ <= numbers.length.
-
-Return the indices of the two numbers index_1_ and index_2_ as an integer array [index_1_, index_2_] of length 2.
-
-The tests are generated such that there is exactly one solution. You may not use the same element twice.
-
-Your solution must use only constant extra space.
+You are given a 1-indexed array of integers numbers that is already sorted in non-decreasing order. Find two numbers such that they add up to a specific target number. Let these two numbers be numbers[index1] and numbers[index2] where 1 1 2 . Return the indices of the two numbers index1 and index2 as an integer array [index1, index2] of length 2. The tests are generated such that there is exactly one solution. You may not use the same element twice. Your solution must use only constant extra space. Example 1: Input: numbers = [2,7,11,15], target = 9 Output: [1,2] Explanation: The sum of 2 and 7 is 9. Therefore, index1 = 1, index2 = 2. We return [1, 2]. Example 2: Input: numbers = [2,3,4], target = 6 Output: [1,3] Explanation: The sum of 2 and 4 is 6. Therefore index1 = 1, index2 = 3. We return [1, 3]. Example 3: Input: numbers = [-1,0], target = -1 Output: [1,2] Explanation: The sum of -1 and 0 is -1. Therefore index1 = 1, index2 = 2. We return [1, 2]. Constraints: 2 4 -1000 numbers is sorted in non-decreasing order. -1000 The tests are generated such that there is exactly one solution.
 
 **Examples:**
 
 Example 1:
-
-Input: numbers = [2,7,11,15], target = 9
-Output: [1,2]
-Explanation: The sum of 2 and 7 is 9. Therefore, index_1_ = 1, index_2_ = 2. We return [1, 2].
-
-Example 2:
-
-Input: numbers = [2,3,4], target = 6
-Output: [1,3]
-Explanation: The sum of 2 and 4 is 6. Therefore index_1_ = 1, index_2_ = 3. We return [1, 3].
-
-Example 3:
-
-Input: numbers = [-1,0], target = -1
-Output: [1,2]
-Explanation: The sum of -1 and 0 is -1. Therefore index_1_ = 1, index_2_ = 2. We return [1, 2].
-
----
-
-### 15. 3Sum (Medium)
-> [LeetCode 15](https://leetcode.com/problems/3sum/) • Tags: Array, Two Pointers, Sorting
-
-**Problem Statement:**
-
-Given an integer array nums, return all the triplets [nums[i], nums[j], nums[k]] such that i != j, i != k, and j != k, and nums[i] + nums[j] + nums[k] == 0.
-
-Notice that the solution set must not contain duplicate triplets.
-
-**Examples:**
-
-Example 1:
-
-Input: nums = [-1,0,1,2,-1,-4]
-Output: [[-1,-1,2],[-1,0,1]]
-Explanation: 
-nums[0] + nums[1] + nums[2] = (-1) + 0 + 1 = 0.
-nums[1] + nums[2] + nums[4] = 0 + 1 + (-1) = 0.
-nums[0] + nums[3] + nums[4] = (-1) + 2 + (-1) = 0.
-The distinct triplets are [-1,0,1] and [-1,-1,2].
-Notice that the order of the output and the order of the triplets does not matter.
+```
+[2,7,11,15]
+```
 
 Example 2:
-
-Input: nums = [0,1,1]
-Output: []
-Explanation: The only possible triplet does not sum up to 0.
+```
+9
+```
 
 Example 3:
+```
+[2,3,4]
+```
 
-Input: nums = [0,0,0]
-Output: [[0,0,0]]
-Explanation: The only possible triplet sums up to 0.
+Example 4:
+```
+6
+```
 
+Example 5:
+```
+[-1,0]
+```
+
+Example 6:
+```
+-1
+```
 ---
 
 ### 11. Container With Most Water (Medium)
@@ -129,27 +94,59 @@ Explanation: The only possible triplet sums up to 0.
 
 **Problem Statement:**
 
-You are given an integer array height of length n. There are n vertical lines drawn such that the two endpoints of the i^th^ line are (i, 0) and (i, height[i]).
-
-Find two lines that together with the x-axis form a container, such that the container contains the most water.
-
-Return the maximum amount of water a container can store.
-
-Notice that you may not slant the container.
+You are given an integer array height of length n. There are n vertical lines drawn such that the two endpoints of the ith line are (i, 0) and (i, height[i]). Find two lines that together with the x-axis form a container, such that the container contains the most water. Return the maximum amount of water a container can store. Notice that you may not slant the container. Example 1: Input: height = [1,8,6,2,5,4,8,3,7] Output: 49 Explanation: The above vertical lines are represented by array [1,8,6,2,5,4,8,3,7]. In this case, the max area of water (blue section) the container can contain is 49. Example 2: Input: height = [1,1] Output: 1 Constraints: n == height.length 2 5 0 4
 
 **Examples:**
 
 Example 1:
-
-Input: height = [1,8,6,2,5,4,8,3,7]
-Output: 49
-Explanation: The above vertical lines are represented by array [1,8,6,2,5,4,8,3,7]. In this case, the max area of water (blue section) the container can contain is 49.
+```
+[1,8,6,2,5,4,8,3,7]
+```
 
 Example 2:
+```
+[1,1]
+```
+---
 
-Input: height = [1,1]
-Output: 1
+### 42. Trapping Rain Water (Hard)
+> [LeetCode 42](https://leetcode.com/problems/trapping-rain-water/) • Tags: Array, Two Pointers, Dynamic Programming, Stack, Monotonic Stack
 
+**Problem Statement:**
+
+Given n non-negative integers representing an elevation map where the width of each bar is 1, compute how much water it can trap after raining. Example 1: Input: height = [0,1,0,2,1,0,1,3,2,1,2,1] Output: 6 Explanation: The above elevation map (black section) is represented by array [0,1,0,2,1,0,1,3,2,1,2,1]. In this case, 6 units of rain water (blue section) are being trapped. Example 2: Input: height = [4,2,0,3,2,5] Output: 9 Constraints: n == height.length 1 4 0 5
+
+**Examples:**
+
+Example 1:
+```
+[0,1,0,2,1,0,1,3,2,1,2,1]
+```
+
+Example 2:
+```
+[4,2,0,3,2,5]
+```
+---
+
+### 75. Sort Colors (Medium)
+> [LeetCode 75](https://leetcode.com/problems/sort-colors/) • Tags: Array, Two Pointers, Sorting, Quicksort, Bubble Sort
+
+**Problem Statement:**
+
+You are given an array nums with n objects colored red, white, or blue, sort them in-place so that objects of the same color are adjacent, with the colors in the order red, white, and blue. We will use the integers 0, 1, and 2 to represent the color red, white, and blue, respectively. You must solve this problem without using the library's sort function. Example 1: Input: nums = [2,0,2,1,1,0] Output: [0,0,1,1,2,2] Explanation: The array has two 0s, two 1s, and two 2s. Sorting them in-place places all 0s first, then all 1s, then all 2s. Example 2: Input: nums = [2,0,1] Output: [0,1,2] Explanation: The array has one each of 0, 1, and 2, arranged in-place in the order 0, 1, 2. Constraints: n == nums.length 1 nums[i] is either 0, 1, or 2. Follow up: Could you come up with a one-pass algorithm using only constant extra space?
+
+**Examples:**
+
+Example 1:
+```
+[2,0,2,1,1,0]
+```
+
+Example 2:
+```
+[2,0,1]
+```
 ---
 
 
@@ -239,11 +236,39 @@ java.util.List<java.util.List<Integer>> threeSum(int[] nums) {
 **Q: Can two pointers work on a rotated sorted array for pair sum?**
 **A:** No — rotated array isn't globally sorted. You'd need to find the pivot (min element) first, then treat as two sorted subarrays, or just use HashMap O(n). Two pointers requires monotonic ordering to know which direction to move.
 
+
+## Flashcards (Spaced Repetition)
+
+#flashcard
+**Q:** What is the trigger keyword for Two Pointers? :: **A:** sorted array, pair/triplet sum, remove duplicates, palindrome check, container with most water #flashcard
+
+#flashcard
+**Q:** Time/space complexity of Two Pointers? :: **A:** Time: O(n) after sort O(n log n), Space: O(1) #flashcard
+
+#flashcard
+**Q:** When do you NOT use Two Pointers? :: **A:** unsorted array (sort first or use hashmap), need all pairs (O(n²) output) #flashcard
+
+#flashcard
+**Q:** Core Java 25 snippet for Two Pointers? :: **A:** `int l=0,r=n-1; while(l<r){ int s=a[l]+a[r]; if(s==t) return new int[]{l,r}; else if(s<t) l++; else r--; }` #flashcard
+
+
+## Practice Tasks (Tasks Plugin)
+- [ ] Restate the intent from memory 📅 {date:YYYY-MM-DD, +1}
+- [ ] Code the snippet without looking 📅 {date:YYYY-MM-DD, +3}
+- [ ] Answer all Interview Q&A aloud 📅 {date:YYYY-MM-DD, +7}
+- [ ] Review flashcards (Spaced Repetition) 📅 {date:YYYY-MM-DD, +1}
+
+```tasks
+not done
+path includes {file.folder}
+sort by due
+limit 10
+```
+
 ## Related
 - [[01_Array/03 - Sliding Window|Sliding Window]] (variable window also uses two pointers but both advance forward)
 - [[02_LinkedList/01 - Fast and Slow Pointers|Fast & Slow Pointers]] (same direction, different speeds)
 - [[Java/07_DSA/Array]]
-
 ---
 *Category: Coding Patterns/01_Array*
 - [[Architect/10_System-Design-Interviews/DB-05-Sharding.md|DB-05-Sharding]] — Two-pointer for range queries across shards

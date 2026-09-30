@@ -1,6 +1,6 @@
 ---
 title: LinkedList In-place Reversal
-pattern: 5
+pattern: 6
 category: Coding Patterns/02_LinkedList
 tags:
 - pattern/linkedlist
@@ -8,22 +8,19 @@ tags:
 leetcode:
 - 206
 - 92
-- 24
+- 25
 created: '2026-09-02'
 completed: false
 reviewed: ''
 sr-due: ''
 difficulty: Easy
 source: https://blog.algomaster.io/p/20-dsa-patterns
-problems-solved: []
-problems-solved-dates: {}
 excalidraw: ''
-type: note
 ---
 
 # LinkedList In-place Reversal
 
-> Part of [[README|20 DSA Patterns]] • `Coding Patterns/02_LinkedList` • Pattern #5
+> Part of [[README|20 DSA Patterns]] • `Coding Patterns/02_LinkedList` • Pattern #6
 
 ## Intent
 Reverse a linked list (or sublist) in O(n) time and O(1) space by flipping `next` pointers with three variables — the canonical pattern for any in-place list restructuring.
@@ -54,25 +51,24 @@ flowchart LR
 
 **Problem Statement:**
 
-Given the head of a singly linked list, reverse the list, and return the reversed list.
+Given the head of a singly linked list, reverse the list, and return the reversed list. Example 1: Input: head = [1,2,3,4,5] Output: [5,4,3,2,1] Example 2: Input: head = [1,2] Output: [2,1] Example 3: Input: head = [] Output: [] Constraints: The number of nodes in the list is the range [0, 5000]. -5000 Follow up: A linked list can be reversed either iteratively or recursively. Could you implement both?
 
 **Examples:**
 
 Example 1:
-
-Input: head = [1,2,3,4,5]
-Output: [5,4,3,2,1]
+```
+[1,2,3,4,5]
+```
 
 Example 2:
-
-Input: head = [1,2]
-Output: [2,1]
+```
+[1,2]
+```
 
 Example 3:
-
-Input: head = []
-Output: []
-
+```
+[]
+```
 ---
 
 ### 92. Reverse Linked List II (Medium)
@@ -80,51 +76,69 @@ Output: []
 
 **Problem Statement:**
 
-Given the head of a singly linked list and two integers left and right where left <= right, reverse the nodes of the list from position left to position right, and return the reversed list.
+Given the head of a singly linked list and two integers left and right where left , reverse the nodes of the list from position left to position right, and return the reversed list. Example 1: Input: head = [1,2,3,4,5], left = 2, right = 4 Output: [1,4,3,2,5] Example 2: Input: head = [5], left = 1, right = 1 Output: [5] Constraints: The number of nodes in the list is n. 1 -500 1 Follow up: Could you do it in one pass?
 
 **Examples:**
 
 Example 1:
-
-Input: head = [1,2,3,4,5], left = 2, right = 4
-Output: [1,4,3,2,5]
+```
+[1,2,3,4,5]
+```
 
 Example 2:
+```
+2
+```
 
-Input: head = [5], left = 1, right = 1
-Output: [5]
+Example 3:
+```
+4
+```
 
+Example 4:
+```
+[5]
+```
+
+Example 5:
+```
+1
+```
+
+Example 6:
+```
+1
+```
 ---
 
-### 24. Swap Nodes in Pairs (Medium)
-> [LeetCode 24](https://leetcode.com/problems/swap-nodes-in-pairs/) • Tags: Linked List, Recursion
+### 25. Reverse Nodes in k-Group (Hard)
+> [LeetCode 25](https://leetcode.com/problems/reverse-nodes-in-k-group/) • Tags: Linked List, Recursion
 
 **Problem Statement:**
 
-Given a linked list, swap every two adjacent nodes and return its head. You must solve the problem without modifying the values in the list's nodes (i.e., only nodes themselves may be changed.)
+Given the head of a linked list, reverse the nodes of the list k at a time, and return the modified list. k is a positive integer and is less than or equal to the length of the linked list. If the number of nodes is not a multiple of k then left-out nodes, in the end, should remain as it is. You may not alter the values in the list's nodes, only nodes themselves may be changed. Example 1: Input: head = [1,2,3,4,5], k = 2 Output: [2,1,4,3,5] Example 2: Input: head = [1,2,3,4,5], k = 3 Output: [3,2,1,4,5] Constraints: The number of nodes in the list is n. 1 0 Follow-up: Can you solve the problem in O(1) extra memory space?
 
 **Examples:**
 
 Example 1:
-
-Input: head = [1,2,3,4]
-
-Output: [2,1,4,3]
-
-Explanation:
+```
+[1,2,3,4,5]
+```
 
 Example 2:
-
-Input: head = []
-
-Output: []
+```
+2
+```
 
 Example 3:
+```
+[1,2,3,4,5]
+```
 
-Input: head = [1]
-
-Output: [1]
-
+Example 4:
+```
+3
+```
 ---
 
 
@@ -217,10 +231,38 @@ Node reverseKGroup(Node head, int k) {
 **Q: Palindrome check with O(1) space — walk me through the full algorithm.**
 **A:** (1) Find middle with fast/slow. (2) Reverse second half starting from `slow` (or `slow.next` for odd). (3) Compare first half and reversed second half node by node. (4) **Restore** by reversing the second half again and reattaching. (5) Return comparison result. Restoration is required for production code; some interviewers skip it but seniors include it.
 
+
+## Flashcards (Spaced Repetition)
+
+#flashcard
+**Q:** What is the trigger keyword for LinkedList In-place Reversal? :: **A:** reverse linked list, reverse K-group, reverse sublist, palindrome check (reverse half) #flashcard
+
+#flashcard
+**Q:** Time/space complexity of LinkedList In-place Reversal? :: **A:** Time: O(n) single pass, Space: O(1) #flashcard
+
+#flashcard
+**Q:** When do you NOT use LinkedList In-place Reversal? :: **A:** need to preserve original (copy first), recursive reversal OK if stack depth safe #flashcard
+
+#flashcard
+**Q:** Core Java 25 snippet for LinkedList In-place Reversal? :: **A:** `ListNode prev=null, curr=head; while(curr!=null){ ListNode nxt=curr.next; curr.next=prev; prev=curr; curr=nxt; } return prev;` #flashcard
+
+
+## Practice Tasks (Tasks Plugin)
+- [ ] Restate the intent from memory 📅 {date:YYYY-MM-DD, +1}
+- [ ] Code the snippet without looking 📅 {date:YYYY-MM-DD, +3}
+- [ ] Answer all Interview Q&A aloud 📅 {date:YYYY-MM-DD, +7}
+- [ ] Review flashcards (Spaced Repetition) 📅 {date:YYYY-MM-DD, +1}
+
+```tasks
+not done
+path includes {file.folder}
+sort by due
+limit 10
+```
+
 ## Related
 - [[02_LinkedList/01 - Fast and Slow Pointers|Fast & Slow Pointers]] (find middle for palindrome)
 - [[07_Backtracking_DP/01 - Backtracking|Backtracking]] (recursive reversal is backtracking)
 - [[Java/07_DSA/Singly Linked List]] · [[Java/07_DSA/Linked List]]
-
 ---
 *Category: Coding Patterns/02_LinkedList*

@@ -10,8 +10,8 @@ source: https://github.com/ashishps1/awesome-low-level-design
 created: 2026-09-04
 pattern: 8
 completed: false
-reviewed: ''
-sr-due: ''
+reviewed: "2026-09-29"
+sr-due: "2026-10-06"
 excalidraw: ''
 type: note
 ---

@@ -1,23 +1,125 @@
 ---
-title: Observer
-category: Java/06_Design-Patterns/Behavioral
+title: "Observer"
+category: "Java/06_Design-Patterns/Behavioral"
 tags:
 - design-patterns
 - behavioral
 - observer
 pattern: observer
 source: https://refactoring.guru/design-patterns/observer
-created: 2026-09-02
+created: "2026-09-29"
 difficulty: Medium
 completed: false
-reviewed: ''
-sr-due: ''
-excalidraw: ''
+reviewed: "2026-09-29"
+sr-due: "2026-10-06"
+excalidraw: ""
 type: note
 ---
 
-
 # Observer *Also Known as: Pub-Sub*
+
+> Category: Behavioral • Source: [Refactoring.Guru , Observer](https://refactoring.guru/design-patterns/observer) • Part of [[Java/README|Java MOC]] → [[06_Design-Patterns/README|Design Patterns MOC]]
+
+## Why it Matters
+
+Defines a **subscription** so **observers react** when the **publisher changes**.
+
+## Diagram
+
+```mermaid
+classDiagram
+ class Store {
+ +subscribe(o)
+ +newProduct(p)
+ }
+ class Observer {
+ <<interface>>
+ +update(product)
+ }
+ Observer <|.. Amy
+ Observer <|.. Bo
+ Store o-- Observer : subscribers
+ Store --> Observer : notify
+```
+
+## Code
+
+```java
+// Java 25: records, sealed interfaces, pattern matching, virtual threads, Compact Object Headers
+public class ObserverDemo {
+ interface Observer { void update(String product); }
+ // Publisher fans out over a copy-safe list; unsubscribe to avoid leaks
+ static class Store {
+ private final java.util.List<Observer> subs = new java.util.concurrent.CopyOnWriteArrayList<>();
+ void subscribe(Observer o) { subs.add(o); }
+ void unsubscribe(Observer o) { subs.remove(o); }
+ void newProduct(String p) { for (var o : subs) o.update(p); }
+ }
+ public static void main(String[] args) {
+ var store = new Store();
+ Observer amy = p -> System.out.println("amy notified: " + p); // => amy notified: phone, amy notified: laptop
+ Observer bo = p -> System.out.println("bo notified: " + p); // => bo notified: phone
+ store.subscribe(amy); store.subscribe(bo);
+ store.newProduct("phone");
+ store.unsubscribe(bo);
+ store.newProduct("laptop");
+ }
+}
+```
+
+The demo proves the pattern contract is fulfilled with immutable, sealed implementations.
+
+## When to Use / When NOT
+
+| **Use When** | **Avoid When** |
+|--------------|----------------|
+| One publisher, many subscribers that come and go at runtime. |  |
+| Subscribers must not block or know about each other. |  |
+| UI updates, caches, and event fan-out. |  |
+
+## Trade-offs
+
+| Dimension | This Approach | Alternative |
+|-----------|---------------|-------------|
+| Complexity | [complexity] | [alt complexity] |
+| Performance | [performance] | [alt performance] |
+| Readability | [readability] | [alt readability] |
+| Testability | [testability] | [alt testability] |
+
+## Vs Table
+
+| Pattern | Use when |
+|---------|----------|
+| Observer | One publisher, many subscribers |
+| Mediator | Central hub for peers |
+| Flow | Back-pressured async pub-sub |
+
+## Pitfalls
+
+- Forgotten unsubscribe → memory leaks and ghost updates.
+- Calling listeners while holding a lock → reentrancy deadlocks.
+- One throwing subscriber aborting the whole fan-out , isolate failures.
+
+## Interview Q&A (Senior Depth)
+
+**Q: What is the common bug?**
+
+Forgetting to unsubscribe. Stale observers keep objects alive and duplicate work.
+
+**Q: Push vs pull notification?**
+
+Push delivers the changed data with the update call (simpler, one trip); pull sends a bare signal and each observer queries the publisher for what it needs (avoids over-sharing and stale copies, at the cost of an extra round trip).
+
+**Q: How do you avoid listener memory leaks?**
+
+Always pair subscribe with unsubscribe (lifecycle methods, try-with-resources, weak references for UI listeners), fan out over a copy-safe list like `CopyOnWriteArrayList`, and never call alien code while holding the publisher's lock , reentrancy deadlocks are the classic Observer outage.
+
+: What is the common bug?:: Forgetting to unsubscribe. Stale observers keep objects alive and duplicate work. **Q: Push vs pull notification?** Push delivers the changed data with the update call (simpler, one trip); pull sends a bare signal and each observer queries the publisher for what it needs (avoids over-sharing and stale copies, at the cost of an extra round trip). **Q: How do you avoid listener memory leaks?** Always pair subscribe with unsubscribe (lifecycle me... #flashcard
+
+## Flashcards (Spaced Repetition)
+
+#flashcard
+Pub-Sub*
 
 > Category: Behavioral • Source: [Refactoring.Guru , Observer](https://refactoring.guru/design-patterns/observer) • Part of [[Java/README|Java MOC]] → [[06_Design-Patterns/README|Design Patterns MOC]]
 
@@ -108,13 +210,27 @@ Always pair subscribe with unsubscribe (lifecycle methods, try-with-resources, w
 
 : What is the common bug?:: Forgetting to unsubscribe. Stale observers keep objects alive and duplicate work. **Q: Push vs pull notification?** Push delivers the changed data with the update call (simpler, one trip); pull sends a bare signal and each observer queries the publisher for what it needs (avoids over-sharing and stale copies, at the cost of an extra round trip). **Q: How do you avoid listener memory leaks?** Always pair subscribe with unsubscribe (lifecycle me... #flashcard
 
+## Practice Tasks (Tasks Plugin)
+
+- [ ] Restate the intent from memory 📅 {date:YYYY-MM-DD, +1}
+- [ ] Code the snippet without looking 📅 {date:YYYY-MM-DD, +3}
+- [ ] Answer all Interview Q&A aloud 📅 {date:YYYY-MM-DD, +7}
+- [ ] Review flashcards (Spaced Repetition) 📅 {date:YYYY-MM-DD, +1}
+
+```tasks
+not done
+path includes {file.folder}
+sort by due
+limit 10
+```
+
 ## Related
 
 [[06_Design-Patterns/Behavioral/Mediator|Mediator]] • [[06_Design-Patterns/Behavioral/Iterator|Iterator]] • [[06_Design-Patterns/Behavioral/State|State]]
 
 ---
+
 *Category: Behavioral • Tags: design-patterns • Source: refactoring.guru*
-- [[Architect/04_Design-Patterns-Building-Blocks/01_Enterprise-Patterns.md|01_Enterprise-Patterns]] — Enterprise patterns - Observer
 
 ## Problem
 

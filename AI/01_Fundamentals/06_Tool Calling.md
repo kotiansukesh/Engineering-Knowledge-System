@@ -8,8 +8,8 @@ tags:
 - agent
 created: 2026-09-02
 completed: false
-reviewed: ''
-sr-due: ''
+reviewed: "2026-09-29"
+sr-due: "2026-09-30"
 difficulty: Easy
 excalidraw: ''
 source: ''
@@ -142,5 +142,37 @@ executor.register(searchTool, new ToolHandler() {
 **Q5: "How do you validate tool arguments without slowing down?"**
 > **Answer**: Pydantic/Jackson validation is ~microseconds. Validate *before* execution. Cache compiled schemas. Cost of bad tool call (side effect, hallucinated API) far exceeds validation cost.
 
-## 🔗 Related
-- [[05_Structured Outputs]] • [[MCP]] • [[Agentic AI]] • [[AI Backend Template]]
+## Flashcards (Spaced Repetition)
+
+#flashcard
+**Q:** What is the trigger keyword for Tool Calling? :: **A:** [trigger keywords] #flashcard
+
+#flashcard
+**Q:** Key hyperparameter for Tool Calling? :: **A:** [hyperparameter + typical range] #flashcard
+
+#flashcard
+**Q:** When do you NOT use Tool Calling? :: **A:** [anti-pattern scenarios] #flashcard
+
+#flashcard
+**Q:** Cost order of magnitude for Tool Calling? :: **A:** [GPU hours / $ per 1M tokens] #flashcard
+
+## Practice Tasks (Tasks Plugin)
+- [ ] Restate the intent from memory 📅 2026-09-30
+- [ ] Code the config without looking 📅 2026-10-02
+- [ ] Answer all Interview Q&A aloud 📅 2026-10-06
+- [ ] Review flashcards (Spaced Repetition) 📅 2026-09-30
+
+```tasks
+not done
+path includes 01_Fundamentals
+sort by due
+limit 10
+```
+
+## Related
+- [[README|AI MOC]]
+- [[01_Fundamentals/README|01_Fundamentals Folder]]
+
+---
+
+*Category: AI/01_Fundamentals • Part of [[README|AI MOC]]*

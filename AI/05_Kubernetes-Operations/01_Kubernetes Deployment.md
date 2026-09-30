@@ -9,8 +9,8 @@ tags:
 weeks: 25-27
 created: 2026-09-02
 completed: false
-reviewed: ''
-sr-due: ''
+reviewed: "2026-09-29"
+sr-due: "2026-09-30"
 excalidraw: ''
 difficulty: Medium
 source: ''
@@ -70,74 +70,37 @@ flowchart TB
 
 - **Q:** Why StatefulSet for PG? **A:** Stable identity + persistent storage; Deployments don't guarantee that.
 
-## Related
+## Flashcards (Spaced Repetition)
 
-- [[02_CKAD Preparation]] • [[AI/07_Cross-Cutting/04_AI Security|Security]]
+#flashcard
+**Q:** What is the trigger keyword for Kubernetes Deployment? :: **A:** [trigger keywords] #flashcard
 
----
-*Category: kubernetes*
+#flashcard
+**Q:** Key hyperparameter for Kubernetes Deployment? :: **A:** [hyperparameter + typical range] #flashcard
 
-# Kubernetes Deployment — Weeks 25–27
+#flashcard
+**Q:** When do you NOT use Kubernetes Deployment? :: **A:** [anti-pattern scenarios] #flashcard
 
-> Part of [[README|05_Kubernetes-Operations]] • `kubernetes`
+#flashcard
+**Q:** Cost order of magnitude for Kubernetes Deployment? :: **A:** [GPU hours / $ per 1M tokens] #flashcard
 
-## Services to Deploy
+## Practice Tasks (Tasks Plugin)
+- [ ] Restate the intent from memory 📅 2026-09-30
+- [ ] Code the config without looking 📅 2026-10-02
+- [ ] Answer all Interview Q&A aloud 📅 2026-10-06
+- [ ] Review flashcards (Spaced Repetition) 📅 2026-09-30
 
-| Service | Manifests | Notes |
-|---------|-----------|-------|
-| AI Gateway (FastAPI) | Deployment + Service + Ingress | From [[AI/04_Production-Platform/01_AI Gateway\|AI Gateway]] |
-| Spring Boot (platform) | Deployment + Service | Coexists with FastAPI — your Java leverage |
-| PostgreSQL + pgvector | StatefulSet + PVC | Vector extension enabled |
-| Redis | Deployment + Service | Cache + rate limiting |
-| Vector DB (optional Qdrant) | Helm release | For scale comparison |
-| Kafka | Strimzi / Helm | Event streaming (optional) |
-| Prometheus + Grafana | kube-prometheus-stack | From [[AI/04_Production-Platform/03_gRPC and Observability\|C7]] |
-
-## Checklist
-
-- [ ] Namespace `ai-platform`, resource quotas, network policies
-- [ ] ConfigMaps / Secrets (no hardcoded keys — see [[AI/07_Cross-Cutting/04_AI Security|Security]])
-- [ ] Liveness/readiness probes per service
-- [ ] Persistent volumes for PG/Redis
-- [ ] Ingress + TLS
-
-# ai-backend.yaml (Helm template excerpt)
-
-apiVersion: apps/v1
-kind: Deployment
-metadata:
- name: ai-backend
-spec:
- replicas: 2
- selector:
- matchLabels: {app: ai-backend}
- template:
- metadata:
- labels: {app: ai-backend}
- spec:
- containers:
- - name: api
- image: "{{ .Values.image.repo }}/ai-backend:{{ .Values.image.tag }}"
- ports: [{containerPort: 8000}]
- readinessProbe: # route traffic only when /health is green
- httpGet: {path: /health, port: 8000}
- initialDelaySeconds: 5
- periodSeconds: 10
- livenessProbe:
- httpGet: {path: /health, port: 8000}
- failureThreshold: 3
- resources:
- requests: {cpu: 250m, memory: 512Mi}
- limits: {cpu: "1", memory: 1Gi}
----
-apiVersion: autoscaling/v2
-kind: HorizontalPodAutoscaler
-metadata: {name: ai-backend}
-spec:
- scaleTargetRef: {apiVersion: apps/v1, kind: Deployment, name: ai-backend}
- minReplicas: 2
- maxReplicas: 6
- metrics:
- - type: Resource
- resource: {name: cpu, target: {type: Utilization, averageUtilization: 70}}
+```tasks
+not done
+path includes 05_Kubernetes-Operations
+sort by due
+limit 10
 ```
+
+## Related
+- [[README|AI MOC]]
+- [[05_Kubernetes-Operations/README|05_Kubernetes-Operations Folder]]
+
+---
+
+*Category: AI/05_Kubernetes-Operations • Part of [[README|AI MOC]]*

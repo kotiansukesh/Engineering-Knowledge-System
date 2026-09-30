@@ -1,20 +1,26 @@
 ---
-title: List
-category: Java/03_Collections/List
-tags:
-- java
-- collections
-- list
-created: 2026-01-18
-pattern: 3
-difficulty: Easy
+title: "List"
+category: "Java/03_Collections/List"
+tags: [java, collections]
+created: "2026-09-29"
 completed: false
-reviewed: ''
-sr-due: ''
-excalidraw: ''
-source: ''
-type: note
+difficulty: "Easy"
+pattern: 0
+reviewed: "2026-09-29"
+sr-due: "2026-10-06"
+source: ""
+excalidraw: ""
+type: "note"
 ---
+
+# List
+
+> Part of [[README|Java MOC]] • `Java/03_Collections/List`
+> 🎨 **Visual diagram:** Create Excalidraw drawing from template: `Cmd+P → Excalidraw: New from template → Java Diagram`
+
+## Intent
+
+One sentence: what problem does this solve? Define the **key term** in **bold**.
 
 ## Why it Matters
 
@@ -32,9 +38,10 @@ nodes + Deque"]
 Stack (legacy)"]
 ```
 
-## Code
+## Code / Example
 
 ```java
+// Java 25: var, record, sealed, pattern matching, SequencedCollection, virtual threads, Compact Object Headers
 // List — ordered, indexed, duplicates allowed
 List<String> list = new ArrayList<>(List.of("b","a","c"));
 System.out.println(list.get(1)); // => a
@@ -48,24 +55,31 @@ System.out.println(list.reversed()); // => [a, c, z, b]
 var nums = List.of(1,2,2,3);
 Set<Integer> dedup = new LinkedHashSet<>(nums);
 ```
-Memory note: List.of is immutable and compact. ArrayList copies on growth.
 
-## When to use / not
+### Concrete Example
 
-| Impl | Pick when |
-|------|-------------|
-| `ArrayList` | Random access, mostly append (default) |
-| `LinkedList` | Frequent insert/remove at ends + deque ops |
-| `CopyOnWriteArrayList` | Read-heavy, thread-safe iteration |
-| `Vector`/`Stack` | Legacy only , do not use in new code |
+- **Input:**
+- **Output:**
+- **Explanation:**
+
+## When to Use / When NOT
+
+| **Use When** | **Avoid When** |
+|--------------|----------------|
+|  |  |
+|  |  |
+|  |  |
 
 ## Trade-offs
 
-- Indexed access + `SequencedCollection` ends (`getFirst`/`getLast`/`reversed`).
-- Middle insert/remove is O(n) for array impls; index access O(n) for linked.
-- `List.of` immutability vs `ArrayList` mutability confuses , check before `add`.
+| Dimension | This Approach | Alternative |
+|-----------|---------------|-------------|
+| Complexity | | |
+| Performance | | |
+| Readability | | |
+| Testability | | |
 
-## Vs
+## Vs Table
 
 | | `ArrayList` | `LinkedList` | `CopyOnWriteArrayList` |
 |--|-------------|----------------|--------------------------|
@@ -79,13 +93,41 @@ Memory note: List.of is immutable and compact. ArrayList copies on growth.
 - `remove(int)` vs `remove(Object)` overloads: `list.remove(1)` removes by index, not value `1`.
 - `Arrays.asList` is fixed-size , `add` fails; wrap in `new ArrayList<>(...)` for growth.
 
-## Interview q&a
+## Interview Q&A (Senior Depth)
 
 **Q: List vs Set?**
 List is ordered, indexed, allows duplicates. Set has no index, no duplicates, membership is O(1) for HashSet.
 
 **Q: ArrayList vs LinkedList?**
 ArrayList is array backed, O(1) get, O(n) insert in middle. LinkedList is node based, O(n) get, O(1) insert at ends when you have the node.
+
+## Flashcards (Spaced Repetition)
+
+#flashcard
+**Q:** What is the trigger keyword for List? :: **A:** [trigger keywords] #flashcard
+
+#flashcard
+**Q:** Time/space complexity of List? :: **A:** Time: O(), Space: O() #flashcard
+
+#flashcard
+**Q:** When do you NOT use List? :: **A:** [anti-pattern scenarios] #flashcard
+
+#flashcard
+**Q:** Core Java 25 snippet for List? :: **A:** `var list = new ArrayList<>(List.of(...));` #flashcard
+
+## Practice Tasks (Tasks Plugin)
+
+- [ ] Restate the intent from memory 📅 {date:YYYY-MM-DD, +1}
+- [ ] Code the snippet without looking 📅 {date:YYYY-MM-DD, +3}
+- [ ] Answer all Interview Q&A aloud 📅 {date:YYYY-MM-DD, +7}
+- [ ] Review flashcards (Spaced Repetition) 📅 {date:YYYY-MM-DD, +1}
+
+```tasks
+not done
+path includes {file.folder}
+sort by due
+limit 10
+```
 
 ## Related
 
@@ -118,3 +160,8 @@ Since Java 21, List is a SequencedCollection, so it has getFirst, getLast, addFi
 - Vector: legacy synchronized resizable array, 2x growth, synchronized per method, prefer ArrayList
 - Stack: legacy LIFO over Vector, prefer ArrayDeque
 - CopyOnWriteArrayList: thread safe for read heavy cases, copy on write
+
+
+---
+
+*Category: Java/03_Collections/List • Part of [[README|Java MOC]] • Java 25*

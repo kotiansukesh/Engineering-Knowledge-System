@@ -1,24 +1,126 @@
 ---
-title: Factory Method
-category: Java/06_Design-Patterns/Creational
+title: "Factory Method"
+category: "Java/06_Design-Patterns/Creational"
 tags:
 - design-patterns
 - creational
 - factory-method
 pattern: factory-method
 source: https://refactoring.guru/design-patterns/factory-method
-created: 2026-09-02
+created: "2026-09-29"
 difficulty: Medium
 completed: false
-reviewed: ''
-sr-due: ''
-excalidraw: ''
+reviewed: "2026-09-29"
+sr-due: "2026-10-06"
+excalidraw: ""
 type: note
 ---
 
 # Factory Method
 
 > Category: Creational • Source: [Refactoring.Guru , Factory Method](https://refactoring.guru/design-patterns/factory-method) • Part of [[Java/README|Java MOC]] → [[06_Design-Patterns/README|Design Patterns MOC]]
+
+## Why it Matters
+
+Defines a **method for creating objects** and lets **subclasses decide** what to create.
+
+## Diagram
+
+```mermaid
+classDiagram
+ class Client
+ class Creator {
+ +create(kind) Transport
+ }
+ class Transport {
+ <<interface>>
+ +deliver()
+ }
+ class Truck {
+ +deliver()
+ }
+ class Ship {
+ +deliver()
+ }
+ Creator ..> Transport : creates
+ Transport <|.. Truck
+ Transport <|.. Ship
+ Client --> Creator
+```
+
+## Code
+
+```java
+// Java 25: records, sealed interfaces, pattern matching, virtual threads, Compact Object Headers
+public class FactoryMethodDemo {
+ sealed interface Transport permits Truck, Ship { void deliver(); }
+ record Truck() implements Transport { public void deliver() { System.out.println("by road"); } } // => by road
+ record Ship() implements Transport { public void deliver() { System.out.println("by sea"); } } // => by sea
+ // Creator defers the concrete choice; the client only ever sees Transport.
+ static Transport create(String kind) {
+ return switch (kind) {
+ case "ship" -> new Ship();
+ default -> new Truck();
+ };
+ }
+ public static void main(String[] args) {
+ for (var kind : new String[]{"truck", "ship"}) create(kind).deliver();
+ }
+}
+```
+
+The demo proves the pattern contract is fulfilled with immutable, sealed implementations.
+
+## When to Use / When NOT
+
+| **Use When** | **Avoid When** |
+|--------------|----------------|
+| The client must work against an interface while subclasses pick the concrete type. |  |
+| New product types appear often and should not force edits in client code. |  |
+| Creation logic itself deserves a seam for testing. |  |
+
+## Trade-offs
+
+| Dimension | This Approach | Alternative |
+|-----------|---------------|-------------|
+| Complexity | [complexity] | [alt complexity] |
+| Performance | [performance] | [alt performance] |
+| Readability | [readability] | [alt readability] |
+| Testability | [testability] | [alt testability] |
+
+## Vs Table
+
+| Pattern | Use when |
+|---------|----------|
+| Factory method | Subclass decides which product to make |
+| Abstract factory | Family of related products |
+
+## Pitfalls
+
+- A `switch` on strings with no registration path rots into the coupling it replaced.
+- Returning null for unknown kinds , throw or return Optional instead.
+- Creators that also embed business logic become untestable god factories.
+
+## Interview Q&A (Senior Depth)
+
+**Q: How is this different from a simple factory function?**
+
+Factory method lets a subclass or registered switch decide the concrete type without the client changing. Simple factory is a single function with a conditional.
+
+**Q: How does Factory Method differ from Abstract Factory?**
+
+Factory Method creates one product through an overridable method, letting subclasses or a switch pick the concrete type. Abstract Factory creates a whole family of related products behind one interface, guaranteeing the members match. Use factory method for a single varying product, abstract factory when the products must stay consistent with each other.
+
+**Q: Where does Factory Method show up in real frameworks?**
+
+Everywhere creation is deferred: `LoggerFactory.getLogger`, Spring `FactoryBean`, JDBC drivers via `DriverManager`, and collection factories like `List.of`. The caller codes to the interface; registration or subclassing decides the concrete type.
+
+: How is this different from a simple factory function?:: Factory method lets a subclass or registered switch decide the concrete type without the client changing. Simple factory is a single function with a conditional. **Q: How does Factory Method differ from Abstract Factory?** Factory Method creates one product through an overridable method, letting subclasses or a switch pick the concrete type. Abstract Factory creates a whole family of related products behind one interface, guaranteeing the memb... #flashcard
+
+## Flashcards (Spaced Repetition)
+
+#flashcard
+Creational • Source: [Refactoring.Guru , Factory Method](https://refactoring.guru/design-patterns/factory-method) • Part of [[Java/README|Java MOC]] → [[06_Design-Patterns/README|Design Patterns MOC]]
 
 ## Why it Matters
 
@@ -108,11 +210,26 @@ Everywhere creation is deferred: `LoggerFactory.getLogger`, Spring `FactoryBean`
 
 : How is this different from a simple factory function?:: Factory method lets a subclass or registered switch decide the concrete type without the client changing. Simple factory is a single function with a conditional. **Q: How does Factory Method differ from Abstract Factory?** Factory Method creates one product through an overridable method, letting subclasses or a switch pick the concrete type. Abstract Factory creates a whole family of related products behind one interface, guaranteeing the memb... #flashcard
 
+## Practice Tasks (Tasks Plugin)
+
+- [ ] Restate the intent from memory 📅 {date:YYYY-MM-DD, +1}
+- [ ] Code the snippet without looking 📅 {date:YYYY-MM-DD, +3}
+- [ ] Answer all Interview Q&A aloud 📅 {date:YYYY-MM-DD, +7}
+- [ ] Review flashcards (Spaced Repetition) 📅 {date:YYYY-MM-DD, +1}
+
+```tasks
+not done
+path includes {file.folder}
+sort by due
+limit 10
+```
+
 ## Related
 
 [[06_Design-Patterns/Creational/Abstract Factory|Abstract Factory]] (families vs single product) • [[06_Design-Patterns/Behavioral/Template Method|Template Method]] (deferred step) • [[06_Design-Patterns/Creational/Singleton|Singleton]]
 
 ---
+
 *Category: Creational • Tags: design-patterns • Source: refactoring.guru*
 
 ## Problem

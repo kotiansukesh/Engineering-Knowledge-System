@@ -9,7 +9,6 @@ reviewed: ""
 sr-due: ""
 source: "Coding Patterns Vault 20-Week Roadmap"
 weeks: "1-20"
-type: "study-plan"
 ---
 
 # Study Plan - Coding Patterns Vault
@@ -17,7 +16,6 @@ type: "study-plan"
 > **20-Week Roadmap** for LeetCode patterns mastery.
 > Goal: Recognize pattern → Code in 15 min → Explain trade-offs.
 > 21 patterns, 78 LeetCode problems mapped.
-
 ---
 
 ## Pattern Coverage Map
@@ -45,7 +43,6 @@ type: "study-plan"
 | 19 | Greedy | 07_Backtracking_DP | 4 | 455, 135, 435 |
 | 20 | Matrix Traversal | 06_Matrix | 4 | 54, 733, 200 |
 | 21 | Bit Manipulation | 08_Bit_Manipulation | 4 | 191, 136, 260 |
-
 ---
 
 ## Phase 1: Array & String Patterns (Weeks 1-4)
@@ -73,7 +70,6 @@ type: "study-plan"
 - [ ] [[Coding Patterns/02_LinkedList/02 - LinkedList In-place Reversal|In-place Reversal]] - 3 problems 📅 2026-10-10
 - [ ] **Code**: All 7 problems 📅 2026-10-11
 - [ ] **SR Review**: Cycle detection, palindrome, reorder 📅 2026-10-12
-
 ---
 
 ## Phase 2: Tree & Graph Patterns (Weeks 5-9)
@@ -107,7 +103,6 @@ type: "study-plan"
 - [ ] **Cross-link**: [[Architect/10_System-Design-Interviews/NET-01-Load-Balancer|Load Balancer]] (least connections = min-heap) 📅 2026-10-30
 - [ ] [[Architect/10_System-Design-Interviews/INT-02-Twitter-Timeline|Twitter Timeline]] (merge k lists = heap) 📅 2026-10-31
 - [ ] **SR Review**: NGE, daily temperatures, top K 📅 2026-11-01
-
 ---
 
 ## Phase 3: DP & Backtracking (Weeks 10-14)
@@ -136,7 +131,6 @@ type: "study-plan"
 - [ ] [[Coding Patterns/08_Bit_Manipulation/01 - Bit Manipulation|Bit Manipulation]] - 4 problems 📅 2026-11-12
 - [ ] Focus: XOR tricks, bit counting, masks
 - [ ] **SR Review**: Single Number, Hamming Distance 📅 2026-11-13
-
 ---
 
 ## Phase 4: Mastery & Interview (Weeks 15-20)
@@ -171,7 +165,6 @@ type: "study-plan"
 - [ ] Light review only: flashcards, cheat sheets 📅 2026-11-30
 - [ ] Sleep, hydrate, mental prep 📅 2026-12-01
 - [ ] **Interview Day** 🎯 📅 2026-12-02
-
 ---
 
 ## Weekly Rituals
@@ -189,7 +182,6 @@ type: "study-plan"
 - [ ] Master Dashboard review
 - [ ] Plan next week's pattern focus
 - [ ] Anki sync
-
 ---
 
 ## Tracking Queries
@@ -203,10 +195,9 @@ TABLE WITHOUT ID
   completed as "Done",
   reviewed as "Reviewed"
 FROM "Coding Patterns"
-WHERE type = "note" AND file.name != "README"
+WHERE file.name != "README" AND file.folder != "99_Revision"
 SORT file.folder, file.name
 ```
-
 ---
 
 ## Milestone Gates
@@ -217,7 +208,6 @@ SORT file.folder, file.name
 | **Trees/Graphs** | BFS, DFS, Trie, Union Find: recognize instantly | Week 9 |
 | **DP Confidence** | Identify state/recurrence in < 5 min | Week 14 |
 | **Interview Ready** | All 78 problems solved, 3 mock passed | Week 20 |
-
 ---
 
 ## Cross-Vault Links
@@ -232,7 +222,6 @@ SORT file.folder, file.name
 | Union Find | [[Architect/10_System-Design-Interviews/DB-05-Sharding\|Sharding]] (connected components) |
 | DP | [[Architect/10_System-Design-Interviews/DB-01-Database-Internals\|Query Optimization]] |
 | Monotonic Stack | [[Architect/10_System-Design-Interviews/CACHE-02-Cache-Strategies\|Cache Eviction]] |
-
 ---
 
 *Next: [[Architect/_templates/Daily-Review-Queue|Daily Review Queue]]*

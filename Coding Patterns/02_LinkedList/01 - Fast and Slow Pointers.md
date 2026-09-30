@@ -1,13 +1,13 @@
 ---
 title: Fast and Slow Pointers
-pattern: 4
+pattern: 5
 category: Coding Patterns/02_LinkedList
 tags:
 - pattern/linkedlist
 - pattern/linkedlist/fast-slow
 leetcode:
 - 141
-- 202
+- 876
 - 287
 created: 2026-09-02
 completed: false
@@ -16,14 +16,11 @@ sr-due: ''
 difficulty: Easy
 source: https://blog.algomaster.io/p/20-dsa-patterns
 excalidraw: ''
-type: note
-problems-solved: []
-problems-solved-dates: {}
 ---
 
 # Fast and Slow Pointers
 
-> Part of [[README|20 DSA Patterns]] • `Coding Patterns/02_LinkedList` • Pattern #4
+> Part of [[README|20 DSA Patterns]] • `Coding Patterns/02_LinkedList` • Pattern #5
 
 ## Intent
 Two pointers traversing a sequence at different speeds (slow +1, fast +2) to detect cycles, find middles, or locate cycle entry — O(1) space alternative to HashSet for linked list and sequence problems.
@@ -53,66 +50,59 @@ flowchart LR
 
 **Problem Statement:**
 
-Given head, the head of a linked list, determine if the linked list has a cycle in it.
-
-There is a cycle in a linked list if there is some node in the list that can be reached again by continuously following the next pointer. Internally, pos is used to denote the index of the node that tail's next pointer is connected to. Note that pos is not passed as a parameter.
-
-Return true if there is a cycle in the linked list. Otherwise, return false.
+Given head, the head of a linked list, determine if the linked list has a cycle in it. There is a cycle in a linked list if there is some node in the list that can be reached again by continuously following the next pointer. Internally, pos is used to denote the index of the node that tail's next pointer is connected to. Note that pos is not passed as a parameter. Return true if there is a cycle in the linked list. Otherwise, return false. Example 1: Input: head = [3,2,0,-4], pos = 1 Output: true Explanation: There is a cycle in the linked list, where the tail connects to the 1st node (0-indexed). Example 2: Input: head = [1,2], pos = 0 Output: true Explanation: There is a cycle in the linked list, where the tail connects to the 0th node. Example 3: Input: head = [1], pos = -1 Output: false Explanation: There is no cycle in the linked list. Constraints: The number of the nodes in the list is in the range [0, 104]. -105 5 pos is -1 or a valid index in the linked-list. Follow up: Can you solve it using O(1) (i.e. constant) memory?
 
 **Examples:**
 
 Example 1:
-
-Input: head = [3,2,0,-4], pos = 1
-Output: true
-Explanation: There is a cycle in the linked list, where the tail connects to the 1st node (0-indexed).
+```
+[3,2,0,-4]
+```
 
 Example 2:
-
-Input: head = [1,2], pos = 0
-Output: true
-Explanation: There is a cycle in the linked list, where the tail connects to the 0th node.
+```
+1
+```
 
 Example 3:
+```
+[1,2]
+```
 
-Input: head = [1], pos = -1
-Output: false
-Explanation: There is no cycle in the linked list.
+Example 4:
+```
+0
+```
 
+Example 5:
+```
+[1]
+```
+
+Example 6:
+```
+-1
+```
 ---
 
-### 202. Happy Number (Easy)
-> [LeetCode 202](https://leetcode.com/problems/happy-number/) • Tags: Hash Table, Math, Two Pointers, Floyd's Cycle Finding Algorithm
+### 876. Middle of the Linked List (Easy)
+> [LeetCode 876](https://leetcode.com/problems/middle-of-the-linked-list/) • Tags: Linked List, Two Pointers
 
 **Problem Statement:**
 
-Write an algorithm to determine if a number n is happy.
-
-A happy number is a number defined by the following process:
-
-	Starting with any positive integer, replace the number by the sum of the squares of its digits.
-	Repeat the process until the number equals 1 (where it will stay), or it loops endlessly in a cycle which does not include 1.
-	Those numbers for which this process ends in 1 are happy.
-
-Return true if n is a happy number, and false if not.
+Given the head of a singly linked list, return the middle node of the linked list. If there are two middle nodes, return the second middle node. Example 1: Input: head = [1,2,3,4,5] Output: [3,4,5] Explanation: The middle node of the list is node 3. Example 2: Input: head = [1,2,3,4,5,6] Output: [4,5,6] Explanation: Since the list has two middle nodes with values 3 and 4, we return the second one. Constraints: The number of nodes in the list is in the range [1, 100]. 1
 
 **Examples:**
 
 Example 1:
-
-Input: n = 19
-Output: true
-Explanation:
-1^2^ + 9^2^ = 82
-8^2^ + 2^2^ = 68
-6^2^ + 8^2^ = 100
-1^2^ + 0^2^ + 0^2^ = 1
+```
+[1,2,3,4,5]
+```
 
 Example 2:
-
-Input: n = 2
-Output: false
-
+```
+[1,2,3,4,5,6]
+```
 ---
 
 ### 287. Find the Duplicate Number (Medium)
@@ -120,29 +110,24 @@ Output: false
 
 **Problem Statement:**
 
-Given an array of integers nums containing n + 1 integers where each integer is in the range [1, n] inclusive.
-
-There is only one repeated number in nums, return this repeated number.
-
-You must solve the problem without modifying the array nums and using only constant extra space.
+Given an array of integers nums containing n + 1 integers where each integer is in the range [1, n] inclusive. There is only one repeated number in nums, return this repeated number. You must solve the problem without modifying the array nums and using only constant extra space. Example 1: Input: nums = [1,3,4,2,2] Output: 2 Example 2: Input: nums = [3,1,3,4,2] Output: 3 Example 3: Input: nums = [3,3,3,3,3] Output: 3 Constraints: 1 5 nums.length == n + 1 1 All the integers in nums appear only once except for precisely one integer which appears two or more times. Follow up: How can we prove that at least one duplicate number must exist in nums? Can you solve the problem in linear runtime complexity?
 
 **Examples:**
 
 Example 1:
-
-Input: nums = [1,3,4,2,2]
-Output: 2
+```
+[1,3,4,2,2]
+```
 
 Example 2:
-
-Input: nums = [3,1,3,4,2]
-Output: 3
+```
+[3,1,3,4,2]
+```
 
 Example 3:
-
-Input: nums = [3,3,3,3,3]
-Output: 3
-
+```
+[3,3,3,3,3]
+```
 ---
 
 
@@ -249,10 +234,38 @@ int findDuplicate(int[] nums) {
 **Q: What if the linked list is very long and you're worried about stack overflow?**
 **A:** Floyd's algorithm is iterative — no recursion, no stack overflow risk. The O(1) space guarantee holds regardless of list length. This is exactly why it's preferred over recursive or HashSet approaches in production.
 
+
+## Flashcards (Spaced Repetition)
+
+#flashcard
+**Q:** What is the trigger keyword for Fast and Slow Pointers? :: **A:** linked list cycle, find middle, happy number, find duplicate (LC 287), palindrome linked list #flashcard
+
+#flashcard
+**Q:** Time/space complexity of Fast and Slow Pointers? :: **A:** Time: O(n) cycle detect / O(n) find entry, Space: O(1) #flashcard
+
+#flashcard
+**Q:** When do you NOT use Fast and Slow Pointers? :: **A:** need to visit all nodes (just traverse), need cycle length only (extra pass needed) #flashcard
+
+#flashcard
+**Q:** Core Java 25 snippet for Fast and Slow Pointers? :: **A:** `ListNode slow=head, fast=head; while(fast!=null && fast.next!=null){ slow=slow.next; fast=fast.next.next; if(slow==fast) break; }` #flashcard
+
+
+## Practice Tasks (Tasks Plugin)
+- [ ] Restate the intent from memory 📅 {date:YYYY-MM-DD, +1}
+- [ ] Code the snippet without looking 📅 {date:YYYY-MM-DD, +3}
+- [ ] Answer all Interview Q&A aloud 📅 {date:YYYY-MM-DD, +7}
+- [ ] Review flashcards (Spaced Repetition) 📅 {date:YYYY-MM-DD, +1}
+
+```tasks
+not done
+path includes {file.folder}
+sort by due
+limit 10
+```
+
 ## Related
 - [[02_LinkedList/02 - LinkedList In-place Reversal|LinkedList In-place Reversal]]
 - [[05_Trees_Graphs/02 - DFS|DFS]] (graph cycle detection uses visited set, not fast/slow)
 - [[Java/07_DSA/Singly Linked List]] · [[Java/07_DSA/Linked List]]
-
 ---
 *Category: Coding Patterns/02_LinkedList*

@@ -9,8 +9,8 @@ tags:
 - pydantic
 created: 2026-09-02
 completed: false
-reviewed: ''
-sr-due: ''
+reviewed: "2026-09-29"
+sr-due: "2026-09-30"
 difficulty: Easy
 excalidraw: ''
 source: ''
@@ -152,5 +152,37 @@ async def add_request_id(request, call_next):
 **Q5: "What's the scaling model for FastAPI in production?"**
 > **Answer**: Multiple uvicorn workers (one per CPU core) behind load balancer. Each worker = single-threaded event loop. For CPU-bound work, offload to process pool or separate service. Not multi-threaded like Spring.
 
-## 🔗 Related
-- [[01_Python for AI]] • [[03_LLM APIs]] • [[AI Backend Template]] • [[AI Gateway]]
+## Flashcards (Spaced Repetition)
+
+#flashcard
+**Q:** What is the trigger keyword for FastAPI Backend? :: **A:** [trigger keywords] #flashcard
+
+#flashcard
+**Q:** Key hyperparameter for FastAPI Backend? :: **A:** [hyperparameter + typical range] #flashcard
+
+#flashcard
+**Q:** When do you NOT use FastAPI Backend? :: **A:** [anti-pattern scenarios] #flashcard
+
+#flashcard
+**Q:** Cost order of magnitude for FastAPI Backend? :: **A:** [GPU hours / $ per 1M tokens] #flashcard
+
+## Practice Tasks (Tasks Plugin)
+- [ ] Restate the intent from memory 📅 2026-09-30
+- [ ] Code the config without looking 📅 2026-10-02
+- [ ] Answer all Interview Q&A aloud 📅 2026-10-06
+- [ ] Review flashcards (Spaced Repetition) 📅 2026-09-30
+
+```tasks
+not done
+path includes 01_Fundamentals
+sort by due
+limit 10
+```
+
+## Related
+- [[README|AI MOC]]
+- [[01_Fundamentals/README|01_Fundamentals Folder]]
+
+---
+
+*Category: AI/01_Fundamentals • Part of [[README|AI MOC]]*

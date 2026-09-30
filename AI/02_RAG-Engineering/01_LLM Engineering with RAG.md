@@ -9,8 +9,8 @@ tags:
 weeks: 5-6
 created: 2026-09-02
 completed: false
-reviewed: ''
-sr-due: ''
+reviewed: "2026-09-29"
+sr-due: "2026-09-30"
 excalidraw: ''
 difficulty: Medium
 source: ''
@@ -87,37 +87,37 @@ ORDER BY embedding <=> :query_embedding LIMIT 5;
 - **Q:** pgvector vs dedicated vector DB? **A:** pgvector reuses PG ops/joins/transactions; dedicated DBs scale vectors further, compare in [[02_Design LLM Architectures]].
 - **Q:** Chunk size trade-off? **A:** Small → precise but fragmented; large → context-rich but noisy. Evaluate retrieval precision@k.
 
-## Related
+## Flashcards (Spaced Repetition)
 
-- [[02_Design LLM Architectures]] • [[Enterprise Document Search]] • [[AI/07_Cross-Cutting/02_AI Evaluation|Evaluation]]
+#flashcard
+**Q:** What is the trigger keyword for LLM Engineering with RAG (Coursera C1)? :: **A:** [trigger keywords] #flashcard
+
+#flashcard
+**Q:** Key hyperparameter for LLM Engineering with RAG (Coursera C1)? :: **A:** [hyperparameter + typical range] #flashcard
+
+#flashcard
+**Q:** When do you NOT use LLM Engineering with RAG (Coursera C1)? :: **A:** [anti-pattern scenarios] #flashcard
+
+#flashcard
+**Q:** Cost order of magnitude for LLM Engineering with RAG (Coursera C1)? :: **A:** [GPU hours / $ per 1M tokens] #flashcard
+
+## Practice Tasks (Tasks Plugin)
+- [ ] Restate the intent from memory 📅 2026-09-30
+- [ ] Code the config without looking 📅 2026-10-02
+- [ ] Answer all Interview Q&A aloud 📅 2026-10-06
+- [ ] Review flashcards (Spaced Repetition) 📅 2026-09-30
+
+```tasks
+not done
+path includes 02_RAG-Engineering
+sort by due
+limit 10
+```
+
+## Related
+- [[README|AI MOC]]
+- [[02_RAG-Engineering/README|02_RAG-Engineering Folder]]
 
 ---
-*Category: rag*
 
-# LLM Engineering with RAG, Coursera Course 1
-
-> Part of [[README|02_RAG-Engineering]] • `rag` • Weeks 5–6
-> Watch: [Complete RAG Crash Course with LangChain](https://www.youtube.com/watch?v=o126p1QN_RI)
-
-## Key Topics (c1)
-
-- RAG architecture (naive → advanced), chunking strategies, embedding choice.
-- **pgvector** on PostgreSQL: `vector` type, HNSW/IVFFlat indexes, metadata filtering.
-- 12-factor for LLM apps (config, dependencies, disposability, logs).
-
-## Start-simple Ladder
-
-Do not start on pgvector. Start local, zero infra, then graduate when the eval set says the simple stack is the bottleneck.
-
-1. **Loaders:** PDF, directory, CSV/JSON, web page. One function per source returning the same `Document(content, metadata)` shape.
-2. **Splitting:** `RecursiveCharacterTextSplitter`, 512 tokens with 50 overlap. Overlap exists so a sentence straddling a boundary stays retrievable from both chunks. Tune only after measuring precision@k.
-3. **Embeddings:** local first (HuggingFace `all-MiniLM`, Ollama) for dev; API embeddings when quality-per-dollar wins on your eval set. Compare on cost, latency, and retrieval precision, not vibes.
-4. **Store:** Chroma or FAISS locally. Move to pgvector (see below) when you need metadata filtering, concurrent writers, or one database for vectors plus app data.
-
-# Ingest Sketch
-
-from pgvector.psycopg import register_vector
-chunks = chunk_text(doc, size=512, overlap=50)
-embeddings = await embed_batch(chunks)
-await insert_many([(c, m, e) for c,m,e in zip(chunks, metas, embeddings)])
-```
+*Category: AI/02_RAG-Engineering • Part of [[README|AI MOC]]*

@@ -12,8 +12,8 @@ tags:
 weeks: 21-24
 created: 2026-09-02
 completed: false
-reviewed: ''
-sr-due: ''
+reviewed: "2026-09-29"
+sr-due: "2026-09-30"
 excalidraw: ''
 difficulty: Medium
 source: ''
@@ -103,47 +103,37 @@ message DocumentList {
 - **Q:** How do you trace one user request across Python and Java? **A:** OpenTelemetry context propagation through the gRPC metadata, the trace ID crosses the boundary in headers, so Langfuse and Prometheus see the same request. Without that, the trace dies exactly where the two estates meet.
 - **Q:** What is the observability signal you would not ship without? **A:** Per-request cost. Latency and error rates are standard; token cost per request is the metric that makes an AI platform a system you can reason about financially, not just operationally.
 
-## Related
+## Flashcards (Spaced Repetition)
 
-- [[01_AI Gateway]] • [[AI/05_Kubernetes-Operations/README|05_K8s-Operations]] • [[AI/07_Cross-Cutting/03_LLM Observability|LLM Observability]]
+#flashcard
+**Q:** What is the trigger keyword for gRPC and Observability (C5–C7)? :: **A:** [trigger keywords] #flashcard
 
----
-*Category: production*
+#flashcard
+**Q:** Key hyperparameter for gRPC and Observability (C5–C7)? :: **A:** [hyperparameter + typical range] #flashcard
 
-# GRPC and Observability, Coursera C5–C7
+#flashcard
+**Q:** When do you NOT use gRPC and Observability (C5–C7)? :: **A:** [anti-pattern scenarios] #flashcard
 
-> Part of [[README|04_Production-Platform]] • `production` • Weeks 21–24
+#flashcard
+**Q:** Cost order of magnitude for gRPC and Observability (C5–C7)? :: **A:** [GPU hours / $ per 1M tokens] #flashcard
 
-## Key Topics
+## Practice Tasks (Tasks Plugin)
+- [ ] Restate the intent from memory 📅 2026-09-30
+- [ ] Code the config without looking 📅 2026-10-02
+- [ ] Answer all Interview Q&A aloud 📅 2026-10-06
+- [ ] Review flashcards (Spaced Repetition) 📅 2026-09-30
 
-| Course | Topics | Deliverable |
-|--------|--------|-------------|
-| **C5** Analyze & Deploy Scalable LLM Architectures | Diagnose RAG bottlenecks, Helm on K8s, **autoscaling** (HPA), **managed rollouts** | Helm charts + HPA |
-| **C6** Design Scalable AI Systems & Components | Component boundaries, platform architecture | Architecture diagrams |
-| **C7** Integrate & Optimize AI Services | **gRPC + Protobuf** for prediction services, **Prometheus** monitoring | gRPC services + dashboards |
-
-## GRPC Sketch
-
-```protobuf
-// ai_platform.proto
-service PredictionService {
- rpc Predict(PredictRequest) returns (PredictResponse);
- rpc StreamPredict(PredictRequest) returns (stream Token);
-}
-message PredictRequest { string query = 1; map<string,string> filters = 2; }
+```tasks
+not done
+path includes 04_Production-Platform
+sort by due
+limit 10
 ```
 
-## Observability Stack
+## Related
+- [[README|AI MOC]]
+- [[04_Production-Platform/README|04_Production-Platform Folder]]
 
-- **Prometheus** — latency, throughput, error rate, token cost per endpoint.
-- **OpenTelemetry** — trace: gateway → retrieval → LLM → response.
-- **Grafana** dashboards + alerts (p95 latency, hallucination rate, cost spike).
+---
 
-## Hardening Checklist (by W24)
-
-- [ ] gRPC services for retrieval + prediction
-- [ ] Helm charts (per service)
-- [ ] HPA (CPU + custom metric: queue depth)
-- [ ] Prometheus + Grafana dashboards
-- [ ] OTel traces across gateway → agents → LLM
-- [ ] Retries / circuit breakers / rate limiting / caching / model routing (from C3)
+*Category: AI/04_Production-Platform • Part of [[README|AI MOC]]*

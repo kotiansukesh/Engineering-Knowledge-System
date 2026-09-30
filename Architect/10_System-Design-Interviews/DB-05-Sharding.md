@@ -19,7 +19,10 @@ source: https://github.com/donnemartin/system-design-primer
 excalidraw: Sharding-Consistent-Hashing.excalidraw.json
 weeks: '3'
 type: note
+
 ---
+
+
 
 
 
@@ -219,15 +222,16 @@ class ShardingConfig {
 | Learning architecture patterns | Simple CRUD applications |
 | Interview preparation | Requirements don't match |
 
-## Trade-offs
 
-| Dimension | This Approach | Alternative |
-|-----------|---------------|-------------|
-| Complexity | | |
-| Operational Burden | | |
-| Latency | | |
-| Consistency | | |
-| Cost at Scale | | |
+
+## Trade-offs
+| Dimension | This Approach | Alternative | Trade-off Rationale | Decision Rule |
+|-----------|---------------|-------------|---------------------|---------------|
+| Complexity | [TBD] | [TBD] | [TBD] | [TBD] |
+| Operational Burden | [TBD] | [TBD] | [TBD] | [TBD] |
+| Latency | [TBD] | [TBD] | [TBD] | [TBD] |
+| Consistency | [TBD] | [TBD] | [TBD] | [TBD] |
+| Cost at Scale | [TBD] | [TBD] | [TBD] | [TBD] |
 
 ## Vs Table
 

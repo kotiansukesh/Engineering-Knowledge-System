@@ -11,8 +11,8 @@ tags:
 - 2026-trend
 created: 2026-09-02
 completed: false
-reviewed: ''
-sr-due: ''
+reviewed: "2026-09-29"
+sr-due: "2026-09-30"
 excalidraw: ''
 difficulty: Medium
 source: ''
@@ -100,73 +100,37 @@ Prometheus alert: `avg(faithfulness) by (model) < 0.85` over 1h → page + auto-
 **Q: PII in traces?**
 Redact before export — middleware that strips `email/ssn` from spans; Langfuse scrub + retention policy.
 
-## Related
+## Flashcards (Spaced Repetition)
 
-- [[02_AI Evaluation|Evaluation]] • [[06_Multi-Model Routing|Multi-Model Routing]] • [[AI/04_Production-Platform/03_gRPC and Observability|gRPC + Observability]] • [[04_AI Security|Security]]
+#flashcard
+**Q:** What is the trigger keyword for LLM Observability? :: **A:** [trigger keywords] #flashcard
+
+#flashcard
+**Q:** Key hyperparameter for LLM Observability? :: **A:** [hyperparameter + typical range] #flashcard
+
+#flashcard
+**Q:** When do you NOT use LLM Observability? :: **A:** [anti-pattern scenarios] #flashcard
+
+#flashcard
+**Q:** Cost order of magnitude for LLM Observability? :: **A:** [GPU hours / $ per 1M tokens] #flashcard
+
+## Practice Tasks (Tasks Plugin)
+- [ ] Restate the intent from memory 📅 2026-09-30
+- [ ] Code the config without looking 📅 2026-10-02
+- [ ] Answer all Interview Q&A aloud 📅 2026-10-06
+- [ ] Review flashcards (Spaced Repetition) 📅 2026-09-30
+
+```tasks
+not done
+path includes 07_Cross-Cutting
+sort by due
+limit 10
+```
+
+## Related
+- [[README|AI MOC]]
+- [[07_Cross-Cutting/README|07_Cross-Cutting Folder]]
 
 ---
-*Category: cross-cutting • Interview-ready*
 
-# LLM Observability — Langfuse / Phoenix / OpenTelemetry
-
-> Part of [[README|07_Cross-Cutting]] • `cross-cutting` • From **Phase 04 (Week 24)** • Production without LLM traces is blind — add traces **before** gRPC/Helm.
-> Watch: [James Briggs — LangSmith 101 for AI Observability](https://www.youtube.com/watch?v=Iyc80hY2yYk)
-
-## Runnable Code — OpenTelemetry + Langfuse (Python/FastAPI)
-
-```
-python
-
-# Pip Install Langfuse Opentelemetry-exporter-otlp Openinference-instrumentation-openai
-
-from langfuse import Langfuse
-from opentelemetry import trace
-from opentelemetry.exporter.otlp.proto.http.trace_exporter import OTLPSpanExporter
-
-langfuse = Langfuse() # env: LANGFUSE_HOST, SECRET_KEY
-tracer = trace.get_tracer("ai-platform")
-
-@tracer.start_as_current_span("ask")
-async def ask(query: str, filters: dict):
- # 1) retrieval span
- with tracer.start_as_current_span("retrieval") as s:
- docs = await mcp.call_tool("search_docs", {"query": query, "filters": filters})
- s.set_attribute("retrieval.count", len(docs))
- s.set_attribute("retrieval.precision_at_k", prestige(docs)) # from eval harness
- # 2) llm span, auto-traced by instrumentation
- with tracer.start_as_current_span("llm") as s:
- stream = await llm.chat.completions.create(model=route(query), messages=build_messages(query, docs), stream=True)
- s.set_attribute("llm.model", stream.model)
- s.set_attribute("llm.tokens", stream.usage.total_tokens)
- s.set_attribute("llm.cost", cost(stream.model, stream.usage))
- # 3) citation check span
- with tracer.start_as_current_span("citation_check"):
- assert citations_grounded(stream.text, docs)
- langfuse.score(name="faithfulness", value=judge(stream.text, docs))
- return stream
-```
-
-**Collector:**```yaml
-# Otel-collector.yaml (k8s Week 25+)
-
-exporters:
- otlp/langfuse: {endpoint: "https://cloud.langfuse.com/api/public/otel"}
- prometheus: {endpoint: "prometheus:9090"}
-service: {pipelines: {traces: {exporters: [otlp/langfuse, prometheus]}}}```
-
-**Dashboards (Grafana Week 27+):** `llm_p95`, `tokens_per_query`, `cost_per_1k`, `faithfulness`, `citation_coverage`, `tool_latency` (MCP).
-
-## How It Compares
-
-| | Phoenix (Arize) | Langfuse | Custom Prometheus only |
-|--|---|---|---|
-| Focus | Retrieval/answer eval traces | LLM traces + scores + datasets | Infra metrics |
-| LLM-as-judge | Built-in RAG eval | Score API + eval datasets | DIY |
-| Cost | Self-host OK | Cloud + self-host | No token/cost |
-| Use | Eval harness (02_AI Evaluation) | Prod traces + experiments | infra (Phase 05 Grafana) |
-
-> **2026 stack:** **Langfuse** for prod LLM traces + **Phoenix** for offline RAG eval, both export via **OTel**. Don't pick one.
-
-# OTel → Langfuse (prod) and Phoenix (offline eval) via the same export path.
-
-```
+*Category: AI/07_Cross-Cutting • Part of [[README|AI MOC]]*

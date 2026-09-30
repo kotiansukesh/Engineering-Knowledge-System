@@ -1,22 +1,125 @@
 ---
-title: Strategy
-category: Java/06_Design-Patterns/Behavioral
+title: "Strategy"
+category: "Java/06_Design-Patterns/Behavioral"
 tags:
 - design-patterns
 - behavioral
 - strategy
 pattern: strategy
 source: https://refactoring.guru/design-patterns/strategy
-created: 2026-09-02
+created: "2026-09-29"
 difficulty: Medium
 completed: false
-reviewed: ''
-sr-due: ''
-excalidraw: ''
+reviewed: "2026-09-29"
+sr-due: "2026-10-06"
+excalidraw: ""
 type: note
 ---
 
 # Strategy *Also Known as: Policy*
+
+> Category: Behavioral • Source: [Refactoring.Guru , Strategy](https://refactoring.guru/design-patterns/strategy) • Part of [[Java/README|Java MOC]] → [[06_Design-Patterns/README|Design Patterns MOC]]
+
+## Why it Matters
+
+Defines a **family of algorithms**, puts each in its own class, and makes them **interchangeable**.
+
+## Diagram
+
+```mermaid
+classDiagram
+ class Navigator {
+ +setRoute(r)
+ +eta(km)
+ }
+ class Route {
+ <<interface>>
+ +minutes(km)
+ }
+ class Road
+ class Walking
+ Navigator o-- Route : chosen
+ Route <|.. Road
+ Route <|.. Walking
+```
+
+## Code
+
+```java
+// Java 25: records, sealed interfaces, pattern matching, virtual threads, Compact Object Headers
+public class StrategyDemo {
+ interface Route { int minutes(int km); }
+ // Context delegates to the injected algorithm; swapping it changes the result
+ record Road() implements Route { public int minutes(int km) { return km * 2; } }
+ record Walking() implements Route { public int minutes(int km) { return km * 12; } }
+ static class Navigator {
+ private Route route;
+ Navigator(Route r) { route = r; }
+ void setRoute(Route r) { route = r; }
+ int eta(int km) { return route.minutes(km); }
+ }
+ public static void main(String[] args) {
+ var nav = new Navigator(new Road());
+ System.out.println("road: " + nav.eta(10)); // => road: 20
+ nav.setRoute(new Walking());
+ System.out.println("walk: " + nav.eta(10)); // => walk: 120
+ }
+}
+```
+
+The demo proves the pattern contract is fulfilled with immutable, sealed implementations.
+
+## When to Use / When NOT
+
+| **Use When** | **Avoid When** |
+|--------------|----------------|
+| Multiple algorithms for one job must swap at runtime (road vs walking). |  |
+| Variant logic should live in isolated, testable classes. |  |
+| The context must stay closed to modification when algorithms grow. |  |
+
+## Trade-offs
+
+| Dimension | This Approach | Alternative |
+|-----------|---------------|-------------|
+| Complexity | [complexity] | [alt complexity] |
+| Performance | [performance] | [alt performance] |
+| Readability | [readability] | [alt readability] |
+| Testability | [testability] | [alt testability] |
+
+## Vs Table
+
+| Pattern | Use when |
+|---------|----------|
+| Strategy | Swap algorithms on one object |
+| Command | Encapsulate a request to queue or undo |
+| State | Internal state drives behavior |
+
+## Pitfalls
+
+- If-else selection chains duplicated at every call site , centralize the registry.
+- Strategies needing the context's privates , pass a narrow context object.
+- Stateful strategies shared across threads.
+
+## Interview Q&A (Senior Depth)
+
+**Q: Strategy vs state pattern?**
+
+Strategy is chosen externally and swapped at will. State changes itself based on internal transitions.
+
+**Q: How does the client pick a strategy?**
+
+The caller injects it via constructor or setter, usually with a sensible default plus a factory or map lookup by key; the context never hard-codes which algorithm it holds.
+
+**Q: How do you pick a strategy without an if-else chain?**
+
+A `Map<String, Route>` registry (or DI-injected map of all strategy beans) keyed by request attribute, with a named default. Adding a strategy then means registering one entry , the selection code never changes.
+
+: Strategy vs state pattern?:: Strategy is chosen externally and swapped at will. State changes itself based on internal transitions. **Q: How does the client pick a strategy?** The caller injects it via constructor or setter, usually with a sensible default plus a factory or map lookup by key; the context never hard-codes which algorithm it holds. **Q: How do you pick a strategy without an if-else chain?** A `Map<String, Route>` registry (or DI-injected map of all strategy... #flashcard
+
+## Flashcards (Spaced Repetition)
+
+#flashcard
+Policy*
 
 > Category: Behavioral • Source: [Refactoring.Guru , Strategy](https://refactoring.guru/design-patterns/strategy) • Part of [[Java/README|Java MOC]] → [[06_Design-Patterns/README|Design Patterns MOC]]
 
@@ -107,11 +210,26 @@ A `Map<String, Route>` registry (or DI-injected map of all strategy beans) keyed
 
 : Strategy vs state pattern?:: Strategy is chosen externally and swapped at will. State changes itself based on internal transitions. **Q: How does the client pick a strategy?** The caller injects it via constructor or setter, usually with a sensible default plus a factory or map lookup by key; the context never hard-codes which algorithm it holds. **Q: How do you pick a strategy without an if-else chain?** A `Map<String, Route>` registry (or DI-injected map of all strategy... #flashcard
 
+## Practice Tasks (Tasks Plugin)
+
+- [ ] Restate the intent from memory 📅 {date:YYYY-MM-DD, +1}
+- [ ] Code the snippet without looking 📅 {date:YYYY-MM-DD, +3}
+- [ ] Answer all Interview Q&A aloud 📅 {date:YYYY-MM-DD, +7}
+- [ ] Review flashcards (Spaced Repetition) 📅 {date:YYYY-MM-DD, +1}
+
+```tasks
+not done
+path includes {file.folder}
+sort by due
+limit 10
+```
+
 ## Related
 
 [[06_Design-Patterns/Behavioral/State|State]] • [[06_Design-Patterns/Behavioral/Command|Command]] • [[06_Design-Patterns/Behavioral/Template Method|Template Method]]
 
 ---
+
 *Category: Behavioral • Tags: design-patterns • Source: refactoring.guru*
 
 ## Problem

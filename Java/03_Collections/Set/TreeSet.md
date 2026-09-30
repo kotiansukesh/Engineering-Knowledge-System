@@ -1,20 +1,26 @@
 ---
-title: TreeSet
-category: Java/03_Collections/Set
-tags:
-- java
-- collections
-- set
-created: 2026-01-18
-pattern: 4
-difficulty: Easy
+title: "TreeSet"
+category: "Java/03_Collections/Set"
+tags: [java, collections]
+created: "2026-09-29"
 completed: false
-reviewed: ''
-sr-due: ''
-excalidraw: ''
-source: ''
-type: note
+difficulty: "Easy"
+pattern: 0
+reviewed: "2026-09-29"
+sr-due: "2026-10-06"
+source: ""
+excalidraw: ""
+type: "note"
 ---
+
+# TreeSet
+
+> Part of [[README|Java MOC]] • `Java/03_Collections/Set`
+> 🎨 **Visual diagram:** Create Excalidraw drawing from template: `Cmd+P → Excalidraw: New from template → Java Diagram`
+
+## Intent
+
+One sentence: what problem does this solve? Define the **key term** in **bold**.
 
 ## Why it Matters
 
@@ -30,9 +36,10 @@ flowchart TD
  G --> GG["..."]
 ```
 
-## Code
+## Code / Example
 
 ```java
+// Java 25: var, record, sealed, pattern matching, SequencedCollection, virtual threads, Compact Object Headers
 // TreeSet — Red-Black tree via TreeMap, O(log n), sorted, no null
 var ts = new TreeSet<>(List.of(5,1,3,2,5));
 System.out.println(ts); // => [1, 2, 3, 5]
@@ -58,23 +65,31 @@ TreeSet<Student> byScore = new TreeSet<>(Comparator.comparingInt(Student::score)
 byScore.add(new Student("Ada",90)); byScore.add(new Student("Bob",85));
 System.out.println(byScore.first()); // => Student[name=Bob, score=85]
 ```
-If compare says 0 but equals says false, the set still treats it as duplicate.
 
-## When to use / not
+### Concrete Example
 
-| Use | NOT |
-|-----|-----|
-| Sorted uniqueness, leaderboards, ranges | Plain membership , `HashSet` is O(1) |
-| Nearest-match (`ceiling`, `floor`), `subSet` views | `null` elements or mixed incomparable types |
-| Custom order via `Comparator` at construction | `equals`-inconsistent comparators (surprising dedup) |
+- **Input:**
+- **Output:**
+- **Explanation:**
+
+## When to Use / When NOT
+
+| **Use When** | **Avoid When** |
+|--------------|----------------|
+|  |  |
+|  |  |
+|  |  |
 
 ## Trade-offs
 
-- Sorted iteration + ranges + nearest-match in one structure.
-- O(log n) everything; comparator , not `equals` , defines identity.
-- No `null`; higher memory than hash sets.
+| Dimension | This Approach | Alternative |
+|-----------|---------------|-------------|
+| Complexity | | |
+| Performance | | |
+| Readability | | |
+| Testability | | |
 
-## Vs
+## Vs Table
 
 - backing: HashMap vs LinkedHashMap vs TreeMap
 - order: none vs insertion vs sorted
@@ -91,13 +106,41 @@ Pick TreeSet when you need sorted uniqueness or range and nearest queries, other
 - No `Comparator` + non-`Comparable` elements → `ClassCastException` at runtime.
 - `null` cannot be compared , NPE on insert.
 
-## Interview q&a
+## Interview Q&A (Senior Depth)
 
 **Q: How is `TreeSet` implemented?** Wrapper over `TreeMap` (Red-Black); `Comparator` defines order , and duplicates (compare == 0 means duplicate, even if `equals` differs).
 
 **Q: Which ops are O(log n)?** `add`, `remove`, `contains`, `first`/`last`, `lower`/`floor`/`ceiling`/`higher`, `pollFirst`/`pollLast`.
 
 **Q: When to prefer it?** Sorted iteration, ranges, nearest-match (leaderboards, scheduling).
+
+## Flashcards (Spaced Repetition)
+
+#flashcard
+**Q:** What is the trigger keyword for TreeSet? :: **A:** [trigger keywords] #flashcard
+
+#flashcard
+**Q:** Time/space complexity of TreeSet? :: **A:** Time: O(), Space: O() #flashcard
+
+#flashcard
+**Q:** When do you NOT use TreeSet? :: **A:** [anti-pattern scenarios] #flashcard
+
+#flashcard
+**Q:** Core Java 25 snippet for TreeSet? :: **A:** `var list = new ArrayList<>(List.of(...));` #flashcard
+
+## Practice Tasks (Tasks Plugin)
+
+- [ ] Restate the intent from memory 📅 {date:YYYY-MM-DD, +1}
+- [ ] Code the snippet without looking 📅 {date:YYYY-MM-DD, +3}
+- [ ] Answer all Interview Q&A aloud 📅 {date:YYYY-MM-DD, +7}
+- [ ] Review flashcards (Spaced Repetition) 📅 {date:YYYY-MM-DD, +1}
+
+```tasks
+not done
+path includes {file.folder}
+sort by due
+limit 10
+```
 
 ## Related
 
@@ -131,3 +174,8 @@ When to prefer TreeSet?:: When you need sorted iteration, ranges or nearest matc
 - subSet, headSet, tailSet: O(log n) plus O(k)
 - iteration: O(n) sorted
 - pollFirst, pollLast: O(log n)
+
+
+---
+
+*Category: Java/03_Collections/Set • Part of [[README|Java MOC]] • Java 25*

@@ -10,8 +10,8 @@ tags:
 weeks: '15'
 created: 2026-09-04
 completed: false
-reviewed: ''
-sr-due: ''
+reviewed: "2026-09-29"
+sr-due: "2026-09-30"
 excalidraw: ''
 difficulty: Medium
 source: ''
@@ -86,65 +86,37 @@ async def with_human_gate(approve: Callable[[], Awaitable[bool]],
 - **Q:** What breaks on resume after a long pause? **A:** Stale state. The world moved while the human thought. Re-validate preconditions (prices, inventory, branch state) on resume, or timestamp the checkpoint and expire it.
 - **Q:** Who is accountable when an approved action goes wrong? **A:** Say it plainly: the approver owns the outcome, so the review UI must show the full diff and context, not a bare approve button. Rubber-stamp UIs transfer blame without transferring understanding.
 
-## Related
+## Flashcards (Spaced Repetition)
 
-- [[Multi-Agent Patterns]] • [[LangGraph-Fundamentals]] • [[Enterprise AI Operations Platform]] • [[AI/07_Cross-Cutting/04_AI Security|AI Security]]
+#flashcard
+**Q:** What is the trigger keyword for Human in the Loop? :: **A:** [trigger keywords] #flashcard
+
+#flashcard
+**Q:** Key hyperparameter for Human in the Loop? :: **A:** [hyperparameter + typical range] #flashcard
+
+#flashcard
+**Q:** When do you NOT use Human in the Loop? :: **A:** [anti-pattern scenarios] #flashcard
+
+#flashcard
+**Q:** Cost order of magnitude for Human in the Loop? :: **A:** [GPU hours / $ per 1M tokens] #flashcard
+
+## Practice Tasks (Tasks Plugin)
+- [ ] Restate the intent from memory 📅 2026-09-30
+- [ ] Code the config without looking 📅 2026-10-02
+- [ ] Answer all Interview Q&A aloud 📅 2026-10-06
+- [ ] Review flashcards (Spaced Repetition) 📅 2026-09-30
+
+```tasks
+not done
+path includes 03_Agentic-AI
+sort by due
+limit 10
+```
+
+## Related
+- [[README|AI MOC]]
+- [[03_Agentic-AI/README|03_Agentic-AI Folder]]
 
 ---
-*Category: agentic*
 
-# Human in the Loop
-
-> Part of [[README|03_Agentic-AI]] • `agentic` • Week 15
-> Watch: [LangChain, LangGraph interrupt (HITL agents)](https://www.youtube.com/watch?v=6t7YJcEFUIY)
-
-## Flow
-
-```mermaid
-flowchart TB
- A[Agent runs] --> B{Side effect ahead?}
- B -->|no| C[Continue]
- B -->|yes| D[Checkpoint + pause]
- D --> E{Human decision}
- E -->|approve| F[Resume from checkpoint]
- E -->|edit| G[Patch state, resume]
- E -->|reject| H[Abort + log reason]
-```
-The checkpoint is the whole trick. Without persisted state, "pause" means "lose everything and restart." With it, resume is one call.
-
-## Code Sketch
-
-```python
-from langgraph.graph import StateGraph
-
-graph = StateGraph(state_schema=AgentState)
-graph.add_node("planner", planner_node)
-graph.add_node("executor", executor_node) # side effects live here
-graph.add_edge("planner", "executor")
-
-# Pause before the executor, not after. Review the plan while state is frozen.
-
-app = graph.compile(
- checkpointer=postgres_checkpointer,
- interrupt_before=["executor"],
-)
-
-config = {"configurable": {"thread_id": "deploy-421"}}
-result = app.invoke({"goal": "roll out v2"}, config=config)
-
-# ... human reviews result in the admin console ...
-
-app.invoke(None, config=config) # approve: resumes at executor
-```
-Admin review build: a queue of paused threads (thread_id, plan summary, diff preview, requested-by) with approve/edit/reject buttons. Each decision writes an audit row: who, what changed, when. That log is your incident trail and your EU AI Act evidence in one.
-
-## When to Gate
-
-| Gate | Why |
-|------|-----|
-| External sends (email, Slack, webhooks) | No undo button |
-| DB writes / migrations | Blast radius |
-| Deploys / infra changes | Customer impact |
-| Spend (ads, API bulk jobs) | Real money |
-
-Skip gates for reads, drafts, and internal reasoning. Gating those just trains people to click approve blindly.
+*Category: AI/03_Agentic-AI • Part of [[README|AI MOC]]*

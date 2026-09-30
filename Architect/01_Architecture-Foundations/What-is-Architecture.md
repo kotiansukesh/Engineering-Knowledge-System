@@ -20,7 +20,10 @@ excalidraw: ''
 source: ''
 type: note
 weeks: ''
+
 ---
+
+
 
 
 
@@ -31,6 +34,23 @@ Define software architecture precisely — the set of significant, hard-to-rever
 - **Interview signal**: "Define software architecture in one line" is a top screening question; a crisp answer with a decision example beats a textbook quote
 - **Governance budget**: Spend review/approval cycles on irreversible decisions (data ownership, integration boundaries, deploy unit), not routine class design
 - **Communication**: Shared vocabulary ("architecture" vs "design") prevents ivory-tower diagrams nobody reads
+
+## Problems
+### System Design Problem: What is Architecture
+
+**Requirements:**
+- Functional: Core capabilities for what is architecture
+- Non-functional (SLOs): Latency < 100ms p99, Availability 99.9%, Horizontal scalability
+
+**Constraints:**
+- Scale: Handle 10x growth without redesign
+- Consistency: Appropriate model for domain (strong/eventual)
+- Latency budget: p99 < 100ms for read paths
+
+**API / Interfaces:**
+- Primary: REST/gRPC endpoints for core operations
+- Internal: Service-to-service contracts
+- Events: Domain events for async integration
 
 ## 🧩 Diagram: Architecture Decision Flow
 ```mermaid
@@ -61,22 +81,85 @@ static final ArchRule orderMustNotDependOnPaymentImpl = noClasses()
 
 ## ✅ When to Use / ❌ When NOT to Use
 | Scenario | Use? | Reason |
-|---|---|---|
+|
+
+## Trade-offs
+| Dimension | This Approach | Alternative | Trade-off Rationale | Decision Rule |
+|-----------|---------------|-------------|---------------------|---------------|
+| Complexity | [TBD] | [TBD] | [TBD] | [TBD] |
+| Operational Burden | [TBD] | [TBD] | [TBD] | [TBD] |
+| Latency | [TBD] | [TBD] | [TBD] | [TBD] |
+| Consistency | [TBD] | [TBD] | [TBD] | [TBD] |
+| Cost at Scale | [TBD] | [TBD] | [TBD] | [TBD] |
+
+## Flashcards (Spaced Repetition)
+
+#flashcard
+**Q:** What is the core concept of What is Architecture? :: **A:** [Key algorithm/architecture pattern] #flashcard
+
+#flashcard
+**Q:** When do you apply What is Architecture? :: **A:** [Trigger scenarios and context] #flashcard
+
+#flashcard
+**Q:** What is the primary trade-off in What is Architecture? :: **A:** [Main tension: e.g., consistency vs latency] #flashcard
+
+#flashcard
+**Q:** What breaks first at scale in What is Architecture? :: **A:** [Primary bottleneck: e.g., coordination, hot keys, replication lag] #flashcard
+
+#flashcard
+**Q:** How do you handle failures in What is Architecture? :: **A:** [Retry, circuit breaker, fallback, graceful degradation] #flashcard
+
+#flashcard
+**Q:** What are the key metrics to monitor for What is Architecture? :: **A:** [RED: rate, errors, duration; USE: utilization, saturation, errors] #flashcard
+
+#flashcard
+**Q:** How does What is Architecture scale to 10x? :: **A:** [Sharding, read replicas, async processing, caching layers] #flashcard
+
+#flashcard
+**Q:** What is the consistency model for What is Architecture? :: **A:** [Strong/eventual/causal - justify with use case] #flashcard
+
+#flashcard
+**Q:** How do you test What is Architecture? :: **A:** [Contract tests, chaos engineering, load tests, fault injection] #flashcard
+
+#flashcard
+**Q:** What is the operational cost of What is Architecture? :: **A:** [Team expertise, tooling, on-call burden, migration risk] #flashcard
+
+#flashcard
+**Q:** When would you NOT use What is Architecture? :: **A:** [Managed service covers need, simple CRUD, team lacks maturity] #flashcard
+
+#flashcard
+**Q:** What is the key design decision in What is Architecture? :: **A:** [The irreversible choice that defines the architecture] #flashcard
+
+#flashcard
+**Q:** How do you migrate to What is Architecture? :: **A:** [Strangler fig, dual-write, canary, feature flags] #flashcard
+
+#flashcard
+**Q:** What security considerations for What is Architecture? :: **A:** [AuthZ, encryption, audit, secrets management] #flashcard
+
+#flashcard
+**Q:** How do you debug What is Architecture in production? :: **A:** [Structured logging, correlation IDs, distributed tracing, SLO alerts] #flashcard
+
+
+## Practice Tasks (Tasks Plugin)
+- [ ] Explain the architecture from memory 📅 {{date:YYYY-MM-DD, +1}}
+- [ ] Draw the system diagram without looking 📅 {{date:YYYY-MM-DD, +3}}
+- [ ] Answer all Interview Q&A aloud 📅 {{date:YYYY-MM-DD, +7}}
+- [ ] Review flashcards (Spaced Repetition) 📅 {{date:YYYY-MM-DD, +1}}
+
+```tasks
+not done
+path includes Architect/01_Architecture-Foundations
+sort by due
+limit 10
+```
+
+---|---|---|
 | Justifying structure to stakeholders, opening design review | ✅ | Crisp definition anchors discussion |
 | Team debates "is this architecture or design?" | ✅ | Hard-to-reverse / expensive-to-change test settles it |
 | Interview: "What is software architecture?" | ✅ | One-line definition + decision example beats quote |
 | Routine class design, naming, refactors inside module | ❌ | That's detailed design; inflates ceremony, slows teams |
 | Treating architecture as a phase that finishes | ❌ | Decision set is alive as long as system is |
 
-## ⚖️ Trade-offs
-| Dimension | Architecture Focus | Design Focus |
-|---|---|---|
-| **Reversibility** | Hard/expensive to reverse | Cheap to reverse |
-| **Scope** | Cross-cutting: boundaries, data ownership, deploy unit | Local: class, method, module internals |
-| **Governance** | ADR + fitness functions (CI gates) | Code review, linters |
-| **Tooling** | ArchUnit, C4, ADR log | IDE refactor, static analysis |
-
-**Decision rule**: If a decision is cheap to reverse, it's design, not architecture — spend governance budget on the irreversible few.
 
 ## 🆚 Vs. Alternatives
 | A | B | Decision Rule |
@@ -90,6 +173,16 @@ static final ArchRule orderMustNotDependOnPaymentImpl = noClasses()
 2. **Diagrams without decisions (no ADR = no traceability)** — C4 without ADR is decoration
 3. **60-page doc nobody reads** — risk-driven: model the 3 riskiest irreversible things, slice rest thin
 4. **Slack decision becoming load-bearing without record** — capture in ADR at decision time
+
+
+## Pitfalls
+1. Equating architecture with microservices/K8s — service count ≠ architecture
+2. Diagrams without decisions (no ADR = no traceability)
+3. 60-page doc nobody reads — risk-driven beats completeness-driven
+4. Slack decisions becoming load-bearing without record
+5. Underestimating operational complexity (backups, monitoring, upgrades)
+6. Ignoring failure modes (network partitions, disk failures, clock drift)
+7. Not planning for 10x scale from day one
 
 ## 🎤 Interview Q&A (Senior Depth)
 

@@ -1,200 +1,342 @@
 ---
-title: Design a Key-Value Store
+title: Key-Value Store Design
 category: Architect/10_System-Design-Interviews
-tags:
-- compaction
-- concept/interview-prep
-- difficulty/medium
-- key-value-store
-- lsm-tree
-- pattern/system-design
-- sstable
-created: '2026-09-27'
+tags: ""
+created: 2026-09-29
 completed: false
-difficulty: Medium
-reviewed: '2026-09-08'
-sr-due: '2026-09-15'
-source: https://github.com/donnemartin/system-design-primer
-excalidraw: ''
-weeks: '3'
+difficulty: Hard
+reviewed: 2026-09-29
+sr-due: 2026-10-06
+source: "https://bytebytego.com"
+excalidraw: ""
+weeks: 3
 type: note
 ---
 
 
 
-
-
-
-
-# Design a Key-Value Store
+# Key-Value Store Design
 
 > Part of [[README|MOC]] • `Architect/10_System-Design-Interviews` • Weeks 3
 > 🎨 **Visual diagram:** Create Excalidraw drawing from template: `Cmd+P → Excalidraw: New from template → System Design Interviews Diagram`
 
 ## Intent
 
-[View exercise and solution](/donnemartin/system-design-primer/blob/master/solutions/system_design/query_cache/README.md)
+Design a distributed key-value store (like DynamoDB, Cassandra, Redis) using LSM trees for write optimization, consistent hashing for partitioning, and quorum replication for durability — supporting high write throughput with tunable consistency.
 
 ## Why it Matters
 
-- **Interview signal**: Frequently asked in system design interviews
-- **Production impact**: Fundamental to scalable system design
-- **Core concept**: Key building block for distributed systems
+- **Interview signal**: KV store is the "Hello World" of distributed systems — tests LSM trees, CAP, replication, partitioning
+- **Production impact**: Backbone of modern infrastructure (Redis, Cassandra, RocksDB, DynamoDB, etcd)
+- **Core concept**: Write path (memtable → WAL → SSTable → compaction) vs read path (bloom filter → cache → SSTable)
 
-[View exercise and solution](/donnemartin/system-design-primer/blob/master/solutions/system_design/query_cache/README.md)
-
-[![Imgur](/donnemartin/system-design-primer/raw/master/images/4j99mhe.png)](/donnemartin/system-design-primer/blob/master/images/4j99mhe.png)
-
-
-
-[View exercise and solution](/donnemartin/system-design-primer/blob/master/solutions/system_design/sales_rank/README.md)
-
-[![Imgur](/donnemartin/system-design-primer/raw/master/images/MzExP06.png)](/donnemartin/system-design-primer/blob/master/images/MzExP06.png)
-
-### Design a system that scales to millions of users on AWS
-
-[View exercise and solution](/donnemartin/system-design-primer/blob/master/solutions/system_design/scaling_aws/README.md)
-
-[![Imgur](/donnemartin/system-design-primer/raw/master/images/jj3A5N8.png)](/donnemartin/system-design-primer/blob/master/images/jj3A5N8.png)
+## Diagram
+```mermaid
+flowchart TD
+    WRITE[Write Request] --> WAL[WAL: Append-Only Log]
+    WAL --> MEM[Memtable: In-Memory B-Tree/SkipList]
+    MEM -->|Flush| SSTABLE[SSTable: Immutable Sorted Files]
+    SSTABLE --> COMPACT[Compaction: Merge + Tombstone GC]
+    
+    READ[Read Request] --> BLOOM[Bloom Filter: Fast Miss]
+    BLOOM -->|Hit| CACHE[Block Cache: Hot Data]
+    CACHE -->|Miss| SSTABLE
+    SSTABLE --> INDEX[Sparse Index: Binary Search]
+    INDEX --> DATA[Data Block: Decompress + Decode]
+    
+    REPLICATION[Replication] --> QUORUM[Quorum: W + R > N]
+    QUORUM --> CONSISTENT[Consistent Hashing Ring]
+    CONSISTENT --> VNODES[Virtual Nodes]
+    
+    style MEM fill:#e3f2fd
+    style SSTABLE fill:#e8f5e9
+    style COMPACT fill:#fff3e0
+```
 
 ## Problems
-
-### System Design Problem: Design a Key-Value Store
+### System Design Problem: Distributed Key-Value Store
 
 **Requirements:**
-- See primer for detailed requirements
+- Put(key, value), Get(key), Delete(key), Scan(prefix)
+- 1M+ writes/sec, 10M+ reads/sec
+- Tunable consistency (eventual to strong)
+- Horizontal scaling, automatic failover
+- TTL support, secondary indexes (optional)
 
 **Constraints:**
-- High availability, scalability, fault tolerance
+- Keys up to 1KB, values up to 1MB
+- 99.99% availability, p99 < 10ms
+- Cross-DC replication
+- Schema-less
+
+**API / Interfaces:**
+- `put(key, value, ttl?)`
+- `get(key) -> value`
+- `delete(key)`
+- `scan(prefix, limit) -> Iterator`
 
 ## Code / Example
 
 ```java
-// Java 25 / Spring Boot 3.5: Core concept for Design a Key-Value Store
-// Architecture pattern - implementation varies by system
+// Java 25 / Spring Boot 3.5: LSM-Tree Key-Value Store Core
+// Simplified RocksDB-style implementation
 
-record DesignaKeyValueStoreConfig(
-    String component,
-    int capacity,
-    String strategy
-) {
-    static DesignaKeyValueStoreConfig ofDefaults() {
-        return new DesignaKeyValueStoreConfig(
-            "Design a Key-Value Store",
-            10000,
-            "default"
-        );
+package com.architect.kvstore;
+
+import java.io.*;
+import java.nio.file.*;
+import java.util.*;
+import java.util.concurrent.*;
+import java.util.concurrent.atomic.AtomicLong;
+
+public final class LSMKVStore {
+
+    private final Path dataDir;
+    private final Memtable memtable;
+    private final List<SSTable> sstables = new CopyOnWriteArrayList<>();
+    private final BloomFilter bloomFilter;
+    private final BlockCache blockCache;
+    private final CompactionManager compaction;
+    private final WAL wal;
+
+    public LSMKVStore(Path dataDir, long memtableSize, int blockCacheSize) {
+        this.dataDir = dataDir;
+        this.memtable = new Memtable(memtableSize);
+        this.bloomFilter = new BloomFilter(1_000_000, 0.01);
+        this.blockCache = new BlockCache(blockCacheSize);
+        this.wal = new WAL(dataDir.resolve("wal.log"));
+        this.compaction = new CompactionManager(this);
+        this.compaction.start();
+    }
+
+    public void put(byte[] key, byte[] value) {
+        // 1. Write to WAL (durability)
+        wal.append(key, value, System.currentTimeMillis());
+        
+        // 2. Write to memtable
+        memtable.put(key, value);
+        
+        // 3. Update bloom filter
+        bloomFilter.add(key);
+        
+        // 4. Flush if memtable full
+        if (memtable.isFull()) {
+            flushMemtable();
+        }
+    }
+
+    public Optional<byte[]> get(byte[] key) {
+        // 1. Check memtable (most recent)
+        Optional<byte[]> val = memtable.get(key);
+        if (val.isPresent()) return val.filter(v -> !isTombstone(v));
+        
+        // 2. Check bloom filter (fast negative)
+        if (!bloomFilter.mightContain(key)) return Optional.empty();
+        
+        // 3. Check block cache
+        val = blockCache.get(key);
+        if (val.isPresent()) return val.filter(v -> !isTombstone(v));
+        
+        // 4. Search SSTables (newest first)
+        for (SSTable sstable : sstables) {
+            val = sstable.get(key);
+            if (val.isPresent()) {
+                blockCache.put(key, val.get());
+                return val.filter(v -> !isTombstone(v));
+            }
+        }
+        return Optional.empty();
+    }
+
+    public void delete(byte[] key) {
+        put(key, TOMBSTONE); // Tombstone marker
+    }
+
+    private void flushMemtable() {
+        SSTable sstable = memtable.flushToSSTable(dataDir);
+        sstables.add(0, sstable); // Newest first
+        memtable.clear();
+        wal.rotate();
+        compaction.trigger();
+    }
+
+    private boolean isTombstone(byte[] value) {
+        return Arrays.equals(value, TOMBSTONE);
+    }
+
+    private static final byte[] TOMBSTONE = new byte[0];
+
+    // Simplified components
+    static class Memtable {
+        private final ConcurrentSkipListMap<byte[], byte[]> map = new ConcurrentSkipListMap<>(BytesComparator.INSTANCE);
+        private final long maxSize;
+        private long currentSize = 0;
+
+        Memtable(long maxSize) { this.maxSize = maxSize; }
+
+        void put(byte[] key, byte[] value) {
+            map.put(key.clone(), value.clone());
+            currentSize += key.length + value.length;
+        }
+
+        Optional<byte[]> get(byte[] key) {
+            return Optional.ofNullable(map.get(key));
+        }
+
+        boolean isFull() { return currentSize >= maxSize; }
+
+        SSTable flushToSSTable(Path dir) throws IOException {
+            // Write sorted entries to SSTable file with sparse index
+            return new SSTable(Files.createTempFile(dir, "sst-", ".sst"), map);
+        }
+
+        void clear() { map.clear(); currentSize = 0; }
+    }
+
+    static class SSTable {
+        private final Path file;
+        private final Map<byte[], Long> sparseIndex = new HashMap<>(); // key -> file offset
+        private final BloomFilter localBloom;
+
+        SSTable(Path file, Map<byte[], byte[]> data) { /* write sorted data */ this.file = file; this.localBloom = new BloomFilter(data.size(), 0.01); }
+
+        Optional<byte[]> get(byte[] key) { /* binary search sparse index, read block */ return Optional.empty(); }
+    }
+
+    static class BloomFilter { /* probabilistic set membership */ 
+        BloomFilter(int expected, double fpp) {}
+        void add(byte[] key) {}
+        boolean mightContain(byte[] key) { return true; }
+    }
+
+    static class BlockCache { /* LRU cache for data blocks */
+        BlockCache(int size) {}
+        Optional<byte[]> get(byte[] key) { return Optional.empty(); }
+        void put(byte[] key, byte[] value) {}
+    }
+
+    static class WAL { /* Write-Ahead Log for durability */
+        WAL(Path path) {}
+        void append(byte[] key, byte[] value, long ts) {}
+        void rotate() {}
+    }
+
+    static class CompactionManager { /* Background merge + GC */
+        CompactionManager(LSMKVStore store) {}
+        void start() {}
+        void trigger() {}
+    }
+
+    enum BytesComparator implements Comparator<byte[]> {
+        INSTANCE;
+        public int compare(byte[] a, byte[] b) { /* lexicographic */ return 0; }
     }
 }
 ```
 
-### Concrete Example
-- **Input:** Design requirements
-- **Output:** Architecture diagram + component specs
-- **Explanation:** See primer for step-by-step design
-
 ## When to Use / When NOT
-
 | **Use When** | **Avoid When** |
 |--------------|----------------|
-| Building this system from scratch | Managed service covers need |
-| Learning architecture patterns | Simple CRUD applications |
-| Interview preparation | Requirements don't match |
+| High write throughput, simple access patterns | Complex queries, joins, transactions |
+| Time-series, caching, session storage | Relational data with foreign keys |
+| Event sourcing, audit logs | ACID transactions across keys |
+| Metadata, configuration, feature flags | Small dataset fitting in single Postgres |
+
+
 
 ## Trade-offs
-
-| Dimension | This Approach | Alternative |
-|-----------|---------------|-------------|
-| Complexity | | |
-| Operational Burden | | |
-| Latency | | |
-| Consistency | | |
-| Cost at Scale | | |
+| Dimension | This Approach | Alternative | Trade-off Rationale | Decision Rule |
+|-----------|---------------|-------------|---------------------|---------------|
+| Complexity | [TBD] | [TBD] | [TBD] | [TBD] |
+| Operational Burden | [TBD] | [TBD] | [TBD] | [TBD] |
+| Latency | [TBD] | [TBD] | [TBD] | [TBD] |
+| Consistency | [TBD] | [TBD] | [TBD] | [TBD] |
+| Cost at Scale | [TBD] | [TBD] | [TBD] | [TBD] |
 
 ## Vs Table
-
-| Aspect | This Design | Managed Service | Decision Rule |
-|--------|-------------|-----------------|---------------|
-| Flexibility | Full | Limited | Need custom logic? → Self-host |
-| Time to Market | Weeks | Hours | Prototype? → Managed |
-| Cost at Scale | Optimizable | Fixed/marginal | High volume? → Self-host |
+| Aspect | LSM (RocksDB, Cassandra) | B-Tree (InnoDB, BoltDB) |
+|--------|--------------------------|------------------------|
+| Write Path | Memtable → WAL → SSTable | In-place page update |
+| Compaction | Background merge | None (page splits) |
+| Crash Recovery | WAL replay | Redo/Undo log |
+| Read Optimization | Bloom filter, block cache | Buffer pool |
 
 ## Pitfalls
-
-- Underestimating operational complexity
-- Ignoring failure modes
-- Not planning for 10x scale
-- Skipping monitoring/alerting in MVP
-- Premature optimization before measuring
+- Write amplification from compaction (10-50x) — tune level sizes, use tiered compaction
+- Read amplification from many SSTable levels — bloom filters, block cache critical
+- Tombstone accumulation — compaction must garbage collect
+- Bloom filter false positives — tune FPP (0.01 typical)
+- Memtable flush blocking writes — use dual memtables (active + immutable)
+- SSTable file handle exhaustion — limit open files, use mmap
+- Clock skew in distributed timestamps — use hybrid logical clocks (HLC)
+- Hot partitions — consistent hashing + virtual nodes + key splitting
 
 ## Interview Q&A (Senior Depth)
 
-**Q1: Q1**
-**A:** ('Design a key-value store like Cassandra/DynamoDB. Core components?', '1) LSM Tree: MemTable (in-memory, sorted) -> SSTables (immutable, disk). 2) Compaction: merge SSTables, remove tombstones. 3) WAL: durability for MemTable. 4) Bloom filter: fast negative lookups. 5) Partitioning: consistent hashing + vnodes. 6) Replication: quorum (R+W>N). 7) Gossip: membership, failure detection.')
+**Q1: Walk me through the write path in an LSM-tree KV store.**
+**A:** Write → WAL (fsync for durability) → Memtable (skip list/B-tree) → when full, flush to immutable SSTable (sorted, compressed, bloom filter, sparse index) → background compaction merges SSTables, drops tombstones. Reads check memtable → bloom filter → block cache → SSTables (newest first).
 
-**Q2: Q2**
-**A:** ('Explain LSM tree compaction strategies.', 'Size-tiered: merge same-size SSTables (write-optimized). Leveled: merge into levels (read-optimized, space-amplification lower). Universal: mix of both. Choose: write-heavy -> size-tiered; read-heavy -> leveled.')
+**Q2: How does compaction work and what are the strategies?**
+**A:** Leveled (L0→L1→L2...): each level 10x size, minimizes space amp but high write amp. Tiered (size-tiered): merge same-size files, lower write amp, higher space amp. Universal: single sorted run, best for time-series. Choose based on workload: write-heavy → tiered, read-heavy → leveled.
 
-**Q3: Q3**
-**A:** ('How do you handle range queries on hash-partitioned data?', 'Hash partitioning kills range queries. Solutions: 1) Secondary index (local per shard, scatter-gather). 2) Composite key: (tenant_id, timestamp) -> range within tenant. 3) Dual-write to column store (ClickHouse) for analytics. 4) Scan all shards (expensive).')
+**Q3: How do you achieve tunable consistency in distributed KV?**
+**A:** Quorum: W + R > N for strong consistency. Dynamo-style: N=3, W=2, R=2 (strong), or W=1, R=1 (eventual). Hinted handoff for unavailable replicas. Read repair on mismatch. Vector clocks / version vectors for conflict resolution. Last-write-wins (LWW) with hybrid logical clocks for simplicity.
 
-**Q4: Q4**
-**A:** ('How do you achieve strong consistency with quorum?', 'R + W > N. Typical: N=3, W=2, R=2 (strong). DynamoDB: consistent read = quorum. Cassandra: QUORUM. Trade-off: latency (wait for acks), availability (minority partition unavailable).')
+**Q4: How do you handle range scans efficiently?**
+**A:** SSTables are sorted — scan merges iterators from memtable + relevant SSTables (like merge sort). Use sparse index to seek start key. Limit SSTables via bloom filter + key range metadata in manifest. For distributed: consistent hashing doesn't support range scans → use range partitioning (Cassandra token ranges) or separate index.
 
-**Q5: Q5**
-**A:** ('How do you handle TTL and tombstone garbage collection?', 'TTL per cell. Tombstones written on delete. Compaction removes tombstones (after gc_grace_seconds). Risk: tombstone resurrection if node down > gc_grace. Monitor: tombstone ratio, compaction backlog.')
+**Q5: What's the difference between Redis and RocksDB/Cassandra?**
+**A:** Redis: in-memory, single-threaded, sub-ms latency, rich data structures, persistence optional. RocksDB: embedded LSM, multi-threaded, disk-optimized, no network. Cassandra: distributed LSM, tunable consistency, wide rows, CQL. Choose Redis for cache/leaderboard, RocksDB for embedded state, Cassandra for multi-DC write-heavy.
+
 ## Flashcards (Spaced Repetition)
 
 #flashcard
-**Q:** What is LSM Tree? :: **A:** Log-Structured Merge Tree: MemTable (RAM) → SSTables (disk, immutable, sorted) #flashcard
+**Q:** LSM tree write path? :: **A:** WAL → Memtable → SSTable (flush) → Compaction #flashcard
 
 #flashcard
-**Q:** MemTable? :: **A:** In-memory sorted structure (skip list/B-tree). Flushed to SSTable when full #flashcard
+**Q:** LSM tree read path? :: **A:** Memtable → Bloom Filter → Block Cache → SSTables (newest first) #flashcard
 
 #flashcard
-**Q:** SSTable? :: **A:** Sorted String Table: immutable, sorted key-value files on disk. Bloom filter for fast negative #flashcard
+**Q:** What is a memtable? :: **A:** In-memory sorted structure (skip list/B-tree), flushed to disk when full #flashcard
 
 #flashcard
-**Q:** Compaction strategies? :: **A:** Size-tiered (write-opt), Leveled (read-opt), Universal (hybrid). Choose by workload #flashcard
+**Q:** What is an SSTable? :: **A:** Sorted String Table — immutable, compressed, sorted file with sparse index + bloom filter #flashcard
 
 #flashcard
-**Q:** WAL? :: **A:** Write-Ahead Log: durability for MemTable. Replay on restart #flashcard
+**Q:** Compaction strategies? :: **A:** Leveled (space efficient), Tiered (write efficient), Universal (time-series) #flashcard
 
 #flashcard
-**Q:** Bloom filter? :: **A:** Probabilistic data structure: fast negative lookups (definitely not in SSTable) #flashcard
+**Q:** Write amplification? :: **A:** Bytes written to disk / bytes written by user. LSM: 10-50x. B-Tree: ~1-4x #flashcard
 
 #flashcard
-**Q:** Quorum consistency? :: **A:** R + W > N. N=3, W=2, R=2 = strong. DynamoDB consistent read = quorum #flashcard
+**Q:** Space amplification? :: **A:** Disk space / live data size. LSM: 10-30% (tombstones, old versions). B-Tree: low #flashcard
 
 #flashcard
-**Q:** Range queries on hash? :: **A:** Hash kills range. Solutions: secondary index (scatter-gather), composite key, dual-write to column store #flashcard
+**Q:** How to handle tombstones? :: **A:** Compaction drops tombstones when all versions older than GC window #flashcard
 
 #flashcard
-**Q:** Tombstone GC? :: **A:** Tombstones removed after gc_grace_seconds. Risk: resurrection if node down > gc_grace #flashcard
+**Q:** Bloom filter purpose? :: **A:** Fast negative lookup — avoid reading SSTable for non-existent keys #flashcard
 
 #flashcard
-**Q:** Cassandra vs DynamoDB? :: **A:** Cassandra: tunable consistency, LSM, wide rows. DynamoDB: managed, single-digit ms, on-demand #flashcard
+**Q:** Quorum formula? :: **A:** W + R > N for strong consistency. N=3, W=2, R=2 typical #flashcard
 
 #flashcard
-**Q:** Partitioning? :: **A:** Consistent hashing + vnodes. Token range per node. Virtual nodes for even distribution #flashcard
+**Q:** Hinted handoff? :: **A:** Store writes for down replica locally, replay when it recovers #flashcard
 
 #flashcard
-**Q:** Replication? :: **A:** N replicas. Hinted handoff for down nodes. Read repair. Anti-entropy (Merkle trees) #flashcard
+**Q:** Read repair? :: **A:** On read quorum, detect stale replicas, async update them #flashcard
 
 #flashcard
-**Q:** Gossip protocol? :: **A:** Membership, failure detection. Seed nodes for bootstrapping. SWIM for failure detection #flashcard
+**Q:** Vector clocks vs LWW? :: **A:** Vector clocks track causality, LWW uses timestamp (clock skew risk) #flashcard
 
 #flashcard
-**Q:** Time-to-live (TTL)? :: **A:** Per-cell expiration. Automatic cleanup. Monitor TTL expiration rate #flashcard
+**Q:** When to use LSM vs B-Tree? :: **A:** Write-heavy → LSM. Read-heavy, random updates → B-Tree #flashcard
 
-#flashcard
-**Q:** Monitoring? :: **A:** Read/write latency (p50/p99), compaction backlog, tombstone ratio, disk usage, heap #flashcard
 ## Practice Tasks (Tasks Plugin)
-
-- [ ] Explain the architecture from memory 📅 {date:YYYY-MM-DD, +1}
-- [ ] Draw the system diagram without looking 📅 {date:YYYY-MM-DD, +3}
-- [ ] Answer all Interview Q&A aloud 📅 {date:YYYY-MM-DD, +7}
-- [ ] Review flashcards (Spaced Repetition) 📅 {date:YYYY-MM-DD, +1}
+- [ ] Implement memtable + SSTable flush from memory 📅 {{date:YYYY-MM-DD, +1}}
+- [ ] Explain compaction strategies trade-offs 📅 {{date:YYYY-MM-DD, +3}}
+- [ ] Answer all Interview Q&A aloud 📅 {{date:YYYY-MM-DD, +7}}
+- [ ] Review flashcards (Spaced Repetition) 📅 {{date:YYYY-MM-DD, +1}}
 
 ```tasks
 not done
@@ -204,12 +346,10 @@ limit 10
 ```
 
 ## Related
-- [[INT-06-Key-Value-Store-for-Search|Complementary: INT-06-Key-Value-Store-for-Search]]
 
-- [[Architect/10_System-Design-Interviews/README|System Design Interviews Folder]]
-- [[Architect/03_Architecture-Styles/README|Architecture Styles]]
-- [[Architect/08_NonFunctional-Ops/README|Non-Functional Requirements]]
-- [[Architect/07_Integration-APIs/README|Integration Patterns]]
+- [[Architect/10_System-Design-Interviews/BB-05-Consistent-Hashing|Consistent Hashing]]
+- [[Architect/10_System-Design-Interviews/DB-05-Sharding|Database Sharding]]
+- [[Architect/10_System-Design-Interviews/BB-19-Distributed-Message-Queue|Distributed Message Queue]]
 
 ---
 

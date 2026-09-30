@@ -1,12 +1,13 @@
 ---
 title: Dynamic Programming
-pattern: 20
+pattern: 19
 category: Coding Patterns/07_Backtracking_DP
 tags:
 - pattern/dp
 leetcode:
 - 70
 - 322
+- 300
 - 1143
 created: '2026-09-02'
 completed: false
@@ -14,16 +15,13 @@ reviewed: ''
 sr-due: ''
 difficulty: Hard
 source: https://blog.algomaster.io/p/20-dsa-patterns
-problems-solved: []
-problems-solved-dates: {}
 excalidraw: ''
-type: note
 ---
 
 
 # Dynamic Programming
 
-> Part of [[README|20 DSA Patterns]] • `Coding Patterns/07_Backtracking_DP` • Pattern #20
+> Part of [[README|20 DSA Patterns]] • `Coding Patterns/07_Backtracking_DP` • Pattern #19
 
 ## Intent
 When subproblems repeat and the optimum builds from smaller optima, store results instead of recomputing. Two approaches: top-down recursion + cache (memoization) or bottom-up loop over a table (tabulation).
@@ -55,29 +53,19 @@ flowchart LR
 
 **Problem Statement:**
 
-You are climbing a staircase. It takes n steps to reach the top.
-
-Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top?
+You are climbing a staircase. It takes n steps to reach the top. Each time you can either climb 1 or 2 steps. In how many distinct ways can you climb to the top? Example 1: Input: n = 2 Output: 2 Explanation: There are two ways to climb to the top. 1. 1 step + 1 step 2. 2 steps Example 2: Input: n = 3 Output: 3 Explanation: There are three ways to climb to the top. 1. 1 step + 1 step + 1 step 2. 1 step + 2 steps 3. 2 steps + 1 step Constraints: 1
 
 **Examples:**
 
 Example 1:
-
-Input: n = 2
-Output: 2
-Explanation: There are two ways to climb to the top.
-1. 1 step + 1 step
-2. 2 steps
+```
+2
+```
 
 Example 2:
-
-Input: n = 3
-Output: 3
-Explanation: There are three ways to climb to the top.
-1. 1 step + 1 step + 1 step
-2. 1 step + 2 steps
-3. 2 steps + 1 step
-
+```
+3
+```
 ---
 
 ### 322. Coin Change (Medium)
@@ -85,30 +73,64 @@ Explanation: There are three ways to climb to the top.
 
 **Problem Statement:**
 
-You are given an integer array coins representing coins of different denominations and an integer amount representing a total amount of money.
-
-Return the fewest number of coins that you need to make up that amount. If that amount of money cannot be made up by any combination of the coins, return -1.
-
-You may assume that you have an infinite number of each kind of coin.
+You are given an integer array coins representing coins of different denominations and an integer amount representing a total amount of money. Return the fewest number of coins that you need to make up that amount. If that amount of money cannot be made up by any combination of the coins, return -1. You may assume that you have an infinite number of each kind of coin. Example 1: Input: coins = [1,2,5], amount = 11 Output: 3 Explanation: 11 = 5 + 5 + 1 Example 2: Input: coins = [2], amount = 3 Output: -1 Example 3: Input: coins = [1], amount = 0 Output: 0 Constraints: 1 1 31 - 1 0 4
 
 **Examples:**
 
 Example 1:
-
-Input: coins = [1,2,5], amount = 11
-Output: 3
-Explanation: 11 = 5 + 5 + 1
+```
+[1,2,5]
+```
 
 Example 2:
-
-Input: coins = [2], amount = 3
-Output: -1
+```
+11
+```
 
 Example 3:
+```
+[2]
+```
 
-Input: coins = [1], amount = 0
-Output: 0
+Example 4:
+```
+3
+```
 
+Example 5:
+```
+[1]
+```
+
+Example 6:
+```
+0
+```
+---
+
+### 300. Longest Increasing Subsequence (Medium)
+> [LeetCode 300](https://leetcode.com/problems/longest-increasing-subsequence/) • Tags: Array, Binary Search, Dynamic Programming, Longest Increasing Subsequence
+
+**Problem Statement:**
+
+Given an integer array nums, return the length of the longest strictly increasing subsequence. Example 1: Input: nums = [10,9,2,5,3,7,101,18] Output: 4 Explanation: The longest increasing subsequence is [2,3,7,101], therefore the length is 4. Example 2: Input: nums = [0,1,0,3,2,3] Output: 4 Example 3: Input: nums = [7,7,7,7,7,7,7] Output: 1 Constraints: 1 -104 4 Follow up: Can you come up with an algorithm that runs in O(n log(n)) time complexity?
+
+**Examples:**
+
+Example 1:
+```
+[10,9,2,5,3,7,101,18]
+```
+
+Example 2:
+```
+[0,1,0,3,2,3]
+```
+
+Example 3:
+```
+[7,7,7,7,7,7,7]
+```
 ---
 
 ### 1143. Longest Common Subsequence (Medium)
@@ -116,34 +138,39 @@ Output: 0
 
 **Problem Statement:**
 
-Given two strings text1 and text2, return the length of their longest common subsequence. If there is no common subsequence, return 0.
-
-A subsequence of a string is a new string generated from the original string with some characters (can be none) deleted without changing the relative order of the remaining characters.
-
-	For example, "ace" is a subsequence of "abcde".
-
-A common subsequence of two strings is a subsequence that is common to both strings.
+Given two strings text1 and text2, return the length of their longest common subsequence. If there is no common subsequence, return 0. A subsequence of a string is a new string generated from the original string with some characters (can be none) deleted without changing the relative order of the remaining characters. For example, "ace" is a subsequence of "abcde". A common subsequence of two strings is a subsequence that is common to both strings. Example 1: Input: text1 = "abcde", text2 = "ace" Output: 3 Explanation: The longest common subsequence is "ace" and its length is 3. Example 2: Input: text1 = "abc", text2 = "abc" Output: 3 Explanation: The longest common subsequence is "abc" and its length is 3. Example 3: Input: text1 = "abc", text2 = "def" Output: 0 Explanation: There is no such common subsequence, so the result is 0. Constraints: 1 text1 and text2 consist of only lowercase English characters.
 
 **Examples:**
 
 Example 1:
-
-Input: text1 = "abcde", text2 = "ace" 
-Output: 3  
-Explanation: The longest common subsequence is "ace" and its length is 3.
+```
+"abcde"
+```
 
 Example 2:
-
-Input: text1 = "abc", text2 = "abc"
-Output: 3
-Explanation: The longest common subsequence is "abc" and its length is 3.
+```
+"ace"
+```
 
 Example 3:
+```
+"abc"
+```
 
-Input: text1 = "abc", text2 = "def"
-Output: 0
-Explanation: There is no such common subsequence, so the result is 0.
+Example 4:
+```
+"abc"
+```
 
+Example 5:
+```
+"abc"
+```
+
+Example 6:
+```
+"def"
+```
 ---
 
 
@@ -243,12 +270,40 @@ int rob(int[] nums) {
 **Q: How do you know if a problem is DP vs Greedy?**
 **A:** Try greedy first. If you find a counterexample where local optimal fails (e.g., coin change with [1,3,4] for amount 6: greedy picks 4+1+1=3 coins, optimal is 3+3=2), then it's DP. DP = backtracking + memoization. If subproblems don't overlap, it's backtracking (enumerate all). If they overlap and you need count/optimum, it's DP.
 
+
+## Flashcards (Spaced Repetition)
+
+#flashcard
+**Q:** What is the trigger keyword for Dynamic Programming? :: **A:** optimal substructure, overlapping subproblems, min/max/count ways, knapsack, LIS, edit distance, house robber #flashcard
+
+#flashcard
+**Q:** Time/space complexity of Dynamic Programming? :: **A:** Time: O(states × transitions), Space: O(states) or O(1) rolling #flashcard
+
+#flashcard
+**Q:** When do you NOT use Dynamic Programming? :: **A:** no overlapping subproblems (just recursion), greedy works (prove it), state space too large #flashcard
+
+#flashcard
+**Q:** Core Java 25 snippet for Dynamic Programming? :: **A:** `int[] dp=new int[n+1]; dp[0]=base; for(int i=1;i<=n;i++) for(opt: options) dp[i]=Math.max(dp[i], dp[i-opt]+val);` #flashcard
+
+
+## Practice Tasks (Tasks Plugin)
+- [ ] Restate the intent from memory 📅 {date:YYYY-MM-DD, +1}
+- [ ] Code the snippet without looking 📅 {date:YYYY-MM-DD, +3}
+- [ ] Answer all Interview Q&A aloud 📅 {date:YYYY-MM-DD, +7}
+- [ ] Review flashcards (Spaced Repetition) 📅 {date:YYYY-MM-DD, +1}
+
+```tasks
+not done
+path includes {file.folder}
+sort by due
+limit 10
+```
+
 ## Related
 - [[07_Backtracking_DP/01 - Backtracking|Backtracking]] (DP = backtracking + memo)
 - [[07_Backtracking_DP/03 - Greedy|Greedy]] (local vs global optimum)
 - [[01_Array/01 - Prefix Sum|Prefix Sum]] (DP often uses prefix sums)
 - [[Java/07_DSA/Array]]
-
 ---
 *Category: Coding Patterns/07_Backtracking_DP*
 - [[Architect/10_System-Design-Interviews/DB-01-Database-Internals.md|DB-01-Database-Internals]] — DP for query optimization

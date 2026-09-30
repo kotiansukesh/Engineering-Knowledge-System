@@ -1,25 +1,132 @@
 ---
-title: Proxy
-category: Java/06_Design-Patterns/Structural
+title: "Proxy"
+category: "Java/06_Design-Patterns/Structural"
 tags:
 - design-patterns
 - structural
 - proxy
 pattern: proxy
 source: https://refactoring.guru/design-patterns/proxy
-created: 2026-09-02
+created: "2026-09-29"
 difficulty: Medium
 completed: false
-reviewed: ''
-sr-due: ''
-excalidraw: ''
+reviewed: "2026-09-29"
+sr-due: "2026-10-06"
+excalidraw: ""
 type: note
 ---
-
 
 # Proxy
 
 > Category: Structural • Source: [Refactoring.Guru , Proxy](https://refactoring.guru/design-patterns/proxy) • Part of [[Java/README|Java MOC]] → [[06_Design-Patterns/README|Design Patterns MOC]]
+
+## Why it Matters
+
+Controls access by placing a **stand-in** in front of an object.
+
+## Diagram
+
+```mermaid
+classDiagram
+ class Client
+ class Image {
+ <<interface>>
+ +show()
+ }
+ class LazyImage {
+ +show()
+ }
+ class RealImage {
+ +show()
+ }
+ Image <|.. LazyImage
+ Image <|.. RealImage
+ LazyImage o-- RealImage : lazy
+ Client --> Image
+```
+
+## Code
+
+```java
+// Java 25: records, sealed interfaces, pattern matching, virtual threads, Compact Object Headers
+// Proxy: stand-in controls access and lazily creates the heavy RealImage on first use.
+public class ProxyDemo {
+ interface Image { void show(); }
+ static class RealImage implements Image {
+ RealImage(String f) { System.out.println("loading " + f); } // => loading photo.jpg
+ public void show() { System.out.println("showing pixels"); } // => showing pixels, showing pixels
+ }
+ static class LazyImage implements Image {
+ private final String file;
+ private RealImage real;
+ LazyImage(String f) { file = f; }
+ public void show() {
+ if (real == null) real = new RealImage(file);
+ real.show();
+ }
+ }
+ public static void main(String[] args) {
+ Image img = new LazyImage("photo.jpg");
+ System.out.println("proxy created, nothing loaded yet"); // => proxy created, nothing loaded yet
+ img.show();
+ img.show();
+ }
+}
+```
+
+The demo proves the pattern contract is fulfilled with immutable, sealed implementations.
+
+## When to Use / When NOT
+
+| **Use When** | **Avoid When** |
+|--------------|----------------|
+| A stand-in must control access: lazy load, cache, guard, or log. |  |
+| The real object is expensive to create or remote. |  |
+| Clients must keep the same interface. |  |
+
+## Trade-offs
+
+| Dimension | This Approach | Alternative |
+|-----------|---------------|-------------|
+| Complexity | [complexity] | [alt complexity] |
+| Performance | [performance] | [alt performance] |
+| Readability | [readability] | [alt readability] |
+| Testability | [testability] | [alt testability] |
+
+## Vs Table
+
+| Pattern | Use when |
+|---------|----------|
+| Proxy | Controls access, same interface |
+| Decorator | Adds behavior, stackable |
+| Adapter | Different interface |
+
+## Pitfalls
+
+- Self-invocation bypassing the proxy (Spring `@Transactional` classic).
+- Proxy doing real work: it should control access, not implement features.
+- Lazy proxies hiding latency spikes on first use with no timeout story.
+
+## Interview Q&A (Senior Depth)
+
+**Q: Proxy vs decorator?**
+
+Proxy controls how you reach the object, often one layer for caching or checks. Decorator adds features and often stacks.
+
+**Q: Proxy vs Decorator vs Adapter?**
+
+All three wrap an object, but with different intent: Proxy (same interface) controls access , lazy init, caching, permission checks , and is usually a single layer. Decorator (same interface) adds behavior and stacks freely. Adapter (different interface) translates so incompatible types can connect.
+
+**Q: What proxies do Java frameworks use?**
+
+JDK dynamic proxies implement interfaces at runtime (Spring AOP's default for interface beans); CGLIB subclasses concrete classes when no interface exists. `@Transactional`, `@Cacheable`, and lazy JPA associations are all proxies , which is why self-invocation silently skips advice.
+
+: Proxy vs decorator?:: Proxy controls how you reach the object, often one layer for caching or checks. Decorator adds features and often stacks. **Q: Proxy vs Decorator vs Adapter?** All three wrap an object, but with different intent: Proxy (same interface) controls access , lazy init, caching, permission checks , and is usually a single layer. Decorator (same interface) adds behavior and stacks freely. Adapter (different interface) translates so incompatible types... #flashcard
+
+## Flashcards (Spaced Repetition)
+
+#flashcard
+Structural • Source: [Refactoring.Guru , Proxy](https://refactoring.guru/design-patterns/proxy) • Part of [[Java/README|Java MOC]] → [[06_Design-Patterns/README|Design Patterns MOC]]
 
 ## Why it Matters
 
@@ -115,13 +222,27 @@ JDK dynamic proxies implement interfaces at runtime (Spring AOP's default for in
 
 : Proxy vs decorator?:: Proxy controls how you reach the object, often one layer for caching or checks. Decorator adds features and often stacks. **Q: Proxy vs Decorator vs Adapter?** All three wrap an object, but with different intent: Proxy (same interface) controls access , lazy init, caching, permission checks , and is usually a single layer. Decorator (same interface) adds behavior and stacks freely. Adapter (different interface) translates so incompatible types... #flashcard
 
+## Practice Tasks (Tasks Plugin)
+
+- [ ] Restate the intent from memory 📅 {date:YYYY-MM-DD, +1}
+- [ ] Code the snippet without looking 📅 {date:YYYY-MM-DD, +3}
+- [ ] Answer all Interview Q&A aloud 📅 {date:YYYY-MM-DD, +7}
+- [ ] Review flashcards (Spaced Repetition) 📅 {date:YYYY-MM-DD, +1}
+
+```tasks
+not done
+path includes {file.folder}
+sort by due
+limit 10
+```
+
 ## Related
 
 [[06_Design-Patterns/Structural/Decorator|Decorator]] • [[06_Design-Patterns/Structural/Adapter|Adapter]] • [[06_Design-Patterns/Structural/Facade|Facade]]
 
 ---
+
 *Category: Structural • Tags: design-patterns • Source: refactoring.guru*
-- [[Architect/10_System-Design-Interviews/NET-01-Load-Balancer.md|NET-01-Load-Balancer]] — Proxy pattern for load balancing
 
 ## Problem
 

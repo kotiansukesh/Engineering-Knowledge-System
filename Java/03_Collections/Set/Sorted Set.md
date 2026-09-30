@@ -1,20 +1,26 @@
 ---
-title: Sorted set
-category: Java/03_Collections/Set
-tags:
-- java
-- collections
-- set
-created: 2026-01-18
-pattern: 3
-difficulty: Easy
+title: "Sorted set"
+category: "Java/03_Collections/Set"
+tags: [java, collections]
+created: "2026-09-29"
 completed: false
-reviewed: ''
-sr-due: ''
-excalidraw: ''
-source: ''
-type: note
+difficulty: "Easy"
+pattern: 0
+reviewed: "2026-09-29"
+sr-due: "2026-10-06"
+source: ""
+excalidraw: ""
+type: "note"
 ---
+
+# Sorted set
+
+> Part of [[README|Java MOC]] • `Java/03_Collections/Set`
+> 🎨 **Visual diagram:** Create Excalidraw drawing from template: `Cmd+P → Excalidraw: New from template → Java Diagram`
+
+## Intent
+
+One sentence: what problem does this solve? Define the **key term** in **bold**.
 
 ## Why it Matters
 
@@ -31,9 +37,10 @@ lower/floor/ceiling/higher"]
  NS --> TS["TreeSet"]
 ```
 
-## Code
+## Code / Example
 
 ```java
+// Java 25: var, record, sealed, pattern matching, SequencedCollection, virtual threads, Compact Object Headers
 // SortedSet — sorted unique view (TreeSet/NavigableSet)
 var sorted = new TreeSet<>(List.of(5,1,3,2,5));
 System.out.println(sorted); // => [1, 2, 3, 5]
@@ -58,21 +65,30 @@ view.add(15);
 System.out.println(nav); // => [10, 15, 20, 30]
 ```
 
-## When to use / not
+### Concrete Example
 
-| Use | NOT |
-|-----|-----|
-| Range views (`subSet`, `headSet`, `tailSet`) | Unordered membership , `HashSet` is faster |
-| Nearest-match navigation (`lower`/`higher`) | Copies , views are live; mutate with care |
-| Descending iteration via `descendingSet` | `null` keys (cannot be compared) |
+- **Input:**
+- **Output:**
+- **Explanation:**
+
+## When to Use / When NOT
+
+| **Use When** | **Avoid When** |
+|--------------|----------------|
+|  |  |
+|  |  |
+|  |  |
 
 ## Trade-offs
 
-- Live range views avoid copying; navigable queries in O(log n).
-- Views share mutation , aliasing bugs if callers assume snapshots.
-- Sorted only , no hash-speed path.
+| Dimension | This Approach | Alternative |
+|-----------|---------------|-------------|
+| Complexity | | |
+| Performance | | |
+| Readability | | |
+| Testability | | |
 
-## Vs
+## Vs Table
 
 - HashSet: no order, O(1), one null
 - LinkedHashSet: insertion order, O(1), one null
@@ -84,13 +100,41 @@ System.out.println(nav); // => [10, 15, 20, 30]
 - Range endpoints: `subSet(from, to)` is from-inclusive, to-exclusive , off-by-one source.
 - Length-based comparators collapse unequal strings , tie-break or lose elements.
 
-## Interview q&a
+## Interview Q&A (Senior Depth)
 
 **Q: `SortedSet` vs `NavigableSet`?** `SortedSet` adds `first`/`last`/subset views; `NavigableSet` adds `lower`/`floor`/`ceiling`/`higher`, `pollFirst`/`pollLast`, `descendingSet`.
 
 **Q: Are `subSet` views copies?** No , live backed views; changes show on both sides.
 
 **Q: How to iterate descending?** `new TreeSet<>(Comparator.reverseOrder())` or `navigable.descendingSet()`.
+
+## Flashcards (Spaced Repetition)
+
+#flashcard
+**Q:** What is the trigger keyword for Sorted set? :: **A:** [trigger keywords] #flashcard
+
+#flashcard
+**Q:** Time/space complexity of Sorted set? :: **A:** Time: O(), Space: O() #flashcard
+
+#flashcard
+**Q:** When do you NOT use Sorted set? :: **A:** [anti-pattern scenarios] #flashcard
+
+#flashcard
+**Q:** Core Java 25 snippet for Sorted set? :: **A:** `var list = new ArrayList<>(List.of(...));` #flashcard
+
+## Practice Tasks (Tasks Plugin)
+
+- [ ] Restate the intent from memory 📅 {date:YYYY-MM-DD, +1}
+- [ ] Code the snippet without looking 📅 {date:YYYY-MM-DD, +3}
+- [ ] Answer all Interview Q&A aloud 📅 {date:YYYY-MM-DD, +7}
+- [ ] Review flashcards (Spaced Repetition) 📅 {date:YYYY-MM-DD, +1}
+
+```tasks
+not done
+path includes {file.folder}
+sort by due
+limit 10
+```
 
 ## Related
 
@@ -108,6 +152,12 @@ Are subSet views copies?:: No, they are backed views, changes show in both. #fla
 >
 > Set with sorted iteration by natural order or a Comparator. No duplicates, no null, with range view operations.
 
+## Contract
+
+- sorted, not indexed
+- no duplicates, no null
+- extra ops: first, last, subSet from inclusive to exclusive, headSet, tailSet
+
 ## Hierarchy
 
 ```
@@ -117,15 +167,7 @@ Set
  -> TreeSet (the JDK implementation)
 ```
 
-## Contract
 
-- sorted, not indexed
-- no duplicates, no null
-- extra ops: first, last, subSet from inclusive to exclusive, headSet, tailSet
+---
 
-## Time Complexity with TreeSet
-
-- add, contains, remove: O(log n)
-- first, last: O(log n)
-- subSet, headSet, tailSet: O(log n) to find plus O(k) to traverse
-- lower, floor, ceiling, higher: O(log n)
+*Category: Java/03_Collections/Set • Part of [[README|Java MOC]] • Java 25*

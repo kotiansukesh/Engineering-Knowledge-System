@@ -1,6 +1,6 @@
 ---
 title: Top K Elements
-pattern: 9
+pattern: 8
 category: Coding Patterns/03_Stack_Heap
 tags:
 - pattern/heap
@@ -8,6 +8,7 @@ tags:
 leetcode:
 - 215
 - 347
+- 378
 - 973
 created: '2026-09-02'
 completed: false
@@ -15,16 +16,13 @@ reviewed: ''
 sr-due: ''
 difficulty: Medium
 source: https://blog.algomaster.io/p/20-dsa-patterns
-problems-solved: []
-problems-solved-dates: {}
 excalidraw: ''
-type: note
 ---
 
 
 # Top K Elements
 
-> Part of [[README|20 DSA Patterns]] • `Coding Patterns/03_Stack_Heap` • Pattern #9
+> Part of [[README|20 DSA Patterns]] • `Coding Patterns/03_Stack_Heap` • Pattern #8
 
 ## Intent
 Find k largest/smallest/most frequent elements in O(n log k) time and O(k) space using a heap of size k — the streaming-friendly alternative to full sort when k << n.
@@ -55,22 +53,29 @@ flowchart LR
 
 **Problem Statement:**
 
-Given an integer array nums and an integer k, return the k^th^ largest element in the array.
-
-Note that it is the k^th^ largest element in the sorted order, not the k^th^ distinct element.
-
-Can you solve it without sorting?
+Given an integer array nums and an integer k, return the kth largest element in the array. Note that it is the kth largest element in the sorted order, not the kth distinct element. Can you solve it without sorting? Example 1: Input: nums = [3,2,1,5,6,4], k = 2 Output: 5 Example 2: Input: nums = [3,2,3,1,2,4,5,5,6], k = 4 Output: 4 Constraints: 1 5 -104 4
 
 **Examples:**
 
 Example 1:
-Input: nums = [3,2,1,5,6,4], k = 2
-Output: 5
+```
+[3,2,1,5,6,4]
+```
 
 Example 2:
-Input: nums = [3,2,3,1,2,4,5,5,6], k = 4
-Output: 4
+```
+2
+```
 
+Example 3:
+```
+[3,2,3,1,2,4,5,5,6]
+```
+
+Example 4:
+```
+4
+```
 ---
 
 ### 347. Top K Frequent Elements (Medium)
@@ -78,28 +83,69 @@ Output: 4
 
 **Problem Statement:**
 
-Given an integer array nums and an integer k, return the k most frequent elements. You may return the answer in any order.
+Given an integer array nums and an integer k, return the k most frequent elements. You may return the answer in any order. Example 1: Input: nums = [1,1,1,2,2,3], k = 2 Output: [1,2] Example 2: Input: nums = [1], k = 1 Output: [1] Example 3: Input: nums = [1,2,1,2,1,2,3,1,3,2], k = 2 Output: [1,2] Constraints: 1 5 -104 4 k is in the range [1, the number of unique elements in the array]. It is guaranteed that the answer is unique. Follow up: Your algorithm's time complexity must be better than O(n log n), where n is the array's size.
 
 **Examples:**
 
 Example 1:
-
-Input: nums = [1,1,1,2,2,3], k = 2
-
-Output: [1,2]
+```
+[1,1,1,2,2,3]
+```
 
 Example 2:
-
-Input: nums = [1], k = 1
-
-Output: [1]
+```
+2
+```
 
 Example 3:
+```
+[1]
+```
 
-Input: nums = [1,2,1,2,1,2,3,1,3,2], k = 2
+Example 4:
+```
+1
+```
 
-Output: [1,2]
+Example 5:
+```
+[1,2,1,2,1,2,3,1,3,2]
+```
 
+Example 6:
+```
+2
+```
+---
+
+### 378. Kth Smallest Element in a Sorted Matrix (Medium)
+> [LeetCode 378](https://leetcode.com/problems/kth-smallest-element-in-a-sorted-matrix/) • Tags: Array, Binary Search, Sorting, Heap (Priority Queue), Matrix
+
+**Problem Statement:**
+
+Given an n x n matrix where each of the rows and columns is sorted in ascending order, return the kth smallest element in the matrix. Note that it is the kth smallest element in the sorted order, not the kth distinct element. You must find a solution with a memory complexity better than O(n2). Example 1: Input: matrix = [[1,5,9],[10,11,13],[12,13,15]], k = 8 Output: 13 Explanation: The elements in the matrix are [1,5,9,10,11,12,13,13,15], and the 8th smallest number is 13 Example 2: Input: matrix = [[-5]], k = 1 Output: -5 Constraints: n == matrix.length == matrix[i].length 1 -109 9 All the rows and columns of matrix are guaranteed to be sorted in non-decreasing order. 1 2 Follow up: Could you solve the problem with a constant memory (i.e., O(1) memory complexity)? Could you solve the problem in O(n) time complexity? The solution may be too advanced for an interview but you may find reading this paper fun.
+
+**Examples:**
+
+Example 1:
+```
+[[1,5,9],[10,11,13],[12,13,15]]
+```
+
+Example 2:
+```
+8
+```
+
+Example 3:
+```
+[[-5]]
+```
+
+Example 4:
+```
+1
+```
 ---
 
 ### 973. K Closest Points to Origin (Medium)
@@ -107,30 +153,29 @@ Output: [1,2]
 
 **Problem Statement:**
 
-Given an array of points where points[i] = [x_i_, y_i_] represents a point on the X-Y plane and an integer k, return the k closest points to the origin (0, 0).
-
-The distance between two points on the X-Y plane is the Euclidean distance (i.e., √(x_1_ - x_2_)^2^ + (y_1_ - y_2_)^2^).
-
-You may return the answer in any order. The answer is guaranteed to be unique (except for the order that it is in).
+Given an array of points where points[i] = [xi, yi] represents a point on the X-Y plane and an integer k, return the k closest points to the origin (0, 0). The distance between two points on the X-Y plane is the Euclidean distance (i.e., √(x1 - x2)2 + (y1 - y2)2). You may return the answer in any order. The answer is guaranteed to be unique (except for the order that it is in). Example 1: Input: points = [[1,3],[-2,2]], k = 1 Output: [[-2,2]] Explanation: The distance between (1, 3) and the origin is sqrt(10). The distance between (-2, 2) and the origin is sqrt(8). Since sqrt(8) Example 2: Input: points = [[3,3],[5,-1],[-2,4]], k = 2 Output: [[3,3],[-2,4]] Explanation: The answer [[-2,4],[3,3]] would also be accepted. Constraints: 1 4 -104 i, yi 4
 
 **Examples:**
 
 Example 1:
-
-Input: points = [[1,3],[-2,2]], k = 1
-Output: [[-2,2]]
-Explanation:
-The distance between (1, 3) and the origin is sqrt(10).
-The distance between (-2, 2) and the origin is sqrt(8).
-Since sqrt(8) < sqrt(10), (-2, 2) is closer to the origin.
-We only want the closest k = 1 points from the origin, so the answer is just [[-2,2]].
+```
+[[1,3],[-2,2]]
+```
 
 Example 2:
+```
+1
+```
 
-Input: points = [[3,3],[5,-1],[-2,4]], k = 2
-Output: [[3,3],[-2,4]]
-Explanation: The answer [[-2,4],[3,3]] would also be accepted.
+Example 3:
+```
+[[3,3],[5,-1],[-2,4]]
+```
 
+Example 4:
+```
+2
+```
 ---
 
 
@@ -228,11 +273,39 @@ int[] topKFrequentBucket(int[] nums, int k) {
 **Q: K Closest Points — why max-heap instead of min-heap?**
 **A:** We want k *smallest* distances. Max-heap root = largest distance among kept k. When new point has smaller distance than root, it belongs in top k — push and pop root. Min-heap would need to keep all n points and pop k times (O(n + k log n)). Max-heap of size k is O(n log k).
 
+
+## Flashcards (Spaced Repetition)
+
+#flashcard
+**Q:** What is the trigger keyword for Top K Elements? :: **A:** K largest/smallest, K closest, merge K sorted lists, top K frequent elements #flashcard
+
+#flashcard
+**Q:** Time/space complexity of Top K Elements? :: **A:** Time: O(n log k) heap / O(n) quickselect avg, Space: O(k) heap / O(1) quickselect #flashcard
+
+#flashcard
+**Q:** When do you NOT use Top K Elements? :: **A:** K ≈ n (just sort), need all sorted (use sort O(n log n)) #flashcard
+
+#flashcard
+**Q:** Core Java 25 snippet for Top K Elements? :: **A:** `PriorityQueue<Integer> minHeap=new PriorityQueue<>(); for(int x:nums){ minHeap.offer(x); if(minHeap.size()>k) minHeap.poll(); }` #flashcard
+
+
+## Practice Tasks (Tasks Plugin)
+- [ ] Restate the intent from memory 📅 {date:YYYY-MM-DD, +1}
+- [ ] Code the snippet without looking 📅 {date:YYYY-MM-DD, +3}
+- [ ] Answer all Interview Q&A aloud 📅 {date:YYYY-MM-DD, +7}
+- [ ] Review flashcards (Spaced Repetition) 📅 {date:YYYY-MM-DD, +1}
+
+```tasks
+not done
+path includes {file.folder}
+sort by due
+limit 10
+```
+
 ## Related
 - [[03_Stack_Heap/01 - Monotonic Stack|Monotonic Stack]] (different stack/heap pattern)
 - [[07_Backtracking_DP/02 - Dynamic Programming|Dynamic Programming]] (knapsack variants use different DP)
 - [[Java/07_DSA/Heap]] · [[Java/07_DSA/HashMap]]
-
 ---
 *Category: Coding Patterns/03_Stack_Heap*
 - [[Architect/10_System-Design-Interviews/NET-01-Load-Balancer.md|NET-01-Load-Balancer]] — Least connections = min heap

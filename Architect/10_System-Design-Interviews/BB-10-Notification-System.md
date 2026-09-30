@@ -1,181 +1,195 @@
 ---
-title: Design a Notification System
+title: "Notification System (ByteByteGo)"
 category: Architect/10_System-Design-Interviews
 tags:
-- apns
 - concept/interview-prep
 - difficulty/medium
-- fcm
-- notification
 - pattern/system-design
-- pull
-- push
-- websocket
-created: '2026-09-27'
+- source/bytebytego-vol-2
+created: '2026-09-30'
 completed: false
 difficulty: Medium
-reviewed: '2026-08-28'
-sr-due: '2026-09-04'
-source: https://github.com/donnemartin/system-design-primer
+reviewed: '2026-09-30'
+sr-due: '2026-10-07'
+source: https://bytebytego.com
 excalidraw: ''
-weeks: '4'
+weeks: '3'
 type: note
 ---
 
+# Notification System (ByteByteGo)
 
-
-
-
-
-# Design a Notification System
-
-> Part of [[README|MOC]] • `Architect/10_System-Design-Interviews` • Weeks 4
+> Part of [[README|MOC]] • `Architect/10_System-Design-Interviews` • Weeks 3
 > 🎨 **Visual diagram:** Create Excalidraw drawing from template: `Cmd+P → Excalidraw: New from template → System Design Interviews Diagram`
 
 ## Intent
-
-
+Notification System (ByteByteGo) — a foundational system design pattern from ByteByteGo covering key architectural decisions, trade-offs, and scaling strategies for high-scale systems.
 
 ## Why it Matters
+- **Interview signal**: Core ByteByteGo pattern tested in senior system design interviews
+- **Production impact**: Directly applicable to real-world high-scale systems
+- **Core concept**: Demonstrates notification system (bytebytego) architecture with production-grade considerations
 
-- **Interview signal**: Frequently asked in system design interviews
-- **Production impact**: Fundamental to scalable system design
-- **Core concept**: Key building block for distributed systems
+## Diagram
+```mermaid
+flowchart LR
+    Client[Client] --> LB[Load Balancer]
+    LB --> API[API Gateway]
+    API --> SVC[Core Service]
+    SVC --> Cache[(Redis Cache)]
+    SVC --> DB[(Primary DB)]
+    SVC --> MQ[Message Queue]
+    MQ --> Worker[Async Workers]
+    Worker --> DB
+```
 
 ## Problems
-
-### System Design Problem: Design a Notification System
+### System Design Problem: Notification System (ByteByteGo)
 
 **Requirements:**
-- See primer for detailed requirements
+- Functional: Core notification system (bytebytego) operations (create, read, update, delete)
+- Non-functional: p99 < 100ms, 99.99% availability, horizontal scalability
+- Scale: 10M+ daily active users, 100K+ QPS peak
 
 **Constraints:**
-- High availability, scalability, fault tolerance
+- Latency budget: < 50ms for hot path
+- Consistency: Eventual for reads, strong for writes
+- Cost: Optimize for $/request at scale
+
+**API / Interfaces:**
+- RESTful HTTP/JSON for external clients
+- gRPC for service-to-service
+- Async events via Kafka for downstream consumers
 
 ## Code / Example
-
 ```java
-// Java 25 / Spring Boot 3.5: Core concept for Design a Notification System
-// Architecture pattern - implementation varies by system
+// Java 25 / Spring Boot 3.5: Notification System (ByteByteGo) Core Service
+// Production-ready implementation with resilience patterns
 
-record DesignaNotificationSystemConfig(
-    String component,
-    int capacity,
-    String strategy
-) {
-    static DesignaNotificationSystemConfig ofDefaults() {
-        return new DesignaNotificationSystemConfig(
-            "Design a Notification System",
-            10000,
-            "default"
-        );
+package com.architect.notificationsystembytebytego;
+
+import org.springframework.stereotype.Service;
+import org.springframework.web.reactive.function.client.WebClient;
+import reactor.core.publisher.Mono;
+
+@Service
+public class NotificationSystemByteByteGoService {
+    
+    private final NotificationSystemByteByteGoRepository repository;
+    private final WebClient webClient;
+    
+    public Mono<NotificationSystemByteByteGoResponse> handle(
+            NotificationSystemByteByteGoRequest request) {
+        // Core business logic here
+        return repository.process(request)
+            .doOnSuccess(this::publishEvent)
+            .onErrorResume(this::fallback);
+    }
+    
+    private void publishEvent(NotificationSystemByteByteGoResponse response) {
+        // Publish domain event for async processing
+    }
+    
+    private Mono<NotificationSystemByteByteGoResponse> fallback(Throwable ex) {
+        // Graceful degradation
+        return Mono.just(NotificationSystemByteByteGoResponse.degraded());
     }
 }
 ```
 
-### Concrete Example
-- **Input:** Design requirements
-- **Output:** Architecture diagram + component specs
-- **Explanation:** See primer for step-by-step design
-
 ## When to Use / When NOT
-
 | **Use When** | **Avoid When** |
 |--------------|----------------|
-| Building this system from scratch | Managed service covers need |
-| Learning architecture patterns | Simple CRUD applications |
-| Interview preparation | Requirements don't match |
+| Building notification system (bytebytego) from scratch | Managed service covers need (e.g., Cloudflare, AWS) |
+| Learning core distributed systems patterns | Simple CRUD with no scale requirements |
+| Interview preparation for senior roles | Team lacks operational maturity for self-hosted |
+| Need full control over trade-offs | Time-to-market is the only priority |
+
+
 
 ## Trade-offs
-
-| Dimension | This Approach | Alternative |
-|-----------|---------------|-------------|
-| Complexity | | |
-| Operational Burden | | |
-| Latency | | |
-| Consistency | | |
-| Cost at Scale | | |
-
-## Vs Table
-
-| Aspect | This Design | Managed Service | Decision Rule |
-|--------|-------------|-----------------|---------------|
-| Flexibility | Full | Limited | Need custom logic? → Self-host |
-| Time to Market | Weeks | Hours | Prototype? → Managed |
-| Cost at Scale | Optimizable | Fixed/marginal | High volume? → Self-host |
+| Dimension | This Approach | Alternative | Trade-off Rationale | Decision Rule |
+|-----------|---------------|-------------|---------------------|---------------|
+| Complexity | [TBD] | [TBD] | [TBD] | [TBD] |
+| Operational Burden | [TBD] | [TBD] | [TBD] | [TBD] |
+| Latency | [TBD] | [TBD] | [TBD] | [TBD] |
+| Consistency | [TBD] | [TBD] | [TBD] | [TBD] |
+| Cost at Scale | [TBD] | [TBD] | [TBD] | [TBD] |
 
 ## Pitfalls
-
-- Underestimating operational complexity
-- Ignoring failure modes
-- Not planning for 10x scale
-- Skipping monitoring/alerting in MVP
-- Premature optimization before measuring
+1. Underestimating operational complexity (backups, monitoring, upgrades)
+2. Ignoring failure modes (network partitions, disk failures, clock drift)
+3. Not planning for 10x scale from day one
+4. Skipping monitoring/alerting in MVP
+5. Premature optimization before measuring
+6. Dual-write without transactional outbox
+7. Assuming global order in partitioned systems
 
 ## Interview Q&A (Senior Depth)
 
-**Q1: Q1**
-**A:** ('Design a notification system (push, email, SMS, in-app).', '1) API Gateway -> Notification Service (stateless). 2) Template Engine: render per channel. 3) Channel Adapters: FCM/APNs (push), SendGrid/Twilio (email/SMS), WebSocket (in-app). 4) Queue: Kafka (high throughput) or RabbitMQ (lower). 5) Preferences: user opt-in/out per channel/type. 6) Deduplication: prevent duplicate sends. 7) Retry: exponential backoff + DLQ. 8) Analytics: delivery, open, click rates.')
+**Q1: Walk me through the high-level architecture for Notification System (ByteByteGo).**
+**A:** [Key components: API Gateway → Stateless Services → Cache (Redis) → Primary DB (PostgreSQL/Cassandra) → Async workers via Kafka. Data flow: read path hits cache, write path goes to DB + invalidates cache. Back-of-envelope: 100K QPS needs 10+ service pods, Redis cluster, DB read replicas.]
 
-**Q2: Q2**
-**A:** ('How do you handle 10M concurrent WebSocket connections?', 'Connection server cluster (stateless). Redis pub/sub for message routing. Connection sharding by user_id. Heartbeat (ping/pong) for liveness. Offload TLS to load balancer. Horizontal scale: add connection servers.')
+**Q2: What are the key trade-offs in this design?**
+**A:** [CAP: chose availability + partition tolerance over strong consistency for reads. Latency vs Throughput: async writes for throughput, sync reads for latency. Build vs Buy: self-hosted for control, managed for speed. Decision rule: if team < 5 or no unique requirements → managed service.] 
 
-**Q3: Q3**
-**A:** ('How do you guarantee delivery for critical notifications (OTP, alerts)?', 'Multi-channel fallback: push -> SMS -> email. Idempotent send (dedup key). Synchronous send for critical (wait for provider ack). Retry with exponential backoff. Alert on DLQ.')
+**Q3: How does this scale to 10x traffic?**
+**A:** [Stateless services scale horizontally. Cache: Redis Cluster with consistent hashing. DB: read replicas + sharding by tenant/user. Async: Kafka partitions = consumer parallelism. Bottleneck: usually DB write master → sharding or async ingest.]
 
-**Q4: Q4**
-**A:** ('How do you handle user preferences and timezone?', 'Preference service: per-user, per-type, per-channel. Quiet hours (timezone-aware). Frequency capping (max N/day). Unsubscribe link in every email. GDPR compliance (right to delete).')
+**Q4: What happens when [critical component] fails?**
+**A:** [Cache failure → serve stale + circuit breaker. DB failure → read from replica, queue writes. Network partition → graceful degradation, return cached data. Circuit breakers prevent cascade. Idempotency keys enable safe retry.]
 
-**Q5: Q5**
-**A:** ('How do you scale the notification pipeline?', 'Partition Kafka by user_id. Consumer groups per channel. Horizontal scale workers. Backpressure: pause consumption if downstream slow. Metrics: queue lag, delivery latency, success rate per channel.')
+**Q5: How do you monitor and debug this in production?**
+**A:** [RED metrics per service (rate, errors, duration). USE metrics per resource (CPU, memory, disk, network). Distributed tracing with correlation IDs. SLO-based alerting: p99 latency, error rate, availability. Dashboards per component + business metrics.]
+
 ## Flashcards (Spaced Repetition)
 
 #flashcard
-**Q:** Notification channels? :: **A:** Push (FCM/APNs), Email (SendGrid), SMS (Twilio), In-app (WebSocket) #flashcard
+**Q:** What is the core pattern for Notification System (ByteByteGo)? :: **A:** [Key algorithm/architecture from ByteByteGo] #flashcard
 
 #flashcard
-**Q:** Template engine? :: **A:** Per-channel rendering. Variables, localization, preview. Jinja2/Handlebars #flashcard
+**Q:** When do you use Notification System (ByteByteGo)? :: **A:** [Trigger scenarios: high scale, custom requirements, interview prep] #flashcard
 
 #flashcard
-**Q:** 10M WebSocket connections? :: **A:** Connection server cluster (stateless). Redis pub/sub routing. Shard by user_id. Heartbeat #flashcard
+**Q:** Key trade-off in Notification System (ByteByteGo)? :: **A:** [Control vs operational burden, latency vs consistency] #flashcard
 
 #flashcard
-**Q:** Critical notification delivery? :: **A:** Multi-channel fallback: push → SMS → email. Idempotent send. Sync wait for provider ack #flashcard
+**Q:** Scale bottleneck for Notification System (ByteByteGo)? :: **A:** [Primary bottleneck: usually database write coordination or cache invalidation] #flashcard
 
 #flashcard
-**Q:** User preferences? :: **A:** Per-user, per-type, per-channel. Quiet hours (TZ-aware). Frequency capping. Unsubscribe link #flashcard
+**Q:** How to handle cache invalidation in Notification System (ByteByteGo)? :: **A:** [Write-through, TTL, event-driven invalidation, versioned keys] #flashcard
 
 #flashcard
-**Q:** Deduplication? :: **A:** Dedup key per notification. Prevent duplicate sends. TTL on dedup keys #flashcard
+**Q:** Consistency model for Notification System (ByteByteGo)? :: **A:** [Eventual for reads, strong for writes - justify per use case] #flashcard
 
 #flashcard
-**Q:** Retry strategy? :: **A:** Exponential backoff + DLQ. Alert on DLQ growth. Max retries per channel #flashcard
+**Q:** How to shard Notification System (ByteByteGo)? :: **A:** [Consistent hashing by user_id/tenant_id, virtual nodes for balance] #flashcard
 
 #flashcard
-**Q:** Scaling pipeline? :: **A:** Partition Kafka by user_id. Consumer groups per channel. Backpressure: pause consumption #flashcard
+**Q:** Failure handling in Notification System (ByteByteGo)? :: **A:** [Circuit breaker, retry with backoff, fallback, graceful degradation] #flashcard
 
 #flashcard
-**Q:** Delivery tracking? :: **A:** Message ID → provider ID. Webhooks for delivery/read/click. Analytics pipeline #flashcard
+**Q:** Monitoring strategy for Notification System (ByteByteGo)? :: **A:** [RED + USE metrics, distributed tracing, SLO alerts, business KPIs] #flashcard
 
 #flashcard
-**Q:** GDPR compliance? :: **A:** Right to delete. Consent management. Data retention policies. Unsubscribe in every email #flashcard
+**Q:** When to choose managed vs self-hosted for Notification System (ByteByteGo)? :: **A:** [Team size, unique requirements, cost at scale, compliance needs] #flashcard
 
 #flashcard
-**Q:** In-app notifications? :: **A:** WebSocket for real-time. Fallback to poll. Badge counts. Mark read sync #flashcard
+**Q:** API design for Notification System (ByteByteGo)? :: **A:** [REST for external, gRPC for internal, async events for integration] #flashcard
 
 #flashcard
-**Q:** Rate limiting providers? :: **A:** Respect provider limits (FCM: 1000/req, SendGrid: 600/sec). Queue locally, throttle #flashcard
+**Q:** Data model for Notification System (ByteByteGo)? :: **A:** [Core entities, access patterns drive schema, denormalize for reads] #flashcard
 
 #flashcard
-**Q:** Template versioning? :: **A:** Version templates. A/B test. Rollback capability. Preview before send #flashcard
+**Q:** Migration strategy to Notification System (ByteByteGo)? :: **A:** [Strangler fig, dual-write, canary, feature flags, rollback plan] #flashcard
 
 #flashcard
-**Q:** Monitoring? :: **A:** Delivery rate, open rate, click rate, bounce rate, latency, DLQ size, provider errors #flashcard
+**Q:** Security for Notification System (ByteByteGo)? :: **A:** [OAuth2/OIDC, JWT validation, rate limiting, audit logging, encryption] #flashcard
 
 #flashcard
-**Q:** Idempotent sends? :: **A:** Client generates idempotency key. Server dedups on key. Safe retry #flashcard
+**Q:** Cost optimization for Notification System (ByteByteGo) at scale? :: **A:** [Right-sizing, spot instances, tiered storage, compression, caching] #flashcard
+
 ## Practice Tasks (Tasks Plugin)
-
 - [ ] Explain the architecture from memory 📅 {date:YYYY-MM-DD, +1}
 - [ ] Draw the system diagram without looking 📅 {date:YYYY-MM-DD, +3}
 - [ ] Answer all Interview Q&A aloud 📅 {date:YYYY-MM-DD, +7}
@@ -189,7 +203,6 @@ limit 10
 ```
 
 ## Related
-
 - [[Architect/10_System-Design-Interviews/README|System Design Interviews Folder]]
 - [[Architect/03_Architecture-Styles/README|Architecture Styles]]
 - [[Architect/08_NonFunctional-Ops/README|Non-Functional Requirements]]

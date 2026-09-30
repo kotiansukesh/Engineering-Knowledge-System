@@ -125,7 +125,7 @@ limit 10
 
 ## Related
 - [[README|AI MOC]]
-- [[{{file.folder}}/README|{{file.folder.split('/').pop()}} Folder]]
+- [[AI/_templates/README|{{file.folder.split('/').pop()}} Folder]]
 
 ---
 

@@ -1,20 +1,26 @@
 ---
-title: Map
-category: Java/03_Collections
-tags:
-- java
-- collections
-- map
-created: 2026-01-18
-pattern: 2
-difficulty: Easy
+title: "Map"
+category: "Java/03_Collections"
+tags: [java, collections]
+created: "2026-09-29"
 completed: false
-reviewed: ''
-sr-due: ''
-excalidraw: ''
-source: ''
-type: note
+difficulty: "Easy"
+pattern: 0
+reviewed: "2026-09-29"
+sr-due: "2026-10-06"
+source: ""
+excalidraw: ""
+type: "note"
 ---
+
+# Map
+
+> Part of [[README|Java MOC]] • `Java/03_Collections`
+> 🎨 **Visual diagram:** Create Excalidraw drawing from template: `Cmd+P → Excalidraw: New from template → Java Diagram`
+
+## Intent
+
+One sentence: what problem does this solve? Define the **key term** in **bold**.
 
 ## Why it Matters
 
@@ -34,9 +40,10 @@ sorted O(log n)"]
 thread-safe"]
 ```
 
-## Code
+## Code / Example
 
 ```java
+// Java 25: var, record, sealed, pattern matching, SequencedCollection, virtual threads, Compact Object Headers
 // Map — key→value; HashMap/LinkedHashMap/TreeMap selection
 Map<String,Integer> m = new HashMap<>();
 m.put("a",1); m.put("b",2); m.put("a",3);
@@ -57,26 +64,31 @@ var ordered = new LinkedHashMap<String,Integer>();
 ordered.put("b",2); ordered.put("a",1);
 System.out.println(ordered); // => {b=2, a=1}
 ```
-Note: mutating a key so its hashCode changes while in a HashMap loses the entry. Keep keys immutable.
 
-## When to use / not
+### Concrete Example
 
-| Impl | Pick when |
-|------|-------------|
-| `HashMap` | General lookup, no order, O(1) |
-| `LinkedHashMap` | Insertion order or LRU (`accessOrder=true`) |
-| `TreeMap` | Sorted keys, ranges, `ceilingKey` |
-| `ConcurrentHashMap` | Shared across threads |
-| `EnumMap` | Enum keys , fastest |
+- **Input:**
+- **Output:**
+- **Explanation:**
+
+## When to Use / When NOT
+
+| **Use When** | **Avoid When** |
+|--------------|----------------|
+|  |  |
+|  |  |
+|  |  |
 
 ## Trade-offs
 
-- O(1) average lookup; rich merge/compute API (`merge`, `computeIfAbsent`).
-- One interface, many orderings: hash, insertion, sorted, concurrent.
-- Mutable keys corrupt buckets , keys must be effectively immutable.
-- `null` policy differs per impl (`HashMap` allows, `TreeMap`/`ConcurrentHashMap` deny).
+| Dimension | This Approach | Alternative |
+|-----------|---------------|-------------|
+| Complexity | | |
+| Performance | | |
+| Readability | | |
+| Testability | | |
 
-## Vs
+## Vs Table
 
 | | `HashMap` | `TreeMap` | `ConcurrentHashMap` |
 |--|-----------|-----------|---------------------|
@@ -90,7 +102,7 @@ Note: mutating a key so its hashCode changes while in a HashMap loses the entry.
 - `get` returning `null` is ambiguous (absent vs mapped-to-null) , use `containsKey` or `getOrDefault`.
 - `TreeMap` rejects `null` keys; `ConcurrentHashMap` rejects all `null`s.
 
-## Interview q&a
+## Interview Q&A (Senior Depth)
 
 **Q: How does HashMap work?**
 Array of buckets, hash to index, collisions form a list then a tree after 8 entries, rehash when size exceeds capacity times load factor.
@@ -100,6 +112,34 @@ HashMap yes one null key. TreeMap no, null cannot be compared.
 
 **Q: HashMap vs ConcurrentHashMap?**
 HashMap is not thread safe and allows nulls. ConcurrentHashMap is thread safe, denies nulls, and allows concurrent reads and writes.
+
+## Flashcards (Spaced Repetition)
+
+#flashcard
+**Q:** What is the trigger keyword for Map? :: **A:** [trigger keywords] #flashcard
+
+#flashcard
+**Q:** Time/space complexity of Map? :: **A:** Time: O(), Space: O() #flashcard
+
+#flashcard
+**Q:** When do you NOT use Map? :: **A:** [anti-pattern scenarios] #flashcard
+
+#flashcard
+**Q:** Core Java 25 snippet for Map? :: **A:** `var list = new ArrayList<>(List.of(...));` #flashcard
+
+## Practice Tasks (Tasks Plugin)
+
+- [ ] Restate the intent from memory 📅 {date:YYYY-MM-DD, +1}
+- [ ] Code the snippet without looking 📅 {date:YYYY-MM-DD, +3}
+- [ ] Answer all Interview Q&A aloud 📅 {date:YYYY-MM-DD, +7}
+- [ ] Review flashcards (Spaced Repetition) 📅 {date:YYYY-MM-DD, +1}
+
+```tasks
+not done
+path includes {file.folder}
+sort by due
+limit 10
+```
 
 ## Related
 
@@ -127,3 +167,8 @@ When to use ConcurrentHashMap?:: When you need thread safe map access without gl
 - EnumMap: array backed for enum keys, fast
 
 Since Java 21, LinkedHashMap implements SequencedMap with firstEntry, lastEntry and reversed.
+
+
+---
+
+*Category: Java/03_Collections • Part of [[README|Java MOC]] • Java 25*

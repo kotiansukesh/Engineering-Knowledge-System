@@ -1,12 +1,13 @@
 ---
 title: Overlapping Intervals
-pattern: 10
+pattern: 9
 category: Coding Patterns/04_Intervals_Search
 tags:
 - pattern/intervals
 leetcode:
 - 56
 - 57
+- 986
 - 435
 created: '2026-09-02'
 completed: false
@@ -14,15 +15,12 @@ reviewed: ''
 sr-due: ''
 difficulty: Medium
 source: https://blog.algomaster.io/p/20-dsa-patterns
-problems-solved: []
-problems-solved-dates: {}
 excalidraw: ''
-type: note
 ---
 
 # Overlapping Intervals
 
-> Part of [[README|20 DSA Patterns]] • `Coding Patterns/04_Intervals_Search` • Pattern #10
+> Part of [[README|20 DSA Patterns]] • `Coding Patterns/04_Intervals_Search` • Pattern #9
 
 ## Intent
 Merge, insert, or remove intervals by sorting on start time and scanning once — the sort-by-start greedy pattern that turns interval union into a linear scan.
@@ -53,28 +51,24 @@ flowchart LR
 
 **Problem Statement:**
 
-Given an array of intervals where intervals[i] = [start_i_, end_i_], merge all overlapping intervals, and return an array of the non-overlapping intervals that cover all the intervals in the input.
+Given an array of intervals where intervals[i] = [starti, endi], merge all overlapping intervals, and return an array of the non-overlapping intervals that cover all the intervals in the input. Example 1: Input: intervals = [[1,3],[2,6],[8,10],[15,18]] Output: [[1,6],[8,10],[15,18]] Explanation: Since intervals [1,3] and [2,6] overlap, merge them into [1,6]. Example 2: Input: intervals = [[1,4],[4,5]] Output: [[1,5]] Explanation: Intervals [1,4] and [4,5] are considered overlapping. Example 3: Input: intervals = [[4,7],[1,4]] Output: [[1,7]] Explanation: Intervals [1,4] and [4,7] are considered overlapping. Constraints: 1 4 intervals[i].length == 2 0 i i 4
 
 **Examples:**
 
 Example 1:
-
-Input: intervals = [[1,3],[2,6],[8,10],[15,18]]
-Output: [[1,6],[8,10],[15,18]]
-Explanation: Since intervals [1,3] and [2,6] overlap, merge them into [1,6].
+```
+[[1,3],[2,6],[8,10],[15,18]]
+```
 
 Example 2:
-
-Input: intervals = [[1,4],[4,5]]
-Output: [[1,5]]
-Explanation: Intervals [1,4] and [4,5] are considered overlapping.
+```
+[[1,4],[4,5]]
+```
 
 Example 3:
-
-Input: intervals = [[4,7],[1,4]]
-Output: [[1,7]]
-Explanation: Intervals [1,4] and [4,7] are considered overlapping.
-
+```
+[[4,7],[1,4]]
+```
 ---
 
 ### 57. Insert Interval (Medium)
@@ -82,29 +76,59 @@ Explanation: Intervals [1,4] and [4,7] are considered overlapping.
 
 **Problem Statement:**
 
-You are given an array of non-overlapping intervals intervals where intervals[i] = [start_i_, end_i_] represent the start and the end of the i^th^ interval and intervals is sorted in ascending order by start_i_. You are also given an interval newInterval = [start, end] that represents the start and end of another interval.
-
-Two intervals are considered overlapping if they share at least one point.
-
-Insert newInterval into intervals such that intervals is still sorted in ascending order by start_i_ and intervals still does not have any overlapping intervals (merge overlapping intervals if necessary).
-
-Return intervals after the insertion.
-
-Note that you don't need to modify intervals in-place. You can make a new array and return it.
+You are given an array of non-overlapping intervals intervals where intervals[i] = [starti, endi] represent the start and the end of the ith interval and intervals is sorted in ascending order by starti. You are also given an interval newInterval = [start, end] that represents the start and end of another interval. Two intervals are considered overlapping if they share at least one point. Insert newInterval into intervals such that intervals is still sorted in ascending order by starti and intervals still does not have any overlapping intervals (merge overlapping intervals if necessary). Return intervals after the insertion. Note that you don't need to modify intervals in-place. You can make a new array and return it. Example 1: Input: intervals = [[1,3],[6,9]], newInterval = [2,5] Output: [[1,5],[6,9]] Example 2: Input: intervals = [[1,2],[3,5],[6,7],[8,10],[12,16]], newInterval = [4,8] Output: [[1,2],[3,10],[12,16]] Explanation: Because the new interval [4,8] overlaps with [3,5],[6,7],[8,10]. Constraints: 0 4 intervals[i].length == 2 0 i i 5 intervals is sorted by starti in ascending order. newInterval.length == 2 0 5
 
 **Examples:**
 
 Example 1:
-
-Input: intervals = [[1,3],[6,9]], newInterval = [2,5]
-Output: [[1,5],[6,9]]
+```
+[[1,3],[6,9]]
+```
 
 Example 2:
+```
+[2,5]
+```
 
-Input: intervals = [[1,2],[3,5],[6,7],[8,10],[12,16]], newInterval = [4,8]
-Output: [[1,2],[3,10],[12,16]]
-Explanation: Because the new interval [4,8] overlaps with [3,5],[6,7],[8,10].
+Example 3:
+```
+[[1,2],[3,5],[6,7],[8,10],[12,16]]
+```
 
+Example 4:
+```
+[4,8]
+```
+---
+
+### 986. Interval List Intersections (Medium)
+> [LeetCode 986](https://leetcode.com/problems/interval-list-intersections/) • Tags: Array, Two Pointers, Sweep Line
+
+**Problem Statement:**
+
+You are given two lists of closed intervals, firstList and secondList, where firstList[i] = [starti, endi] and secondList[j] = [startj, endj]. Each list of intervals is pairwise disjoint and in sorted order. Return the intersection of these two interval lists. A closed interval [a, b] (with a ) denotes the set of real numbers x with a . The intersection of two closed intervals is a set of real numbers that are either empty or represented as a closed interval. For example, the intersection of [1, 3] and [2, 4] is [2, 3]. Example 1: Input: firstList = [[0,2],[5,10],[13,23],[24,25]], secondList = [[1,5],[8,12],[15,24],[25,26]] Output: [[1,2],[5,5],[8,10],[15,23],[24,24],[25,25]] Example 2: Input: firstList = [[1,3],[5,9]], secondList = [] Output: [] Constraints: 0 firstList.length + secondList.length >= 1 0 i i 9 endi i+1 0 j j 9 endj j+1
+
+**Examples:**
+
+Example 1:
+```
+[[0,2],[5,10],[13,23],[24,25]]
+```
+
+Example 2:
+```
+[[1,5],[8,12],[15,24],[25,26]]
+```
+
+Example 3:
+```
+[[1,3],[5,9]]
+```
+
+Example 4:
+```
+[]
+```
 ---
 
 ### 435. Non-overlapping Intervals (Medium)
@@ -112,30 +136,24 @@ Explanation: Because the new interval [4,8] overlaps with [3,5],[6,7],[8,10].
 
 **Problem Statement:**
 
-Given an array of intervals intervals where intervals[i] = [start_i_, end_i_], return the minimum number of intervals you need to remove to make the rest of the intervals non-overlapping.
-
-Note that intervals which only touch at a point are non-overlapping. For example, [1, 2] and [2, 3] are non-overlapping.
+Given an array of intervals intervals where intervals[i] = [starti, endi], return the minimum number of intervals you need to remove to make the rest of the intervals non-overlapping. Note that intervals which only touch at a point are non-overlapping. For example, [1, 2] and [2, 3] are non-overlapping. Example 1: Input: intervals = [[1,2],[2,3],[3,4],[1,3]] Output: 1 Explanation: [1,3] can be removed and the rest of the intervals are non-overlapping. Example 2: Input: intervals = [[1,2],[1,2],[1,2]] Output: 2 Explanation: You need to remove two [1,2] to make the rest of the intervals non-overlapping. Example 3: Input: intervals = [[1,2],[2,3]] Output: 0 Explanation: You don't need to remove any of the intervals since they're already non-overlapping. Constraints: 1 5 intervals[i].length == 2 -5 * 104 i i 4
 
 **Examples:**
 
 Example 1:
-
-Input: intervals = [[1,2],[2,3],[3,4],[1,3]]
-Output: 1
-Explanation: [1,3] can be removed and the rest of the intervals are non-overlapping.
+```
+[[1,2],[2,3],[3,4],[1,3]]
+```
 
 Example 2:
-
-Input: intervals = [[1,2],[1,2],[1,2]]
-Output: 2
-Explanation: You need to remove two [1,2] to make the rest of the intervals non-overlapping.
+```
+[[1,2],[1,2],[1,2]]
+```
 
 Example 3:
-
-Input: intervals = [[1,2],[2,3]]
-Output: 0
-Explanation: You don't need to remove any of the intervals since they're already non-overlapping.
-
+```
+[[1,2],[2,3]]
+```
 ---
 
 
@@ -223,10 +241,38 @@ int eraseOverlapIntervals(int[][] intervals) {
 **Q: Meeting Rooms II (LC 253) — how does it relate?**
 **A:** Min rooms = max concurrent meetings. Sweep line: split each interval into (start, +1) and (end, -1) events, sort by time (end before start at same time), scan and track running sum. Max sum = min rooms. Alternative: min-heap of end times, O(n log n). Both are interval patterns but use sweep line / heap, not merge.
 
+
+## Flashcards (Spaced Repetition)
+
+#flashcard
+**Q:** What is the trigger keyword for Overlapping Intervals? :: **A:** merge intervals, insert interval, meeting rooms, non-overlapping intervals, interval intersection #flashcard
+
+#flashcard
+**Q:** Time/space complexity of Overlapping Intervals? :: **A:** Time: O(n log n) sort, Space: O(n) output / O(1) extra #flashcard
+
+#flashcard
+**Q:** When do you NOT use Overlapping Intervals? :: **A:** point queries (use segment tree), dynamic intervals (use interval tree) #flashcard
+
+#flashcard
+**Q:** Core Java 25 snippet for Overlapping Intervals? :: **A:** `Arrays.sort(a, (x,y)->x[0]-y[0]); for(int[] iv:a){ if(ans.isEmpty() || ans.getLast()[1]<iv[0]) ans.add(iv); else ans.getLast()[1]=Math.max(ans.getLast()[1], iv[1]); }` #flashcard
+
+
+## Practice Tasks (Tasks Plugin)
+- [ ] Restate the intent from memory 📅 {date:YYYY-MM-DD, +1}
+- [ ] Code the snippet without looking 📅 {date:YYYY-MM-DD, +3}
+- [ ] Answer all Interview Q&A aloud 📅 {date:YYYY-MM-DD, +7}
+- [ ] Review flashcards (Spaced Repetition) 📅 {date:YYYY-MM-DD, +1}
+
+```tasks
+not done
+path includes {file.folder}
+sort by due
+limit 10
+```
+
 ## Related
 - [[04_Intervals_Search/02 - Modified Binary Search|Modified Binary Search]] (search in intervals)
 - [[07_Backtracking_DP/03 - Greedy|Greedy]] (activity selection is greedy)
 - [[Java/07_DSA/Array]]
-
 ---
 *Category: Coding Patterns/04_Intervals_Search*

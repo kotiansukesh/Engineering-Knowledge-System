@@ -5,8 +5,8 @@ type: "folder-MOC"
 tags: [MOC, folder]
 created: "2026-09-27"
 completed: false
-reviewed: ""
-sr-due: ""
+reviewed: "2026-09-29"
+sr-due: "2026-10-06"
 ---
 
 # 06 Design Patterns

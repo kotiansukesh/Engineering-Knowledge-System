@@ -1,20 +1,26 @@
 ---
-title: ArrayList
-category: Java/03_Collections/List
-tags:
-- java
-- collections
-- list
-created: 2026-01-18
-pattern: 1
-difficulty: Easy
+title: "ArrayList"
+category: "Java/03_Collections/List"
+tags: [java, collections]
+created: "2026-09-29"
 completed: false
-reviewed: ''
-sr-due: ''
-excalidraw: ''
-source: ''
-type: note
+difficulty: "Easy"
+pattern: 0
+reviewed: "2026-09-29"
+sr-due: "2026-10-06"
+source: ""
+excalidraw: ""
+type: "note"
 ---
+
+# ArrayList
+
+> Part of [[README|Java MOC]] • `Java/03_Collections/List`
+> 🎨 **Visual diagram:** Create Excalidraw drawing from template: `Cmd+P → Excalidraw: New from template → Java Diagram`
+
+## Intent
+
+One sentence: what problem does this solve? Define the **key term** in **bold**.
 
 ## Why it Matters
 
@@ -30,9 +36,10 @@ copy to new array"]
  G --> A
 ```
 
-## Code
+## Code / Example
 
 ```java
+// Java 25: var, record, sealed, pattern matching, SequencedCollection, virtual threads, Compact Object Headers
 // ArrayList — resizable array, O(1) random access, 1.5x growth
 var list = new ArrayList<String>();
 list.add("a"); list.add("b"); list.add("c");
@@ -47,23 +54,31 @@ var big = new ArrayList<Integer>(10_000);
 
 var imm = List.of("a","b","c");
 ```
-Pitfalls: concurrent modification during iteration throws. Use iterator.remove or CopyOnWriteArrayList for concurrent cases. List.of does not allow null.
 
-## When to use / not
+### Concrete Example
 
-| Use | NOT |
-|-----|-----|
-| Random access, append-mostly, iteration | Frequent insert/remove in the middle (O(n) shifts) |
-| Size upfront via `new ArrayList<>(n)` when known | Concurrent mutation → `ConcurrentModificationException`; use copy-on-write |
-| `List.of` for small immutable constants | `null` elements with `List.of` (forbidden) |
+- **Input:**
+- **Output:**
+- **Explanation:**
+
+## When to Use / When NOT
+
+| **Use When** | **Avoid When** |
+|--------------|----------------|
+|  |  |
+|  |  |
+|  |  |
 
 ## Trade-offs
 
-- O(1) get/set, cache-friendly, lowest memory per element.
-- Presizable to avoid 1.5x regrowth churn.
-- Middle insert/remove shifts O(n); concurrent iteration is fail-fast.
+| Dimension | This Approach | Alternative |
+|-----------|---------------|-------------|
+| Complexity | | |
+| Performance | | |
+| Readability | | |
+| Testability | | |
 
-## Vs
+## Vs Table
 
 - vs LinkedList: ArrayList faster for get and append, LinkedList faster for deque ops
 - vs Vector: ArrayList is unsynchronized, 1.5x growth, preferred
@@ -75,13 +90,41 @@ Pitfalls: concurrent modification during iteration throws. Use iterator.remove o
 - `List.of` forbids `null`; `ArrayList` allows it , don't mix assumptions.
 - Repeated growth without presizing is O(n²) churn , pass expected capacity.
 
-## Interview q&a
+## Interview Q&A (Senior Depth)
 
 **Q: How does `ArrayList` grow?** Backed by `Object[]` (capacity 10 on first add); grows ~1.5x (`old + old/2`) with `Arrays.copyOf` , presize via `new ArrayList<>(n)` for bulk loads.
 
 **Q: Cost of middle insert/remove?** O(n) , elements shift. `get`/`set` by index stay O(1).
 
 **Q: `ArrayList` vs `Vector`?** `ArrayList` is unsynchronized with 1.5x growth; `Vector` is legacy synchronized with 2x growth. Prefer `ArrayList`.
+
+## Flashcards (Spaced Repetition)
+
+#flashcard
+**Q:** What is the trigger keyword for ArrayList? :: **A:** [trigger keywords] #flashcard
+
+#flashcard
+**Q:** Time/space complexity of ArrayList? :: **A:** Time: O(), Space: O() #flashcard
+
+#flashcard
+**Q:** When do you NOT use ArrayList? :: **A:** [anti-pattern scenarios] #flashcard
+
+#flashcard
+**Q:** Core Java 25 snippet for ArrayList? :: **A:** `var list = new ArrayList<>(List.of(...));` #flashcard
+
+## Practice Tasks (Tasks Plugin)
+
+- [ ] Restate the intent from memory 📅 {date:YYYY-MM-DD, +1}
+- [ ] Code the snippet without looking 📅 {date:YYYY-MM-DD, +3}
+- [ ] Answer all Interview Q&A aloud 📅 {date:YYYY-MM-DD, +7}
+- [ ] Review flashcards (Spaced Repetition) 📅 {date:YYYY-MM-DD, +1}
+
+```tasks
+not done
+path includes {file.folder}
+sort by due
+limit 10
+```
 
 ## Related
 
@@ -114,3 +157,8 @@ When should you size an ArrayList upfront?:: When you know the expected size, to
 - add or remove in middle: O(n) to shift
 - contains and indexOf: O(n)
 - iteration: O(n)
+
+
+---
+
+*Category: Java/03_Collections/List • Part of [[README|Java MOC]] • Java 25*
