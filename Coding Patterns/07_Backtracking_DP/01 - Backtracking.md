@@ -114,13 +114,10 @@ void solve(char[][] board, int row, java.util.List<java.util.List<String>> res,
 Start with the core implementation. Introduce a variant only when the required state or proof changes.
 
 ## When to use
-
 - generate all solutions — permutations, combinations, subsets, N-Queens, Sudoku, word search, brute force with pruning.
-- **NOT:** "how many ways" / "minimum cost" (use DP — memoization deduplicates); single solution (use greedy / constructive).
 
 ## When NOT to use
-
-"how many ways" / "minimum cost" (use DP — memoization deduplicates); single solution (use greedy / constructive).
+- "how many ways" / "minimum cost" (use DP — memoization deduplicates); single solution (use greedy / constructive).
 
 ## Complexity & trade-offs
 
