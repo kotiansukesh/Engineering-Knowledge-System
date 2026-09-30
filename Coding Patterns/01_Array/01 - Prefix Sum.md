@@ -78,13 +78,10 @@ int subarraySum(int[] nums, int k) {
 Use the implementation above as the base case. Extend it only after the invariant remains explicit.
 
 ## When to use
-
 - many range-sum queries on static array; subarray sum = k / count subarrays; "contiguous" + "sum" keywords; immutable data, repeated queries.
-- **NOT:** array updates interleaved with queries (use Segment Tree / Fenwick); need min/max/gcd on range (use Sparse Table); single query (just loop).
 
 ## When NOT to use
-
-array updates interleaved with queries (use Segment Tree / Fenwick); need min/max/gcd on range (use Sparse Table); single query (just loop).
+- array updates interleaved with queries (use Segment Tree / Fenwick); need min/max/gcd on range (use Sparse Table); single query (just loop).
 
 ## Complexity & trade-offs
 
