@@ -1,73 +1,35 @@
 ---
-title: "Realistic Java Learning Roadmap"
+title: "Java Learning Order"
 category: "Java/00_Java-25-Overview"
-tags: [roadmap, java, dependencies]
+tags: [reference, java, dependencies]
 created: "2026-09-30"
-completed: false
-difficulty: "Medium"
-reviewed: "2026-09-30"
-sr-due: "2026-10-07"
-type: "roadmap"
+type: reference
 ---
 
-# Realistic Java Learning Roadmap
+# Java Learning Order
 
-> This note explains **why the vault is ordered this way**. [[Java 25 Roadmap]] is the canonical time-based plan.
+> This page explains **dependency order**, not a schedule. Use [[Java/99_Revision/Study-Plan]] as the domain syllabus and [[Study Plan]] as the repository-wide calendar.
 
-## Dependency Order
+## Dependency order
 
-**Core Java → OOP → Collections → Concurrency → JVM → Spring → Testing → Patterns → LLD → Revision**
+**Core Java → OOP → Collections → Concurrency → JVM → Spring → Testing → Patterns → LLD**
 
-DSA runs in parallel from Collections onward.
+DSA runs alongside Collections onward.
 
-## Why This Order
+## Why this order
 
-### Core Java before frameworks
+- Core Java makes framework behavior understandable rather than annotation-driven.
+- OOP precedes patterns so patterns are learned as responses to design pressure.
+- Concurrency precedes production tuning so thread ownership, blocking and cancellation are understood before executor changes.
+- JVM fundamentals precede performance tuning so measurements come before configuration changes.
+- Testing precedes LLD because boundaries and failure behavior should be explicit.
 
-Spring code is still Java code. Generics, exceptions, interfaces, immutability, streams, collections and memory behavior are prerequisites for understanding framework behavior instead of memorizing annotations.
+## Fast path for a specific gap
 
-### OOP before design patterns
-
-Patterns are named solutions to recurring design pressure. Without composition, polymorphism, dependency inversion and object ownership, pattern catalogs become cargo cults.
-
-### Concurrency before production Spring
-
-Backend systems fail at boundaries: shared state, thread ownership, blocking I/O, transactions and asynchronous work. Learn the concurrency model before tuning framework executors.
-
-### JVM before performance tuning
-
-A flag is not a diagnosis. Learn allocation, GC, JIT, threads and profiling before changing heap sizes or executors.
-
-### Testing before LLD
-
-A design is incomplete if its behavior cannot be verified. Testing forces explicit boundaries, dependencies and failure modes.
-
-## Fast Path
-
-If time is limited:
-
-1. Core Java + OOP.
-2. Collections + DSA patterns.
-3. Concurrency.
-4. Spring.
-5. Testing.
-6. LLD.
-7. JVM performance as a focused diagnostic module.
-
-## Second Pass
-
-Do not reread the entire vault.
-
-Use:
-
-- [[../99_Revision/Study-Plan|Study Plan]]
-- Dataview review queues.
-- [[../99_Revision/Interview Questions|Interview Questions]]
-- one implementation exercise per weak area.
+Enter at the first missing prerequisite, learn only what the current task requires, then return to the master plan.
 
 ## Related
 
-- [[Java 25 Roadmap]]
-- [[Whats New in Java 25]]
-- [[../11_JVM-Performance/README|JVM & Performance]]
-- [[../12_Testing-Tooling/README|Testing & Tooling]]
+- [[Java/00_Java-25-Overview/Java 25 Roadmap]]
+- [[Java/99_Revision/Study-Plan]]
+- [[Study Plan]]
