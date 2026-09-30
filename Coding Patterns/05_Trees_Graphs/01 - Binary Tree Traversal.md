@@ -1,4 +1,7 @@
 ---
+type: note
+mastery: learn
+recognition_score: 0
 title: Binary Tree Traversal
 pattern: 11
 category: Coding Patterns/05_Trees_Graphs
@@ -21,7 +24,7 @@ excalidraw: ''
 
 # Binary Tree Traversal
 
-> Part of [[README|20 DSA Patterns]] • `Coding Patterns/05_Trees_Graphs` • Pattern #11
+> Part of [[README|Coding Patterns]] • `Coding Patterns/05_Trees_Graphs` • Pattern #11
 
 ## Intent
 Visit every node in a fixed order (preorder/inorder/postorder) — the three recursive patterns that differ only in *when* you process the node relative to its children.
