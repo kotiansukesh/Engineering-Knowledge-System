@@ -51,8 +51,13 @@ def infer(path: Path, text: str) -> str | None:
     if rel in EXCLUDED or any(x in path.parts for x in EXCLUDED_PARTS):
         return None
     existing = re.search(r"^type:\s*(.+)$", text, re.I | re.M)
-    if existing and existing.group(1).strip().lower() not in {"note"}:
-        return existing.group(1).strip()
+    if existing:
+        current = existing.group(1).strip()
+        legacy_aliases = {"plan": "syllabus", "architecture-decision": "ADR", "failure-experiment": "failure"}
+        if current.lower() in legacy_aliases:
+            return legacy_aliases[current.lower()]
+        if current.lower() not in {"note"}:
+            return current
     for rx, typ in RULES:
         if rx.search(rel):
             return typ
