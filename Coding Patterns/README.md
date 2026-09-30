@@ -18,9 +18,9 @@ tags:
 1. [[Patterns Index]]
 2. [[00 - Pattern Decision Tree]]
 3. [[99_Revision/Practice Dashboard|Practice Dashboard]]
-4. [[00 - Blind Practice]]
-5. [[00 - Mistake Log]]
-6. [[99_Revision/Study-Plan|Study Plan]]
+5. [[00 - Blind Practice]]
+6. [[00 - Mistake Log]]
+7. [[99_Revision/Study-Plan|Study Plan]]
 
 ## Mastery model
 
