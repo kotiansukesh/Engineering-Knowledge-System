@@ -1,0 +1,21 @@
+name: Validate Architect Vault
+
+on:
+  push:
+    paths:
+      - "Architect/**"
+      - "scripts/validate-architect.py"
+      - ".github/workflows/validate-architect.yml"
+  pull_request:
+    paths:
+      - "Architect/**"
+      - "scripts/validate-architect.py"
+      - ".github/workflows/validate-architect.yml"
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate Architect
+        run: python3 scripts/validate-architect.py

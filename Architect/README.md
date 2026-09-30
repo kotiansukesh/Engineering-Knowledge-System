@@ -1,198 +1,154 @@
 ---
-title: "Architect Vault"
-category: "Architect"
-tags: [architecture, system-design, patterns]
-created: "2026-09-27"
+title: Architect Vault
+type: MOC
+category: Architect
+tags:
+  - architecture
+  - system-design
+  - interview-prep
+  - decision-making
+created: 2026-09-30
 completed: false
-difficulty: "Medium"
-reviewed: ""
-sr-due: ""
-source: ""
-excalidraw: ""
-weeks: "1-18"
-type: "MOC"
+reviewed:
+sr-due:
 ---
 
-# Architect Vault
+# Architect
 
-> **Master MOC** for Software Architecture & System Design interview preparation
-> 
-> **18-Week Roadmap** covering Architecture Styles, System Design Interviews, Non-Functional Requirements, Integration Patterns, Data Architecture, and more
+> **Architecture is reasoning under constraints.** This vault trains requirements, trade-offs, failure modes, system design and decision traceability—not component memorization.
 
-## 📊 Vault Progress
+## Start here
 
-```dataview
-TABLE
-  rows.length as "Total Notes",
-  sum(rows.completed) as "Completed",
-  round(sum(rows.completed) * 100.0 / rows.length, 1) as "Progress %",
-  sum(rows.difficulty = "Easy") as "Easy",
-  sum(rows.difficulty = "Medium") as "Medium",
-  sum(rows.difficulty = "Hard") as "Hard"
+1. [[00 - Architecture Decision Framework]] — the core architecture reasoning loop.
+2. [[00 - System Design Decision Tree]] — derive components from requirements.
+3. [[00 - NFR Decision Matrix]] — turn NFRs into measurable scenarios.
+4. [[00 - Architecture Trade-off Matrix]] — compare simple vs scale-oriented choices.
+5. [[00 - Interview Mode]] — 45-minute system-design simulation.
+6. [[00 - Architecture Failure Log]] — capture recurring reasoning failures.
+7. [[10_System-Design-Interviews/README]] — curated system-design drills.
+8. [[99_Revision/Study Plan]] — progression and review.
+
+## Learning architecture
+
+**Learn → Guided → Blind → Mixed → Interview → Mastered**
+
+A note being read or a diagram being memorized is not evidence of architecture mastery.
+
+### Mastery evidence
+
+You should be able to:
+
+- clarify ambiguous requirements;
+- quantify scale before selecting infrastructure;
+- translate NFRs into measurable scenarios;
+- choose the simplest architecture satisfying constraints;
+- explain consistency and failure semantics;
+- identify the first bottleneck;
+- design degraded modes and recovery;
+- compare alternatives explicitly;
+- state operational ownership and cost;
+- explain what evidence would cause the design to change.
+
+## 18-week progression
+
+| Phase | Weeks | Focus | Evidence |
+|---|---:|---|---|
+| Foundations | 1–2 | Principles, quality attributes, trade-offs | explain decisions from constraints |
+| Requirements | 3 | NFRs and quality scenarios | measurable SLO scenarios |
+| Architecture styles | 4–5 | Monolith, microservices, event-driven, serverless | choose based on constraints |
+| Building blocks | 6–7 | Resilience, caching, gateways, integration | failure-first design |
+| DDD | 8–9 | boundaries, aggregates, events, sagas | ownership + consistency |
+| Data | 10–11 | SQL/NoSQL, CQRS, event sourcing | access-pattern selection |
+| Integration | 12–13 | REST, gRPC, async, Kafka, idempotency | delivery semantics |
+| Operations | 14–15 | observability, security, deployment, chaos | production readiness |
+| System design | 16–18 | end-to-end interview drills | timed independent design |
+
+## Vault map
+
+| Layer | Location | Purpose |
+|---|---|---|
+| Foundations | [[01_Architecture-Foundations/README]] | principles and architecture basics |
+| Requirements | [[02_Requirements-Quality-Attributes/README]] | NFRs and quality scenarios |
+| Styles | [[03_Architecture-Styles/README]] | architectural styles |
+| Building blocks | [[04_Design-Patterns-Building-Blocks/README]] | reusable architecture mechanisms |
+| DDD | [[05_Domain-Driven-Design/README]] | domain boundaries and consistency |
+| Data | [[06_Data-Architecture/README]] | storage and data systems |
+| Integration | [[07_Integration-APIs/README]] | communication and messaging |
+| Operations | [[08_NonFunctional-Ops/README]] | reliability, security, observability |
+| System design | [[10_System-Design-Interviews/README]] | interview drills |
+| Revision | [[99_Revision/Study Plan]] | practice and review |
+
+## Architecture decision loop
+
+~~~text
+Requirements
+    ↓
+Constraints + Estimates
+    ↓
+Quality Attributes / SLOs
+    ↓
+Simplest Viable Architecture
+    ↓
+Bottleneck + Failure Analysis
+    ↓
+Alternatives + Trade-offs
+    ↓
+Decision / ADR
+    ↓
+Evidence / Fitness Function
+    ↓
+Review Trigger
+~~~
+
+## Current review queue
+
+~~~dataview
+TABLE WITHOUT ID
+  file.link as "Note",
+  category as "Area",
+  difficulty as "Difficulty",
+  reviewed as "Reviewed",
+  "sr-due" as "Due"
 FROM "Architect"
-WHERE type = "note"
-```
+WHERE type = "note" AND (("sr-due" != "" AND date("sr-due") <= date(today)) OR reviewed = null)
+SORT date("sr-due") ASC
+LIMIT 25
+~~~
 
-## 🗓️ 18-Week Study Plan
+## Interview queue
 
-| Week | Folder | Focus | Notes |
-|------|--------|-------|-------|
-| **1-2** | [[Architect/01_Architecture-Foundations/README\|Architecture Foundations]] | Principles, Quality Attributes, Trade-offs | 8 |
-| **3** | [[Architect/02_Requirements-Quality-Attributes/README\|Requirements & Quality]] | QA Scenarios, Tactics, Patterns | 6 |
-| **4-5** | [[Architect/03_Architecture-Styles/README\|Architecture Styles]] | Monolith, Microservices, Event-Driven, Serverless, SOA, Hexagonal, Clean | 12 |
-| **6-7** | [[Architect/04_Design-Patterns-Building-Blocks/README\|Design Patterns]] | Enterprise, Integration, Cloud, Resilience | 15 |
-| **8-9** | [[Architect/05_Domain-Driven-Design/README\|Domain-Driven Design]] | Bounded Contexts, Aggregates, Events, Sagas | 10 |
-| **10-11** | [[Architect/06_Data-Architecture/README\|Data Architecture]] | SQL/NoSQL, CQRS, Event Sourcing, Polyglot | 10 |
-| **12-13** | [[Architect/07_Integration-APIs/README\|Integration & APIs]] | REST, gRPC, GraphQL, Async, Kafka, Idempotency | 12 |
-| **14-15** | [[Architect/08_NonFunctional-Ops/README\|Non-Functional Ops]] | Observability, Security, Deployment, Chaos Eng | 12 |
-| **16-18** | [[Architect/10_System-Design-Interviews/README\|System Design Interviews]] | **82 Notes** (ByteByteGo 28 + Primer 54) | 82 |
+~~~dataview
+TABLE WITHOUT ID
+  file.link as "Interview",
+  problem as "Problem",
+  requirements_score as "Req",
+  estimation_score as "Est",
+  design_score as "Design",
+  reliability_score as "Reliability",
+  tradeoff_score as "Trade-offs",
+  review_date as "Review"
+FROM "Architect"
+WHERE type = "interview"
+SORT date(review_date) ASC
+LIMIT 20
+~~~
 
-## 📁 Folder Structure
+## Active practice
 
-```
-Architect/
-├── 01_Architecture-Foundations/
-│   ├── Architecture-Principles.md
-│   ├── Quality-Attributes.md
-│   ├── Trade-offs-Analysis.md
-│   └── ...
-├── 02_Requirements-Quality-Attributes/
-│   ├── Quality-Scenarios.md
-│   ├── Availability-Tactics.md
-│   └── ...
-├── 03_Architecture-Styles/
-│   ├── Monolith.md
-│   ├── Microservices.md
-│   ├── Event-Driven.md
-│   ├── Serverless.md
-│   ├── Hexagonal-Clean.md
-│   └── ...
-├── 04_Design-Patterns-Building-Blocks/
-│   ├── Enterprise-Patterns.md
-│   ├── Integration-Patterns.md
-│   ├── Cloud-Patterns.md
-│   ├── Resilience-Patterns.md
-│   └── ...
-├── 05_Domain-Driven-Design/
-│   ├── Bounded-Contexts.md
-│   ├── Aggregates.md
-│   ├── Domain-Events.md
-│   └── ...
-├── 06_Data-Architecture/
-│   ├── SQL-vs-NoSQL-Selection.md
-│   ├── CQRS.md
-│   ├── Event-Sourcing.md
-│   └── ...
-├── 07_Integration-APIs/
-│   ├── REST-API-Design.md
-│   ├── gRPC.md
-│   ├── GraphQL.md
-│   ├── Kafka-Messaging.md
-│   ├── Idempotency.md
-│   └── ...
-├── 08_NonFunctional-Ops/
-│   ├── Observability.md
-│   ├── Security-OAuth2-JWT.md
-│   ├── Deployment-Strategies.md
-│   ├── Chaos-Engineering.md
-│   └── ...
-└── 10_System-Design-Interviews/
-    ├── README.md (this folder's MOC)
-    ├── FND-01-System-Design-Overview.md
-    ├── FND-04-CAP-Theorem.md
-    ├── NET-01-Load-Balancer.md
-    ├── DB-05-Sharding.md
-    ├── INT-01-URL-Shortener-Pastebin.md
-    ├── INT-02-Twitter-Timeline.md
-    ├── INT-03-Web-Crawler.md
-    ├── ... (54 Primer notes)
-    ├── BB-01-Scaling-Zero-to-Millions.md (ByteByteGo)
-    ├── BB-04-Rate-Limiter.md (ByteByteGo)
-    ├── BB-08-URL-Shortener.md (ByteByteGo)
-    └── ... (28 ByteByteGo notes)
-```
-
-## 🎯 System Design Interviews (Deep Dive)
-
-### ByteByteGo (Vol 1 & 2) - 28 Patterns
-| Week | Pattern | Key Concepts |
-|------|---------|--------------|
-| 1 | Scaling: Zero to Millions | Load balancing, caching, DB replication, sharding |
-| 1 | Back-of-Envelope | Powers of 2, latency numbers, throughput calc |
-| 2 | System Design Framework | 4-step: requirements → design → deep dive → scale |
-| 2 | Rate Limiter | Token bucket, sliding window, distributed |
-| 2 | Consistent Hashing | Ring, virtual nodes, ketama |
-| 3 | Key-Value Store | LSM trees, SSTables, compaction |
-| 3 | Unique ID Generator | Snowflake, UUID, timestamp-based |
-| 3 | URL Shortener | Base62, collision handling, analytics |
-| 3 | Web Crawler | URL frontier, politeness, dedup, storage |
-| 4 | Notification System | Push, pull, websocket, FCM/APNs |
-| 4 | News Feed | Fan-out, pull vs push, ranking |
-| 4 | Chat System | WebSocket, message ordering, presence |
-| 4 | Search Autocomplete | Trie, n-gram, Redis, Elasticsearch |
-| 5 | YouTube/Video | Transcoding, CDN, adaptive bitrate (HLS/DASH) |
-| 5 | Google Drive | File sync, operational transform, CRDT |
-| 5 | Proximity Service | Geohash, QuadTree, S2 geometry |
-| 6 | Nearby Friends | Geohash + social graph, fan-out |
-| 6 | Google Maps | Road network, routing (A*, Contraction Hierarchies) |
-| 6 | Distributed Message Queue | Kafka, partitions, consumer groups, exactly-once |
-| 6 | Metrics Monitoring | RED/USE metrics, Prometheus, Grafana, alerting |
-| 7 | Ad Click Aggregation | Stream processing, windowing, exactly-once |
-| 7 | Hotel Reservation | ACID, distributed transactions, saga |
-| 7 | Distributed Email | SMTP, queue, retry, spam filtering |
-| 7 | S3-like Storage | Multipart upload, consistency, versioning |
-| 8 | Gaming Leaderboard | Redis sorted sets, sharding, real-time |
-| 8 | Payment System | Idempotency, reconciliation, ledger |
-| 8 | Digital Wallet | Balance, transactions, audit trail |
-| 8 | Stock Exchange | Order book, matching engine, latency |
-
-### system-design-primer - 54 Topics
-| Category | Topics | Weeks |
-|----------|--------|-------|
-| **Foundational** | CAP Theorem, Consistency, Availability, DNS, CDN | 1-2 |
-| **Networking** | Load Balancer, Reverse Proxy, Microservices | 2 |
-| **Database** | RDBMS, Replication, Sharding, NoSQL, SQL Tuning | 3 |
-| **Caching** | Strategies (Cache-Aside, Write-Through, etc.) | 4 |
-| **Asynchronism** | Message Queues, Task Queues, Back Pressure | 5 |
-| **Communication** | TCP/UDP, RPC/gRPC, REST | 5 |
-| **Security** | Auth, Encryption, HTTPS, OAuth | 5 |
-| **Reference** | Powers of 2, Latency Numbers, Back-of-Envelope | 1 |
-| **Interview Problems** | Pastebin, Twitter, Web Crawler, Mint, Social Graph | 7 |
-| **OOD Problems** | Hash Map, LRU Cache, Call Center, Parking Lot | 8 |
-
-## 🔗 Quick Navigation
-
-| Area | Link |
-|------|------|
-| **System Design Interviews** | [[Architect/10_System-Design-Interviews/README]] |
-| **Architecture Styles** | [[Architect/03_Architecture-Styles/README]] |
-| **Non-Functional Ops** | [[Architect/08_NonFunctional-Ops/README]] |
-| **Integration Patterns** | [[Architect/07_Integration-APIs/README]] |
-| **Data Architecture** | [[Architect/06_Data-Architecture/README]] |
-| **Design Patterns** | [[Architect/04_Design-Patterns-Building-Blocks/README]] |
-
-## 📋 Active Practice Tasks
-
-```tasks
+~~~tasks
 not done
 path includes Architect
 sort by due
-limit 15
-```
+limit 25
+~~~
 
-## 🎴 Spaced Repetition Due
+## Plugin responsibilities
 
-```dataview
-TABLE
-  sr-due as "Due",
-  difficulty as "Diff",
-  category as "Folder"
-FROM "Architect"
-WHERE type = "note" AND sr-due != "" AND completed = false
-SORT sr-due ASC
-LIMIT 20
-```
+- **Dataview:** indexes, review queues and analytics.
+- **Tasks:** actionable practice.
+- **Templater:** ADRs and interview sessions.
+- **Excalidraw:** C4/state-heavy diagrams only when they add information.
 
----
+## Important rule
 
-*Category: Architect • Part of [[Master Dashboard|Master Dashboard]]*
+> **Do not add infrastructure because it is familiar. Add it because a quantified requirement or failure mode demands it.**
