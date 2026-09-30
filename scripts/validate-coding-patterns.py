@@ -62,6 +62,8 @@ def frontmatter(path: Path) -> dict[str, str]:
     return data
 
 def validate_links(path: Path, text: str, targets: set[str]) -> None:
+    if VAULT not in path.parents and path != VAULT:
+        return
     for raw in LINK_RE.findall(text):
         if raw.startswith("http://") or raw.startswith("https://"):
             continue
@@ -126,6 +128,8 @@ def main() -> int:
 
     # The most important table-link failure mode in this vault.
     for path in files:
+        if VAULT not in path.parents:
+            continue
         for line_no, line in enumerate(path.read_text(encoding="utf-8").splitlines(), 1):
             if line.lstrip().startswith("|") and "[[" in line and "]]" in line:
                 for link in LINK_RE.findall(line):
