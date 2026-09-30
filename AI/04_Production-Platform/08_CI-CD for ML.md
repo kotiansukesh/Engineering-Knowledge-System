@@ -1,137 +1,61 @@
 ---
-title: "08_CI-CD for ML"
+title: "CI/CD for ML"
 category: "AI/04_Production-Platform"
-tags:
-- mlops
-- ci-cd
-- gitops
-- testing
-- model-validation
-created: "2026-09-29"
+tags: [mlops, ci-cd, model-validation, deployment, rollback]
+created: "2026-09-30"
 completed: false
 difficulty: "Advanced"
-reviewed: "2026-09-29"
-sr-due: "2026-09-30"
-source: ""
-excalidraw: ""
-weeks: "10"
+reviewed: "2026-09-30"
+sr-due: "2026-10-10"
 type: "note"
 ---
 
-# 08_CI-CD for ML
-
-> Part of [[README|AI MOC]] • `AI/04_Production-Platform` • Weeks 10
-> 🎨 **Visual diagram:** Create Excalidraw drawing from template: `Cmd+P → Excalidraw: New from template → AI Diagram`
+# CI/CD for ML
 
 ## Intent
-Understand **CI/CD for ML** — model testing, data validation, drift detection, automated retraining, canary deployment, and rollback — to ship model changes safely.
+Treat model and data changes as deployable artifacts with automated quality, compatibility, security, and rollout checks.
 
-## Why It Matters
-- Where this appears in interviews (FAANG, senior vs. junior)
-- Production impact (cost, latency, quality, GPU utilization)
-- Senior signal: recognizing the *disguised* form of this pattern
+## Pipeline
+**Commit → unit tests → data/schema checks → model/eval tests → artifact build → security checks → deploy → canary → monitor → promote/rollback**
 
-## Diagram
-```mermaid
-graph TD
-    A[Input / Context] --> B[Core Mechanism]
-    B --> C[Output / Result]
-    style B fill:#e8f5e9
-```
+## What Changes from Conventional CI/CD?
+Software tests remain necessary, but ML systems also require:
+- data/schema validation
+- model artifact integrity
+- offline evaluation
+- serving compatibility
+- latency/cost checks
+- rollout monitoring
+- reproducibility and lineage
 
-## Key Points
-- Key point 1
-- Key point 2
+## Release Gate
+A release should have explicit thresholds for correctness/quality, safety, latency, error rate, and cost where relevant. Avoid making every metric a hard gate; classify checks as block, warn, or observe.
 
-## Code / Config Example
-```python
-# Python 3.11+: Minimal example for 08_CI-CD for ML
-# Core concept - implementation varies by framework
+## Rollout Strategies
+| Strategy | Useful when | Main risk |
+|---|---|---|
+| Rolling | routine compatible changes | broad exposure during rollout |
+| Canary | uncertain behavioral change | requires reliable comparison signals |
+| Shadow | compare behavior without user impact | doubles inference cost |
+| Blue/green | rapid environment switch | higher temporary capacity |
 
-from dataclasses import dataclass
-from typing import Optional
+## Failure Modes
+- Offline eval passes but production traffic differs.
+- Canary sample is too small or biased.
+- Rollback restores software but not an incompatible model/data artifact.
+- Automated retraining creates noisy releases.
+- Cost regression is invisible to CI.
 
-@dataclass
-class 08_CICDforMLConfig:
-    component: str = "08_CI-CD for ML"
-    capacity: int = 10000
-    strategy: str = "default"
+## Practice
+- [ ] Define release gates for one model service.
+- [ ] Build a canary comparison.
+- [ ] Simulate a quality regression and block promotion.
+- [ ] Simulate an inference latency regression and roll back.
+- [ ] Record model + code + data versions for one release.
 
-# Example usage
-config = 08_CICDforMLConfig()
-```
-
-## When to Use / NOT
-| Scenario | Use? | Reason |
-|----------|------|--------|
-|          | ✅   |        |
-|          | ❌   |        |
-
-## Trade-offs / Decision Matrix
-| Dimension | This Approach | Alternative A | Alternative B | Pick When |
-|-----------|---------------|---------------|---------------|-----------|
-| Complexity | | | | |
-| Latency | | | | |
-| Cost (GPU/hr) | | | | |
-| Quality | | | | |
-
-## Vs. Alternatives
-| Alternative | When to Choose It | Decision Rule |
-|-------------|-------------------|---------------|
-| | | |
-
-## Pitfalls
-1. [Concrete mistake] → [Fix]
-2. [Concrete mistake] → [Fix]
-
-## Interview Q&A (Senior Depth)
-
-**Q1: Walk me through the core mechanism of 08_CI-CD for ML. Why does it work?**
-**A:** In 2–3 sentences. Connect the *why* to the mathematical/architectural invariant.
-
-**Q2: When would you choose an alternative over this approach?**
-**A:** Cite concrete constraints (scale, latency, cost, quality) and name the alternative.
-
-**Q3: How does this change for production vs. prototype?**
-**A:** Explain the hardening needed: evaluation, monitoring, cost optimization, guardrails.
-
-**Q4: Walk me through a non-obvious problem that reduces to this pattern.**
-**A:** Describe the reduction step-by-step.
-
-**Q5: What is the GPU memory / latency implication at scale?**
-**A:** Discuss VRAM, batching, KV cache, quantization trade-offs.
-
-## Flashcards (Spaced Repetition)
-
-#flashcard
-**Q:** What is the trigger keyword for 08_CI-CD for ML? :: **A:** [trigger keywords] #flashcard
-
-#flashcard
-**Q:** Key hyperparameter for 08_CI-CD for ML? :: **A:** [hyperparameter + typical range] #flashcard
-
-#flashcard
-**Q:** When do you NOT use 08_CI-CD for ML? :: **A:** [anti-pattern scenarios] #flashcard
-
-#flashcard
-**Q:** Cost order of magnitude for 08_CI-CD for ML? :: **A:** [GPU hours / $ per 1M tokens] #flashcard
-
-## Practice Tasks (Tasks Plugin)
-- [ ] Restate the intent from memory 📅 2026-09-30
-- [ ] Code the config without looking 📅 2026-10-02
-- [ ] Answer all Interview Q&A aloud 📅 2026-10-06
-- [ ] Review flashcards (Spaced Repetition) 📅 2026-09-30
-
-```tasks
-not done
-path includes 04_Production-Platform
-sort by due
-limit 10
-```
-
-## Related
-- [[README|AI MOC]]
-- [[04_Production-Platform/README|04_Production-Platform Folder]]
-
----
-
-*Category: AI/04_Production-Platform • Part of [[README|AI MOC]]*
+## Senior Interview Prompts
+1. What should block an ML deployment?
+2. Why is shadow testing different from canary?
+3. How do you roll back a model safely?
+4. When should retraining be automated?
+5. Which production signals should complete the release loop?
