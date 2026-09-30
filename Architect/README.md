@@ -1,118 +1,121 @@
 ---
 title: Architect Vault
-type: MOC
-category: Architect
+type: moc
+domain: architect
 tags: [architecture, system-design, enterprise-architecture, ai-architecture]
 created: 2026-09-30
 ---
 
 # Architect
 
-> **Architecture is reasoning under constraints.** This vault trains the ability to design, defend, break, review and evolve systems.
+> **Design systems under constraints.**
+
+This vault is for architecture reasoning: **Requirements → Constraints → Design → Failure → Trade-off → Defend**.
 
 ## Start here
 
-1. [[00 - Architecture Decision Framework]]
-2. [[00 - Architecture Practice Engine]]
-3. [[00 - System Design Decision Tree]]
-4. [[00 - NFR Decision Matrix]]
-5. [[00 - Architecture Trade-off Matrix]]
-6. [[00 - Failure Injection Lab]]
-7. [[00 - Trade-off Simulator]]
-8. [[00 - Architecture Redesign Lab]]
-9. [[00 - Architecture Review Mode]]
-10. [[00 - Architecture Mastery Dashboard]]
-11. [[00 - Architecture Portfolio]]
-12. [[99_Revision/Study Plan]]
+1. [[01_Architecture-Foundations/README|Foundations]]
+2. [[02_Requirements-Quality-Attributes/README|Requirements & Quality Attributes]]
+3. [[03_Architecture-Styles/README|Architecture Styles]]
+4. [[06_Data-Architecture/README|Data Architecture]]
+5. [[07_Integration-APIs/README|Integration & APIs]]
+6. [[08_NonFunctional-Ops/README|Reliability & Operations]]
+7. [[10_System-Design-Interviews/README|System Design Practice]]
+8. [[13_AI-Architecture/README|AI Architecture]]
+9. [[99_Revision/Study Plan|Revision]]
 
-## Mastery progression
+## The architecture loop
 
-**Learn → Recognize → Guided → Constraint Injection → Blind → Failure Injection → Trade-off Defense → Review → Redesign → Interview → Mastered**
-
-Reading a note is not evidence of mastery.
-
-## Architecture decision loop
-
-~~~text
+```text
 Requirements
     ↓
 Constraints + Estimates
     ↓
 Quality Attributes / SLOs
     ↓
-Simplest Viable Architecture
+Simplest viable design
     ↓
-Bottleneck + Failure Analysis
+Failure analysis
     ↓
-Alternatives + Trade-offs
+Alternatives + trade-offs
     ↓
 Decision / ADR
     ↓
-Evidence / Fitness Function
+Evidence
     ↓
-Review Trigger
-    ↓
-Constraint Change / Redesign
-~~~
+Review when constraints change
+```
 
-## Vault map
+## Learn a concept
 
-| Layer | Location | Purpose |
-|---|---|---|
-| Foundations | [[01_Architecture-Foundations/README]] | principles |
-| Requirements | [[02_Requirements-Quality-Attributes/README]] | measurable quality |
-| Styles | [[03_Architecture-Styles/README]] | architectural shapes |
-| Building blocks | [[04_Design-Patterns-Building-Blocks/README]] | mechanisms |
-| DDD | [[05_DDD-Modeling/README]] | boundaries and ownership |
-| Data | [[06_Data-Architecture/README]] | data decisions |
-| Integration | [[07_Integration-APIs/README]] | APIs and messaging |
-| Operations | [[08_NonFunctional-Ops/README]] | production behavior |
-| Governance | [[09_Governance-Documentation/README]] | ADRs and governance |
-| System design | [[10_System-Design-Interviews/README]] | design drills |
-| Case studies | [[11_Real-World-Case-Studies/README]] | architecture autopsies |
-| Enterprise | [[12_Enterprise-Architecture/README]] | business-to-technology architecture |
-| AI | [[13_AI-Architecture/README]] | enterprise AI and agentic systems |
-| Revision | [[99_Revision/Study Plan]] | adaptive practice |
+Every architecture note should answer:
 
-## Capability dashboard
+1. **What problem does it solve?**
+2. **What constraints make it useful?**
+3. **How does it work?**
+4. **What is the simplest alternative?**
+5. **What fails?**
+6. **What would I measure?**
+7. **When would I redesign it?**
 
-~~~dataview
-TABLE WITHOUT ID
-  file.link as "Area",
-  difficulty as "Difficulty",
-  mastery_stage as "Stage",
-  reviewed as "Reviewed",
-  "sr-due" as "Due"
-FROM "Architect"
-WHERE type IN ("note", "architecture-problem", "practice")
-SORT date("sr-due") ASC
-LIMIT 30
-~~~
+## Practice loop
 
-## Active practice
+**Learn → Understand → Build → Break → Explain → Review**
 
-~~~tasks
+Reading a note is not evidence of mastery.
+
+## Diagram rule
+
+Use **one diagram for one question**.
+
+- **Mermaid:** simple flow, sequence, state, component/class relationships.
+- **Excalidraw:** spatial reasoning, distributed topology, concurrency, memory/layout exploration.
+- Avoid static screenshots when the diagram can be regenerated from text.
+
+## Active review
+
+```tasks
 not done
 path includes Architect
 sort by due
-limit 25
-~~~
+limit 15
+```
 
-## Plugin responsibilities
+## Dashboard
 
-- **Dataview:** dashboards, indexes and derived analytics.
-- **Tasks:** actionable practice and review work.
-- **Templater:** repeatable ADR, architecture and interview creation.
-- **Excalidraw:** C4, runtime, state and failure diagrams when visual reasoning adds value.
+```dataview
+TABLE WITHOUT ID
+  file.link as "Topic",
+  difficulty as "Difficulty",
+  status as "Status",
+  next_review as "Next review"
+FROM "Architect"
+WHERE type IN ("note", "architecture", "practice")
+SORT date(next_review) ASC
+LIMIT 20
+```
 
-## Operating rule
+## Vault boundaries
 
-> **Do not add infrastructure because it is familiar. Add it because a quantified requirement, failure mode, organizational constraint or measured bottleneck demands it.**
+This is a **separate Obsidian vault**. Do not use ordinary `[[...]]` links to files in another vault.
 
+For cross-vault references use the shared contract in `../_shared/`:
 
-## Knowledge System Integration
+```yaml
+related:
+  - vault: java
+    note: "Concurrency"
+  - vault: ai
+    note: "Agent Concurrency"
+```
 
-- [[00 - Knowledge System/README|Knowledge System]] — shared learning model
-- [[Evidence/Architecture Decisions/README|Architecture Decisions]] — durable ADR evidence
-- [[Evidence/README|Evidence]] — failure and evaluation records
-- [[Build Lab/README|Build Lab]] — systems to design, defend and evolve
+Use a GitHub/Markdown URL when a clickable cross-vault link is required.
+
+## Plugin roles
+
+- **Dataview:** derived views only.
+- **Tasks:** actions and review work.
+- **Templater:** note creation.
+- **Excalidraw:** complex visual reasoning.
+
+> **Do not add infrastructure unless a requirement, failure mode, organizational constraint, or measured bottleneck justifies it.**
