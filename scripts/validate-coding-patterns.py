@@ -40,11 +40,23 @@ def md_files() -> list[Path]:
 def note_targets() -> set[str]:
     result = set()
     for p in md_files():
-        rel = p.relative_to(ROOT).as_posix()
-        stem = rel[:-3]
-        result.add(stem)
-        result.add(p.stem)
+        rel_root = p.relative_to(ROOT).as_posix()[:-3]
+        rel_vault = p.relative_to(VAULT).as_posix()[:-3] if VAULT in p.parents else rel_root
+        result.update({rel_root, rel_vault, p.stem})
     return result
+
+def resolves(target: str, source: Path, targets: set[str]) -> bool:
+    target = target.split("#", 1)[0].split("|", 1)[0].strip()
+    if not target or target.startswith(("http://", "https://")):
+        return True
+    if target.startswith("../"):
+        return False
+    candidates = {target.removesuffix(".md")}
+    if target.startswith("Coding Patterns/"):
+        candidates.add(target[len("Coding Patterns/"):].removesuffix(".md"))
+    else:
+        candidates.add((source.parent / target).as_posix().removesuffix(".md"))
+    return any(x in targets for x in candidates)
 
 def frontmatter(path: Path) -> dict[str, str]:
     text = path.read_text(encoding="utf-8")
@@ -76,7 +88,7 @@ def validate_links(path: Path, text: str, targets: set[str]) -> None:
         if "|" in raw and "|" in target:
             errors.append(f"{path}: malformed wikilink [[{raw}]]")
 
-        if target and target not in targets:
+        if target and not resolves(target, path, targets):
             errors.append(f"{path}: missing wikilink target [[{raw}]]")
 
 def validate_pattern_metadata(path: Path, data: dict[str, str]) -> None:
