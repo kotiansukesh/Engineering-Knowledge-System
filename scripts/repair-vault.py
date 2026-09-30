@@ -59,7 +59,8 @@ for path in sorted(ROOT.rglob("*.md")):
         continue
     text = path.read_text(encoding="utf-8")
     new = normalize_links(rel, text)
-    new = strip_unresolved_links(new)\n    new = clean_placeholders(new)
+    new = strip_unresolved_links(new)
+    new = clean_placeholders(new)
     if new != text:
         path.write_text(new, encoding="utf-8")
         changed += 1
