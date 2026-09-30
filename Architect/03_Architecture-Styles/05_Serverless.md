@@ -57,7 +57,7 @@ Serverless converts ops cost into per-invocation cost and makes elasticity someo
 
 ```mermaid
 graph LR
- E1[S3 upload] --> Fn[label(...)]
+ E1[S3 upload] --> Fn["label(...)"]
  E2[API Gateway /events] --> Fn
  E3[SQS queue] --> Fn
  Fn --> D[(DynamoDB)]
