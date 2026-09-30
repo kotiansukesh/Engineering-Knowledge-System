@@ -100,13 +100,10 @@ int singleNumberII(int[] nums) {
 Start with the core implementation. Introduce a variant only when the required state or proof changes.
 
 ## When to use
-
 - find unique/single number; count bits; test power of two; enumerate subsets by bit mask; toggle flags; missing number.
-- **NOT:** frequency of each value (use HashMap); two single numbers (need partition by differing bit); large bit operations beyond 64-bit (use BigInteger).
 
 ## When NOT to use
-
-frequency of each value (use HashMap); two single numbers (need partition by differing bit); large bit operations beyond 64-bit (use BigInteger).
+- frequency of each value (use HashMap); two single numbers (need partition by differing bit); large bit operations beyond 64-bit (use BigInteger).
 
 ## Complexity & trade-offs
 
