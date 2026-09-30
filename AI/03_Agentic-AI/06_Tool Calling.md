@@ -1,136 +1,111 @@
 ---
-title: "06_Tool Calling"
+title: "Tool Calling"
 category: "AI/03_Agentic-AI"
 tags:
+- ai
 - agent
 - tool-calling
-- function-calling
-- openai
-created: "2026-09-29"
+- reliability
+created: "2026-09-30"
 completed: false
 difficulty: "Medium"
-reviewed: "2026-09-29"
-sr-due: "2026-09-30"
-source: ""
-excalidraw: ""
-weeks: "5"
+reviewed: "2026-09-30"
+sr-due: "2026-10-02"
 type: "note"
 ---
 
-# 06_Tool Calling
-
-> Part of [[README|AI MOC]] • `AI/03_Agentic-AI` • Weeks 5
-> 🎨 **Visual diagram:** Create Excalidraw drawing from template: `Cmd+P → Excalidraw: New from template → AI Diagram`
+# Tool Calling
 
 ## Intent
-Understand **tool calling** — function schemas, parallel calls, structured outputs, error handling, and MCP integration — to build agents that interact with external systems.
+Learn how an LLM selects and invokes typed capabilities, and how to turn that probabilistic decision into a reliable application boundary.
 
-## Why It Matters
-- Where this appears in interviews (FAANG, senior vs. junior)
-- Production impact (cost, latency, quality, GPU utilization)
-- Senior signal: recognizing the *disguised* form of this pattern
+## Core Model
+`model -> tool selection -> schema validation -> authorization -> execution -> result normalization -> model`
 
-## Diagram
-```mermaid
-graph TD
-    A[Input / Context] --> B[Core Mechanism]
-    B --> C[Output / Result]
-    style B fill:#e8f5e9
-```
+Tool calling is not execution by itself. The model proposes an action; application code remains responsible for validation, permissions, idempotency, timeouts, and side effects.
 
-## Key Points
-- Key point 1
-- Key point 2
+## Decision Rule
+Use tool calling when the system must act on external state or obtain information that should not be hallucinated.
 
-## Code / Config Example
-```python
-# Python 3.11+: Minimal example for 06_Tool Calling
-# Core concept - implementation varies by framework
+Do not use it when deterministic application code can perform the operation without model-driven selection.
 
-from dataclasses import dataclass
-from typing import Optional
+| Requirement | Mechanism |
+|---|---|
+| Fixed sequence of known operations | Deterministic workflow |
+| Model must choose among bounded capabilities | Tool calling |
+| Long-running or stateful coordination | Workflow/agent runtime |
+| External integration standardization | Tool/API boundary such as MCP |
 
-@dataclass
-class 06_ToolCallingConfig:
-    component: str = "06_Tool Calling"
-    capacity: int = 10000
-    strategy: str = "default"
+## Minimal Implementation
+~~~~python
+from typing import Literal
+from pydantic import BaseModel
 
-# Example usage
-config = 06_ToolCallingConfig()
-```
+class GetOrder(BaseModel):
+    order_id: str
 
-## When to Use / NOT
-| Scenario | Use? | Reason |
-|----------|------|--------|
-|          | ✅   |        |
-|          | ❌   |        |
+class ToolResult(BaseModel):
+    status: Literal["ok", "error"]
+    data: dict
 
-## Trade-offs / Decision Matrix
-| Dimension | This Approach | Alternative A | Alternative B | Pick When |
-|-----------|---------------|---------------|---------------|-----------|
-| Complexity | | | | |
-| Latency | | | | |
-| Cost (GPU/hr) | | | | |
-| Quality | | | | |
+def execute_get_order(args: GetOrder, principal: str) -> ToolResult:
+    return ToolResult(status="ok", data={"order_id": args.order_id})
+~~~~
 
-## Vs. Alternatives
-| Alternative | When to Choose It | Decision Rule |
-|-------------|-------------------|---------------|
-| | | |
+The important boundary is not the schema alone: validate arguments, authorize the caller, enforce timeouts, record the invocation, and make side effects idempotent where retries are possible.
 
-## Pitfalls
-1. [Concrete mistake] → [Fix]
-2. [Concrete mistake] → [Fix]
+## Real Trade-offs
+| Decision | Option A | Option B | Choose based on |
+|---|---|---|---|
+| Tool schema | Strict typed schema | Free-form arguments | Prefer strict schemas when incorrect arguments can cause costly or unsafe actions |
+| Execution | Synchronous | Async/job | Use async when work can exceed request timeout or needs durable retry |
+| Side effects | Direct write | Idempotency-keyed command | Use idempotency for retries and duplicate model/tool calls |
+| Tool count | Small curated set | Large dynamic catalog | Curate tools when selection errors and context cost become material |
 
-## Interview Q&A (Senior Depth)
+## Failure Modes
+1. **Malformed arguments** → reject before execution; return structured validation errors.
+2. **Unauthorized action** → authorize outside the model; never treat a model instruction as permission.
+3. **Duplicate side effect** → idempotency key + deduplication store.
+4. **Tool timeout** → bounded timeout, cancellation, retry only when safe.
+5. **Prompt injection through tool output** → treat tool results as untrusted data; do not let returned text redefine policy.
+6. **Tool drift** → version schemas/contracts and run compatibility tests.
 
-**Q1: Walk me through the core mechanism of 06_Tool Calling. Why does it work?**
-**A:** In 2–3 sentences. Connect the *why* to the mathematical/architectural invariant.
+## Evaluation
+Measure separately:
+- tool-selection accuracy
+- argument validity
+- execution success rate
+- duplicate-action rate
+- policy/authorization violations
+- end-to-end task success
+- p50/p95 latency and cost
 
-**Q2: When would you choose an alternative over this approach?**
-**A:** Cite concrete constraints (scale, latency, cost, quality) and name the alternative.
+A high task-success score can hide unsafe or unreliable tool behavior, so evaluate the trajectory and side effects, not only the final answer.
 
-**Q3: How does this change for production vs. prototype?**
-**A:** Explain the hardening needed: evaluation, monitoring, cost optimization, guardrails.
+## Practice
+- [ ] Build a read-only tool and validate malformed arguments.
+- [ ] Add authorization outside the model.
+- [ ] Add an idempotency key and simulate duplicate calls.
+- [ ] Inject a timeout and define the retry rule.
+- [ ] Record a trace containing request, selected tool, validated args, result status, latency, and cost.
 
-**Q4: Walk me through a non-obvious problem that reduces to this pattern.**
-**A:** Describe the reduction step-by-step.
+## Senior Interview Prompts
+1. Why is tool calling not equivalent to an API call?
+2. Where should authorization live and why?
+3. How do you make a payment/order tool safe under retries?
+4. When would a deterministic workflow replace an agent?
+5. How would you evaluate tool choice independently from final-answer quality?
 
-**Q5: What is the GPU memory / latency implication at scale?**
-**A:** Discuss VRAM, batching, KV cache, quantization trade-offs.
-
-## Flashcards (Spaced Repetition)
-
-#flashcard
-**Q:** What is the trigger keyword for 06_Tool Calling? :: **A:** [trigger keywords] #flashcard
-
-#flashcard
-**Q:** Key hyperparameter for 06_Tool Calling? :: **A:** [hyperparameter + typical range] #flashcard
+## Flashcards
 
 #flashcard
-**Q:** When do you NOT use 06_Tool Calling? :: **A:** [anti-pattern scenarios] #flashcard
+**Q:** What does the model control in tool calling, and what must the application control? :: **A:** The model proposes a tool and arguments; application code validates, authorizes, executes, observes, and governs side effects.
 
 #flashcard
-**Q:** Cost order of magnitude for 06_Tool Calling? :: **A:** [GPU hours / $ per 1M tokens] #flashcard
-
-## Practice Tasks (Tasks Plugin)
-- [ ] Restate the intent from memory 📅 2026-09-30
-- [ ] Code the config without looking 📅 2026-10-02
-- [ ] Answer all Interview Q&A aloud 📅 2026-10-06
-- [ ] Review flashcards (Spaced Repetition) 📅 2026-09-30
-
-```tasks
-not done
-path includes 03_Agentic-AI
-sort by due
-limit 10
-```
+**Q:** What is the key defense against duplicate side effects? :: **A:** Idempotency keys plus server-side deduplication for retryable commands.
 
 ## Related
-- [[README|AI MOC]]
-- [[03_Agentic-AI/README|03_Agentic-AI Folder]]
-
----
-
-*Category: AI/03_Agentic-AI • Part of [[README|AI MOC]]*
+- [[00 - AI Engineering Decision Framework]]
+- [[00 - AI Practice Engine]]
+- [[07_Cross-Cutting/01_MCP]]
+- [[11_Guardrails]]
