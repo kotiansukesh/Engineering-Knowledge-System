@@ -1,211 +1,107 @@
 ---
-title: "AI Engineering Study Plan"
+title: "AI Engineering Syllabus"
 category: "AI/99_Revision"
-tags: [study-plan, roadmap, ai-engineering, architecture, certifications]
+tags: [syllabus, ai-engineering, architecture, certifications]
 created: "2026-09-30"
 completed: false
-difficulty: Advanced
-reviewed: ""
-sr-due: ""
-type: study-plan
-weeks: "1-36"
+type: syllabus
 ---
 
-# AI Engineering Study Plan
+# AI Engineering Syllabus
 
-> **36-week integrated path:** 20-week engineering core + 16-week certification and capstone extension.
+> **This is a domain syllabus, not a second calendar.**
+>
+> The repository-wide [[Study Plan]] is the only learning calendar. Use this page to understand the AI domain and to jump to the material required by the current master-plan phase.
 
-The certifications are validation overlays. The recurring Enterprise AI Platform is the main project; external courses should deepen or validate the work rather than create duplicate projects.
+## How to use this page
 
-## Phase 1 — Foundations (Weeks 1–4)
+1. Open [[Study Plan]] and identify the current phase/week.
+2. Come here only for the relevant AI capability.
+3. Learn the minimum required concepts.
+4. Build the corresponding [[Build Lab/README|Build Lab]] artifact.
+5. Record measurements, failures and decisions in [[Evidence/README|Evidence]].
+6. Return to the master plan.
 
-### Week 1 — LLM + API Foundations
-LLM fundamentals, tokenization, inference parameters, APIs, structured outputs, tool calling.
-**Build:** AI Code Assistant API.
-**Evidence:** API + response contract + latency/cost notes.
+Do **not** complete this page from top to bottom unless the master plan explicitly requires it.
 
-### Week 2 — Embeddings + Retrieval
-Embeddings, similarity, indexes, metadata filters, retrieval evaluation.
-**Build:** semantic document search.
-**Evidence:** retrieval dataset + precision/recall measurements.
+## AI learning spine
 
-### Week 3 — RAG Engineering
-Ingestion, chunking, metadata, hybrid retrieval, reranking, context assembly, citations.
-**Build:** enterprise Q&A baseline.
-**Evidence:** retrieval + answer evaluation.
+**LLM APIs → Retrieval → RAG → Tools → Agents → Evaluation → Production Platform → Governance → AI Architecture**
 
-### Week 4 — RAG Quality
-Query rewriting, multi-query, corrective/adaptive RAG, freshness, attribution.
-**Build:** evaluated RAG pipeline.
-**Gate:** justify every retrieval stage with a metric.
+### Foundation
 
-## Phase 2 — Agentic AI (Weeks 5–8)
+- LLM fundamentals, tokenization, inference parameters
+- API contracts and structured outputs
+- embeddings and similarity search
+- metadata filtering and retrieval evaluation
+- chunking, hybrid retrieval, reranking and context assembly
+- citations, grounding and freshness
 
-### Week 5 — Agent Fundamentals
-Agent loop, tool contracts, state, planning, termination.
-**Build:** single-agent tool workflow.
-**Gate:** prove why an agent is needed instead of a workflow.
-**Validation:** Coursera LLM/RAG learning can reinforce the retrieval and architecture foundations.
+### Agentic AI
 
-### Week 6 — Memory + Multi-Agent
-State, durable memory, planner/executor/reviewer, delegation.
-**Build:** constrained multi-agent workflow.
-**Gate:** budgets, terminal states, failure handling.
-**Validation:** use LLM architecture material to compare synchronous/asynchronous, managed/self-hosted and other realistic system choices.
+- workflow vs agent decision
+- tool contracts and authorization
+- agent loop, state and termination
+- memory and durable state
+- planning and delegation
+- constrained multi-agent systems
+- human approval and safety boundaries
 
-### Week 7 — Evaluation + Safety
-Task success, tool correctness, groundedness, error analysis, guardrails, human approval.
-**Build:** agent evaluation harness.
-**Gate:** reproduce a failure and demonstrate the control.
+### Evaluation and reliability
 
-### Week 8 — Production Agents
-Observability, retries, timeouts, idempotency, audit trails, deployment.
-**Build:** production-shaped agent.
-**Gate:** failure-injection report.
+- task success and tool correctness
+- groundedness and attribution
+- datasets and repeatable evaluation
+- error taxonomy
+- retries, timeouts and idempotency
+- audit trails and failure injection
 
-## Phase 3 — Production AI Platform (Weeks 9–14)
+### AI platform engineering
 
-### Week 9 — AI Gateway
-Routing, quotas, retries, circuit breakers, provider abstraction.
-**Build:** model gateway.
+- model gateway and provider abstraction
+- routing, quotas and rate limits
+- caching and streaming
+- inference/serving trade-offs
+- observability: traces, tokens, latency, cost and quality
+- Kubernetes deployment and operations
+- capacity, graceful degradation and cost control
 
-### Week 10 — Inference & Serving
-Serving, batching, caching, streaming, GPU utilization.
-**Build:** measured serving path.
+### Enterprise AI architecture
 
-### Week 11 — Data & Evaluation Platform
-Dataset versioning, evaluation datasets, model/evaluation registry.
-**Build:** repeatable evaluation pipeline.
-**Validation:** Coursera production/deployment material may be used here if it maps to the current implementation.
+- security and prompt-injection defenses
+- data leakage and tenant isolation
+- governance, lineage and auditability
+- platform boundaries and shared services
+- architecture decisions and quality attributes
+- build vs buy and managed vs self-hosted trade-offs
 
-### Week 12 — Observability
-Traces, tokens, latency, cost, quality metrics, failure taxonomy.
-**Build:** AI observability dashboard.
+## Build progression
 
-### Week 13 — Kubernetes for AI
-Deployments, probes, resources, autoscaling, GPU scheduling.
-**Build:** deploy an AI workload on Kubernetes.
+The preferred spine is one evolving system:
 
-### Week 14 — Reliability & Cost
-Capacity planning, rate limits, graceful degradation, caching, model routing.
-**Build:** load/failure test.
-**Gate:** measured bottleneck → smallest useful architecture change.
+**AI Code Assistant → Semantic Search → RAG → Agent Workflow → Evaluated Agent → AI Gateway → AI Platform → Enterprise AI Platform**
 
-## Phase 4 — Governance & Architecture (Weeks 15–20)
+Do not create a new project merely because a course or note suggests one.
 
-### Week 15 — AI Security
-Prompt injection, data leakage, tool authorization, secrets, tenant isolation, supply chain.
+## Evidence gate
 
-### Week 16 — Governance
-Model inventory, risk classification, lineage, auditability, human oversight, controls.
+A capability is not complete because its notes were read. Require:
 
-### Week 17 — AI Architecture
-Boundaries, quality attributes, decisions, ADRs, model gateway, RAG and agent architecture.
-**Validation:** prepare for the NUS-ISS agent architecture material using the existing agent and platform artifacts.
+- implementation;
+- test/evaluation;
+- measurement;
+- failure experiment;
+- trade-off explanation;
+- evidence linked from the [[Evidence/README|Evidence]] domain.
 
-### Week 18 — Enterprise AI Platform
-Shared services, tenancy, platform boundaries, governance, reusable capabilities, build vs buy.
+## Certification overlay
 
-### Week 19 — Capstone
-**ingest → retrieve → reason → act → evaluate → observe → govern**
-
-### Week 20 — Architecture Review
-Produce architecture diagram, ADR set, evaluation report, failure-injection report, cost model, security model, migration plan, and senior design walkthrough.
-
-## Phase 5 — Certification Validation Extension (Weeks 21–36)
-
-The extension converts the 20-week engineering core into externally validated evidence. Do not restart the learning sequence.
-
-### Weeks 21–22 — Coursera LLM / RAG Validation
-Revisit the relevant LLM/RAG modules.
-**Apply:** strengthen the Enterprise Document Search and RAG evaluation.
-**Evidence:** retrieval benchmark, citations/grounding analysis, architecture comparison and cost/latency measurements.
-
-### Weeks 23–24 — Coursera LLM Architecture
-Use architecture-analysis material to compare realistic alternatives.
-**Build:** architecture decision pack covering request flow, deployment model, managed vs self-hosted options, latency, cost, privacy and operational complexity.
-**Evidence:** ADRs + trade-off table + measured benchmark.
-
-### Weeks 25–27 — Production AI Platform Hardening
-Map relevant Coursera production modules onto the existing platform.
-**Add:** resilient microservices, AI gateway improvements, testing, gRPC where justified, streaming, retries, circuit breakers, caching, model routing and observability.
-**Gate:** every added component must be justified by a requirement, failure mode or measured bottleneck.
-
-### Weeks 28–30 — Kubernetes Certification Track
-Deploy the complete AI platform:
-- AI Gateway
-- FastAPI services
-- Spring Boot service
-- PostgreSQL
-- Redis
-- vector store
-- Kafka where justified
-- Prometheus/Grafana or equivalent observability
-
-**Choose:**
-- **CKAD** for application-development and deployment depth.
-- **CKA** for cluster administration and troubleshooting depth.
-
-**Evidence:** manifests, probes, resources, autoscaling, networking, rollout/rollback and troubleshooting runbook.
-
-### Weeks 31–33 — NUS-ISS Agentic Architecture Deepening
-Use [[99_Revision/Certification Integration Roadmap|Certification Roadmap]] to align the course with existing agent artifacts.
-
-**Focus:** logical/physical architecture, multi-agent collaboration, interoperability, framework selection and enterprise integration.
-
-**Evidence:** logical architecture, physical architecture, orchestration ADR, human-approval boundaries and failure-injection report.
-
-### Weeks 34–35 — iSAQB SWARC4AI / CPSA-A Path
-Treat SWARC4AI as the AI-architecture Advanced Level module, not as a standalone CPSA-A certification.
-
-**Focus:** AI architecture, compliance/security/alignment, data management, operational quality characteristics, GenAI platforms and case studies.
-
-**Evidence:** architecture decision set, quality scenarios, governance/control mapping, lifecycle model and architecture review.
-
-### Week 36 — Final Capstone Defense
-The platform should demonstrate:
-
-**ingest → retrieve → reason → act → evaluate → observe → govern → deploy → scale → defend**
-
-Produce:
-- architecture diagrams
-- ADR set
-- evaluation report
-- failure-injection report
-- security/control matrix
-- cost model
-- Kubernetes artifacts
-- operational runbooks
-- migration plan
-- architecture review
-
-## External Validation Map
-
-| Stage | Engineering work | Validation |
-|---|---|---|
-| 1 | LLM + API foundations | — |
-| 2 | RAG engineering | Coursera LLM/RAG |
-| 3 | Agentic AI | NUS-ISS Agentic AI |
-| 4 | Production AI platform | Coursera production modules |
-| 5 | Kubernetes operations | CKAD or CKA |
-| 6 | Enterprise AI architecture | iSAQB SWARC4AI / CPSA-A path |
-| 7 | Capstone | Portfolio + architecture defense |
-
-## Mastery Gate
-
-A topic is mastered only when you can explain it, implement it, identify when not to use it, compare realistic alternatives, define measurable quality criteria, diagnose a failure, and defend the design under changed constraints.
-
-## Weekly Ritual
-
-**Learn → Build → Evaluate → Break → Explain → Record**
-
-Use [[00 - AI Practice Engine|AI Practice Engine]].
+Use [[AI/99_Revision/Certification Integration Roadmap|Certification Integration Roadmap]] only when the master plan reaches the relevant validation stage. Certifications validate the engineering path; they do not create another study calendar.
 
 ## Related
 
-- [[README|AI MOC]]
-- [[Master Dashboard|Master Dashboard]]
-- [[99_Revision/Certification Integration Roadmap|Certification Roadmap]]
-- [[99_Revision/Interview Bank|Interview Bank]]
-- [[99_Revision/Capstone Checklist|Capstone Checklist]]
-- [[Architect/99_Revision/Study Plan|Architect Study Plan]]
+- [[Study Plan]]
+- [[00 - Start Here]]
+- [[AI/README]]
+- [[Build Lab/README]]
+- [[Evidence/README]]
