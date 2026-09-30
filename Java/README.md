@@ -1,70 +1,161 @@
 ---
-title: "Java MOC"
+title: "Java Knowledge Vault"
 category: "Java"
 type: "folder-MOC"
-tags: [MOC, folder]
-created: "2026-09-29"
+tags: [MOC, java]
+created: "2026-09-30"
 completed: false
-reviewed: "2026-09-29"
-sr-due: "2026-10-06"
+reviewed: "2026-09-30"
+sr-due: "2026-10-07"
 ---
 
 # Java Knowledge Vault
 
-> **Master MOC** for Java 25: Core, Modern, Collections, Concurrency, Design Patterns, DSA, LLD, Spring
+> Senior-level Java engineering vault centered on **Java 25 LTS**, modern JVM practices, Spring, concurrency, DSA, design, testing, and machine coding.
+
+## Learning Spine
+
+**Understand → Implement → Measure → Break → Explain → Review**
+
+The vault is not a collection of reference pages. Every important topic should end with working code, a failure mode, a trade-off, and an explanation that can be delivered without the note open.
+
+### Decision Ladder
+
+Use the least complicated mechanism that satisfies the requirement:
+
+**Language feature → Standard library → Library/framework → Concurrency abstraction → Framework infrastructure → Distributed-system pattern**
+
+Do not add a framework, abstraction, thread pool, reactive pipeline, or design pattern unless it solves a concrete problem.
 
 ---
 
-## Progress Overview
+## Navigation
 
-```dataviewjs
-const pages = dv.pages("#java").where(p => p.category && p.file.name != "README");
-const total = pages.length;
-const done = pages.where(p => p.completed === true).length;
-const pct = total ? Math.round(done/total*100) : 0;
-const bar = (p, w=20) => "█".repeat(Math.round(p/100*w)) + "░".repeat(w-Math.round(p/100*w));
-dv.paragraph(`**Total: ${total} notes | Completed: ${done} | Remaining: ${total-done}** — \`${pct}%\``);
-dv.paragraph(`\`${bar(pct)}\` **${pct}%**`);
-if (total === done && total > 0) dv.paragraph(`🎉 *All notes completed!*`);
+| Domain | Purpose |
+|---|---|
+| [[00_Java-25-Overview/README|00 · Java & LTS Overview]] | Java 8→25 evolution, current Java 25 LTS, roadmap, interview strategy |
+| [[01_Core-Java/README|01 · Core Java]] | Language fundamentals, types, generics, exceptions, streams, I/O, JPMS |
+| [[02_OOP/README|02 · OOP & Design Principles]] | OOP, SOLID, object relationships, maintainability |
+| [[03_Collections/README|03 · Collections]] | Collection contracts, implementations, ordering, complexity, modern APIs |
+| [[04_Concurrency/README|04 · Concurrency]] | Threads, executors, futures, locks, atomics, virtual threads |
+| [[05_Spring/README|05 · Spring]] | Spring Framework, Boot, MVC, Data, transactions, security, Spring AI |
+| [[06_Design-Patterns/README|06 · Design Patterns]] | GoF patterns plus practical enterprise patterns |
+| [[07_DSA/README|07 · DSA]] | Data structures and algorithms implemented in Java |
+| [[08_Modern-Java/README|08 · Modern Java]] | Java 9→25 language/library/runtime evolution |
+| [[09_Java-21-LTS/README|09 · Java 21 Deep Dive]] | Java 21 LTS features and migration reference; not a second primary roadmap |
+| [[10_LLD-Machine-Coding/README|10 · LLD & Machine Coding]] | Requirements, object design, UML, state, concurrency and implementation |
+| [[11_JVM-Performance/README|11 · JVM & Performance]] | GC, JIT, diagnostics, profiling, memory and production troubleshooting |
+| [[12_Testing-Tooling/README|12 · Testing & Tooling]] | JUnit, Mockito, Testcontainers, Maven/Gradle and engineering feedback loops |
+| [[99_Revision/README|99 · Revision]] | Study plan, interview bank, spaced repetition and mock practice |
+
+---
+
+## How the Domains Fit
+
+```mermaid
+flowchart LR
+ A[Java language] --> B[OOP & contracts]
+ B --> C[Collections]
+ C --> D[Concurrency]
+ D --> E[JVM & performance]
+ B --> F[Spring]
+ C --> G[DSA]
+ B --> H[Design patterns]
+ H --> I[LLD / machine coding]
+ F --> J[Testing & tooling]
+ E --> J
 ```
 
----
+### Primary path
 
-## Quick Navigation
+**Core Java → OOP → Collections → Concurrency → JVM → Spring → Testing → Patterns → LLD**
 
-| Category | Notes | Status | Description |
-|----------|-------|--------|-------------|
-| [[00_Java-25-Overview|Java 25 Overview]] | 9 | LTS evolution, roadmap, interview strategy |
-| [[01_Core-Java|Core Java]] | 35 | Fundamentals, JPMS, FFM, Structured Concurrency, Module System |
-| [[02_OOP|OOP Principles]] | 17 | SOLID, inheritance, encapsulation, class relationships |
-| [[03_Collections|Collections]] | 11 | List, Set, Map, Queue, legacy, modern |
-| [[04_Concurrency|Concurrency]] | 7 | Threads, locks, executors, CompletableFuture, virtual threads |
-| [[05_Spring|Spring]] | 9 | Core, MVC, Boot, Security, Data JPA, Transactions |
-| [[06_Design-Patterns|Design Patterns]] | 25 | Creational, Structural, Behavioral, Enterprise |
-| [[07_DSA|Data Structures & Algorithms]] | 15 | Trees, graphs, segment tree, BIT, UF, topo sort, trie |
-| [[08_Modern-Java|Modern Java (8-21)]] | 9 | Records, sealed, pattern matching, virtual threads |
-| [[09_Java-21-LTS|Java 21 LTS]] | 11 | Deep dive on LTS features |
-| [[10_LLD-Machine-Coding|LLD Machine Coding]] | 17 | 17 UML diagrams, class/sequence, real problems |
-| [[99_Revision|Revision]] | 4 | Interview questions, study plan, interactive setup |
+### Parallel practice
+
+- **DSA + Coding Patterns**: solve problems using the Java implementations in [[07_DSA/README|DSA]] and the repository's [[../Coding Patterns/README|Coding Patterns]] vault.
+- **Modern Java**: learn features when they solve a real language, API, concurrency, or runtime problem.
+- **Revision**: use [[99_Revision/Study-Plan|Study Plan]] continuously rather than waiting until the end.
 
 ---
 
-## Spaced Repetition Status
+## Java Version Strategy
+
+**Java 25 is the primary target because it is the current LTS.** Java 21 remains important because it introduced virtual threads, sequenced collections, record patterns, and pattern matching for switch. Java 17 is the compatibility baseline for many existing enterprise systems.
+
+Keep historical LTS material as **migration knowledge**, not as three separate curricula.
+
+### Java 25 focus
+
+- Scoped Values — final
+- Compact Object Headers — product feature
+- Flexible Constructor Bodies — final
+- Module Import Declarations — final
+- Compact Source Files and Instance Main Methods — final
+- Primitive Types in Patterns — preview
+- Structured Concurrency — preview
+- Stable Values — preview
+
+Preview APIs and language features must be explicitly marked and compiled with the matching preview flags.
+
+---
+
+## Mastery Evidence
+
+A topic is complete only when the note contains enough evidence to answer:
+
+1. **Problem** — what problem exists?
+2. **Mechanism** — what invariant or runtime behavior solves it?
+3. **Implementation** — can I write the smallest useful example?
+4. **Trade-off** — what does this cost?
+5. **Failure mode** — how does it break?
+6. **Measurement** — what would I measure in production?
+7. **Alternative** — when should I choose something else?
+8. **Interview explanation** — can I explain it from memory?
+
+---
+
+## Plugin Responsibilities
+
+- **Dataview** — progress, indexes, review queues and stale-note reporting.
+- **Tasks** — concrete practice actions; do not use Dataview as a task manager.
+- **Templater** — note scaffolding and dates.
+- **Excalidraw** — architecture, lifecycle, concurrency and state diagrams where a visual adds information.
+- **Mermaid** — small inline diagrams; use Excalidraw for diagrams that need exploration or manual editing.
+
+---
+
+## Quality Rules
+
+- Use vault-relative wikilinks such as `[[01_Core-Java/README|Core Java]]`.
+- Do not use `[[../...]]` links.
+- Avoid aliased wikilinks inside Markdown tables when a plain link is sufficient.
+- Every code example must be syntactically plausible and identify its required Java release/preview status.
+- Do not present benchmark numbers without a workload and measurement method.
+- Distinguish **language feature**, **library API**, **JVM implementation detail**, and **framework behavior**.
+- Fast-changing framework/version claims must include the relevant version/date.
+- Prefer one canonical note per concept; use related links instead of duplicating explanations.
+- Do not turn every note into flashcards. Keep only questions that test a meaningful invariant or decision.
+- Remove generic filler such as “FAANG interview” claims unless the note contains a concrete senior-level question.
+- Keep READMEs as navigation/MOC pages; keep technical explanations in topic notes.
+
+---
+
+## Progress
 
 ```dataview
 TABLE WITHOUT ID
-file.link as "Note",
-reviewed as "Last Reviewed",
-"sr-due" as "Due",
-choice(!reviewed, "🔴 Never", choice(date(now)-reviewed > dur(7 days), "🟡 Stale", "🟢 Fresh")) as "Status"
+  file.link AS "Note",
+  category AS "Category",
+  choice(completed, "✅", "⬜") AS "Done",
+  difficulty AS "Difficulty",
+  reviewed AS "Reviewed",
+  "sr-due" AS "Due"
 FROM "Java"
-WHERE category AND file.name != "README" AND (reviewed OR "sr-due")
+WHERE category AND file.name != "README" AND type != "template"
 SORT "sr-due" ASC
 ```
 
----
-
-## Practice Tasks (All Categories)
+## Review Queue
 
 ```tasks
 not done
@@ -73,139 +164,12 @@ sort by due
 limit 30
 ```
 
----
+## Related Vaults
 
-## Recent Notes
-
-```dataview
-TABLE WITHOUT ID
-file.link as "Note",
-category as "Category",
-choice(completed, "✅", "⬜") as "Done",
-difficulty as "Difficulty",
-reviewed as "Reviewed"
-FROM "Java"
-WHERE category AND file.name != "README"
-SORT file.mtime DESC
-LIMIT 15
-```
+- [[../Coding Patterns/README|Coding Patterns]] — problem-solving patterns
+- [[../Architect/README|Architect]] — system design and architecture
+- [[../AI/README|AI]] — AI engineering and enterprise AI
 
 ---
 
-## Folder Structure
-
-```
-Java/
-├── 00_Java-25-Overview/       # LTS roadmap, interview strategy
-├── 01_Core-Java/              # Core fundamentals + JPMS, FFM, Structured Concurrency
-│   ├── Types/                 # Class types, nested classes
-│   └── ... (35 notes)
-├── 02_OOP/                    # OOP principles, SOLID
-│   └── Inheritance/
-├── 03_Collections/            # Collections framework
-│   ├── List/                  # ArrayList, LinkedList, Legacy Collections
-│   ├── Set/                   # HashSet, TreeSet, Sorted Set
-│   └── ...
-├── 04_Concurrency/            # Threads, locks, executors, virtual threads
-├── 05_Spring/                 # Spring ecosystem
-├── 06_Design-Patterns/        # 25 patterns, 12-section template
-│   ├── Creational/            # Singleton, Builder, Factory, Abstract Factory, Prototype
-│   ├── Structural/            # Adapter, Bridge, Composite, Decorator, Facade, Flyweight, Proxy
-│   ├── Behavioral/            # Chain, Command, Interpreter, Iterator, Mediator, Memento, Observer, State, Strategy, Template, Visitor
-│   └── Extra/                 # DAO, Dependency Injection
-├── 07_DSA/                    # Data structures & algorithms
-│   ├── Trie, Segment Tree, Fenwick Tree, Union-Find, Topological Sort
-│   └── ... (15 notes)
-├── 08_Modern-Java/            # Java 8-21 features
-├── 09_Java-21-LTS/            # Java 21 deep dive
-├── 10_LLD-Machine-Coding/     # 17 LLD problems with UML diagrams
-│   └── _attachments/          # 17 generated PNG diagrams
-├── 99_Revision/               # Interview prep
-├── _templates/                # Java-Note-Template.md, Pattern-Note-Template.md
-└── README.md                  # This file
-```
-
----
-
-## Diagram Index (LLD)
-
-All 17 LLD problems have **class diagrams** and **sequence/flow diagrams** generated in `_attachments/`:
-
-| Problem | Class Diagram | Flow Diagram |
-|---------|---------------|--------------|
-| Parking Lot | `parkinglot-class-diagram.png` | ✅ Mermaid |
-| Vending Machine | `vendingmachine-class-diagram.png` | ✅ State |
-| Logging Framework | `loggingframework-class-diagram.png` | ✅ Flow |
-| Stack Overflow | `stackoverflow-class-diagram.png` | ✅ Flow |
-| ATM | `atm-class-diagram.png` | ✅ State |
-| LRU Cache | `lrucache-class-diagram.png` | ✅ Flow |
-| Elevator System | `elevatorsystem-class-diagram.png` | ✅ State |
-| Tic-Tac-Toe | `tictactoe-class-diagram.png` | ✅ Flow |
-| Pub-Sub System | `pubsubsystem-class-diagram.png` | ✅ Flow |
-| Chess Game | `chessgame-class-diagram.png` | ✅ Flow |
-| Splitwise | `splitwise-class-diagram.png` | ✅ Flow |
-| Movie Ticket Booking | `movieticketbookingsystem-class-diagram.png` | ✅ State |
-| Ride Sharing (Uber) | `ridesharingservice-class-diagram.png` | ✅ State |
-| Snake & Ladder | `snakeandladder-class-diagram.png` | ✅ Flow |
-| Task Management | `taskmanagement-class-diagram.png` | ✅ Flow |
-| Traffic Signal | `trafficcontrol-class-diagram.png` | ✅ State |
-| Coffee Vending | `coffeevending-class-diagram.png` | ✅ Flow |
-
----
-
-## Templates
-
-- **[[Java-Note-Template]]** — Standard note template (Core Java, Collections, DSA, etc.)
-- **[[Pattern-Note-Template]]** — Design pattern template (12 sections, Java 25 features)
-
-### Excalidraw Template
-
-Create diagrams from template: `Cmd+P → Excalidraw: New from template → Java Diagram`
-
-If template missing, create one with:
-- Dark theme colors matching vault
-- Standard shapes: class, interface, sequence, flowchart
-- Mermaid-compatible styling
-
----
-
-## Study Workflow
-
-1. **Daily**: Review SR due notes (`sr-due` ≤ today)
-2. **Weekly**: Complete practice tasks, update `reviewed` dates
-3. **Per Topic**: 
-   - Read note → Code snippet → Answer Q&A → Flashcards
-   - Mark `completed: true` when confident
-4. **LLD**: Practice one problem weekly; draw class diagram from memory
-
----
-
-## Key Conventions
-
-| Convention | Format |
-|------------|--------|
-| Category | `Java/<folder>` (e.g., `Java/06_Design-Patterns/Creational`) |
-| Tags | `[java, category, specific]` |
-| Pattern | `pattern: pattern-name` (for design patterns) |
-| Difficulty | `Easy` / `Medium` / `Advanced` |
-| SR Fields | `reviewed: "YYYY-MM-DD"`, `sr-due: "YYYY-MM-DD"` |
-| Source | `source: "url"` or `source: ""` |
-
----
-
-## Quick Commands
-
-```bash
-# View all notes needing review
-# Dataview: WHERE date(now) - reviewed > dur(7 days)
-
-# View incomplete patterns
-# Dataview: WHERE category CONTAINS "Design-Patterns" AND completed = false
-
-# Generate folder READMEs
-# python3 generate_folder_readmes.py
-```
-
----
-
-*Part of [[Java MOC]] • Java 25 • 173 notes • 17 UML diagrams*
+*Java Knowledge Vault · Java 25 LTS · maintained as an engineering reference and practice system*
