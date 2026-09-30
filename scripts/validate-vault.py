@@ -37,17 +37,30 @@ def is_knowledge_artifact(rel: str, path: Path) -> bool:
     return True
 
 
-def resolves(target: str) -> bool:
+def resolves(source_rel: str, target: str) -> tuple[bool, list[str]]:
     target = target.split("|", 1)[0].split("#", 1)[0].strip()
     if not target or target.startswith(("http://", "https://")):
-        return True
-    candidate = ROOT / target
-    if candidate.suffix != ".md":
-        candidate = candidate.with_suffix(".md")
-    if candidate.exists():
-        return True
-    name = Path(target).name
-    return any(Path(p).stem == name for p in files)
+        return True, []
+
+    source_dir = Path(source_rel).parent
+
+    # Prefer an explicit vault-relative path.
+    if "/" in target:
+        candidate = target if target.endswith(".md") else target + ".md"
+        return candidate in files, [candidate]
+
+    # Bare links commonly refer to a sibling note such as [[README]].
+    sibling = (source_dir / f"{target}.md").as_posix()
+    if sibling in files:
+        return True, [sibling]
+
+    # A unique basename is safe; duplicates are ambiguous and should be reviewed.
+    candidates = [p for p in files if Path(p).stem == Path(target).stem]
+    if len(candidates) == 1:
+        return True, candidates
+    if len(candidates) > 1:
+        return True, candidates
+    return False, []
 
 
 for rel, path in files.items():
@@ -58,8 +71,14 @@ for rel, path in files.items():
 
     for n, line in enumerate(text.splitlines(), 1):
         for m in re.finditer(r"\[\[([^\]]+)\]\]", line):
-            if not resolves(m.group(1)):
+            ok, candidates = resolves(rel, m.group(1))
+            if not ok:
                 errors.append(f"{rel}:{n}: unresolved wikilink [[{m.group(1)}]]")
+            elif len(candidates) > 1:
+                warnings.append(
+                    f"{rel}:{n}: ambiguous wikilink [[{m.group(1)}]]; "
+                    + ", ".join(candidates[:8])
+                )
 
         # Only Markdown table rows need the pipe-alias warning. A normal prose
         # line or fenced example may legitimately contain both pipes and links.
