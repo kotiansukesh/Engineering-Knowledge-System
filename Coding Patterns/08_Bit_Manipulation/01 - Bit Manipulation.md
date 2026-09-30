@@ -1,4 +1,7 @@
 ---
+type: note
+mastery: learn
+recognition_score: 0
 title: Bit Manipulation
 pattern: 21
 category: Coding Patterns/08_Bit_Manipulation
@@ -21,7 +24,7 @@ excalidraw: ''
 
 # Bit Manipulation
 
-> Part of [[README|20 DSA Patterns]] • `Coding Patterns/08_Bit_Manipulation` • Pattern #21
+> Part of [[README|Coding Patterns]] • `Coding Patterns/08_Bit_Manipulation` • Pattern #21
 
 ## Intent
 Work directly on binary digits with `& | ^ ~ << >>` — the O(1) space pattern for single number, power of two, bit counting, and subset enumeration via masks.
