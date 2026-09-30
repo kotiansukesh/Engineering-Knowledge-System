@@ -7,7 +7,7 @@ completed: false
 reviewed: "2026-09-29"
 sr-due: "2026-09-30"
 difficulty: Medium
-type: note
+type: concept
 weeks: 9
 ---
 

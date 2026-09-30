@@ -1,3 +1,7 @@
+---
+type: evidence
+---
+
 # Interview Defenses
 
 Use **Explain → Defend → Challenge → Redesign**.

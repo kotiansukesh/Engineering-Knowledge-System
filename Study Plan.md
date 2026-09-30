@@ -1,6 +1,6 @@
 ---
 title: Engineering AI Architecture Study Plan
-type: plan
+type: syllabus
 domain: shared
 status: active
 created: 2026-09-30

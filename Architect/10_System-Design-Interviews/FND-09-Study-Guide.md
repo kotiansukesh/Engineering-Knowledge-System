@@ -16,7 +16,7 @@ sr-due: '2026-09-07'
 source: https://github.com/donnemartin/system-design-primer
 excalidraw: ''
 weeks: '1'
-type: note
+type: concept
 
 ---
 

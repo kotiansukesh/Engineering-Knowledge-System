@@ -1,3 +1,7 @@
+---
+type: concept
+---
+
 # Practice Problems - System Design Interview Exercises
 
 > **Purpose:** Hands-on design exercises with solution skeletons for interview preparation.

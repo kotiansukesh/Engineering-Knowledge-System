@@ -1,6 +1,6 @@
 ---
 title: AI Security and Guardrails
-type: note
+type: concept
 category: Architect/13_AI-Architecture
 difficulty: Hard
 tags: [architecture, ai, security]

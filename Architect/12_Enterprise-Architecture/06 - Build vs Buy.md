@@ -1,6 +1,6 @@
 ---
 title: Build vs Buy
-type: note
+type: concept
 category: Architect/12_Enterprise-Architecture
 difficulty: Hard
 tags: [architecture, enterprise, decisions]

@@ -1,6 +1,6 @@
 ---
 title: Architecture Governance
-type: note
+type: concept
 category: Architect/12_Enterprise-Architecture
 difficulty: Hard
 tags: [architecture, governance]

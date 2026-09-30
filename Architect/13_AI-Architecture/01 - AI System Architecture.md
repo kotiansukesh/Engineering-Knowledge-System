@@ -1,6 +1,6 @@
 ---
 title: AI System Architecture
-type: note
+type: concept
 category: Architect/13_AI-Architecture
 difficulty: Hard
 tags: [architecture, ai]

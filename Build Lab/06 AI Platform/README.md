@@ -1,3 +1,7 @@
+---
+type: project
+---
+
 # 06 — AI Platform
 
 Build a reusable internal platform for RAG and agent workloads.

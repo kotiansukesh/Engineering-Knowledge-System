@@ -14,7 +14,7 @@ sr-due: '2026-10-07'
 source: https://bytebytego.com
 excalidraw: ''
 weeks: '7'
-type: note
+type: concept
 ---
 
 # Digital Wallet (ByteByteGo)

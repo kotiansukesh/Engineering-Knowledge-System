@@ -1,3 +1,7 @@
+---
+type: project
+---
+
 # 05 — AI Gateway
 
 Build a provider-neutral gateway for model routing, policy, observability and cost controls.

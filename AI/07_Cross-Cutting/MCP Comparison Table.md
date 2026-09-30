@@ -12,7 +12,7 @@ excalidraw: ''
 completed: false
 difficulty: Medium
 source: ''
-type: note
+type: concept
 weeks: ''
 ---
 

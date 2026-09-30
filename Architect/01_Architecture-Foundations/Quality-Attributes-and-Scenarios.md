@@ -1,6 +1,6 @@
 ---
 title: Quality Attributes and Scenarios
-type: note
+type: concept
 category: Architect/01_Architecture-Foundations
 difficulty: Intermediate
 completed: false

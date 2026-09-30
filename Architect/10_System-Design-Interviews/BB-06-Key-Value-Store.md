@@ -10,7 +10,7 @@ sr-due: 2026-10-06
 source: "https://bytebytego.com"
 excalidraw: ""
 weeks: 3
-type: note
+type: concept
 ---
 
 

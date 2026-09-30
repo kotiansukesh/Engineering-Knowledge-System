@@ -24,7 +24,7 @@ sr-due: '2026-09-14'
 difficulty: Hard
 excalidraw: ''
 source: ''
-type: note
+type: concept
 weeks: ''
 
 ---

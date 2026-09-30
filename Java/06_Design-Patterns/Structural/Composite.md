@@ -13,7 +13,7 @@ completed: false
 reviewed: "2026-09-29"
 sr-due: "2026-10-06"
 excalidraw: ""
-type: note
+type: concept
 ---
 
 # Composite

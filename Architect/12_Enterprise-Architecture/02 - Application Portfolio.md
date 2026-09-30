@@ -1,6 +1,6 @@
 ---
 title: Application Portfolio
-type: note
+type: concept
 category: Architect/12_Enterprise-Architecture
 difficulty: Medium
 tags: [architecture, enterprise]

@@ -1,3 +1,7 @@
+---
+type: project
+---
+
 # 01 — Java Backend
 
 Build a production-shaped Spring Boot service.

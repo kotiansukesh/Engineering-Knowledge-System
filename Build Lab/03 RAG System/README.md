@@ -1,3 +1,7 @@
+---
+type: project
+---
+
 # 03 — RAG System
 
 Build an enterprise document retrieval and Q&A system.

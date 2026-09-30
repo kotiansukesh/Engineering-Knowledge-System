@@ -1,6 +1,6 @@
 ---
 title: Views and Viewpoints — 4+1
-type: note
+type: concept
 category: Architect/01_Architecture-Foundations
 difficulty: Intermediate
 completed: false

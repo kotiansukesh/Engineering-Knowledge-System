@@ -18,7 +18,7 @@ tags:
 created: '2026-09-27'
 completed: false
 source: ''
-type: note
+type: concept
 weeks: ''
 
 ---

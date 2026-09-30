@@ -1,6 +1,6 @@
 ---
 title: Fitness Functions and Architecture Runway
-type: note
+type: concept
 category: Architect/01_Architecture-Foundations
 difficulty: Advanced
 completed: false

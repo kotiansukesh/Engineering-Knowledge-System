@@ -1,3 +1,7 @@
+---
+type: project
+---
+
 # 07 — Enterprise AI Platform
 
 Capstone: **ingest → retrieve → reason → act → evaluate → observe → govern → deploy → scale → defend**.

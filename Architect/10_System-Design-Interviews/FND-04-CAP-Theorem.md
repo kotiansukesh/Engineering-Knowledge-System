@@ -18,7 +18,7 @@ sr-due: '2026-09-19'
 source: https://github.com/donnemartin/system-design-primer
 excalidraw: CAP-Theorem-Decision.excalidraw.json
 weeks: '2'
-type: note
+type: concept
 
 ---
 

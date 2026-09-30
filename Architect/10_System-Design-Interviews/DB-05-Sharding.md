@@ -18,7 +18,7 @@ sr-due: '2026-10-11'
 source: https://github.com/donnemartin/system-design-primer
 excalidraw: Sharding-Consistent-Hashing.excalidraw.json
 weeks: '3'
-type: note
+type: concept
 
 ---
 

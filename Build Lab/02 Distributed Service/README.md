@@ -1,3 +1,7 @@
+---
+type: project
+---
+
 # 02 — Distributed Service
 
 Extend the backend into a distributed system with asynchronous messaging and explicit failure behavior.

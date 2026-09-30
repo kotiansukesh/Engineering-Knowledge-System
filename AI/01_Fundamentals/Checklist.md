@@ -12,7 +12,7 @@ sr-due: ''
 difficulty: Easy
 excalidraw: ''
 source: ''
-type: note
+type: checklist
 weeks: ''
 ---
 

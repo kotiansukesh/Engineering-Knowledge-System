@@ -1,3 +1,7 @@
+---
+type: evidence
+---
+
 # Failure Experiments
 
 Deliberately break systems and record:

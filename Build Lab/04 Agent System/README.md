@@ -1,3 +1,7 @@
+---
+type: project
+---
+
 # 04 — Agent System
 
 Build a bounded agentic workflow only where deterministic orchestration is insufficient.

@@ -1,3 +1,7 @@
+---
+type: evidence
+---
+
 # Certifications
 
 Map external certifications to existing implementation evidence.

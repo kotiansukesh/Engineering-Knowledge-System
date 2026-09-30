@@ -1,3 +1,7 @@
+---
+type: evidence
+---
+
 # Evaluations
 
 Evaluation records state what behavior was tested and how.

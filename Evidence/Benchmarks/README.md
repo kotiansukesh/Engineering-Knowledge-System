@@ -1,3 +1,7 @@
+---
+type: evidence
+---
+
 # Benchmarks
 
 Record:

@@ -13,7 +13,7 @@ sr-due: ''
 difficulty: Medium
 excalidraw: ''
 source: ''
-type: note
+type: concept
 weeks: ''
 ---
 

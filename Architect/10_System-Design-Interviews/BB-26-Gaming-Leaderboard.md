@@ -14,7 +14,7 @@ sr-due: '2026-10-07'
 source: https://bytebytego.com
 excalidraw: ''
 weeks: '8'
-type: note
+type: concept
 ---
 
 # Gaming Leaderboard (ByteByteGo)
