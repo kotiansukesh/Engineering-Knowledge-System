@@ -15,6 +15,8 @@ jobs:
       - uses: actions/checkout@v5
       - name: Apply semantic frontmatter migration
         run: python3 scripts/migrate-frontmatter.py --write
+      - name: Repair vault links and placeholders
+        run: python3 scripts/repair-vault.py
       - name: Audit semantic frontmatter
         run: python3 scripts/migrate-frontmatter.py
       - name: Commit migration
