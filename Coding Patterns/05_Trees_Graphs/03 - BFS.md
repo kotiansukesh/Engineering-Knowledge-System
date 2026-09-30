@@ -138,13 +138,10 @@ int orangesRotting(int[][] grid) {
 Start with the core implementation. Introduce a variant only when the required state or proof changes.
 
 ## When to use
-
 - shortest path in unweighted graph; level order; word ladder; rotting oranges; multi-source BFS; minimum steps / nearest.
-- **NOT:** weighted graphs (use Dijkstra); all paths / exhaustive (use DFS); deep graphs with narrow width (DFS uses less space).
 
 ## When NOT to use
-
-weighted graphs (use Dijkstra); all paths / exhaustive (use DFS); deep graphs with narrow width (DFS uses less space).
+- weighted graphs (use Dijkstra); all paths / exhaustive (use DFS); deep graphs with narrow width (DFS uses less space).
 
 ## Complexity & trade-offs
 
