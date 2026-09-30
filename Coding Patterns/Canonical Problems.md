@@ -36,6 +36,8 @@ tags:
 
 
 
+
+
 ## Practice rule
 
 Use this page to choose a problem. Do **not** reveal the pattern before the attempt.
