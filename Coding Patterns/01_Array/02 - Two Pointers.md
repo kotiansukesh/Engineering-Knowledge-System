@@ -1,4 +1,7 @@
 ---
+type: note
+mastery: learn
+recognition_score: 0
 title: Two Pointers
 pattern: 2
 category: Coding Patterns/01_Array
@@ -22,7 +25,7 @@ excalidraw: ''
 
 # Two Pointers
 
-> Part of [[README|20 DSA Patterns]] • `Coding Patterns/01_Array` • Pattern #2
+> Part of [[README|Coding Patterns]] • `Coding Patterns/01_Array` • Pattern #2
 
 ## Intent
 Replace nested O(n²) scans on sorted arrays with a single O(n) pass using two indices moving toward each other or in lockstep — the pattern for pair search, partitioning, and palindrome checks.

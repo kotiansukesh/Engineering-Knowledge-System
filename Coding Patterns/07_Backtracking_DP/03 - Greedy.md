@@ -1,4 +1,7 @@
 ---
+type: note
+mastery: learn
+recognition_score: 0
 title: Greedy
 pattern: 20
 category: Coding Patterns/07_Backtracking_DP
@@ -20,7 +23,7 @@ excalidraw: ''
 
 # Greedy
 
-> Part of [[README|20 DSA Patterns]] • `Coding Patterns/07_Backtracking_DP` • Pattern #20
+> Part of [[README|Coding Patterns]] • `Coding Patterns/07_Backtracking_DP` • Pattern #20
 
 ## Intent
 Pick the locally best move at each step and never look back — works only when a local optimum leads to a global optimum, provable by exchange argument. The algorithm is just "sort by criterion, iterate, commit."

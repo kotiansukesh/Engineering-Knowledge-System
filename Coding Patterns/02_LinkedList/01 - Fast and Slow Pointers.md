@@ -1,4 +1,7 @@
 ---
+type: note
+mastery: learn
+recognition_score: 0
 title: Fast and Slow Pointers
 pattern: 5
 category: Coding Patterns/02_LinkedList
@@ -20,7 +23,7 @@ excalidraw: ''
 
 # Fast and Slow Pointers
 
-> Part of [[README|20 DSA Patterns]] • `Coding Patterns/02_LinkedList` • Pattern #5
+> Part of [[README|Coding Patterns]] • `Coding Patterns/02_LinkedList` • Pattern #5
 
 ## Intent
 Two pointers traversing a sequence at different speeds (slow +1, fast +2) to detect cycles, find middles, or locate cycle entry — O(1) space alternative to HashSet for linked list and sequence problems.

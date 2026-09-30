@@ -1,4 +1,7 @@
 ---
+type: note
+mastery: learn
+recognition_score: 0
 title: Prefix Sum
 pattern: 1
 category: Coding Patterns/01_Array
@@ -20,7 +23,7 @@ excalidraw: ''
 
 # Prefix Sum
 
-> Part of [[README|20 DSA Patterns]] • `Coding Patterns/01_Array` • Pattern #1
+> Part of [[README|Coding Patterns]] • `Coding Patterns/01_Array` • Pattern #1
 
 ## Intent
 Answer many range-sum queries on an immutable array in O(1) each after O(n) preprocessing — the classic space-time tradeoff that turns repeated scans into a single subtraction.

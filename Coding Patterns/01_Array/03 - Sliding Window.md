@@ -1,4 +1,7 @@
 ---
+type: note
+mastery: learn
+recognition_score: 0
 title: Sliding Window
 pattern: 3
 category: Coding Patterns/01_Array
@@ -22,7 +25,7 @@ excalidraw: ''
 
 # Sliding Window
 
-> Part of [[README|20 DSA Patterns]] • `Coding Patterns/01_Array` • Pattern #3
+> Part of [[README|Coding Patterns]] • `Coding Patterns/01_Array` • Pattern #3
 
 ## Intent
 Maintain a mutable window `[l, r]` over a sequence where both ends advance forward — O(n) for contiguous subarray/substring problems with max/min/longest/shortest constraints by expanding `r` and shrinking `l` only when the window violates the condition.

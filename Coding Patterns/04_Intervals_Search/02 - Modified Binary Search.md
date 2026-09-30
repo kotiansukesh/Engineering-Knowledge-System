@@ -1,4 +1,7 @@
 ---
+type: note
+mastery: learn
+recognition_score: 0
 title: Modified Binary Search
 pattern: 10
 category: Coding Patterns/04_Intervals_Search
@@ -20,7 +23,7 @@ excalidraw: ''
 
 # Modified Binary Search
 
-> Part of [[README|20 DSA Patterns]] • `Coding Patterns/04_Intervals_Search` • Pattern #10
+> Part of [[README|Coding Patterns]] • `Coding Patterns/04_Intervals_Search` • Pattern #10
 
 ## Intent
 Binary search on rotated/bitonic arrays, 2D matrices, or monotonic predicates — identify which half is sorted (or which side satisfies the predicate) and discard the other half in O(log n).

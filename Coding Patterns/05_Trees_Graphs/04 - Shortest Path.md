@@ -1,4 +1,7 @@
 ---
+type: note
+mastery: learn
+recognition_score: 0
 title: Shortest Path
 pattern: 14
 category: Coding Patterns/05_Trees_Graphs
@@ -21,7 +24,7 @@ excalidraw: ''
 
 # Shortest Path
 
-> Part of [[README|20 DSA Patterns]] • `Coding Patterns/05_Trees_Graphs` • Pattern #14
+> Part of [[README|Coding Patterns]] • `Coding Patterns/05_Trees_Graphs` • Pattern #14
 
 ## Intent
 Find minimum cost/distance in a weighted graph — Dijkstra for non-negative weights (greedy + min-heap), Bellman-Ford for negative weights (detects negative cycles), BFS for unit weights only.

@@ -1,4 +1,7 @@
 ---
+type: note
+mastery: learn
+recognition_score: 0
 title: LinkedList In-place Reversal
 pattern: 6
 category: Coding Patterns/02_LinkedList
@@ -20,7 +23,7 @@ excalidraw: ''
 
 # LinkedList In-place Reversal
 
-> Part of [[README|20 DSA Patterns]] • `Coding Patterns/02_LinkedList` • Pattern #6
+> Part of [[README|Coding Patterns]] • `Coding Patterns/02_LinkedList` • Pattern #6
 
 ## Intent
 Reverse a linked list (or sublist) in O(n) time and O(1) space by flipping `next` pointers with three variables — the canonical pattern for any in-place list restructuring.
