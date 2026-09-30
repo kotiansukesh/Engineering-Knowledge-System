@@ -1,4 +1,7 @@
 ---
+type: note
+mastery: learn
+recognition_score: 0
 title: Matrix Traversal
 pattern: 17
 category: Coding Patterns/06_Matrix
@@ -20,7 +23,7 @@ excalidraw: ''
 
 # Matrix Traversal
 
-> Part of [[README|20 DSA Patterns]] • `Coding Patterns/06_Matrix` • Pattern #17
+> Part of [[README|Coding Patterns]] • `Coding Patterns/06_Matrix` • Pattern #17
 
 ## Intent
 Run DFS or BFS on a 2D grid with 4-directional (or 8-directional) moves — the standard pattern for flood fill, islands, surrounded regions, maze, and nearest cell distance.
