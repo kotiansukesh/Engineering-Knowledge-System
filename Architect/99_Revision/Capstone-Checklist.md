@@ -1,5 +1,5 @@
 ---
-title: Architecture Review Checklist
+title: "Architecture Review Checklist"
 category: Architect/99_Revision
 tags: [architecture, checklist, design-review]
 created: 2026-09-30
@@ -8,7 +8,7 @@ type: gate
 
 # Architecture Review Checklist
 
-> This is the architecture-domain review gate. It is not a second learning plan and not the AI capstone checklist.
+> Architecture-domain review gate. It is not a second learning plan.
 
 ## Scope and quality
 
@@ -19,11 +19,11 @@ type: gate
 
 ## Data and integration
 
-- [ ] Source of truth is identified for important entities.
+- [ ] Source of truth is identified.
 - [ ] Consistency model is explicit.
 - [ ] API/event contracts are versioned.
 - [ ] Idempotency and delivery semantics are explicit.
-- [ ] Migration and rollback paths exist where data changes.
+- [ ] Migration and rollback paths exist where needed.
 
 ## Reliability and operations
 
@@ -50,11 +50,7 @@ type: gate
 
 ## Review rule
 
-An unchecked item is either:
-1. intentionally out of scope with a recorded reason, or
-2. a follow-up task/ADR.
-
-Do not mark this gate complete from memory. Link the supporting diagram, ADR, test, dashboard or runbook.
+Every unchecked item is either intentionally out of scope with a recorded reason or becomes a follow-up task/ADR. Link the supporting diagram, ADR, test, dashboard or runbook.
 
 ## Related
 
@@ -62,4 +58,3 @@ Do not mark this gate complete from memory. Link the supporting diagram, ADR, te
 - [[Architect/Decisions/README|Architecture Decisions]]
 - [[Architect/10_System-Design-Interviews/README|System Design]]
 - [[Evidence/README|Evidence]]
-- [[AI/99_Revision/Capstone Checklist|AI Capstone Checklist]]
