@@ -319,7 +319,7 @@ limit 10
 
 - [[Architect/10_System-Design-Interviews/BB-06-Key-Value-Store|Key-Value Store]]
 - [[Architect/10_System-Design-Interviews/DB-05-Sharding|Database Sharding]]
-- [[Architect/10_System-Design-Interviews/BB-07-Unique-ID-Generator-Snowflake|Snowflake IDs]]
+- [[BB-02-Back-of-Envelope-Estimation|Back-of-Envelope Estimation]]
 
 ---
 
