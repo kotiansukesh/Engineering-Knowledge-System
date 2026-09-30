@@ -114,13 +114,10 @@ boolean canSplit(int[] nums, int k, int maxSum) {
 Start with the core implementation. Introduce a variant only when the problem changes the invariant or required state.
 
 ## When to use
-
 - rotated sorted array search; find min in rotated; search 2D matrix; find peak; first/last position; "minimum capacity", "split largest sum", "koko eating bananas" (binary search on answer).
-- **NOT:** unsorted array (sort first or use hashmap); need all occurrences (linear scan).
 
 ## When NOT to use
-
-unsorted array (sort first or use hashmap); need all occurrences (linear scan).
+- unsorted array (sort first or use hashmap); need all occurrences (linear scan).
 
 ## Complexity & trade-offs
 
