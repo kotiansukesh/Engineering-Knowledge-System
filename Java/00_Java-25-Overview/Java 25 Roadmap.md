@@ -12,7 +12,7 @@ type: "roadmap"
 
 # Java 25 Roadmap
 
-> The canonical learning map for the Java vault. Java 25 is the primary LTS target; Java 17 and 21 are treated as compatibility and migration knowledge.
+> This is the Java 25 feature and release reference. It is not a separate learning calendar; use [[Study Plan]] for scheduling.
 
 ## Principle
 
