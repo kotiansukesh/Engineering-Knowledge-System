@@ -28,7 +28,7 @@ Make ZGC viable as **default low-latency GC** without giving up throughput , you
 flowchart TD
  O["new objects"] --> YOUNG["young generation<br/>cheap, frequent GC"]
  YOUNG -->|survivors| OLD["old generation<br/>rare GC, scans less"]
- YOUNG -->|die young (most)| DEAD["immediately reclaimable<br/>why generational pays off"]
+ YOUNG -->|die young - most objects| DEAD["immediately reclaimable<br/>why generational pays off"]
  Z["-XX:+UseZGC on 21"] --> GEN["generational by default (JEP 439)<br/>sub-ms pauses, +30-50% throughput"]
  GEN --> CH["Java 25: compact headers (450)<br/>denser heap complements ZGC"]
 ```
